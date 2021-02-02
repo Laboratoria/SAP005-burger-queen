@@ -117,7 +117,7 @@ Está liberado o uso de bibliotecas de componentes e pré-processadores de CSS.
 
 Você está livre para escolher o nome do seu restaurante.
 
-Recomendamos que o deploy seja feito utilizando [GitHub Pages](https://pages.github.com/), [Heroku](https://www.heroku.com/), [Netlify](https://www.netlify.com/) ou [Vercel](https://vercel.com/).
+Recomendamos que o deploy seja feito utilizando [Heroku](https://www.heroku.com/), [Netlify](https://www.netlify.com/) ou [Vercel](https://vercel.com/).
 
 Para iniciar este projeto você terá que fazer um _fork_ e _clone_ deste repositório.
 
