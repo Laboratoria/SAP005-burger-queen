@@ -282,6 +282,8 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ain
 
 - [Opções de deploy com Create React App](https://create-react-app.dev/docs/deployment)
 
+---
+
 ## 8. Checklist
 
 #### `README.md`
