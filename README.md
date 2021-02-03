@@ -281,6 +281,9 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ain
 #### Deploy
 
 - [Opções de deploy com Create React App](https://create-react-app.dev/docs/deployment)
+- [Deploy + Netlify (vídeo)](https://drive.google.com/file/d/1hzlB8dl4m0OnLLY2-WpjSLcU7eYTURRk/view)
+- [Deploy + Heroku (vídeo)](https://drive.google.com/file/d/1eqx6yuwJnAU-R83ta89tgEem7ABZigNG/view)
+- [Deploy + Vercel (vídeo)](https://drive.google.com/file/d/1Q9q1iVnRrWeEhGRns0r5OOeiqloQug8y/view)
 
 ---
 
