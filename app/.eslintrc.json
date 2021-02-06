@@ -1,22 +1,44 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es6": true,
+        "es2021": true,
+        "jest/globals": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "standard"
+        "airbnb-base",
+        "plugin:react/recommended"
     ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 12,
+        "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
     "rules": {
+        "linebreak-style": 0,
+        "prefer-destructuring": 0,
+        "import/extensions": 0,
+        "import/prefer-default-export": 0,
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+        "object-curly-newline": ["error", {
+          "ObjectExpression": "always",
+          "ObjectPattern": { "multiline": false },
+          "ImportDeclaration": "never",
+          "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+        }]
     }
 }
