@@ -1,7 +1,18 @@
 import './Login.css';
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 
-function Login() {   
+
+function Login() {  
+  const history = useHistory()
+
+  const routerSalao=()=>{
+    history.push('/salao')
+  }
+  const routerCozinha=()=>{
+    history.push('/cozinha')
+  }
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +31,12 @@ function Login() {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-          alert('Usuário logado com sucesso');        
+          if(json.role === "garcom") {
+            routerSalao();
+          }
+          if(json.role === "cozinheiro") {
+            routerCozinha();
+          }
         })
     };
   
