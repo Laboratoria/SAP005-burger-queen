@@ -1,17 +1,23 @@
-.App {
-  height: 100vh;
+.App , . {
+  text-align: center;
+}
+
+.FormCadastro,
+ .LoginInput {
+  margin: 0 auto;
+  width: 50vw;
+  height: 40vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.logo {
-  width: 50vw;
-}
-
-.btnCad {
+.cadBtn ,
+.btnLogin {
   margin: 0 auto;
-  padding: 1em;
-  font-size: 3em;
+  width: 40%;
+}
+.btn{
+  display: flex;
+  justify-content: center;
 }

@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+  } 
+ 
+   .LoginInput {
+    margin: 0 auto;
+    width: 50vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+  .btnLogin {
+    margin: 0 auto;
+    width: 40%;
+  }
+  
