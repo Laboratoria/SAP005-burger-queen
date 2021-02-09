@@ -14,6 +14,12 @@ function Login(){
           <p>
             <Link to="/Kitchen">Cozinha</Link>
           </p>
+          <form>
+          <input type='email' value='' placeholder='Email'/>
+          <input type='password' value='' placeholder='Senha'/>
+          <button type='submit'>Entrar</button>
+        </form>
+          
       </div>
     );
   }
