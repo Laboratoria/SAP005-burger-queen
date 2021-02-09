@@ -1,5 +1,7 @@
 # Burger Queen
 
+LETÍCIA E MAIRÃ
+
 ## Índice
 
 - [1. Preâmbulo](#1-preâmbulo)
