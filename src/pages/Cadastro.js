@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import './Cadastro.css';
 
 function Cadastro() {
+  const history = useHistory()
+
+  const routerConfirm = ()=>{
+    history.push('/confirmado')
+  }
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -41,6 +48,9 @@ function Cadastro() {
             .then((response) => response.json())
             .then((json) => {
               console.log(json);
+              if(json.id !== null) {
+                routerConfirm();
+              }
               setName('');
               setEmail('');
               setPassword('');
