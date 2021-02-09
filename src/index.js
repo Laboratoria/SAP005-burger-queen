@@ -4,6 +4,7 @@ import './index.css';
 import Cadastro from './pages/Cadastro';
 import App from './App';
 import Login from './pages/Login';
+import Confirmado from './pages/Confirmado';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route} from 'react-router-dom'
 
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Route path = "/" component={App}  exact/>
       <Route path = "/cadastro" component={Cadastro} exact/>
       <Route path = "/login" component={Login} exact/>
+      <Route path = "/confirmado" component={Confirmado} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')
