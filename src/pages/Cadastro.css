@@ -1,0 +1,17 @@
+.Cadastro {
+  text-align: center;
+}
+
+.FormCadastro {
+  margin: 0 auto;
+  width: 50vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cadBtn {
+  margin: 0 auto;
+  width: 40%;
+}
