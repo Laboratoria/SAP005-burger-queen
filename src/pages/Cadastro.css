@@ -1,9 +1,8 @@
-.App , . {
+.Cadastro {
   text-align: center;
 }
 
-.FormCadastro,
- .LoginInput {
+.FormCadastro {
   margin: 0 auto;
   width: 50vw;
   height: 40vh;
@@ -12,12 +11,7 @@
   justify-content: space-between;
 }
 
-.cadBtn ,
-.btnLogin {
+.cadBtn {
   margin: 0 auto;
   width: 40%;
-}
-.btn{
-  display: flex;
-  justify-content: center;
 }

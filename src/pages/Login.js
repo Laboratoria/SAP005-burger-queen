@@ -1,3 +1,5 @@
+import './Login.css';
+
 function Login() {   
     function cadBtn(e) {
       e.preventDefault();
@@ -27,7 +29,7 @@ function Login() {
           <label htmlFor="loginInputPassword">Senha:</label>
           <input type="text" placeholder="Senha" className="cadInput" id="loginInputPassword"></input>  
          
-          <button className="btnLogin" onClick={cadBtn}>Cadastrar</button>
+          <button className="btnLogin" onClick={cadBtn}>Login</button>
         </form>
       </div>
     );
