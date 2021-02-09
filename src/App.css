@@ -1,17 +1,17 @@
 .App {
-  text-align: center;
-}
-
-.FormCadastro {
-  margin: 0 auto;
-  width: 50vw;
-  height: 40vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
-.cadBtn {
+.logo {
+  width: 50vw;
+}
+
+.btnCad {
   margin: 0 auto;
-  width: 40%;
+  padding: 1em;
+  font-size: 3em;
 }
