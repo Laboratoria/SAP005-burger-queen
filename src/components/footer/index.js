@@ -1,6 +1,6 @@
 import React from 'react';
 
-const footer = () => {
+const Footer = () => {
   return ( 
     <footer className= 'footer'>
       <span>Developed by 
@@ -22,4 +22,4 @@ const footer = () => {
       </span>
   </footer>
   )}
-  export default footer;
+  export default Footer;
