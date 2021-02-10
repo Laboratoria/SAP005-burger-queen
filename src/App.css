@@ -1,23 +1,39 @@
+body,
+html{
+  height: 100%;
+  width: 100%;
+  background-image: url(./background.png);
+}
 .App {
+  height: 100%;
+  width: 100%;
   text-align: center;
+  justify-content: center;
+   
 }
 
-.FormCadastro,
- .LoginInput {
-  margin: 0 auto;
-  width: 50vw;
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.logo{
+  width: 500px;
+  height: 500px;
+  margin-top: 220px;
+
 }
 
-.cadBtn ,
-.btnLogin {
+.btnCad{
   margin: 0 auto;
-  width: 40%;
+  width: 306px;
+  height: 96px;
+  background-color: #6E3D1C;
+  border-radius: 18px;
+  border: 8px black;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin: 15px;
+  margin-top: 60px;
 }
 .btn{
   display: flex;
   justify-content: center;
+    
 }
