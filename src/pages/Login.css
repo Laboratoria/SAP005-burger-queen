@@ -1,3 +1,9 @@
+body,
+html{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .Login {
   background-color: #FDE5C9;
   width: 850px;

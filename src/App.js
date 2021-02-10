@@ -14,7 +14,7 @@ function App() {
     history.push('/login')
   }
   return (
-    <div className="App">
+    <div className="AppInit">
       <img src={Logo} className="logo" alt="logo Burger Hunger"/>
       <nav className="nav">
         <button className="btnCad" onClick={routerLogin}>Login</button>

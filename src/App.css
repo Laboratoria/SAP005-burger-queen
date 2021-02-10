@@ -3,22 +3,20 @@ html{
   height: 100%;
   width: 100%;
   background-image: url(./background.png);
-  display: flex;
-  justify-content: center;
+  display: flex; 
+  justify-content: center; 
   align-items: center;
 }
-.App {
-  height: 100%;
-  width: 100%;
+
+.AppInit {
+  width: 800px;
+  height: 900px;
   text-align: center;
-  justify-content: center;
-   
 }
 
 .logo{
   width: 500px;
-  height: 500px;
-  margin-top: 220px;
+  height: 500px;  
 }
 
 .btnCad{
