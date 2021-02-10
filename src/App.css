@@ -16,7 +16,6 @@ html{
   width: 500px;
   height: 500px;
   margin-top: 220px;
-
 }
 
 .btnCad{
@@ -25,15 +24,11 @@ html{
   height: 96px;
   background-color: #6E3D1C;
   border-radius: 18px;
-  border: 8px black;
+  border:8px solid black;
   font-size: 50px;
   font-weight: bold;
   color: white;
   margin: 15px;
   margin-top: 60px;
 }
-.btn{
-  display: flex;
-  justify-content: center;
-    
-}
+
