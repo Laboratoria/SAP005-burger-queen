@@ -14,7 +14,7 @@ function App() {
         <input type="text" id="pass" placeholder="Digite sua senha"/>
         <button id="login">ENTRAR</button>
         </form>
-        <Link to="/singnUp" className="register">Cadastre-se aqui! </Link>
+        <Link to="/singnUp" className="register">Cadastre-se aqui </Link>
       </header>
     </div>
   );
