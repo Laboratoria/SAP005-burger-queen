@@ -1,10 +1,23 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
+
+
+
 
 function Login(){
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
   const urlLogin = `email=${emailLogin}&password=${passwordLogin}`
+  const history = useHistory();
+
+  const routerHall = () => {
+    history.push('/Hall')
+  }
+
+  const routerKitchen = () => {
+    history.push('/Kitchen')
+  }
+
 
   const fetchLogin = () => {
     fetch('https://lab-api-bq.herokuapp.com/auth', {
@@ -17,13 +30,16 @@ function Login(){
 
     })
       .then((response) => response.json())
-      .then(() => {
-        setEmail('');
-        setPassword('');
+      .then((json) => {
+        console.log(json.role)
+        if(json.role==="garcom"){
+          routerHall();
+        }
+        if(json.role==="cozinha"){
+          routerKitchen();
+        }
       })
   }
-
- 
 
     return (
       <div>
@@ -32,7 +48,7 @@ function Login(){
             <Link to="/Registry">Registro</Link>
           </p>
           <p>
-            <Link to="/Home">Salão</Link>
+            <Link to="/Hall">Salão</Link>
           </p>
           <p>
             <Link to="/Kitchen">Cozinha</Link>
@@ -48,6 +64,7 @@ function Login(){
           <button className='submitButton' type='submit' onClick={(event) => {
             event.preventDefault();
             fetchLogin();
+            
             alert('entreiiiiii')
             
           }}>Entrar</button>
