@@ -1,31 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const Input = styled.input`
-  width: 400px;
-  height: 30px;
-  font-size: 16px;
-  padding: 10px;
-  border: 1 px solid #000;
-  border-radius: 10px;
-  margin: 20px;
-`;
-
-const Button = styled.button`
-  background-color: red;
-  color: white;
-  width: 300px;
-  height: 30px;
-  font-size: 16px;
- 
-  border: 1 px solid #000;
-  border-radius: 10px;
-`;
+import { Input } from "./login-styled";
+import { Button } from "./login-styled";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -34,8 +13,22 @@ const Login = () => {
   };
 
   const handleButton = (e) => {
-      e.preventDefault()
-    alert(email + " - " + password);
+    e.preventDefault();
+    fetch("https://lab-api-bq.herokuapp.com/auth/", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${email}&password=${password}`,
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        alert("usuário logado com sucesso")
+        console.log(json)})
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -54,7 +47,9 @@ const Login = () => {
         placeholder="Digite uma Senha"
       />
       <br />
-      <Button type="submit" onClick={handleButton}>Entrar</Button>
+      <Button type="submit" onClick={handleButton}>
+        Entrar
+      </Button>
     </div>
   );
 };
