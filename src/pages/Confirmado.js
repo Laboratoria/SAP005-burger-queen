@@ -11,7 +11,7 @@ function Confirmado() {
   }
 
   return (
-    <div className="Cadastro">
+    <div className="Confirmado">
       <h1>Usuário criado com sucesso!</h1>
       <h1>Faça o login:</h1>
       <button className="cadBtn" onClick={routerConfirm}>Login</button>
