@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import CriarConta from './CriarConta'
+import App from './pages/App';
+import Login from './pages/Login'
+import Register from './pages/Register';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Kitchen } from './pages/Kitchen';
+import { Salon } from './pages/Salon';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <CriarConta />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route path="/login"component={Login} />
+      <Route path="/register"component={Register}/>
+      <Route path="/kitchen"component={Kitchen}/>
+      <Route path="/salon"component={Salon}/>
+    </Switch>1
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
