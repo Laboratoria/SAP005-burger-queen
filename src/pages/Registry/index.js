@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 
-
 function Registry() {
   const [emailCadastro, inEmail] = useState('');
   const [passwordCadastro, inPassword] = useState('');
@@ -21,10 +20,8 @@ function Registry() {
     })
      
       .then((response) => response.json())
-      .then(() => {
-        inEmail('');
-        inPassword('');
-        inSetor('');
+      .then((json) => {
+        
       })
   }
   
