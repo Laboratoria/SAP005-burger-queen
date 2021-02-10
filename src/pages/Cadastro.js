@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Cadastro.css';
 
 function Cadastro() {
@@ -6,6 +7,7 @@ function Cadastro() {
       <header className="">
         
       </header>
+      <button><Link to='/'>Cadastrar</Link></button>
     </div>
   );
 }

@@ -1,13 +1,14 @@
 import React from 'react';
-// import Link from 'react-router-dom';
-import './AnotarPedidos.css';
+import { Link } from 'react-router-dom';
+import './AnotarPedido.css';
 
 function AnotarPedidos() {
   return (
     <div className="">
       <header className="">
-        <h1>Hello Word!</h1>
-      {/* <p><Link to='/PedidosAFazer'>Pedidos Pedidos</Link></p> */}
+        <p><Link to='/AnotarPedidos'>Anotar Pedidos</Link></p>
+        <p><Link to='/PedidosProntos'>Pedidos Prontos</Link></p>
+        <button><Link to='/'>Sair</Link></button>
       </header>
     </div>
   );
