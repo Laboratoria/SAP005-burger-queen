@@ -8,5 +8,6 @@ export default function Input ({name,type, value, placeholder, onChange}){
       value={value}
       placeholder={placeholder}
       onChange={onChange}
+    />
   )
 }

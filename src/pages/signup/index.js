@@ -1,17 +1,17 @@
 import { Fragment, useState } from "react"
+import Button from "../../components/Button"
 import Input from "../../components/Input"
 
 const SignUp = () => {
 
-  const [userName, setUserName] = useState('')
-  const [userEmail, setUserEmail] = useState('')
+  const [userName, setUserName] = useState()
+  const [userEmail, setUserEmail] = useState()
   const [userPassword, setUserPassword] = useState()
-  const [jobPosition, setJobPosition] = useState('')
+  const [jobPosition, setJobPosition] = useState()
     
   return(
     <Fragment>
       <form>
-        <div>
           <label htmlFor='userName' className='label'>Nome<span className="required"> *</span></label>
           <Input
             required
@@ -24,7 +24,6 @@ const SignUp = () => {
             }
           }
           />
-        </div>
           <label htmlFor='userEmail' className='label'>Email<span className="required"> *</span></label>
           <Input
             required
@@ -37,7 +36,6 @@ const SignUp = () => {
             }
           }
           />
-        <div>
         <label htmlFor='userPassword' className='label'>Senha<span className="required"> *</span></label>
         <Input
             required
@@ -50,14 +48,12 @@ const SignUp = () => {
             }
           }
           />
-        </div>
-        <div>
           <p>Função:</p>
           <label className='radio-btn'>Cozinha<span className="required"> *</span></label>
           <Input
               required
               type='radio' 
-              value='jobPosition'
+              value={jobPosition}
               onChange={(event) => {
                   setJobPosition(event.target.value)
               }
@@ -67,13 +63,16 @@ const SignUp = () => {
           <Input
               required
               type='radio' 
-              value='jobPosition'
+              value={jobPosition}
               onChange={(event) => {
                   setJobPosition(event.target.value)
               }
             } 
             />
-        </div>
+          <Button
+              type='submit'
+              handleClick={creatNewUser}
+          />
       </form>
     </Fragment>
   )
