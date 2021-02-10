@@ -3,4 +3,12 @@
 coverage/
 node_modules/
 yarn.lock
+<<<<<<< HEAD
 package-lock.json
+=======
+<<<<<<< HEAD
+package-lock.json
+=======
+package-lock.json
+>>>>>>> 894a836dbc66f2a9645af8224ac01676eb0f87cd
+>>>>>>> beed7f0cb581156838c302cf2b4a4b89e3a282e2

@@ -16,4 +16,8 @@ function singnUp() {
     );
   }
   
+<<<<<<< HEAD
   export default singnUp;
+=======
+  export default singnUp;
+>>>>>>> beed7f0cb581156838c302cf2b4a4b89e3a282e2
