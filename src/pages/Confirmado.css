@@ -5,30 +5,30 @@ html{
   align-items: center;
 }
 
-.Cadastro {
-    width: 850px;
-    height: 1150px;
-    border: 3px solid black;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color:#FDE5C9 ;
+.Confirmado {
+  width: 850px;
+  height: 1150px;
+  border: 3px solid black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color:#FDE5C9 ;
 }
 .cadBtn{    
-    width: 244px;
-    height: 70px;
-    background-color: #6E3D1C;
-    border-radius: 18px;
-    border:8px solid black;
-    font-size: 40px;
-    font-weight: bold;
-    color: white;
-    margin-top: 30px;
-    
-  }
-  h1{
-    color:#174EB8 ;
-    font-size: 50px;
-    margin: 0;
-  }
+  width: 244px;
+  height: 70px;
+  background-color: #6E3D1C;
+  border-radius: 18px;
+  border:8px solid black;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin-top: 30px;
+}
+.ConfmTitle{
+  color:#174EB8 ;
+  font-size: 50px;
+  margin: 0;
+  text-align: center;
+}

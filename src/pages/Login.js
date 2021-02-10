@@ -41,15 +41,15 @@ function Login() {
     };
   
     return (
-      <div className="App">
-        <h1 className="Login">Entrar</h1>
-        <form className="LoginInput">
+      <div className="Login">
+        <h1 className="LoginTitle">Entrar</h1>
+        <form className="LoginForm">
           
-          <label htmlFor="loginInputEmail">E-mail:</label>
-          <input type="text" placeholder="E-mail" className="cadInput" value={email} id="loginInputEmail" onChange={(event) => setEmail(event.target.value)}/>
+          <label className="LoginLabel" htmlFor="loginInputEmail">E-mail:</label>
+          <input type="text" placeholder="E-mail" className="LoginInput" value={email} id="loginInputEmail" onChange={(event) => setEmail(event.target.value)}/>
   
-          <label htmlFor="loginInputPassword">Senha:</label>
-          <input type="text" placeholder="Senha" className="cadInput" value={password} id="loginInputPassword" onChange={(event) => setPassword(event.target.value)} />
+          <label className="LoginLabel" htmlFor="loginInputPassword">Senha:</label>
+          <input type="password" placeholder="Senha" className="LoginInput" value={password} id="loginInputPassword" onChange={(event) => setPassword(event.target.value)} />
          
           <button className="btnLogin" onClick={loginBtn}>Login</button>
         </form>
