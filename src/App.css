@@ -3,6 +3,9 @@ html{
   height: 100%;
   width: 100%;
   background-image: url(./background.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .App {
   height: 100%;
@@ -32,6 +35,7 @@ html{
   margin: 15px;
   margin-top: 60px;
 }
+
 .btn{
   display: flex;
   justify-content: center;

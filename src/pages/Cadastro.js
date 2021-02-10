@@ -16,18 +16,18 @@ function Cadastro() {
 
   return (
     <div className="Cadastro">
-      <h1>Cadastro</h1>
+      <h1 className="CadTitle">Cadastro</h1>
       <form className="FormCadastro">
-        <label htmlFor="cadInputName">Nome:</label>
+        <label className="cadLabel" htmlFor="cadInputName">Nome:</label>
         <input type="text" placeholder="Nome" className="cadInput" value={name} onChange={(event) => setName(event.target.value)} />
 
-        <label htmlFor="cadInputEmail">E-mail:</label>
+        <label className="cadLabel" htmlFor="cadInputEmail">E-mail:</label>
         <input type="text" placeholder="E-mail" className="cadInput" value={email} onChange={(event) => setEmail(event.target.value)} />
 
-        <label htmlFor="cadInputPassword">Senha:</label>
+        <label className="cadLabel" htmlFor="cadInputPassword">Senha:</label>
         <input type="password" placeholder="Senha" className="cadInput" value={password} onChange={(event) => setPassword(event.target.value)} />
 
-        <label htmlFor="cadInputRole">Cargo:</label>
+        <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
         <select name="ordenar" className="cadInput" value={role} onChange={(event) => setRole(event.target.value)}>
           <option disabled value=''>Cargo</option>
           <option value="garcom">Garçom</option>
