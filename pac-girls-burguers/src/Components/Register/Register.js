@@ -1,26 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const Input = styled.input`
-  width: 400px;
-  height: 30px;
-  font-size: 16px;
-  padding: 10px;
-  border: 1 px solid #000;
-  border-radius: 10px;
-  margin: 20px;
-`;
-
-const Button = styled.button`
-  background-color: red;
-  color: white;
-  width: 300px;
-  height: 30px;
-  font-size: 16px;
-
-  border: 1 px solid #000;
-  border-radius: 10px;
-`;
+import { Button } from "../Login/login-styled";
+import { Input } from "./register-styled";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -48,14 +28,20 @@ const Register = () => {
   };
 
   const handleButton = () => {
-    fetch('https://lab-api-bq.herokuapp.com/users/', {
-    method: 'POST',
-   headers: { 'accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded' },
-   body:`email=${email}&password=${password}&role=${role}&restaurant=${restaurante}&name=${name}`})
-  .then((response) => response.json())
-  .then((json) => console.log(json)) 
-    
+    fetch("https://lab-api-bq.herokuapp.com/users/", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${email}&password=${password}&role=${role}&restaurant=${restaurante}&name=${name}`,
+    }).then((response) => response.json())
+      .then((json) => {
+        alert("usuário criado com sucesso")
+        console.log(json)})
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -96,7 +82,9 @@ const Register = () => {
       />
       <br />
 
-      <Button type="submit" onClick={handleButton}>Cadastrar</Button>
+      <Button type="submit" onClick={handleButton}>
+        Cadastrar
+      </Button>
     </div>
   );
 };
