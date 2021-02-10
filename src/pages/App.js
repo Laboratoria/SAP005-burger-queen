@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src= "./src/img/Logo.png" alt=""/>
+        {/* <img src= "./src/img/Logo.png" alt=""/> */}
 
         <form className="form">
         <input type="text" id="email" placeholder="Digite seu e-mail"/>
