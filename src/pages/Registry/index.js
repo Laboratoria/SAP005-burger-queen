@@ -67,8 +67,8 @@ function Registry() {
             fetchRegistry();
 
           }}>Criar</button>
-            <Link to="/">Voltar</Link>
         </form>
+        <Link to="/">Login</Link>
         </div>
         );
 }
