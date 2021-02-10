@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/images/Editáveis
+/images/Protótipo
 
 # testing
 /coverage
