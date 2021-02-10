@@ -26,7 +26,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [position, setPosition] = useState("");
+  const [role, setRole] = useState("");
+  const [restaurante, setRestaurante] = useState("");
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -35,15 +36,26 @@ const Register = () => {
     setPassword(e.target.value);
   };
 
-  const handlePosition = (e) => {
-    setPosition(e.target.value);
+  const handleRole = (e) => {
+    setRole(e.target.value);
   };
   const handleName = (e) => {
     setName(e.target.value);
   };
 
+  const handleRestaurante = (e) => {
+    setRestaurante(e.target.value);
+  };
+
   const handleButton = () => {
-    alert(email + " - " + password + " - " + name + " - " + position);
+    fetch('https://lab-api-bq.herokuapp.com/users/', {
+    method: 'POST',
+   headers: { 'accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded' },
+   body:`email=${email}&password=${password}&role=${role}&restaurant=${restaurante}&name=${name}`})
+  .then((response) => response.json())
+  .then((json) => console.log(json)) 
+    
   };
 
   return (
@@ -64,8 +76,8 @@ const Register = () => {
       <br />
       <Input
         type="text"
-        value={position}
-        onChange={handlePosition}
+        value={role}
+        onChange={handleRole}
         placeholder="Cozinha ou Salão"
       />
       <br />
@@ -76,6 +88,14 @@ const Register = () => {
         placeholder="Digite uma Senha"
       />
       <br />
+      <Input
+        type="text"
+        value={restaurante}
+        onChange={handleRestaurante}
+        placeholder="Digite o nome do restaurante"
+      />
+      <br />
+
       <Button type="submit" onClick={handleButton}>Cadastrar</Button>
     </div>
   );
