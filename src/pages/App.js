@@ -1,13 +1,13 @@
 import './App.css';
 import React from "react";
 import {Link} from 'react-router-dom';
-
+import logo from './logo.png';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src= "./src/img/Logo.png" alt=""/>
+        <img src= {logo} alt="" className="logo"/>
 
         <form className="form">
         <input type="text" id="email" placeholder="Digite seu e-mail"/>
