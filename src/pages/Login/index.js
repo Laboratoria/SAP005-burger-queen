@@ -44,10 +44,7 @@ function Login(){
     return (
       <div>
           <h1>Login</h1>
-          <p>
-            <Link to="/Registry">Registro</Link>
-          </p>
-
+         
         <form>
 
           <label htmlFor='email' className='email'></label>
@@ -63,7 +60,9 @@ function Login(){
           }}>Entrar</button>
 
         </form>
-          
+        <p>
+            <Link to="/Registry">Registro</Link>
+          </p>
       </div>
     );
   }
