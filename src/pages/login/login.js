@@ -4,7 +4,6 @@ import * as yup from 'yup'
 import axios from 'axios'
 import { history } from '../../utils/history'
 
-
 const Login = () => {
     const handleSubmit = values => {
         axios.post('https://lab-api-bq.herokuapp.com/auth', values)
@@ -21,8 +20,9 @@ const Login = () => {
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
-        return (
-    <>
+
+    return (
+      <>
         <h1>Login</h1>
         <Formik 
             initialValues={{}}
@@ -52,9 +52,8 @@ const Login = () => {
                 <button className="Login-Btn" type="submit">Login</button>
             </Form>
         </Formik>
-  </>
-        )
+      </>
+    )
 }
-        
 
 export default Login;
