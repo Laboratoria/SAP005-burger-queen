@@ -26,7 +26,7 @@ const Login = () => {
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
-
+    
     return (
         <>
             <h1>Login</h1>
