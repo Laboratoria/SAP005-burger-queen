@@ -64,12 +64,12 @@ function Login(){
           </p>
           <form onSubmit={e => handSubmit(e)}>
 
-          <label for='email'></label>
-          <input name='email' type='email' id='email' placeholder='Email'onChange={event => handleChange(event)}/>
+          <label htmlFor='email'></label>
+          <input className='email' type='email' id='email' placeholder='Email'onChange={event => handleChange(event)}/>
           {errors.email && <p>{errors.email}</p>}
 
-          <label for='password'></label>
-          <input name='password' type='password' id='password' placeholder='Senha' onChange={event => handleChange(event)}/>
+          <label htmlFor='password'></label>
+          <input className='password' type='password' id='password' placeholder='Senha' onChange={event => handleChange(event)}/>
           {errors.password && <p>{errors.password}</p>}
 
           <button type='submit'>Entrar</button>
