@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory} from 'react-router-dom';
 
-
-
-
 function Login(){
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
@@ -32,11 +29,14 @@ function Login(){
       .then((response) => response.json())
       .then((json) => {
         console.log(json.role)
-        if(json.role==="garcom"){
+        if(json.role === "garcom"){
           routerHall();
         }
-        if(json.role==="cozinha"){
+        else if(json.role === "cozinha"){
           routerKitchen();
+        }
+        else{
+          alert(json.message)
         }
       })
   }
@@ -47,27 +47,21 @@ function Login(){
           <p>
             <Link to="/Registry">Registro</Link>
           </p>
-          <p>
-            <Link to="/Hall">Salão</Link>
-          </p>
-          <p>
-            <Link to="/Kitchen">Cozinha</Link>
-          </p>
-          <form>
+
+        <form>
 
           <label htmlFor='email' className='email'></label>
-          <input  type='email'  placeholder='Email' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
+          <input  type='email' autoComplete='username'  placeholder='Email' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
           <label htmlFor='password' className='password'></label>
-          <input  type='password'  placeholder='Senha' value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
+          <input  type='password'   autoComplete='password' placeholder='Senha' value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
 
           <button className='submitButton' type='submit' onClick={(event) => {
             event.preventDefault();
             fetchLogin();
             
-            alert('entreiiiiii')
-            
           }}>Entrar</button>
+
         </form>
           
       </div>
