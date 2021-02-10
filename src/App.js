@@ -18,7 +18,7 @@ function App() {
       <img src={Logo} className="logo" alt="logo Burger Hunger"/>
       <nav className="nav">
         <button className="btnCad" onClick={routerLogin}>Login</button>
-        <button className="btnCad" onClick={routerRegister}>Cadastro</button>        
+        <button className="btnCad" onClick={routerRegister}>Cadastrar</button>        
         
       </nav>
     </div>
