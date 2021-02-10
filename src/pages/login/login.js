@@ -4,37 +4,29 @@ import * as yup from 'yup'
 import axios from 'axios'
 import { history } from '../../utils/history'
 
-
-
 const Login = () => {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
 
     const handleSubmit =
         values => {
             axios.post('https://lab-api-bq.herokuapp.com/auth', values)
-
                 .then(resp => {
                     setEmail('')
                     setPassword('')
                     const { data } = resp
                     if (data) {
-
                         localStorage.setItem('token', data)
                         history.push('/register')
                     }
                 })
         }
 
-
     const validations = yup.object().shape({
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
-
-
+    
     return (
         <>
             <h1>Login</h1>
@@ -73,6 +65,5 @@ const Login = () => {
         </>
     )
 }
-
 
 export default Login;
