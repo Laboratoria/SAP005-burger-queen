@@ -6,13 +6,17 @@ import Login from './pages/Login'
 import Register from './pages/Register';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Kitchen } from './pages/Kitchen';
+import { Salon } from './pages/Salon';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/login"component={Login} />
       <Route path="/register"component={Register}/>
-    </Switch>
+      <Route path="/kitchen"component={Kitchen}/>
+      <Route path="/salon"component={Salon}/>
+    </Switch>1
   </BrowserRouter>,
   document.getElementById('root')
 );
