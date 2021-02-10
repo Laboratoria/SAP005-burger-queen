@@ -1,54 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 function Login(){
-  const [form, setForm] = useState({})
-  const [errors, setErrors] = useState({})
-  const [submitting, setSubmitting] = useState(false)
+  const [emailLogin, setEmail] = useState('');
+  const [passwordLogin, setPassword] = useState('');
+  const urlLogin = `email=${emailLogin}&password=${passwordLogin}`
 
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && submitting) {
-      sendData();
-    }
-  })
-
-  async function sendData() {
-    const data = JSON.stringify ({...form})
-    fetch('https://lab-api-bq.herokuapp.com/auth' , {
+  const fetchLogin = () => {
+    fetch('https://lab-api-bq.herokuapp.com/auth', {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
-        'content-Type' : 'application/json'
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: JSON.stringify({
-        firstParan: 'email',
-        secondParan: 'password',
-      }).then (() => console.log('ok'))
+      body: urlLogin
 
-    }
-      )
-  }
-
-  function handleChange(event){
-    setForm({
-      ...form,
-      [event.target.email] : event.target.value,
-      [event.target.password] : event.target.value
     })
+      .then((response) => response.json())
+      .then(() => {
+        setEmail('');
+        setPassword('');
+      })
   }
-  
-  function validate (form) {
-    let errors ={};
-    if (!form.email){
-      errors.email = '*Preencha com um email válido'
-    }if (!form.password){
-      errors.password = '*Senha invalida'
-    }
-  }
-  function handSubmit (event) {
-    event.preventDefault();
-    setErrors(validate(form))
-  }
+
+ 
 
     return (
       <div>
@@ -62,17 +37,20 @@ function Login(){
           <p>
             <Link to="/Kitchen">Cozinha</Link>
           </p>
-          <form onSubmit={e => handSubmit(e)}>
+          <form>
 
-          <label htmlFor='email'></label>
-          <input className='email' type='email' id='email' placeholder='Email'onChange={event => handleChange(event)}/>
-          {errors.email && <p>{errors.email}</p>}
+          <label htmlFor='email' className='email'></label>
+          <input  type='email'  placeholder='Email' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
-          <label htmlFor='password'></label>
-          <input className='password' type='password' id='password' placeholder='Senha' onChange={event => handleChange(event)}/>
-          {errors.password && <p>{errors.password}</p>}
+          <label htmlFor='password' className='password'></label>
+          <input  type='password'  placeholder='Senha' value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
 
-          <button type='submit'>Entrar</button>
+          <button className='submitButton' type='submit' onClick={(event) => {
+            event.preventDefault();
+            fetchLogin();
+            alert('entreiiiiii')
+            
+          }}>Entrar</button>
         </form>
           
       </div>
