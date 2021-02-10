@@ -92,3 +92,11 @@
 	justify-content: center;
 	width: 205px;
 }
+
+.logop {
+	width: 54px;
+}
+.selector {
+	display: flex;
+	justify-content: space-around;
+}
