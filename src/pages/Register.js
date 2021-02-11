@@ -7,6 +7,8 @@ import Salao from '../images/Ícones/bandeja.png'
 
 function Register () {
     const [signupInfo, setSignupInfo] = useState({"restaurant":"acka burguer"});
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     let history = useHistory();
   
     const handleSubmit = (event) => {
@@ -34,6 +36,7 @@ function Register () {
                     className="form-input"
                     type="text" 
                     placeholder="Nome"
+                    required
                     onChange={(event) => setSignupInfo({ ...signupInfo, "name": event.target.value })} 
                 />
                 
@@ -41,6 +44,7 @@ function Register () {
                     className="form-input"
                     type="text" 
                     placeholder="E-mail"
+                    required
                     onChange={(event) => setSignupInfo({ ...signupInfo, "email": event.target.value })} 
                 />
         
@@ -48,9 +52,25 @@ function Register () {
                     className="form-input"
                     type="password" 
                     placeholder="Senha"
-                    onChange={(event) => setSignupInfo({ ...signupInfo, "password": event.target.value })} 
+                    required
+                    onChange={(event) => setPassword(event.target.value)} 
                 />
-                
+
+                {password.length > 0 && password.length < 6 && <p className="password-error">Sua senha deve ter no mínimo 6 characteres!</p>}
+
+                <input
+                    className="form-input"
+                    type="password" 
+                    placeholder="Confirmar senha"
+                    required
+                    onChange={(event) => {
+                        setConfirmPassword(event.target.value)
+                        setSignupInfo({ ...signupInfo, "password": password })
+                    }} 
+                />
+
+                {password.length >= 6 && confirmPassword > 0 && password !== confirmPassword && <p className="password-error">As senhas devem ser iguais!</p>}
+
                 <p className="form-text">Em qual setor você trabalha?</p>
                 <section className="form-label">
                     <label className="form-label-radio">
@@ -59,6 +79,7 @@ function Register () {
                         type="radio"
                         value="cozinha"
                         name="role"
+                        required
                         onChange={(event) => setSignupInfo({ ...signupInfo, "role": event.target.value })} 
                         />
                         Cozinha
@@ -70,6 +91,7 @@ function Register () {
                         type="radio"
                         value="salao"
                         name="role"
+                        required
                         onChange={(event) => setSignupInfo({ ...signupInfo, "role": event.target.value })} 
                         />
                         Salão
