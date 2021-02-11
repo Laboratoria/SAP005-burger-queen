@@ -18,3 +18,6 @@ export const Register = () => {
       </>
     );
   };
+
+
+  
