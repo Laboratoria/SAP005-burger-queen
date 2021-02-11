@@ -1,0 +1,24 @@
+body,
+html{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App{
+  background-color:rgba(254,202,110);
+  width: 850px;
+  height: 1150px;
+  border: 3px solid #000000;
+  border-radius: 25px;
+} 
+
+.loginForm {
+    border: 5px;
+    margin: 200px auto 0;
+    width: 513px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
