@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@material-ui/core'
+import './Register.css';
 
 
 

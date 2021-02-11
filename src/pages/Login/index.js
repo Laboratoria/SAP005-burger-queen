@@ -3,6 +3,7 @@
 import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
 import {Link} from '@material-ui/core'
+import './login.css';
 
 function Login(){
 
@@ -46,7 +47,7 @@ function Login(){
 
     return(
         <div className="App">
-            <h1 className="login">Login</h1>
+            <h1 className="login"></h1>
             <form className="loginForm">
                 
                 <input type="text" placeholder="E-mail*" value={email}  id="emailInput" onChange={(event) => setEmail(event.target.value)}/>
