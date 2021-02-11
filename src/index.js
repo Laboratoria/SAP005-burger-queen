@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './pages/App';
+// import App from './pages/App';
 import Login from './pages/Login'
 import Register from './pages/Register';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Kitchen } from './pages/Kitchen';
-import { Salon } from './pages/Salon';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Kitchen from './pages/Kitchen';
+import Salon from './pages/Salon';
+import Pagina404 from './pages/Pagina404';
+
+import { isAuthenticated } from './pages/Login';
+
+const PrivateRoute = ({component: Component, ...rest }) => (
+    <Route 
+        {...rest}
+        render={(props) => {
+          isAuthenticated() === true ? (<Component { ...props} />) : (<Redirect to={{pathname: "/login", state: { from: props.location } }} />)
+        }}
+    />
+);
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,13 +27,11 @@ ReactDOM.render(
       <Route path="/login"component={Login} />
       <Route path="/register"component={Register}/>
       <Route path="/kitchen"component={Kitchen}/>
-      <Route path="/salon"component={Salon}/>
-    </Switch>1
+      <PrivateRoute path="/salao"component={Salon}/>
+      <Route component={Pagina404}/>
+    </Switch>
   </BrowserRouter>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

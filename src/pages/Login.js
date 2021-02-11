@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Login(props) {
     const [authInfo, setAuthInfo] = useState(props.authInfo);
+    let history = useHistory();
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -15,9 +16,11 @@ function Login(props) {
   
       fetch('https://lab-api-bq.herokuapp.com/auth', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => {
+          history.push(`/${data.role}`);
+        })
     }
-  
+
     return (
       <div>
         <form onSubmit={handleSubmit}>
@@ -32,7 +35,7 @@ function Login(props) {
             placeholder="Senha"
             onChange={(event) => setAuthInfo({ ...authInfo, "password": event.target.value })} 
           />
-  
+          
           <button 
             type="submit" 
             value="Submit"
@@ -47,6 +50,14 @@ function Login(props) {
         </form>
       </div>
     );
+}
+
+export function isAuthenticated() {
+  if(token !== ""){
+    return true;
+  }
+
+  return false;
 }
 
 export default Login;
