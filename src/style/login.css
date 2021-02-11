@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "ChunkFive";
+    src: url(./Fonts/ChunkFive-Regular.otf)
+}
+
+.login {
+    margin:auto;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo {
+    width: 450px;
+    padding: 0rem 2rem;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    background-color: #450604;
+    padding: 3rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 8px 0px #383636;
+    width: 250px;
+
+}
+
+.form-input {
+    margin: 0.5rem 0rem;
+    border: 1px solid transparent;
+    border-radius: 0.2rem;
+    text-align: center;
+    background-color: #baa295;
+    color: #383636;
+    font-size: 14px;
+    padding: 0.2rem 0rem;
+}
+
+.form-button {
+    font-family: "ChunkFive";
+    margin: 1rem 0rem 0.5rem 0rem;
+    border: 1px solid transparent;
+    border-radius: 0.2rem;
+    background-color: #aa3908;
+    color: #baa295;
+    padding: 0.3rem 0rem;
+    letter-spacing: 0.1rem;
+    font-size: 16px;
+}
+
+.form-text {
+    color: #baa295;
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+.form-router {
+    color: #f2bf27;
+    padding-left: 0.2rem;
+    letter-spacing: 0.05rem;
+    font-weight: bold;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.form-label-radio {
+    background-color: #baa295;
+    border-radius: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form-label-radio:hover{
+    background-color: #aa3908;
+}
+
+.form-img-radio{
+    width: 30px;
+}
+
+.form-input-radio {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+footer {
+    background-color: #383636;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.footer-text {
+    color: #baa295;
+    text-align: center;
+    font-size: 11px;
+    margin: 0.2rem 0;
+}
+
+.footer-link{
+    color: #baa295;
+    text-decoration: none;
+    font-weight: bold;
+}
