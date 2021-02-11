@@ -2,8 +2,8 @@ import React from 'react';
 import { Router, Switch, Route } from 'react-router';
 import {  history } from '../utils/history';
 
-import Login from '../pages/login/login';
-import Register from '../pages/register/register';
+import Login from '../pages/login/Login';
+import Register from '../pages/register/Register';
 
 const Routes = () => (
   <Router history={history}>
