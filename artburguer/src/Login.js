@@ -1,21 +1,20 @@
-import './App.css';
 import React, { useState } from 'react';
+import './App.js';
+import './App.css';
 
 const App = () => {
-	const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
-	const [ role, setRole ] = useState('');
 
 	function logar(event) {
 		event.preventDefault();
-		fetch('https://lab-api-bq.herokuapp.com/users/', {
+		fetch('https://lab-api-bq.herokuapp.com/auth/', {
 			method: 'POST',
 			headers: {
 				accept: 'application/json',
 				'Content-Type': 'application/x-www-form-urlencoded',
 			},
-			body: `email=${email}&password=${password}&role=${role}&restaurant=ArtBurger&name=${name}`,
+			body: `email=${email}&password=${password}`,
 		})
 			.then((response) => response.json())
 			.then((json) => console.log(json));
@@ -27,21 +26,12 @@ const App = () => {
 				<p>
 					<input
 						type="text"
-						name="name"
-						value={name}
-						placeholder="Nome *"
-						onChange={(event) => setName(event.target.value)}
+						name="email"
+						value={email}
+						placeholder="E-mail *"
+						onChange={(event) => setEmail(event.target.value)}
 					/>
 				</p>
-			</div>
-			<div>
-				<input
-					type="text"
-					name="email"
-					value={email}
-					placeholder="E-mail *"
-					onChange={(event) => setEmail(event.target.value)}
-				/>
 			</div>
 			<div>
 				<p>
@@ -55,17 +45,10 @@ const App = () => {
 				</p>
 			</div>
 
-			<select value={role} onChange={(event) => setRole(event.target.value)}>
-				<option>Função</option>
-				<option value="Cozinha">Cozinha</option>
-				<option value="Salão">Salão</option>
-			</select>
-
 			<div>
 				<p>
-					{' '}
 					<button type="submit" onClick={logar}>
-						Cadastrar
+						Logar
 					</button>
 				</p>
 			</div>
