@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export default function Input ({name,id, type, value, placeholder, checked, onChange, onClick}){
+export default function Input ({required,name,id, type, value, placeholder, checked, onChange}){
   return(
     <input
+      required={required}
       name={name}
       id={id}
       type={type}
@@ -10,7 +11,6 @@ export default function Input ({name,id, type, value, placeholder, checked, onCh
       checked={checked}
       placeholder={placeholder}
       onChange={onChange}
-      onClick={onClick}
     />
   )
 }

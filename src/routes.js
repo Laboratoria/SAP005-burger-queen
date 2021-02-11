@@ -1,6 +1,6 @@
 import React from 'react';
 import { SignUp } from './pages/signup';
-import { Login } from "./pages/login";
+import { Login } from './pages/login';
 import { Switch, Route } from 'react-router-dom'
 
 export const Routes = () => {
