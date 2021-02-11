@@ -1,20 +1,13 @@
 import "./App.css";
-import Footer from "./Components/Footer/Footer";
+//import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
-import Login from "./Components/Login/Login";
-import Register from "./Components/Register/Register";
-import Cozinha from "./Components/Cozinha/Cozinha";
+import Router from "./Router";
 
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
-      <hr/>
-      {/* <Login /> */}
-      <Register/>
-      <hr/>
-       {/* <Cozinha/> */}
-      {/* <Footer /> */}
+      <Header />
+      <Router/>
     </div>
   );
 }

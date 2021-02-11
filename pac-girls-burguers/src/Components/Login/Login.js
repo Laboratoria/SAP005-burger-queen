@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Input } from "./login-styled";
 import { Button } from "./login-styled";
 
 const Login = () => {
+  let history = useHistory()
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -24,7 +29,8 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        alert("usuário logado com sucesso")
+        history.push("/salao")
+       
         console.log(json)})
       .catch((error) => {
         console.log(error);
