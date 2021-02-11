@@ -22,6 +22,7 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert('Usuário cadastrado com sucesso!');
+    console.log(completeName);
     console.log(user);
     //limpar os inputs depois
     //no burgerlicious salvar na API
@@ -32,10 +33,6 @@ const App = () => {
       <button onClick={(event) => console.log(event, 'mudar a rota')}>BACK</button>
       <img src={logo} alt="logo" />
       <form>
-        <p>
-          {completeName}
-
-        </p>
         <label>
           Name:
           <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value }) }} />
@@ -76,20 +73,3 @@ const App = () => {
 }
 
 export default App;
-
-// import React, { Suspense, lazy } from 'react';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// const Home = lazy(() => import('./routes/Home'));
-// const About = lazy(() => import('./routes/About'));
-
-// const App = () => (
-//   <Router>
-//     <Suspense fallback={<div>Loading...</div>}>
-//       <Switch>
-//         <Route exact path="/" component={Home}/>
-//         <Route path="/about" component={About}/>
-//       </Switch>
-//     </Suspense>
-//   </Router>
-// );
