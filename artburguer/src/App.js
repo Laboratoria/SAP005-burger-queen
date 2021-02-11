@@ -1,7 +1,6 @@
-
 import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Login = () => {
 	const [ name, setName ] = useState('');
@@ -9,7 +8,8 @@ const Login = () => {
 	const [ password, setPassword ] = useState('');
 	const [ role, setRole ] = useState('');
 
-	useEffect(() => {
+	function logar(event) {
+		event.preventDefault();
 		fetch('https://lab-api-bq.herokuapp.com/users/', {
 			method: 'POST',
 			headers: {
@@ -20,10 +20,7 @@ const Login = () => {
 		})
 			.then((response) => response.json())
 			.then((json) => console.log(json));
-	});
-	const handleLog = (event) => {
-		event.preventDefault();
-	};
+	}
 
 	return (
 		<form>
@@ -62,7 +59,7 @@ const Login = () => {
 			</select>
 
 			<div>
-				<button type="submit" onClick={(event) => handleLog(event)}>
+				<button type="submit" onClick={logar}>
 					Cadastrar
 				</button>
 			</div>
