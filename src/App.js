@@ -1,6 +1,7 @@
 import './App.css';
 import logo from './img/logo.gif';
-import React, { useState } from 'react';
+import Footer from './components/footer.js'
+// import React, { useState } from 'react';
 
 const App = () => {
   //ver como a API constrói os usuários
@@ -14,6 +15,7 @@ const App = () => {
     //se senha estiver igual à confirmação da senha
     //pegar o nome, sobrenome, email, senha, time
     //limpar os inputs depois
+
     //no burgerlicious salvar na API
   }
 
@@ -52,7 +54,7 @@ const App = () => {
         </label>
         <button type='submit' value='' onClick={(event) => handleSubmit(event)}> SIGN UP </button>
       </form>
-      <footer>© developed by <a href="https://github.com/cbalieiro/SAP005-burger-queen">foodie! systems</a> </footer>
+      <Footer />
     </>
   );
 }
