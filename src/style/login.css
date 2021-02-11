@@ -87,7 +87,7 @@
 }
 
 .form-img-radio{
-    width: 30px;
+    height: 25px;
 }
 
 .form-input-radio {
@@ -95,6 +95,13 @@
     opacity: 0;
     height: 0;
     width: 0;
+}
+
+.password-error {
+    color: #f2bf27;
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    text-align: center;
 }
 
 footer {
