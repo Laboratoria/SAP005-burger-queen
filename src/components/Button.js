@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Button ({type, handleClick}){
+export default function Button ({name, type, handleClick}){
   return(
-    <input
+    <button
       type={type}
       onClick={handleClick}
-    />
+    >{name}</button>
   )
 }

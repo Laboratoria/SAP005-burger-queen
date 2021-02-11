@@ -2,17 +2,18 @@ import { Fragment, useState } from "react"
 import Button from "../../components/Button"
 import Input from "../../components/Input"
 
-const SignUp = () => {
 
-  const [userName, setUserName] = useState()
-  const [userEmail, setUserEmail] = useState()
-  const [userPassword, setUserPassword] = useState()
-  const [jobPosition, setJobPosition] = useState()
+export const SignUp = () => {
+
+  const [userName, setUserName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
+  const [jobPosition, setJobPosition] = useState('')
     
   return(
     <Fragment>
       <form>
-          <label htmlFor='userName' className='label'>Nome<span className="required"> *</span></label>
+          <label htmlFor='userName' className='label'>Nome<span className="required">*</span></label>
           <Input
             required
             name='userName'
@@ -24,7 +25,7 @@ const SignUp = () => {
             }
           }
           />
-          <label htmlFor='userEmail' className='label'>Email<span className="required"> *</span></label>
+          <label htmlFor='userEmail' className='label'>Email<span className="required">*</span></label>
           <Input
             required
             name='userEmail'
@@ -36,8 +37,8 @@ const SignUp = () => {
             }
           }
           />
-        <label htmlFor='userPassword' className='label'>Senha<span className="required"> *</span></label>
-        <Input
+          <label htmlFor='userPassword' className='label'>Senha<span className="required">*</span></label>
+          <Input
             required
             name='userPassword'
             type='email' 
@@ -48,30 +49,40 @@ const SignUp = () => {
             }
           }
           />
-          <p>Função:</p>
-          <label className='radio-btn'>Cozinha<span className="required"> *</span></label>
+          <p>Função<span className="required">*</span></p>
+          <label htmlFor='kitchen' className='radio-btn'>Cozinha</label>
           <Input
               required
+              name='jobPosition'
+              id='kitchen'
               type='radio' 
-              value={jobPosition}
+              checked={jobPosition === 'kitchen'}
+              value='kitchen'
               onChange={(event) => {
                   setJobPosition(event.target.value)
+                  console.log(jobPosition)
               }
             }
             />
-          <label className='radio-btn'>Salão<span className="required"> *</span></label>
+          <label htmlFor='restaurant-hall' className='radio-btn'>Salão</label>
           <Input
               required
+              name='jobPosition'
+              id='restaurant-hall'
               type='radio' 
-              value={jobPosition}
+              value='restaurant-hall'
+              checked={jobPosition === 'restaurant-hall'}
               onChange={(event) => {
                   setJobPosition(event.target.value)
+                  console.log(jobPosition)
               }
-            } 
+            }
             />
           <Button
+              name='Confirmar Cadastro'
+              value='Confirmar'
               type='submit'
-              handleClick={creatNewUser}
+              //handleClick={}
           />
       </form>
     </Fragment>
