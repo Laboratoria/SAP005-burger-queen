@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginPage from './components/Login';
 import './style.css';
-import LoginPage from './Login';
 
 ReactDOM.render(
   <React.StrictMode>
