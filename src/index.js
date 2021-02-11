@@ -16,7 +16,7 @@ ReactDOM.render(
       <Route path="/register"component={Register}/>
       <Route path="/kitchen"component={Kitchen}/>
       <Route path="/salon"component={Salon}/>
-    </Switch>1
+    </Switch>
   </BrowserRouter>,
   document.getElementById('root')
 );

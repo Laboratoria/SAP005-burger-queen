@@ -1,4 +1,4 @@
-import '../App.css';
+import '../style/App.css';
 import React, { useState, useEffect } from "react";
 
 function App(props) {
