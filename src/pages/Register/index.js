@@ -1,7 +1,8 @@
 // import React from 'react';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
+import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@material-ui/core'
 
 
 
@@ -9,26 +10,40 @@ function Register() {
 
     const history = useHistory()
 
-    const routerBack = ()=>{
-      history.push('/Login')
+    const routerBack = () => {
+        history.push('/')
     }
-
-   
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [choice, setChoice] = useState('');
+    const [role, setRole] = useState('');
 
-
-    <h1>Página Inicial/login</h1>
-
-    function btnRegister(event) {
+    function btnRegister (event) {
         event.preventDefault();
-        console.log("nabrazetis")
+        event.preventDefault();
 
-    };
+                    fetch('https://lab-api-bq.herokuapp.com/users/', {
+                        method: 'POST',
+                        headers: {
+                            'accept': 'application/json',
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrasaBurger's&name=${name}`
+                    })
+                        .then((response) => response.json()).then((json) => {
+                             console.log(json);
+                            if (json.id !== null) {
+                                routerBack();
+                            }
+                            setName('');
+                            setEmail('');
+                            setPassword('');
+                            setRole('');
+                        })
 
+    }
+    
 
     return (
 
@@ -42,10 +57,15 @@ function Register() {
 
                 <input type="password" placeholder="Senha*" value={password} id="cadPassword" onChange={(event) => setPassword(event.target.value)} />
 
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">Cargo*</FormLabel>
+                    <RadioGroup aria-label="" name="gender1" value={role} onChange={(event) => setRole(event.target.value)}>
+                        <FormControlLabel value="hall" control={<Radio />} label="Atendente" />
+                        <FormControlLabel value="cook" control={<Radio />} label="Cozinheiro" />
+                    </RadioGroup>
+                </FormControl>
 
-
-                <button className="loginBtn" onClick={btnRegister}>Cadastrar</button>
-
+                <button className="btnRegister" onClick={btnRegister}>Acessar</button>
 
 
             </form>
