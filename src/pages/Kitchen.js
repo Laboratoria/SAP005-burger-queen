@@ -1,4 +1,4 @@
-export const Kitchen = () => {
+const Kitchen = () => {
   return (
     <div className="Kitchen">
       <header className="Kitchen-header">
@@ -7,3 +7,5 @@ export const Kitchen = () => {
     </div>
   );
 };
+
+export default Kitchen;

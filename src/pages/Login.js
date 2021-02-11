@@ -1,10 +1,11 @@
 import '../style/login.css'
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../images/Logo.png'
 
 function Login(props) {
     const [authInfo, setAuthInfo] = useState(props.authInfo);
+    let history = useHistory();
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -17,9 +18,11 @@ function Login(props) {
   
       fetch('https://lab-api-bq.herokuapp.com/auth', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => {
+          history.push(`/${data.role}`);
+        })
     }
-  
+
     return (
       <div>
         <section className="login">
@@ -65,5 +68,13 @@ function Login(props) {
       
     );
 }
+
+// export function isAuthenticated() {
+//   if(token !== ""){
+//     return true;
+//   }
+
+//   return false;
+// }
 
 export default Login;

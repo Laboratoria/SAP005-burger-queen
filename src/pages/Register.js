@@ -1,12 +1,13 @@
 import '../style/login.css'
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../images/Logo.png'
 import Cozinha from '../images/Ícones/chef.png'
 import Salao from '../images/Ícones/bandeja.png'
 
 function Register () {
     const [signupInfo, setSignupInfo] = useState({"restaurant":"acka burguer"});
+    let history = useHistory();
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -19,7 +20,9 @@ function Register () {
   
       fetch('https://lab-api-bq.herokuapp.com/users', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => {
+            history.push(`/${data.role}`);
+          });
     }
   
     return (
