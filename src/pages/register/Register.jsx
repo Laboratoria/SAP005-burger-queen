@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const formFields = [
     {
@@ -18,34 +18,36 @@ const formFields = [
         type: 'password',
     },
     {
-        id: 'restaurant',
-        value: 'TAG Burger',
-        type: 'hidden',
-    },
-    {
         id: 'role',
-        placeholder: 'Password',
-        type: 'checkbox',
+        placeholder: 'Role',
+        type: 'text',
     },
     {
-        id: 'token',
+        id: 'restaurant',
+        placeholder: 'TAG Burger',
         type: 'hidden',
-        value: '',
-    }
+    },
 ]
 
 const Register = () => {
+    const [ response, setResponse ] = useState();
     const [ form, setForm ] = useState(
         formFields.reduce((acc, field) => {
-            console.log(acc)
             return {
                 ...acc,
                 [field.id]: '',
             };
-        }, {})
+        }, {}),
     );
 
-    const [ response, setResponse ] = useState()
+    const history = useHistory();
+
+    const gotoHall = () => {
+        history.push('/Hall');
+    }
+    const goToKitchen = () => {
+        history.push('/Kitchen');
+    }
 
     function handleChange({target}) {
         const { id, value } = target;
@@ -57,13 +59,22 @@ const Register = () => {
         fetch('https://lab-api-bq.herokuapp.com/users', {
             method: 'POST',
             headers:{
-                'Content-Type': 'application/JSON',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(form),
         })
         .then(response => {
+            response.json();
             setResponse(response);
-        });
+        })
+        .then((json) => {
+            if(json.role === 'salão'){
+                gotoHall();
+            }
+            else if (json.role === 'cozinha'){
+                goToKitchen();
+            }
+        })
     }
 
     return (
@@ -71,7 +82,7 @@ const Register = () => {
             <Link to='/'>Voltar</Link>
             <h2>Crie seu registro</h2>
             <form onSubmit={handleSubmit}>
-                {formFields.map(({id, placeholder, type}) => (
+                {formFields.map(({ id, placeholder, type }) => (
                     <div key={id}>
                         <label htmlFor={id}></label>
                         <input 
@@ -83,7 +94,7 @@ const Register = () => {
                         />
                     </div>
                 ))}
-                { response && response.ok && <p>Seu registro foi criado com sucesso</p> }
+                {response && response.ok && <p>Seu registro foi criado com sucesso</p>}
                 <button>Registrar</button>
             </form>
         </div>

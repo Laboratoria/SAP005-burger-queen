@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Formik, ErrorMessage, Form, Field } from 'formik';
 import * as yup from 'yup'
 import axios from 'axios'
-import { history } from '../../utils/history'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +16,6 @@ const Login = () => {
                     const { data } = resp
                     if (data) {
                         localStorage.setItem('token', data)
-                        history.push('/register')
                     }
                 })
         }
