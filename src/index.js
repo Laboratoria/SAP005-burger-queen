@@ -10,24 +10,24 @@ import Kitchen from './pages/Kitchen';
 import Salon from './pages/Salon';
 import Pagina404 from './pages/Pagina404';
 
-import { isAuthenticated } from './pages/Login';
+// import { isAuthenticated } from './pages/Login';
 
-const PrivateRoute = ({component: Component, ...rest }) => (
-    <Route 
-        {...rest}
-        render={(props) => {
-          isAuthenticated() === true ? (<Component { ...props} />) : (<Redirect to={{pathname: "/login", state: { from: props.location } }} />)
-        }}
-    />
-);
+// const PrivateRoute = ({component: Component, ...rest }) => (
+//     <Route 
+//         {...rest}
+//         render={(props) => {
+//           isAuthenticated() === true ? (<Component { ...props} />) : (<Redirect to={{pathname: "/login", state: { from: props.location } }} />)
+//         }}
+//     />
+// );
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/login"component={Login} />
       <Route path="/register"component={Register}/>
-      <Route path="/kitchen"component={Kitchen}/>
-      <PrivateRoute path="/salao"component={Salon}/>
+      <Route path="/cozinha"component={Kitchen}/>
+      <Route path="/salao"component={Salon}/>
       <Route component={Pagina404}/>
     </Switch>
   </BrowserRouter>,
