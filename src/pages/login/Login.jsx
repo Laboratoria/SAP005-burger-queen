@@ -1,66 +1,55 @@
 import React, { useState } from 'react';
-import { Formik, ErrorMessage, Form, Field } from 'formik';
-import * as yup from 'yup'
-import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [setToken] = useState('');
 
-    const handleSubmit =
-        values => {
-            axios.post('https://lab-api-bq.herokuapp.com/auth', values)
-                .then(resp => {
-                    setEmail('')
-                    setPassword('')
-                    const { data } = resp
-                    if (data) {
-                        localStorage.setItem('token', data)
-                    }
-                })
-        }
-    const validations = yup.object().shape({
-        email: yup.string().email().required(),
-        password: yup.string().min(6).required()
-    })
-    
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        fetch('https://lab-api-bq.herokuapp.com/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        })
+            .then((response) => {
+                console.log(response);
+                return response.json();
+            })
+            .then((json) => {
+                console.log(json);
+                setToken(json.token);
+                return json;
+            });
+    }
     return (
-        <>
-            <h1>Login</h1>
-            <Formik
-                initialValues={{}}
-                onSubmit={handleSubmit}
-                validationSchema={validations}>
-                <Form className="Login">
-                    <div className="Login-Group">
-                        <Field
-                            onChange={(event) => setEmail(event.target.value)}
-                            value={email}
-                            name="email"
-                            className="Login-Field" />
-                        <ErrorMessage
-                            component="span"
-                            name="email"
-                            className="Login-Error">
-                        </ErrorMessage>
-                    </div>
-                    <div className="Login-Group">
-                        <Field
-                            onChange={(event) => setPassword(event.target.value)}
-                            value={password}
-                            name="password"
-                            className="Login-Field" />
-                        <ErrorMessage
-                            component="span"
-                            name="password"
-                            className="Login-Error">
-                        </ErrorMessage>
-                    </div>
-                    <button className="Login-Btn" type="submit" onClick={(event) => handleSubmit(event)}>Login</button>
-                </Form>
-            </Formik>
-        </>
-    )
-}
+        <section>
+            <form onSubmit={handleSubmit}>
+                <h2>Faça seu Login</h2>
+                <input
+                    type="text"
+                    placeholder="email"
+                    value={email}
+                    onChange={({ target }) => setEmail(target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Password"
+                    value={password}
+                    onChange={({ target }) => setPassword(target.value)}
+                />
+                <button>Entrar</button>
+            </form>
+            <p>Não tem conta? <Link to="/register"> Registre-se</Link></p>
+        </section>
+    );
+};
 
 export default Login;
