@@ -2,20 +2,20 @@
 
 import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
+import {Link} from '@material-ui/core'
 import './login.css';
-
 
 function Login(){
 
     const history = useHistory()
 
-    const routerRegister=()=>{
-        history.push('/Register')
-      }
-
-    // const routerHall=()=>{
-    //   history.push('/Hall')
+    // const routerBack = () => {
+    //     history.push('/')
     // }
+
+     const routerHall=()=>{
+     history.push('/Hall')
+     }
     // const routerKitchen=()=>{
     //   history.push('/Kitchen')
     // }
@@ -23,11 +23,25 @@ function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    <h1>Página Inicial/login</h1>
-
     function btnLogin(event){
         event.preventDefault();
-        console.log("nabrazetis")
+        fetch('https://lab-api-bq.herokuapp.com/users/', {
+            method: 'POST',
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `email=${email}&password=${password}`
+        })
+            .then((response) => response.json()).then((json) => {
+                 console.log(json);
+                if (json.id !== null) {
+                    routerHall();
+                }
+                setEmail('');
+                setPassword('');
+
+            })
         
     };
 
@@ -42,7 +56,7 @@ function Login(){
 
                 <button className="loginBtn" onClick={btnLogin}>Acessar</button>
 
-               <p>Novo por aqui? <button className="loginBtn" onClick={routerRegister}>Registre-se</button></p>
+               <p>Novo por aqui? <Link href="/register">Registre-se</Link></p>
 
 
             </form>
