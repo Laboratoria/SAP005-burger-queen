@@ -1,21 +1,32 @@
 import React from 'react';
-import { Router, Switch, Route } from 'react-router';
-import {  history } from '../utils/history';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
+import Kitchen from '../pages/kitchen/Kitchen';
+import Hall from '../pages/hall/Hall';
 
 const Routes = () => (
-  <Router history={history}>
+  <BrowserRouter>
     <Switch>
       <Route 
-        component={Login} 
-        exact path='/'/>
+        component={props => <Login {...props} />} 
+        exact path='/'
+      />
       <Route 
-        component={Register} 
-        exact path='/register'/>
+        component={props => <Register {...props} />} 
+        exact path='/register'
+      />
+      <Route 
+        component={props => <Kitchen {...props} />} 
+        exact path='/kitchen'
+      />
+      <Route 
+        component={props => <Hall {...props} />} 
+        exact path='/hall'
+      />
     </Switch>
-  </Router>
+  </BrowserRouter>
 )
 
 export default Routes;
