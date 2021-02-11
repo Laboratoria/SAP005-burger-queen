@@ -1,5 +1,3 @@
-// import React from 'react';
-
 import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
 import {Link} from '@material-ui/core'
@@ -8,20 +6,22 @@ import './login.css';
 function Login(){
 
     const history = useHistory()
-
-    // const routerBack = () => {
-    //     history.push('/')
-    // }
+    
+    const routerBack = () => {
+        history.push('/')
+    }
 
      const routerHall=()=>{
      history.push('/Hall')
      }
-    // const routerKitchen=()=>{
-    //   history.push('/Kitchen')
-    // }
+    const routerKitchen=()=>{
+      history.push('/Kitchen')
+    }
+   
    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
 
     function btnLogin(event){
         event.preventDefault();
@@ -42,8 +42,8 @@ function Login(){
                 setPassword('');
 
             })
-        
-    };
+
+};
 
     return(
         <div className="App">
@@ -62,7 +62,6 @@ function Login(){
             </form>
         </div>
     )
-
     
 };
 
