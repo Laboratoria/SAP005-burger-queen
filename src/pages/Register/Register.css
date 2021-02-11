@@ -1,0 +1,58 @@
+.App{
+    background-color:rgba(254,202,110);
+    width: 850px;
+    height: 1150px;
+    border: 3px solid #000000;
+    border-radius: 25px;
+  } 
+
+  .register{
+    display: flex;
+    flex-direction: wrap;
+    justify-content: center;
+  }
+
+  #cadEmail, #cadName, #cadPassword{
+  height: 70px;
+  border: 3px solid #000000;
+  background: #FFFFFF;
+  border-radius: 10px;
+  font-size: 36px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  position: relative;
+    
+ 
+    
+  }
+
+  .loginForm {
+    border: 5px;
+    margin: 200px auto 0;
+    width: 513px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btnRegister{
+  margin: 0 auto;
+  width: 40%;
+  background-color: orange;
+  width: 200px;
+  height: 65px;
+  border: 8px solid #000000;
+  border-radius: 18px;
+  font-size: 30px;
+  line-height: 47px;
+  color: black;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.legend{
+    font-size: 33px;
+  line-height: 39px;
+  text-align: center;
+  margin-bottom: 5px;
+}

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@material-ui/core'
 import './Register.css';
-
+import logo from './logo.png';
 
 
 function Register() {
@@ -49,7 +49,7 @@ function Register() {
     return (
 
         <div className="App">
-            <h1 className="login">Register</h1>
+            <p className="register"> <img src={logo}/></p>
             <form className="loginForm">
 
                 <input type="text" placeholder="Nome*" value={name} id="cadName" onChange={(event) => setName(event.target.value)} />

@@ -4,6 +4,7 @@ import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
 import {Link} from '@material-ui/core'
 import './login.css';
+import logo from './logo.png';
 
 function Login(){
 
@@ -47,7 +48,7 @@ function Login(){
 
     return(
         <div className="App">
-            <h1 className="login"></h1>
+            <p className="login"> <img src={logo}/></p>
             <form className="loginForm">
                 
                 <input type="text" placeholder="E-mail*" value={email}  id="emailInput" onChange={(event) => setEmail(event.target.value)}/>
@@ -56,7 +57,7 @@ function Login(){
 
                 <button className="loginBtn" onClick={btnLogin}>Acessar</button>
 
-               <p>Novo por aqui? <Link href="/register">Registre-se</Link></p>
+               <p className="novo"> Novo por aqui? <Link href="/register">Registre-se</Link></p>
 
 
             </form>
