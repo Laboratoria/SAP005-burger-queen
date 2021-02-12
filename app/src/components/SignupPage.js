@@ -5,7 +5,7 @@ import Input from './Input';
 function SignupPage() {
   const apiURL = 'https://lab-api-bq.herokuapp.com/';
   const apiUsers = `${apiURL}/users`;
-  const apiAuth = `${apiURL}/auth`;
+  // const apiAuth = `${apiURL}/auth`;
 
   // useEffect
   //   const signupNewWorker = new Request(apiUsers, {
@@ -37,7 +37,7 @@ function SignupPage() {
 
   const [workerName, setWorkerName] = useState('');
   const [workerEmail, setWorkerEmail] = useState('');
-  const signupNewWorker = new Request;
+
   return (
     <Fragment>
       <form>
@@ -75,31 +75,29 @@ function SignupPage() {
           <p>E-mail</p>
           {/* <input type="email" id="worker-email" /> */}
           <Input
-              name="workerEmail"
-              placeholder="Digite seu email"
-              value={workerEmail}
-              onChange={(e) => {
-                setWorkerEmail(e.target.value);
-                console.log(setWorkerEmail);
-              }}
-              onSubmit={(e) => {
-                  e.preventDefault();
-                  (apiAuth, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: {
-                      name: workerName.value,
-                      email: workerEmail.value,
-                      role: workerFunction,
-                      restaurant: 'Azmina',
-                    },
-                });
-                apiAuth.fetch();
-              };
-            }
-        /> 
+            name="workerEmail"
+            placeholder="Digite seu email"
+            value={workerEmail}
+            onChange={(e) => {
+              setWorkerEmail(e.target.value);
+              console.log(setWorkerEmail);
+            }}
+            onSubmit={(event) => {
+              event.preventDefault();
+              fetch(apiUsers, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: {
+                  name: workerEmail,
+                  restaurant: 'Azmina',
+                },
+              })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+            }}
+          />
       </div>
         <div>
           <p>Função</p>
