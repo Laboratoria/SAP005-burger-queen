@@ -4,7 +4,7 @@ import Register from './pages/register/index.js';
 
 
 
-const routeRender = () => {
+/*const routeRender = () => {
     const rootDiv = document.getElementById('root');
     const routes = {
     '/': Login,

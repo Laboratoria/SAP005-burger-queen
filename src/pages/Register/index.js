@@ -23,7 +23,7 @@ const handleClick = (e) => {
         </div> 
         <div className="right">
             <h1>Registre-se</h1>
-            
+
             <div className="input-in-line">
             <MdPerson/>
                 <input type="text" placeholder="Nome"/>
