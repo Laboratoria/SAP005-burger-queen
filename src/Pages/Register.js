@@ -1,10 +1,10 @@
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
 
 
 
-function App() {
+function RegisterUsers() {
 
   function register(email, password, role, restaurant, nome){
     const myHeaders = new Headers();
@@ -69,4 +69,4 @@ function App() {
   
 }
 
-export default App;
+export default RegisterUsers;
