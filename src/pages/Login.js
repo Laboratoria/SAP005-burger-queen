@@ -19,7 +19,11 @@ function Login(props) {
       fetch('https://lab-api-bq.herokuapp.com/auth', requestOptions)
         .then(response => response.json())
         .then(data => {
-          history.push(`/${data.role}`);
+          if(data.token !== undefined){
+            history.push(`/${data.role}`);
+          } else {
+            alert(data.message);
+          }
         })
     }
 
