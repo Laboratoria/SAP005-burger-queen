@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
 import Input from './Input';
 
@@ -35,7 +36,8 @@ function SignupPage() {
   // });
 
   const [workerName, setWorkerName] = useState('');
-
+  const [workerEmail, setWorkerEmail] = useState('');
+  const signupNewWorker = new Request;
   return (
     <Fragment>
       <form>
@@ -71,8 +73,34 @@ function SignupPage() {
         </div>
         <div>
           <p>E-mail</p>
-          <input type="email" id="worker-email" />
-        </div>
+          {/* <input type="email" id="worker-email" /> */}
+          <Input
+              name="workerEmail"
+              placeholder="Digite seu email"
+              value={workerEmail}
+              onChange={(e) => {
+                setWorkerEmail(e.target.value);
+                console.log(setWorkerEmail);
+              }}
+              onSubmit={(e) => {
+                  e.preventDefault();
+                  (apiAuth, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: {
+                      name: workerName.value,
+                      email: workerEmail.value,
+                      role: workerFunction,
+                      restaurant: 'Azmina',
+                    },
+                });
+                apiAuth.fetch();
+              };
+            }
+        /> 
+      </div>
         <div>
           <p>Função</p>
           <input type="radio" id="salon-input" value="salon" name="function" />
