@@ -1,15 +1,24 @@
+
 import React from "react";
-import { Link } from "react-router-dom";
+import Container from "../../components/main";
+import Footer from "../../components/footer.js";
 
 const Login = () => {
-  return (
-    <div>
-      <h1>ESSA É A LOGIN</h1>
-      <p>
-        <Link to="/Register"> VOLTE PARA O REGISTER</Link>
-      </p>
-    </div>
-  );
+  return <>
+    <Container>
+      <div className="inputs-container">
+        <form>
+          <label for="login">Login:</label>
+          <input type="text" placeholder="email@email.com" />
+          <label for="password">Password:</label>
+          <input type="password" placeholder="Password" />
+          <label for="team">Team:</label>
+          <input type="text" placeholder="Select your work team" />
+          <input type="submit" value="SIGN IN"/>
+        </form>
+      </div>
+    </Container>
+    <Footer/>
+  </>;
 };
-
-export { Login };
+export default Login;
