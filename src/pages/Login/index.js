@@ -36,9 +36,14 @@ function Login(){
         })
             .then((response) => response.json()).then((json) => {
                  console.log(json);
-                if (json.id !== null) {
+                if (json.id!== null) {
+                     routerBack();
+                } if (json.role === "hall"){
                     routerHall();
+                }if (json.role === "cook"){
+                    routerKitchen();
                 }
+                    
                 // setEmail('');
                 // setPassword('');
 
