@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
 import Input from './Input';
+import Button from './Button';
 
 function SignupPage() {
   const apiURL = 'https://lab-api-bq.herokuapp.com/';
@@ -38,6 +39,9 @@ function SignupPage() {
   const [workerName, setWorkerName] = useState('');
   const [workerEmail, setWorkerEmail] = useState('');
   const [WorkerOccupation, setWorkerOccupation] = useState('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <Fragment>
@@ -132,7 +136,9 @@ function SignupPage() {
           <p>Senha</p>
           <input type="password" />
         </div>
-        <button type="submit" id="submit-form-button">Cadastrar</button>
+        <button type="submit" id="submit-form-button" name="Cadastrar" onClick={(e) => handleSubmit(e)}
+        >
+        Cadastrar</button>
       </form>
     </Fragment>
   );

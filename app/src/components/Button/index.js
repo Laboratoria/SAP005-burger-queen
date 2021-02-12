@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-export default function Button({ type, onClick }) {
+export default function Button({ onClick, type }) {
   return (
     <button>
-      type={type}
       onClick={onClick}
+      type={type}
     </button>
   );
 }
