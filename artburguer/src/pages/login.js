@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import './App.js';
-import './App.css';
+import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const App = () => {
+const Login = () => {
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 
@@ -21,9 +20,16 @@ const App = () => {
 	}
 
 	return (
-		<form>
-			<div>
-				<p>
+		<div>
+			<header>
+				<nav>
+					<Link to="/">Login</Link>
+					<Link to="/register">Cadastro</Link>
+					<Link to="/orders">Pedidos</Link>
+				</nav>
+			</header>
+			<form>
+				<div>
 					<input
 						type="text"
 						name="email"
@@ -31,10 +37,8 @@ const App = () => {
 						placeholder="E-mail *"
 						onChange={(event) => setEmail(event.target.value)}
 					/>
-				</p>
-			</div>
-			<div>
-				<p>
+				</div>
+				<div>
 					<input
 						type="password"
 						name="password"
@@ -42,18 +46,16 @@ const App = () => {
 						placeholder="Senha *"
 						onChange={(event) => setPassword(event.target.value)}
 					/>
-				</p>
-			</div>
+				</div>
 
-			<div>
-				<p>
+				<div>
 					<button type="submit" onClick={logar}>
 						Logar
 					</button>
-				</p>
-			</div>
-		</form>
+				</div>
+			</form>
+		</div>
 	);
 };
 
-export default App;
+export default Login;

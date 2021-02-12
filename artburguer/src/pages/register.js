@@ -1,7 +1,7 @@
-import './App.css';
-import React, { useState } from 'react';
+import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const App = () => {
+const Register = () => {
 	const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
@@ -22,9 +22,16 @@ const App = () => {
 	}
 
 	return (
-		<form>
-			<div>
-				<p>
+		<div>
+			<header>
+				<nav>
+					<Link to="/">Login</Link>
+					<Link to="/register">Cadastro</Link>
+					<Link to="/orders">Pedidos</Link>
+				</nav>
+			</header>
+			<form>
+				<div>
 					<input
 						type="text"
 						name="name"
@@ -32,19 +39,17 @@ const App = () => {
 						placeholder="Nome *"
 						onChange={(event) => setName(event.target.value)}
 					/>
-				</p>
-			</div>
-			<div>
-				<input
-					type="text"
-					name="email"
-					value={email}
-					placeholder="E-mail *"
-					onChange={(event) => setEmail(event.target.value)}
-				/>
-			</div>
-			<div>
-				<p>
+				</div>
+				<div>
+					<input
+						type="text"
+						name="email"
+						value={email}
+						placeholder="E-mail *"
+						onChange={(event) => setEmail(event.target.value)}
+					/>
+				</div>
+				<div>
 					<input
 						type="password"
 						name="password"
@@ -52,25 +57,22 @@ const App = () => {
 						placeholder="Senha *"
 						onChange={(event) => setPassword(event.target.value)}
 					/>
-				</p>
-			</div>
+				</div>
 
-			<select value={role} onChange={(event) => setRole(event.target.value)}>
-				<option>Função</option>
-				<option value="Cozinha">Cozinha</option>
-				<option value="Salão">Salão</option>
-			</select>
+				<select value={role} onChange={(event) => setRole(event.target.value)}>
+					<option>Função</option>
+					<option value="Cozinha">Cozinha</option>
+					<option value="Salão">Salão</option>
+				</select>
 
-			<div>
-				<p>
-					{' '}
+				<div>
 					<button type="submit" onClick={logar}>
 						Cadastrar
 					</button>
-				</p>
-			</div>
-		</form>
+				</div>
+			</form>
+		</div>
 	);
 };
 
-export default App;
+export default Register;
