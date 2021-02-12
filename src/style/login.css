@@ -72,7 +72,17 @@
     margin: 0.5rem 0;
 }
 
-.form-label-radio {
+.form-label input[type=radio] {
+    display: none;
+    cursor: pointer;
+}
+
+.form-label input[type=radio]:checked+label {
+    background-image: none;
+    background-color: #aa3908;
+}
+
+.form-label input[type=radio]+label {
     background-color: #baa295;
     border-radius: 0.2rem;
     padding: 0.2rem 0.5rem;
@@ -80,21 +90,11 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-
-.form-label-radio:hover{
-    background-color: #aa3908;
+    cursor: pointer;
 }
 
 .form-img-radio{
     height: 25px;
-}
-
-.form-input-radio {
-    position: absolute;
-    opacity: 0;
-    height: 0;
-    width: 0;
 }
 
 .password-error {

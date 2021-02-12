@@ -73,31 +73,31 @@ function Register () {
                     }} 
                 />
 
-                {password.length >= 6 && confirmPassword > 0 && password !== confirmPassword && <p className="password-error">As senhas devem ser iguais!</p>}
+                {password.length >= 6 && confirmPassword.length > 0 && password !== confirmPassword && <p className="password-error">As senhas devem ser iguais!</p>}
 
                 <p className="form-text">Em qual setor você trabalha?</p>
                 <section className="form-label">
-                    <label className="form-label-radio">
-                        <img className="form-img-radio" src={Cozinha}/>
-                        <input className="form-input-radio"
+                    <input id="cozinha"
                         type="radio"
                         value="cozinha"
                         name="role"
                         required
                         onChange={(event) => setSignupInfo({ ...signupInfo, "role": event.target.value })} 
-                        />
+                    />
+                    <label for="cozinha">
+                        <img className="form-img-radio" src={Cozinha}/>
                         Cozinha
                     </label>
             
-                    <label className="form-label-radio">
-                        <img className="form-img-radio" src={Salao}/>
-                        <input className="form-input-radio"
+                    <input id="salao"
                         type="radio"
                         value="salao"
                         name="role"
                         required
                         onChange={(event) => setSignupInfo({ ...signupInfo, "role": event.target.value })} 
-                        />
+                    />
+                    <label for="salao">
+                        <img className="form-img-radio" src={Salao}/>
                         Salão
                     </label>
                 </section>
