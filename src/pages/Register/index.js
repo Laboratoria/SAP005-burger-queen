@@ -18,6 +18,7 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
+    // const [exibeMensage, setExibeMensage] = useState(false);
 
     function btnRegister (event) {
         event.preventDefault();
@@ -36,10 +37,9 @@ function Register() {
                             if (json.id !== null) {
                                 routerBack();
                             }
-                            setName('');
-                            setEmail('');
-                            setPassword('');
-                            setRole('');
+                            // mensagem de confirmação
+                            // usar setTimeout
+                            
                         })
 
     }

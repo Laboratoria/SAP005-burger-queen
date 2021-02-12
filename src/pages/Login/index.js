@@ -26,7 +26,7 @@ function Login(){
 
     function btnLogin(event){
         event.preventDefault();
-        fetch('https://lab-api-bq.herokuapp.com/users/', {
+        fetch('https://lab-api-bq.herokuapp.com/auth', {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
@@ -39,8 +39,8 @@ function Login(){
                 if (json.id !== null) {
                     routerHall();
                 }
-                setEmail('');
-                setPassword('');
+                // setEmail('');
+                // setPassword('');
 
             })
 
@@ -48,7 +48,8 @@ function Login(){
 
     return(
         <div className="App">
-            <p className="login"> <img className= "logoImg" src={logo}/></p>
+
+            <p className="login"> <img src={logo}/></p>
             <form className="loginForm">
                 
                 <input type="text" placeholder="E-mail*" value={email}  id="emailInput" onChange={(event) => setEmail(event.target.value)}/>
