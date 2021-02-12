@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import "./App.css";
-// import "../../style.css"
 import logo from "../../img/logo.gif";
 import Footer from "../../components/footer.js";
 
@@ -9,37 +7,38 @@ const userData = {
   name: '',
   lastName: '',
   email: '',
+  role: '',
+  restaurant: 'Burgerlicious',
   password: '',
   confirmPassword: '',
-  role: '',
   token: '',
 }
 
 const Register = () => {
-    const [user, setUser] = useState(userData);
+  const [user, setUser] = useState(userData);
 
-    useEffect(() => {
-      setUser({...user, completeName: user.name + ' ' + user.lastName})
-    }, [user.name, user.lastName])
+  useEffect(() => {
+    setUser({ ...user, completeName: user.name + ' ' + user.lastName })
+  }, [user.name, user.lastName])
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      alert('Usuário cadastrado com sucesso!');
-      console.log(user.completeName);
-      console.log(user);
-      //limpar os inputs depois | refatorar o código setUser('')
-      //no burgerlicious salvar na API
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert('Usuário cadastrado com sucesso!');
+    console.log(user.completeName);
+    console.log(user);
+    //limpar os inputs depois | refatorar o código setUser('')
+    //no burgerlicious salvar na API
+  }
   return (
     <>
       <p><Link to="/">BACK</Link></p>
-      
+
       <img src={logo} alt="logo" />
-      
+
       <form>
         <label>
           Name:
-          <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value })}} />
+          <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value }) }} />
         </label>
         <label>
           Last name:
