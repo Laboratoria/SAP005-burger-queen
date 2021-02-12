@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@material-ui/core'
 import './Register.css';
-
+import logo from './logo.png';
 
 
 function Register() {
@@ -29,7 +29,7 @@ function Register() {
                             'accept': 'application/json',
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
-                        body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrasaBurger's&name=${name}`
+                        body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrazaBurger's&name=${name}`
                     })
                         .then((response) => response.json()).then((json) => {
                              console.log(json);
@@ -48,7 +48,7 @@ function Register() {
     return (
 
         <div className="App">
-            <h1 className="login">Register</h1>
+            <p className="register"> <img src={logo}/></p>
             <form className="loginForm">
 
                 <input type="text" placeholder="Nome*" value={name} id="cadName" onChange={(event) => setName(event.target.value)} />
@@ -70,12 +70,9 @@ function Register() {
 
             </form>
 
-
-
-
         </div>
+        
 
     );
-};
-
-export default Register;
+}
+  export default Register;
