@@ -31,7 +31,7 @@ const Register = () => {
   }
   return (
     <>
-      <p><Link to="/">BACK</Link></p>
+      <p><Link to="/Login">BACK</Link></p>
 
       <img src={logo} alt="logo" />
 
