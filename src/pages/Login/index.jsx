@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
@@ -23,8 +24,8 @@ const Login = () => {
               <option value='Kitchen'>Kitchen</option>
             </select>
           </label>
-            <input type="submit" value="SIGN IN" />
-            <p>Do not have an account? Register</p>
+          <button type='submit' value='' onClick={(event) => {console.log(event);}}> SIGN UP </button>
+            <p>Do not have an account?<span><Link to="/Register">Register</Link></span></p>
         </form>
       </div>
     </Container>
