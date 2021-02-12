@@ -1,11 +1,13 @@
 
 import React from "react";
+import logo from "../../img/logo.gif";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 
 const Login = () => {
   return <>
     <Container>
+      <img src={logo} alt="logo" />
       <div className="inputs-container">
         <form>
           <label for="login">Login:
