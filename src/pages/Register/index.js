@@ -46,9 +46,9 @@ const handleClick = (e) => {
                 <div className="registe-eye">
                     { show ? (
                     <MDFVisibility
-                        size={20}
-                        onClick={handleClick}
-                        />   
+                    size={20}
+                    onClick={handleClick}
+                    />   
                     ) : (
                     <MdVisibilityOff
                     size={20}
