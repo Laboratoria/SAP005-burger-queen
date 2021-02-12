@@ -56,6 +56,8 @@ const Register = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
+        form.restaurant = 'TAG Burger'
+        console.log(form)
         fetch('https://lab-api-bq.herokuapp.com/users', {
             method: 'POST',
             headers:{
