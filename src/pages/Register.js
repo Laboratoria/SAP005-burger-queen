@@ -23,7 +23,11 @@ function Register () {
       fetch('https://lab-api-bq.herokuapp.com/users', requestOptions)
         .then(response => response.json())
         .then(data => {
-            history.push(`/${data.role}`);
+            if(data.message !== undefined){
+                alert(data.message);
+            } else {
+                history.push(`/${data.role}`);
+            }
           });
     }
   
