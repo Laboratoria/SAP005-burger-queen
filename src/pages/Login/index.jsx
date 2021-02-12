@@ -7,8 +7,8 @@ import Footer from "../../components/footer.js";
 const Login = () => {
   return <>
     <Container>
-      <Logo />
-      <div className="inputs-container">
+       <div className="inputs-container">
+       <Logo />
         <form>
           <label for="login">Login:
             <input type="text" placeholder="email@email.com" />
