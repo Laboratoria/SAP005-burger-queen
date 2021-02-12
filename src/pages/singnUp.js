@@ -49,7 +49,6 @@ function SingnUp() {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email, role, password, name, restaurant: "Chef'sBurguer" })
-            // body: `email=${email}&password=${password}&role=${role}&restaurant=Chef'sBurguer&name=${name}`
           })
             .then((response) => response.json())
             .then((json) => {
