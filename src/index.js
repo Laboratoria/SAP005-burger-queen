@@ -13,7 +13,7 @@ ReactDOM.render(
     <Switch>
       <Route path='/' component={App} exact />
       <Route path='/singnUp' component={SingnUp} exact /> 
-      <Route path='/waiter' component={Waiter}exact /> 
+      <Route path='/waiter' component={Waiter} exact /> 
       <Route path='/kitchen' component={Kitchen} /> 
       <Route component={() => <div>Page 404</div>}/>
     </Switch>
@@ -22,7 +22,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

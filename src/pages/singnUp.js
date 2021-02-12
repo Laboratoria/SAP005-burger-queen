@@ -12,6 +12,7 @@ function SingnUp() {
 
     return (
       <div className="singnUp">
+          <img src= "../img/Logo.png"  alt="logo"/>
         <header className="singnUp-header">
         <img src= {logo} alt="" className="logo"/>
         <div className="role">
