@@ -24,7 +24,7 @@ function SingnUp() {
               onChange={() => setRole("Cozinha")}
             />
           </label>
-          <label>
+          <label className="waiter">
           <img src= {hand} alt="" className="logoh"/>
             <input
               type="radio"

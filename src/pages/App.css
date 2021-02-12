@@ -101,3 +101,12 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+.role {
+	display: flex;
+	align-items: baseline;
+}
+
+.waiter {
+	margin-left: 74px;
+}
