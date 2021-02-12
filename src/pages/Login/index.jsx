@@ -24,6 +24,7 @@ const Login = () => {
             </select>
           </label>
             <input type="submit" value="SIGN IN" />
+            <p>Do not have an account? Register</p>
         </form>
       </div>
     </Container>
