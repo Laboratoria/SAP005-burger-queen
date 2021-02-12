@@ -7,10 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './router';
 
 ReactDOM.render(
-  <BrowserRouter>
-     <Routes />
-  </BrowserRouter>,
-  document.getElementById('root')
+	<BrowserRouter>
+		<Routes />
+	</BrowserRouter>,
+	document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
