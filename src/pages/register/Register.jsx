@@ -29,6 +29,7 @@ const formFields = [
     },
 ]
 
+
 const Register = () => {
     const [ response, setResponse ] = useState();
     const [ form, setForm ] = useState(
@@ -40,24 +41,25 @@ const Register = () => {
         }, {}),
     );
 
+    console.log(form)
+
     const history = useHistory();
 
-    const gotoHall = () => {
+    const goToHall = () => {
         history.push('/Hall');
     }
     const goToKitchen = () => {
         history.push('/Kitchen');
     }
-
     function handleChange({target}) {
         const { id, value } = target;
         setForm({ ...form, [id]: value });
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        form.restaurant = 'TAG Burger'
-        console.log(form)
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        form.restaurant = 'TAG Burger';
         fetch('https://lab-api-bq.herokuapp.com/users', {
             method: 'POST',
             headers:{
@@ -66,16 +68,14 @@ const Register = () => {
             body: JSON.stringify(form),
         })
         .then(response => {
-            response.json();
-            setResponse(response);
-        })
-        .then((json) => {
-            if(json.role === 'salão'){
-                gotoHall();
+            console.log(response)
+            if (response.role === 'salão'){
+                goToHall();
             }
-            else if (json.role === 'cozinha'){
+            else if (response.role === 'cozinha'){
                 goToKitchen();
             }
+            setResponse(response);
         })
     }
 
@@ -86,7 +86,6 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
                 {formFields.map(({ id, placeholder, type }) => (
                     <div key={id}>
-                        <label htmlFor={id}></label>
                         <input 
                             type={type} 
                             id={id}
