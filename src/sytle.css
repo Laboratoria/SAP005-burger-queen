@@ -40,7 +40,16 @@ form button {
   left: 222px;
   top: 625px;
   background: #ffbb5a;
+  border-color: transparent;
   border-radius: 12px;
+  outline: none;
+  font-size: 18px;
+  color: #FFF8D8;
+}
+
+form button:hover{
+  background-color: #FFE1AC;
+  color: #584944;
 }
 
 form input {
