@@ -8,26 +8,35 @@ const userData = {
   lastName: '',
   email: '',
   role: '',
-  restaurant: 'Burgerlicious',
   password: '',
   confirmPassword: '',
   token: '',
+}
+
+const createUser = (email, password, role, name) => {
+  fetch('https://lab-api-bq.herokuapp.com/users/', {
+    method: 'POST',
+    headers: { 'accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `email=${email}&password=${password}&role=${role}&restaurant=Burgerlicious&name=${name}`
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json)
+      alert('Usuário cadastrado com sucesso!');
+    })
 }
 
 const Register = () => {
   const [user, setUser] = useState(userData);
 
   useEffect(() => {
-    setUser({ ...user, completeName: user.name + ' ' + user.lastName })
+    setUser({ ...user, completeName: user.name + '' + user.lastName })
   }, [user.name, user.lastName])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Usuário cadastrado com sucesso!');
-    console.log(user.completeName);
-    console.log(user);
+    createUser(user.email, user.password, user.role, user.completeName);
     //limpar os inputs depois | refatorar o código setUser('')
-    //no burgerlicious salvar na API
   }
   return (
     <>
