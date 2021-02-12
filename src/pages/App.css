@@ -58,8 +58,9 @@
 	background-color: rgb(151, 158, 158);
 }
 
-#pass,
-#email {
+#password,
+#email,
+#name {
 	padding: 11px;
 	margin-top: 20px;
 }

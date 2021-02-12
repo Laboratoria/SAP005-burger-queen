@@ -1,28 +1,69 @@
 import './App.css';
-import React from "react";
+import React, { useState } from 'react';
 import logo from './logo.png';
 import panela from './panela.png';
 import hand from './hand.png';
 
+function SingnUp() {
+  const [email , setEmail]= useState('');
+  const [name , setName]= useState('');
+  const [password , setPassword]= useState('');
+  const [role, setRole]= useState('');
 
-function singnUp() {
     return (
       <div className="singnUp">
         <header className="singnUp-header">
         <img src= {logo} alt="" className="logo"/>
-        <p className="selector">
+        <div className="role">
+        <label>
         <img src= {panela} alt="" className="logop"/>
-        <img src= {hand} alt="" className="logoh"/>
-        </p>
+            <input
+              type="radio"
+              value="Cozinha"
+              checked={role === "Cozinha"}
+              onChange={() => setRole("Cozinha")}
+            />
+          </label>
+          <label>
+          <img src= {hand} alt="" className="logoh"/>
+            <input
+              type="radio"
+              value="Garçom"
+              checked={role === "Garçom"}
+              onChange={() => setRole("Garçom")}
+            />
+          </label>
+          </div>
         <form className="form">
-        <input type="text" id="email" placeholder="Digite seu e-mail"/>
-        <input type="text" id="email" placeholder="Digite seu nome"/>
-        <input type="text" id="pass" placeholder="Digite sua senha"/>
-        <button id="singnupBtn">CADASTRAR</button>
-        </form>
-        </header>
-      </div>
+        <input type="text" id="email" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
+        <input type="text" id="name" placeholder="Digite seu nome" value={name}  onChange={(event) => setName(event.target.value)}/>
+        <input type="text" id="password" placeholder="Digite sua senha" value={password} onChange={(event) => setPassword(event.target.value)}/>
+        <button id="singnupBtn" onClick={(e) => {
+
+          e.preventDefault();
+
+          fetch("https://lab-api-bq.herokuapp.com/users", {
+            method: 'POST',
+            header:{
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, role, password, name, restaurant: "Chef'sBurguer" })
+            // body: `email=${email}&password=${password}&role=${role}&restaurant=Chef'sBurguer&name=${name}`
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              console.log(json);
+              setName('');
+              setEmail('');
+              setPassword('');
+              setRole('');
+            })
+        }} >CADASTRAR</button>
+    </form>
+    </header>
+    </div>
     );
   }
+
   
-  export default singnUp;
+  export default SingnUp;
