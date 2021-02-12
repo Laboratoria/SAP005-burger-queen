@@ -3,7 +3,9 @@
 * {
   margin: 0%;
   padding: 0%;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  text-decoration: none;
 }
 
 body {
@@ -46,19 +48,24 @@ form input {
   height: 0px;
   left: 222px;
   top: 596px;
-  border: 3px solid #ffbb5a;
+  border: 2px solid #ffbb5a;
+  margin: 20px 0px;
 }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  position: fixed;
   background-color: #ffe1ac;
-  width: 768px;
-  height: 60px;
-  left: 0px;
-  top: 964px;
-  text-align: center;
   color: #584944;
+  bottom: 0;
+  left: 0
 }
 
 footer a {
   color: #584944;
+  font-weight: bold;
 }
