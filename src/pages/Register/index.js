@@ -4,7 +4,7 @@ import './register.css';
 import { MdPerson, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 
 const Register = () => {
-    const [ name, setName ] = useState('');
+	const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ passwordConfirmation, setPasswordConfirmation ] = useState('');
@@ -38,12 +38,12 @@ const Register = () => {
 			<div className="right">
 				<h1>Registre-se</h1>
 
-                <div className="input-in-line">
+				<div className="input-in-line">
 					<MdPerson />
 					<input type="name" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} />
 				</div>
 
-                <div className="input-in-line">
+				<div className="input-in-line">
 					<MdEmail />
 					<input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 				</div>
