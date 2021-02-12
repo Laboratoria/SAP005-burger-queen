@@ -8,17 +8,24 @@ const Login = () => {
     <Container>
       <div className="inputs-container">
         <form>
-          <label for="login">Login:</label>
-          <input type="text" placeholder="email@email.com" />
-          <label for="password">Password:</label>
-          <input type="password" placeholder="Password" />
-          <label for="team">Team:</label>
-          <input type="text" placeholder="Select your work team" />
-          <input type="submit" value="SIGN IN"/>
+          <label for="login">Login:
+            <input type="text" placeholder="email@email.com" />
+          </label>
+          <label for="password">Password:
+            <input type="password" placeholder="Password" />
+          </label>
+          <label for="team">Team:
+            <select onChange={(event) => { console.log(event); }} defaultValue='Team work'>
+              <option disabled>Team work</option>
+              <option value='Hall'>Hall</option>
+              <option value='Kitchen'>Kitchen</option>
+            </select>
+          </label>
+            <input type="submit" value="SIGN IN" />
         </form>
       </div>
     </Container>
-    <Footer/>
+    <Footer />
   </>;
 };
 export default Login;
