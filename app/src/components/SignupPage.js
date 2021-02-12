@@ -37,6 +37,7 @@ function SignupPage() {
 
   const [workerName, setWorkerName] = useState('');
   const [workerEmail, setWorkerEmail] = useState('');
+  const [WorkerOccupation, setWorkerOccupation] = useState('');
 
   return (
     <Fragment>
@@ -101,10 +102,30 @@ function SignupPage() {
       </div>
         <div>
           <p>Função</p>
-          <input type="radio" id="salon-input" value="salon" name="function" />
+          <Input
+            type="radio"
+            id="salon-input"
+            value="salon"
+            name="function"
+            required
+            checked={WorkerOccupation === 'salon'}
+            onChange={(e) => {
+              setWorkerOccupation(e.target.value);
+            }}
+          />
           <label htmlFor="salon-input">Salão</label>
           <br />
-          <input type="radio" id="kitchen-input" value="kitchen" name="function" />
+          <Input
+            type="radio"
+            id="kitchen-input"
+            value="kitchen"
+            name="function"
+            required
+            checked={WorkerOccupation === 'kitchen'}
+            onChange={(e) => {
+              setWorkerOccupation(e.target.value);
+            }}
+          />
           <label htmlFor="kitchen-input">Cozinha</label>
         </div>
         <div>
