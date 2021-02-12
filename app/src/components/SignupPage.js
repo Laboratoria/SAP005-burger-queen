@@ -2,12 +2,11 @@ import React, { Fragment, useState } from 'react';
 import Input from './Input';
 
 function SignupPage() {
-  // const apiURL = 'https://lab-api-bq.herokuapp.com';
-  // const apiUsers = `${apiURL}/users`;
-  // const apiAuth = `${apiURL}/auth`;
+  const apiURL = 'https://lab-api-bq.herokuapp.com/';
+  const apiUsers = `${apiURL}/users`;
+  const apiAuth = `${apiURL}/auth`;
 
-  // submitButton.addEventListener('click', (event) => {
-  //   event.preventDefault();
+  // useEffect
   //   const signupNewWorker = new Request(apiUsers, {
   //     method: 'POST',
   //     body: {
@@ -19,6 +18,20 @@ function SignupPage() {
   //     },
   //   });
   //   apiUsers.fetch();
+  // };
+
+  // fetch(apiUsers, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: {
+  //     name: workerName,
+  //     email: workerEmail,
+  //     role: workerFunction,
+  //     restaurant: 'Azmina',
+
+  //   },
   // });
 
   const [workerName, setWorkerName] = useState('');
@@ -36,6 +49,23 @@ function SignupPage() {
             onChange={(event) => {
               setWorkerName(event.target.value);
               console.log(workerName);
+            }}
+            onSubmit={(event) => {
+              event.preventDefault();
+              fetch(apiUsers, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: {
+                  name: workerName,
+                  // email: workerEmail,
+                  // role: workerFunction,
+                  restaurant: 'Azmina',
+                },
+              })
+                .then((response) => response.json())
+                .then((data) => console.log(data));
             }}
           />
         </div>

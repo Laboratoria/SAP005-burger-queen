@@ -37,7 +37,7 @@
         "jest/valid-expect": "error",
         "object-curly-newline": ["error", {
           "ObjectExpression": "always",
-          "ObjectPattern": { "multiline": false },
+          "ObjectPattern": { "multiline": true },
           "ImportDeclaration": "never",
           "ExportDeclaration": { "multiline": true, "minProperties": 3 }
         }]
