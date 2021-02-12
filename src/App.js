@@ -7,17 +7,17 @@ import React, {useState} from 'react';
 function App() {
 
   function register(email, password, role, restaurant, nome){
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    var urlencoded = new URLSearchParams();
+    let urlencoded = new URLSearchParams();
     urlencoded.append("email", `${email}`);
     urlencoded.append("password", `${password}`);
     urlencoded.append("role", `${role}`);
     urlencoded.append("restaurant", `${restaurant}`);
     urlencoded.append("name", `${nome}`);
 
-  var requestOptions = {
+  const requestOptions = {
   method: 'POST',
   headers: myHeaders,
   body: urlencoded,
