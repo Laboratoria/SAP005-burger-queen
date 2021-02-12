@@ -1,47 +1,24 @@
+/* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
 import Input from './Input';
+import Button from './Button';
 
-function SignupPage() {
+export default function SignupPage() {
   const apiURL = 'https://lab-api-bq.herokuapp.com/';
   const apiUsers = `${apiURL}/users`;
-  const apiAuth = `${apiURL}/auth`;
-
-  // useEffect
-  //   const signupNewWorker = new Request(apiUsers, {
-  //     method: 'POST',
-  //     body: {
-  //       name: workerName.value,
-  //       email: workerEmail.value,
-  //       role: workerFunction,
-  //       restaurant: 'Azmina',
-
-  //     },
-  //   });
-  //   apiUsers.fetch();
-  // };
-
-  // fetch(apiUsers, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: {
-  //     name: workerName,
-  //     email: workerEmail,
-  //     role: workerFunction,
-  //     restaurant: 'Azmina',
-
-  //   },
-  // });
-
   const [workerName, setWorkerName] = useState('');
+  const [workerEmail, setWorkerEmail] = useState('');
+  const [workerRole, setWorkerRole] = useState('');
+  const [workerPassword, setWorkerPassword] = useState('');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Fragment>
       <form>
         <div>
           <p>Nome</p>
-          {/* <input type="text" id="worker-name" /> */}
           <Input
             name="workerName"
             placeholder="Digite seu nome"
@@ -50,45 +27,80 @@ function SignupPage() {
               setWorkerName(event.target.value);
               console.log(workerName);
             }}
-            onSubmit={(event) => {
-              event.preventDefault();
-              fetch(apiUsers, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: {
-                  name: workerName,
-                  // email: workerEmail,
-                  // role: workerFunction,
-                  restaurant: 'Azmina',
-                },
-              })
-                .then((response) => response.json())
-                .then((data) => console.log(data));
-            }}
           />
         </div>
         <div>
           <p>E-mail</p>
-          <input type="email" id="worker-email" />
-        </div>
+          <Input
+            name="workerEmail"
+            placeholder="Digite seu email"
+            value={workerEmail}
+            onChange={(event) => {
+              setWorkerEmail(event.target.value);
+              console.log(setWorkerEmail);
+            }}
+          />
+      </div>
         <div>
           <p>Função</p>
-          <input type="radio" id="salon-input" value="salon" name="function" />
+          <Input
+            type="radio"
+            id="salon-input"
+            value="salon"
+            name="function"
+            required
+            checked={workerRole === 'salon'}
+            onChange={(event) => {
+              setWorkerRole(event.target.value);
+            }}
+          />
           <label htmlFor="salon-input">Salão</label>
           <br />
-          <input type="radio" id="kitchen-input" value="kitchen" name="function" />
+          <Input
+            type="radio"
+            id="kitchen-input"
+            value="kitchen"
+            name="function"
+            required
+            checked={workerRole === 'kitchen'}
+            onChange={(event) => {
+              setWorkerRole(event.target.value);
+            }}
+          />
           <label htmlFor="kitchen-input">Cozinha</label>
         </div>
         <div>
           <p>Senha</p>
-          <input type="password" />
+          <Input
+            type="password"
+            required
+            value={workerPassword}
+            onChange={(event) => {
+              setWorkerPassword(event.target.value);
+            }}
+          />
         </div>
-        <button type="submit" id="submit-form-button">Cadastrar</button>
+        <div>
+          <p>Confirmar Senha</p>
+          <Input
+            type="password"
+            required
+            value={workerPassword}
+            onChange={(event) => {
+              setWorkerPassword(event.target.value);
+            }}
+          />
+        </div>
+        <Button
+          type="submit"
+          className="submit-form-button"
+          buttonText="Cadastrar"
+          onClick={(event) => {
+            console.log('clicou');
+            handleSubmit(event);
+          }}
+        />
       </form>
     </Fragment>
   );
 }
-
-export default SignupPage;
