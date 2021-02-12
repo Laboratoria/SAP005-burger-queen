@@ -3,8 +3,5 @@
 coverage/
 node_modules/
 yarn.lock
-<<<<<<< HEAD
 package-lock.json
-=======
-package-lock.json
->>>>>>> 894a836dbc66f2a9645af8224ac01676eb0f87cd
+node_modules/.cache/.eslintcache
