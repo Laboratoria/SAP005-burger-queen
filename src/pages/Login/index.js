@@ -1,5 +1,3 @@
-// import React from 'react';
-
 import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
 import {Link} from '@material-ui/core'
@@ -9,24 +7,26 @@ import logo from './logo.png';
 function Login(){
 
     const history = useHistory()
-
-    // const routerBack = () => {
-    //     history.push('/')
-    // }
+    
+    const routerBack = () => {
+        history.push('/')
+    }
 
      const routerHall=()=>{
      history.push('/Hall')
      }
-    // const routerKitchen=()=>{
-    //   history.push('/Kitchen')
-    // }
+    const routerKitchen=()=>{
+      history.push('/Kitchen')
+    }
+   
    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
     function btnLogin(event){
         event.preventDefault();
-        fetch('https://lab-api-bq.herokuapp.com/users/', {
+        fetch('https://lab-api-bq.herokuapp.com/auth', {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
@@ -39,15 +39,16 @@ function Login(){
                 if (json.id !== null) {
                     routerHall();
                 }
-                setEmail('');
-                setPassword('');
+                // setEmail('');
+                // setPassword('');
 
             })
-        
-    };
+
+};
 
     return(
         <div className="App">
+
             <p className="login"> <img src={logo}/></p>
             <form className="loginForm">
                 
@@ -63,7 +64,6 @@ function Login(){
             </form>
         </div>
     )
-
     
 };
 

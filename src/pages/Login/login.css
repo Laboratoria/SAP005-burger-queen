@@ -7,7 +7,6 @@ html{
 
 .login{
   display: flex;
-  flex-direction: wrap;
   justify-content: center;
   
 }
@@ -22,7 +21,7 @@ html{
 
 .loginForm {
     border: 5px;
-    margin: 200px auto 0;
+    margin: 30px auto 0;
     width: 513px;
     display: flex;
     flex-direction: column;
@@ -35,18 +34,18 @@ html{
   background-color: orange;
   width: 200px;
   height: 65px;
-  border: 8px solid #000000;
+  border: 8px solid #5D392A;
   border-radius: 18px;
   font-size: 30px;
   line-height: 47px;
-  color: black;
+  color: #5D392A;
   margin-top: 30px;
   font-weight: bold;
 }
 
 #emailInput, #loginInput {
   height: 82px;
-  border: 3px solid #000000;
+  border: 3px solid #5D392A;
   background: #FFFFFF;
   border-radius: 10px;
   font-size: 36px;
@@ -57,11 +56,10 @@ html{
 .novo{
   margin-top: 40px;
   display: flex;
-  flex-direction: wrap;
   justify-content: center;
   font-size: 30px;
   font-weight: 600;
-  color: black;
+  color: #5D392A;
 }
 
 

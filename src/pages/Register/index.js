@@ -1,4 +1,3 @@
-// import React from 'react';
 
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
@@ -19,6 +18,7 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
+    // const [exibeMensage, setExibeMensage] = useState(false);
 
     function btnRegister (event) {
         event.preventDefault();
@@ -30,17 +30,16 @@ function Register() {
                             'accept': 'application/json',
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
-                        body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrasaBurger's&name=${name}`
+                        body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrazaBurger's&name=${name}`
                     })
                         .then((response) => response.json()).then((json) => {
                              console.log(json);
                             if (json.id !== null) {
                                 routerBack();
                             }
-                            setName('');
-                            setEmail('');
-                            setPassword('');
-                            setRole('');
+                            // mensagem de confirmação
+                            // usar setTimeout
+                            
                         })
 
     }
@@ -71,12 +70,9 @@ function Register() {
 
             </form>
 
-
-
-
         </div>
+        
 
     );
-};
-
-export default Register;
+}
+  export default Register;
