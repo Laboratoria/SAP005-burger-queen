@@ -2,33 +2,33 @@
 import React from 'react';
 
 export default function Input({
-  labelInputDiv,
-  htmlFor,
+  divWrapClassName,
+  labelHtmlFor,
   labelClassName,
-  label,
-  required,
-  type,
+  labelText,
+  inputRequired,
+  inputType,
   inputName,
-  value,
-  checked,
-  placeholder,
+  inputValue,
+  inputChecked,
+  inputPlaceholder,
   inputClassName,
-  onChange,
+  inputOnChange,
 }) {
   return (
-    <div className={labelInputDiv}>
-      <label htmlFor={htmlFor} className={labelClassName}>
-        {label}
+    <div className={divWrapClassName}>
+      <label htmlFor={labelHtmlFor} className={labelClassName}>
+        {labelText}
       </label>
       <input
-        required={required}
-        type={type}
+        required={inputRequired}
+        type={inputType}
         name={inputName}
-        value={value}
-        checked={checked}
-        placeholder={placeholder}
+        value={inputValue}
+        checked={inputChecked}
+        placeholder={inputPlaceholder}
         className={inputClassName}
-        onChange={onChange}
+        onChange={inputOnChange}
       />
     </div>
   );

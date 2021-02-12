@@ -1,12 +1,17 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-export default function Button({ onClick, type, className, buttonText }) {
+export default function Button({
+  type,
+  className,
+  onClick,
+  buttonText,
+}) {
   return (
     <button
-      onClick={onClick}
       type={type}
       className={className}
+      onClick={onClick}
     >
       {buttonText}
     </button>

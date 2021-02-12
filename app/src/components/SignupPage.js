@@ -9,7 +9,7 @@ export default function SignupPage() {
   const [workerName, setWorkerName] = useState('');
   const [workerEmail, setWorkerEmail] = useState('');
   const [workerRole, setWorkerRole] = useState('');
-  const [workerPassword, setWorkerPassword] = useState('');
+  // const [workerPassword, setWorkerPassword] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -17,90 +17,93 @@ export default function SignupPage() {
   return (
     <Fragment>
       <form>
-        <div>
-          <p>Nome</p>
-          <Input
-            name="workerName"
-            placeholder="Digite seu nome"
-            value={workerName}
-            onChange={(event) => {
-              setWorkerName(event.target.value);
-              console.log(workerName);
-            }}
-          />
-        </div>
-        <div>
-          <p>E-mail</p>
-          <Input
-            name="workerEmail"
-            placeholder="Digite seu email"
-            value={workerEmail}
-            onChange={(event) => {
-              setWorkerEmail(event.target.value);
-              console.log(setWorkerEmail);
-            }}
-          />
-      </div>
-        <div>
-          <p>Função</p>
-          <Input
-            type="radio"
-            id="salon-input"
-            value="salon"
-            name="function"
-            required
-            checked={workerRole === 'salon'}
-            onChange={(event) => {
-              setWorkerRole(event.target.value);
-            }}
-          />
-          <label htmlFor="salon-input">Salão</label>
-          <br />
-          <Input
-            type="radio"
-            id="kitchen-input"
-            value="kitchen"
-            name="function"
-            required
-            checked={workerRole === 'kitchen'}
-            onChange={(event) => {
-              setWorkerRole(event.target.value);
-            }}
-          />
-          <label htmlFor="kitchen-input">Cozinha</label>
-        </div>
-        <div>
-          <p>Senha</p>
-          <Input
-            type="password"
-            required
-            value={workerPassword}
-            onChange={(event) => {
-              setWorkerPassword(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <p>Confirmar Senha</p>
-          <Input
-            type="password"
-            required
-            value={workerPassword}
-            onChange={(event) => {
-              setWorkerPassword(event.target.value);
-            }}
-          />
-        </div>
+        <Input
+          divWrapClassName='label-input-wrap'
+          labelHtmlFor='signup-input-name'
+          labelClassName='signup-label'
+          labelText='Nome'
+          inputRequired
+          inputType='text'
+          inputName='signup-input-name'
+          inputValue={workerName}
+          inputPlaceholder='Digite seu nome'
+          inputClassName='signup-input-name'
+          inputOnChange={(event) => setWorkerName(event.target.value)}
+        />
+
+        <Input
+          divWrapClassName='label-input-wrap'
+          labelHtmlFor='signup-input-email'
+          labelClassName='signup-label'
+          labelText='E-mail'
+          inputRequired
+          inputType='email'
+          inputName='signup-input-email'
+          inputValue={workerEmail}
+          inputPlaceholder='Digite seu email'
+          inputClassName='signup-input-email'
+          inputOnChange={(event) => setWorkerEmail(event.target.value)}
+        />
+
+        <Input
+          divWrapClassName='label-input-wrap'
+          labelHtmlFor='role-hall'
+          labelClassName='signup-label-radio'
+          labelText='Salão'
+          inputRequired
+          inputType='radio'
+          inputName='role-hall'
+          inputValue='hall'
+          inputChecked={workerRole === 'hall'}
+          inputClassName='signup-input-role'
+          inputOnChange={(event) => setWorkerRole(event.target.value)}
+        />
+
+        <Input
+          divWrapClassName='label-input-wrap'
+          labelHtmlFor='role-hall'
+          labelClassName='signup-label-radio'
+          labelText='Cozinha'
+          inputRequired
+          inputType='radio'
+          inputName='role-hall'
+          inputValue='kitchen'
+          inputChecked={workerRole === 'kitchen'}
+          inputClassName='signup-input-role'
+          inputOnChange={(event) => setWorkerRole(event.target.value)}
+        />
+
+        <Input
+          divWrapClassName='label-input-wrap'
+          labelHtmlFor='signup-input-password'
+          labelClassName='signup-label'
+          labelText='Senha'
+          inputRequired
+          inputType='password'
+          inputName='signup-input-password'
+          inputPlaceholder='Digite sua senha'
+          inputClassName='signup-input-password'
+        />
+
+        <Input
+          divWrapClassName='label-input-wrap'
+          labelHtmlFor='signup-input-password'
+          labelClassName='signup-label'
+          labelText='Senha'
+          inputRequired
+          inputType='password'
+          inputName='signup-input-password'
+          inputPlaceholder='Digite sua senha'
+          inputClassName='signup-input-password'
+        />
+
         <Button
-          type="submit"
-          className="submit-form-button"
-          buttonText="Cadastrar"
-          onClick={(event) => {
-            console.log('clicou');
-            handleSubmit(event);
-          }}
+          type='submit'
+          className='submit-form-button'
+          buttonText='Cadastrar'
+          onClick={(event) => handleSubmit(event)}
         />
       </form>
-    </Fragment>
+    </Fragment >
   );
 }
