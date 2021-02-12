@@ -11,13 +11,13 @@ const Login = () => {
        <div className="inputs-container">
        <Logo />
         <form>
-          <label for="login">Login:
+          <label>Login:
             <input type="text" placeholder="email@email.com" />
           </label>
-          <label for="password">Password:
+          <label>Password:
             <input type="password" placeholder="Password" />
           </label>
-          <label for="team">Team:
+          <label>Team:
             <select onChange={(event) => { console.log(event); }} defaultValue='Team work'>
               <option disabled>Team work</option>
               <option value='Hall'>Hall</option>
