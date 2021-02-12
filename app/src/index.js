@@ -8,7 +8,7 @@ import './style.css';
 ReactDOM.render(
   <React.StrictMode>
     <SignupPage/>
-    <LoginPage/>
+    {/* <LoginPage/> */}
   </React.StrictMode>,
   document.getElementById('root'),
 );
