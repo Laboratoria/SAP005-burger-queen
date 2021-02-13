@@ -1,6 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Root from "./components/root"
-import "./sytle.css"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './components/root';
+// import "./sytle.css"
 
-ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(<Root />, document.getElementById('root'));

@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Container = ({ children }) => (
-  <main className="body-default">
-  { children }
-  </main>
-)
+  <main className="body-default">{children}</main>
+);
 
 export default Container;

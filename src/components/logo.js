@@ -1,9 +1,6 @@
-import logo from "../img/logo.gif";
+import React from 'react';
+import logo from '../img/logo.gif';
 
-const Logo = () => {
-    return (
-      <img src={logo} alt="logo" />
-    )
-}
+const Logo = () => <img src={logo} alt="logo" />;
 
 export default Logo;
