@@ -1,7 +1,10 @@
 import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
 
-const Login = () => {
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import logo from '../Logo.jpg';
+// import { BrowserRouter as Router, withRouter } from "react-router-dom";
+
+function Login() {
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 
@@ -14,48 +17,68 @@ const Login = () => {
 				'Content-Type': 'application/x-www-form-urlencoded',
 			},
 			body: `email=${email}&password=${password}`,
-		})
-			.then((response) => response.json())
-			.then((json) => console.log(json));
+		}).then((response) => response.json());
+		// 	.then((json) => { console.log(json);
+		// 	if(json.role === 'Salão') {
+		// 		routerSalao();
+		// 	}
+		// 	if(json.role === "Cozinha") {
+		// 		routerCozinha();
+		// 	}
+		// })
 	}
 
 	return (
-		<div>
-			<header>
-				<nav>
-					<Link to="/">Login</Link>
-					<Link to="/register">Cadastro</Link>
-					<Link to="/orders">Pedidos</Link>
-				</nav>
-			</header>
-			<form>
-				<div>
-					<input
-						type="text"
-						name="email"
-						value={email}
-						placeholder="E-mail *"
-						onChange={(event) => setEmail(event.target.value)}
-					/>
-				</div>
-				<div>
-					<input
-						type="password"
-						name="password"
-						value={password}
-						placeholder="Senha *"
-						onChange={(event) => setPassword(event.target.value)}
-					/>
-				</div>
+		<MDBContainer>
+			<MDBRow>
+				<MDBCol md="10">
+					<img src={logo} alt="logo.jpg" />
+					<form className="form-login">
+						<MDBInput
+							label="Seu email"
+							icon="envelope"
+							group
+							type="email"
+							validate
+							error="wrong"
+							success="right"
+							onChange={(event) => setEmail(event.target.value)}
+						/>
+						{/* <MDBInput
+							label="Confirm your email"
+							icon="exclamation-triangle"
+							group
+							type="email"
+							validate
+							error="wrong"
+							success="right"
+						/> */}
+						<MDBInput
+							label="Your password"
+							icon="lock"
+							group
+							type="password"
+							validate
+							onChange={(event) => setPassword(event.target.value)}
+						/>
+						{/* <MDBInput
+							label="Confirm Your password"
+							icon="exclamation-triangle"
+							group
+							type="password"
+							validate
+						/> */}
 
-				<div>
-					<button type="submit" onClick={logar}>
-						Logar
-					</button>
-				</div>
-			</form>
-		</div>
+						<div className="text-center py-4 mt-3 ">
+							<MDBBtn color="cyan" type="submit" onClick={logar}>
+								Login
+							</MDBBtn>
+						</div>
+					</form>
+				</MDBCol>
+			</MDBRow>
+		</MDBContainer>
 	);
-};
+}
 
 export default Login;
