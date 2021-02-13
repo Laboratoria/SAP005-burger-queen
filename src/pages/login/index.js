@@ -11,7 +11,7 @@ export const Login = () => {
   
   return(
     <Fragment>
-      <form>
+      <form className='form'>
       <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
           <Input
             required
