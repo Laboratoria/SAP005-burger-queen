@@ -1,11 +1,10 @@
-/* eslint-disable no-sequences */
 import { React, useState } from 'react';
 import './register.css';
 
 import { MdPerson, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 
-const Register = () => {
-    const [ name, setName ] = useState('');
+  const Register = () => {
+  const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ passwordConfirmation, setPasswordConfirmation ] = useState('');
@@ -14,15 +13,15 @@ const Register = () => {
 
 	function registre(event) {
 		event.preventDefault();
-		// eslint-disable-next-line no-unused-expressions
-		fetch('https://lab-api-bq.herokuapp.com/users/'), {
+
+		fetch('https://lab-api-bq.herokuapp.com/users/', {
 			method: 'POST',
 			headers: {
 				accept: 'application/json',
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			body: `email=${email}&password=${password}&role=${role}&restaurant=LaBurger&name=${name}`
-		}
+		})
 			.then((response) => response.json())
 			.then((json) => console.log(json));
 	}
@@ -40,14 +39,15 @@ const Register = () => {
 			<div className="right">
 				<h1>Registre-se</h1>
 
-                <div className="input-in-line">
+				<div className="input-in-line">
 					<MdPerson />
 					<input type="name" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} />
 				</div>
 
-                <div className="input-in-line">
+				<div className="input-in-line">
 					<MdEmail />
 					<input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+
 				</div>
 
 				<div className="input-in-line">
@@ -66,7 +66,6 @@ const Register = () => {
 						)}
 					</div>
 				</div>
-
 				<div className="input-in-line">
 					<MdLock />
 					<input
@@ -90,7 +89,6 @@ const Register = () => {
 				<option value="Cozinha">Cozinha</option>
 				<option value="Salão">Salão</option>
 			</select>
-
 			<div>
 				<button type="submit" onClick={registre}>
 					Registrar
