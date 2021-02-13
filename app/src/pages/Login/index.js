@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
@@ -48,6 +49,14 @@ export default function Login() {
           buttonText='Entrar'
         />
       </form>
+
+      <Link to="/cadastro">
+        <Button
+          type='button'
+          className='back-button'
+          buttonText='Cadastre-se'
+        />
+      </Link>
     </Fragment>
   );
 }
