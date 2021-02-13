@@ -40,29 +40,31 @@ const Register = () => {
   }
   return (
     <>
-      <p><Link to="/Login">BACK</Link></p>
       <div className="inputs-container">
-        <Logo />
+        <div className="container-logo-btn">
+          <p className="back-button"><Link to="/Login">BACK</Link></p>
+          <Logo />
+        </div>
         <form>
           <label>
             Name:
-          <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value }) }} placeholder="Name"/>
+          <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value }) }} placeholder="Name" />
           </label>
           <label>
             Last name:
-          <input type='text' value={user.lastName} onChange={(event) => { setUser({ ...user, lastName: event.target.value }) }} placeholder="Last name"/>
+          <input type='text' value={user.lastName} onChange={(event) => { setUser({ ...user, lastName: event.target.value }) }} placeholder="Last name" />
           </label>
           <label>
             Email:
-          <input type='email' value={user.email} onChange={(event) => { setUser({ ...user, email: event.target.value }) }} placeholder="email@email.com"/>
+          <input type='email' value={user.email} onChange={(event) => { setUser({ ...user, email: event.target.value }) }} placeholder="email@email.com" />
           </label>
           <label>
             Password:
-          <input type='password' value={user.password} onChange={(event) => { setUser({ ...user, password: event.target.value }) }} placeholder="Password"/>
+          <input type='password' value={user.password} onChange={(event) => { setUser({ ...user, password: event.target.value }) }} placeholder="Password" />
           </label>
           <label>
             Confirm password:
-          <input type='password' value={user.confirmPassword} onChange={(event) => { setUser({ ...user, confirmPassword: event.target.value }) }} placeholder="Password"/>
+          <input type='password' value={user.confirmPassword} onChange={(event) => { setUser({ ...user, confirmPassword: event.target.value }) }} placeholder="Password" />
           </label>
 
           <label>
