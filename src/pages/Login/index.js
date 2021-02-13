@@ -30,11 +30,9 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-logo">
-        <img src="imgs/logotipo.png" alt="logo-app" />
+        <img src="img/logotipo.png" alt="logo-app" />
       </div>
       <div className="login-right">
-        <h1>Acessa App</h1>
-
         <div className="loginInputEmail">
           <MdEmail />
           <input
@@ -64,10 +62,7 @@ const Login = () => {
         <button type="submit" onClick={login}>
           Entrar
         </button>
-        <h4>Não tem uma conta?</h4>
-        <button type="submit">
-          <Link to="./register/index.js"> Cadastra-se</Link>
-        </button>
+        <h4>Não tem uma conta?<Link to="./register/index.js"><strong> Cadastra-se.</strong></Link></h4>
       </div>
     </div>
   );

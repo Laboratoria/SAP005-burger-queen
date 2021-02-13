@@ -41,15 +41,10 @@ const Register = () => {
   return (
     <div className="register-page">
       <div className="left">
-        <img
-          src="../img/logo.jpg"
-          width="175px"
-          height="175px"
-          alt="Logo da marca LaBurguer"
-        />
+	  	<img src="img/logo.png" alt="logo-app" />
       </div>
       <div className="right">
-        <h1>Registre-se</h1>
+        <h1>Cadastre-se</h1>
 
         <div className="input-in-line">
           <MdPerson />
