@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoginPage from './components/LoginPage';
-import SignupPage from './components/SignupPage';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import './style.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SignupPage/>
-    <LoginPage/>
+    <Signup />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root'),
 );
