@@ -1,11 +1,19 @@
+/* eslint-disable react/jsx-no-undef */
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+
+import Login from "./pages/Login/index";
+import Register from "./pages/Register/index";
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={Login} exact />
+      <Route path="/register" component={Register} />
+      <Route component={() => <div>Page 404!"</div>} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById("root")
 );
