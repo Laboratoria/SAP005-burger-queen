@@ -104,6 +104,7 @@ export default function Signup() {
           buttonText='Cadastrar'
           onClick={(event) => handleSubmit(event)}
         />
+      </form>
 
         <Link to="/">
           <Button
@@ -112,7 +113,6 @@ export default function Signup() {
             buttonText='Voltar'
           />
         </Link>
-      </form>
-    </Fragment >
+    </Fragment>
   );
 }
