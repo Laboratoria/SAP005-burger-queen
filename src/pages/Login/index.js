@@ -62,7 +62,7 @@ const Login = () => {
 				</button>
 				<h4>Não tem uma conta?</h4>
 				<button type="submit">
-					<a href="./register"> Cadastra-se</a>{' '}
+					<a href="./register/index.js"> Cadastra-se</a>{' '}
 				</button>
 			</div>
 		</div>

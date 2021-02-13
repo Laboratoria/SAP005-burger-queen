@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
+import { Login } from "./pages/Login/index";
+import { Register } from "./pages/Register/index";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 
