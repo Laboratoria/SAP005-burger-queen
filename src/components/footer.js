@@ -5,6 +5,7 @@ const Footer = () => (
     <footer>
       © developed by
       <a href="https://github.com/cbalieiro/SAP005-burger-queen">
+        {' '}
         foodie! systems
       </a>
     </footer>

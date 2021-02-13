@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import RequestOptions from "../../components/objectAndfunctions/requestOptions";
 import Footer from "../../components/footer.js";
 import Logo from "../../components/logo";
 import "./../../style.css";
@@ -15,11 +16,10 @@ const userData = {
 }
 
 const createUser = (email, password, role, name) => {
-  fetch('https://lab-api-bq.herokuapp.com/users/', {
-    method: 'POST',
-    headers: { 'accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `email=${email}&password=${password}&role=${role}&restaurant=Burgerlicious&name=${name}`
-  })
+  const body = `email=${email}&password=${password}&role=${role}&restaurant=Burgerlicious&name=${name}`;
+  const method = RequestOptions.post(body);
+  
+  fetch('https://lab-api-bq.herokuapp.com/users/', method )
     .then((response) => response.json())
     .then((json) => {
       console.log(json)

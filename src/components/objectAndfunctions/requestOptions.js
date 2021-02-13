@@ -1,4 +1,4 @@
-const requestOptions = {
+const RequestOptions = {
   post(props) {
     const request = {
       method: "POST",
@@ -6,10 +6,10 @@ const requestOptions = {
         accept: "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `${props}`,
+      body: props,
     };
     return request;
   },
 };
 
-export default requestOptions;
+export default RequestOptions;
