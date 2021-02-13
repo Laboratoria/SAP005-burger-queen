@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
@@ -103,6 +104,14 @@ export default function Signup() {
           buttonText='Cadastrar'
           onClick={(event) => handleSubmit(event)}
         />
+
+        <Link to="/">
+          <Button
+            type='button'
+            className='back-button'
+            buttonText='Voltar'
+          />
+        </Link>
       </form>
     </Fragment >
   );
