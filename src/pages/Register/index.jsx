@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import RequestOptions from "../../components/objectAndfunctions/requestOptions";
+import { CallAPI } from "../../services/api"
 import Footer from "../../components/footer.js";
 import Logo from "../../components/logo";
 import "./../../style.css";
 
 const userData = {
+  parameters: "users",
+  apiURL: "https://lab-api-bq.herokuapp.com/",
   name: '',
   lastName: '',
   email: '',
@@ -15,14 +18,15 @@ const userData = {
   token: '',
 }
 
-const createUser = (email, password, role, name) => {
+const createUser = (props) => {
+  const { email, password, role, name, parameters, apiURL } = props;
+  const api = apiURL + parameters;
   const body = `email=${email}&password=${password}&role=${role}&restaurant=Burgerlicious&name=${name}`;
   const method = RequestOptions.post(body);
-  
-  fetch('https://lab-api-bq.herokuapp.com/users/', method )
-    .then((response) => response.json())
+
+  CallAPI(api, method)
     .then((json) => {
-      console.log(json)
+      console.log(json);
       alert('Usuário cadastrado com sucesso!');
     })
 }
@@ -36,7 +40,7 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createUser(user.email, user.password, user.role, user.completeName);
+    createUser(user);
     //limpar os inputs depois | refatorar o código setUser('')
   }
   return (

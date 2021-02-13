@@ -1,36 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import RequestOptions from "../../components/objectAndfunctions/requestOptions";
+import { CallAPI } from "../../services/api"
 import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 import "./../../style.css";
 
-const userData = {
+const modelsData = {
+  parameters:"auth",
+  apiURL: "https://lab-api-bq.herokuapp.com/",
   name: "",
   email: "",
   role: "",
 };
 
-const loginPage = (email, password) => {
+const loginPage = (props) => {
+  const { email , password, parameters,apiURL} = props;
+  const api = apiURL+parameters;
   const body = `email=${email}&password=${password}`;
   const method = RequestOptions.post(body);
 
-  fetch("https://lab-api-bq.herokuapp.com/auth", method)
-    .then((response) => response.json())
+  CallAPI(api,method)
     .then((json) => {
       console.log(json);
-      alert("Acessou");
-    });
+      alert("Acessou")})
+    .then(console.log("object"))
 };
 
 const Login = () => {
-  const [user, setUser] = useState(userData);
+  const [user, setUser] = useState(modelsData);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
-    loginPage(user.email, user.password);
+    loginPage(user);
   };
 
   return (
