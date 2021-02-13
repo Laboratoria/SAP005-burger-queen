@@ -3,8 +3,8 @@ import './register.css';
 
 import { MdPerson, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 
-const Register = () => {
-	const [ name, setName ] = useState('');
+  const Register = () => {
+  const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ passwordConfirmation, setPasswordConfirmation ] = useState('');
@@ -13,6 +13,7 @@ const Register = () => {
 
 	function registre(event) {
 		event.preventDefault();
+
 		fetch('https://lab-api-bq.herokuapp.com/users/', {
 			method: 'POST',
 			headers: {
@@ -46,6 +47,7 @@ const Register = () => {
 				<div className="input-in-line">
 					<MdEmail />
 					<input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+
 				</div>
 
 				<div className="input-in-line">
@@ -64,7 +66,6 @@ const Register = () => {
 						)}
 					</div>
 				</div>
-
 				<div className="input-in-line">
 					<MdLock />
 					<input
@@ -88,13 +89,15 @@ const Register = () => {
 				<option value="Cozinha">Cozinha</option>
 				<option value="Salão">Salão</option>
 			</select>
-
 			<div>
 				<button type="submit" onClick={registre}>
 					Registrar
 				</button>
 			</div>
+			<p>
+				<a href="/">Ir para a página login</a>
+			</p>
 		</div>
 	);
-};
+}
 export default Register;

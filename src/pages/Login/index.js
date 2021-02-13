@@ -31,17 +31,17 @@ const Login = () => {
 	return (
 		<div className="login">
 			<div className="login-logo">
-				<img src="imgs/logo.jpg" alt="logo-app" />
+				<img src="imgs/logotipo.png"alt="logo-app"/>
 			</div>
 			<div className="login-right">
 				<h1>Acessa App</h1>
 
-				<div className="input-in-line">
+				<div className="loginInputEmail">
 					<MdEmail />
 					<input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 				</div>
 
-				<div className="input-in-line">
+				<div className="loginInputPassword">
 					<MdLock />
 					<input
 						type={show ? 'text' : 'password'}
@@ -70,3 +70,4 @@ const Login = () => {
 };
 
 export default Login;
+
