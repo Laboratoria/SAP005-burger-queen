@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer.js";
 import Logo from "../../components/logo";
+import "./../../style.css";
 
 const userData = {
   name: '',

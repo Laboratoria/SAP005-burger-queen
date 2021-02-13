@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
+import "./../../style.css"
 
 const userData = {
   name: '',
