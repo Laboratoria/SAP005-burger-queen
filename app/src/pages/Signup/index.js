@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
-import Input from './Input';
-import Button from './Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
-export default function SignupPage() {
+export default function Signup() {
   const apiURL = 'https://lab-api-bq.herokuapp.com/';
   const apiUsers = `${apiURL}/users`;
   const [workerName, setWorkerName] = useState('');

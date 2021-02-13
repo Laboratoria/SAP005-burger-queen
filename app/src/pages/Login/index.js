@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import Button from './Button';
-import Input from './Input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 
-function LoginPage() {
+export default function Login() {
   const [emailLogin, setEmailLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
 
@@ -51,5 +51,3 @@ function LoginPage() {
     </Fragment>
   );
 }
-
-export default LoginPage;
