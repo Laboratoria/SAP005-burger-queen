@@ -11,7 +11,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path='/login' component={Login} />
+      <Route path='/' component={Login} exact/>
       <Route path='/register' component={Register}  />
     </Switch> 
   </BrowserRouter>
