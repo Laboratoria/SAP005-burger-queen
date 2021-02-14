@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../Styles/Login.css';
+import '../../styles/Login.css';
 import Footer from '../../components/Footer/index.js';
 import Header from '../../components/HeaderLogin/index.js';
 import IconUser from '../../assets/user.png';
