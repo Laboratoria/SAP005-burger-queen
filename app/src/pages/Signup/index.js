@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../images/logo-horizontal.png';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer';
@@ -39,6 +40,11 @@ export default function Signup() {
 
   return (
     <Fragment>
+      <header className='signup-header'>
+        <h1><img className='logo-signup' src={logo} alt='Logo Hamburgueria Ipê' /></h1>
+        <h2 className='signup-subtitle'>Cadastro</h2>
+      </header>
+
       <form onSubmit={registerUser}>
         <Input
           divWrapClassName='label-input-wrap'
