@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import RequestOptions from "../../components/object/requestOptions";
 import AllModelsObject from "../../components/object/models";
 import Logo from "../../components/logo";
@@ -24,11 +24,13 @@ const loginPage = (props) => {
 };
 
 const Login = () => {
+  const history = useHistory();
   const [user, setUser] = useState(userData);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     loginPage(user);
+    history.push("/Home")
   };
 
   return (
