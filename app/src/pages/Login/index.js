@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Footer from '../../components/Footer';
+import logo from '../../images/logo-circulo.png';
 
 export default function Login() {
   const apiURL = 'https://lab-api-bq.herokuapp.com';
@@ -33,38 +34,41 @@ export default function Login() {
 
   return (
     <Fragment>
-      <form onSubmit={authUser}>
+      <h1>
+        <img className='logo-login' src={logo} alt='Logo Hamburgueria Ipê' />
+      </h1>
+      <form className='login-form' onSubmit={authUser}>
         <Input
-          divWrap='label-input-wrap'
+          divWrapClassName='label-input-wrap'
           labelHtmlFor='login-email'
-          labelClassName='login-email-label'
+          labelClassName='label-for-input'
           labelText='E-mail'
           inputRequired
           inputType='email'
           inputName='login-email'
           inputValue={emailLogin}
           inputPlaceholder='Insira aqui seu e-mail'
-          inputClassName='login-email-input'
+          inputClassName='input-text'
           inputOnChange={(event) => setEmailLogin(event.target.value)}
         />
 
         <Input
-          divWrap='label-input-wrap'
+          divWrapClassName='label-input-wrap'
           labelHtmlFor='login-password'
-          labelClassName='login-password-label'
+          labelClassName='label-for-input'
           labelText='Senha'
           inputRequired
           inputType='password'
           inputName='login-password'
           inputValue={passwordLogin}
           inputPlaceholder='Insira aqui sua senha'
-          inputClassName='login-password-input'
+          inputClassName='input-text'
           inputOnChange={(event) => setPasswordLogin(event.target.value)}
         />
 
         <Button
           type='submit'
-          className='login-button'
+          className='button-base button-primary'
           buttonText='Entrar'
         />
       </form>
@@ -72,7 +76,7 @@ export default function Login() {
       <Link to="/cadastro">
         <Button
           type='button'
-          className='back-button'
+          className='button-base button-secondary'
           buttonText='Cadastre-se'
         />
       </Link>
