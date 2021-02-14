@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import Logo from '../assets/Logo_Burger-Beef .png';
-import './Cadastro.css';
+import '../../Styles/Cadastro.css';
+import Header from '../../components/HeaderLogin/index.js';
+import Footer from '../../components/Footer/index.js';
+
 
 function Cadastro() {
   return (
     <div className="page-cadastro">
-      <header className="header-cadastro">
-        <img className="logo-cadstro" title="logo" src={Logo} alt='logo' />
-      </header>
+
+      <Header/>
+
       <form className="form-cadastro">
         <label>
           Nome:
@@ -44,6 +46,9 @@ function Cadastro() {
 
         <button type='submit' value='enviar' className='btn-cadastrar'><Link to='/'>CADASTRAR</Link></button>
       </form>
+
+      <Footer/>
+      
     </div>
   );
 }

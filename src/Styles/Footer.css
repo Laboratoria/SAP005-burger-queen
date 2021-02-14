@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.footer{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    letter-spacing: .2px;
+    margin-top: 1em;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-weight: 100;
+}
+
+.footer > p{
+    padding-top: 0em;
+}
+
+.footer > p >  a{
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;    
+}
+
+.footer > p > a:hover{
+    text-decoration: underline;
+    padding: .2em;
+    font-size: 12pt;
+    color: #E4A240;
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .footer > p{
+        padding-top: 7em;
+    }
+    
+}
