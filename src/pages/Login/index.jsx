@@ -25,7 +25,7 @@ const Login = () => {
         getError(json.code)
       }
       else {
-          history.push("/Home")
+          history.push("/Hall")
         }
       })
 
