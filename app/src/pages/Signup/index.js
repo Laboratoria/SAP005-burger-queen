@@ -2,7 +2,7 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo-horizontal.png';
-import Input from '../../components/Input';
+import Input from '../../components/InputText';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer';
 
@@ -41,88 +41,81 @@ export default function Signup() {
   return (
     <Fragment>
       <header className='signup-header'>
-        <h1><img className='logo-signup' src={logo} alt='Logo Hamburgueria Ipê' /></h1>
-        <h2 className='signup-subtitle'>Cadastro</h2>
+        <Link to="/">
+          <h1><img className='logo-signup' src={logo} alt='Logo Hamburgueria Ipê' /></h1>
+        </Link>
+        <h2 className='subtitle-base signup-subtitle'>Cadastro</h2>
       </header>
 
-      <form onSubmit={registerUser}>
+      <form className='login-form' onSubmit={registerUser}>
         <Input
           divWrapClassName='label-input-wrap'
-          labelHtmlFor='signup-input-name'
-          labelClassName='signup-label'
+          labelClassName='label-for-input'
           labelText='Nome'
           inputRequired
           inputType='text'
-          inputName='signup-input-name'
           inputValue={workerName}
           inputPlaceholder='Digite seu nome'
-          inputClassName='signup-input-name'
+          inputClassName='input-text'
           inputOnChange={(event) => setWorkerName(event.target.value)}
         />
 
         <Input
           divWrapClassName='label-input-wrap'
-          labelHtmlFor='signup-input-email'
-          labelClassName='signup-label'
+          labelClassName='label-for-input'
           labelText='E-mail'
           inputRequired
           inputType='email'
-          inputName='signup-input-email'
           inputValue={workerEmail}
           inputPlaceholder='Digite seu email'
-          inputClassName='signup-input-email'
+          inputClassName='input-text'
           inputOnChange={(event) => setWorkerEmail(event.target.value)}
         />
 
-        <Input
-          divWrapClassName='label-input-wrap'
-          labelHtmlFor='role-hall'
-          labelClassName='signup-label-radio'
-          labelText='Salão'
-          inputRequired
-          inputType='radio'
-          inputName='role-hall'
-          inputValue='hall'
-          inputChecked={workerRole === 'hall'}
-          inputClassName='signup-input-role'
-          inputOnChange={(event) => setWorkerRole(event.target.value)}
-        />
+        <div className='radio-buttons-wrap'>
+          <label className='label-for-input'>Função</label>
+          <Input
+            divWrapClassName='label-input-wrap'
+            labelClassName='button-base label-radio'
+            labelText='Salão'
+            inputRequired
+            inputType='radio'
+            inputValue='hall'
+            inputChecked={workerRole === 'hall'}
+            inputClassName='input-radio'
+            inputOnChange={(event) => setWorkerRole(event.target.value)}
+          />
+
+          <Input
+            divWrapClassName='label-input-wrap'
+            labelClassName='button-base label-radio'
+            labelText='Cozinha'
+            inputRequired
+            inputType='radio'
+            inputValue='kitchen'
+            inputChecked={workerRole === 'kitchen'}
+            inputClassName='input-radio'
+            inputOnChange={(event) => setWorkerRole(event.target.value)}
+          />
+        </div>
 
         <Input
           divWrapClassName='label-input-wrap'
-          labelHtmlFor='role-hall'
-          labelClassName='signup-label-radio'
-          labelText='Cozinha'
-          inputRequired
-          inputType='radio'
-          inputName='role-hall'
-          inputValue='kitchen'
-          inputChecked={workerRole === 'kitchen'}
-          inputClassName='signup-input-role'
-          inputOnChange={(event) => setWorkerRole(event.target.value)}
-        />
-
-        <Input
-          divWrapClassName='label-input-wrap'
-          labelHtmlFor='signup-input-password'
-          labelClassName='signup-label'
+          labelClassName='label-for-input'
           labelText='Senha'
           inputRequired
           inputType='password'
-          inputName='signup-input-password'
           inputPlaceholder='Digite a senha'
-          inputClassName='signup-input-password'
+          inputClassName='input-text'
           inputOnChange={(event) => setWorkerPassword(event.target.value)}
         />
 
         {/* <Input
           divWrapClassName='label-input-wrap'
-          labelHtmlFor='signup-input-password'
           labelClassName='signup-label'
           labelText='Confirmar senha'
           inputRequired
           inputType='password'
-          inputName='signup-input-password'
           inputPlaceholder='Digite a senha novamente'
           inputClassName='signup-input-password'
           inputOnChange={(event) => setWorkerConfirmPassword(event.target.value)}
@@ -130,7 +123,7 @@ export default function Signup() {
 
         <Button
           type='submit'
-          className='submit-form-button'
+          className='button-base button-primary'
           buttonText='Cadastrar'
         />
       </form>
@@ -138,7 +131,7 @@ export default function Signup() {
       <Link to="/">
         <Button
           type='button'
-          className='back-button'
+          className='button-base button-secondary'
           buttonText='Voltar'
         />
       </Link>
