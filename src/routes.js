@@ -18,8 +18,7 @@ function Routes() {
                 <Route path="/Menu" component={Menu}/>
             </Switch>
         </BrowserRouter>
-    )
-    
+    )  
 };
 
 export default Routes;

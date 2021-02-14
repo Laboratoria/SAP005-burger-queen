@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import { Link, useHistory} from 'react-router-dom';
+import {Copyright, SingIn, Logo, useStyles} from '../../components.js';
+import { Button, Container, TextField, Grid } from '@material-ui/core';
+import '../../style.css';
+
 
 function Login(){
+
+  const classes = useStyles();
+
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
   const urlLogin = `email=${emailLogin}&password=${passwordLogin}`
@@ -42,28 +49,47 @@ function Login(){
   }
 
     return (
-      <div>
-          <h1>Login</h1>
-         
-        <form>
-
-          <label htmlFor='email' className='email'></label>
-          <input  type='email' autoComplete='username'  placeholder='Email' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
-
-          <label htmlFor='password' className='password'></label>
-          <input  type='password'   autoComplete='password' placeholder='Senha' value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
-
-          <button className='submitButton' type='submit' onClick={(event) => {
-            event.preventDefault();
-            fetchLogin();
+      <Container className='container'>
+        <div className={classes.paper}>
+          <Logo/>
+          <form className={classes.form}>
+            <SingIn/>
             
-          }}>Entrar</button>
+            <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            label="Email Address"
+            name="email"
+            autoComplete="username"  
+            value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
-        </form>
-        <p>
-            <Link to="/Registry">Novo usuário? Registre-se</Link>
-          </p>
-      </div>
+            <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
+
+            <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => {event.preventDefault();fetchLogin();}}>Entrar</Button>
+
+          </form>
+  
+          <Grid item>
+            <Link to="/Registry" >
+              {'Novo usuário? Registre-se'}
+            </Link>
+          </Grid>
+
+        </div>
+        <><Copyright/></>
+      </Container>
     );
   }
   
