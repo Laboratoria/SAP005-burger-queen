@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../Styles/Cadastro.css';
+import '../../styles/Cadastro.css';
 import Header from '../../components/HeaderLogin/index.js';
 import Footer from '../../components/Footer/index.js';
 

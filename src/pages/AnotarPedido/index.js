@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../Styles/AnotarPedido.css';
+import '../../styles/AnotarPedido.css';
 
 function AnotarPedidos() {
   return (
