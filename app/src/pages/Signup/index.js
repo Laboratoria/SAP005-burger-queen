@@ -3,6 +3,7 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Footer from '../../components/Footer';
 
 export default function Signup() {
   const apiURL = 'https://lab-api-bq.herokuapp.com';
@@ -25,7 +26,7 @@ export default function Signup() {
         name: workerName,
         email: workerEmail,
         role: workerRole,
-        restaurant: 'Ipê',
+        restaurant: 'hamburgueria-ipe',
         password: workerPassword,
       }),
     };
@@ -135,6 +136,8 @@ export default function Signup() {
           buttonText='Voltar'
         />
       </Link>
+
+      <Footer />
     </Fragment>
   );
 }
