@@ -1,7 +1,7 @@
-import React from 'react';
-import { SignUp } from './pages/signup';
-import { Login } from './pages/login';
-import { Navbar } from './components/Navbar';
+import React from 'react'
+import { SignUp } from './pages/signup'
+import { Login } from './pages/login'
+import { Navbar } from './components/Navbar'
 import { Switch, Route } from 'react-router-dom'
 
 export const Routes = () => {
@@ -13,5 +13,4 @@ export const Routes = () => {
       <Route path='/navbar' component={Navbar} exact />
     </Switch>
   )
-
 }
