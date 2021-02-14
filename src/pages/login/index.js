@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
+import Footer from '../../components/footer'
 
 export const Login = () => {
 
@@ -46,6 +47,7 @@ export const Login = () => {
         />  
         <p>Funcionário novo? <br /><Link to='/signup'>Cadastrar-se</Link></p>
       </form>
+      <Footer />
     </Fragment> 
   )
 };
