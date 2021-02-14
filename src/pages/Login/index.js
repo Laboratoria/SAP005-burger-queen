@@ -1,8 +1,7 @@
-import { Button, Container, TextField, Grid } from '@material-ui/core';
 import React, { useState } from 'react'
 import { Link, useHistory} from 'react-router-dom';
-import {Copyright, SingIn, useStyles} from '../../components.js';
-import logo from '../../images/logo.png';
+import {Copyright, SingIn, Logo, useStyles} from '../../components.js';
+import { Button, Container, TextField, Grid } from '@material-ui/core';
 import '../../style.css';
 
 
@@ -52,10 +51,10 @@ function Login(){
     return (
       <Container className='container'>
         <div className={classes.paper}>
-          <img className={classes.logo}src={logo} alt="logo"/>
+          <Logo/>
           <form className={classes.form}>
             <SingIn/>
-
+            
             <TextField
             variant="outlined"
             margin="normal"
