@@ -28,7 +28,7 @@ function Login(){
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.role)
+        console.log(json)
         if(json.role === "garcom"){
           routerHall();
         }
@@ -61,7 +61,7 @@ function Login(){
 
         </form>
         <p>
-            <Link to="/Registry">Registro</Link>
+            <Link to="/Registry">Novo usuário? Registre-se</Link>
           </p>
       </div>
     );
