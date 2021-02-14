@@ -10,27 +10,29 @@ import CallAPI from "../../services/api";
 
 const userData = AllModelsObject.authAndUsers;
 
-const loginPage = (props) => {
-  const { email, password, auth } = props;
-  const body = `email=${email}&password=${password}`;
-  const method = RequestOptions.post(body);
-
-  CallAPI(auth, method)
-    .then((json) => {
-      console.log(json);
-      alert("Acessou")
-    })
-    .then(console.log("object"))
-};
-
 const Login = () => {
   const history = useHistory();
   const [user, setUser] = useState(userData);
 
+  const loginPage = (props) => {
+    const { email, password, auth } = props;
+    const body = `email=${email}&password=${password}`;
+    const method = RequestOptions.post(body);
+
+    CallAPI(auth, method)
+      .then((json) => {
+        if (json.code === 400) {
+          alert("Deu ruim")
+        } else {
+          history.push("/Home")
+        }
+      })
+
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     loginPage(user);
-    history.push("/Home")
   };
 
   return (
