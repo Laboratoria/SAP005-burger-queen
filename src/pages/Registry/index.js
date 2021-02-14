@@ -30,7 +30,7 @@ function Registry() {
      
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.role)
+        console.log(json)
         if(json.role === "garcom"){
           routerHall();
         }
