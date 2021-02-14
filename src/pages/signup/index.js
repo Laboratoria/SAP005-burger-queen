@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
-import Footer from '../../components/Footer'
 
 export const SignUp = () => {
 
@@ -93,7 +92,6 @@ export const SignUp = () => {
           }
         />
       </form>
-      <Footer />
     </Fragment>
   )
 }
