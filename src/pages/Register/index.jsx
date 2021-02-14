@@ -5,9 +5,11 @@ import AllModelsObject from "../../components/object/models";
 import Footer from "../../components/footer.js";
 import Logo from "../../components/logo";
 import CallAPI from "../../services/api";
-
+import { getError, printMessageError } from "../../components/errors.js";
 
 const userData = AllModelsObject.authAndUsers;
+
+const sendUserMessage = (message) => alert(message);
 
 const createUser = (props) => {
   const { email, password, role, name, users } = props;
@@ -16,8 +18,13 @@ const createUser = (props) => {
 
   CallAPI(users, method)
     .then((json) => {
-      console.log(json);
-      alert('Usuário cadastrado com sucesso!');
+      if (json.code) {
+        getError(json.code)
+      }
+      else {
+        sendUserMessage('User successfully registered!');
+        //linha para mudar a rota
+      }
     })
 }
 
@@ -30,9 +37,13 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createUser(user);
-    //limpar os inputs depois | refatorar o código setUser('')
+    if (user.password === user.confirmPassword)
+      createUser(user);
+    else {
+      printMessageError('Passwords do not match. Please try again.')
+    }
   }
+
   return (
     <>
       <div className="inputs-container">
@@ -40,26 +51,26 @@ const Register = () => {
           <p className="back-button"><Link to="/">BACK</Link></p>
           <Logo />
         </div>
-        <form>
+        <form onSubmit={(event) => { handleSubmit(event) }}>
           <label>
             Name:
-          <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value }) }} placeholder="Name" />
+          <input type='text' value={user.name} onChange={(event) => { setUser({ ...user, name: event.target.value }) }} placeholder="Name" required />
           </label>
           <label>
             Last name:
-          <input type='text' value={user.lastName} onChange={(event) => { setUser({ ...user, lastName: event.target.value }) }} placeholder="Last name" />
+          <input type='text' value={user.lastName} onChange={(event) => { setUser({ ...user, lastName: event.target.value }) }} placeholder="Last name" required />
           </label>
           <label>
             Email:
-          <input type='email' value={user.email} onChange={(event) => { setUser({ ...user, email: event.target.value }) }} placeholder="email@email.com" />
+          <input type='email' value={user.email} onChange={(event) => { setUser({ ...user, email: event.target.value }) }} placeholder="email@email.com" required />
           </label>
           <label>
             Password:
-          <input type='password' value={user.password} onChange={(event) => { setUser({ ...user, password: event.target.value }) }} placeholder="Password" />
+          <input type='password' minLength="8" value={user.password} onChange={(event) => { setUser({ ...user, password: event.target.value }) }} placeholder="Password" required />
           </label>
           <label>
             Confirm password:
-          <input type='password' value={user.confirmPassword} onChange={(event) => { setUser({ ...user, confirmPassword: event.target.value }) }} placeholder="Password" />
+          <input type="password" value={user.confirmPassword} onChange={(event) => { setUser({ ...user, confirmPassword: event.target.value }) }} placeholder="Password" required />
           </label>
 
           <label>
@@ -70,13 +81,9 @@ const Register = () => {
               <option value='Kitchen'>Kitchen</option>
             </select>
           </label>
+          <p id="error-login"></p>
 
-          <button type='submit' value='' onClick={(event) => {
-            if (user.password === user.confirmPassword) { handleSubmit(event) }
-            else {
-              alert('Senha erro')
-            }
-          }}> SIGN UP </button>
+          <button type="submit"> SIGN UP </button>
         </form>
       </div>
       <Footer />

@@ -6,9 +6,9 @@ import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 import CallAPI from "../../services/api";
+import { getError } from "../../components/errors.js";
 
-
-const userData = AllModelsObject.authAndUsers;
+const userData = AllModelsObject.authAndUsers;;
 
 const loginPage = (props) => {
   const { email, password, auth } = props;
@@ -17,10 +17,13 @@ const loginPage = (props) => {
 
   CallAPI(auth, method)
     .then((json) => {
-      console.log(json);
-      alert("Acessou")
+      if (json.code) {
+        getError(json.code)
+      }
+      else {
+        alert("Acessou") //linha para mudar a rota
+      }
     })
-    .then(console.log("object"))
 };
 
 const Login = () => {
@@ -36,27 +39,19 @@ const Login = () => {
       <Container>
         <div className="inputs-container">
           <Logo />
-          <form>
+          <form onSubmit={(event) => { handleSubmit(event) }}>
             <label>Login:
               <input type="text" value={user.email} onChange={(event) => { setUser({ ...user, email: event.target.value }); }}
-                placeholder="email@email.com"
+                placeholder="email@email.com" required
               />
             </label>
             <label>Password:
               <input type="password" value={user.password} onChange={(event) => { setUser({ ...user, password: event.target.value }); }}
-                placeholder="Password"
+                placeholder="Password" required
               />
             </label>
-            <label>Team:
-              <select className="select-style" onChange={(event) => { setUser({ ...user, role: event.target.value }); }} defaultValue="Team work">
-                <option disabled>Team work</option>
-                <option value="Hall">Hall</option>
-                <option value="Kitchen">Kitchen</option>
-              </select>
-            </label>
-            <button type="submit" value="" onClick={(event) => { handleSubmit(event); }}>
-              {" "}SIGN UP{" "}
-            </button>
+            <p id="error-login"></p>
+            <button type="submit"> SIGN IN </button>
             <p> Do not have an account? <span> <Link to="/Register">Register</Link> </span></p>
           </form>
         </div>

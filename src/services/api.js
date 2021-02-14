@@ -1,10 +1,13 @@
-const CallAPI = async (url,method) => {
-  try { 
-    const response = await fetch(url,method);
+import { alertMessage } from '../components/errors.js'
+
+const CallAPI = async (url, method) => {
+  try {
+    const response = await fetch(url, method);
     const data = await response.json();
     return data;
-  } catch (err) {
-      console.log(err);
+  } 
+  catch {
+    alertMessage('Ops! Something went wrong. Please, try again.');
   }
 };
 
