@@ -1,15 +1,15 @@
-import { Fragment, useState } from 'react';
-import { createUser } from '../../services/index';
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-
+import { Fragment, useState } from 'react'
+import { createUser } from '../../services/index'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
+import Footer from '../../components/Footer'
 
 export const SignUp = () => {
 
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-  const [jobPosition, setJobPosition] = useState('');
+  const [userName, setUserName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
+  const [jobPosition, setJobPosition] = useState('')
 
   return (
     <Fragment>
@@ -22,7 +22,7 @@ export const SignUp = () => {
           placeholder='Digite seu nome'
           value={userName}
           onChange={(event) => {
-            setUserName(event.target.value);
+            setUserName(event.target.value)
           }
           }
         /><br />
@@ -34,7 +34,7 @@ export const SignUp = () => {
           placeholder='Digite seu email'
           value={userEmail}
           onChange={(event) => {
-            setUserEmail(event.target.value);
+            setUserEmail(event.target.value)
           }
           }
         />
@@ -48,7 +48,7 @@ export const SignUp = () => {
           value='kitchen'
           onChange={(event) => {
             setJobPosition(event.target.value)
-            console.log(jobPosition);
+            console.log(jobPosition)
           }
           }
         />
@@ -60,7 +60,7 @@ export const SignUp = () => {
           type='radio'
           value='restaurant-hall'
           onChange={(event) => {
-            setJobPosition(event.target.value);
+            setJobPosition(event.target.value)
           }
           }
         /><br />
@@ -72,7 +72,7 @@ export const SignUp = () => {
           placeholder='Digite uma senha'
           value={userPassword}
           onChange={(event) => {
-            setUserPassword(event.target.value);
+            setUserPassword(event.target.value)
           }
           }
         /><br />
@@ -81,13 +81,19 @@ export const SignUp = () => {
           type='submit'
           onClick={
             async (event) => {
-              event.preventDefault();
-              const response = await createUser(userName, userEmail, userPassword, jobPosition)
+              event.preventDefault()
+              const response = await createUser(
+                userName,
+                userEmail,
+                userPassword,
+                jobPosition
+              )
               console.log(response)
             }
           }
         />
       </form>
+      <Footer />
     </Fragment>
   )
 }
