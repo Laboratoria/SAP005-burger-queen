@@ -5,19 +5,40 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 export default function Signup() {
-  const apiURL = 'https://lab-api-bq.herokuapp.com/';
+  const apiURL = 'https://lab-api-bq.herokuapp.com';
   const apiUsers = `${apiURL}/users`;
   const [workerName, setWorkerName] = useState('');
   const [workerEmail, setWorkerEmail] = useState('');
   const [workerRole, setWorkerRole] = useState('');
-  // const [workerPassword, setWorkerPassword] = useState('');
-  const handleSubmit = (event) => {
+  const [workerPassword, setWorkerPassword] = useState('');
+  // const [workerConfirmPassword, setWorkerConfirmPassword] = useState('');
+
+  const registerUser = (event) => {
     event.preventDefault();
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: workerName,
+        email: workerEmail,
+        role: workerRole,
+        restaurant: 'Ipê',
+        password: workerPassword,
+      }),
+    };
+
+    fetch(apiUsers, requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
   };
 
   return (
     <Fragment>
-      <form>
+      <form onSubmit={registerUser}>
         <Input
           divWrapClassName='label-input-wrap'
           labelHtmlFor='signup-input-name'
@@ -82,37 +103,38 @@ export default function Signup() {
           inputRequired
           inputType='password'
           inputName='signup-input-password'
-          inputPlaceholder='Digite sua senha'
+          inputPlaceholder='Digite a senha'
           inputClassName='signup-input-password'
+          inputOnChange={(event) => setWorkerPassword(event.target.value)}
         />
 
-        <Input
+        {/* <Input
           divWrapClassName='label-input-wrap'
           labelHtmlFor='signup-input-password'
           labelClassName='signup-label'
-          labelText='Senha'
+          labelText='Confirmar senha'
           inputRequired
           inputType='password'
           inputName='signup-input-password'
-          inputPlaceholder='Digite sua senha'
+          inputPlaceholder='Digite a senha novamente'
           inputClassName='signup-input-password'
-        />
+          inputOnChange={(event) => setWorkerConfirmPassword(event.target.value)}
+        /> */}
 
         <Button
           type='submit'
           className='submit-form-button'
           buttonText='Cadastrar'
-          onClick={(event) => handleSubmit(event)}
         />
       </form>
 
-        <Link to="/">
-          <Button
-            type='button'
-            className='back-button'
-            buttonText='Voltar'
-          />
-        </Link>
+      <Link to="/">
+        <Button
+          type='button'
+          className='back-button'
+          buttonText='Voltar'
+        />
+      </Link>
     </Fragment>
   );
 }
