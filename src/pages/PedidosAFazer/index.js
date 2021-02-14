@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../styles/PedidosAFazer.css';
+import '../../Styles/PedidosAFazer.css';
 
 function PedidosAFazer() {
   return (
