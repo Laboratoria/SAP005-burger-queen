@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
-import Footer from '../../components/footer'
+import Footer from '../../components/Footer/Footer'
 
 export const Login = () => {
 
