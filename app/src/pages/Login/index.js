@@ -10,9 +10,6 @@ export default function Login() {
   const [emailLogin, setEmailLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
 
-  const handleLogin = () => {
-
-  };
   const authUser = (event) => {
     event.preventDefault();
 
