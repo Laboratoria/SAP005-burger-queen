@@ -41,7 +41,10 @@
       "error",
       {
         "ObjectExpression": "always",
-        "ObjectPattern": { "multiline": true },
+        "ObjectPattern": {
+          "multiline": true,
+          "minProperties": 3
+        },
         "ImportDeclaration": "never",
         "ExportDeclaration": {
           "multiline": true,
