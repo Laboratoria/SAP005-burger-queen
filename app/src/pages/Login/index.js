@@ -1,19 +1,41 @@
+/* eslint-disable no-console */
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 export default function Login() {
+  const apiURL = 'https://lab-api-bq.herokuapp.com';
+  const apiAuth = `${apiURL}/auth`;
   const [emailLogin, setEmailLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
 
   const handleLogin = () => {
 
   };
+  const authUser = (event) => {
+    event.preventDefault();
+
+    const authOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailLogin,
+        password: passwordLogin,
+      }),
+    };
+
+    fetch(apiAuth, authOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <Fragment>
-      <form>
+      <form onSubmit={authUser}>
         <Input
           divWrap='label-input-wrap'
           labelHtmlFor='login-email'
