@@ -1,4 +1,4 @@
-export const CallAPI = async (url,method) => {
+const CallAPI = async (url,method) => {
   try { 
     const response = await fetch(url,method);
     const data = await response.json();
@@ -6,4 +6,6 @@ export const CallAPI = async (url,method) => {
   } catch (err) {
       console.log(err);
   }
-}
+};
+
+export default CallAPI;
