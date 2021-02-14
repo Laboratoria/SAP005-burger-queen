@@ -25,6 +25,9 @@ const createUser = (email, password, role, name) => {
       console.log(json)
       alert('Usuário cadastrado com sucesso!');
     })
+    .catch((err) => {
+      alert(err.message)
+    })
 }
 
 const Register = () => {
