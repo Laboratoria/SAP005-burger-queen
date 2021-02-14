@@ -1,12 +1,12 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import Footer from './footer';
-import Header from './navbar';
+import Navbar from './navbar';
 
 const Body = (props) => {
 return(
   <>
-  <Header />
+  <Navbar />
   <main className='App'>
     {props.children}
   </main>
