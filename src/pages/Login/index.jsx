@@ -21,8 +21,10 @@ const Login = () => {
 
     CallAPI(auth, method)
       .then((json) => {
+        localStorage.setItem(`${json.id}`,`${json.token}`);
+        console.log(json)
         if (json.code === 400) {
-          alert("Deu ruim")
+          alert(`Deu ruim! ${json.message}`)
         } else {
           history.push("/Home")
         }
