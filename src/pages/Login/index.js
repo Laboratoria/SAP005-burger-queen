@@ -1,19 +1,17 @@
 import { Link } from 'react-router-dom';
-import Logo from '../assets/Logo_Burger-Beef .png'
-import IconUser from '../assets/user.png'
-import IconPassword from '../assets/padlock.png'
+import '../../Styles/Login.css';
+import Footer from '../../components/Footer/index.js';
+import Header from '../../components/HeaderLogin/index.js';
+import IconUser from '../../assets/user.png';
+import IconPassword from '../../assets/padlock.png';
 
-
-import './Login.css';
 
 function Login() {
   return (
 
     <section className="page-login">
-
-      <header className="header-login">
-        <img className="logo-login"  src={Logo} alt='logo' />
-      </header>
+      
+      <Header/>
 
       <form className="form-login">
 
@@ -40,7 +38,10 @@ function Login() {
         <h3>Ou clique <Link to='/Cadastro'>AQUI</Link> para se cadastrar.</h3>
       </div>
 
+      <Footer/>
+
     </section>
+  
   );
 }
 
