@@ -7,8 +7,8 @@ import Register from "../pages/Register/index";
 const Routes = () => {
   return (<BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/Login" component={Login} />
+      <Route exact path="/" component={Login} />
+      <Route exact path="/Home" component={Home} />
       <Route exact path="/Register" component={Register} />
       <Route component={() => <div>Page 404!</div>} />
     </Switch>

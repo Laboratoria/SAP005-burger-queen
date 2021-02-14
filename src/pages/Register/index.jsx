@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import RequestOptions from "../../components/objectAndfunctions/requestOptions";
-import { CallAPI } from "../../services/api"
+import RequestOptions from "../../components/object/requestOptions";
+import AllModelsObject from "../../components/object/models";
 import Footer from "../../components/footer.js";
 import Logo from "../../components/logo";
-import "./../../style.css";
+import CallAPI from "../../services/api";
 
-const userData = {
-  parameters: "users",
-  apiURL: "https://lab-api-bq.herokuapp.com/",
-  name: '',
-  lastName: '',
-  email: '',
-  role: '',
-  password: '',
-  confirmPassword: '',
-  token: '',
-}
+
+const userData = AllModelsObject.authAndUsers;
 
 const createUser = (props) => {
-  const { email, password, role, name, parameters, apiURL } = props;
-  const api = apiURL + parameters;
+  const { email, password, role, name, users } = props;
   const body = `email=${email}&password=${password}&role=${role}&restaurant=Burgerlicious&name=${name}`;
   const method = RequestOptions.post(body);
 
-  CallAPI(api, method)
+  CallAPI(users, method)
     .then((json) => {
       console.log(json);
       alert('Usuário cadastrado com sucesso!');
@@ -47,7 +37,7 @@ const Register = () => {
     <>
       <div className="inputs-container">
         <div className="container-logo-btn">
-          <p className="back-button"><Link to="/Login">BACK</Link></p>
+          <p className="back-button"><Link to="/">BACK</Link></p>
           <Logo />
         </div>
         <form>
