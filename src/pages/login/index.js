@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
+import Body from '../../components/Template/Template'
 
 export const Login = () => {
 
@@ -12,6 +13,7 @@ export const Login = () => {
 
   return (
     <Fragment>
+      <Body>
       <form className='form'>
       <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
           <Input
@@ -53,6 +55,7 @@ export const Login = () => {
         />
         <p>Funcionário novo? <br /><Link to='/signup'>Cadastrar-se</Link></p>
       </form>
+      </Body>
     </Fragment> 
   )
 };
