@@ -64,7 +64,6 @@ export default function Login() {
         <Button
           type='submit'
           className='login-button'
-          onClick={handleLogin()}
           buttonText='Entrar'
         />
       </form>
