@@ -9,7 +9,10 @@ const Routes = () =>{
         <Switch>
             <Route path='/' exact component={Login} />
             <Route path='/register' exact component={Register} />
-            <Route path='/orders' exact component={Orders} />
+            <PrivateRoute path='/orders' exact component={Orders} >
+                <ProtectedPage/>
+                
+            </PrivateRoute>
         </Switch>
     )
 };
