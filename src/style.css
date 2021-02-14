@@ -1,12 +1,11 @@
 body{
-    background-color: rgb(93, 128, 151);
-    color:rgb(255, 255, 255)
+    background-color: #1b1916;    ;
 }
 .container {
     margin-top: 2vh;
     background-color: white;
     width: 100%;
-    box-shadow: 0 0 8px rgba(0,0,0,1);
+    box-shadow: 0 0 8px #5c564f;
     border-radius: 20px;
     max-width: 700px;   
 }

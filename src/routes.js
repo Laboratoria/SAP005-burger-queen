@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Home from './pages/Hall';
-import Login from './pages/Login';
-import Registry from './pages/Registry';
-import Kitchen from './pages/Kitchen';
-import Menu from './pages/Menu';
+import Home from './pages/Hall/index';
+import Login from './pages/Login/index';
+import Registry from './pages/Registry/index';
+import Kitchen from './pages/Kitchen/index';
+import Menu from './pages/Menu/index';
 
 function Routes() {
     return(

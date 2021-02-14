@@ -6,6 +6,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
 
 export const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
   paper: {
     display: 'flex',
     flexDirection: 'column',
@@ -25,6 +29,9 @@ export const useStyles = makeStyles((theme) => ({
   logo: {
     maxWidth: 200,
   },
+  arrow:{
+    margin: 10,
+  }
   
 }));
 
@@ -59,4 +66,11 @@ export function SingIn() {
   )
 }
 
+export function CreatSing() {
+  return (
+    <Typography color="textPrimary" component="h1" variant="h5">
+      Cadastre-se 
+    </Typography>
+  )
+}
   
