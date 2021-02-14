@@ -1,10 +1,10 @@
 import { Switch, Route } from 'react-router-dom';
 
-import Login from './pages/Login.js';
-import Cadastro from './pages/Cadastro'
-import AnotarPedidos from './pages/AnotarPedido.js';
-import PedidosAFazer from './pages/PedidosAFazer.js';
-import PedidosProntos from './pages/PedidosProntos.js';
+import Login from '../src/pages/Login/index.js';
+import Cadastro from '../src/pages/SignUp/index.js'
+import AnotarPedidos from '../src/pages/AnotarPedido/index.js';
+import PedidosAFazer from '../src/pages/PedidosAFazer/index.js';
+import PedidosProntos from '../src/pages/PedidosProntos/index.js';
 
 const Routes = () => {
     return (

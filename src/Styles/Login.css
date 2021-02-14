@@ -3,7 +3,6 @@
 .page-login{
     font-family: 'Oswald', sans-serif;
     color: #fff;
-    padding: 8em;
 }
 
 h3{
@@ -21,39 +20,31 @@ a{
     -webkit-transition: all .4s ease-in-out;    
 }
 
-a:hover{
+ a:hover{
     font-size: 22pt;
     color: #E4A240;
     padding: .1em;
 }
 
-.header-login{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.logo-login{
-    max-width: 18em;
-}
-
 .form-login{
     background-color: #E4A240;
     border-radius: .5em;
-    padding: 2em;
+    padding: 3em 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    width: 60%;
+    margin: 3em auto;
 
 }
 
 .field-login{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .field-login >p{
@@ -91,7 +82,8 @@ a:hover{
     display: flex;
     flex-direction: column;
     align-items: center;   
-    margin-top: 2em;
+    margin: 2em 2em;
+
 }
 
 .btn-login{
@@ -107,6 +99,7 @@ a:hover{
     transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     border:none;
+    outline: none;
 }
 
 .btn-login:hover{
@@ -129,5 +122,6 @@ a:hover{
     .form-login {
         width: 40%;
         margin: 0 auto;
+        padding: 3em 1em;
     }
 }
