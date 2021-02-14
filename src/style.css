@@ -25,6 +25,16 @@ a:hover {
   justify-content: center;
 }
 
+#error-login {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+    color: #F0504A;
+}
+
 .text {
   color: #584944;
   font-size: 18px;
