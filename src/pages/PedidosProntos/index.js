@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../../styles/PedidosProntos.css';
+import '../../Styles/PedidosProntos.css';
 
 function PedidosProntos() {
   return (

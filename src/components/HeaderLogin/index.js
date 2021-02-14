@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/Logo_Burger-Beef .png';
-import '../../styles/HeaderLogin.css';
+import '../../Styles/HeaderLogin.css';
 
 export default HeaderLogin => {
     return (
