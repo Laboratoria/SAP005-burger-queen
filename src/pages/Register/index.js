@@ -8,12 +8,11 @@ export const Register = () => {
     
     const sendRegistration = (e) => {
         e.preventDefault();
-        const sendRegistrationData = {
+        fetch('https://lab-api-bq.herokuapp.com/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(signIn)
-        };
-        fetch('https://lab-api-bq.herokuapp.com/users', sendRegistrationData)
+        })
         .then(response => response.json())
         .then(json => console.log(json))
         .catch((error) => {
