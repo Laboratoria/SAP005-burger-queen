@@ -1,9 +1,10 @@
 import React from 'react';
+import './footer.css';
 
 const Footer = () => {
   return (
     <footer className='footer'>
-      <p>Desenvolvido por
+      <p className='footer-p'>Desenvolvido por
         <a
           className='footer-link'
           href='https://github.com/CarolineSCosta'
@@ -11,7 +12,8 @@ const Footer = () => {
           rel='noopener noreferrer'
         >
           CarolineCosta
-        </a> e
+        </a> 
+        </p> e <p className='footer-p'>
         <a className='footer-link'
           href='https://github.com/Elis-ctrl'
           target='_blank'

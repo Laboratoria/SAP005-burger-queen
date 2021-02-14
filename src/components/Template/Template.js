@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import './template.css'
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 
