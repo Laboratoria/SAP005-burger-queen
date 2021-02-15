@@ -22,8 +22,7 @@ export const useStyles = makeStyles((theme) => ({
   paperTable: {
     display: 'flex',
     alignItems: 'center',
-    paddingLeft:'140px',
-    paddingTop:'15px'
+
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -42,12 +41,11 @@ export const useStyles = makeStyles((theme) => ({
     color: '#fafafa'
   },
   submitMenu: {
-    margin: theme.spacing(2, 1, 0),
+    display:'inline',
+    margin: theme.spacing(2, 0, 0),
     backgroundColor: theme.palette.text.primary,
     color: '#fafafa',
-    paddingLeft:'30px',
-    marginLeft:'16px',
-    textAlign:'center'
+    
   },
   logo: {
     maxWidth: 200,
@@ -60,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   arrowMenu:{
     margin: 10,
-    paddingTop:'480px'
+    paddingTop:'300px'
   },
   totalProducts: {
     paddingRight:'100px',

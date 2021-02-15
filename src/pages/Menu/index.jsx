@@ -12,21 +12,21 @@ function Menu(){
     return (
            <React.Fragment >
             <Container className='containerMenu'>
-          <form className={classes.paperTable} noValidate autoComplete="off" >
-            <Input placeholder="Nome" inputProps={{ 'aria-label': 'description' }} />
+          <form className={classes.paperTable}  noValidate autoComplete="off" >
+            <Input placeholder="Nome"fullWidth inputProps={{ 'aria-label': 'description' }} />
             <Input placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} />
           </form  >
             {/* <Button onClick={() => { alert('clicked') }}></Button> */}
-          <Button variant="contained" size="large" type="submit" className={classes.submitMenu} >
+          <Button variant="contained" fullWidth size="large" type="submit" className={classes.submitMenu} >
               Café da manhã
           </Button>
-          <Button variant="contained" size="large"  type="submit" className={classes.submitMenu}>
+          <Button variant="contained" fullWidth size="large"  type="submit" className={classes.submitMenu}>
             Aperitivos
           </Button>
-          <Button variant="contained" size="large" type="submit" className={classes.submitMenu}>
+          <Button variant="contained" fullWidth size="large" type="submit" className={classes.submitMenu}>
               Lanches
           </Button>
-          <Button variant="contained" size="large"  type="submit" className={classes.submitMenu} >
+          <Button variant="contained" fullWidth size="large"  type="submit" className={classes.submitMenu} >
             Bebidas
           </Button>
           <BoxProducts></BoxProducts>

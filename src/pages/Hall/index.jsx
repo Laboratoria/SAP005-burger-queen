@@ -12,6 +12,11 @@ import '../../style.css';
 function Home(){
   const classes = useStyles();
   const history = useHistory();
+
+  const routerPendentes = () => {
+    history.push('/Pendentes')
+  }
+
   const routerMenu = () => {
     history.push('/Menu')
   }
@@ -24,7 +29,7 @@ function Home(){
               <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}>
                 + Novo Pedido
               </Button>
-              <Button type="submit" fullWidth variant="contained" className={classes.submitHall} >
+              <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} >
                 Pendentes
               </Button>
             </div>
