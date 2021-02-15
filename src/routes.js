@@ -1,6 +1,7 @@
 import React from 'react';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+
 import { Kitchen } from './pages/Kitchen';
 
 
@@ -14,4 +15,5 @@ export const Routes = () => {
         <Route path='/Kitchen' component={Kitchen} />
       </Switch>
     );
+
 };
