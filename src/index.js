@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './pages/App';
-import Login from './pages/Login'
-import Register from './pages/Register';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import Kitchen from './pages/Kitchen';
-import Salon from './pages/Salon';
-import Pagina404 from './pages/Pagina404';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './components/Routes'
+
 
 // import { isAuthenticated } from './pages/Login';
 
@@ -23,13 +19,7 @@ import Pagina404 from './pages/Pagina404';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route path="/login"component={Login} />
-      <Route path="/register"component={Register}/>
-      <Route path="/cozinha"component={Kitchen}/>
-      <Route path="/salao"component={Salon}/>
-      <Route component={Pagina404}/>
-    </Switch>
+    <Routes />
   </BrowserRouter>,
   document.getElementById('root')
 );
