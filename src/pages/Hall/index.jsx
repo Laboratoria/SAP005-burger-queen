@@ -1,36 +1,41 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import logo from '../../images/logo.png';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import {useStyles, Logo, SingIn, Copyright} from '../../components.js';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
+
+import '../../style.css';
 
 function Home(){
+  const classes = useStyles();
   const history = useHistory();
   const routerMenu = () => {
     history.push('/Menu')
   }
     return (
-      <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth='sm'>
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
-        <h1>Hall</h1>
+      
+      <React.Fragment >
+      <Container className='container'>
+        <Typography component="div" />
           <div>
-              <Button variant="contained" color="gray" onClick={routerMenu}>
+              <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}>
                 + Novo Pedido
               </Button>
-              <Button variant="contained" color="gray">
+              <Button type="submit" fullWidth variant="contained" className={classes.submitHall} >
                 Pendentes
               </Button>
             </div>
+            <div className={classes.paper}>
+              <Logo />
+              <SingIn/>
+            </div>
             <p>
-              <img src={logo} alt="logo"/>
+              <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/> </Link>
             </p>
-            <p>
-              <Link to="/">Sair</Link>
-            </p>
+            <Copyright/>
         </Container>      
         </React.Fragment>
 

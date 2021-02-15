@@ -5,15 +5,25 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
 
+
 export const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
   },
+  margin: {
+    margin: theme.spacing(1),
+  },
   paper: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  paperTable: {
+    display: 'flex',
+    alignItems: 'center',
+    paddingLeft:'140px',
+    paddingTop:'15px'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -21,17 +31,40 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     
   },
+  submitHall: {
+    margin: theme.spacing(3, 0, -1.5),
+    backgroundColor: theme.palette.text.primary,
+    color: '#fafafa'
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: theme.palette.text.primary,
     color: '#fafafa'
   },
+  submitMenu: {
+    margin: theme.spacing(2, 1, 0),
+    backgroundColor: theme.palette.text.primary,
+    color: '#fafafa',
+    paddingLeft:'30px',
+    marginLeft:'16px',
+    textAlign:'center'
+  },
   logo: {
     maxWidth: 200,
+    paddingTop:'60px'
+    
   },
   arrow:{
     margin: 10,
-  }
+    paddingRight:'600px'
+  },
+  arrowMenu:{
+    margin: 10,
+    paddingTop:'480px'
+  },
+  totalProducts: {
+    paddingRight:'100px',
+  },
   
 }));
 
@@ -66,11 +99,38 @@ export function SingIn() {
   )
 }
 
-export function CreatSing() {
+export function CreatSign() {
   return (
     <Typography color="textPrimary" component="h1" variant="h5">
       Cadastre-se 
     </Typography>
   )
 }
-  
+
+export function BoxProducts() {
+  return (
+    <Box sx={{ border: '1px dashed grey' }} clone>
+      <p>produtos</p>
+    </Box>
+  );
+}
+
+export function BoxTotalProducts() {
+  return (
+    <Box sx={{ border: '1px dashed grey' }} clone>
+      <p>Total produtos</p>
+    </Box>
+  );
+}
+
+
+
+/* export function SimpleAlerts() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.errorBox}>
+      <Alert severity="error">{json.message}</Alert>
+    </div>
+  );
+} */
