@@ -1,0 +1,98 @@
+/* IMPORT FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	font-size: 15.5px;
+	background-color: #a9b6aa;
+}
+
+.logo {
+	max-width: 35vw;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	padding: 1rem 0;
+}
+
+.required {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #9a6a43;
+}
+
+.form-login {
+	max-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.label {
+	margin-top: 1rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: #002c37;
+	text-transform: uppercase;
+}
+
+.input-login {
+	border: none;
+	border-bottom: solid 1px #002c37;
+	outline: none;
+	padding: 0.3rem 0;
+	background-color: #a9b6aa;
+	font-size: 1rem;
+	color: #002c37;
+}
+
+.btn-login {
+	margin-left: 6rem;
+	margin-right: 6rem;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border: solid 2px #002c37;
+	border-radius: 0.7rem;
+	background-color: #002c37;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-login:hover {
+	background-color: #a9b6aa;
+	color: #002c37;
+}
+
+input,
+button {
+	font-family: "Work Sans", sans-serif;
+}
+
+.question-login {
+	margin-top: 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	line-height: 1.5rem;
+	color: #002c37;
+}
+
+.link-to-signup {
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+	color: #9a6a43;
+}

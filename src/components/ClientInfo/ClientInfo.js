@@ -11,9 +11,9 @@ export default function ClientInfo() {
 
   return (
     <Fragment>
-      <header>
+      {/*<header>
         <Navbar />
-      </header>
+      </header>*/}
       <main>
         <form className='form-client-info'>
           <label htmlFor='clientName' className='label'>Nome<span className='required'> *</span></label><br />

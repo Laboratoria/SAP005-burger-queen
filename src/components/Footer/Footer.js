@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className='footer'>
       <p className='footer-text'>Desenvolvido por&nbsp;
         <a
-          classnsme='footer-link'
+          className='footer-link'
           href='https://github.com/CarolineSCosta'
           title='gitHub'
           target='_blank'

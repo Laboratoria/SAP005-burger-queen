@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import './login.css'
+import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
 import Button from '../../components/Button/Button'
 import Input from '../../components/InputText/InputText'
 import Footer from '../../components/Footer/Footer'
-//import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png'
 
 export const Login = () => {
 
@@ -14,14 +15,15 @@ export const Login = () => {
 
   return (
     <Fragment>
-      {/*<header>
+      <header>
         <img className='logo' src={logo} alt='Logo Urban Bistro' />
-      </header>*/}
-      <form>
+      </header>
+      <form className='form-login'>
         <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
         <Input
           required
           name='userEmail'
+          className='input-login'
           type='email'
           placeholder='Digite seu email'
           value={userEmail}
@@ -35,6 +37,7 @@ export const Login = () => {
         <Input
           required
           name='userPassword'
+          className='input-login'
           type='email'
           placeholder='Digite uma senha'
           value={userPassword}
@@ -46,6 +49,7 @@ export const Login = () => {
         /><br />
         <Button
           name='Entrar'
+          className='btn-login'
           type='submit'
           onClick={
             async (event) => {
@@ -58,7 +62,7 @@ export const Login = () => {
             }
           }
         />
-        <p>Funcionário novo? <br /><Link to='/signup'>Cadastrar-se</Link></p>
+        <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
       </form>
       <Footer />
     </Fragment>
