@@ -74,7 +74,7 @@ function Registry() {
           margin="normal"
           required
           fullWidth
-          label="Email Address"
+          label="Email"
           name="email"
           autoComplete="username"  
           value={emailCadastro} onChange={(event) => inEmail(event.target.value)}/>
@@ -85,7 +85,7 @@ function Registry() {
           required
           fullWidth
           name="password"
-          label="Password"
+          label="Senha"
           type="password"
           id="password"
           autoComplete="current-password"
@@ -97,7 +97,7 @@ function Registry() {
           required
           fullWidth
           name="password"
-          label="Password Confirm"
+          label="Confirme a senha"
           type="password"
           id="password"
           autoComplete="current-password"
@@ -117,7 +117,7 @@ function Registry() {
           </FormControl>
 
           <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => { event.preventDefault();
-          validadePassword();}}>Entrar</Button>
+          validadePassword();}}>Criar</Button>
 
         </form>
       </div>
