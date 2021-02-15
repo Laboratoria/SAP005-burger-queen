@@ -33,6 +33,7 @@ export const Login = () => {
           type='email'
           placeholder='Digite uma senha'
           value={userPassword}
+          minLength='6'
           onChange={(event) => {
             setUserPassword(event.target.value)
           }

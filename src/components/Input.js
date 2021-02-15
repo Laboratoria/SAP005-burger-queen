@@ -3,9 +3,11 @@ import React from 'react';
 export default function Input({
   required,
   name,
+  className,
   id,
   type,
   value,
+  minLength,
   placeholder,
   checked,
   onChange
@@ -14,6 +16,7 @@ export default function Input({
     <input
       required={required}
       name={name}
+      className={className}
       id={id}
       type={type}
       value={value}
