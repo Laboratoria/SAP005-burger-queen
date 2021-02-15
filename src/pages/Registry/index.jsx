@@ -48,7 +48,10 @@ function Registry() {
      
       .then((response) => response.json())
       .then((json) => {
+        
         console.log(json)
+        localStorage.setItem('token',json.token)
+
         if(json.role === "garcom"){
           routerHall();
         }

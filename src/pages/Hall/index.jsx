@@ -10,6 +10,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import '../../style.css';
 
 function Home(){
+  
+
   const classes = useStyles();
   const history = useHistory();
 
@@ -20,8 +22,24 @@ function Home(){
   const routerMenu = () => {
     history.push('/Menu')
   }
+
+
+    
+  function getLocalStorage(){
+      const tokenLocal = localStorage.getItem('token')
+      console.log(tokenLocal)
+
+      fetch('https://lab-api-bq.herokuapp.com/products', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': tokenLocal ,
+        },
+      }).then((response) => console.log(response.json()))
+  }
+
     return (
-      
       <React.Fragment >
         <NavBar/>
       
@@ -32,11 +50,11 @@ function Home(){
               <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} >
                 Pendentes
               </Button>
+              <Button onClick={(event) => { event.preventDefault(); getLocalStorage();}}>Produtos</Button>
             </Container>   
         </React.Fragment>
 
     );
   }
 
-  
   export default Home;
