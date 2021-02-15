@@ -1,6 +1,11 @@
-import Login from './Login'
+import React from 'react'
 
-console.log('login')
+function Login() {
 
-
+    return(
+        <div>
+            <h1>Login</h1>
+        </div>
+    )
+}
 export default Login

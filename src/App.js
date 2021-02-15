@@ -1,23 +1,15 @@
-// import React  from "react";
-
-// import Routes from './routes';
-
-// const App = () =><Routes />;
-  
 import React from 'react'
+import Routes from './routes'
 
-import Routes from '../components/Routes'
+function App () {
+  return (
+    <div>
+      <Routes />
+    </div>
+  )
+}
 
-import './App.css'
-
-const App = () => (
-    <main className="App">
-        <Routes/>
-    </main>
-)
-
-
-export default App;
+export default App
 
 
 

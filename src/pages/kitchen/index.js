@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Register() {
+function Kitchen(){
 
     return(
         <div>
-            <h1>Register</h1>
+            <h1>Kitchen</h1>
         </div>
     )
 }
-export default Register
+export default Kitchen
