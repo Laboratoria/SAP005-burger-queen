@@ -9,26 +9,32 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Kitchen from './pages/Kitchen';
 import Salon from './pages/Salon';
 import Pagina404 from './pages/Pagina404';
+import PaginaPedidos from './pages/PaginaPedidos';
 
-// import { isAuthenticated } from './pages/Login';
 
-// const PrivateRoute = ({component: Component, ...rest }) => (
-//     <Route 
-//         {...rest}
-//         render={(props) => {
-//           isAuthenticated() === true ? (<Component { ...props} />) : (<Redirect to={{pathname: "/login", state: { from: props.location } }} />)
-//         }}
-//     />
-// );
+const PrivateRoute = ({component: Component, ...rest }) => (
+    <Route 
+        {...rest}
+        render={props => 
+          localStorage.getItem("token") ? (
+            <Component { ...props} />
+          ) : (
+            <Redirect to={{pathname: "/login", state: { from: props.location } }} />
+          )
+        }
+    />
+);
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/login"component={Login} />
-      <Route path="/register"component={Register}/>
-      <Route path="/cozinha"component={Kitchen}/>
-      <Route path="/salao"component={Salon}/>
-      <Route component={Pagina404}/>
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register}/>
+      <PrivateRoute path="/cozinha" component={Kitchen}/>
+      <PrivateRoute path="/salao" component={Salon}/>
+      <PrivateRoute path="/pedidos/:mesa" component={PaginaPedidos} />
+
+      <PrivateRoute component={Pagina404}/>
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

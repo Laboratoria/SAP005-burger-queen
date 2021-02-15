@@ -12,7 +12,9 @@ function Login(props) {
   
       const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json' 
+        },
         body: JSON.stringify(authInfo)
       };
   
@@ -20,7 +22,12 @@ function Login(props) {
         .then(response => response.json())
         .then(data => {
           if(data.token !== undefined){
-            history.push(`/${data.role}`);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("userId", data.id);
+            localStorage.setItem("atendente", data.name)
+            history.push({
+              pathname: `/${data.role}`,
+            });
           } else {
             alert(data.message);
           }
@@ -72,13 +79,5 @@ function Login(props) {
       
     );
 }
-
-// export function isAuthenticated() {
-//   if(token !== ""){
-//     return true;
-//   }
-
-//   return false;
-// }
 
 export default Login;
