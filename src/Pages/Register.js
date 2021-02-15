@@ -60,32 +60,54 @@ function Register() {
   }
 
   return (
+  <div class= "img-fundo-two">
     <form>
+      <center>
+      <h3>Register</h3>
+
+      <div className="form-group">
+        <label>
+          Email:
+        <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={(event) => setEmail(event.target.value)} />
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label>
+          Password:
+          <input type="password" className="form-control" placeholder="Enter password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label>
+          Role:
+          <input type="text" className="form-control" placeholder="waiter ou chef" value={role} onChange={(event) => setRole(event.target.value)} />
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label>
+          Restaurant:
+          <input type="text" className="form-control" placeholder="Restaurant" value={restaurant} onChange={(event) => setRestaurant(event.target.value)} />
+        </label>
+      </div>
+
+      <div className="form-group">
+        <label>
+          Name:
+          <input type="text" className="form-control"  placeholder="Primeiro Nome" value={nome} onChange={(event) => setName(event.target.value)} />
+        </label>
+      </div>
       <label>
-        Email:
-        <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
-      </label>
-      <label>
-        Role:
-        <input type="text" value={role} onChange={(event) => setRole(event.target.value)} />
-      </label>
-      <label>
-        Restaurant:
-        <input type="text" value={restaurant} onChange={(event) => setRestaurant(event.target.value)} />
-      </label>
-      <label>
-        Name:
-        <input type="text" value={nome} onChange={(event) => setName(event.target.value)} />
-      </label>
-      <input type="submit" value="Enviar" onClick={(event) => handleSubmit(event)}/>
-      <p>
+      <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)}/>
+      <p className="forgot-password text-right">
         Já tem conta? <Link to='/'>Entrar!</Link>
       </p>
+      </label>
+      </center>
     </form>
+  </div>
   )
   
 }
