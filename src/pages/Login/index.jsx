@@ -35,7 +35,10 @@ function Login(){
     })
       .then((response) => response.json())
       .then((json) => {
+
         console.log(json)
+        localStorage.setItem('token',json.token)
+        
         if(json.role === "garcom"){
           routerHall();
         }
@@ -66,7 +69,6 @@ function Login(){
             value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
             <TextField
-            color='primary'
             variant="outlined"
             margin="normal"
             required

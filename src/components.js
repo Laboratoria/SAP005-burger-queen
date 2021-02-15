@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link, AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
 
@@ -94,12 +95,7 @@ export function Copyright() {
   return (
     <Box mt={5} className="copyRight">
       <Typography variant="body2"  align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
+        {'Copyright © Your Website'}
       </Typography> 
     </Box>
   );
@@ -129,11 +125,12 @@ export function NavBar() {
     <AppBar position="static" elevation={0} className={classes.appBar}>
     <Toolbar className={classes.toolbar}>
         <LogoNav/>
-        <Typography variant="h6" color="textDisabled" noWrap className={classes.toolbarTitle}>
+        <Typography variant="h6"  noWrap className={classes.toolbarTitle}>
         Ratatouille
         </Typography>
-        <Button href='/' color="textPrimary" variant="outlined" className={classes.link}>
-          Sair
+        <Button variant="outlined" className={classes.link}>
+          <Link to='/' >Sair</Link>
+          
         </Button>
          
       </Toolbar>
