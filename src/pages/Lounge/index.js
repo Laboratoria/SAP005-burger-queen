@@ -1,11 +1,12 @@
 import React from 'react'
 
-function Register() {
+function Hall() {
 
     return(
+
         <div>
-            <h1>Register</h1>
+            <h1>Lounge</h1>
         </div>
     )
 }
-export default Register
+export default Hall
