@@ -6,7 +6,7 @@ import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 import CallAPI from "../../services/api";
-import { getError } from "../../components/errors.js";
+import { getError } from "../../components/errors/errors.js";
 
 const userData = AllModelsObject.authAndUsers;;
 
@@ -21,11 +21,13 @@ const Login = () => {
 
     CallAPI(auth, method)
       .then((json) => {
-        localStorage.setItem(`id`,`${json.id}`)
-        localStorage.setItem(`token`,`${json.token}`)
         if (json.code) {
           getError(json.code)
         }
+
+        localStorage.setItem(`currentUser`, JSON.stringify(json))
+        localStorage.setItem(`token`, `${json.token}`)
+
         if (json.role === "hall") {
           history.push("/Hall")
         }
