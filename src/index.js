@@ -1,8 +1,6 @@
 import ReactDOM from 'react-dom'
-
 import { BrowserRouter } from 'react-router-dom'
 import { Routes } from './routes'
-
 
 ReactDOM.render(
   <BrowserRouter>
