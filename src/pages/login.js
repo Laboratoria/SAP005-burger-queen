@@ -7,6 +7,11 @@ export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    function LoginBtn(e) {
+        e.preventDefault();
+
+
+
     fetch('https://lab-api-bq.herokuapp.com/auth', {
         method: 'POST',
         headers: {
@@ -21,6 +26,7 @@ export const Login = () => {
             console.log(result);
 
         });
+    }    
 
     return (
 
@@ -31,7 +37,7 @@ export const Login = () => {
             <form>
                 <input type="text" name="email" placeholder="E-mail" id="input-login" value={email} onChange={(event) => setEmail(event.target.value)} />
                 <input type="password" name="password" placeholder="Senha" id="input-password" value={password} onChange={(event) => setPassword(event.target.value)} />
-                <button type="submit" id="login" onClick={Login}>Entrar</button>
+                <button type="submit" id="login" onClick={LoginBtn}>Entrar</button>
             </form>
             <p>
                 Não possui cadastro?
