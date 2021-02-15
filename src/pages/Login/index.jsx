@@ -42,7 +42,7 @@ function Login(){
         else if(json.role === "cozinha"){
           routerKitchen();
         }
-        else{
+        else {
           alert(json.message)
         }
       })

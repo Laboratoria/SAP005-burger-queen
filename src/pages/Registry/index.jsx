@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { Button, Container, TextField, InputLabel,FormControl, Select, Icon  } from '@material-ui/core';
-import {Copyright, CreatSing, Logo, useStyles} from '../../components.js';
+import {Copyright, CreatSign, Logo, useStyles} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 function Registry() {
@@ -16,7 +16,7 @@ function Registry() {
     const password1 = passwordCadastro;
     const password2 = passwordConfirm;
    
-    if (password1 == password2)
+    if (password1 === password2)
       fetchRegistry();
     else {
       alert("As senha não são iguais. \nTente novamente!")
@@ -64,10 +64,9 @@ function Registry() {
   return (
     <Container className='container'>
       <div className={classes.paper}>
-        <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/></Link>
         <Logo/>
         <form className={classes.form}>
-          <CreatSing/>
+          <CreatSign/>
 
           <TextField
           variant="outlined"
@@ -115,11 +114,12 @@ function Registry() {
               <option value='cozinha'>Garçom</option>
             </Select>
           </FormControl>
-
           <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => { event.preventDefault();
           validadePassword();}}>Criar</Button>
-
         </form>
+        <p>
+          <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/> </Link>
+        </p>
       </div>
     <Copyright/>
     </Container>
