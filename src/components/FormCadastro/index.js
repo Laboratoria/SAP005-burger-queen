@@ -1,28 +1,33 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const FormCadastro = () => {
   const [userInfo, setUser] = useState({ 'restaurant': 'Burguer Beef' });
   let history = useHistory();
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const requestOption = {
+
+    fetch('https://lab-api-bq.herokuapp.com/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userInfo)
-    };
-
-    /*fetch('https://lab-api-bq.herokuapp.com/users', requestOption)
+    })
       .then(response => response.json())
       .then(data => {
-        if(data.role === 'salao'){
-          history.push('/AnotarPedidos');
+        console.log(data)
+        if (data.id !== null) {
+          alert('Usuário criado com sucesso!');
+          history.push('/');
         } else {
-          history.push('/PedidosAFazer')
+          alert('Algo deu errado, por favor confira os dados novamente')
         }
-      });*/
+      })
+      .catch((error) => {
+        alert(error.message);
+        history.push('/Cadastro');
+      });
+      
   }
 
   return (
@@ -60,8 +65,7 @@ const FormCadastro = () => {
           </label>
       </section>
 
-      <button type='submit' value='enviar' className='btn-cadastrar' onClick={(event) => handleSubmit(event)
-      }><Link to='/'>CADASTRAR</Link></button>
+      <button type='submit' value='enviar' className='btn-cadastrar' onClick={(event) => handleSubmit(event)}>CADASTRAR</button>
     </form>
   )
 };
