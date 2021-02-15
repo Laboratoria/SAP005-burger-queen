@@ -6,7 +6,7 @@ import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 import CallAPI from "../../services/api";
-import { getError } from "../../components/errors.js";
+import { getError } from "../../components/errors/errors.js";
 
 const userData = AllModelsObject.authAndUsers;;
 
@@ -22,7 +22,9 @@ const Login = () => {
     CallAPI(auth, method)
       .then((json) => {
         localStorage.setItem(`id`,`${json.id}`)
+        localStorage.setItem(`name`,`${json.name}`)
         localStorage.setItem(`token`,`${json.token}`)
+        
         if (json.code) {
           getError(json.code)
         }
