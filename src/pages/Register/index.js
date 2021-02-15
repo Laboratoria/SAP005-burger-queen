@@ -33,11 +33,12 @@ function Register() {
                         body: `email=${email}&password=${password}&role=${role}&restaurant=NaBrazaBurger's&name=${name}`
                     })
                         .then((response) => response.json()).then((json) => {
-                            window.alert(`Cadastro realizado com sucesso!`);
+                            window.alert(`Cadastro realizado com sucesso!!`);
                              console.log(json);
                             if (json.id !== null) {
                                 routerBack();
                             }
+                            
                             // mensagem de confirmação
                             // usar setTimeout
                             
