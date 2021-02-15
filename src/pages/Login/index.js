@@ -12,7 +12,7 @@ export const Login = () => {
     }
   
     const direcionarCozinha = () => {
-      direcion.push('/cozinha')
+      direcion.push('/menu')
     }
   
 
