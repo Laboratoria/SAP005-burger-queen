@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@media (min-width:320px) { 
+
+    .header-main{
+        padding: .5em;
+        color: #fff;
+    }
+
+    .item-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+
+    .item-header2{
+        display: flex;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+	    justify-content: flex-start;
+	    align-items: center;
+	    align-content: center;
+    }
+
+    .item-header2 > h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 30pt;
+        font-weight: 100;
+        margin: 0;
+    }
+
+    .item-header2 > p{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20pt;
+        font-weight: 100;
+    }
+
+    .logo-main{
+        height: 10em;
+        width: 10em;
+
+    }
+
+    .icon-logout{
+        height: 4em;
+        width: 4em;
+        transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+    }
+
+    .icon-logout:hover{
+        height: 4.8em;
+        width:4.8em;
+        opacity: .5;
+    
+    }
+}
+
+
+ @media (min-width:900px) {
+
+    .header-main{
+        padding: .5em;
+        color: #fff;
+    }
+
+    .item-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+
+    .item-header2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item-header2 > h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 32pt;
+    }
+
+    .logo-main{
+        height: 10em;
+        width: 10em;
+
+    }
+
+    .icon-logout{
+        height: 5em;
+        width: 5em;
+        cursor: pointer;
+        transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+    }
+
+    .icon-logout:hover{
+        height: 4.8em;
+        width: 4.8em;
+        opacity: .5;
+    
+    }
+}
+    
