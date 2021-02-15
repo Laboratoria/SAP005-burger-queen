@@ -60,7 +60,7 @@ function Login(){
             margin="normal"
             required
             fullWidth
-            label="Email Address"
+            label="Email"
             name="email"
             autoComplete="username"  
             value={emailLogin} onChange={event => setEmail(event.target.value)}/>
@@ -71,7 +71,7 @@ function Login(){
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Senha"
             type="password"
             id="password"
             autoComplete="current-password"
