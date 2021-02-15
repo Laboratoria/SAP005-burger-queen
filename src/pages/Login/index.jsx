@@ -66,6 +66,7 @@ function Login(){
             value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
             <TextField
+            color='primary'
             variant="outlined"
             margin="normal"
             required
