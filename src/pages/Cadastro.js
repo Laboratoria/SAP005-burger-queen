@@ -46,9 +46,8 @@ function Cadastro() {
             body: `email=${email}&password=${password}&role=${role}&restaurant=BurgerHunger&name=${name}`
           })
             .then((response) => response.json())
-            .then((json) => {
-              console.log(json);
-              if(json.id !== null) {
+            .then((json) => {           
+              if(json.id !== null) {                               
                 routerConfirm();
               }
               setName('');

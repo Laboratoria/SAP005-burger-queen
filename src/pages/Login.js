@@ -31,11 +31,16 @@ function Login() {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-          if(json.role === "garcom") {
+          const token = json.token
+            console.log(token)
+            const tokenUser = localStorage.setItem("token", token)
+
+          if(tokenUser!== null && json.role === "garcom") {
             routerSalao();
-          }
-          if(json.role === "cozinheiro") {
+          }else if(tokenUser!== null && json.role === "cozinheiro") {
             routerCozinha();
+          }else{
+            alert("Usuario não encontrado")
           }
         })
     };
