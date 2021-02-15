@@ -1,11 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import React, {useState} from 'react'
 
 export const Login = () => {
     
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    const direcion = useHistory();
 
+    const direcionarSalao = () => {
+    direcion.push('/salao')
+    }
+  
+    const direcionarCozinha = () => {
+      direcion.push('/cozinha')
+    }
+  
 
     const loginTeste = () => {
         fetch('https://lab-api-bq.herokuapp.com/auth', {
@@ -21,9 +30,17 @@ export const Login = () => {
         )
           .then((response) => response.json())
           .then((data) => {
-            setEmail('');
-            setPass('');
-            console.log(data);
+            setEmail('')
+            setPass('')
+            console.log(data)
+            if(data.role === "waiter"){
+              direcionarSalao();
+            }
+            else if(data.role === "cooker"){
+              direcionarCozinha();
+            }
+
+
           })
       }
     return (
