@@ -58,8 +58,9 @@
 	background-color: rgb(151, 158, 158);
 }
 
-#pass,
-#email {
+#password,
+#email,
+#name {
 	padding: 11px;
 	margin-top: 20px;
 }
@@ -99,4 +100,13 @@
 .selector {
 	display: flex;
 	justify-content: space-around;
+}
+
+.role {
+	display: flex;
+	align-items: baseline;
+}
+
+.waiter {
+	margin-left: 74px;
 }
