@@ -20,15 +20,19 @@ const Login = () => {
     const method = RequestOptions.post(body);
 
     CallAPI(auth, method)
-    .then((json) => {
-      if (json.code) {
-        getError(json.code)
-      }
-      else {
+      .then((json) => {
+        localStorage.setItem(`id`,`${json.id}`)
+        localStorage.setItem(`token`,`${json.token}`)
+        if (json.code) {
+          getError(json.code)
+        }
+        if (json.role === "hall") {
           history.push("/Hall")
         }
+        if (json.role === "kitchen") {
+          history.push("/Kitchen")
+        }
       })
-
   };
 
   const handleSubmit = (event) => {

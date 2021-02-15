@@ -5,7 +5,7 @@ const Kitchen = () => (
   <div>
     <h1>Aqui só tem garçons</h1>
     <p>
-      <Link to="/Login"> VOLTE PARA O LOGIN </Link>
+      <Link to="/Hall"> VOLTE PARA O LOGIN </Link>
     </p>
   </div>
 );
