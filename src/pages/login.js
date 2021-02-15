@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './login.css';
+import './Login.css';
 
 export const Login = () => {
 
@@ -10,11 +10,11 @@ export const Login = () => {
     const routes = useHistory();
 
     const loungeRoute = () => {
-        routes.push('/lounge')
+        routes.push('/Lounge')
     }
 
     const kitchenRoute = () => {
-        routes.push('/kitchen')
+        routes.push('/Kitchen')
     }
 
     function LoginBtn(event) {
@@ -55,7 +55,7 @@ export const Login = () => {
             </form>
             <p>
                 Não possui cadastro?
-            <Link to='/register'>Registre-se</Link>
+            <Link to='/Register'>Registre-se</Link>
             </p>
         </div>
     )
