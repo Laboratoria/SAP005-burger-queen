@@ -6,7 +6,7 @@ import { GiKnifeFork } from 'react-icons/gi'
 import { FaDoorOpen } from 'react-icons/fa'
 import './navbar.css'
 
-export const Navbar = () => {
+export default function Navbar() {
   return (
     <Fragment>
       <navbar className='responsive-wrap-navbar'>
