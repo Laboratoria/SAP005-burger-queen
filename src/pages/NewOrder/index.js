@@ -9,6 +9,8 @@ export const NewOrder = () => {
       <header>
         <Navbar />
       </header>
+      <main>
+      </main>
     </Fragment >
   )
 }

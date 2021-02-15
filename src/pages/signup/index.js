@@ -14,7 +14,7 @@ export const SignUp = () => {
   return (
     <Fragment>
       <main>
-        <form>
+        <form onSubmit={createUser}>
           <label htmlFor='userName' className='label'>Nome<span className='required'>*</span></label><br />
           <Input
             required
@@ -74,7 +74,8 @@ export const SignUp = () => {
             required
             name='userPassword'
             type='password'
-            placeholder='Digite uma senha'
+            placeholder='Digite uma senha mínimo 6 caracteres'
+            minLength='6'
             value={userPassword}
             onChange={
               (event) => {
