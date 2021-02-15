@@ -1,10 +1,7 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import {Link, AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
-
 
 export const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -22,17 +19,18 @@ export const useStyles = makeStyles((theme) => ({
   paperTable: {
     display: 'flex',
     alignItems: 'center',
-
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: 0,
-    textAlign: 'center',
-    
+    textAlign: 'center', 
   },
   submitHall: {
-    margin: theme.spacing(3, 0, -1.5),
-    backgroundColor: theme.palette.text.primary,
+    fontSize: '1rem',
+    height: '20vh',
+    width: '40vw',
+    margin: theme.spacing(4, 2, 2),
+    backgroundColor: theme.palette.warning.dark,
     color: '#fafafa'
   },
   submit: {
@@ -45,23 +43,33 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0, 0),
     backgroundColor: theme.palette.text.primary,
     color: '#fafafa',
-    
   },
   logo: {
     maxWidth: 200,
-    paddingTop:'60px'
-    
+  },
+  logoComponent: {
+    maxWidth: 50,
   },
   arrow:{
-    margin: 10,
-    paddingRight:'600px'
+    margin: 25,
+    paddingRight:'60vw',
   },
-  arrowMenu:{
-    margin: 10,
-    paddingTop:'300px'
-  },
+
   totalProducts: {
     paddingRight:'100px',
+  },
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    backgroundColor: theme.palette.info.light,
+  },
+  toolbar: {
+    flexWrap: 'wrap',
+  },
+  toolbarTitle: {
+    flexGrow: 1,
+  },
+  link: {
+    margin: theme.spacing(1, 1.5),
   },
   
 }));
@@ -71,6 +79,13 @@ export function Logo() {
 
   return (
     <img className={classes.logo} src={logo} alt="logo"/>
+  )
+}
+export function LogoNav() {
+  const classes = useStyles();
+
+  return (
+    <img className={classes.logoComponent} src={logo} alt="logo"/>
   )
 }
 
@@ -102,6 +117,26 @@ export function CreatSign() {
     <Typography color="textPrimary" component="h1" variant="h5">
       Cadastre-se 
     </Typography>
+  )
+}
+
+export function NavBar() {
+
+  const classes = useStyles();
+
+  return (
+    <AppBar position="static" elevation={0} className={classes.appBar}>
+    <Toolbar className={classes.toolbar}>
+        <LogoNav/>
+        <Typography variant="h6" color="textDisabled" noWrap className={classes.toolbarTitle}>
+        Ratatouille
+        </Typography>
+        <Button href='/' color="textPrimary" variant="outlined" className={classes.link}>
+          Sair
+        </Button>
+         
+      </Toolbar>
+    </AppBar>
   )
 }
 

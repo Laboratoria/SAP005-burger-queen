@@ -64,6 +64,8 @@ function Registry() {
   return (
     <Container className='container'>
       <div className={classes.paper}>
+        <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/> </Link>
+
         <Logo/>
         <form className={classes.form}>
           <CreatSign/>
@@ -117,9 +119,7 @@ function Registry() {
           <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => { event.preventDefault();
           validadePassword();}}>Criar</Button>
         </form>
-        <p>
-          <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/> </Link>
-        </p>
+       
       </div>
     <Copyright/>
     </Container>

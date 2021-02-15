@@ -11,7 +11,7 @@ function Menu(){
   const classes = useStyles();
     return (
            <React.Fragment >
-            <Container className='containerMenu'>
+            <Container className='container'>
           <form className={classes.paperTable}  noValidate autoComplete="off" >
             <Input placeholder="Nome"fullWidth inputProps={{ 'aria-label': 'description' }} />
             <Input placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} />
