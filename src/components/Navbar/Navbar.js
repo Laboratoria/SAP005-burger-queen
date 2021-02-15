@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import './navbar.css';
 import { FaUserCircle } from 'react-icons/fa'
 import { FaRegClock } from 'react-icons/fa'
 import { GiKnifeFork } from 'react-icons/gi'
 import { FaDoorOpen } from 'react-icons/fa'
+import './navbar.css'
 
 export const Navbar = () => {
   return (

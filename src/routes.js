@@ -1,7 +1,7 @@
 import React from 'react'
-import { SignUp } from './pages/signup'
-import { Login } from './pages/login'
-import { Navbar } from './components/Navbar'
+import { SignUp } from './pages/Signup/index'
+import { Login } from './pages/Login/index'
+import { Navbar } from './components/Navbar/Navbar'
 import { Switch, Route } from 'react-router-dom'
 
 export const Routes = () => {
@@ -10,7 +10,6 @@ export const Routes = () => {
       <Route path='/' component={Login} exact />
       <Route path='/signup' component={SignUp} exact />
       <Route path='/status-order' component={SignUp} exact />
-      <Route path='/navbar' component={Navbar} exact />
     </Switch>
   )
 }

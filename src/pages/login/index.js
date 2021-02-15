@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
-import Button from '../../components/Button'
-import Input from '../../components/Input'
-import Footer from '../../components/Footer'
+import Button from '../../components/Button/Button'
+import Input from '../../components/InputText/InputText'
+import Footer from '../../components/Footer/Footer'
+//import logo from '../../assets/logo.png'
 
 export const Login = () => {
 
@@ -13,6 +14,9 @@ export const Login = () => {
 
   return (
     <Fragment>
+      {/*<header>
+        <img className='logo' src={logo} alt='Logo Urban Bistro' />
+      </header>*/}
       <form>
         <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
         <Input
@@ -21,9 +25,10 @@ export const Login = () => {
           type='email'
           placeholder='Digite seu email'
           value={userEmail}
-          onChange={(event) => {
-            setUserEmail(event.target.value)
-          }
+          onChange={
+            (event) => {
+              setUserEmail(event.target.value)
+            }
           }
         /><br />
         <label htmlFor='userPassword' className='label'>Senha<span className='required'> *</span></label><br />
@@ -33,10 +38,10 @@ export const Login = () => {
           type='email'
           placeholder='Digite uma senha'
           value={userPassword}
-          minLength='6'
-          onChange={(event) => {
-            setUserPassword(event.target.value)
-          }
+          onChange={
+            (event) => {
+              setUserPassword(event.target.value)
+            }
           }
         /><br />
         <Button

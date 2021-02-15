@@ -7,7 +7,6 @@ export default function Input({
   id,
   type,
   value,
-  minLength,
   placeholder,
   checked,
   onChange
