@@ -48,7 +48,7 @@ function Login() {
           <p>E-mail: </p>
           <div className="input-container">
             <img className="icon-user"  src={IconUser} alt='icon-user' />
-            <input type="text" value={email}  onChange={(event) => setEmail(event.target.value)}/>
+            <input type="email" value={email}  onChange={(event) => setEmail(event.target.value)}/>
           </div>
         </div>
 
