@@ -12,7 +12,7 @@ export const Button = styled.button`
     // box-shadow:  0 0 2em black;
     border: none;
     font-size: 24px;
-    outline:none
+    outline:none;
     background: linear-gradient(25deg, #F57F17, #F57F17);
     box-shadow:  -9px 9px 14px rgba(0, 0, 0, 0.5),
             9px -9px 14px #ffffff;
@@ -22,6 +22,11 @@ export const Register = styled.p`
     padding-left: 120px;
     padding-top: 60px;
 `;
+
+export const Span = styled.span`
+    color: #F57F17;
+`;
+
 
 export const Title = styled.h2`
     padding-top: 60px;
@@ -87,7 +92,7 @@ export const Input = styled.input`
     display: block;
     color: #f57f17;
     font-size: 20px;
-    outline:none
+    outline:none;
     background: linear-gradient(225deg, #b4b4b7, #d6d6d9);
     //box-shadow:  -9px 9px 14px #767678,
             9px -9px 14px #ffffff;

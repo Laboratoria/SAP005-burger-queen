@@ -65,9 +65,8 @@ const Login = () => {
                         />
                         <Button>Entrar</Button>
 
-                        {/* <p>{token}</p> */}
-                    </form>
-
+                    {/* <p>{token}</p> */}
+                </form>
                     <Register> 
                         Não tem conta? <NavLink 
                             to="/register"
