@@ -38,7 +38,7 @@ export default function Login() {
         <img className='logo-login' src={logo} alt='Logo Hamburgueria Ipê' />
       </h1>
 
-      <form className='login-form' onSubmit={authUser}>
+      <form className='form-container' onSubmit={authUser}>
         <Input
           divWrapClassName='label-input-wrap'
           labelClassName='label-for-input'

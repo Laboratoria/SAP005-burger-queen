@@ -2,9 +2,10 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo-horizontal.png';
-import Input from '../../components/InputText';
+import InputText from '../../components/InputText';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer';
+import InputRadio from '../../components/InputRadio';
 
 export default function Signup() {
   const apiURL = 'https://lab-api-bq.herokuapp.com';
@@ -47,8 +48,8 @@ export default function Signup() {
         <h2 className='subtitle-base signup-subtitle'>Cadastro</h2>
       </header>
 
-      <form className='login-form' onSubmit={registerUser}>
-        <Input
+      <form className='form-container' onSubmit={registerUser}>
+        <InputText
           divWrapClassName='label-input-wrap'
           labelClassName='label-for-input'
           labelText='Nome'
@@ -60,7 +61,7 @@ export default function Signup() {
           inputOnChange={(event) => setWorkerName(event.target.value)}
         />
 
-        <Input
+        <InputText
           divWrapClassName='label-input-wrap'
           labelClassName='label-for-input'
           labelText='E-mail'
@@ -72,9 +73,33 @@ export default function Signup() {
           inputOnChange={(event) => setWorkerEmail(event.target.value)}
         />
 
+        <p className='label-for-input'>Função</p>
         <div className='radio-buttons-wrap'>
-          <label className='label-for-input'>Função</label>
-          <Input
+          <InputRadio
+            inputClassName='input-radio'
+            inputId='role-hall'
+            inputName='role'
+            inputRequired
+            inputValue={workerRole === 'hall'}
+            inputOnChange={(event) => setWorkerRole(event.target.value)}
+            labelHtmlFor='role-hall'
+            labelClassName='button-base label-radio'
+            labelText='Salão'
+          />
+
+          <InputRadio
+            inputClassName='input-radio'
+            inputId='role-kitchen'
+            inputName='role'
+            inputRequired
+            inputValue={workerRole === 'kitchen'}
+            inputOnChange={(event) => setWorkerRole(event.target.value)}
+            labelHtmlFor='role-kitchen'
+            labelClassName='button-base label-radio'
+            labelText='Cozinha'
+          />
+
+          {/* <InputText
             divWrapClassName='label-input-wrap'
             labelClassName='button-base label-radio'
             labelText='Salão'
@@ -84,9 +109,9 @@ export default function Signup() {
             inputChecked={workerRole === 'hall'}
             inputClassName='input-radio'
             inputOnChange={(event) => setWorkerRole(event.target.value)}
-          />
+          /> */}
 
-          <Input
+          {/* <InputText
             divWrapClassName='label-input-wrap'
             labelClassName='button-base label-radio'
             labelText='Cozinha'
@@ -96,10 +121,10 @@ export default function Signup() {
             inputChecked={workerRole === 'kitchen'}
             inputClassName='input-radio'
             inputOnChange={(event) => setWorkerRole(event.target.value)}
-          />
+          /> */}
         </div>
 
-        <Input
+        <InputText
           divWrapClassName='label-input-wrap'
           labelClassName='label-for-input'
           labelText='Senha'
@@ -110,7 +135,7 @@ export default function Signup() {
           inputOnChange={(event) => setWorkerPassword(event.target.value)}
         />
 
-        {/* <Input
+        {/* <InputText
           divWrapClassName='label-input-wrap'
           labelClassName='signup-label'
           labelText='Confirmar senha'
