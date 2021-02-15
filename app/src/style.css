@@ -30,28 +30,29 @@ body {
   width: 16rem;
 }
 
-.login-form {
+.form-container {
   background-color: #f6c13c20;
   border-radius: 1rem;
   padding: 0.5rem;
 }
 
-.label-input-wrap {
+.label-input-wrap,
+.radio-buttons-wrap {
   margin-bottom: 2rem;
 }
 
 .label-for-input{
   display: block;
-  margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-weight: 500;
   color: #829F19;
 }
 
 .input-text {
-  width: 25rem;
+  width: 23rem;
   background-color: #F8EDDD;
   display: block;
+  margin-top: 0.5rem;
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
   border: solid 3px #829F19;
@@ -62,7 +63,7 @@ body {
 .button-base {
   padding: 0.8rem 2rem;
   border: none;
-  border-radius: 0.6rem;
+  border-radius: 0.5rem;
   font-family: 'Work Sans', sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
@@ -71,13 +72,13 @@ body {
 }
 
 .button-primary {
-  background-color: #7F381A;
+  background-color: #BF4719;
   color:#F6C13C;
 }
 
 .button-secondary {
   background-color: #F6C13C;
-  color: #7F381A;
+  color: #BF4719;
 }
 
 
@@ -87,6 +88,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #A1BD43;
+  border-radius: 0 0 1.5rem 1.5rem;
   padding: 0.5rem 2.5rem;
 }
 
@@ -106,3 +108,25 @@ body {
   color: #F8EDDD;
 }
 
+.radio-buttons-wrap {
+  width: 23rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.input-radio {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.label-radio {
+  background-color: #829F19;
+  color: #F8EDDD;
+}
+
+.radio-buttons-wrap .input-radio:checked + .label-radio {
+  background-color: #F6C13C;
+  color: #A64922;
+}
