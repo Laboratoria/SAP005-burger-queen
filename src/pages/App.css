@@ -37,10 +37,10 @@
 	background-color: rgb(151, 158, 158);
 }
 
-#pass,
-#email {
-	width: 80%;
-	padding: 5px;
+#password,
+#email,
+#name {
+	padding: 11px;
 	margin-top: 20px;
 	justify-content: center;
 	border-radius: 9px;
@@ -103,4 +103,13 @@ a.register {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+}
+
+.role {
+	display: flex;
+	align-items: baseline;
+}
+
+.waiter {
+	margin-left: 74px;
 }
