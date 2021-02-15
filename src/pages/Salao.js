@@ -4,7 +4,7 @@ import './Salao.css';
 function Salao() {
   return (
     <div className="Salao">
-      <h1 className="SalaoTitle">Página salão</h1>
+      <h1 className="SalaoTitle">Página salão em construção</h1>
     </div>
   );
 }

@@ -1,1 +1,72 @@
-body, html{ height: 100%; width: 100%; background-color: white; font-family: 'Open Sans', sans-serif; margin: auto; } * { margin: 0; padding: 0; box-sizing: border-box; } ._cjo0m2 { -webkit-box-direction: normal !important; -webkit-box-orient: horizontal !important; display: flex !important; flex-direction: row !important; } ._hjfkep { -webkit-box-direction: normal !important; -webkit-box-orient: vertical !important; -webkit-box-align: center !important; -webkit-box-pack: center !important; display: flex !important; justify-content: center !important; align-items: center !important; flex-direction: column !important; width: 55vw !important; background-color: #cf5e18 !important; min-height: 100vh !important; } ._1oez8w8 { -webkit-box-align: center !important; -webkit-box-pack: center !important; display: flex !important; justify-content: center !important; align-items: center !important; width: 45vw !important; }
+body,
+html, .root { 
+    height: 100%; 
+    width: 100%;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif; 
+    margin: auto; 
+    background-image: url(/home/ohara/Documentos/PROJETOS/Laboratoria/LABORATORIA/burger-queen/src/background.png);
+    background-size: cover;
+    background-position: 50% -344px;
+  }
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+  }
+     
+._cjo0m2 {
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: horizontal !important; 
+    display: flex !important;
+    flex-direction: row !important;
+} 
+          
+._hjfkep {
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-align: center !important; 
+    -webkit-box-pack: center !important; 
+    display: flex !important; 
+    justify-content: center !important; 
+    align-items: center !important;
+    flex-direction: column !important;
+    width: 55vw !important;
+    background-color: #cf5e18 !important;
+    min-height: 100vh !important;
+ }
+                  
+._1oez8w8 { 
+    -webkit-box-align: center !important;
+    -webkit-box-pack: center !important;
+    display: flex !important; 
+    justify-content: center !important; 
+    align-items: center !important;
+    width: 45vw !important; }
+
+    .btnCad {
+      /* display: flex; */
+      color: #fdfdff;
+      font-weight: 700;
+      width: 280px;
+      height: 50px;
+      padding: 0 20px;
+      background: #259ad9;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s linear;
+      margin: 7% auto;
+      letter-spacing: 0.05em;
+  }
+
+
+
+  ._1ytio68 {
+   display: flex;
+
+
+  }

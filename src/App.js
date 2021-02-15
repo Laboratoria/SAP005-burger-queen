@@ -16,7 +16,7 @@ function App() {
   return (
     <main class="_cjo0m2">
     <article class="_hjfkep">
-      <img src={Logo} className="logo" alt="logo Hello Word" />
+      <img src={Logo} className="logo" alt="logo Hello Burguer" />
     </article>
     <aside class="_1oez8w8">
       <section class="_1ytio68">
@@ -26,7 +26,6 @@ function App() {
     </aside>
   </main>
   );
-
  
 }
 export default App;

@@ -9,6 +9,10 @@ function Login() {
   const routerSalao=()=>{
     history.push('/salao')
   }
+  const routerRegister=()=>{
+    history.push('/cadastro')
+  }
+
   const routerCozinha=()=>{
     history.push('/cozinha')
   }
@@ -41,21 +45,32 @@ function Login() {
     };
   
     return (
-      <div className="Login">
-        <h1 className="LoginTitle">Entrar</h1>
-        <form className="LoginForm">
-          
-          <label className="LoginLabel" htmlFor="loginInputEmail">E-mail:</label>
-          <input type="text" placeholder="E-mail" className="LoginInput" value={email} id="loginInputEmail" onChange={(event) => setEmail(event.target.value)}/>
-  
-          <label className="LoginLabel" htmlFor="loginInputPassword">Senha:</label>
-          <input type="password" placeholder="Senha" className="LoginInput" value={password} id="loginInputPassword" onChange={(event) => setPassword(event.target.value)} />
-         
-          <button className="btnLogin" onClick={loginBtn}>Login</button>
-        </form>
+      <div class="overlay">
+  <form>
+    <div class="con">
+      <header class="head-form">
+        <h2>Login</h2>
+        <p>Faça o login aqui usando seu email de usuário e senha</p>
+      </header>
+      <div class="field-set">
+        <input class="form-input" id="txt-input" type="text" placeholder="E-mail" required value={email}
+          id="loginInputEmail" onChange={(event)=> setEmail(event.target.value)}/>
+        <input class="form-input" type="password" placeholder="Senha" id="pwd" name="password" required value={password}
+          id="loginInputPassword" onChange={(event)=> setPassword(event.target.value)} />
+        <button class="btn submits login" onClick={loginBtn}>Login</button>
+        <div class="other">
+          <button class="btn submits sign-up" onClick={routerRegister}>Cadastro
+          </button>
+        </div>
       </div>
+    </div>
+  </form>
+</div>
     );
   }
   
   export default Login;
   
+
+     
+   

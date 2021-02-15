@@ -15,16 +15,18 @@ function Cadastro() {
   const [role, setRole] = useState('');
 
   return (
-    <div className="Cadastro">
+
+
+    <div>
       <h1 className="CadTitle">Cadastro</h1>
       <form className="FormCadastro">
-        <label className="cadLabel" htmlFor="cadInputName">Nome:</label>
-        <input type="text" placeholder="Nome" className="cadInput" value={name} onChange={(event) => setName(event.target.value)} />
+        <label className="cadLabel" htmlFor="cadInputName"></label>
+        <input type="text" placeholder="Nome do Funcionário" className="cadInput" value={name} onChange={(event) => setName(event.target.value)} />
 
-        <label className="cadLabel" htmlFor="cadInputEmail">E-mail:</label>
+        <label className="cadLabel" htmlFor="cadInputEmail"></label>
         <input type="text" placeholder="E-mail" className="cadInput" value={email} onChange={(event) => setEmail(event.target.value)} />
 
-        <label className="cadLabel" htmlFor="cadInputPassword">Senha:</label>
+        <label className="cadLabel" htmlFor="cadInputPassword"></label>
         <input type="password" placeholder="Senha" className="cadInput" value={password} onChange={(event) => setPassword(event.target.value)} />
 
         <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
@@ -59,6 +61,7 @@ function Cadastro() {
         }}>Cadastrar</button>
       </form>
     </div>
+    
   );
 }
 
