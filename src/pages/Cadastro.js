@@ -30,8 +30,8 @@ function Cadastro() {
         <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
         <select name="ordenar" className="cadInput cardSelect" value={role} onChange={(event) => setRole(event.target.value)}>
           <option  className="cadInputOption" disabled value=''>Cargo</option>
-          <option className="cadInputOption" value="garcom">Garçom</option>
-          <option className="cadInputOption" value="cozinheiro">Cozinheiro</option>
+          <option className="cadInputOption" value="salao">Garçom</option>
+          <option className="cadInputOption" value="cozinha">Cozinheiro</option>
         </select>
         <button className="cadBtn" onClick={(e) => {
 

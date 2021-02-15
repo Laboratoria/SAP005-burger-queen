@@ -32,12 +32,14 @@ function Login() {
         .then((json) => {
           console.log(json);
           const token = json.token
-            console.log(token)
-            const tokenUser = localStorage.setItem("token", token)
+          const id = json.id
+  
+          const tokenUser = localStorage.setItem("token", token)
+          const idUser = localStorage.setItem("id", id)
 
-          if(tokenUser!== null && json.role === "garcom") {
+          if(tokenUser!== null && idUser!== null && json.role === "salao") {
             routerSalao();
-          }else if(tokenUser!== null && json.role === "cozinheiro") {
+          }else if(tokenUser!== null && idUser!== null && json.role === "cozinha") {
             routerCozinha();
           }else{
             alert("Usuario não encontrado")
