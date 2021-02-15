@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
-import './singup.css'
+import './signup.css'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import logo from '../../assets/logo.png';
