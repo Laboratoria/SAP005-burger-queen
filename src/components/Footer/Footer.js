@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className='footer'>
         <span>Desenvolvido por
         <a
-          className='footer-link'
           href='https://github.com/CarolineSCosta'
           target='_blank'
           rel='noopener noreferrer'
@@ -14,7 +13,7 @@ const Footer = () => {
           CarolineCosta
         </a> 
         e
-        <a className='footer-link'
+        <a 
           href='https://github.com/Elis-ctrl'
           target='_blank'
           rel='noopener noreferrer'

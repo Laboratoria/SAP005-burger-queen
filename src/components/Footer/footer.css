@@ -1,16 +1,26 @@
 .footer {
 	width: 100%;
-	position: fixed;
+	height: 30px;
+	position: absolute;
 	bottom: 0px;
 	padding: 0.8rem;
-	height: 20px;
 	background-color: black;
 	color: blanchedalmond;
 }
 
-.footer-link {
-	width: 100%;
-	bottom: 8px;
+.footer > span {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	position: relative;
 	color: blanchedalmond;
-	position: absolute;
+	bottom: 10px
+	
+}
+
+a {
+	text-decoration: none;
+	padding: 0rem;
+	color: white;
+	bottom: 10px;
 }
