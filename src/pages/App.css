@@ -9,7 +9,7 @@
 }
 
 .App-header {
-	background-color: #000000;
+	background-color: #383838;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -20,7 +20,7 @@
 }
 
 .singnUp-header {
-	background-color: #000000;
+	background-color: #383838;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -28,27 +28,6 @@
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	color: white;
-}
-
-.form {
-	display: flex;
-	flex-direction: column;
-	width: 30%;
-}
-
-#login {
-	display: flex;
-	text-align: center;
-	margin: auto;
-	justify-content: center;
-	padding: 10px;
-	font-family: Arial;
-	font-weight: bold;
-	color: black;
-	font-size: 15px;
-	border-radius: 9px;
-	background-color: rgb(233, 255, 30);
-	margin-top: 10px;
 }
 
 #login:hover {
@@ -60,23 +39,32 @@
 
 #pass,
 #email {
-	padding: 11px;
+	width: 80%;
+	padding: 5px;
 	margin-top: 20px;
+	justify-content: center;
+	border-radius: 9px;
+}
+.registerLogin {
+	height: 300px;
+	margin-top: 85px;
 }
 
-#singnupBtn {
+#singnupBtn,
+#login {
 	display: flex;
 	text-align: center;
 	margin: auto;
 	justify-content: center;
-	padding: 10px;
+	padding: 5px;
+	width: 80%;
 	font-family: Arial;
 	font-weight: bold;
-	color: rgb(5, 5, 5);
+	color: rgb(46, 45, 45);
 	font-size: 15px;
 	border-radius: 9px;
-	background-color: rgb(233, 255, 30);
-	margin-top: 10px;
+	background-color: #ffde59;
+	margin-top: 20px;
 }
 
 .register {
@@ -86,17 +74,33 @@
 	font-weight: bold;
 	font-size: 61%;
 }
+a.register {
+	font-size: 17px;
+}
 
 .logo {
 	display: flex;
 	justify-content: center;
-	width: 205px;
+	width: 50%;
 }
 
-.logop {
+.logop,
+.logoh {
 	width: 54px;
+	margin-left: 40px;
+	margin-top: 40%;
 }
 .selector {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+}
+.divRegister {
+	background-color: #242323;
+	width: 70%;
+	height: 350px;
+	border-radius: 10px;
+	margin-top: 5%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
