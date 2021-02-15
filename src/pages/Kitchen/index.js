@@ -1,13 +1,12 @@
 import React from 'react'
 
-function cozinha (){
+export const Kitchen = () => {
   
     return (
       <>
-          <h1>Bem vindo a cozinha</h1>
+          <h1>Bem vindo ao Coziha</h1>
           
       </>
     );
   }
   
-  export default cozinha;

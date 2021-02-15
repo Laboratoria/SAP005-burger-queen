@@ -7,12 +7,12 @@ export const Login = () => {
     const [pass, setPass] = useState("");
     const direcion = useHistory();
 
-    const direcionarSalao = () => {
-    direcion.push('/salao')
+    const directMenu = () => {
+    direcion.push('/menu')
     }
   
-    const direcionarCozinha = () => {
-      direcion.push('/menu')
+    const directKitchen = () => {
+      direcion.push('/kitchen')
     }
   
 
@@ -34,29 +34,28 @@ export const Login = () => {
             setPass('')
             console.log(data)
             if(data.role === "waiter"){
-              direcionarSalao();
+              directMenu();
             }
             else if(data.role === "cooker"){
-              direcionarCozinha();
+              directKitchen();
             }
 
 
           })
       }
     return (
-        <>
+      <>
         <input type="email" placeholder="Informe seu email"
-           value={email} onChange={e=> setEmail(e.target.value)}
-           />
-            <input type="password" placeholder="Informe sua senha"
-           value={pass} onChange={e=> setPass(e.target.value)}
-           />
-            <button type='submit' onClick={(e) => {
-            e.preventDefault();
-            loginTeste();
-            }}>Logar</button>
-            <Link to="/register">Cadastre-se</Link>
-            
-        </>
+        value={email} onChange={e=> setEmail(e.target.value)}
+        />
+        <input type="password" placeholder="Informe sua senha"
+        value={pass} onChange={e=> setPass(e.target.value)}
+        />
+        <button type='submit' onClick={(e) => {
+        e.preventDefault();
+        loginTeste();
+        }}>Logar</button>
+        <Link to="/register">Cadastre-se</Link>
+      </>
     );
 };
