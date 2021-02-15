@@ -1,7 +1,8 @@
 import { React, useState } from "react";
-import "./login.css";
-import { Link } from "react-router-dom";
-import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
+import './login.css';
+import { Link } from 'react-router-dom';
+import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'react-icons/md';
+import Footer from '../../components/Footer';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -64,6 +65,10 @@ const Login = () => {
         </button>
         <h4>Não tem uma conta?<Link to="./register/index.js"><strong> Cadastra-se.</strong></Link></h4>
       </div>
+	  <div className="login-footer">
+		<Footer/>  
+	  </div>
+	   
     </div>
   );
 };

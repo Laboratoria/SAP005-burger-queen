@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-no-undef */
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Login from './pages/Login/index.js';
-import Register from './pages/Register/index.js';
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Login  from "./pages/Login/index";
+import Register from "./pages/Register/index";
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
 
 ReactDOM.render(
   <BrowserRouter>
