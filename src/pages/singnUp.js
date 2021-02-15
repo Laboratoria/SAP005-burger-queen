@@ -12,7 +12,6 @@ function SingnUp() {
 
     return (
       <div className="singnUp">
-          <img src= "../img/Logo.png"  alt="logo"/>
         <header className="singnUp-header">
         <img src= {logo} alt="" className="logo"/>
         <div className="role">
@@ -46,10 +45,10 @@ function SingnUp() {
           fetch("https://lab-api-bq.herokuapp.com/users", {
             method: 'POST',
             header:{
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'accept': 'application/json'
             },
             body: JSON.stringify({ email, role, password, name, restaurant: "Chef'sBurguer" })
-            // body: `email=${email}&password=${password}&role=${role}&restaurant=Chef'sBurguer&name=${name}`
           })
             .then((response) => response.json())
             .then((json) => {
