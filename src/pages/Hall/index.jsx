@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {useStyles, Logo, SingIn, Copyright} from '../../components.js';
+import {useStyles, Logo, SingIn, Copyright, NavBar} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 
@@ -23,25 +23,16 @@ function Home(){
     return (
       
       <React.Fragment >
-      <Container className='container'>
-        <Typography component="div" />
-          <div>
+        <NavBar/>
+      
+          <Container>
               <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}>
                 + Novo Pedido
               </Button>
               <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} >
                 Pendentes
               </Button>
-            </div>
-            <div className={classes.paper}>
-              <Logo />
-              <SingIn/>
-            </div>
-            <p>
-              <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/> </Link>
-            </p>
-            <Copyright/>
-        </Container>      
+            </Container>   
         </React.Fragment>
 
     );

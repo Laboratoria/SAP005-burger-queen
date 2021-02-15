@@ -10,16 +10,4 @@ body{
     border-radius: 20px;
     max-width: 700px;
 }
-.containerMenu {
-    margin-top: 2vh;
-    background-color: white;
-    width: 100%;
-    box-shadow: 0 0 8px #5c564f;
-    border-radius: 20px;
-    max-width: 700px;
-    height: 800px;
-}
-#root{
-    background-color: #1b1916;   
-    height: auto;
-}
+
