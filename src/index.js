@@ -6,16 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './components/Routes'
 
 
-// import { isAuthenticated } from './pages/Login';
 
-// const PrivateRoute = ({component: Component, ...rest }) => (
-//     <Route 
-//         {...rest}
-//         render={(props) => {
-//           isAuthenticated() === true ? (<Component { ...props} />) : (<Redirect to={{pathname: "/login", state: { from: props.location } }} />)
-//         }}
-//     />
-// );
+
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,0 +1,48 @@
+
+.nome-atendente {
+    text-align: center;
+    font-weight: bold;
+    color: #450604;
+}
+
+.buttons-header {
+    text-align: center;
+    font-size: 18px;
+}
+
+.mesas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttons-todas-mesas {
+    width: 15%;
+    height: 80px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EAD6CD;
+    border-radius: 15px;
+    border: 2px solid #450604;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.mesa-img {
+    width: 35px;
+    margin-right: 5px;
+}
+
+.button-mesa {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.button-mesa:focus {
+    border: none;
+    outline: none;
+}

@@ -28,9 +28,11 @@ function Register () {
         .then(response => response.json())
         .then(data => {
             if(data.message !== undefined){
-                setIsModalVisible(true)
-                setErrorMessage(`${data.message}`)
+                setIsModalVisible(true);
+                setErrorMessage(`${data.message}`);
             } else {
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("userId", data.id);
                 history.push(`/${data.role}`);
             }
           });
@@ -74,8 +76,10 @@ function Register () {
                     placeholder="Confirmar senha"
                     required
                     onChange={(event) => {
-                        setConfirmPassword(event.target.value)
-                        setSignupInfo({ ...signupInfo, "password": password })
+                        setConfirmPassword(event.target.value);
+                        if(password === confirmPassword){
+                            setSignupInfo({ ...signupInfo, "password": password })
+                        }
                     }} 
                 />
 
