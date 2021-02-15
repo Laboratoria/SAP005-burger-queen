@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { Title, Form, Template, PageLogin, Input, ButtonLogin, Register, Images, BurgerImage} from '../../stylesForm';
+import { Title, Form, Template, PageLogin, Input, ButtonLogin, Register, Images, BurgerImage } from '../../stylesForm';
 import Burger from '../../imagens/burger.png'
 import Logo from '../../imagens/logoBranco.png'
 
@@ -47,36 +47,36 @@ const Login = () => {
     }
 
     return (
-            <PageLogin>
-                <Form>
-                    <form onSubmit={handleSubmit}>
-                        <Title>Faça seu Login</Title>
-                        <Input
-                            type="text"
-                            placeholder="E-mail"
-                            value={email}
-                            onChange={({ target }) => setEmail(target.value)}
-                        />
-                        <Input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={({ target }) => setPassword(target.value)}
-                        />
-                        <ButtonLogin>Entrar</ButtonLogin>
+        <PageLogin>
+            <Form>
+                <form onSubmit={handleSubmit}>
+                    <Title>Faça seu Login</Title>
+                    <Input
+                        type="text"
+                        placeholder="E-mail"
+                        value={email}
+                        onChange={({ target }) => setEmail(target.value)}
+                    />
+                    <Input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={({ target }) => setPassword(target.value)}
+                    />
+                    <ButtonLogin>Entrar</ButtonLogin>
 
-                        {/* <p>{token}</p> */}
-                    </form>
+                    {/* <p>{token}</p> */}
+                </form>
 
-                    <Register> Não tem conta? <NavLink to="/register"> Registre-se</NavLink></Register>
-                </Form>
-                <Template>
-                    <Images>
-                    <img src={Logo}  alt=''/>
-                    <BurgerImage src={Burger}  alt=''/>
-                    </Images>
-                </Template>
-            </PageLogin>
+                <Register> Não tem conta? <NavLink to="/register"> Registre-se</NavLink></Register>
+            </Form>
+            <Template>
+                <Images>
+                    <img src={Logo} alt='' />
+                    <BurgerImage src={Burger} alt='' />
+                </Images>
+            </Template>
+        </PageLogin>
     );
 };
 
