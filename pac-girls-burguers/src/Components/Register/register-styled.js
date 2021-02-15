@@ -7,7 +7,7 @@ export const Input = styled.input`
   padding: 10px;
   border: 1 px solid #000;
   border-radius: 10px;
-  margin: 20px;
+  margin: 10px;
 `;
 
 export const Button = styled.button`
@@ -16,7 +16,15 @@ export const Button = styled.button`
   width: 300px;
   height: 30px;
   font-size: 16px;
-
   border: 1 px solid #000;
   border-radius: 10px;
+`;
+
+export const Select = styled.select`
+  width: 430px;
+  height: 50px;
+  font-size: 16px;
+  border: 2 px solid #000;
+  border-radius: 10px;
+  margin: 10px;
 `;

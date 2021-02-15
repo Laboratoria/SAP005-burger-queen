@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Button } from "../Login/login-styled";
-import { Input } from "./register-styled";
-import {useHistory } from "react-router-dom"
+
+import { Button, Input, Select } from "./register-styled";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
-  let history = useHistory()
+  let history = useHistory();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,14 +33,14 @@ const Register = () => {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: `email=${email}&password=${password}&role=${role}&restaurant=PacBurguer&name=${name}`,
-    }).then((response) => response.json())
+    })
+      .then((response) => response.json())
       .then((json) => {
-        console.log(json)})
+        console.log(json);
+      })
       .catch((error) => {
         console.log(error);
       });
-
-      history.replace("/")
   };
 
   return (
@@ -61,13 +61,11 @@ const Register = () => {
         required
       />
       <br />
-      <Input
-        type="text"
-        value={role}
-        onChange={handleRole}
-        placeholder="Cozinha ou Salão"
-        required
-      />
+      <Select value={role} onChange={handleRole} required>
+      <option disabled value={""}>Selecione seu cargo</option>
+        <option value={"cozinha"} >Cozinha/Chefe</option>
+        <option value={"salao"} >Salão/Garçon</option>
+      </Select>
       <br />
       <Input
         type="password"
@@ -85,3 +83,8 @@ const Register = () => {
 };
 
 export default Register;
+// type="text"
+//         value={role}
+//         onChange={handleRole}
+//         placeholder="Cozinha ou Salão"
+//         required
