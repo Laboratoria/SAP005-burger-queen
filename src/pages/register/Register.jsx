@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
+import { Title, Form, Template, Page, Input,  Button, Images, BurgerImage} from '../../stylesForm';
+import Burger from '../../imagens/burger.png'
+import Logo from '../../imagens/logoBranco.png'
+
 
 const formFields = [
     {
@@ -14,12 +19,12 @@ const formFields = [
     },
     {
         id: 'password',
-        placeholder: 'Password',
+        placeholder: 'Senha',
         type: 'password',
     },
     {
         id: 'role',
-        placeholder: 'Role',
+        placeholder: 'Você é do salão ou da cozinha?',
         type: 'text',
     },
     {
@@ -28,7 +33,6 @@ const formFields = [
         type: 'hidden',
     },
 ]
-
 
 const Register = () => {
     const [ response, setResponse ] = useState();
@@ -58,8 +62,8 @@ const Register = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-
         form.restaurant = 'TAG Burger';
+
         fetch('https://lab-api-bq.herokuapp.com/users', {
             method: 'POST',
             headers:{
@@ -80,13 +84,30 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <Link to='/'>Voltar</Link>
-            <h2>Crie seu registro</h2>
-            <form onSubmit={handleSubmit}>
+        <Page>
+            <Link to='/'>
+                <button
+                    style={{ 
+                        'padding': '15px',
+                        'margin': '30px',
+                        'width':'60px', 
+                        'height':'60px', 
+                        'backgroundColor': '#F57F17', 
+                        'borderRadius': '100%', 
+                        'border': 'none',
+                        'outlineColor': '#F57F17',
+                        'textAlign': 'center',
+                        'fontSize': '30px',
+                    }}
+                >
+                    <FiArrowLeft />
+                </button>    
+            </Link>
+            <Form onSubmit={handleSubmit}>
+            <Title>Crie seu registro</Title>
                 {formFields.map(({ id, placeholder, type }) => (
                     <div key={id}>
-                        <input 
+                        <Input 
                             type={type} 
                             id={id}
                             placeholder={placeholder}
@@ -96,9 +117,15 @@ const Register = () => {
                     </div>
                 ))}
                 {response && response.ok && <p>Seu registro foi criado com sucesso</p>}
-                <button>Registrar</button>
-            </form>
-        </div>
+                <Button>Registrar</Button>
+            </Form>
+            <Template>
+                    <Images>
+                    <img src={Logo}  alt=''/>
+                    <BurgerImage src={Burger}  alt=''/>
+                    </Images>
+                </Template>
+        </Page>
     );
 }
 
