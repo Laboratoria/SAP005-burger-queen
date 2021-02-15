@@ -1,7 +1,9 @@
 import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
+import './singup.css'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
+import logo from '../../assets/logo.png';
 
 export const SignUp = () => {
 
@@ -12,7 +14,9 @@ export const SignUp = () => {
 
   return (
     <Fragment>
-      <form>
+      <form className='form-singup'>
+      <img src={logo}alt='logo urban' className='logo'/>
+      <div className='input-sigup'>
         <label htmlFor='userName' className='label'>Nome<span className='required'>*</span></label><br />
         <Input
           required
@@ -37,7 +41,19 @@ export const SignUp = () => {
           }
           }
         />
-        <p>Função<span className='required'>*</span></p>
+        <label htmlFor='userPassword' className='label'>Senha<span className='required'>*</span></label><br />
+        <Input
+          required
+          name='userPassword'
+          type='password'
+          placeholder='Digite uma senha'
+          value={userPassword}
+          onChange={(event) => {
+            setUserPassword(event.target.value)
+          }
+        }
+        /><br />
+        <p className='text-sing'>Função<span className='required'>*</span></p>
         <label htmlFor='kitchen' className='radio-btn'>Cozinha</label>
         <Input
           required
@@ -63,18 +79,6 @@ export const SignUp = () => {
           }
           }
         /><br />
-        <label htmlFor='userPassword' className='label'>Senha<span className='required'>*</span></label><br />
-        <Input
-          required
-          name='userPassword'
-          type='password'
-          placeholder='Digite uma senha'
-          value={userPassword}
-          onChange={(event) => {
-            setUserPassword(event.target.value)
-          }
-          }
-        /><br />
         <Button
           name='Cadastrar'
           type='submit'
@@ -91,6 +95,7 @@ export const SignUp = () => {
             }
           }
         />
+        </div>
       </form>
     </Fragment>
   )
