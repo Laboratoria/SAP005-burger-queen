@@ -16,7 +16,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 );
 
-
 const Routes = () => {
   return (<BrowserRouter>
     <Switch>
