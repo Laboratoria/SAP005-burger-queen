@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <p className='footer-p'>Desenvolvido por
+        <p>Desenvolvido por
         <a
           className='footer-link'
           href='https://github.com/CarolineSCosta'
@@ -13,7 +13,7 @@ const Footer = () => {
         >
           CarolineCosta
         </a> 
-        </p> e <p className='footer-p'>
+        e
         <a className='footer-link'
           href='https://github.com/Elis-ctrl'
           target='_blank'
@@ -21,7 +21,7 @@ const Footer = () => {
         >
           ElisBrasil
         </a>
-      </p>
+        </p>
     </footer>
   )
 }
