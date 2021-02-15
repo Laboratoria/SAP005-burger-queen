@@ -53,6 +53,7 @@ export const useStyles = makeStyles((theme) => ({
   arrow:{
     margin: 25,
     paddingRight:'60vw',
+    color: theme.palette.text.primary,
   },
 
   totalProducts: {
@@ -91,8 +92,8 @@ export function LogoNav() {
 
 export function Copyright() {
   return (
-    <Box mt={5}>
-      <Typography variant="body2" color="textSecondary" align="center">
+    <Box mt={5} className="copyRight">
+      <Typography variant="body2"  align="center">
         {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
           Your Website
@@ -106,7 +107,7 @@ export function Copyright() {
 
 export function SingIn() {
   return (
-    <Typography color="textPrimary" component="h1" variant="h5">
+    <Typography  component="h1" variant="h5">
     Ratatouille Burguer
     </Typography>
   )
@@ -114,7 +115,7 @@ export function SingIn() {
 
 export function CreatSign() {
   return (
-    <Typography color="textPrimary" component="h1" variant="h5">
+    <Typography  component="h1" variant="h5">
       Cadastre-se 
     </Typography>
   )

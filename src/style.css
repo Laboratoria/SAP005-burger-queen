@@ -4,10 +4,14 @@ body{
 }
 .container {
     margin-top: 2vh;
-    background-color: white;
+    background-color: #64b5f6;
     width: 100%;
     box-shadow: 0 0 8px #5c564f;
     border-radius: 20px;
     max-width: 700px;
+    color: white;
+}
+.copyRight{
+    color: black;
 }
 
