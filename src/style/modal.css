@@ -1,0 +1,36 @@
+.modal{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #baa295;
+    color: #383636;
+    width: 60%;
+    height: 60%;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 8px 0px #383636;
+    text-align: center;
+
+}
+
+.close {
+    font-family: "ChunkFive";
+    margin: 1rem 0rem 0.5rem 0rem;
+    border: 1px solid transparent;
+    border-radius: 0.2rem;
+    background-color: #aa3908;
+    color: #baa295;
+    padding: 0.3rem;
+    letter-spacing: 0.1rem;
+    font-size: 16px;
+    cursor: pointer;
+}

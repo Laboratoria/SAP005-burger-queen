@@ -1,15 +1,19 @@
 import '../style/login.css'
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from 'react-router-dom';
-import Logo from '../images/Logo.png'
 import Cozinha from '../images/Ícones/chef.png'
 import Salao from '../images/Ícones/bandeja.png'
+import Footer from '../components/Footer';
+import Logo from '../components/Logo';
+import ErrorModal from '../components/ModalError';
 
 function Register () {
     const [signupInfo, setSignupInfo] = useState({"restaurant":"acka burguer"});
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     let history = useHistory();
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -24,10 +28,11 @@ function Register () {
         .then(response => response.json())
         .then(data => {
             if(data.message !== undefined){
+                setIsModalVisible(true);
+                setErrorMessage(`${data.message}`);
+            } else {
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("userId", data.id);
-                alert(data.message);
-            } else {
                 history.push(`/${data.role}`);
             }
           });
@@ -35,13 +40,14 @@ function Register () {
   
     return (
       <div>
+        {isModalVisible ? (<ErrorModal onClose={() => setIsModalVisible(false)}>{errorMessage}</ErrorModal>) : null}
         <section className="login">
-            <img className="logo" src={Logo} />
+            <Logo />
             <form className="form-login" onSubmit={handleSubmit}>
                 <input
                     className="form-input"
                     type="text" 
-                    placeholder="Nome"
+                    placeholder="Nome Completo"
                     required
                     onChange={(event) => setSignupInfo({ ...signupInfo, "name": event.target.value })} 
                 />
@@ -115,19 +121,12 @@ function Register () {
                 </button>
                 <p className="form-text">
                     Já tem uma conta? 
-                    <Link className="form-router" to="/login">Faça login!</Link>
+                    <Link className="form-router" to="/">Faça login!</Link>
                 </p>
             </form>
     
-          </section>
-          <footer>
-            <p className="footer-text">Projeto desenvolvido por
-            <a className="footer-link" href="" alt="Ana Clara GitHub"> Ana Clara</a> e
-            <a className="footer-link" href="" alt="Kauana GitHub"> Kauana </a> 
-            durante o Bootcamp da
-            <a className="footer-link" href="" alt="Site Laboratória"> Laboratória</a>
-            .</p>
-        </footer>
+        </section>
+        <Footer />
       </div>
     );
 }

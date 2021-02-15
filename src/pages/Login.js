@@ -1,11 +1,15 @@
 import '../style/login.css'
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from 'react-router-dom';
-import Logo from '../images/Logo.png'
+import Footer from '../components/Footer';
+import Logo from '../components/Logo';
+import ErrorModal from '../components/ModalError';
 
 function Login(props) {
     const [authInfo, setAuthInfo] = useState(props.authInfo);
     let history = useHistory();
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -29,15 +33,17 @@ function Login(props) {
               pathname: `/${data.role}`,
             });
           } else {
-            alert(data.message);
+            setIsModalVisible(true)
+            setErrorMessage(`${data.message}`)
           }
         })
-    }
+      }
 
-    return (
-      <div>
-        <section className="login">
-            <img className="logo" src={Logo} />
+      return (
+        <div>
+        {isModalVisible ? (<ErrorModal onClose={() => setIsModalVisible(false)}>{errorMessage}</ErrorModal>) : null}
+          <section className="login">
+            <Logo />
             <form className="form-login" onSubmit={handleSubmit}>
             <input 
                 className="form-input"
@@ -67,14 +73,7 @@ function Login(props) {
             </p>
             </form>
         </section>
-        <footer>
-            <p className="footer-text">Projeto desenvolvido por
-            <a className="footer-link" href="" alt="Ana Clara GitHub"> Ana Clara</a> e
-            <a className="footer-link" href="" alt="Kauana GitHub"> Kauana </a> 
-            durante o Bootcamp da
-            <a className="footer-link" href="" alt="Site Laboratória"> Laboratória</a>
-            .</p>
-        </footer>
+        <Footer />
       </div>
       
     );
