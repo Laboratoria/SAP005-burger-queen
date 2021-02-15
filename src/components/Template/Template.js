@@ -1,12 +1,13 @@
 import React from 'react';
 import {withRouter} from 'react-router';
-import Footer from './components/footer';
-// import Header from './components/navbar';
+import './template.css'
+import Footer from '../Footer/Footer';
+import Navbar from '../Navbar/Navbar';
 
 const Body = (props) => {
 return(
   <>
-  {/* <Header /> */}
+  <Navbar />
   <main className='App'>
     {props.children}
   </main>

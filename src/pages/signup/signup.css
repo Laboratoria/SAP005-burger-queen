@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo{
+  width: 20%;
+  height: 30%;
+
+}
+
+.input-sigup {
+  width: 50vh;
+  height: 30vw;
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-singup {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 30vh;
+  height: 3vw;
+}
+
+label {
+  margin-bottom: 0%;
+  margin-right: 42%;
+}
+
+button {
+  width: 20vh;
+  height: 3vw;
+  font-size: 20px;
+  color:white;
+  background-color: rgb(78, 76, 76);
+  border-radius: 0.5rem;
+}
+
+.text-sing {
+  margin-top: 2vh;
+  margin-right: 42%;
+}
+
+.radio-btn {
+  margin: 0;
+}
