@@ -30,11 +30,20 @@ function Login() {
     fetch('https://lab-api-bq.herokuapp.com/auth', options)
     .then(response=>{response.json()
         .then(data=>{
-          history.push('/AnotarPedidos');
+          const {token} = data;
+          const {name} = data;
+          const {role} = data;
+          if(token, name, role){
+            localStorage.setItem('token', token)
+            localStorage.setItem('name', name)
+            localStorage.setItem('role', role)
+            history.push('/AnotarPedidos');
+          }else{
+            alert("preencha todos os campos")
+          }     
         })})
-    .catch(e => console.log("Deu erro" + e.message))
-
 }
+
 
   return (
 
@@ -48,7 +57,7 @@ function Login() {
           <p>E-mail: </p>
           <div className="input-container">
             <img className="icon-user"  src={IconUser} alt='icon-user' />
-            <input type="text" value={email}  onChange={(event) => setEmail(event.target.value)}/>
+            <input type="text" value={email}  onChange={(event) => setEmail(event.target.value)} required/>
           </div>
         </div>
 
@@ -56,14 +65,14 @@ function Login() {
           <p>Senha: </p>
           <div className="input-container">
             <img className="icon-user" src={IconPassword} alt='icon-password' />
-            <input type="password" value={password}  onChange={(event) => setPassword(event.target.value)} />
+            <input type="password" value={password}  onChange={(event) => setPassword(event.target.value)} required/>
           </div>
         </div>
 
       </form>
 
       <div className="option-login">
-        <button className="btn-login" onClick={handleSignIn}>ENTRAR</button>
+        <button className="btn-login" type="submit" onClick={handleSignIn}>ENTRAR</button>
         <h3>Ou clique <Link to='/Cadastro'>AQUI</Link> para se cadastrar.</h3>
       </div>
 
