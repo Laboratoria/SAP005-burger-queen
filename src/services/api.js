@@ -1,5 +1,3 @@
-import { AlertMessage } from '../components/errors.js'
-
 const CallAPI = async (url, method) => {
   try {
     const response = await fetch(url, method);
