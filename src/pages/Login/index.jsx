@@ -1,33 +1,41 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import RequestOptions from "../../components/object/requestOptions";
 import AllModelsObject from "../../components/object/models";
 import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 import CallAPI from "../../services/api";
-import { getError } from "../../components/errors.js";
+import { getError } from "../../components/errors/errors.js";
 
 const userData = AllModelsObject.authAndUsers;;
 
-const loginPage = (props) => {
-  const { email, password, auth } = props;
-  const body = `email=${email}&password=${password}`;
-  const method = RequestOptions.post(body);
-
-  CallAPI(auth, method)
-    .then((json) => {
-      if (json.code) {
-        getError(json.code)
-      }
-      else {
-        alert("Acessou") //linha para mudar a rota
-      }
-    })
-};
-
 const Login = () => {
+  const history = useHistory();
   const [user, setUser] = useState(userData);
+
+  const loginPage = (props) => {
+    const { email, password, auth } = props;
+    const body = `email=${email}&password=${password}`;
+    const method = RequestOptions.post(body);
+
+    CallAPI(auth, method)
+      .then((json) => {
+        if (json.code) {
+          getError(json.code)
+        }
+
+        localStorage.setItem(`currentUser`, JSON.stringify(json))
+        localStorage.setItem(`token`, `${json.token}`)
+
+        if (json.role === "hall") {
+          history.push("/Hall")
+        }
+        if (json.role === "kitchen") {
+          history.push("/Kitchen")
+        }
+      })
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();

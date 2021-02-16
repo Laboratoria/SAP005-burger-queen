@@ -5,7 +5,7 @@ import AllModelsObject from "../../components/object/models";
 import Footer from "../../components/footer.js";
 import Logo from "../../components/logo";
 import CallAPI from "../../services/api";
-import { getError, printMessageError } from "../../components/errors.js";
+import { getError, printMessageError } from "../../components/errors/errors.js";
 
 const userData = AllModelsObject.authAndUsers;
 

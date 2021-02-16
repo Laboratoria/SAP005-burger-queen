@@ -1,4 +1,4 @@
-import { alertMessage } from '../components/errors.js'
+import { alertMessage } from '../components/errors/errors.js'
 
 const CallAPI = async (url, method) => {
   try {
