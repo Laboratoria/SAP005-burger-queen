@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Codystar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Outline&display=swap');
+
+.openingPage-container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(3, 3, 26);
+    display: flex;
+    justify-content: center;
+    /*background: url('/images/backgroundsub.jpg');*/
+}
+
+.openingPage-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: -10%;
+}
+
+.openingPage-logo{
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: -10%;   
+    font-family: 'Codystar', cursive;
+    animation: drop-logo 1s ease-in ;
+}
+
+.openingPage-logo-burger{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    animation: bright-burger 1s 1s ease infinite;
+}
+
+.openingPage-logo-burger__bread{
+    margin-top: -100%;
+    background-color: transparent;
+    border: #00FFFF thin solid;
+    width: 100px;
+    height: 50px;
+    padding: 20px;
+    border-radius: 50px 50px 5px 5px;
+}
+
+.openingPage-logo-burger__cheese{
+    width: 100px;
+    height: 5px;
+    padding: 5px;
+    border-radius: 10px 10px;
+    background-color: transparent;
+    border: yellow thin solid;
+}
+.openingPage-logo-burger__beef{
+    width: 100px;
+    height: 5px;
+    background-color: transparent;
+    border: #FF1493 thin solid;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.openingPage-logo-burger__bottom{
+    background: transparent;
+    border: #00FFFF thin solid;
+    width: 100px;
+    height: 10px;
+    padding: 10px;
+    border-radius: 5px 5px 20px 20px;
+}
+
+.openingPage-logo-subtitle{
+    animation: bright-logo 1s ease infinite;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 10px;
+    font-family: 'Bungee Inline', cursive;
+    font-family: 'Bungee Outline', cursive;
+    margin-bottom: 20%;
+}
+
+@keyframes drop-logo {
+    0%{
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+@keyframes bright-logo {
+    0%,
+    100% {
+        text-shadow: 0 0 1px #00FFFF, 0 0 1px #00FFFF, 0 0 1px #00FFFF, 0 0 1px #fa16c9, 0 0 2px #00FF00, 1px 1px 3px #FF1493;
+        color: transparent;
+    }
+    50%{
+        text-shadow: 0 0 1px #00FFFF, 0 0 1px #00FFFF, 0 0 1px #00FFFF, 0 0 1px #fa16c9, 0 0 2px #00FF00, 1px 1px 3px #FF1493;
+        color: #fff;
+    }
+}
