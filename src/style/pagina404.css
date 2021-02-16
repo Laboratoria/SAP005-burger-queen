@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "ChunkFive";
+    src: url(./Fonts/ChunkFive-Regular.otf)
+}
+
+.error404-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #383636;
+}
+
+.error404-title {
+    font-family: "ChunkFive";
+    font-size: 36px;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+
+}
+
+.error404-message {
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    margin: 0.2rem 0;
+}
+
+.error404-button {
+    font-family: "ChunkFive";
+    margin: 1rem 0rem 4rem 0rem;
+    border: 0.5px solid transparent;
+    border-radius: 0.2rem;
+    background-color: #450604;
+    color: #f2bf27;
+    padding: 0.5rem 0.8rem;
+    letter-spacing: 0.1rem;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 3px 2px 8px 0px #383636;
+
+}

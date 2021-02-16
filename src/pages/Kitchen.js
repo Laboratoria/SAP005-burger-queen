@@ -1,9 +1,16 @@
+import React from "react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
+
 const Kitchen = () => {
   return (
     <div className="Kitchen">
-      <header className="Kitchen-header">
+      <Header/>
+      <div className="Kitchen-header">
         <p>Você está na cozinha</p>
-      </header>
+      </div>
+      <Footer/>
     </div>
   );
 };
