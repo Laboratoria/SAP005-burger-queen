@@ -35,7 +35,13 @@ function Login(){
             body: `email=${email}&password=${password}`
         })
             .then((response) => response.json()).then((json) => {
-                 console.log(json);
+                 console.log(json); 
+                 const token = json.token
+                 const id = json.id
+
+                 const tokenUser = localStorage.setItem("token", token)
+                 const idUser = localStorage.setItem("id", id)
+                 
                 if (json.id!== null) {
                      routerBack();
                 } if (json.role === "hall"){
