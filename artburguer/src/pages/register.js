@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import logo from "../img/Logo.jpg";
+import logo from "../img/hamburgernovo.png";
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import { Link } from "react-router-dom";
@@ -65,7 +65,7 @@ const App = () => {
     <MDBRow>
       <MDBCol md="12">
         <form>
-          <img src={logo} className="App-logoRegister" alt="logo" />
+          <img src={logo} className="App-logo" alt="logo" />
 
           <div className="App-formInput">
             <MDBInput

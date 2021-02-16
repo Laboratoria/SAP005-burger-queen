@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import logo from "../img/Logo.jpg";
+import logo from "../img/hamburgernovo.png";
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import { Link, useHistory } from "react-router-dom";
