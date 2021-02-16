@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Route,  Switch } from 'react-router-dom'
 
-import Lounge from './pages/Lounge'
+import Hall from './pages/Hall'
 import Kitchen from './pages/kitchen'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -19,7 +19,7 @@ function Routes() {
             <Switch>
                 <Route path="/"component={Login} exact/>
                 <Route path="/Register"component={Register} />
-                <Route path="/Lounge" component={Lounge}  /> 
+                <Route path="/Hall" component={Hall}  /> 
                 <Route path="/Kitchen"component={Kitchen}/>
             </Switch>
         </BrowserRouter>

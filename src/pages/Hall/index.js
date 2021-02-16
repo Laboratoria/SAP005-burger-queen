@@ -5,7 +5,9 @@ function Hall() {
     return(
 
         <div>
-            <h1>Lounge</h1>
+            <h1>
+            Hall
+            </h1>
         </div>
     )
 }
