@@ -3,7 +3,7 @@
 	margin: 0px;
 	box-sizing: border-box;
 }
-.singnUp,
+.signUp,
 .App {
 	text-align: center;
 }
@@ -19,7 +19,7 @@
 	color: white;
 }
 
-.singnUp-header {
+.signUp-header {
 	background-color: #383838;
 	min-height: 100vh;
 	display: flex;
@@ -33,7 +33,7 @@
 #login:hover {
 	background-color: rgb(151, 158, 158);
 }
-#singnupBtn:hover {
+#signupBtn:hover {
 	background-color: rgb(151, 158, 158);
 }
 
@@ -49,7 +49,7 @@
 	align-items: center;
 }
 
-#singnupBtn,
+#signupBtn,
 #login {
 	text-align: center;
 	margin: auto;
@@ -99,8 +99,8 @@ a,
 }
 .divRegister {
 	background-color: #242323;
-	width: 70%;
-	height: 400px;
+	width: 75%;
+	height: 380px;
 	border-radius: 10px;
 	margin-top: 5%;
 	display: flex;
@@ -115,4 +115,25 @@ a,
 
 .waiter {
 	margin-left: 74px;
+}
+
+@media (min-width:920px) and (max-width:1700px) {
+
+	.logo {
+		width: 25%;
+		flex-direction: column;
+	}
+
+	.formLogin {
+		margin-bottom: 3%;
+		margin-top: 2%;
+	
+	}
+
+	.divRegister {
+		width: 50%;
+		height: 380px;
+		border-radius: 10px;
+		margin-top: 2%;
+	}
 }
