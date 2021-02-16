@@ -1,5 +1,4 @@
 import React from 'react';
-import './login.css'
 import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
@@ -7,6 +6,7 @@ import Button from '../../components/Button/Button'
 import Input from '../../components/InputText/InputText'
 import Footer from '../../components/Footer/Footer'
 import logo from '../../assets/logo.png'
+import './login.css'
 
 export const Login = () => {
 

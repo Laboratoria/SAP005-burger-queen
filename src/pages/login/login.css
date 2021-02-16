@@ -23,7 +23,7 @@ html {
 	flex-direction: column;
 	justify-content: center;
 	flex-grow: 1;
-	padding: 1rem 0;
+	padding: 0.5rem 0;
 }
 
 .required {
@@ -41,7 +41,7 @@ html {
 }
 
 .label {
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 	font-size: 0.9rem;
 	font-weight: 600;
 	color: #002c37;
