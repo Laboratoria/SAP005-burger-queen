@@ -11,19 +11,19 @@
 html {
 	height: 100%;
 	width: 100%;
-	font-size: 15.5px;
+	font-size: 14px;
 	background-color: #a9b6aa;
 }
 
 .logo {
-	max-width: 35vw;
+	max-width: 15vw;
 	height: auto;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	flex-grow: 1;
-	padding: 0.5rem 0;
+	padding: 1.5rem 0;
 }
 
 .required {
@@ -41,7 +41,7 @@ html {
 }
 
 .label {
-	margin-top: 0.5rem;
+	margin-top: 1rem;
 	font-size: 0.9rem;
 	font-weight: 600;
 	color: #002c37;
