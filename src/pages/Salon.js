@@ -34,7 +34,6 @@ const Salon = () => {
                   onClick={(event) => {
                     history.push({
                       pathname: `/pedidos/${mesa}`,
-                      mesa: event.target.value
                     });
                   }} 
                 />

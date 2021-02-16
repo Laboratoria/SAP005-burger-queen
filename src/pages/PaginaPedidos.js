@@ -85,10 +85,7 @@ function PaginaPedidos(){
                         {menuCafe.map((produto, index) => (
                             <li key={index}>
                                 <label>{`${produto.name} R$${produto.price}`}</label>
-                                <input 
-                                    type="button"
-                                    value="Adicionar"
-                                />
+                                <button><img alt="adicionar-button" src="src/images/Ícones/add-close.png" /></button>
                             </li>
                         ))}
                     </ul>
@@ -97,19 +94,20 @@ function PaginaPedidos(){
                         {menuAlmoco.map((produto, index) => (
                             <li key={index}>
                                 <label>{`${produto.name} R$${produto.price}`}</label>
-                                <input
+                                <button
                                     id={produto.name}
-                                    type="button"
-                                    value="Adicionar"
                                     onClick={(event) => {
-                                        event.target.id === "Hambúrguer Simples" ? setExtras("oi") : <p></p>
+                                        event.target.id === "Hambúrguer Simples" ? setExtras("oi") : <></>
                                     }}
-                                />
+                                >
+                                    <img alt="adicionar-button" src="src/images/Ícones/add-close.png" />
+                                </button>
                             </li>
                         ))}
                     </ul>
                 )}   
                 
+                <p>{extras}</p>
                 </>
             )
         }
