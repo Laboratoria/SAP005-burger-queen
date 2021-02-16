@@ -84,3 +84,7 @@
     color: white;
     cursor: pointer;
 }
+
+.login-footer {
+    background-color: pink;
+  }
