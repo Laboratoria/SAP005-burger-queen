@@ -1,4 +1,4 @@
-import { alertMessage } from '../components/errors.js'
+import { AlertMessage } from '../components/errors.js'
 
 const CallAPI = async (url, method) => {
   try {
@@ -7,7 +7,7 @@ const CallAPI = async (url, method) => {
     return data;
   } 
   catch {
-    alertMessage('Ops! Something went wrong. Please, try again.');
+    alert('Ops! Something went wrong. Please, try again.');
   }
 };
 
