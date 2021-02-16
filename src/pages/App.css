@@ -42,22 +42,19 @@
 #email,
 #name {
 	padding: 11px;
+	width: 80%;
 	margin-top: 20px;
 	justify-content: center;
 	border-radius: 9px;
-}
-.registerLogin {
-	height: 300px;
-	margin-top: 85px;
+	align-items: center;
 }
 
 #singnupBtn,
 #login {
-	display: flex;
 	text-align: center;
 	margin: auto;
 	justify-content: center;
-	padding: 5px;
+	padding: 11px;
 	width: 80%;
 	font-family: Arial;
 	font-weight: bold;
@@ -68,6 +65,11 @@
 	margin-top: 20px;
 }
 
+.formLogin {
+	margin-bottom: 15px;
+	margin-top: 7%;
+}
+
 .register {
 	margin-top: 24px;
 	font-family: Arial;
@@ -75,7 +77,8 @@
 	font-weight: bold;
 	font-size: 61%;
 }
-a.register {
+a, 
+.pRegister {
 	font-size: 17px;
 }
 
@@ -84,7 +87,6 @@ a.register {
 	justify-content: center;
 	width: 50%;
 }
-
 .logop,
 .logoh {
 	width: 54px;
@@ -98,7 +100,7 @@ a.register {
 .divRegister {
 	background-color: #242323;
 	width: 70%;
-	height: 350px;
+	height: 400px;
 	border-radius: 10px;
 	margin-top: 5%;
 	display: flex;

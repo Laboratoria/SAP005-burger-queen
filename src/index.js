@@ -6,7 +6,7 @@ import SingnUp from './pages/SingnUp';
 import Waiter from './pages/Waiter'
 import Kitchen from './pages/Kitchen'
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
 
 ReactDOM.render(
   <BrowserRouter>
