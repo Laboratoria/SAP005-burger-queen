@@ -35,8 +35,9 @@ function Login(){
             body: `email=${email}&password=${password}`
         })
             .then((response) => response.json()).then((json) => {
+
                  console.log(json);
-                 
+                 console.log(json); 
                  const token = json.token
                  const id = json.id
 
