@@ -46,5 +46,4 @@ function Hall(){
         </div>    
     );
 };
-
-export default Hall;
+ export default Hall;

@@ -35,6 +35,7 @@ function Register() {
                         .then((response) => response.json()).then((json) => {
                             window.alert(`Cadastro realizado com sucesso!!`);
                              console.log(json);
+                             
                             if (json.id !== null) {
                                 routerBack();
                             }
