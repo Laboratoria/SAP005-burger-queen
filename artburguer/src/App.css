@@ -1,66 +1,65 @@
 body,
 html {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	background: black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: black;
 }
 
 .App-logo {
-	width: 100%;
-	height: 100%;
-	padding-bottom: 10%;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10%;
 }
 
 .App-logoRegister {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .App-formInput {
-	color: white;
-	height: 100%;
-	width: 100%;
-	background: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  background: black;
 }
 
 .App-text {
-	color: white;
-	font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
 
-.App-linkCadastro {
-	font-size: 20px;
-	color: white;
+.App-cadaster {
+  font-size: 20px;
+  color: white;
+  text-align: center;
 }
 
 .App-atuacao {
-	color: white;
-	font-size: 20px;
-	text-align: center;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
 .App-funcionario {
-	color: white;
-	font-size: 20px;
-	text-align: center;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
 .App-footer {
-	color: white;
-	padding-top: 4%;
-
-	text-align: center;
+  color: white;
+  padding-top: 4%;
+  text-align: center;
 }
 
 .App-footerlogin {
-	color: white;
-	padding-top: 140px;
-
-	text-align: center;
+  color: white;
+  padding-top: 140px;
+  text-align: center;
 }
 
 /* 
