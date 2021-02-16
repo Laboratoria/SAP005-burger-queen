@@ -1,0 +1,23 @@
+footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.github svg {
+    font-size: 20px;
+}
+
+.github {
+    font-size: 16px;
+}
