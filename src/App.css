@@ -1,4 +1,4 @@
-body{
+body {
   /*para imagem */
   background-image: url(prato.jpg);
   background-attachment: fixed;
@@ -10,7 +10,7 @@ body{
   background-position: center;
 }
 
-.img-fundo-one{
+.img-fundo-one {
   width: 300px;
   height: 400px;
   position: absolute;
@@ -18,10 +18,10 @@ body{
   bottom: 0;
   left: 0;
   right: 0;
-  margin:auto;
+  margin: auto;
 }
 
-.img-fundo-two{
+.img-fundo-two {
   width: 300px;
   height: 500px;
   position: absolute;
@@ -29,5 +29,25 @@ body{
   bottom: 0;
   left: 0;
   right: 0;
-  margin:auto;
+  margin: auto;
+}
+
+.cardapio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products {
+  display: inline-flex;
+  flex: 0 1 40%;
+  margin: 10px;
+}
+
+.img-product {
+  width: 150px;
+  height: 150px;
+}
+
+li {
+  list-style-type: none;
 }

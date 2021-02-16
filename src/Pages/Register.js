@@ -35,7 +35,7 @@ function Register() {
   };
 
   fetch("https://lab-api-bq.herokuapp.com/users", requestOptions)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(result => {
       console.log(result)
       if (result.role === 'waiter') {
