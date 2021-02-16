@@ -1,6 +1,6 @@
-import './App.css';
+import '../style/Kitchen.css';
 import React from "react";
-import logo from './logo.png';
+import logo from '../images/logo.png';
 
 
 function Kitchen() {
