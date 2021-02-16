@@ -186,3 +186,20 @@ select.select-style:focus-within{
   left: 25px;
   top: 25px;
 }
+
+.modal-content {
+  background-color: #ffbb5a;
+  border: none;
+}  
+
+.modal-header {
+  border: none;
+}
+
+.modal-text {
+  color: #584944;
+}
+
+.modal-title {
+  color: #fff8d8;
+}

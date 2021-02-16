@@ -22,7 +22,6 @@ const Register = () => {
     event.preventDefault();
     if (user.password === user.confirmPassword) {
       createUser(user);
-
     }
     else {
       printMessageError('Passwords do not match. Please try again.')
@@ -40,8 +39,8 @@ const Register = () => {
           getError(json.code)
         }
         else {
+          setModalShow(true); 
           console.log(json); //linha para mudar a rota
-          setModalShow(true);           // alert('User successfully registered!');
         }
       })
   }
@@ -89,6 +88,7 @@ const Register = () => {
           <button type="submit"> SIGN UP </button>
         </form>
       </div>
+      
       <ModalMessage
         onHide={() => setModalShow(false)}
         show={modalShow} />
