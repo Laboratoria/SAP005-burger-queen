@@ -2,132 +2,104 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif, normal, normal;
-} 
-
-label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    border-style: none;
-    cursor: pointer;
-    font-size: 1.8em;
-    color: #b6a89a;
-}
-figure {
-    margin-top: 4px;
-}
-[type="checkbox"] {
-    opacity: 0;
-}
-.hidden {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    display: none;
-}
-::-webkit-scrollbar {
-    width: 15px;
-}
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background: #FF780F;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); 
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #FF780F;
-}
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgb(105, 109, 109);
-    border-radius: 2px;
-}
-.login-page, .register-page {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    min-height: 100vh;
-    padding: 15px 0px;
-}
-.left {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
 }
 
-.right, .form {
+.register-page {
     display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-}
-.providers-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-}
-.submit-button {
-    width: 240px;
-    height: 35px;
-    border-radius: 50px;
-    border-style: none;
-    background: #FF780F;
-    font-weight: 500;
-    font-size: 18px;
-    text-align: center;
-    color: #FFFFFF;
-    outline: transparent;
-}
-#login-button{
-    margin: 10px 0px 15px;
-}
-.submit-button:hover {
-    background-color:#F8CB00;
-}
-.subtitle {
-    font-weight: normal;
-    font-size: 14px;
-    text-align: center;
-    color: #231911;
-}
-.button-in-text {
-    color:#FFFFFF;
-    font-size: 14px;
-    font-weight: medium;
-    border-style: none;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
     background-color: #F8CB00;
-    outline: transparent;
 }
-.button-in-text:hover {
-    text-decoration: underline;
-}
-.input-in-line {
-    width: 255px;
-    border: none;
-    border-bottom: 1.5px solid #231911;
-    padding: 8px;
-    outline-color: #FF780F;
-}
-.button-icon {
-    border-style: none;
-    background-color: #FFFFFF;
-    padding: 10px;
-    margin: 18px 0px;
-    outline: transparent;
-}
-.error-message {
+
+.right {
+    background-color: #F8CB00;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 5px;
-    font-weight: normal;
-    font-size: 11px;
-    text-align: center;
-    color: #db0b0b;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+}
+
+.right h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.register-name, .register-email, .register-password, .register-re-password {
+    display: flex;
+    align-items: center;
+    padding:3px;
+    width: 98%;
+    height: 40px;
+}
+
+.register-name svg, .register-email svg, .register-password svg, .register-re-password svg {
+    font-size: 22px;
+}
+
+.register-name input, .register-email input, .register-password input, .register-re-password input {
+    background: transparent;
+    width: 100%;
+    outline-width: 0;
+    border: none;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 10px;  
+}  
+
+.register-page input {
+    width: 100%;
+    padding: .3em;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #000;
+    font-size: 16px;
+}
+
+.register-function {
+    margin-top: 10px;
+}
+
+.register-function select {
+    font-size: 18px;
+    border-radius: 10px;
+    border-color: #000;
+}
+.register-function select ::after{
+    background-color: pink;
+}
+
+
+.register-function option {
+    font-size: 16px;
+    border-radius: 10px;
+    border-color: #000;
+}
+
+.register-page button {
+    width: 200px;
+    background-color: white;
+    height: 40px;
+    border: none;
+    box-shadow: 4px 4px #333131a9;
+    border-radius: 20px;
+    font-size: 18px;
+    font-style: bold;
+    margin-top: 10px;
+}
+
+.register-page button:hover {
+    background-color: #171719;
+    color: white;
+    cursor: pointer;
+}
+
+.register-to-login {
+    font: 12px;
+    padding-top: 20px;
 }

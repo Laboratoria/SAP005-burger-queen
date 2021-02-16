@@ -1,71 +1,83 @@
 import { React, useState } from "react";
 import './login.css';
-import { Link } from 'react-router-dom';
-import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import Footer from '../../components/Footer';
+import { Link, useHistory } from 'react-router-dom';
+import { MdEmail, MdLock} from 'react-icons/md';
+import Footer from '../../components/Footer/Footer';
+import Logo from '../../components/Logo/Logo';
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [show, setShow] = useState(false);
+function Login() {  
+  const history = useHistory()
 
-  function login(event) {
-    event.preventDefault();
-    fetch("https://lab-api-bq.herokuapp.com/auth/", {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `email=${email}&password=${password}`,
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+  const routerHall=()=>{
+    history.push('/salao')
+  }
+  const routerKitchen=()=>{
+    history.push('/cozinha')
   }
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setShow(!show);
-  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  return (
+  
+    function loginBtn(e) {
+      e.preventDefault();
+      fetch('https://lab-api-bq.herokuapp.com/auth', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body :`email=${email}&password=${password}`
+        
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          const token = json.token
+          const id = json.id
+  
+          const tokenUser = localStorage.setItem("token", token)
+          const idUser = localStorage.setItem("id", id)
+
+          if(tokenUser!== null && idUser!== null && json.role === "salao") {
+            routerHall();
+          }else if(tokenUser!== null && idUser!== null && json.role === "cozinha") {
+            routerKitchen();
+          }else{
+            alert("Funcionário não encontrado!")
+          }
+        })
+    };
+    
+    return (
     <>    
     <div className="login">
-      <div className="login-logo">
-        <img src="img/logotipo.png" alt="logo-app" />
-      </div>
-      <div className="login-right">
-        <div className="loginInputEmail">
+      <Logo />
+      <form className="login-right">
+        <label className="loginInputEmail" htmlFor="loginInputEmail">
           <MdEmail />
-          <input
+          <input 
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
+        </label>
 
-        <div className="loginInputPassword">
+        <label className="loginInputPassword" htmlFor="loginInputPassword">
           <MdLock />
           <input
-            type={show ? "text" : "password"}
+            type="password"
             placeholder="Senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className="registe-eye">
-            {show ? (
-              <MdVisibility size={20} onClick={handleClick} />
-            ) : (
-              <MdVisibilityOff size={20} onClick={handleClick} />
-            )}
-          </div>
-        </div>
-        <button type="submit" onClick={login}>
+        </label>
+        <button type="submit" onClick={loginBtn}>
           Entrar
         </button>
-        <h4>Não tem uma conta?<Link to="./register/index.js"><strong> Cadastra-se.</strong></Link></h4>
-      </div>
+        <h4>Não tem uma conta?<Link to="./Register/index.js"><strong> Cadastre-se.</strong></Link></h4>
+      </form>
 	  <div className="login-footer">
 		
 	  </div>
