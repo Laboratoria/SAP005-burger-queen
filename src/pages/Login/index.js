@@ -37,6 +37,7 @@ function Login() {
             localStorage.setItem('token', token)
             localStorage.setItem('name', name)
             localStorage.setItem('role', role)
+            console.log(localStorage.getItem('token'));
             history.push('/AnotarPedidos');
           }else{
             alert("preencha todos os campos")
