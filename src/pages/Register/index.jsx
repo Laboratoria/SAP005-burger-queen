@@ -5,7 +5,7 @@ import AllModelsObject from "../../components/object/models";
 import Footer from "../../components/footer";
 import Logo from "../../components/logo";
 import CallAPI from "../../services/api";
-import { getError, printMessageError } from "../../components/errors";
+import ErrorAuth from "../../components/errors";
 import ModalMessage from "../../components/modal"
 
 const userData = AllModelsObject.authAndUsers;
@@ -13,6 +13,7 @@ const userData = AllModelsObject.authAndUsers;
 const Register = () => {
   const [user, setUser] = useState(userData);
   const [modalShow, setModalShow] = useState(false);
+  const [statusCode, setStatusCode] = useState('');
 
   useEffect(() => {
     setUser({ ...user, completeName: user.name + '' + user.lastName })
@@ -24,7 +25,7 @@ const Register = () => {
       createUser(user);
     }
     else {
-      printMessageError('Passwords do not match. Please try again.')
+      setStatusCode('405');
     }
   }
 
@@ -36,11 +37,11 @@ const Register = () => {
     CallAPI(users, method)
       .then((json) => {
         if (json.code) {
-          getError(json.code)
+          setStatusCode(json.code);
         }
         else {
-          setModalShow(true); 
-          console.log(json); //linha para mudar a rota
+          setModalShow(true); //linha para mudar a rota
+          setStatusCode('');
         }
       })
   }
@@ -83,7 +84,8 @@ const Register = () => {
               <option value='Kitchen'>Kitchen</option>
             </select>
           </label>
-          <p id="error-login"></p>
+
+            {statusCode && <ErrorAuth/>}
 
           <button type="submit"> SIGN UP </button>
         </form>
@@ -91,7 +93,8 @@ const Register = () => {
       
       <ModalMessage
         onHide={() => setModalShow(false)}
-        show={modalShow} />
+        show={modalShow} 
+      />
       <Footer />
     </>
   );

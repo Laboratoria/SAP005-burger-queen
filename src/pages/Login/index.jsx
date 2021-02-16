@@ -6,32 +6,33 @@ import Logo from "../../components/logo";
 import Container from "../../components/main";
 import Footer from "../../components/footer.js";
 import CallAPI from "../../services/api";
-import { getError } from "../../components/errors.js";
+import ErrorAuth from "../../components/errors";
 
 const userData = AllModelsObject.authAndUsers;;
 
-const loginPage = (props) => {
-  const { email, password, auth } = props;
-  const body = `email=${email}&password=${password}`;
-  const method = RequestOptions.post(body);
-
-  CallAPI(auth, method)
-    .then((json) => {
-      if (json.code) {
-        getError(json.code)
-      }
-      else {
-        alert("Acessou") //linha para mudar a rota
-      }
-    })
-};
-
 const Login = () => {
   const [user, setUser] = useState(userData);
+  const [statusCode, setStatusCode] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     loginPage(user);
+  };
+
+  const loginPage = (props) => {
+    const { email, password, auth } = props;
+    const body = `email=${email}&password=${password}`;
+    const method = RequestOptions.post(body);
+
+    CallAPI(auth, method)
+      .then((json) => {
+        if (json.code) {
+          setStatusCode(json.code);
+        }
+        else {
+          alert("Acessou") //linha para mudar a rota
+        }
+      })
   };
 
   return (
@@ -50,7 +51,7 @@ const Login = () => {
                 placeholder="Password" required
               />
             </label>
-            <p id="error-login"></p>
+            {statusCode && <ErrorAuth />}
             <button type="submit"> SIGN IN </button>
             <p> Do not have an account? <span> <Link to="/Register">Register</Link> </span></p>
           </form>

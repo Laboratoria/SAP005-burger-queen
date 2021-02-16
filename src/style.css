@@ -188,7 +188,7 @@ select.select-style:focus-within{
 }
 
 .modal-content {
-  background-color: #ffbb5a;
+  background-color: #fff8d8;
   border: none;
 }  
 
@@ -200,6 +200,6 @@ select.select-style:focus-within{
   color: #584944;
 }
 
-.modal-title {
+/* .modal-title {
   color: #fff8d8;
-}
+} */
