@@ -81,9 +81,9 @@ const AppLogin = () => {
 
 				<div>
 					<MDBContainer className="App-footerlogin">
-						&copy; {new Date().getFullYear()} Projeto desenvolvido por:{' '}
-						<a href="https://github.com/KarineFrontelli/"> Karine Frontelli </a> e{' '}
-						<a href="https://github.com/rebecaCanesin"> Rebeca Canesin</a>
+						&copy; {new Date().getFullYear()} Projeto desenvolvido por:
+						<a href="https://github.com/KarineFrontelli/" target="_blank"> Karine Frontelli </a> e
+						<a href="https://github.com/rebecaCanesin" target="_blank"> Rebeca Canesin</a>
 					</MDBContainer>
 				</div>
 			</MDBCol>
