@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import logo from '../img/Logo.jpg';
 import '../App.css';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBFooter } from 'mdbreact';
+import { Link } from 'react-router-dom';
 
 const AppLogin = () => {
 	const [ email, setEmail ] = useState('');
@@ -76,7 +77,7 @@ const AppLogin = () => {
 					</div>
 
 					<p className="App-funcionario">Funcionário novo?</p>
-					<p className="App-funcionario">Cadastre-se</p>
+					<Link to='/register' className="App-funcionario">Cadastre-se</Link>
 				</form>
 
 				<div>
