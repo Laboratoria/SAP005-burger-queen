@@ -14,7 +14,7 @@ const PrivateRoute = ({component: Component, ...rest }) => (
           localStorage.getItem("token") ? (
             <Component { ...props} />
           ) : (
-            <Redirect to={{pathname: "/login", state: { from: props.location } }} />
+            <Redirect to={{pathname: "/", state: { from: props.location } }} />
           )
         }
     />
@@ -24,7 +24,7 @@ function Routes() {
 
     return (
         <Switch>
-            <Route path="/login" component={Login} />
+            <Route path="/" component={Login} exact/>
             <Route path="/register" component={Register}/>
             <PrivateRoute path="/cozinha" component={Kitchen}/>
             <PrivateRoute path="/salao" component={Salon}/>

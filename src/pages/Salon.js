@@ -1,7 +1,9 @@
-import React from 'react';
 import '../style/salon.css'
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Mesa from '../images/Ícones/mesa-laranja.png'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Salon = () => {
     let history = useHistory();
@@ -15,11 +17,8 @@ const Salon = () => {
 
     return (
       <div className="Salon">
-        <header className="Salon-header">
-        </header>
-
+        <Header/>
         <main>
-          <p className="nome-atendente">Atendente: {atendente}</p>
           <p className="buttons-header">Escolha a mesa para qual deseja fazer o pedido:</p>
 
           <div className="mesas">
@@ -43,6 +42,7 @@ const Salon = () => {
           </div>
           
         </main>
+        <Footer/>
       </div>
     );
 };

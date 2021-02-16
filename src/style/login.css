@@ -23,7 +23,7 @@
     background-color: #450604;
     padding: 3rem 2rem;
     border-radius: 0.5rem;
-    box-shadow: 2px 2px 8px 0px #383636;
+    box-shadow: 5px 5px 8px 0px #383636;
     width: 250px;
 
 }
@@ -80,6 +80,7 @@
 .form-label input[type=radio]:checked+label {
     background-image: none;
     background-color: #aa3908;
+    color: #baa295
 }
 
 .form-label input[type=radio]+label {
@@ -104,24 +105,7 @@
     text-align: center;
 }
 
-footer {
-    background-color: #383636;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-}
-
-.footer-text {
-    color: #baa295;
-    text-align: center;
-    font-size: 11px;
-    margin: 0.2rem 0;
-}
-
-.footer-link{
-    color: #baa295;
-    text-decoration: none;
-    font-weight: bold;
+button:focus {
+    border: none;
+    outline: none;
 }

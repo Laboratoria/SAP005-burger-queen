@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 function PaginaPedidos(){
     const {mesa} = useParams();
     let history = useHistory();
     let token = localStorage.getItem("token");
-    const atendente = localStorage.getItem("atendente");
     const [loading, setLoading] = useState(true);
 
     const [menuCafe, setMenuCafe] = useState([]);
@@ -56,12 +57,12 @@ function PaginaPedidos(){
 
     return (
         <main>
+            <Header/>
             {loading ? 
             (
                 <p>Carregando</p>
             ) : (
                 <>
-                <p>Atendente: {atendente}</p>
                 <input type="button" value="Voltar" onClick={() => {
                     history.push({
                     pathname: `/salao`,
@@ -113,6 +114,7 @@ function PaginaPedidos(){
                 </>
             )
         }
+        <Footer/>
         </main>       
     )
 }

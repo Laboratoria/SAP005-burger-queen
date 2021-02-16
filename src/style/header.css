@@ -1,0 +1,46 @@
+header {
+    background-color: #450604;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+}
+
+.img-header {
+    width: 50px;
+}
+
+.header-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 550px;
+}
+
+.header-input input[type=radio]{
+    display: none;
+    cursor: pointer;
+}
+
+.header-input input[type=radio]+label {
+    background-color: #baa295;
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.header-input input[type=radio]:checked+label {
+    background-image: none;
+    background-color: #aa3908;
+    color: #baa295;
+}
+
+.nome-atendente {
+    text-align: center;
+    font-weight: bold;
+    color: #450604;
+    text-transform: capitalize;
+}

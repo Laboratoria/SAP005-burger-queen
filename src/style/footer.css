@@ -1,0 +1,21 @@
+footer {
+    background-color: #383636;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.footer-text {
+    color: #baa295;
+    text-align: center;
+    font-size: 11px;
+    margin: 0.2rem 0;
+}
+
+.footer-link{
+    color: #baa295;
+    text-decoration: none;
+    font-weight: bold;
+}
