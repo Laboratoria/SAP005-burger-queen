@@ -15,7 +15,14 @@ form {
   font-size: 20pt;
 }
 
+img {
+  margin-bottom: 2em;
+}
 
+p, a {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
 
 #login-btn {
   border: solid 2px #fff;
@@ -34,6 +41,6 @@ form {
 input {
   border-radius: 1rem;
   padding: 0.9rem 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-  

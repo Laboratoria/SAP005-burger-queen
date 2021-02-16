@@ -15,5 +15,4 @@ export const Routes = () => {
         <Route path='/Lounge' component={Lounge} />
       </Switch>
     );
-
 };
