@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import { React, useState } from "react";
 import logo from "../img/hamburgernovo.png";
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import { Link } from "react-router-dom";
+=======
+import { React, useState } from 'react';
+import logo from '../img/Logo.jpg';
+import '../App.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import { Link } from 'react-router-dom';
+
+>>>>>>> 9a0c9cf0b40d5001674261dacc16fb84bf174819
 
 const App = () => {
   const [name, setName] = useState("");
