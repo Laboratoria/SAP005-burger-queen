@@ -1,8 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import logoburger from '../../img/logoburger.png';
 import './Register.css'
 
 export const Register = () => {
+
+  const route = useHistory();
+  const loginRoute = () => {
+    route.push('/')
+  }
+
+  function BackBtn(event) {
+    event.preventDefault();
+    loginRoute();
+  }
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
@@ -22,10 +34,10 @@ export const Register = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
+    const raw = JSON.stringify({
       "email": email,
       "password": password,
       "role": role,
@@ -33,8 +45,7 @@ export const Register = () => {
       "name": name
     });
 
-
-    var requestOptions = {
+    const requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,
@@ -45,7 +56,6 @@ export const Register = () => {
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-
   };
 
 
@@ -53,27 +63,23 @@ export const Register = () => {
 
     <div className="container">
       <header>
-        <h1>Registre-se</h1>
+        <img src={logoburger} className="logoburger" alt="logoburger" />
+        <h1>Crie seu cadastro</h1>
       </header>
       <form>
-        <div className="mb-3">
-          <label for="exampleInputName1" className="form-label">Nome</label>
+        <div className="Register">
           <input
             type='text'
-            className="form-control"
             name='name'
-            placeholder='Seu nome aqui'
+            placeholder='Seu nome'
             onChange={handleName}
             value={name}
             required
           />
         </div>
-        <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">Email</label>
+        <div>
           <input
             type='email'
-            className="form-control"
-            id="exampleInputEmail1"
             aria-describedby="emailHelp"
             name='email'
             placeholder='E-mail'
@@ -83,12 +89,9 @@ export const Register = () => {
           />
           <div id="emailHelp" className="form-text"></div>
         </div>
-        <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">Senha</label>
+        <div>
           <input
             type='password'
-            className="form-control"
-            id="exampleInputPassword1"
             name='password'
             placeholder='Senha'
             value={password}
@@ -96,43 +99,39 @@ export const Register = () => {
             required
           />
         </div>
-        <div className="mb-3">
-          <label for="exampleInputRole1" className="form-label">Local de Trabalho</label>  
-        <div className="form-check">
-             
-          <input className="form-check-input" 
-            type="radio" 
-            name="role" 
-            id="flexRadioDefault1" 
-            value='kitchen'
-            onChange={handleRole}
-            checked={role === 'kitchen'}/>
-            <label className="form-check-label" for="flexRadioDefault1">
+        <div>
+          <label className="label">Local de Trabalho</label>
+          <div className="form-check">
+            <input className="form-check-input"
+              type="radio"
+              name="role"
+              id="flexRadioDefault1"
+              value='kitchen'
+              onChange={handleRole}
+              checked={role === 'kitchen'} />
+            <label className="form-check-label" htmlFor="flexRadioDefault1">
               Cozinha
             </label>
-            </div>
-        <div class="form-check">        
-            <input className="form-check-input" 
-              type="radio" 
-              name="role" 
+          </div>
+          <div className="form-check">
+            <input className="form-check-input"
+              type="radio"
+              name="role"
               id="flexRadioDefault2"
               value='lounge'
               onChange={handleRole}
-              checked={role === 'lounge'}/>               
-              <label className="form-check-label" for="flexRadioDefault2">
-                Salão
+              checked={role === 'lounge'} />
+            <label className="form-check-label" htmlFor="flexRadioDefault2">
+              Salão
               </label>
+          </div>
         </div>
+        <div>
+          <button id="back-btn" onClick={BackBtn}>Voltar</ button>
+          <button className='register-btn' type='submit' onClick={handleSubmit}>Cadastrar</button>
         </div>
+      </form>
+    </div>
 
-            
-            <button className='btn btn-danger' type='submit' onClick={handleSubmit}>Cadastrar</button>
-            
-        </form>
-          {/* <p>            
-              <Link to="/">Home</Link>
-          </p> */}
-        </div>
-          
   )
 };
