@@ -1,8 +1,9 @@
-import { React, useState } from "react";
-import logo from "../img/Logo.jpg";
-import "../App.css";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
-import { Link } from "react-router-dom";
+import { React, useState } from 'react';
+import logo from '../img/Logo.jpg';
+import '../App.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import { Link } from 'react-router-dom';
+
 
 const App = () => {
   const [name, setName] = useState("");
