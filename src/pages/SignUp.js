@@ -4,15 +4,15 @@ import logo from './logo.png';
 import panela from './panela.png';
 import hand from './hand.png';
 
-function SingnUp() {
+function SignUp() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
 
   return (
-    <div className="singnUp">
-      <header className="singnUp-header">
+    <div className="signUp">
+      <header className="signUp-header">
         <img src={logo} alt="" className="logo" />
         <div className="divRegister">
           <div className="role">
@@ -38,8 +38,8 @@ function SingnUp() {
           <form className="form">
             <input type="text" id="email" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
             <input type="text" id="name" placeholder="Digite seu nome" value={name} onChange={(event) => setName(event.target.value)} />
-            <input type="text" id="password" placeholder="Digite sua senha" value={password} onChange={(event) => setPassword(event.target.value)} />
-            <button id="singnupBtn" onClick={(e) => {
+            <input type="password" id="password" placeholder="Crie uma senha" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <button id="signupBtn" onClick={(e) => {
               console.log(name, email, password, role)
 
               e.preventDefault();
@@ -70,4 +70,4 @@ function SingnUp() {
 }
 
 
-export default SingnUp;
+export default SignUp;
