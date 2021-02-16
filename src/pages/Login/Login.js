@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import logoburger from '../../img/logoburger.png';
 import './Login.css';
 
 export const Login = () => {
@@ -27,7 +28,6 @@ export const Login = () => {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: `email=${email}&password=${password}`
-
     })
         .then(result => result.json())
         .then(result => {
@@ -38,25 +38,24 @@ export const Login = () => {
             if(result.role === "kitchen") {
                 kitchenRoute();
             }
-
         });
     }    
 
     return (
-
-        <div>
+        <div className="Login">
             <header>
-                <h1>Login</h1>
+                <img src={logoburger} className="logoburger" alt="logoburger" />
+                <h1>Acesse seu cadastro</h1>
             </header>
             <form>
                 <input type="text" name="email" placeholder="E-mail" id="input-login" value={email} onChange={(event) => setEmail(event.target.value)} />
                 <input type="password" name="password" placeholder="Senha" id="input-password" value={password} onChange={(event) => setPassword(event.target.value)} />
                 <button type="submit" id="login-btn" onClick={LoginBtn}>Entrar</button>
-            </form>
             <p>
                 Não possui cadastro?
-            <Link to='/Register'>Registre-se</Link>
+            <Link to='/Register'> Registre-se</Link>
             </p>
+            </form>
         </div>
     )
 };
