@@ -1,8 +1,9 @@
-import './App.css';
+import '../style/SingUp.css';
+import '../style/App.css';
 import React, { useState } from 'react';
-import logo from './logo.png';
-import panela from './panela.png';
-import hand from './hand.png';
+import logo from '../images/logo.png';
+import panela from '../images/panela.png';
+import hand from '../images/hand.png';
 
 function SignUp() {
   const [email, setEmail] = useState('');
