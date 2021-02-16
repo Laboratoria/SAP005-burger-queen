@@ -1,27 +1,26 @@
 import React from 'react';
-import './footer.css';
+import './footer.css'
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className='footer'>
-        <span>Desenvolvido por
+      <p className='footer-text'>Desenvolvido por&nbsp;
         <a
+          className='footer-link'
           href='https://github.com/CarolineSCosta'
+          title='gitHub'
           target='_blank'
           rel='noopener noreferrer'
-        >
-          CarolineCosta
-        </a> 
-        e
-        <a 
+        >Caroline Costa
+        </a> &nbsp;&&nbsp;
+        <a className='footer-link'
           href='https://github.com/Elis-ctrl'
+          title='gitHub'
           target='_blank'
           rel='noopener noreferrer'
-        >
-          ElisBrasil
+        >Elis Brasil
         </a>
-        </span>
+      </p>
     </footer>
   )
 }
-export default Footer;

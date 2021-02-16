@@ -1,60 +1,98 @@
+/* IMPORT FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap");
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
 }
 
-.logo{
-  width: 20%;
-  height: 30%;
+html {
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+	background-color: #a9b6aa;
+}
 
+.logo {
+	max-width: 15vw;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	padding: 1.5rem 0;
+}
+
+.required {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #9a6a43;
+}
+
+.form-login {
+	max-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.label {
+	margin-top: 1rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: #002c37;
+	text-transform: uppercase;
 }
 
 .input-login {
-  width: 50vh;
-  height: 30vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	border: none;
+	border-bottom: solid 1px #002c37;
+	outline: none;
+	padding: 0.3rem 0;
+	background-color: #a9b6aa;
+	font-size: 1rem;
+	color: #002c37;
 }
 
-.form {
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.btn-login {
+	margin-left: 6rem;
+	margin-right: 6rem;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border: solid 2px #002c37;
+	border-radius: 0.7rem;
+	background-color: #002c37;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
 }
 
-input {
-  width: 30vh;
-  height: 3vw;
+.btn-login:hover {
+	background-color: #a9b6aa;
+	color: #002c37;
 }
 
-label {
-  margin-right: 42%;
-}
-
+input,
 button {
-  width: 20vh;
-  height: 3vw;
-  font-size: 20px;
-  color:white;
-  background-color: rgb(78, 76, 76);
-  border-radius: 0.5rem;
+	font-family: "Work Sans", sans-serif;
 }
 
-p {
-  margin-top: 5vh;
+.question-login {
+	margin-top: 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	line-height: 1.5rem;
+	color: #002c37;
 }
 
-a{
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1vh;
+.link-to-signup {
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+	color: #9a6a43;
 }

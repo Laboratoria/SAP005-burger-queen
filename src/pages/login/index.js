@@ -1,11 +1,12 @@
 import React from 'react';
-import './login.css'
 import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
-import Button from '../../components/Button'
-import Input from '../../components/Input'
-import logo from '../../assets/logo.png';
+import Button from '../../components/Button/Button'
+import Input from '../../components/InputText/InputText'
+import Footer from '../../components/Footer/Footer'
+import logo from '../../assets/logo.png'
+import './login.css'
 
 export const Login = () => {
 
@@ -14,18 +15,21 @@ export const Login = () => {
 
   return (
     <Fragment>
-      <form className='form'>
-        <img src={logo}alt='logo urban' className='logo'/>
-        <div className='input-login'>
-      <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
-          <Input
-            required
-            name='userEmail'
-            type='email' 
-            placeholder='Digite seu email'
-            value={userEmail}
-            onChange={(event) => {
-                setUserEmail(event.target.value);
+      <header>
+        <img className='logo' src={logo} alt='Logo Urban Bistro' />
+      </header>
+      <form className='form-login'>
+        <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
+        <Input
+          required
+          name='userEmail'
+          className='input-login'
+          type='email'
+          placeholder='Digite seu email'
+          value={userEmail}
+          onChange={
+            (event) => {
+              setUserEmail(event.target.value)
             }
           }
         /><br />
@@ -33,16 +37,19 @@ export const Login = () => {
         <Input
           required
           name='userPassword'
+          className='input-login'
           type='email'
           placeholder='Digite uma senha'
           value={userPassword}
-          onChange={(event) => {
-            setUserPassword(event.target.value)
-          }
+          onChange={
+            (event) => {
+              setUserPassword(event.target.value)
+            }
           }
         /><br />
         <Button
           name='Entrar'
+          className='btn-login'
           type='submit'
           onClick={
             async (event) => {
@@ -55,9 +62,9 @@ export const Login = () => {
             }
           }
         />
-        <p>Funcionário novo? <br /><Link to='/signup'>Cadastrar-se</Link></p>
-        </div>
+        <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
       </form>
-    </Fragment> 
+      <Footer />
+    </Fragment>
   )
 };
