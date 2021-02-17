@@ -19,34 +19,37 @@ export const Login = () => {
         <img className='logo' src={logo} alt='Logo Urban Bistro' />
       </header>
       <form className='form-login'>
+
         <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
         <Input
-          required
-          name='userEmail'
-          className='input-login'
-          type='email'
+          inputRequired
+          inputName='userEmail'
+          inputClassName='input-login'
+          inputType='email'
           placeholder='Digite seu email'
-          value={userEmail}
-          onChange={
+          inputValue={userEmail}
+          inputOnChange={
             (event) => {
               setUserEmail(event.target.value)
             }
           }
         /><br />
+
         <label htmlFor='userPassword' className='label'>Senha<span className='required'> *</span></label><br />
         <Input
-          required
-          name='userPassword'
-          className='input-login'
-          type='email'
+          inputRequired
+          inputName='userPassword'
+          inputClassName='input-login'
+          inputType='email'
           placeholder='Digite uma senha'
-          value={userPassword}
-          onChange={
+          inputValue={userPassword}
+          inputOnChange={
             (event) => {
               setUserPassword(event.target.value)
             }
           }
         /><br />
+
         <Button
           name='Entrar'
           className='btn-login'
@@ -62,6 +65,7 @@ export const Login = () => {
             }
           }
         />
+
         <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
       </form>
       <Footer />

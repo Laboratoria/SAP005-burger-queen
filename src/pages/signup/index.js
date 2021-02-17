@@ -30,7 +30,7 @@ export const SignUp = () => {
             inputType='text'
             placeholder='Digite seu nome'
             inputValue={userName}
-            onChange={
+            inputOnChange={
               (event) => {
                 setUserName(event.target.value)
               }
@@ -45,7 +45,7 @@ export const SignUp = () => {
             inputType='email'
             inputPlaceholder='Digite seu email'
             inputValue={userEmail}
-            onChange={
+            inputOnChange={
               (event) => {
                 setUserEmail(event.target.value)
               }
@@ -61,7 +61,7 @@ export const SignUp = () => {
             inputPlaceholder='Digite uma senha mínimo 6 caracteres'
             inputMinLength='6'
             inputValue={userPassword}
-            onChange={
+            inputOnChange={
               (event) => {
                 setUserPassword(event.target.value)
               }
@@ -78,7 +78,7 @@ export const SignUp = () => {
               id='kitchen'
               type='radio'
               value='kitchen'
-              onChange={
+              inputOnChange={
                 (event) => {
                   setJobPosition(event.target.value)
                   console.log(jobPosition)
@@ -93,7 +93,7 @@ export const SignUp = () => {
               id='restaurant-hall'
               type='radio'
               value='restaurant-hall'
-              onChange={
+              inputOnChange={
                 (event) => {
                   setJobPosition(event.target.value)
                 }
