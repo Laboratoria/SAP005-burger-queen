@@ -34,6 +34,7 @@ function Login() {
     .then(response => response.json())
     .then(result => {
       console.log(result)
+      localStorage.setItem('token', result.token);
       if (result.role === 'waiter') {
         saloonPage();
       }
@@ -46,6 +47,7 @@ function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();

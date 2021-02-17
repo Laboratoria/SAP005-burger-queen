@@ -27,7 +27,7 @@ function Register() {
     urlencoded.append("restaurant", `${restaurant}`);
     urlencoded.append("name", `${nome}`);
 
-  const requestOptions = {
+    const requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: urlencoded,
