@@ -5,6 +5,7 @@ export default function Input({
   inputName,
   inputClassName,
   inputId,
+  inputMin,
   inputType,
   inputValue,
   inputMinLength,
@@ -18,6 +19,7 @@ export default function Input({
       name={inputName}
       className={inputClassName}
       id={inputId}
+      min={inputMin}
       type={inputType}
       value={inputValue}
       minLength={inputMinLength}

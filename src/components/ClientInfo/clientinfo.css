@@ -1,0 +1,54 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+.form-client-info {
+	background-color: #cad9cb;
+	box-shadow: 0 2px 15px 4px #b7c4b8;
+	border-radius: 0.5rem;
+	max-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 1.5rem;
+	margin-top: 10rem;
+}
+
+.label-client-info {
+	margin-top: 1rem;
+	font-size: 1rem;
+	font-weight: 00;
+	color: #002c37;
+}
+
+.input-client-inf {
+	border: none;
+	border-radius: 0.4rem;
+	outline: none;
+	padding: 0.3rem 0.4rem;
+	background-color: #a9b6aa7c;
+	font-size: 1rem;
+	color: #002c37;
+}
+
+.btn-order {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-left: 8rem;
+	margin-right: 8rem;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border: solid 2px #002c37;
+	border-radius: 0.7rem;
+	background-color: #002c37;
+	color: #cad9cb;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-order:hover {
+	background-color: #cad9cb;
+	color: #002c37;
+}

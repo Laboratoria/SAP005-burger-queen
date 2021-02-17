@@ -1,3 +1,10 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
 .logo {
 	max-width: 15vw;
 	height: auto;
@@ -23,19 +30,18 @@
 	padding: 0 2rem;
 }
 
-.label {
+.label-signup {
 	margin-top: 1rem;
-	font-size: 0.7rem;
-	font-weight: 600;
+	font-size: 1rem;
+	font-weight: 500;
 	color: #002c37;
-	text-transform: uppercase;
 }
 
 .input-signup {
 	border: none;
 	border-bottom: solid 1px #002c37;
 	outline: none;
-	padding: 0.3rem 0;
+	padding: 0.3rem 0.4rem;
 	background-color: #a9b6aa;
 	font-size: 1rem;
 	color: #002c37;
@@ -60,18 +66,18 @@
 
 .radio-option {
 	margin-top: 1.5rem;
+	margin-bottom: 1rem;
 	width: 3rem;
-	height: 1.1rem;
+	height: 1.2rem;
 	background-color: #a9b6aa;
 }
 
 .radio-label {
 	margin-left: 5rem;
 	margin-top: 1rem;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-weight: 500;
 	color: #002c37;
-	text-transform: uppercase;
 }
 
 .question-signup {
@@ -83,53 +89,11 @@
 	color: #002c37;
 }
 
-.btn-to-signup {
-	width: 14rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 2.3rem;
-	margin: 0 auto;
-	margin-bottom: 1rem;
-	padding: 0.5rem;
-	border: solid 2px #9a6a43;
-	border-radius: 0.7rem;
-	background-color: #9a6a43;
-	color: #a9b6aa;
-	transition: 0.3s ease-in-out;
-}
-
-.btn-to-signup:hover {
-	background-color: #a9b6aa;
-	color: #9a6a43;
-}
-
-.btn-link {
+.link-to-login {
 	text-decoration: none;
-}
-
-.btn-to-login {
-	width: 14rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 2.3rem;
-	margin: 0 auto;
-	margin-bottom: 1rem;
-	padding: 0.5rem;
-	border: solid 2px #9a6a43;
-	border-radius: 0.7rem;
-	background-color: #9a6a43;
-	color: #a9b6aa;
-	transition: 0.3s ease-in-out;
-}
-
-.btn-to-login:hover {
-	background-color: #a9b6aa;
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
 	color: #9a6a43;
-}
-
-.btn-link {
-	text-decoration: none;
-	padding-bottom: 2.5rem;
+	padding-bottom: 3rem;
 }

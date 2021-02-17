@@ -15,7 +15,8 @@ export default function ClientInfo() {
       <main>
       <Body>
         <form className='form-client-info'>
-          <label htmlFor='clientName' className='label'>Nome<span className='required'> *</span></label><br />
+
+          <label htmlFor='clientName' className='label-client-info'>Nome<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='clientName'
@@ -29,12 +30,14 @@ export default function ClientInfo() {
               }
             }
           /><br />
-          <label htmlFor='tableNumber' className='label'>Mesa<span className='required'> *</span></label><br />
+
+          <label htmlFor='tableNumber' className='label-client-info'>Mesa<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='tableNumber'
             inputClassName='input-client-inf'
             inputType='number'
+            inputMin='1'
             inputPlaceholder='Digite o número da mesa'
             inputValue={tableNumber}
             inputOnChange={
@@ -43,8 +46,10 @@ export default function ClientInfo() {
               }
             }
           /><br />
+
           <Button
             name='Abrir Comanda'
+            className='btn-order'
             type='submit'
             onClick={
               async (event) => {
@@ -57,6 +62,7 @@ export default function ClientInfo() {
               }
             }
           />
+
         </form>
       </Body>
       </main>

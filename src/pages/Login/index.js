@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
 import Button from '../../components/Button/Button'
@@ -21,7 +20,7 @@ export const Login = () => {
       <main>
         <form className='form-login'>
 
-          <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
+          <label htmlFor='userEmail' className='label-login'>E-mail<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='userEmail'
@@ -36,7 +35,7 @@ export const Login = () => {
             }
           /><br />
 
-          <label htmlFor='userPassword' className='label'>Senha<span className='required'> *</span></label><br />
+          <label htmlFor='userPassword' className='label-login'>Senha<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='userPassword'
@@ -67,18 +66,9 @@ export const Login = () => {
             }
           />
         </form>
-        <p className='question-login'>Funcionário novo?</p><br />
-        <div className='btn-link'>
-          <Link to='/signup' className='btn-link'>
-            <Button
-              name='Cadastre-se'
-              className='btn-to-signup'
-              type='button'
-            />
-          </Link>
-        </div>
+        <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
       </main>
       <Footer />
     </Fragment>
   )
-};
+}
