@@ -13,6 +13,13 @@ function Login() {
 
   const history = useHistory();
 
+  const waiter = () => {
+    history.push('/waiter');
+}
+const kitchen = () => {
+    history.push('/kitchen');
+}
+
   return (
     <div className="App">
       <header className="App-header">
@@ -39,11 +46,11 @@ function Login() {
               .then((response) => response.json())
               .then((json) => {
                 console.log(json);
-                if (json.role === 'waiter') {
-                  history.push('/waiter');
+                if (json.role === 'garçom') {
+                  waiter()
                 }
-                else if (json.role === 'kitchen') {
-                  history.push('/kitchen');
+                else if (json.role === 'cozinha') {
+                  kitchen()
                 }
 
                 setEmail('');
