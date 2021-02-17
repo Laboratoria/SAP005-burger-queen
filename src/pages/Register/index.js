@@ -1,11 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 // import axios from 'axios';
 
 
 export const Register = () => {
     const [signIn, registrationData] = useState({'restaurant': 'burger game'});
-    
+    const direcion = useHistory();
+
+    const directMenu = () => {
+    direcion.push('/menu')
+    }
+  
+    const directKitchen = () => {
+      direcion.push('/kitchen')
+    }
     const sendRegistration = (e) => {
         e.preventDefault();
         fetch('https://lab-api-bq.herokuapp.com/users', {
@@ -14,10 +22,15 @@ export const Register = () => {
             body: JSON.stringify(signIn)
         })
         .then(response => response.json())
-        .then(json => console.log(json))
-        .catch((error) => {
-            console.error("Error:", error);
-        });
+        .then((data) => {
+            console.log(data)
+        if(data.role === "waiter"){
+            directMenu();
+          }
+          else if(data.role === "cooker"){
+            directKitchen();
+          }
+        })
     }
 
     return (
