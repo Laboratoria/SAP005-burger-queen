@@ -1,0 +1,32 @@
+.logop,
+.logoh {
+	width: 54px;
+	margin-left: 70px;
+    margin-top: 20%;
+    align-items: center;
+    
+}
+
+.divRegister {
+	background-color: #242323;
+	width: 70%;
+	height: 360px;
+	border-radius: 10px;
+	margin-top: 3%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.role {
+	display: flex;
+	align-items: baseline;
+}
+
+@media (min-width:920px) and (max-width:1700px) {
+
+	.divRegister {
+        width: 50%;
+        height: 370px;
+    }
+}
