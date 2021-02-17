@@ -51,8 +51,7 @@ const Login = () => {
 
     return (
         <Page>
-            <Form>
-                <form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <Title>Faça seu Login</Title>
                     <Input
                         type="text"
@@ -68,8 +67,6 @@ const Login = () => {
                     />
                     <Button>Entrar</Button>
 
-                    {/* <p>{token}</p> */}
-                </form>
                 <Register>
                     Não tem conta? <NavLink
                         to="/register"
