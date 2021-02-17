@@ -1,4 +1,7 @@
+import '../../Styles/CardapioCafeDaManha.css';
+import Trash from '../../assets/trash.png';
 import React, { useEffect, useState } from 'react';
+
 
 const CardapioCafeManha = () => {
   const tokenUser = localStorage.getItem('token');
@@ -8,6 +11,8 @@ const CardapioCafeManha = () => {
   const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
   const [produtos, setProdutos] = useState([]);
+
+  console.log(CardapioCafe, hamburgueres, acompanhamentos, bebidas, produtos)
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -31,11 +36,18 @@ const CardapioCafeManha = () => {
       })
   }, [])
 
-  // const handleAdicionar = () => {
-  //   const produto = produtos.name;
-  //   const preço = produtos.price;
-  //   setProdutos([`name=${produto}&preço=${preço}`])
-  // }
+  const handleAdicionar = (produto) => {
+    const produtoAdd = produto
+    const resumoProduto = produtoAdd
+
+    const divResumo = document.getElementsByClassName('resumo')
+    console.log(divResumo)
+    console.log(resumoProduto)
+    console.log(produtoAdd + " resumo")
+  }
+
+  console.log(handleAdicionar("oioioi"))
+
 
 
   // const handleSubmit = () => {
@@ -56,20 +68,25 @@ const CardapioCafeManha = () => {
 
   return (
     <div>
-      <label>
-        Nome:
-          <input type='text' name='nome' className='' required /*onChange={(event) => setClientInfo({ 'client': event.target.value })
-        }*/ />
-      </label>
-      <label>
-        Mesa:
-          <input type='text' name='mesa' className='' required /*onChange={(event) => setClientInfo({ 'table': event.target.value })
-        }*/ />
-      </label>
-      <table>
+
+      <div className='info-client'>
+        <label>
+          Nome:
+            <input type='text' name='nome' className='' required /*onChange={(event) => setClientInfo({ 'client': event.target.value })
+          }*/ />
+        </label>
+        <label>
+          Mesa:
+            <input type='text' name='mesa' className='' required /*onChange={(event) => setClientInfo({ 'table': event.target.value })
+          }*/ />
+        </label>
+      </div>
+
+
+      <table className='itens'>
         <tbody>
           <tr>
-            <th>Ítem</th>
+            <th>Item</th>
             <th>Preço</th>
           </tr>
           {CardapioCafe.map((produto) => (
@@ -77,14 +94,16 @@ const CardapioCafeManha = () => {
               <td >{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button>Adicionar</button>
+                <button onClick={(event) => handleAdicionar(produto.name)} > + </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <table>
+
+
+      <table className='itens'>
         <tbody>
           <tr>
             <th>Hambúrgueres</th>
@@ -97,14 +116,16 @@ const CardapioCafeManha = () => {
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button>Adicionar</button>
+                <button onClick={(event) => handleAdicionar(produto.name)} > + </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <table>
+
+
+      <table className='itens'>
         <tbody>
           <tr>
             <th>Acompanhamentos</th>
@@ -115,56 +136,64 @@ const CardapioCafeManha = () => {
               <td>{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button>Adicionar</button>
+                <button onClick={(event) => handleAdicionar(produto.name)}> + </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <table>
-        <tbody>
-          <tr>
-            <th>Bebidas</th>
-            <th>Preço</th>
-          </tr>
-          {bebidas.map((produto) => (
-            <tr key={produto.id}>
-              <td>{produto.name}</td>
-              <td>R$ {produto.price},00</td>
-              <td>
-                <button>Adicionar</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <div>
-        <h3>Resumo do Pedido</h3>
+      <div className='itens'>
         <table>
           <tbody>
             <tr>
-              <th>Ítem</th>
+              <th>Bebidas</th>
               <th>Preço</th>
             </tr>
-            {/* {CardapioDia.map((produto, tokenUser) => ( */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                <button>Excluir</button>
-              </td>
-            </tr>
-            {/* ))} */}
-            <tr>
-              <th>Total</th>
-              <th>R$ 0,00</th>
-            </tr>
+            {bebidas.map((produto) => (
+              <tr key={produto.id}>
+                <td>{produto.name}</td>
+                <td>R$ {produto.price},00</td>
+                <td>
+                  <button onClick={(event) => handleAdicionar(produto.name)}> + </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
-    </div >
+
+      <section className="resum">
+
+        <div>
+          <h5>Resumo do Pedido</h5>
+          <div ><p className="resumo" value="teste">{produtos.name}</p></div>
+        </div>
+
+        <table>
+          <tbody className='resumo'>
+
+            <tr>
+              <th><h4>Item</h4></th>
+              <th><h4>Preço</h4></th>
+               {/* {CardapioDia.map((produto, tokenUser) => ( */}
+              <th>
+                <button><img className='icon-trash' src={Trash} alt='icon-trash' /></button>
+              </th>
+            </tr>
+
+              {/* ))} */}
+              <tr class='total'>
+                <th className='item-total'><h4>Total:</h4></th>
+                <th className='item-total'><h4>R$ 0,00</h4></th>
+              </tr>
+
+          </tbody>
+        </table>
+
+      </section>
+
+    </div>
   )
 };
 
