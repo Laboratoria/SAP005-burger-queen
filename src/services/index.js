@@ -12,7 +12,7 @@ export const createUser = async (
 ) => {
   const response = await fetch(API_USERS, {
     method: 'post',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', 'Authorization' : '' }, 
     body: JSON.stringify({
       'name': userName,
       'email': userEmail,
@@ -23,6 +23,7 @@ export const createUser = async (
   })
 
   return await response.json()
+  
 }
 
 export const authUser = async (
@@ -48,7 +49,6 @@ export const openOrder = async (
   const response = await fetch(API_ORDERS, {
     method: 'post',
     mode: 'cors',
-    cache: 'no-cache',
     headers : { 'content-type' : 'application/json' },
     body: JSON.stringify({
       'client': clientName,
