@@ -1,8 +1,8 @@
 import React from 'react'
-import { SignUp } from './pages/Signup/index'
-import { Login } from './pages/Login/index'
+import SignUp from './pages/Signup/index'
+import Login from './pages/Login/index'
 //import { NewOrder } from './pages/NewOrder/index'
-import { StatusOrder } from './pages/StatusOrder/index'
+import StatusOrder from './pages/StatusOrder/index'
 import ClientInfo from './components/ClientInfo/ClientInfo'
 import { Switch, Route } from 'react-router-dom'
 
