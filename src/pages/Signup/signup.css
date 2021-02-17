@@ -1,0 +1,135 @@
+.logo {
+	max-width: 15vw;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	padding: 1.5rem 0;
+}
+
+.required {
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #9a6a43;
+}
+
+.form-signup {
+	max-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.label {
+	margin-top: 1rem;
+	font-size: 0.7rem;
+	font-weight: 600;
+	color: #002c37;
+	text-transform: uppercase;
+}
+
+.input-signup {
+	border: none;
+	border-bottom: solid 1px #002c37;
+	outline: none;
+	padding: 0.3rem 0;
+	background-color: #a9b6aa;
+	font-size: 1rem;
+	color: #002c37;
+}
+
+.btn-signup {
+	margin-left: 6rem;
+	margin-right: 6rem;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border: solid 2px #002c37;
+	border-radius: 0.7rem;
+	background-color: #002c37;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-signup:hover {
+	background-color: #a9b6aa;
+	color: #002c37;
+}
+
+.radio-option {
+	margin-top: 1.5rem;
+	width: 3rem;
+	height: 1.1rem;
+	background-color: #a9b6aa;
+}
+
+.radio-label {
+	margin-left: 5rem;
+	margin-top: 1rem;
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #002c37;
+	text-transform: uppercase;
+}
+
+.question-signup {
+	margin-top: 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	line-height: 1.5rem;
+	color: #002c37;
+}
+
+.btn-to-signup {
+	width: 14rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.3rem;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border: solid 2px #9a6a43;
+	border-radius: 0.7rem;
+	background-color: #9a6a43;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-to-signup:hover {
+	background-color: #a9b6aa;
+	color: #9a6a43;
+}
+
+.btn-link {
+	text-decoration: none;
+}
+
+.btn-to-login {
+	width: 14rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.3rem;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border: solid 2px #9a6a43;
+	border-radius: 0.7rem;
+	background-color: #9a6a43;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-to-login:hover {
+	background-color: #a9b6aa;
+	color: #9a6a43;
+}
+
+.btn-link {
+	text-decoration: none;
+	padding-bottom: 2.5rem;
+}

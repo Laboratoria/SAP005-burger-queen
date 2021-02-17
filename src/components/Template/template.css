@@ -1,14 +1,7 @@
-* {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .App {
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	min-height: 100vh;
+	min-width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
