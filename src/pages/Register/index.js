@@ -22,7 +22,7 @@ function Register() {
 
     function btnRegister (event) {
         event.preventDefault();
-        event.preventDefault();
+        
 
                     fetch('https://lab-api-bq.herokuapp.com/users/', {
                         method: 'POST',
