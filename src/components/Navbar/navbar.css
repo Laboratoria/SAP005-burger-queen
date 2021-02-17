@@ -1,13 +1,3 @@
-/* IMPORT FONTS */
-@import url("http://fonts.cdnfonts.com/css/apex-new");
-
-/* CSS RESET */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 .responsive-wrap-navbar {
 	width: 100%;
 	display: flex;
