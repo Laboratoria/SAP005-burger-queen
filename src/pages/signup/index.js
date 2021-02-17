@@ -21,20 +21,26 @@ export const SignUp = () => {
       </header>
       <main>
         <form className='form-signup' onSubmit={createUser}>
-          <label htmlFor='userName' className='label'>Nome<span className='required'>*</span></label><br />
           <Input
-            required
-            name='userName'
-            className='input-signup'
-            type='text'
+            divClassName='div-label'
+            htmlFor='userName'
+            asteriskSpan='*'
+            labelClassName='label-login'
+            requiredSpanClassName='required'
+            inputRequired
+            inputName='userName'
+            inputClassName='input-signup'
+            inputType='text'
             placeholder='Digite seu nome'
-            value={userName}
+            inputMinLength='6'
+            inputValue={userName}
             onChange={
               (event) => {
                 setUserName(event.target.value)
               }
             }
           /><br />
+
           <label htmlFor='userEmail' className='label'>E-mail<span className='required'>*</span></label><br />
           <Input
             required
