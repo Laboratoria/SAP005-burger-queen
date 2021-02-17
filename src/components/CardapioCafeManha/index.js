@@ -10,9 +10,8 @@ const CardapioCafeManha = () => {
   const [hamburgueres, setHamburgueres] = useState([]);
   const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
-  const [produtos, setProdutos] = useState([]);
+  const [resumoPedido, setResumoPedido] = useState([]);
 
-  console.log(CardapioCafe, hamburgueres, acompanhamentos, bebidas, produtos)
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -37,16 +36,13 @@ const CardapioCafeManha = () => {
   }, [])
 
   const handleAdicionar = (produto) => {
-    const produtoAdd = produto
-    const resumoProduto = produtoAdd
-
-    const divResumo = document.getElementsByClassName('resumo')
-    console.log(divResumo)
-    console.log(resumoProduto)
-    console.log(produtoAdd + " resumo")
+    console.log(produto)
+    setResumoPedido([...resumoPedido, { Products: [produto] }])
   }
 
-  console.log(handleAdicionar("oioioi"))
+  const handleResumo = () => {
+    console.log(resumoPedido)
+  }
 
 
 
@@ -82,7 +78,6 @@ const CardapioCafeManha = () => {
         </label>
       </div>
 
-
       <table className='itens'>
         <tbody>
           <tr>
@@ -94,14 +89,17 @@ const CardapioCafeManha = () => {
               <td >{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button onClick={(event) => handleAdicionar(produto.name)} > + </button>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
               </td>
             </tr>
           ))}
+          <tr>
+            <td>
+              <button onClick={() => handleResumo()}>Resumo</button>
+            </td>
+          </tr>
         </tbody>
       </table>
-
-
 
       <table className='itens'>
         <tbody>
@@ -116,14 +114,12 @@ const CardapioCafeManha = () => {
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button onClick={(event) => handleAdicionar(produto.name)} > + </button>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-
 
       <table className='itens'>
         <tbody>
@@ -136,63 +132,55 @@ const CardapioCafeManha = () => {
               <td>{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button onClick={(event) => handleAdicionar(produto.name)}> + </button>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div className='itens'>
-        <table>
-          <tbody>
-            <tr>
-              <th>Bebidas</th>
-              <th>Preço</th>
+      <table className='itens'>
+        <tbody>
+          <tr>
+            <th>Bebidas</th>
+            <th>Preço</th>
+          </tr>
+          {bebidas.map((produto) => (
+            <tr key={produto.id}>
+              <td>{produto.name}</td>
+              <td>R$ {produto.price},00</td>
+              <td>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
+              </td>
             </tr>
-            {bebidas.map((produto) => (
-              <tr key={produto.id}>
-                <td>{produto.name}</td>
-                <td>R$ {produto.price},00</td>
-                <td>
-                  <button onClick={(event) => handleAdicionar(produto.name)}> + </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
 
-      <section className="resum">
-
-        <div>
-          <h5>Resumo do Pedido</h5>
-          <div ><p className="resumo" value="teste">{produtos.name}</p></div>
-        </div>
-
-        <table>
-          <tbody className='resumo'>
-
-            <tr>
-              <th><h4>Item</h4></th>
-              <th><h4>Preço</h4></th>
-               {/* {CardapioDia.map((produto, tokenUser) => ( */}
-              <th>
+      <table className='itens'>
+        <tbody>
+          <tr>
+            <th>Qtde</th>
+            <th>Ítem</th>
+            <th>Adicionais</th>
+            <th>Preço</th>
+          </tr>
+          {resumoPedido.map((produto) => (
+            <tr key={produto.id}>
+              <td>{produto.name}</td>
+              <td>{produto.complement === 'null' ? '' : produto.complement}</td>
+              <td>R$ {produto.price},00</td>
+              <td>
                 <button><img className='icon-trash' src={Trash} alt='icon-trash' /></button>
-              </th>
+              </td>
             </tr>
-
-              {/* ))} */}
-              <tr class='total'>
-                <th className='item-total'><h4>Total:</h4></th>
-                <th className='item-total'><h4>R$ 0,00</h4></th>
-              </tr>
-
-          </tbody>
-        </table>
-
-      </section>
-
+          ))}
+          <tr className='total'>
+            <th className='item-total'><h4>Total:</h4></th>
+            <th className='item-total'><h4>R$ 0,00</h4></th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 };
