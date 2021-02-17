@@ -18,56 +18,66 @@ export const Login = () => {
       <header>
         <img className='logo' src={logo} alt='Logo Urban Bistro' />
       </header>
-      <form className='form-login'>
+      <main>
+        <form className='form-login'>
 
-        <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
-        <Input
-          inputRequired
-          inputName='userEmail'
-          inputClassName='input-login'
-          inputType='email'
-          placeholder='Digite seu email'
-          inputValue={userEmail}
-          inputOnChange={
-            (event) => {
-              setUserEmail(event.target.value)
+          <label htmlFor='userEmail' className='label'>E-mail<span className='required'> *</span></label><br />
+          <Input
+            inputRequired
+            inputName='userEmail'
+            inputClassName='input-login'
+            inputType='email'
+            placeholder='Digite seu email'
+            inputValue={userEmail}
+            inputOnChange={
+              (event) => {
+                setUserEmail(event.target.value)
+              }
             }
-          }
-        /><br />
+          /><br />
 
-        <label htmlFor='userPassword' className='label'>Senha<span className='required'> *</span></label><br />
-        <Input
-          inputRequired
-          inputName='userPassword'
-          inputClassName='input-login'
-          inputType='email'
-          placeholder='Digite uma senha'
-          inputValue={userPassword}
-          inputOnChange={
-            (event) => {
-              setUserPassword(event.target.value)
+          <label htmlFor='userPassword' className='label'>Senha<span className='required'> *</span></label><br />
+          <Input
+            inputRequired
+            inputName='userPassword'
+            inputClassName='input-login'
+            inputType='email'
+            placeholder='Digite uma senha'
+            inputValue={userPassword}
+            inputOnChange={
+              (event) => {
+                setUserPassword(event.target.value)
+              }
             }
-          }
-        /><br />
+          /><br />
 
-        <Button
-          name='Entrar'
-          className='btn-login'
-          type='submit'
-          onClick={
-            async (event) => {
-              event.preventDefault()
-              const response = await authUser(
-                userEmail,
-                userPassword
-              )
-              console.log(response)
+          <Button
+            name='Entrar'
+            className='btn-login'
+            type='submit'
+            onClick={
+              async (event) => {
+                event.preventDefault()
+                const response = await authUser(
+                  userEmail,
+                  userPassword
+                )
+                console.log(response)
+              }
             }
-          }
-        />
-
-        <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
-      </form>
+          />
+        </form>
+        <p className='question-login'>Funcionário novo?</p><br />
+        <div className='btn-link'>
+          <Link to='/signup' className='btn-link'>
+            <Button
+              name='Cadastre-se'
+              className='btn-to-signup'
+              type='button'
+            />
+          </Link>
+        </div>
+      </main>
       <Footer />
     </Fragment>
   )

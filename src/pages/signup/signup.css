@@ -53,14 +53,9 @@
 	transition: 0.3s ease-in-out;
 }
 
-.btn-login:hover {
+.btn-signup:hover {
 	background-color: #a9b6aa;
 	color: #002c37;
-}
-
-input,
-button {
-	font-family: "Work Sans", sans-serif;
 }
 
 .radio-option {
@@ -81,18 +76,60 @@ button {
 
 .question-signup {
 	margin-top: 1rem;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-weight: 500;
 	text-align: center;
 	line-height: 1.5rem;
 	color: #002c37;
 }
 
-.link-to-login {
-	text-decoration: none;
-	font-size: 0.9rem;
-	font-weight: 600;
-	text-align: center;
+.btn-to-signup {
+	width: 14rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.3rem;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border: solid 2px #9a6a43;
+	border-radius: 0.7rem;
+	background-color: #9a6a43;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-to-signup:hover {
+	background-color: #a9b6aa;
 	color: #9a6a43;
+}
+
+.btn-link {
+	text-decoration: none;
+}
+
+.btn-to-login {
+	width: 14rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.3rem;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border: solid 2px #9a6a43;
+	border-radius: 0.7rem;
+	background-color: #9a6a43;
+	color: #a9b6aa;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-to-login:hover {
+	background-color: #a9b6aa;
+	color: #9a6a43;
+}
+
+.btn-link {
+	text-decoration: none;
 	padding-bottom: 2rem;
 }

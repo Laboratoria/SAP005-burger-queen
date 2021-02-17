@@ -120,9 +120,17 @@ export const SignUp = () => {
               }
             }
           />
-
         </form>
-        <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entrar</Link></p>
+        <p className='question-signup'>Já tem uma conta?</p><br />
+        <div className='btn-link'>
+          <Link to='/' className='btn-link'>
+            <Button
+              name='Entre'
+              className='btn-to-login'
+              type='button'
+            />
+          </Link>
+        </div>
       </main>
       <Footer />
     </Fragment>
