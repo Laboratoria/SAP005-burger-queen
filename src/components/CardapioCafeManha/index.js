@@ -10,9 +10,9 @@ const CardapioCafeManha = () => {
   const [hamburgueres, setHamburgueres] = useState([]);
   const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
-  const [resumoPedido, setResumoPedido] = useState([{ Products :	[]}]);
-  
-  
+  const [resumoPedido, setResumoPedido] = useState([]);
+
+
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       method: 'GET',
@@ -37,7 +37,7 @@ const CardapioCafeManha = () => {
 
   const handleAdicionar = (produto) => {
     console.log(produto)
-    setResumoPedido([ ...resumoPedido, { Products :	[produto]}])
+    setResumoPedido([...resumoPedido, { Products: [produto] }])
   }
 
   const handleResumo = () => {
@@ -78,7 +78,6 @@ const CardapioCafeManha = () => {
         </label>
       </div>
 
-
       <table className='itens'>
         <tbody>
           <tr>
@@ -90,15 +89,17 @@ const CardapioCafeManha = () => {
               <td >{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button onClick={() => handleAdicionar(produto)}>Adicionar</button>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
               </td>
             </tr>
           ))}
-          <button onClick={() => handleResumo()}>Resumo</button>
+          <tr>
+            <td>
+              <button onClick={() => handleResumo()}>Resumo</button>
+            </td>
+          </tr>
         </tbody>
       </table>
-
-
 
       <table className='itens'>
         <tbody>
@@ -113,14 +114,12 @@ const CardapioCafeManha = () => {
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button onClick={(event) => handleAdicionar(produto.name)} > + </button>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-
 
       <table className='itens'>
         <tbody>
@@ -133,49 +132,55 @@ const CardapioCafeManha = () => {
               <td>{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button onClick={(event) => handleAdicionar(produto.name)}> + </button>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div className='itens'>
-        <table>
-          <tbody>
-            <tr>
-              <th>Quantidade</th>
-              <th>Ítem</th>
-              <th>Preço</th>
+      <table className='itens'>
+        <tbody>
+          <tr>
+            <th>Bebidas</th>
+            <th>Preço</th>
+          </tr>
+          {bebidas.map((produto) => (
+            <tr key={produto.id}>
+              <td>{produto.name}</td>
+              <td>R$ {produto.price},00</td>
+              <td>
+                <button onClick={() => handleAdicionar(produto)}>+</button>
+              </td>
             </tr>
-            {/* {resumoPedido.map((produto) => (
-              <tr>
-                <td></td>
-                <td>{produto.name}</td>
-                <td>{produto.price}</td>
-                <td>
-                  <button>Excluir</button>
-                </td>
-              </tr>
-            ))}; */}
-            <tr>
-              <th><h4>Item</h4></th>
-              <th><h4>Preço</h4></th>
-               {/* {CardapioDia.map((produto, tokenUser) => ( */}
-              <th>
+          ))}
+        </tbody>
+      </table>
+
+      <table className='itens'>
+        <tbody>
+          <tr>
+            <th>Qtde</th>
+            <th>Ítem</th>
+            <th>Adicionais</th>
+            <th>Preço</th>
+          </tr>
+          {resumoPedido.map((produto) => (
+            <tr key={produto.id}>
+              <td>{produto.name}</td>
+              <td>{produto.complement === 'null' ? '' : produto.complement}</td>
+              <td>R$ {produto.price},00</td>
+              <td>
                 <button><img className='icon-trash' src={Trash} alt='icon-trash' /></button>
-              </th>
+              </td>
             </tr>
-
-              {/* ))} */}
-              <tr class='total'>
-                <th className='item-total'><h4>Total:</h4></th>
-                <th className='item-total'><h4>R$ 0,00</h4></th>
-              </tr>
-
-          </tbody>
-        </table>
-      </div>          
+          ))}
+          <tr className='total'>
+            <th className='item-total'><h4>Total:</h4></th>
+            <th className='item-total'><h4>R$ 0,00</h4></th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 };
