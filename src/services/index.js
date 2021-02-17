@@ -49,7 +49,7 @@ export const openOrder = async (
   const response = await fetch(API_ORDERS, {
     method: 'post',
     mode: 'cors',
-    headers : { 'content-type' : 'application/json' },
+    headers : { 'content-type' : 'application/json', 'Authorization' : '' },
     body: JSON.stringify({
       'client': clientName,
       'table': tableNumber
