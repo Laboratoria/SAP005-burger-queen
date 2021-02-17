@@ -37,7 +37,14 @@ export const authUser = async (
       'email': userEmail,
       'password': userPassword
     })
-  })
+    
+    })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 
   return await response.json()
 }
