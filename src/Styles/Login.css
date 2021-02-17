@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.page-login{
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+}
+
+h3{
+    font-size: 20pt;
+    font-weight: 200;
+    letter-spacing: .1em;
+}
+
+a{
+    text-decoration: underline;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;    
+}
+
+ a:hover{
+    font-size: 22pt;
+    color: #E4A240;
+    padding: .1em;
+}
+
+.form-login{
+    background-color: #E4A240;
+    border-radius: .5em;
+    padding: 3em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    width: 60%;
+    margin: 3em auto;
+
+}
+
+.field-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.field-login >p{
+   font-size: 18pt;    
+   font-weight: 600;
+   color: #000;
+}
+
+.icon-user{
+    max-width: 1.5em;
+}
+
+.input-container{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: .5em;
+    padding: .2em;
+    margin-left: 1em;
+}
+
+.input-container>img{
+    margin-left: .5em;
+}
+
+.input-container >input{
+    width: 23em;
+    height: 3em;
+    outline: none;
+    border: none;
+    border-radius: .5em;
+}
+
+.option-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    margin: 2em 2em;
+
+}
+
+.btn-login{
+    background-color: #3B6204;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 1.5em;
+    padding: .5em 3em;
+    font-size: 19pt;
+    cursor: pointer;
+    box-shadow: 4px 1px 4px 0 rgba(240, 235, 235, 0.16);
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(136, 136, 136, 0.16);
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    border:none;
+    outline: none;
+}
+
+.btn-login:hover{
+    background-color: #619b0f;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 1.5em;
+    padding: .5em 3em;
+    font-size: 19pt;
+    transform:scale(.9);
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    .page-login{
+        padding: 1em;
+    }
+
+    .form-login {
+        width: 40%;
+        margin: 0 auto;
+        padding: 3em 1em;
+    }
+}

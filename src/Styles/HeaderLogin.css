@@ -1,0 +1,10 @@
+.header-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo-login{
+    max-width: 15em;
+}
