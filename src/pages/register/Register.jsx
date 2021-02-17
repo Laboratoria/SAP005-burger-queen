@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Title, Form, Template, Page, Input, Button, Images, BurgerImage } from '../../stylesForm';
 import Burger from '../../imagens/burger.png'
-import Logo from '../../imagens/logoBranco.png'
+import Logo from '../../images/logoBranco.png'
 
 const formFields = [
     {
