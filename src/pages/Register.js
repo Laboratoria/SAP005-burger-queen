@@ -37,6 +37,8 @@ function Register () {
             }
           });
     }
+
+    console.log(signupInfo)
   
     return (
       <div>

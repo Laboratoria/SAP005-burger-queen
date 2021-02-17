@@ -1,12 +1,20 @@
+import '../style/paginapedidos.css'
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
-import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Adicionar from '../images/Ícones/add-close.png';
+import Vaca from '../images/Ícones/vaca.png';
+import Frango from '../images/Ícones/frango.png';
+import Veggie from '../images/Ícones/planta.png';
+import Ovo from '../images/Ícones/ovo.png';
+import Queijo from '../images/Ícones/queijo.png';
 
 function PaginaPedidos(){
     const {mesa} = useParams();
     let history = useHistory();
     let token = localStorage.getItem("token");
+    const atendente = localStorage.getItem("atendente");
     const [loading, setLoading] = useState(true);
 
     const [menuCafe, setMenuCafe] = useState([]);
@@ -14,7 +22,19 @@ function PaginaPedidos(){
 
     const [menus, setMenus] = useState(true);
 
-    const [extras, setExtras] = useState();
+    const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false)
+    const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false)
+    const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
+    const [extrasBurgerDuplo, setExtrasBurgerDuplo] = useState('');
+    const [selectedBurger, setSelectedBurger] = useState({
+        name: null,
+        flavor: null,
+        complement: null
+    });
+    const [resumoPedido, setResumoPedido] = useState([]);
+    const [fazerPedido, setFazerPedido] = useState({"table": mesa});
+    const [produtosPedido, setProdutosPedido] = useState([]);
+    const [precoTotal, setPrecoTotal] = useState([0]);
 
     useEffect(() => {
         const requestOptions = {
@@ -31,14 +51,6 @@ function PaginaPedidos(){
                 console.log(data);
                 const products = data;
 
-                products.forEach(item => {
-                    if(item.name === "hambuguer simples") {
-                        return item.name = "Hambúrguer Simples";
-                    } else if(item.name === "hambuguer duplo") {
-                    return item.name = "Hambúrguer Duplo";
-                    }
-                })
-        
                 const slice1 = products.slice(0,5);
                 const slice2 = products.slice(22);
                 let listaDeProdutosSemRepeticao = [];
@@ -55,14 +67,93 @@ function PaginaPedidos(){
         
     }, [token]);
 
+    const hamburguers = [{name: "carne", img: Vaca}, {name: "frango", img: Frango}, {name: "vegetariano", img: Veggie},];
+    const adicionais = [{name: "ovo", img: Ovo}, {name:"queijo", img: Queijo}];
+
+    function extras() {
+        return (
+            <>
+            <p>Hambúrguer</p>
+            {hamburguers.map(tipoHamburguer => (
+                <label key={tipoHamburguer.name}>
+                    <input
+                        className="button-extra-hamburguer"
+                        type="radio"
+                        name="escolher-hamburguer"
+                        id={tipoHamburguer.name}
+                        onChange={(event) => {
+                            setSelectedBurger(selectedBurger.flavor = event.currentTarget.id);
+                            setSelectedBurger({...selectedBurger, flavor: event.currentTarget.id});
+                        }}
+                    />
+                    <img className="button-extra-hamburguer" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
+                </label>
+                
+            ))}
+            <p>Adicionais R$1</p>
+            {adicionais.map(tipoAdicional => (
+                <label key={tipoAdicional.name}>
+                    <input
+                        className="button-extra-adicionais"
+                        type="radio"
+                        name="escolher-adicional"
+                        id={tipoAdicional.name}
+                        onChange={(event) => {
+                            setSelectedBurger({...selectedBurger, complement: event.currentTarget.id});
+                        }}
+                    />
+                    <img className="button-extra-adicionais" alt={tipoAdicional.name} src={tipoAdicional.img} />
+                </label>
+               
+            ))}
+            </>
+        )
+    }
+
+    function handleExtras(event) {
+        if(event.target.id === "Hambúrguer simples"){
+            if(openExtrasBurgerSimples === true){
+                setOpenExtrasBurgerSimples(false);
+                event.currentTarget.classList.remove("rotate");
+            } else {
+                event.currentTarget.classList.add("rotate");
+                setExtrasBurgerSimples(extras());
+                setOpenExtrasBurgerSimples(true);
+            }
+        }
+        if(event.target.id === "Hambúrguer duplo"){
+            if(openExtrasBurgerDuplo === true){
+                setOpenExtrasBurgerDuplo(false);
+                event.currentTarget.classList.remove("rotate");
+            } else {
+                event.currentTarget.classList.add("rotate");
+                setExtrasBurgerDuplo(extras);
+                setOpenExtrasBurgerDuplo(true);
+            }
+        }
+    }
+
+    function somarPrecoTotal(array) {
+        const soma = ((total, num) => total+num);
+        return array.reduce(soma);
+    }
+
+    React.useEffect(() => {
+        console.log(resumoPedido);
+        console.log(fazerPedido)
+        console.log(precoTotal);
+      }, [precoTotal, resumoPedido, fazerPedido])
+
     return (
+        <>
+        <Header />
         <main>
-            <Header/>
             {loading ? 
             (
                 <p>Carregando</p>
             ) : (
                 <>
+                <p>Atendente: {atendente}</p>
                 <input type="button" value="Voltar" onClick={() => {
                     history.push({
                     pathname: `/salao`,
@@ -74,6 +165,9 @@ function PaginaPedidos(){
                 <input 
                     type="text" 
                     placeholder="Nome do Cliente"
+                    onChange={(event) => {
+                        setFazerPedido({...fazerPedido, "client": event.target.value})
+                    }}
                 />
 
                 <button onClick={() => setMenus(true)}>Café da Manhã</button>
@@ -86,9 +180,17 @@ function PaginaPedidos(){
                         {menuCafe.map((produto, index) => (
                             <li key={index}>
                                 <label>{`${produto.name} R$${produto.price}`}</label>
-                                <input 
-                                    type="button"
-                                    value="Adicionar"
+                                <input
+                                    className="button-adicionar"
+                                    id={produto.name}
+                                    type="image"
+                                    alt="button-adicionar"
+                                    src={Adicionar}
+                                    onClick={() => {
+                                        setPrecoTotal([...precoTotal, menuCafe[index].price]);
+                                        setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price}]);
+                                        setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
+                                    }}
                                 />
                             </li>
                         ))}
@@ -97,25 +199,71 @@ function PaginaPedidos(){
                     <ul className="lista-menu">
                         {menuAlmoco.map((produto, index) => (
                             <li key={index}>
-                                <label>{`${produto.name} R$${produto.price}`}</label>
+                                <p>{`${produto.name} R$${produto.price}`}</p>
                                 <input
+                                    className="button-adicionar"
                                     id={produto.name}
-                                    type="button"
-                                    value="Adicionar"
+                                    type="image"
+                                    alt="button-adicionar"
+                                    src={Adicionar}
+                                    name={produto.id}
                                     onClick={(event) => {
-                                        event.target.id === "Hambúrguer Simples" ? setExtras("oi") : <p></p>
+                                        handleExtras(event);
+                                    //     if(produto.name === "Hambúrguer simples" || produto.name === "Hambúrguer duplo"){
+                                    //         setSelectedBurger(selectedBurger.name = event.currentTarget.id);
+                                    //         setSelectedBurger({...selectedBurger, name: event.currentTarget.id});
+                                    //     } else {
+                                    //         setPedido([...pedido, {name: event.currentTarget.id, id: event.currentTarget.name, qtd: 1}])
+                                    //         pedido.map((item) => (
+                                    //             item.name === event.currentTarget.id ? (
+                                    //                 setPedido([...pedido, {name: item.name, id: event.currentTarget.name, qtd: item.qtd++}]) 
+                                    //             ) : (
+                                    //                 null
+                                    //             )
+                                    //         ))
+                                    //     }                                        
                                     }}
                                 />
+                                {openExtrasBurgerSimples === true && produto.name === "Hambúrguer simples" && <div>{extrasBurgerSimples}</div>}
+                                {openExtrasBurgerDuplo === true && produto.name === "Hambúrguer duplo" && <div>{extrasBurgerDuplo}</div>}
                             </li>
                         ))}
                     </ul>
-                )}   
-                
+                )}
+
+                {resumoPedido !== [] && <>
+                    {resumoPedido.map((item, index) => (
+                        <div key={index}>
+                            <p>{item.name}</p>
+                            <p>R${item.price}</p>
+                        </div>
+                        ))}
+                        <p>TOTAL: R${somarPrecoTotal(precoTotal)}</p>
+                        <input
+                            type="button"
+                            value="Fazer Pedido"
+                            onClick={() => {
+                                setFazerPedido({...fazerPedido, "products": produtosPedido});
+                            }}
+                        />
+                        <input
+                            type="button"
+                            value="Limpar Pedido"
+                            onClick={() => {
+                                setPrecoTotal([0]);
+                                setResumoPedido([]);
+                                setProdutosPedido([]);
+                            }}
+                        />
+                    </>
+                }
+
                 </>
             )
         }
-        <Footer/>
-        </main>       
+        </main>
+        <Footer />
+        </>   
     )
 }
 

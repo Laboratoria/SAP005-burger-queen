@@ -9,7 +9,7 @@ const Salon = () => {
     let history = useHistory();
     const numeroDeMesas = 20;
     const mesas = [];
-    const atendente = localStorage.getItem("atendente");
+    // const atendente = localStorage.getItem("atendente");
 
     for(let i = 0; i < numeroDeMesas; i++) {
       mesas.push(`${[i+1]}`)
@@ -33,7 +33,6 @@ const Salon = () => {
                   onClick={(event) => {
                     history.push({
                       pathname: `/pedidos/${mesa}`,
-                      mesa: event.target.value
                     });
                   }} 
                 />
