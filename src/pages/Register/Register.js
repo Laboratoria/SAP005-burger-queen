@@ -6,8 +6,17 @@ import './Register.css'
 export const Register = () => {
 
   const route = useHistory();
+
   const loginRoute = () => {
     route.push('/')
+  }
+
+  const loungeRoute = () => {
+    route.push('/Lounge')
+  }
+
+  const kitchenRoute = () => {
+    route.push('/Kitchen')
   }
 
   function BackBtn(event) {
@@ -53,10 +62,21 @@ export const Register = () => {
     };
 
     fetch("https://lab-api-bq.herokuapp.com/users", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
+      .then(response => response.json())
+      .then(result => {
+        console.log('result', result)
+        if(result.role === "lounge") {
+          loungeRoute();
+          console.log('entrou aquin lounge')
+        }
+        if(result.role === "kitchen") {
+          kitchenRoute();
+          console.log('entrou aquin kitchen')
+      }
+       })
       .catch(error => console.log('error', error));
-  };
+  }
+  
 
 
   return (
