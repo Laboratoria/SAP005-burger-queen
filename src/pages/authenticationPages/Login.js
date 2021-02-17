@@ -6,15 +6,15 @@ import {useHistory} from 'react-router-dom'
 function Login() {  
   const history = useHistory()
 
-  const routerSalao=()=>{
-    history.push('/salao')
+  const routerHall=()=>{
+    history.push('/Hall')
   }
   const routerRegister=()=>{
-    history.push('/cadastro')
+    history.push('/Register')
   }
 
-  const routerCozinha=()=>{
-    history.push('/cozinha')
+  const routerKitchen=()=>{
+    history.push('/kitchen')
   }
 
   const [email, setEmail] = useState('');
@@ -36,10 +36,10 @@ function Login() {
         .then((json) => {
           console.log(json);
           if(json.role === "garcom") {
-            routerSalao();
+            routerHall();
           }
           if(json.role === "cozinheiro") {
-            routerCozinha();
+            routerKitchen();
           }
         })
     };

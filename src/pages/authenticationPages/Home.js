@@ -1,14 +1,14 @@
 import React from 'react';
 import Logo from './logo.png';
-import './App.css';
+import './Home.css';
 import {useHistory} from 'react-router-dom'
 
 
-function App() {
+function Home () {
   const history = useHistory()
 
   const routerRegister=()=>{
-    history.push('/cadastro')
+    history.push('/Register')
   }
   const routerLogin=()=>{
     history.push('/login')
@@ -28,4 +28,4 @@ function App() {
   );
  
 }
-export default App;
+export default Home;

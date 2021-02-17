@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
-import './Cadastro.css';
+import './Register.css';
 
-function Cadastro() {
+function Register() {
   const history = useHistory()
 
   const routerConfirm = () => {
@@ -65,4 +65,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default Register;

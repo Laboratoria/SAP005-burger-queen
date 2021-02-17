@@ -5,7 +5,7 @@ html, .root {
     background-color: white;
     font-family: 'Open Sans', sans-serif; 
     margin: auto; 
-    background-image: url(/src/background.png);
+    background-image: url(/src/pages/authenticationPages/background.png);
     background-size: cover;
     background-position: 50% -344px;
   }

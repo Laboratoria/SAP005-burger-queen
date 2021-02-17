@@ -1,11 +1,11 @@
 import React from 'react';
-import './Salao.css';
+import './Hall.css';
 
-function Salao() {
+function Hall() {
   return (
     <div className="Salao">
       <h1 className="SalaoTitle">Página salão em construção</h1>
     </div>
   );
 }
-export default Salao;
+export default Hall;
