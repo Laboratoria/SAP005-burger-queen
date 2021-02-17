@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./register.css";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   MdPerson,
   MdEmail,
@@ -25,29 +25,30 @@ function Register() {
   const [show, setShow] = useState(false);
   const [role, setRole] = useState("");
 
-  function registre(event) {
-    let canRegister = false;
+  
+  function Registre(event) {
+    let valRegister = false;
     let nameOk = false;
     let emailOk = false;
     let passwordOk = false;
 
     if (name.length === 0) {
-      alert("Nome deve conter um valor!");
+      alert('Opsss...Precisa preencher todos os campos!');
     } else {
       nameOk = true;
     }
 
     if (password !== passwordConfirmation) {
-      alert("Password não estão iguais!");
+      alert('As senhas estão diferentes!');
     } else {
       passwordOk = true;
     }
 
     if (nameOk === true && emailOk === true && passwordOk === true) {
-      canRegister = true;
+      valRegister = true;
     }
 
-    if (canRegister === true) {
+    if (valRegister === true) {
       event.preventDefault();
 
       fetch("https://lab-api-bq.herokuapp.com/users/", {
@@ -69,7 +70,7 @@ function Register() {
           setRole("");
         });
     }
-
+  }
     const handleClick = (e) => {
       e.preventDefault();
       setShow(!show);
@@ -152,7 +153,7 @@ function Register() {
             </div>
 
             <div className="register-btn">
-              <button type="submit" onClick={Register}>
+              <button type="submit" onClick={Registre}>
                 Registrar
               </button>
             </div>
@@ -161,6 +162,6 @@ function Register() {
         <Footer />
       </>
     );
-  }
-}
+  };
+
 export default Register;
