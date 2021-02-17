@@ -1,7 +1,8 @@
 import { Fragment, useState } from 'react'
+import { openOrder } from '../../services'
 import Button from '../Button/Button'
 import Input from '../InputText/InputText'
-import Navbar from '../Navbar/Navbar'
+import Body from '../Template/Template'
 //import './clientInfo.css'
 
 export default function ClientInfo() {
@@ -11,10 +12,8 @@ export default function ClientInfo() {
 
   return (
     <Fragment>
-      {/*<header>
-        <Navbar />
-      </header>*/}
       <main>
+      <Body>
         <form className='form-client-info'>
           <label htmlFor='clientName' className='label'>Nome<span className='required'> *</span></label><br />
           <Input
@@ -46,12 +45,18 @@ export default function ClientInfo() {
             name='Abrir Comanda'
             type='submit'
             onClick={
-              (event) => {
+              async (event) => {
                 event.preventDefault()
+                const response = await openOrder(
+                  clientName,
+                  tableNumber
+                )
+                console.log(response)
               }
             }
           />
         </form>
+      </Body>
       </main>
     </Fragment>
   )
