@@ -1,8 +1,8 @@
 import { Fragment, useState } from 'react'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
-//import Navbar from '../Navbar/Navbar'
-//import './clientInfo.css'
+import Navbar from '../Navbar/Navbar'
+import './clientinfo.css'
 
 export default function ClientInfo() {
 
@@ -11,12 +11,13 @@ export default function ClientInfo() {
 
   return (
     <Fragment>
-      {/*<header>
+      <header>
         <Navbar />
-      </header>*/}
+      </header>
       <main>
         <form className='form-client-info'>
-          <label htmlFor='clientName' className='label'>Nome<span className='required'> *</span></label><br />
+
+          <label htmlFor='clientName' className='label-client-info'>Nome<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='clientName'
@@ -30,7 +31,8 @@ export default function ClientInfo() {
               }
             }
           /><br />
-          <label htmlFor='tableNumber' className='label'>Mesa<span className='required'> *</span></label><br />
+
+          <label htmlFor='tableNumber' className='label-client-info'>Mesa<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='tableNumber'
@@ -44,8 +46,10 @@ export default function ClientInfo() {
               }
             }
           /><br />
+
           <Button
             name='Abrir Comanda'
+            className='btn-order'
             type='submit'
             onClick={
               (event) => {
@@ -53,6 +57,7 @@ export default function ClientInfo() {
               }
             }
           />
+
         </form>
       </main>
     </Fragment>

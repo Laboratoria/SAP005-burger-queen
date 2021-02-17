@@ -22,7 +22,7 @@ export const SignUp = () => {
       <main>
         <form className='form-signup' onSubmit={createUser}>
 
-          <label htmlFor='userName' className='label'>Nome<span className='required'>*</span></label><br />
+          <label htmlFor='userName' className='label-signup'>Nome<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='userName'
@@ -37,7 +37,7 @@ export const SignUp = () => {
             }
           /><br />
 
-          <label htmlFor='userEmail' className='label'>E-mail<span className='required'>*</span></label><br />
+          <label htmlFor='userEmail' className='label-signup'>E-mail<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='userEmail'
@@ -52,7 +52,7 @@ export const SignUp = () => {
             }
           />
 
-          <label htmlFor='userPassword' className='label'>Senha<span className='required'>*</span></label><br />
+          <label htmlFor='userPassword' className='label-signup'>Senha<span className='required'> *</span></label><br />
           <Input
             inputRequired
             inputName='userPassword'
@@ -68,7 +68,7 @@ export const SignUp = () => {
             }
           /><br />
 
-          <p className='label'>Função<span className='required'>*</span></p>
+          <p className='label-signup'>Função<span className='required'> *</span></p>
           <div>
             <label htmlFor='kitchen' className='radio-label'>Cozinha</label>
             <Input
@@ -121,16 +121,7 @@ export const SignUp = () => {
             }
           />
         </form>
-        <p className='question-signup'>Já tem uma conta?</p><br />
-        <div className='btn-link'>
-          <Link to='/' className='btn-link'>
-            <Button
-              name='Entre'
-              className='btn-to-login'
-              type='button'
-            />
-          </Link>
-        </div>
+        <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entre</Link></p>
       </main>
       <Footer />
     </Fragment>
