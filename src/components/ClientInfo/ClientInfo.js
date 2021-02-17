@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import Button from '../Button/Button'
-import Input from '../InputText/InputText'
+import Input from '../Input/Input'
 import Navbar from '../Navbar/Navbar'
 //import './clientInfo.css'
 

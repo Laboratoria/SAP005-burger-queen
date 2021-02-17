@@ -8,6 +8,7 @@ export default function Input({
   inputType,
   inputValue,
   inputMinLength,
+  inputChecked,
   inputPlaceholder,
   inputOnChange
 }) {
@@ -20,6 +21,7 @@ export default function Input({
       type={inputType}
       value={inputValue}
       minLength={inputMinLength}
+      checked={inputChecked}
       placeholder={inputPlaceholder}
       onChange={inputOnChange}
     />

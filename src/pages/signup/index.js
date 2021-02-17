@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button'
-import Input from '../../components/InputText/InputText.js'
+import Input from '../../components/Input/Input.js'
 import Footer from '../../components/Footer/Footer'
 import logo from '../../assets/logo.png'
 import './signup.css'
@@ -28,7 +28,7 @@ export const SignUp = () => {
             inputName='userName'
             inputClassName='input-signup'
             inputType='text'
-            placeholder='Digite seu nome'
+            inputPlaceholder='Digite seu nome'
             inputValue={userName}
             inputOnChange={
               (event) => {
@@ -72,12 +72,13 @@ export const SignUp = () => {
           <div>
             <label htmlFor='kitchen' className='radio-label'>Cozinha</label>
             <Input
-              required
-              name='jobPosition'
-              className='radio-option'
-              id='kitchen'
-              type='radio'
-              value='kitchen'
+              inputRequired
+              inputName='jobPosition'
+              inputClassName='radio-option'
+              inputId='kitchen'
+              inputType='radio'
+              inputValue='kitchen'
+              inputChecked='kitchen'
               inputOnChange={
                 (event) => {
                   setJobPosition(event.target.value)
@@ -85,14 +86,15 @@ export const SignUp = () => {
                 }
               }
             />
-            <label htmlFor='restaurant-hall' className='radio-label'>Salão</label>
+            <label htmlFor='hall' className='radio-label'>Salão</label>
             <Input
-              required
-              name='jobPosition'
-              className='radio-option'
-              id='restaurant-hall'
-              type='radio'
-              value='restaurant-hall'
+              inputRequired
+              inputName='jobPosition'
+              inputClassName='radio-option'
+              inputId='hall'
+              inputType='radio'
+              inputValue='hall'
+              inputChecked='hall'
               inputOnChange={
                 (event) => {
                   setJobPosition(event.target.value)
