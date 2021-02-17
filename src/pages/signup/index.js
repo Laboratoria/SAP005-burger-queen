@@ -21,18 +21,14 @@ export const SignUp = () => {
       </header>
       <main>
         <form className='form-signup' onSubmit={createUser}>
+
+          <label htmlFor='userName' className='label'>Nome<span className='required'>*</span></label><br />
           <Input
-            divClassName='div-label'
-            htmlFor='userName'
-            asteriskSpan='*'
-            labelClassName='label-login'
-            requiredSpanClassName='required'
             inputRequired
             inputName='userName'
             inputClassName='input-signup'
             inputType='text'
             placeholder='Digite seu nome'
-            inputMinLength='6'
             inputValue={userName}
             onChange={
               (event) => {
@@ -43,18 +39,35 @@ export const SignUp = () => {
 
           <label htmlFor='userEmail' className='label'>E-mail<span className='required'>*</span></label><br />
           <Input
-            required
-            name='userEmail'
-            className='input-signup'
-            type='email'
-            placeholder='Digite seu email'
-            value={userEmail}
+            inputRequired
+            inputName='userEmail'
+            inputClassName='input-signup'
+            inputType='email'
+            inputPlaceholder='Digite seu email'
+            inputValue={userEmail}
             onChange={
               (event) => {
                 setUserEmail(event.target.value)
               }
             }
           />
+
+          <label htmlFor='userPassword' className='label'>Senha<span className='required'>*</span></label><br />
+          <Input
+            inputRequired
+            inputName='userPassword'
+            inputClassName='input-signup'
+            inputType='password'
+            inputPlaceholder='Digite uma senha mínimo 6 caracteres'
+            inputMinLength='6'
+            inputValue={userPassword}
+            onChange={
+              (event) => {
+                setUserPassword(event.target.value)
+              }
+            }
+          /><br />
+
           <p className='label'>Função<span className='required'>*</span></p>
           <div>
             <label htmlFor='kitchen' className='radio-label'>Cozinha</label>
@@ -87,21 +100,7 @@ export const SignUp = () => {
               }
             />
           </div><br />
-          <label htmlFor='userPassword' className='label'>Senha<span className='required'>*</span></label><br />
-          <Input
-            required
-            name='userPassword'
-            className='input-signup'
-            type='password'
-            placeholder='Digite uma senha mínimo 6 caracteres'
-            minLength='6'
-            value={userPassword}
-            onChange={
-              (event) => {
-                setUserPassword(event.target.value)
-              }
-            }
-          /><br />
+
           <Button
             name='Cadastrar'
             className='btn-signup'
@@ -119,6 +118,7 @@ export const SignUp = () => {
               }
             }
           />
+
         </form>
         <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entrar</Link></p>
       </main>
