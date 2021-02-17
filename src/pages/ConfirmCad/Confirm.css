@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Confirm {
+    background-color: #F8CB00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    height: 500px;
+}
+ .logo img {
+     width: 100px;
+     height: 100px;
+ }
+.Confirm-btn {
+    width: 70%;
+    background-color: white;
+    height: 40px;
+    border: none;
+    box-shadow: 4px 4px #333131a9;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.login-right button:hover {
+    background-color: #171719;
+    color: white;
+    cursor: pointer;
+}
+.Confirm-sucess h1 {
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+}
+
+
