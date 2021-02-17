@@ -11,7 +11,7 @@
 html {
 	height: 100%;
 	width: 100%;
-	font-size: 14px;
+	font-size: 15.5px;
 	background-color: #a9b6aa;
 }
 
@@ -40,19 +40,18 @@ html {
 	padding: 0 2rem;
 }
 
-.label {
+.label-login {
 	margin-top: 1rem;
-	font-size: 0.9rem;
-	font-weight: 600;
+	font-size: 1rem;
+	font-weight: 500;
 	color: #002c37;
-	text-transform: uppercase;
 }
 
 .input-login {
 	border: none;
 	border-bottom: solid 1px #002c37;
 	outline: none;
-	padding: 0.3rem 0;
+	padding: 0.3rem 0.4rem;
 	background-color: #a9b6aa;
 	font-size: 1rem;
 	color: #002c37;
