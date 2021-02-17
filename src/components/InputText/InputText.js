@@ -2,28 +2,26 @@ import React from 'react';
 
 export default function Input({
   required,
-  name,
-  className,
-  id,
-  type,
-  value,
-  minLength,
-  placeholder,
-  checked,
-  onChange
+  inputName,
+  inputClassName,
+  inputId,
+  inputType,
+  inputValue,
+  inputMinLength,
+  inputPlaceholder,
+  inputOnChange
 }) {
   return (
     <input
       required={required}
-      name={name}
-      className={className}
-      id={id}
-      type={type}
-      value={value}
-      minLength={minLength}
-      checked={checked}
-      placeholder={placeholder}
-      onChange={onChange}
+      name={inputName}
+      className={inputClassName}
+      id={inputId}
+      type={inputType}
+      value={inputValue}
+      minLength={inputMinLength}
+      placeholder={inputPlaceholder}
+      onChange={inputOnChange}
     />
   )
 }
