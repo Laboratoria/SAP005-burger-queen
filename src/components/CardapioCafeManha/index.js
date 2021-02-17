@@ -7,8 +7,9 @@ const CardapioCafeManha = () => {
   const [hamburgueres, setHamburgueres] = useState([]);
   const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
-  const [produtos, setProdutos] = useState([]);
-
+  const [resumoPedido, setResumoPedido] = useState([{ Products :	[]}]);
+  
+  
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       method: 'GET',
@@ -31,11 +32,15 @@ const CardapioCafeManha = () => {
       })
   }, [])
 
-  // const handleAdicionar = () => {
-  //   const produto = produtos.name;
-  //   const preço = produtos.price;
-  //   setProdutos([`name=${produto}&preço=${preço}`])
-  // }
+  const handleAdicionar = (produto) => {
+    console.log(produto)
+    setResumoPedido([ ...resumoPedido, { Products :	[produto]}])
+  }
+
+  const handleResumo = () => {
+    console.log(resumoPedido)
+  }
+
 
 
   // const handleSubmit = () => {
@@ -77,10 +82,11 @@ const CardapioCafeManha = () => {
               <td >{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button>Adicionar</button>
+                <button onClick={() => handleAdicionar(produto)}>Adicionar</button>
               </td>
             </tr>
           ))}
+          <button onClick={() => handleResumo()}>Resumo</button>
         </tbody>
       </table>
 
@@ -145,18 +151,20 @@ const CardapioCafeManha = () => {
         <table>
           <tbody>
             <tr>
+              <th>Quantidade</th>
               <th>Ítem</th>
               <th>Preço</th>
             </tr>
-            {/* {CardapioDia.map((produto, tokenUser) => ( */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                <button>Excluir</button>
-              </td>
-            </tr>
-            {/* ))} */}
+            {/* {resumoPedido.map((produto) => (
+              <tr>
+                <td></td>
+                <td>{produto.name}</td>
+                <td>{produto.price}</td>
+                <td>
+                  <button>Excluir</button>
+                </td>
+              </tr>
+            ))}; */}
             <tr>
               <th>Total</th>
               <th>R$ 0,00</th>

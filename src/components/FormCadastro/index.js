@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const FormCadastro = () => {
-  const [userInfo, setUser] = useState({ 'restaurant': 'Burguer Beef' });
+  const [userInfo, setUser] = useState({ restaurant: 'Burguer Beef' });
   let history = useHistory();
 
   const handleSubmit = (event) => {
