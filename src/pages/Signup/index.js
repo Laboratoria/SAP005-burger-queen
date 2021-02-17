@@ -78,7 +78,6 @@ export const SignUp = () => {
               inputId='kitchen'
               inputType='radio'
               inputValue='kitchen'
-              inputChecked='kitchen'
               inputOnChange={
                 (event) => {
                   setJobPosition(event.target.value)
@@ -94,7 +93,6 @@ export const SignUp = () => {
               inputId='hall'
               inputType='radio'
               inputValue='hall'
-              inputChecked='hall'
               inputOnChange={
                 (event) => {
                   setJobPosition(event.target.value)
