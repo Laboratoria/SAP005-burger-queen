@@ -4,11 +4,14 @@ import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Salao from "./Components/Salao/Salao";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 const Router = () => {
   return (
     <BrowserRouter>
+   
+    
+     
       <Switch>
         <Route exact path="/">
           <Login />

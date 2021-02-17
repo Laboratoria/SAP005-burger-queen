@@ -4,8 +4,8 @@ import { Input } from "./login-styled";
 import { Button } from "./login-styled";
 
 const Login = () => {
-  let history = useHistory()
- 
+  let history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,32 +16,31 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleButton = (e) => {
-
-   
+  async function handleButton(e) {
     e.preventDefault();
-    fetch("https://lab-api-bq.herokuapp.com/auth/", {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `email=${email}&password=${password}`,
-    })
-      .then((response) => response.json())
-      .then((json) => {
 
-        if(json.role == "cozinha"){
-          history.push("/cozinha")
-        } else if(json.role == "salao"){
-          history.push("/salao")
-        }  
-        localStorage.setItem("user", JSON.stringify(json))
-        console.log(json)})
-      .catch((error) => {
-        console.log(error);
+    try {
+      const response = await fetch("https://lab-api-bq.herokuapp.com/auth/", {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `email=${email}&password=${password}`,
       });
-  };
+
+      const json = await response.json();
+      if (json.role === "cozinha") {
+        history.push("/cozinha");
+      } else if (json.role === "salao") {
+        history.push("/salao");
+      }
+      localStorage.setItem("token", json.token);
+      console.log(json);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div>
       <Input
@@ -58,7 +57,9 @@ const Login = () => {
         placeholder="Digite uma Senha"
       />
       <br />
-      <p>Ainda não tem conta: <Link to="/cadastro">registre-se</Link></p>
+      <p>
+        Ainda não tem conta: <Link to="/cadastro">registre-se</Link>
+      </p>
       <br />
       <Button type="submit" onClick={handleButton}>
         Entrar

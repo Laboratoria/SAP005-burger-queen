@@ -1,42 +1,59 @@
-import React, { useState,useEffect } from 'react'
-import Item from './Item'
+import React, { useState, useEffect } from "react";
+import Item from "./Item";
+//import Item from './Item'
 
-    const CardItem = (props) => {
+import styled from "styled-components";
 
-    const [items, setItems] = useState([]);
+const CardContainer = styled.div`
+  display: flex;
+  justify-content:space-evenly;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
+`;
 
-    const getItems = () => {
-        fetch("https://lab-api-bq.herokuapp.com/products", {
+const CardItem = (props) => {
+  const [produtos, setProdutos] = useState([]);
+  const [token, setToken] = useState(""); 
+
+  async function getItems(token) {
+    try {
+      const response = await fetch(
+        "https://lab-api-bq.herokuapp.com/products",
+        {
           method: "GET",
           headers: {
-            accept: "application/json",
-            Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmluYUBjYXJpbmEuY29tIiwiaWQiOjM3OCwiaWF0IjoxNjEzNDExMDg3LCJleHAiOjE2NDQ5Njg2ODd9.OLJJnuHJkvdItyKpmhIlQGIQuwWQFLSZ49JnguEINZ4",
-        } 
-             })
-          .then((response) => response.json())
-          .then((json) => {
-              setItems(json)
+            Authorization: token,
+          },
+        }
+      );
+      const json = await response.json();
+      setProdutos(json);
+      console.log(json);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-            console.log(json)})
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-          useEffect(() => {
-            getItems()
-          }, [])  
-             
-    return (
-        
-        <div>
-        {items.map((item =>
-         <p key={item.id}>{item.name}</p>
-        //   <Item/>
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+    getItems(token);
+  }, [token]);
+
+  return (
+    <CardContainer>
+      {produtos.length > 0 &&
+        produtos.map((item) => (
+          <Item
+            key={item.id}
+            img={item.image}
+            name={item.name}
+            price={item.price}
+            flavor={item.flavor}
+          />
         ))}
-         
-        
-        </div>
-    )
-}
+    </CardContainer>
+  );
+};
 
-export default CardItem
+export default CardItem;
