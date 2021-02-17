@@ -31,6 +31,6 @@ input {
   margin-left: 1em;
 }
 
-.form-check, .label, h1 {
+.form-check, label, h1 {
 	font-family: 'Nunito', sans-serif;
 }

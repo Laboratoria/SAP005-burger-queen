@@ -19,6 +19,9 @@ form {
 
 img {
   margin-bottom: 2em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p, a {
