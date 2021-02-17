@@ -40,7 +40,7 @@ export const Login = () => {
             inputRequired
             inputName='userPassword'
             inputClassName='input-login'
-            inputType='email'
+            inputType='password'
             placeholder='Digite uma senha'
             inputValue={userPassword}
             inputOnChange={
@@ -61,7 +61,8 @@ export const Login = () => {
                   userEmail,
                   userPassword
                 )
-                console.log(response)
+                localStorage.setItem('userToken', response.token)
+                localStorage.setItem('userRole', response.role)
               }
             }
           />
