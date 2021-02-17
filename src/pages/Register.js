@@ -8,44 +8,49 @@ import Logo from '../components/Logo';
 import ErrorModal from '../components/ModalError';
 
 function Register () {
+    let history = useHistory();
     const [signupInfo, setSignupInfo] = useState({"restaurant":"acka burguer"});
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    let history = useHistory();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
   
-    const handleSubmit = (event) => {
-      event.preventDefault();
-  
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(signupInfo)
-      };
-  
-      fetch('https://lab-api-bq.herokuapp.com/users', requestOptions)
-        .then(response => response.json())
-        .then(data => {
-            if(data.message !== undefined){
-                setIsModalVisible(true);
-                setErrorMessage(`${data.message}`);
-            } else {
-                localStorage.setItem("token", data.token);
-                localStorage.setItem("userId", data.id);
-                history.push(`/${data.role}`);
-            }
-          });
+    const handleSubmit = () => {
+       
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(signupInfo)
+        };
+    
+        fetch('https://lab-api-bq.herokuapp.com/users', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                if(data.message !== undefined){
+                    setIsModalVisible(true);
+                    setErrorMessage(`${data.message}`);
+                } else {
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("userId", data.id);
+                    history.push(`/${data.role}`);
+                }
+            });
     }
-
-    console.log(signupInfo)
   
     return (
       <div>
         {isModalVisible ? (<ErrorModal onClose={() => setIsModalVisible(false)}>{errorMessage}</ErrorModal>) : null}
         <section className="login">
             <Logo />
-            <form className="form-login" onSubmit={handleSubmit}>
+            <form className="form-login" onSubmit={(event) => {
+                event.preventDefault();
+                if(password === confirmPassword){
+                    handleSubmit();
+                } else {
+                    setIsModalVisible(true);
+                    setErrorMessage("Suas senhas devem ser iguais!");
+                }
+            }}>
                 <input
                     className="form-input"
                     type="text" 
@@ -79,9 +84,7 @@ function Register () {
                     required
                     onChange={(event) => {
                         setConfirmPassword(event.target.value);
-                        if(password === confirmPassword){
-                            setSignupInfo({ ...signupInfo, "password": password })
-                        }
+                        setSignupInfo({ ...signupInfo, "password": password });
                     }} 
                 />
 

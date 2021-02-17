@@ -34,6 +34,7 @@ function PaginaPedidos(){
     const [resumoPedido, setResumoPedido] = useState([]);
     const [fazerPedido, setFazerPedido] = useState({"table": mesa});
     const [produtosPedido, setProdutosPedido] = useState([]);
+    const [quantidade, setQuantidade] = useState(1);
     const [precoTotal, setPrecoTotal] = useState([0]);
 
     useEffect(() => {
@@ -153,7 +154,6 @@ function PaginaPedidos(){
                 <p>Carregando</p>
             ) : (
                 <>
-                <p>Atendente: {atendente}</p>
                 <input type="button" value="Voltar" onClick={() => {
                     history.push({
                     pathname: `/salao`,
@@ -188,8 +188,8 @@ function PaginaPedidos(){
                                     src={Adicionar}
                                     onClick={() => {
                                         setPrecoTotal([...precoTotal, menuCafe[index].price]);
-                                        setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price}]);
-                                        setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
+                                        setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price, "qtd": quantidade}]);
+                                        setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": quantidade}]);
                                     }}
                                 />
                             </li>
