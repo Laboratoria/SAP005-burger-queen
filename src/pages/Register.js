@@ -22,10 +22,10 @@ export const Register = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    var myHeaders = new Headers();
+    let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
+    let raw = JSON.stringify({
       "email": email,
       "password": password,
       "role": role,
@@ -34,7 +34,7 @@ export const Register = () => {
     });
 
 
-    var requestOptions = {
+    let requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,
