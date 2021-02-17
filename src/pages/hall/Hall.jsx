@@ -14,30 +14,27 @@ const Hall = () => {
             },
 
         })
-
-            .then(response => response.json())
-            .then(result => {
-                setMenu(result)
-            })
+        .then(response => response.json())
+        .then((response) => {
+            setMenu(response)
+        })
 
     })
 
     const data = [];
-    for (let menus of menu) {
+    for(const menus of menu) {
         data.push(
             <div key={menus.id}>
                 <p>{menus.name}</p>
             </div>
         )
-
     }
-
     return (
         <div>
             <h1>
                 Aqui é Hall
             </h1>
-            <div className='menus'> {data} </div>
+            <div className='menus'>{data}</div>
         </div>
     )
 }
