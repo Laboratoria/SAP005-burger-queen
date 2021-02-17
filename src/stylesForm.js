@@ -37,7 +37,7 @@ export const Title = styled.h2`
     font-weight: 400;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     align-items: center;
     background: #F3ECE5;
     border-radius: 20px 0px 0px 20px;
