@@ -4,23 +4,23 @@
 	justify-content: space-around;
 	position: fixed;
 	top: 0;
-	padding: 1rem 0;
-	background-color: #000;
-	box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.15);
+	padding: 1rem 2rem;
+	background-color: #9a6a43;
+	box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.103);
 }
 
 .label-nav {
-	font-family: "Apex New Book", sans-serif;
 	text-align: center;
-	color: #fff;
+	color: #a9b6aa;
 }
 
 .icon-nav {
-	font-size: 1.5rem;
-	color: #fff;
+	font-size: 1.7rem;
+	color: #a9b6aa;
 }
 
 .link {
-	color: #fff;
+	color: #a9b6aa;
+	font-size: 1rem;
 	text-decoration: none;
 }
