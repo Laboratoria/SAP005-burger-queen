@@ -29,6 +29,7 @@ const Login = () => {
   };
 
   return (
+    <>    
     <div className="login">
       <div className="login-logo">
         <img src="img/logotipo.png" alt="logo-app" />
@@ -66,10 +67,12 @@ const Login = () => {
         <h4>Não tem uma conta?<Link to="./register/index.js"><strong> Cadastra-se.</strong></Link></h4>
       </div>
 	  <div className="login-footer">
-		<Footer/>  
+		
 	  </div>
 	   
     </div>
+    <Footer />
+    </>
   );
 };
 

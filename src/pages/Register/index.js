@@ -1,14 +1,7 @@
 import { React, useState } from 'react';
 import './register.css';
 import { Link } from 'react-router-dom';
-
-import {
-  MdPerson,
-  MdEmail,
-  MdLock,
-  MdVisibility,
-  MdVisibilityOff,
-} from 'react-icons/md';
+import { MdPerson, MdEmail, MdLock, MdVisibility, MdVisibilityOff} from 'react-icons/md';
 
 const Register = () => {
   const [name, setName] = useState("");
