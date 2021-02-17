@@ -38,6 +38,7 @@ export default function ClientInfo() {
             inputName='tableNumber'
             inputClassName='input-client-inf'
             inputType='number'
+            inputMin='1'
             inputPlaceholder='Digite o número da mesa'
             inputValue={tableNumber}
             inputOnChange={
