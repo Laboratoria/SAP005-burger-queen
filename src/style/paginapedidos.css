@@ -1,0 +1,20 @@
+.button-adicionar {
+    background-image: url("../images/Ícones/add-close.png");
+    width: 20px;
+    transition: transform 0.3s;
+    border: none;
+    background-color: transparent;
+}
+
+.button-adicionar:focus {
+    border: none;
+    outline: none;
+}
+
+.rotate {
+    transform: rotate(45deg);
+}
+
+.button-extra-hamburguer, .button-extra-adicionais{
+    height: 20px;
+}

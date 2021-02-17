@@ -9,7 +9,7 @@ const Salon = () => {
     let history = useHistory();
     const numeroDeMesas = 20;
     const mesas = [];
-    const atendente = localStorage.getItem("atendente");
+    // const atendente = localStorage.getItem("atendente");
 
     for(let i = 0; i < numeroDeMesas; i++) {
       mesas.push(`${[i+1]}`)
