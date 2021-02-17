@@ -51,8 +51,7 @@ const Login = () => {
 
     return (
         <Page>
-            <Form>
-                <form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <Title>Faça seu Login</Title>
                     <Input
                         type="text"
@@ -68,18 +67,16 @@ const Login = () => {
                     />
                     <Button>Entrar</Button>
 
-                    {/* <p>{token}</p> */}
-                </form>
-                <Register>
-                    Não tem conta? <NavLink
-                        to="/register"
-                        style={{
-                            'color': '#F57F17',
-                            'fontWeight': 'bold',
-                        }}
-                    > Registre-se</NavLink>
-                </Register>
-            </Form>
+                    <Register>
+                        Não tem conta? <NavLink
+                            to="/register"
+                            style={{
+                                'color': '#F57F17',
+                                'fontWeight': 'bold',
+                            }}
+                        > Registre-se</NavLink>
+                    </Register>
+                </Form>
             <Template>
                 <Images>
                     <img src={Logo} alt='' />
