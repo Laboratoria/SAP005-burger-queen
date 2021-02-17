@@ -19,7 +19,7 @@ function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState("");
+
   
     function loginBtn(e) {
       e.preventDefault();
@@ -43,35 +43,7 @@ function Login() {
           }
         })
     };
-    const App = () => {
-      const { signIn } = useAuth();
-      const [error, setError] = useState("");
-      const [email, setEmail] = useState("");
-      const [password, setPassword] = useState("");
-     
-    
-      const onClickLogin = async () => {
-        if (email === "") {
-          setError("Insira seu e-mail");
-          return;
-        }
-        if (password === "") {
-          setError("Insira sua senha");
-          return;
-        }
-    
-        try {
-          setAnimation(1);
-          await signIn(email, password);
-        } catch (error) {
-          setError(error.code);
-          setAnimation(0);
-        }
-      };
-
-
-
-
+  
     return (
       <div class="overlay">
   <form>
@@ -81,15 +53,10 @@ function Login() {
         <p>Faça o login aqui usando seu email de usuário e senha</p>
       </header>
       <div class="field-set">
-        <input class="form-input" id="txt-input" type="text" placeholder="E-mail"  value={email}
-          id="loginInputEmail" onChange={(event)=> setEmail(event.target.value)} required />
-
-
-        <input class="form-input" type="password" placeholder="Senha" id="pwd" name="password"  value={password}
-          id="loginInputPassword" onChange={(event)=> setPassword(event.target.value)} required />
-          <ReturnError error={error} />
-
-
+        <input class="form-input" id="txt-input" type="text" placeholder="E-mail" required value={email}
+          id="loginInputEmail" onChange={(event)=> setEmail(event.target.value)}/>
+        <input class="form-input" type="password" placeholder="Senha" id="pwd" name="password" required value={password}
+          id="loginInputPassword" onChange={(event)=> setPassword(event.target.value)} />
         <button class="btn submits login" onClick={loginBtn}>Login</button>
         <div class="other">
           <button class="btn submits sign-up" onClick={routerRegister}>Cadastro
