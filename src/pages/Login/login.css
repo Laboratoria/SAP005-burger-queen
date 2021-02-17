@@ -75,11 +75,6 @@ html {
 	color: #002c37;
 }
 
-input,
-button {
-	font-family: "Work Sans", sans-serif;
-}
-
 .question-login {
 	margin-top: 1rem;
 	font-size: 1rem;

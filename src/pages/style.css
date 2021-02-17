@@ -1,5 +1,5 @@
 /* IMPORT FONTS */
-@import url("http://fonts.cdnfonts.com/css/apex-new");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap");
 
 /* REFERÊNCIAS PARA MEDIA QUERIES */
 /*
@@ -13,4 +13,26 @@ Tablet paisagem e Desktop -- min-width: 900px
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+/* GENERAL STYLING */
+html {
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+	background-color: #a9b6aa;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #a9b6aa;
+	font-family: "Work Sans", sans-serif;
+	color: #000;
+}
+
+input,
+button {
+	font-family: "Work Sans", sans-serif;
 }
