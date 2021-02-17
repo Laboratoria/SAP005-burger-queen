@@ -1,10 +1,10 @@
 import React from 'react'
-import { SignUp } from './pages/Signup/index'
-import { Login } from './pages/Login/index'
+import { Switch, Route } from 'react-router-dom'
+import { Login } from './pages/login'
+import { SignUp } from './pages/signup'
 //import { NewOrder } from './pages/NewOrder/index'
 import { StatusOrder } from './pages/StatusOrder/index'
 import ClientInfo from './components/ClientInfo/ClientInfo'
-import { Switch, Route } from 'react-router-dom'
 
 export const Routes = () => {
   return (
