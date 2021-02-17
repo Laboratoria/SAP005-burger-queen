@@ -5,7 +5,6 @@ import { Title, Form, Template, Page, Input, Button, Images, BurgerImage } from 
 import Burger from '../../imagens/burger.png'
 import Logo from '../../imagens/logoBranco.png'
 
-
 const formFields = [
     {
         id: 'name',

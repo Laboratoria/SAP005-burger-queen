@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from '../../stylesForm';
-import Burger from '../../imagens/burger.png'
-import Logo from '../../imagens/logoBranco.png'
+import Burger from '../../images/burger.png'
+import Logo from '../../images/logoBranco.png'
 
 const Login = () => {
     const [email, setEmail] = useState('');
