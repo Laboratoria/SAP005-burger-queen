@@ -1,7 +1,7 @@
 .footer {
 	width: 100vw;
 	position: fixed;
-	background-color: #002c37;
+	background-color: #004c54;
 	bottom: 0;
 	padding: 0.4rem;
 	text-align: center;
@@ -15,10 +15,10 @@
 }
 .footer-link {
 	font-size: 1rem;
-	color: #9a6a43;
+	color: #db9e36;
 	text-decoration: none;
 }
 
 .footer-link:hover {
-	border-bottom: solid 1px #9a6a43;
+	border-bottom: solid 1px #db9e36;
 }
