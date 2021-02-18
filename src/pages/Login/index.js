@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { authUser } from '../../services/index'
 import Button from '../../components/Button/Button'
@@ -11,6 +11,8 @@ export const Login = () => {
 
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
+
+  const history = useHistory()
 
   return (
     <Fragment>
@@ -61,10 +63,16 @@ export const Login = () => {
                   userEmail,
                   userPassword
                 )
+                console.log(response)
+
                 localStorage.setItem('userToken', response.token)
                 localStorage.setItem('userRole', response.role)
-              }
+
+                if( localStorage.getItem('userRole')  === 'restaurant-hall'){
+                  history.push('/new-order')
+                }
             }
+          }
           />
         </form>
         <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
