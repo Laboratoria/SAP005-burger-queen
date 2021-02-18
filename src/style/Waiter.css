@@ -1,0 +1,11 @@
+.nav {
+	background-color: #383838;
+}
+.exit {
+	display: flex;
+	width: 30px;
+	height: 30px;
+	border: none;
+	justify-content: flex-end;
+	border-radius: 30px;
+}
