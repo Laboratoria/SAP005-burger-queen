@@ -51,6 +51,8 @@ function Register() {
     return (
 
         <div className="App">
+            <button className="btnReturn" onClick={ routerBack}>Voltar</button>
+        
             <p className="register"> <img src={logo}/></p>
             <form className="loginForm">
 
