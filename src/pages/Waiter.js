@@ -2,7 +2,7 @@ import '../style/Waiter.css';
 import React from "react";
 import {useHistory} from 'react-router-dom'
 import logo from '../images/logo.png';
-import exit from '../images/exit.png';
+import exit from '../images/exit.jpeg';
 
 
 function Waiter() {
