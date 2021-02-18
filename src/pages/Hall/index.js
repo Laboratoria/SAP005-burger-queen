@@ -1,8 +1,8 @@
-import React,{useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import './Hall.css';
 
-
+import Cardapio from '../../components/Cardapio'
 
 function Hall(){
     const history = useHistory()
@@ -37,32 +37,15 @@ function Hall(){
     return(
         <div className="App">
              <button className="btnExit" onClick={ routerBack}>Sair</button>
+            <div className="cafe">
+                <h1>Café da Manhã</h1>
+            <Cardapio className="container-cafe" title="" array={cafe} />
+            </div>
 
-             <div className="container-allDay">
-          {
-              menu && menu.map((item) => (
-                  <div className="containerMenu">
-                  <h1 className="divName">{item.name}</h1>,
-                  <h1 className="divPrice">R${item.price},00</h1>
-                 </div>
-                  
-              ))
-          }
-          </div>
-
-          <div className="container-cafe">
-          {
-              cafe && cafe.map((item) => (
-                  <div className="containerMenu">
-                  <h1 className="divName">{item.name}</h1>,
-                  <h1 className="divPrice">R${item.price},00</h1>
-                 </div>
-                  
-              ))
-          }
-          </div>
-          
-          
+            <div className="allDay">
+                <h1>Almoço e Jantar</h1>
+            <Cardapio className="container-allDay" title="" array={menu} />
+            </div>
         </div>    
     );
 };
