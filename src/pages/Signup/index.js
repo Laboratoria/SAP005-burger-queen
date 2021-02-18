@@ -22,7 +22,7 @@ export const SignUp = () => {
       <main>
         <form className='form-signup' onSubmit={createUser}>
 
-          <label htmlFor='userName' className='label-signup'>Nome<span className='required'> *</span></label><br />
+          <label htmlFor='userName' className='label-signup'>Nome<span className='required'> *</span></label>
           <Input
             inputRequired
             inputName='userName'
@@ -35,9 +35,9 @@ export const SignUp = () => {
                 setUserName(event.target.value)
               }
             }
-          /><br />
+          />
 
-          <label htmlFor='userEmail' className='label-signup'>E-mail<span className='required'> *</span></label><br />
+          <label htmlFor='userEmail' className='label-signup'>E-mail<span className='required'> *</span></label>
           <Input
             inputRequired
             inputName='userEmail'
@@ -52,7 +52,7 @@ export const SignUp = () => {
             }
           />
 
-          <label htmlFor='userPassword' className='label-signup'>Senha<span className='required'> *</span></label><br />
+          <label htmlFor='userPassword' className='label-signup'>Senha<span className='required'> *</span></label>
           <Input
             inputRequired
             inputName='userPassword'
@@ -66,7 +66,7 @@ export const SignUp = () => {
                 setUserPassword(event.target.value)
               }
             }
-          /><br />
+          />
 
           <p className='label-signup'>Função<span className='required'> *</span></p>
           <div>
