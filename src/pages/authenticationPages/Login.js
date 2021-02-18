@@ -1,4 +1,4 @@
-import './Login.css';
+import './LoginRegister.css';
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 
@@ -38,7 +38,6 @@ function Login() {
       console.log(json);
       const token = json.token
       const id = json.id
-
       const tokenUser = localStorage.setItem("token", token)
       const idUser = localStorage.setItem("id", id)
 

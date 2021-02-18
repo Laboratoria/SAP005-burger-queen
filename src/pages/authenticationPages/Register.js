@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
-import './Register.css';
+import './LoginRegister.css';
 
 function Register() {
   const history = useHistory()
 
-  const routerConfirm = () => {
+  const routerLogin = () => {
     history.push('/login')
   }
 
@@ -30,12 +30,21 @@ function Register() {
         <input requered type="password" placeholder="Senha" className="cadInput" value={password} onChange={(event) => setPassword(event.target.value)} />
 
         <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
-        <select name="ordenar" className="cadInput cardSelect" value={role} onChange={(event) => setRole(event.target.value)}>
-          <option  className="cadInputOption" disabled value=''>Cargo</option>
-          <option className="cadInputOption" value="garcom">Garçom</option>
-          <option className="cadInputOption" value="cozinheiro">Cozinheiro</option>
-        </select>
-        <button className="cadBtn" onClick={(e) => {
+
+        <div name="ordenar" className="" value={role} onChange={(event) => setRole(event.target.value)}>
+        <label for="kitchen" class="radio-label">Cozinha</label>
+        <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro"/>
+         
+         <label for="hall" class="radio-label">Salão</label>
+         <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom"/>
+
+        
+        </div>
+
+        
+         
+
+        <button className="btn submits login" onClick={(e) => {
 
           e.preventDefault();
 
@@ -50,15 +59,15 @@ function Register() {
             .then((response) => response.json())
             .then((json) => {
               console.log(json);
-              if(json.id !== null) {
-                routerConfirm();
-              }
+              if(json.id !== null) 
               setName('');
               setEmail('');
               setPassword('');
               setRole('');
             })
         }}>Cadastrar</button>
+         <button class="btn submits sign-up" onClick={routerLogin}>Entrar
+          </button>
       </form>
     </div>
     
