@@ -11,7 +11,10 @@ const CardapioCafeManha = () => {
   const [bebidas, setBebidas] = useState([]);
   const [resumoPedido, setResumoPedido] = useState([]);
   const [order, setOrder] = useState({});
-  // const [id, setId] = useState()
+  const [produtoExcluído, setProdutoExcluído] = useState([])
+  const [precoTotal, setPrecoTotal] = useState([])
+  const [precosProdutos, setPrecosProdutos] = useState([])
+  const [id, setId] = useState()
 
 
   useEffect(() => {
@@ -37,40 +40,64 @@ const CardapioCafeManha = () => {
   }, [])
 
   const handleAdicionar = (produto) => {
-    console.log(produto)
     setResumoPedido([...resumoPedido, produto])
+    setPrecosProdutos([...precosProdutos, produto.price])
   }
 
   useEffect(() => {
-    // resumoPedido.map((produto) => (
-    //   setId(String(produto.id))
-    // ))
+    setOrder({ ...order, 'product': resumoPedido })
   }, [resumoPedido])
 
-  // useEffect(() => {
-  //   setOrder({...order, products: {'id': id, 'qtd': 0}})
-  //   console.log(order)
-  // }, [id])
+  const handleExcluir = (produto) => {
+    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto), 1))
+    console.log(resumoPedido)
+  }
 
-  // useEffect(() => {
-  // }, [order])
+  const handleSomar = () => {
+    setPrecoTotal(precosProdutos.reduce((total, num) => total + num))
+  }
+
+  const handleSubmit = () => {
+    const produtoApi = resumoPedido.map((produto) => {
+      return (
+        {
+          id: produto.id,
+          qtd: 1
+        }
+      )
+    })
+
+    console.log(produtoApi)
+
+    const qtd = _.chain(produtoApi)
+    .groupBy('id')
+    .map((produto, id) => ({ id, qtd : _.sumBy(produto, 'qtd') }))
+    .value();
+
+    // const qtd = _.chain(produtoApi).reduce(function (r, a) {
+    //   r[a.id = a.qtd] += a.qtd;
+    //   return r;
+    // }, {}).map((qtd, id) => ({id, qtd}))   
+    // .value();
+
+    console.log(qtd)
 
 
-  // const handleSubmit = () => {
+    setOrder({ ...order, 'product': produtoApi }) 
 
-  //   fetch('https://lab-api-bq.herokuapp.com/orders', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(clientInfo)
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       const order = data;
-  //       console.log(order)
-  //     })
-  // }
+    // fetch('https://lab-api-bq.herokuapp.com/orders', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Authorization': `${tokenUser}`
+    //   },
+    //   body: JSON.stringify(order)
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data)
+    //   })
+  }
 
   return (
     <div>
@@ -78,12 +105,12 @@ const CardapioCafeManha = () => {
       <div className='info-client'>
         <label>
           Nome:
-            <input type='text' name='nome' className='' required onChange={(event) => setOrder({...order, 'client': event.target.value })
+            <input type='text' name='nome' className='' required onChange={(event) => setOrder({ ...order, 'client': event.target.value })
           } />
         </label>
         <label>
           Mesa:
-            <input type='text' name='mesa' className='' required onChange={(event) => setOrder({...order, 'table': event.target.value })
+            <input type='text' name='mesa' className='' required onChange={(event) => setOrder({ ...order, 'table': event.target.value })
           } />
         </label>
       </div>
@@ -103,11 +130,6 @@ const CardapioCafeManha = () => {
               </td>
             </tr>
           ))}
-          <tr>
-            {/* <td>
-              <button onClick={() => handleResumo()}>Resumo</button>
-            </td> */}
-          </tr>
         </tbody>
       </table>
 
@@ -175,20 +197,22 @@ const CardapioCafeManha = () => {
             <th>Adicionais</th>
             <th>Preço</th>
           </tr>
-          {resumoPedido.map((produto) => (
-            <tr key={produto.id}>
+          {resumoPedido.map((produto, index) => (
+            <tr key={index}>
               <td></td>
               <td>{produto.name}</td>
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>
               <td>
-                <button><img className='icon-trash' src={Trash} alt='icon-trash' /></button>
+                <button><img className='icon-trash' src={Trash} alt='icon-trash' onClick={() => handleExcluir(produto)} /></button>
               </td>
             </tr>
           ))}
           <tr className='total'>
             <th className='item-total'><h4>Total:</h4></th>
-            <th className='item-total'><h4>R$ 0,00</h4></th>
+            <th className='item-total'><h4>R$ {precoTotal},00</h4></th>
+            <th><button onClick={() => handleSomar()}>Somar</button></th>
+            <th><button onClick={() => handleSubmit()}>FINALIZAR</button></th>
           </tr>
         </tbody>
       </table>
