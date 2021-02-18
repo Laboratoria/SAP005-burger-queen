@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input.js'
 import Footer from '../../components/Footer/Footer'
@@ -13,6 +13,8 @@ export const SignUp = () => {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [jobPosition, setJobPosition] = useState('')
+
+  const history = useHistory()
 
   return (
     <Fragment>
@@ -115,6 +117,19 @@ export const SignUp = () => {
                   jobPosition
                 )
                 console.log(response)
+
+                localStorage.setItem('userToken', response.token)
+                localStorage.setItem('userRole', response.role)
+
+                if( localStorage.getItem('userRole')  === 'restaurant-hall'){
+                  history.push('/new-order')
+                }
+                else if (localStorage.getItem('userRole')  === 'kitchen') {
+                  history.push('/status-order')
+                }
+                else {
+                  console.log('não cadastrado')
+                }
               }
             }
           />
