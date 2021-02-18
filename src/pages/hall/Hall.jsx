@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const Hall = () => {
     const [show, setShow] = useState(true)  
     const [menu, setMenu] = useState([]);
-    let token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -13,11 +13,10 @@ const Hall = () => {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
             },
-
         })
         .then(response => response.json())
         .then((response) => {
-                setMenu(response)
+            setMenu(response)
         })
     })
 
@@ -49,7 +48,6 @@ const Hall = () => {
             <p>Menu</p>
             <div className='menus'></div>
             <div className='Cardapio'>
-
                 <button onClick={() => setShow(true)}>Café da Manhã</button>
                 <button onClick={() => setShow(false)}>Hamburgueria</button>
                 {
@@ -60,7 +58,6 @@ const Hall = () => {
                         :
                         <div>
                             {allDay}
-
                         </div>
                 }
             </div>

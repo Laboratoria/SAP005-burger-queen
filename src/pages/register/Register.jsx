@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import { Title, Form, Template, Page, Input, Button, Images, BurgerImage } from '../../stylesForm';
+import { Title, Form, Template, Page, Input, Button, Images, BurgerImage } from '../../components/stylesForm';
 import Burger from '../../images/burger.png'
 import Logo from '../../images/logoBranco.png'
 
