@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from '../../stylesForm';
-import Burger from '../../imagens/burger.png'
-import Logo from '../../imagens/logoBranco.png'
+import Burger from '../../images/burger.png'
+import Logo from '../../images/logoBranco.png'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -46,36 +46,35 @@ const Login = () => {
                     goToKitchen();
                 }
             });
-
     }
 
     return (
         <Page>
-                <Form onSubmit={handleSubmit}>
-                    <Title>Faça seu Login</Title>
-                    <Input
-                        type="text"
-                        placeholder="E-mail"
-                        value={email}
-                        onChange={({ target }) => setEmail(target.value)}
-                    />
-                    <Input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={({ target }) => setPassword(target.value)}
-                    />
-                    <Button>Entrar</Button>
+            <Form onSubmit={handleSubmit}>
+                <Title>Faça seu Login</Title>
+                <Input
+                    type="text"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={({ target }) => setEmail(target.value)}
+                />
+                <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={({ target }) => setPassword(target.value)}
+                />
+            <Button>Entrar</Button>
 
-                <Register>
-                    Não tem conta? <NavLink
-                        to="/register"
-                        style={{
-                            'color': '#F57F17',
-                            'fontWeight': 'bold',
-                        }}
-                    > Registre-se</NavLink>
-                </Register>
+            <Register>
+                Não tem conta? <NavLink
+                    to="/register"
+                    style={{
+                        'color': '#F57F17',
+                        'fontWeight': 'bold',
+                    }}
+                > Registre-se</NavLink>
+            </Register>
             </Form>
             <Template>
                 <Images>

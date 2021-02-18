@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Title, Form, Template, Page, Input, Button, Images, BurgerImage } from '../../stylesForm';
-import Burger from '../../imagens/burger.png'
-import Logo from '../../imagens/logoBranco.png'
-
+import Burger from '../../images/burger.png'
+import Logo from '../../images/logoBranco.png'
 
 const formFields = [
     {
@@ -28,7 +27,6 @@ const formFields = [
         type: 'text',
     }
 ]
-
 
 const Register = () => {
     const [response, setResponse] = useState();
@@ -66,7 +64,7 @@ const Register = () => {
         })
             .then(response => {
                 console.log(response)
-                if (response.role === 'salão') {
+                if (response.role === 'salao') {
                     goToHall();
                 }
                 else if (response.role === 'cozinha') {

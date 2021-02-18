@@ -15,11 +15,10 @@ const Hall = () => {
             },
 
         })
-            .then(response => response.json())
-            .then((response) => {
+        .then(response => response.json())
+        .then((response) => {
                 setMenu(response)
-            })
-
+        })
     })
 
     const data = [];
@@ -36,7 +35,7 @@ const Hall = () => {
         <div>
             <h1>
                 Aqui é Hall
-    </h1>
+            </h1>
             <div className='menus'></div>
             <div className='Cardapio'>
 
@@ -50,6 +49,7 @@ const Hall = () => {
                         :
                         <div>
                             {allDay}
+
                         </div>
                 }
             </div>
