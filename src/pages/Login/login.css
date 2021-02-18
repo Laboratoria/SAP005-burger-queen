@@ -12,7 +12,7 @@ html {
 	height: 100%;
 	width: 100%;
 	font-size: 15.5px;
-	background-color: #a9b6aa;
+	background-color: #fff9d4;
 }
 
 .logo {
@@ -29,7 +29,7 @@ html {
 .required {
 	font-size: 0.8rem;
 	font-weight: bold;
-	color: #9a6a43;
+	color: #bc4931;
 }
 
 .form-login {
@@ -44,34 +44,34 @@ html {
 	margin-top: 1rem;
 	font-size: 1rem;
 	font-weight: 500;
-	color: #002c37;
+	color: #004c54;
 }
 
 .input-login {
 	border: none;
-	border-bottom: solid 1px #002c37;
+	border-bottom: solid 1px #004c54;
 	outline: none;
 	padding: 0.3rem 0.4rem;
-	background-color: #a9b6aa;
+	background-color: #fff9d4;
 	font-size: 1rem;
-	color: #002c37;
+	color: #004c54;
 }
 
 .btn-login {
-	margin-left: 6rem;
-	margin-right: 6rem;
+	margin-left: 9rem;
+	margin-right: 9rem;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
-	border: solid 2px #002c37;
+	border: solid 2px #db9e36;
 	border-radius: 0.7rem;
-	background-color: #002c37;
-	color: #a9b6aa;
+	background-color: #db9e36;
+	color: #fff9d4;
 	transition: 0.3s ease-in-out;
 }
 
 .btn-login:hover {
-	background-color: #a9b6aa;
-	color: #002c37;
+	background-color: #fff9d4;
+	color: #004c54;
 }
 
 .question-login {
@@ -80,13 +80,13 @@ html {
 	font-weight: 500;
 	text-align: center;
 	line-height: 1.5rem;
-	color: #002c37;
+	color: #004c54;
 }
 
 .link-to-signup {
 	text-decoration: none;
 	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
 	text-align: center;
-	color: #9a6a43;
+	color: #ffd34d;
 }
