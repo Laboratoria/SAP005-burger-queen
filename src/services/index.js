@@ -30,37 +30,54 @@ export const authUser = async (
   userEmail,
   userPassword
 ) => {
-  const response = await fetch(API_AUTH, {
+  const response = fetch(API_AUTH, {
     method: 'post',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       'email': userEmail,
       'password': userPassword
     })
+  }).then((response) => response.json())
+  .then((json) => {
+    console.log(json)
+    const token = json.token
+    const role = json.role
+    const id = json.id
+
+    if(token !== null && role === 'restaurant-hall' && id !== null){
+      console.log(id)
+    }
+    else {
+      console.log('não foi')
+    }
+  })
+  .catch((error) => {
+    console.log(error)
     
-    })
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+  })
 
   return await response.json()
 }
 
 export const openOrder = async (
   clientName,
-  tableNumber
+  tableNumber,
 ) => {
   const response = await fetch(API_ORDERS, {
     method: 'post',
-    mode: 'cors',
+    mode: 'no-cors',
     headers : { 'content-type' : 'application/json', 'Authorization' : '' },
     body: JSON.stringify({
       'client': clientName,
-      'table': tableNumber
+      'table': tableNumber,
     })
+  })  
+  .then((response) => response.json())
+  .then((json) => {
+    console.log(json)
+  })
+  .catch((error) => {
+    console.log(error)
   })
 
   return await response.json()
