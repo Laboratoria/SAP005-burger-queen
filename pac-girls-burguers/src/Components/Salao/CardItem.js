@@ -114,19 +114,7 @@ const CardItem = (props) => {
           <option value={"Side"}> Acompanhamentos</option>
           <option value={"Drinks"}>Bebidas</option>
         </select>
-        {
-          /* {produtos.length > 0 &&
-          produtos.map((item) => (
-            <Item
-              key={item.id}
-              img={item.image}
-              name={item.name}
-              price={item.price}
-              flavor={item.flavor}
-            />
-          ))} */
-          renderProducts(options)
-        }
+       { renderProducts(options)}
       </CardContainer>
     </>
   );
