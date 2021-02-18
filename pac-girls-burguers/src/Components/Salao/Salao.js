@@ -31,12 +31,17 @@ const Salao = () => {
           <li>Pedidos</li>
         </ul>
       </nav>
+     
+     
       <Container>
         <CardItem />
         <Comanda>
           <h2>Comanda</h2>
-          <p>Mesa:</p>
-          <p>Cliente: </p>
+          <label>Cliente:</label>
+          <input placeholder="Nome do cliente"/>
+          <br />
+          <label>Mesa:</label>
+          <input placeholder="Mesa"/>
           <br />
           <p>pedidos...</p>
           <p>valor total: R$....</p>
