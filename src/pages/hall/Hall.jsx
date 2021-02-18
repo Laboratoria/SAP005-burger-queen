@@ -19,8 +19,6 @@ const Hall = () => {
         .then((response) => {
                 setMenu(response)
         })
-
-
     })
 
     const data = [];
@@ -45,11 +43,11 @@ const Hall = () => {
                     show ?
                         <div>
                             café
-                </div>
+                        </div>
                         :
                         <div>
                             hamburguer
-                </div>
+                        </div>
                 }
             </div>
         </div>
