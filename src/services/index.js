@@ -11,7 +11,7 @@ export const createUser = async (
   jobPosition
 ) => {
   const response = await fetch(API_USERS, {
-    method: 'post',
+    method: 'POST',
     headers: { 'content-type': 'application/json', 'Authorization' : '' }, 
     body: JSON.stringify({
       'name': userName,
@@ -31,7 +31,7 @@ export const authUser = async (
   userPassword
 ) => {
   const response = await fetch(API_AUTH, {
-    method: 'post',
+    method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       'email': userEmail,
@@ -42,8 +42,8 @@ export const authUser = async (
 
     return json
   })
-  .catch((error) => {
-    console.log(error)
+  .catch(() => {
+    console.log('deu ruim')
   })
 
   return response

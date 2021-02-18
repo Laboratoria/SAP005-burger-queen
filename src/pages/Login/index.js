@@ -71,6 +71,12 @@ export const Login = () => {
                 if( localStorage.getItem('userRole')  === 'restaurant-hall'){
                   history.push('/new-order')
                 }
+                else if (localStorage.getItem('userRole')  === 'kitchen') {
+                  history.push('/status-order')
+                }
+                else {
+                  console.log('não cadastrado')
+                }
             }
           }
           />
