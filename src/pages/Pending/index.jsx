@@ -9,7 +9,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import '../../style.css';
 
-function Pendentes(){
+function Pending(){
   const classes = useStyles();
     return (
       
@@ -32,4 +32,4 @@ function Pendentes(){
   }
 
   
-  export default Pendentes;
+  export default Pending;

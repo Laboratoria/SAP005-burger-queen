@@ -6,7 +6,7 @@ import Login from './pages/Login/index';
 import Registry from './pages/Registry/index';
 import Kitchen from './pages/Kitchen/index';
 import Menu from './pages/Menu/index';
-import Pendentes from './pages/Pendentes/index';
+import Pending from './pages/Pending/index';
 
 function Routes() {
     return(
@@ -17,7 +17,7 @@ function Routes() {
                 <Route path="/Hall" component={Home}/>
                 <Route path="/Kitchen" component={Kitchen}/>
                 <Route path="/Menu" component={Menu}/>
-                <Route path="/Pendentes" component={Pendentes}/>
+                <Route path="/Pendentes" component={Pending}/>
             </Switch>
         </BrowserRouter>
     )  

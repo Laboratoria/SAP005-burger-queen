@@ -3,6 +3,7 @@ import { Link, useHistory} from 'react-router-dom';
 import {Copyright, SingIn, Logo, useStyles} from '../../components.js';
 import { Button, Container, TextField, Grid } from '@material-ui/core';
 import '../../style.css';
+import { fetchLogin } from '../../configApi/Api.jsx';
 
 
 function Login(){
@@ -11,7 +12,7 @@ function Login(){
 
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
-  const urlLogin = `email=${emailLogin}&password=${passwordLogin}`
+ 
   const history = useHistory();
 
   const routerHall = () => {
@@ -22,34 +23,23 @@ function Login(){
     history.push('/Kitchen')
   }
 
+  const handLogin = () => {
+    
+    fetchLogin(emailLogin,passwordLogin)
 
-  const fetchLogin = () => {
-    fetch('https://lab-api-bq.herokuapp.com/auth', {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: urlLogin
+    const roleSector = localStorage.getItem('role')
 
-    })
-      .then((response) => response.json())
-      .then((json) => {
-
-        console.log(json)
-        localStorage.setItem('token',json.token)
-        
-        if(json.role === "garcom"){
-          routerHall();
-        }
-        else if(json.role === "cozinha"){
-          routerKitchen();
-        }
-        else {
-          alert(json.message)
-        }
-      })
+    if(roleSector === "garcom"){
+      routerHall();
+    }
+    else if(roleSector === "cozinha"){
+      routerKitchen();
+    }
+    else{
+      alert('Não foi possível fazer o resgistro, tente novamente!')
+    }
   }
+  
 
     return (
       <Container className='container'>
@@ -57,41 +47,21 @@ function Login(){
           <Logo/>
           <form className={classes.form}>
             <SingIn/>
-            
-            <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Email"
-            name="email"
-            autoComplete="username"  
-            value={emailLogin} onChange={event => setEmail(event.target.value)}/>
+            <TextField variant="outlined" margin="normal" required fullWidth label="Email" name="email" 
+            autoComplete="username" value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
-            <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Senha"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
+            <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Senha" type="password" id="password"
+            autoComplete="current-password" value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
 
-            <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => {event.preventDefault();fetchLogin();}}>Entrar</Button>
-
+            <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => {event.preventDefault();handLogin();}}>Entrar</Button>
           </form>
-  
           <Grid item>
             <Link to="/Registry" >
               {'Novo usuário? Registre-se'}
             </Link>
           </Grid>
-
         </div>
-        <><Copyright/></>
+        <Copyright/>
       </Container>
     );
   }

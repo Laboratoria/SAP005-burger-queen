@@ -65,7 +65,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   arrow:{
     margin: 25,
-    paddingRight:'60vw',
+    paddingRight:'80vw',
     color: theme.palette.text.primary,
   },
 
