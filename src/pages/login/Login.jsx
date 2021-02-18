@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from '../../stylesForm';
+import { TOKEN } from '../../components/api';
+import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from  '../../components/stylesForm';
 import Burger from '../../images/burger.png'
 import Logo from '../../images/logoBranco.png'
 
@@ -8,6 +9,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
+
     const history = useHistory();
     const goToHall = () => {
         history.push('/Hall');
@@ -16,36 +18,25 @@ const Login = () => {
         history.push('/Kitchen');
     }
 
-
     window.localStorage.setItem('token', token);
-    function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        fetch('https://lab-api-bq.herokuapp.com/auth', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
+        const {url, options } = TOKEN({
+            email,
+            password, 
         })
-            .then((response) => {
-                console.log(response);
-                return response.json();
 
-            })
-            .then((json) => {
-                console.log(json);
-                setToken(json.token);
-                if (json.role === 'salao') {
-                    goToHall();
-                }
-                else if (json.role === 'cozinha') {
-                    goToKitchen();
-                }
-            });
+        const response = await fetch(url, options);
+        const json = await response.json();
+        setToken(json.token);
+
+        if (json.role === 'salao') {
+            goToHall();
+        }
+        else if (json.role === 'cozinha') {
+            goToKitchen();
+        }
     }
 
     return (
