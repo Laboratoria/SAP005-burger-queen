@@ -1,31 +1,25 @@
-import React from 'react';
-import Logo from './logo.png';
-import './App.css';
-import {useHistory} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./Routes";
+import { AuthProvider } from "./contexts/auth";
+import Header from "./pages/Header/index";
+import Footer from "./pages/Footer/index";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-
-function App() {
-  const history = useHistory()
-
-  const routerRegister=()=>{
-    history.push('/cadastro')
-  }
-  const routerLogin=()=>{
-    history.push('/login')
-  }
-  return (
-    <main class="_cjo0m2">
-    <article class="_hjfkep">
-      <img src={Logo} className="logo" alt="logo Hello Burguer" />
-    </article>
-    <aside class="_1oez8w8">
-      <section class="_1ytio68">
-        <button className="btnCad" onClick={routerLogin}>Login</button>
-        <button className="btnCad" onClick={routerRegister}>Cadastrar</button>
-      </section>
-    </aside>
-  </main>
-  );
- 
-}
-export default App;
+const App = () => {
+    return (
+      <>
+        <Router>
+          <AuthProvider>
+            <Header />
+            <Routes />
+          </AuthProvider>
+          <ToastContainer position="top-center" />
+          <Footer />
+        </Router>
+      </>
+    );
+  };
+  
+  export default App;
