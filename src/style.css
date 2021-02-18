@@ -6,10 +6,10 @@ body{
     margin-top: 2vh;
     background-color: #64b5f6;
     width: 100%;
-    box-shadow: 0 0 8px #5c564f;
+    box-shadow: 0 0 8px #ffffff;
     border-radius: 20px;
-    max-width: 700px;
-    color: white;
+    max-width: 900px;
+    color: black;
 }
 .copyRight{
     color: black;
