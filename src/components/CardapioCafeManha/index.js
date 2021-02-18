@@ -5,12 +5,13 @@ import React, { useEffect, useState } from 'react';
 
 const CardapioCafeManha = () => {
   const tokenUser = localStorage.getItem('token');
-  // const [clientInfo, setClientInfo] = useState({});
   const [CardapioCafe, setCardapioCafe] = useState([]);
   const [hamburgueres, setHamburgueres] = useState([]);
   const [acompanhamentos, setAcompanhamentos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
   const [resumoPedido, setResumoPedido] = useState([]);
+  const [order, setOrder] = useState({});
+  // const [id, setId] = useState()
 
 
   useEffect(() => {
@@ -37,13 +38,22 @@ const CardapioCafeManha = () => {
 
   const handleAdicionar = (produto) => {
     console.log(produto)
-    setResumoPedido([...resumoPedido, { Products: [produto] }])
+    setResumoPedido([...resumoPedido, produto])
   }
 
-  const handleResumo = () => {
-    console.log(resumoPedido)
-  }
+  useEffect(() => {
+    // resumoPedido.map((produto) => (
+    //   setId(String(produto.id))
+    // ))
+  }, [resumoPedido])
 
+  // useEffect(() => {
+  //   setOrder({...order, products: {'id': id, 'qtd': 0}})
+  //   console.log(order)
+  // }, [id])
+
+  // useEffect(() => {
+  // }, [order])
 
 
   // const handleSubmit = () => {
@@ -68,13 +78,13 @@ const CardapioCafeManha = () => {
       <div className='info-client'>
         <label>
           Nome:
-            <input type='text' name='nome' className='' required /*onChange={(event) => setClientInfo({ 'client': event.target.value })
-          }*/ />
+            <input type='text' name='nome' className='' required onChange={(event) => setOrder({...order, 'client': event.target.value })
+          } />
         </label>
         <label>
           Mesa:
-            <input type='text' name='mesa' className='' required /*onChange={(event) => setClientInfo({ 'table': event.target.value })
-          }*/ />
+            <input type='text' name='mesa' className='' required onChange={(event) => setOrder({...order, 'table': event.target.value })
+          } />
         </label>
       </div>
 
@@ -86,7 +96,7 @@ const CardapioCafeManha = () => {
           </tr>
           {CardapioCafe.map((produto) => (
             <tr key={produto.id}>
-              <td >{produto.name}</td>
+              <td>{produto.name}</td>
               <td>R$ {produto.price},00</td>
               <td>
                 <button onClick={() => handleAdicionar(produto)}>+</button>
@@ -94,9 +104,9 @@ const CardapioCafeManha = () => {
             </tr>
           ))}
           <tr>
-            <td>
+            {/* <td>
               <button onClick={() => handleResumo()}>Resumo</button>
-            </td>
+            </td> */}
           </tr>
         </tbody>
       </table>
@@ -167,6 +177,7 @@ const CardapioCafeManha = () => {
           </tr>
           {resumoPedido.map((produto) => (
             <tr key={produto.id}>
+              <td></td>
               <td>{produto.name}</td>
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>

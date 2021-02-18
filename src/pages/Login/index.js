@@ -58,7 +58,7 @@ function Login() {
           <p>E-mail: </p>
           <div className="input-container">
             <img className="icon-user"  src={IconUser} alt='icon-user' />
-            <input type="email" autocomplete='on' value={email}  onChange={(event) => setEmail(event.target.value)}/>
+            <input type="email" autoComplete='on' value={email}  onChange={(event) => setEmail(event.target.value)}/>
           </div>
         </div>
 
