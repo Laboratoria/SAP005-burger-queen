@@ -46,36 +46,35 @@ const Login = () => {
                     goToKitchen();
                 }
             });
-
     }
 
     return (
         <Page>
-                <Form onSubmit={handleSubmit}>
-                    <Title>Faça seu Login</Title>
-                    <Input
-                        type="text"
-                        placeholder="E-mail"
-                        value={email}
-                        onChange={({ target }) => setEmail(target.value)}
-                    />
-                    <Input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={({ target }) => setPassword(target.value)}
-                    />
-                    <Button>Entrar</Button>
+            <Form onSubmit={handleSubmit}>
+                <Title>Faça seu Login</Title>
+                <Input
+                    type="text"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={({ target }) => setEmail(target.value)}
+                />
+                <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={({ target }) => setPassword(target.value)}
+                />
+            <Button>Entrar</Button>
 
-                <Register>
-                    Não tem conta? <NavLink
-                        to="/register"
-                        style={{
-                            'color': '#F57F17',
-                            'fontWeight': 'bold',
-                        }}
-                    > Registre-se</NavLink>
-                </Register>
+            <Register>
+                Não tem conta? <NavLink
+                    to="/register"
+                    style={{
+                        'color': '#F57F17',
+                        'fontWeight': 'bold',
+                    }}
+                > Registre-se</NavLink>
+            </Register>
             </Form>
             <Template>
                 <Images>
