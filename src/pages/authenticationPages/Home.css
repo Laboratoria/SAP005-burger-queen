@@ -5,7 +5,7 @@ html, .root {
     background-color: white;
     font-family: 'Open Sans', sans-serif; 
     margin: auto; 
-    background-image: url(/src/pages/authenticationPages/background.png);
+    background-image: url(/src/pages/authenticationPages/img/background.png);
     background-size: cover;
     background-position: 50% -344px;
   }
@@ -17,17 +17,17 @@ html, .root {
   }
      
 ._cjo0m2 {
-    -webkit-box-direction: normal !important;
-    -webkit-box-orient: horizontal !important; 
+    box-direction: normal !important;
+    box-orient: horizontal !important; 
     display: flex !important;
     flex-direction: row !important;
 } 
           
 ._hjfkep {
-    -webkit-box-direction: normal !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-align: center !important; 
-    -webkit-box-pack: center !important; 
+    box-direction: normal !important;
+    box-orient: vertical !important;
+    box-align: center !important; 
+    box-pack: center !important; 
     display: flex !important; 
     justify-content: center !important; 
     align-items: center !important;

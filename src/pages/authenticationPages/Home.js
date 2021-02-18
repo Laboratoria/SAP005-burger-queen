@@ -1,7 +1,9 @@
+
 import React from 'react';
-import Logo from './logo.png';
+import Logo from './img/logo.png';
 import './Home.css';
 import {useHistory} from 'react-router-dom'
+
 
 
 function Home () {
@@ -20,6 +22,7 @@ function Home () {
     </article>
     <aside class="_1oez8w8">
       <section class="_1ytio68">
+
         <button className="btnCad" onClick={routerLogin}>Login</button>
         <button className="btnCad" onClick={routerRegister}>Cadastrar</button>
       </section>

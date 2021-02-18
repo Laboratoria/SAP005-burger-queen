@@ -32,18 +32,26 @@ function Login() {
         body :`email=${email}&password=${password}`
         
       })
-        .then((response) => response.json())
-        .then((json) => {
-          console.log(json);
-          if(json.role === "garcom") {
-            routerHall();
-          }
-          if(json.role === "cozinheiro") {
-            routerKitchen();
-          }
-        })
-    };
-  
+       
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      const token = json.token
+      const id = json.id
+
+      const tokenUser = localStorage.setItem("token", token)
+      const idUser = localStorage.setItem("id", id)
+
+      if(tokenUser!== null && idUser!== null && json.role === "garcom") {
+        routerHall();
+      }else if(tokenUser!== null && idUser!== null && json.role === "cozinheiro") {
+        routerKitchen();
+      }else{
+        alert("Usuario não encontrado, verifique seu Email e Senha")
+      }
+    })
+};
+
     return (
       <div class="overlay">
   <form>
@@ -53,11 +61,15 @@ function Login() {
         <p>Faça o login aqui usando seu email de usuário e senha</p>
       </header>
       <div class="field-set">
-        <input class="form-input" id="txt-input" type="text" placeholder="E-mail" required value={email}
-          id="loginInputEmail" onChange={(event)=> setEmail(event.target.value)}/>
-        <input class="form-input" type="password" placeholder="Senha" id="pwd" name="password" required value={password}
-          id="loginInputPassword" onChange={(event)=> setPassword(event.target.value)} />
-        <button class="btn submits login" onClick={loginBtn}>Login</button>
+        <label for="loginInputEmail"></label>
+        <input autocomplete="off" class="form-input" type="email" placeholder="E-mail" 
+          id="loginInputEmail" onChange={(event)=> setEmail(event.target.value)} required  value={email}/>
+
+<label for="loginInputPassword"> </label>
+        <input autocomplete="off" class="form-input" type="password" placeholder="Senha"  name="password"  
+          id="loginInputPassword" onChange={(event)=> setPassword(event.target.value)} required value={password} />
+
+        <button type="submit" class="btn submits login" onClick={loginBtn}>Login</button>
         <div class="other">
           <button class="btn submits sign-up" onClick={routerRegister}>Cadastro
           </button>
@@ -68,7 +80,9 @@ function Login() {
 </div>
     );
   }
-  
+ 
+
+
   export default Login;
   
 

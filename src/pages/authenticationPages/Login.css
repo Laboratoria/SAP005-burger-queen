@@ -71,7 +71,7 @@ input[class="form-input"]{
     transition: 0.2s linear;
     
 }
-input[id="txt-input"] {width: 250px;}
+input[class="form-input" ] {width: 250px;}
 
 input:focus {
     transform: translateX(-2px);
