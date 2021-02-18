@@ -30,7 +30,7 @@ export const authUser = async (
   userEmail,
   userPassword
 ) => {
-  const response = fetch(API_AUTH, {
+  const response = await fetch(API_AUTH, {
     method: 'post',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
@@ -39,24 +39,14 @@ export const authUser = async (
     })
   }).then((response) => response.json())
   .then((json) => {
-    console.log(json)
-    const token = json.token
-    const role = json.role
-    const id = json.id
 
-    if(token !== null && role === 'restaurant-hall' && id !== null){
-      console.log(id)
-    }
-    else {
-      console.log('não foi')
-    }
+    return json
   })
   .catch((error) => {
     console.log(error)
-    
   })
 
-  return await response.json()
+  return response
 }
 
 export const openOrder = async (
@@ -64,9 +54,8 @@ export const openOrder = async (
   tableNumber,
 ) => {
   const response = await fetch(API_ORDERS, {
-    method: 'post',
-    mode: 'no-cors',
-    headers : { 'content-type' : 'application/json', 'Authorization' : '' },
+    method: 'POST',
+    headers : { 'Content-Type':'application/json', 'Authorization':localStorage.getItem('userToken') },
     body: JSON.stringify({
       'client': clientName,
       'table': tableNumber,
@@ -75,11 +64,13 @@ export const openOrder = async (
   .then((response) => response.json())
   .then((json) => {
     console.log(json)
+    return json
   })
-  .catch((error) => {
-    console.log(error)
+  .catch((
+    
+  ) => {
+    console.log('deu ruim')
   })
 
-  return await response.json()
+  return response
 }
-

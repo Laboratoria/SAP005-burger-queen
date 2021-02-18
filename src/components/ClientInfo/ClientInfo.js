@@ -60,8 +60,8 @@ export default function ClientInfo() {
                   clientName,
                   tableNumber,
                 )
-                const token = localStorage.getItem('token',response.token)
-                console.log(token)
+                
+                console.log(response)
               }
             }
           />
