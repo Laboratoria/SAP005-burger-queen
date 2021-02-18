@@ -1,32 +1,46 @@
 import React from 'react';
 import '../App.css';
 import './LoginForm.css';
-import {useForm} from 'react-hook-form'
+import  {yupResolver}  from '@hookform/resolvers/yup';
+import schema from './ValidationLogin';
+import {useForm} from 'react-hook-form';
+//import {Button} from './Button';
 
 
 function LoginForm() {
-    const {register, handleSubmit, errors} = useForm();
+        const {register, handleSubmit, errors} = useForm({
+        resolver: yupResolver(schema)
+    });
 
-    const onSubmit = data => {
-    console.log(data)
-};
+    const onSubmit = ({email, password}) => {
+    console.log(`Email: ${email}, password: ${password}`);
+    alert('Sucesso, nenem');
+    };
 
     return (
         <div className='loginForm-container'>
             <form className='loginForm-content-form' onSubmit={handleSubmit(onSubmit)}>
-                <input type='text'
-                placeholder='Email' 
-                name='email' 
-                ref={register({required: true})}/>
-                {errors.email && <p>Email Invalido</p>}
+                {/*<header>
+                    <img src={nosso logo principal} />
+                    </header>*/}
+                <label htmlFor='email'>Email</label>
                 <input 
-                type='password' 
-                placeholder='Password' 
-                name='password' 
-                ref={register({required: true, minLength: 8})}
+                    type='text'
+                    id='email' 
+                    name='email' 
+                    ref={register}
                 />
+                {errors.email?.message}<br />
+                <label htmlFor='password'>Senha</label>
+                <input 
+                    type='password' 
+                    id='password'
+                    name='password' 
+                    ref={register} 
+                />
+                {errors.password?.message}<br />
                 <input type='submit' />
-                {errors.password && <p>Senha Invalida</p>}
+                {/*<Button type='submit' buttonStyle='button-unClicked'>Entrar</Button>*/}
             </form>
         </div>
 

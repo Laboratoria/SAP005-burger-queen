@@ -4,7 +4,11 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-
+body{
+  background: url('/src/backgroundsub.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 
 /*FORMATAÇÃO PRÉ-ESTABELECIDA PELO REACT*/
