@@ -4,6 +4,9 @@ import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
 
+
+
+
 export const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -33,6 +36,15 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(4, 2, 2),
     backgroundColor: theme.palette.warning.dark,
     color: '#fafafa'
+  },
+  
+  inputTableName: {
+    fontSize: '1rem',
+    height: '5vh',
+    width: '40vw',
+    margin: theme.spacing(3, 2, 2),
+    backgroundColor: theme.palette.text.primary,
+    color: '#C9CDCB'
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -138,30 +150,3 @@ export function NavBar() {
   )
 }
 
-export function BoxProducts() {
-  return (
-    <Box sx={{ border: '1px dashed grey' }} clone>
-      <p>produtos</p>
-    </Box>
-  );
-}
-
-export function BoxTotalProducts() {
-  return (
-    <Box sx={{ border: '1px dashed grey' }} clone>
-      <p>Total produtos</p>
-    </Box>
-  );
-}
-
-
-
-/* export function SimpleAlerts() {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.errorBox}>
-      <Alert severity="error">{json.message}</Alert>
-    </div>
-  );
-} */
