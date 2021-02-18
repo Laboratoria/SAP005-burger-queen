@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleForm = (event) => {
+  const routerLogin = () => {
+    history.push("/");
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  fetch("https://lab-api-bq.herokuapp.com/users/", {
+  fetch("https://lab-api-bq.herokuapp.com/users", {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+       "Content-Type": "application/x-www-form-urlencoded",
       accept: "application/json",
     },
     body: `email=${email}&password=${password}`,
@@ -20,44 +25,36 @@ function Login() {
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
-      setEmail("");
-      setPassword("");
+      routerLogin();
     });
+
 
   return (
     <div>
       <h1>Login</h1>
-      <form class="login" onSubmit={handleForm}>
+      <form class="login" onSubmit={handleSubmit}>
         <input
-          class="login"
-          id="email"
-          type="temail"
+          type="email"
           placeholder="E-mail "
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          required
+           
         />
         <input
-          class="login"
-          id="password"
+           class="login"
           type="password"
           placeholder=" Senha de no mínimo 6 caracteres"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          required
-        ></input>
-        <button type="submit" class="button" id="button-register">
+        
+          />
+         
+        <button type="onClick" class="button" id="button">
           Entrar
         </button>
-        <p>Por Favor marque o seu setor:</p>
-        <input type="radio" id="kitchen" name="Kitchen" value="kitchen"></input>
-        <label for="kitchen">kitchen</label>
-        <input type="radio" id="hall" name="Hall" value="Hall"></input>
-        <label for="hall">Hall</label>
-        <p>
           Não tem uma conta?
           <Link to="/Register">Cadastrar</Link>
-        </p>
+
       </form>
     </div>
   );
