@@ -90,6 +90,7 @@ const Register = () => {
                         'outlineColor': '#F57F17',
                         'textAlign': 'center',
                         'fontSize': '30px',
+                        'cursor': 'pointer'
                     }}
                 >
                     <FiArrowLeft />

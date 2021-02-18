@@ -8,8 +8,7 @@ export const Button = styled.button`
     margin-left: 120px;
     margin-top: 10px;
     border-radius: 20px;
-    //background: linear-gradient(145deg, #b4b4b7, #d6d6d9);
-    // box-shadow:  0 0 2em black;
+    cursor: pointer;
     border: none;
     font-size: 24px;
     outline:none;
@@ -94,6 +93,4 @@ export const Input = styled.input`
     font-size: 20px;
     outline:none;
     background: linear-gradient(225deg, #b4b4b7, #d6d6d9);
-    //box-shadow:  -9px 9px 14px #767678,
-            9px -9px 14px #ffffff;
 `;
