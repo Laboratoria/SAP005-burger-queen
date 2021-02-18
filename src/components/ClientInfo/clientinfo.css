@@ -6,8 +6,8 @@
 }
 
 .form-client-info {
-	background-color: #cad9cb;
-	box-shadow: 0 2px 15px 4px #b7c4b8;
+	background-color: #fff9d4;
+	box-shadow: 0 1px 6px 1px #e8dcb5;
 	border-radius: 0.5rem;
 	max-width: 30rem;
 	display: flex;
@@ -20,8 +20,8 @@
 .label-client-info {
 	margin-top: 1rem;
 	font-size: 1rem;
-	font-weight: 00;
-	color: #002c37;
+	font-weight: 500;
+	color: #004c54;
 }
 
 .input-client-inf {
@@ -29,9 +29,9 @@
 	border-radius: 0.4rem;
 	outline: none;
 	padding: 0.3rem 0.4rem;
-	background-color: #a9b6aa7c;
+	background-color: #ffecb4;
 	font-size: 1rem;
-	color: #002c37;
+	color: #004c54;
 }
 
 .btn-order {
@@ -41,14 +41,14 @@
 	margin-right: 8rem;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
-	border: solid 2px #002c37;
+	border: solid 2px #ffd34d;
 	border-radius: 0.7rem;
-	background-color: #002c37;
-	color: #cad9cb;
+	background-color: #ffd34d;
+	color: #fff9d4;
 	transition: 0.3s ease-in-out;
 }
 
 .btn-order:hover {
-	background-color: #cad9cb;
-	color: #002c37;
+	background-color: #fff9d4;
+	color: #ffd34d;
 }

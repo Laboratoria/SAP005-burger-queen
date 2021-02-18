@@ -20,7 +20,7 @@ export const Login = () => {
       <main>
         <form className='form-login'>
 
-          <label htmlFor='userEmail' className='label-login'>E-mail<span className='required'> *</span></label><br />
+          <label htmlFor='userEmail' className='label-login'>E-mail<span className='required'> *</span></label>
           <Input
             inputRequired
             inputName='userEmail'
@@ -33,9 +33,9 @@ export const Login = () => {
                 setUserEmail(event.target.value)
               }
             }
-          /><br />
+          />
 
-          <label htmlFor='userPassword' className='label-login'>Senha<span className='required'> *</span></label><br />
+          <label htmlFor='userPassword' className='label-login'>Senha<span className='required'> *</span></label>
           <Input
             inputRequired
             inputName='userPassword'
