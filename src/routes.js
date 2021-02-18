@@ -12,12 +12,12 @@ function Routes() {
     return(
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Login}/>
-                <Route path="/Registry" component={Registry}/>
-                <Route path="/Hall" component={Home}/>
-                <Route path="/Kitchen" component={Kitchen}/>
-                <Route path="/Menu" component={Menu}/>
-                <Route path="/Pendentes" component={Pending}/>
+                <Route path='/' exact component={Login}/>
+                <Route path='/Registry' component={Registry}/>
+                <Route path='/Hall' component={Home}/>
+                <Route path='/Kitchen' component={Kitchen}/>
+                <Route path='/Menu' component={Menu}/>
+                <Route path='/Pendentes' component={Pending}/>
             </Switch>
         </BrowserRouter>
     )  

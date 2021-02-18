@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Link, useHistory } from 'react-router-dom';
-import { Button, Container, TextField, InputLabel,FormControl, Select } from '@material-ui/core';
-import {Copyright, CreatSign, Logo, useStyles} from '../../components.js';
+import { Button, Container, TextField, InputLabel,FormControl, Select, Typography } from '@material-ui/core';
+import {Copyright, Logo, useStyles} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { fetchRegistry } from '../../configApi/Api'
 
@@ -29,7 +29,7 @@ function Registry() {
     if (password1 === password2)
       handRegistry();
     else {
-      alert("As senha não são iguais. \nTente novamente!")
+      alert('As senha não são iguais. \nTente novamente!')
     }   
   }
 
@@ -39,10 +39,10 @@ function Registry() {
 
     const roleSector = localStorage.getItem('role')
 
-    if(roleSector === "garcom"){
+    if(roleSector === 'garcom'){
       routerHall();
     }
-    else if(roleSector === "cozinha"){
+    else if(roleSector === 'cozinha'){
       routerKitchen();
     }
     else{
@@ -53,28 +53,28 @@ function Registry() {
   return (
     <Container className='container'>
       <div className={classes.paper}>
-        <Link to="/"><ArrowBackIosIcon className={classes.arrow} color="disabled" fontSize="large"/> </Link>
+        <Link to='/'><ArrowBackIosIcon className={classes.arrow} color='disabled' fontSize='large'/> </Link>
         <Logo/>
         <form className={classes.form}>
-          <CreatSign/>
-          <TextField variant="outlined" margin="normal" required fullWidth label="Email" name="email"
-          autoComplete="username" value={emailRegistry} onChange={(event) => inEmail(event.target.value)}/>
+        <Typography  component='h1' variant='h5'> Cadastre-se </Typography>
+          <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'
+          autoComplete='username' value={emailRegistry} onChange={(event) => inEmail(event.target.value)}/>
 
-          <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Senha" type="password" id="password"
-          autoComplete="current-password" value={passwordRegistry} onChange={(event) => inPassword(event.target.value)}/>
+          <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password'
+          autoComplete='current-password' value={passwordRegistry} onChange={(event) => inPassword(event.target.value)}/>
 
-          <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Confirme a senha" type="password" id="password"
-          autoComplete="current-password" value={passwordConfirm} onChange={event => inConfirm(event.target.value)}/>
+          <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Confirme a senha' type="password" id='password'
+          autoComplete='current-password' value={passwordConfirm} onChange={event => inConfirm(event.target.value)}/>
 
-          <FormControl variant="outlined" className={classes.formControl}>
+          <FormControl variant='outlined' className={classes.formControl}>
             <InputLabel >Cargo</InputLabel>
-            <Select native value={sectorRegistry} onChange={(event) => inSector(event.target.value)} label="Cargo">
-              <option aria-label="None" value="" />
+            <Select native value={sectorRegistry} onChange={(event) => inSector(event.target.value)} label='Cargo'>
+              <option aria-label='None' value='' />
               <option value='cozinha'>Cozinha</option>
               <option value='garcom'>Garçom</option>
             </Select>
           </FormControl>
-          <Button type="submit" fullWidth variant="contained" className={classes.submit} onClick={(event) => { event.preventDefault();
+          <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => { event.preventDefault();
           validadePassword();}}>Criar</Button>
         </form>
       </div>

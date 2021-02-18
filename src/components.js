@@ -4,9 +4,6 @@ import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
 
-
-
-
 export const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -90,43 +87,19 @@ export const useStyles = makeStyles((theme) => ({
 
 export function Logo() {
   const classes = useStyles();
-
   return (
-    <img className={classes.logo} src={logo} alt="logo"/>
-  )
-}
-export function LogoNav() {
-  const classes = useStyles();
-
-  return (
-    <img className={classes.logoComponent} src={logo} alt="logo"/>
+    <img className={classes.logo} src={logo} alt='logo'/>
   )
 }
 
 export function Copyright() {
   return (
-    <Box mt={5} className="copyRight">
-      <Typography variant="body2"  align="center">
+    <Box mt={5} className='copyRight'>
+      <Typography variant='body2'  align='center'>
         {'Copyright © Your Website'}
       </Typography> 
     </Box>
   );
-}
-
-export function SingIn() {
-  return (
-    <Typography  component="h1" variant="h5">
-    Ratatouille Burguer
-    </Typography>
-  )
-}
-
-export function CreatSign() {
-  return (
-    <Typography  component="h1" variant="h5">
-      Cadastre-se 
-    </Typography>
-  )
 }
 
 export function NavBar() {
@@ -134,19 +107,17 @@ export function NavBar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" elevation={0} className={classes.appBar}>
+    <AppBar position='static' elevation={0} className={classes.appBar}>
     <Toolbar className={classes.toolbar}>
-        <LogoNav/>
-        <Typography variant="h6"  noWrap className={classes.toolbarTitle}>
+        <img className={classes.logoComponent} src={logo} alt='logo'/>
+        <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
         Ratatouille
         </Typography>
-        <Button variant="outlined" className={classes.link}>
+        <Button variant='outlined' className={classes.link}>
           <Link to='/' >Sair</Link>
           
         </Button>
-         
       </Toolbar>
     </AppBar>
   )
 }
-
