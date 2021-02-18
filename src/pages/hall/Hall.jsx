@@ -29,12 +29,14 @@ const Hall = () => {
             </div>
         )
     }
+    const breakfast = data.slice(0, 4);
+    const allDay = data.slice(4, 29);
     return (
         <div>
             <h1>
                 Aqui é Hall
             </h1>
-            <div className='menus'>{data}</div>
+            <div className='menus'></div>
             <div className='Cardapio'>
 
                 <button onClick={() => setShow(true)}>Café da Manhã</button>
@@ -42,11 +44,12 @@ const Hall = () => {
                 {
                     show ?
                         <div>
-                            café
+                            {breakfast}
                         </div>
                         :
                         <div>
-                            hamburguer
+                            {allDay}
+
                         </div>
                 }
             </div>
