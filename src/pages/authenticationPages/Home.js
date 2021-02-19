@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Logo from './img/logo.png';
-import './Home.css';
+import './Auth.css';
 import {useHistory} from 'react-router-dom'
 
 
@@ -13,7 +13,7 @@ function Home () {
     history.push('/Register')
   }
   const routerLogin=()=>{
-    history.push('/login')
+    history.push('/Login')
   }
   return (
     <main class="_cjo0m2">
