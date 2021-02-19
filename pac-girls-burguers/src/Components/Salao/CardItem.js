@@ -15,7 +15,7 @@ const CardContainer = styled.div`
 const CardItem = (props) => {
   const [produtos, setProdutos] = useState([]);
   const [token, setToken] = useState("");
-  const [options, setOptions] = useState("");
+  const [options, setOptions] = useState ("");
 
   const breakfast =
     produtos.length > 0 &&
@@ -114,7 +114,7 @@ const CardItem = (props) => {
           <option value={"Side"}> Acompanhamentos</option>
           <option value={"Drinks"}>Bebidas</option>
         </select>
-       { renderProducts(options)}
+       {produtos.length > 0 && renderProducts(options)}
       </CardContainer>
     </>
   );
