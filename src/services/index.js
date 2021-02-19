@@ -46,16 +46,10 @@ export const getProducts = async (
 ) => {
   const response = await fetch(API_PRODUCTS, {
     method: 'GET',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({
-      "id": 0,
-      "name": "string",
-      "flavor": "string",
-      "complement": "string",
-      "price": 0,
-      "type": "string",
-      "subtype": "string"
-    })
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': localStorage.getItem('userToken')
+    },
   })
 
   return await response.json()

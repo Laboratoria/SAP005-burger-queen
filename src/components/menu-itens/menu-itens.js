@@ -1,25 +1,22 @@
 import React, { Fragment } from 'react'
+import { FaPlus } from 'react-icons/fa'
 
 export default function MenuItens({
-  classNameImg,
   srcImg,
   altImg,
-  iconImg,
-  classNameProduct,
-  classNamePrice,
   productName,
   productPrice
 }) {
   return (
     <Fragment>
       <img
-        className={classNameImg}
+        className='product-img'
         src={srcImg}
         alt={altImg}
-        icon={iconImg}
+        icon={FaPlus}
       />
-      <p className={classNameProduct}>{productName}</p>
-      <p className={classNamePrice}>{productPrice}</p>
+      <p className='product-name'>{productName}</p>
+      <p className='product-price'>R$ {productPrice}</p>
     </Fragment>
   )
 }
