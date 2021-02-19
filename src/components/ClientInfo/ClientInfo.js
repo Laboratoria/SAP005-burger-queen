@@ -56,7 +56,7 @@ export default function ClientInfo() {
             onClick={
               async (event) => {
                 event.preventDefault()
-                const response = openOrder(
+                const response = await openOrder(
                   clientName,
                   tableNumber,
                 )

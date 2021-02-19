@@ -48,22 +48,13 @@ export const openOrder = async (
 ) => {
   const response = await fetch(API_ORDERS, {
     method: 'POST',
+    mode: 'no-cors', 
     headers : { 'Content-Type':'application/json', 'Authorization':localStorage.getItem('userToken') },
     body: JSON.stringify({
       'client': clientName,
       'table': tableNumber,
     })
   })  
-  .then((response) => response.json())
-  .then((json) => {
-    console.log(json)
-    return json
-  })
-  .catch((
-    
-  ) => {
-    console.log('deu ruim')
-  })
 
-  return response
+  return await response.json()
 }
