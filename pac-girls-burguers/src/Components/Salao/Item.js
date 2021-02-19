@@ -24,9 +24,9 @@ const Image = styled.img`
   height: 100px;
 `;
 
-const Item = ({ name, price, flavor, img, complement }) => {
+const Item = ({ name, price, flavor, img, complement, onClick  }) => {
   return (
-    <ContainerCard>
+    <ContainerCard onClick={onClick}>
       <ItemCard>
         <div>
           <Image src={img} />

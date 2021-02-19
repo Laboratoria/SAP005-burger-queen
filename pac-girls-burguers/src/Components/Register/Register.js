@@ -36,6 +36,7 @@ const Register = () => {
     })
       .then((response) => response.json())
       .then((json) => {
+        history.push("/")
         console.log(json);
       })
       .catch((error) => {
@@ -62,9 +63,11 @@ const Register = () => {
       />
       <br />
       <Select value={role} onChange={handleRole} required>
-      <option disabled value={""}>Selecione seu cargo</option>
-        <option value={"cozinha"} >Cozinha/Chefe</option>
-        <option value={"salao"} >Salão/Garçon</option>
+        <option disabled value={""}>
+          Selecione seu cargo
+        </option>
+        <option value={"cozinha"}>Cozinha/Chefe</option>
+        <option value={"salao"}>Salão/Garçon</option>
       </Select>
       <br />
       <Input
@@ -83,8 +86,3 @@ const Register = () => {
 };
 
 export default Register;
-// type="text"
-//         value={role}
-//         onChange={handleRole}
-//         placeholder="Cozinha ou Salão"
-//         required

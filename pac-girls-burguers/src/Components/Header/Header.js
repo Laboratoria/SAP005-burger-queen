@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import img from "./logo-pac.png";
 
-
 const Container = styled.div`
-display: flex;
-justify-content: center;
-justify-items: center;
-background: #ea1d2c;
-max-width: 100%;
-max-height: 70px;
-color: white;
-`
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  background: #ea1d2c;
+  width: 100%;
+  height: 70px;
+  color: white;
+`;
+
 const Img = styled.img`
   width: 150px;
 `;
