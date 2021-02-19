@@ -1,15 +1,11 @@
-import React from 'react'
-import {BrowserRouter, Route,  Switch } from 'react-router-dom'
+import React from 'react';
+import {BrowserRouter, Route,  Switch } from 'react-router-dom';
 
 import Hall from './pages/Hall'
 import Kitchen from './pages/kitchen'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Header from './Components/Header'
-
-
-
-
 
 function Routes() {
     return (
