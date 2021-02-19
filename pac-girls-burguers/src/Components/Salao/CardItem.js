@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
-//import Item from './Item'
+
 
 import styled from "styled-components";
 import { Select } from "../Register/register-styled";
@@ -129,3 +129,4 @@ const CardItem = (props) => {
 };
 
 export default CardItem;
+

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardItem from "./CardItem";
 
 import styled from "styled-components";
@@ -22,7 +22,47 @@ const Comanda = styled.div`
   height: 500px;
 `;
 
+
 const Salao = () => {
+
+const [token,setToken] = useState() 
+
+console.log(token)
+
+  async function orders (token)  {
+    try { 
+      const body = {
+        "client": "carina",
+        "table": "05",
+        "products": [
+          {
+            "id": 29,
+            "qtd": 1
+          }
+        ]
+      }
+      const response = await fetch(
+        "https://lab-api-bq.herokuapp.com/orders" ,
+        {
+          method: "POST",
+          headers: {'accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+         Authorization: token
+          },
+           body
+          },
+      );
+      const json = await response.json();
+    
+      console.log(json);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+   useEffect(() => {
+    setToken(localStorage.getItem("token"))
+   }, [])
+
   return (
     <>
       <CardItem />
@@ -36,8 +76,9 @@ const Salao = () => {
           <input placeholder="Mesa" />
           <br />
           <p>pedidos...</p>
+          <li>ola</li>
           <p>valor total: R$....</p>
-          <button>enviar pedido</button>
+          <button onClick={()=>{orders(token)}}>enviar pedido</button>
           <button>editar pedido</button>
         </Comanda>
       </Container>
