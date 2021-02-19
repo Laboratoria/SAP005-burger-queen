@@ -8,10 +8,10 @@ function OpeningPage() {
     return (
         <div className='openingPage-container'>
             <div className='openingPage-wrapper'>
-            <h1 className='openingPage-logo'>
+            {/*<h1 className='openingPage-logo'>
                 Subsolo
             </h1>
-            {/*desenho alternativo*/}
+                desenho alternativo
                 <ul className='openingPage-logo-burger'>
                     <li className='openingPage-logo-burger__bread'></li>
                     <li className='openingPage-logo-burger__cheese'></li>
@@ -20,7 +20,7 @@ function OpeningPage() {
             </ul>
             <p className='openingPage-logo-subtitle'>
                 Burger
-            </p>
+            </p>*/}
             </div>
         </div>
     );

@@ -1,3 +1,91 @@
-h1{
-    color: tomator;
+.signUpForm-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signUpForm-content-logo {
+    fill: #000;
+    stroke: transparent;
+    position: relative;
+    animation: colorchange 1s linear 1s;
+    -webkit-animation: colorchange 1s linear 0s infinite alternate;
+}
+
+@keyframes colorchange
+{
+  0%{
+    background: #7CFC00;
+    width: 300px;
+    height: 300px;
+    /*color: #7CFC00*/
+  }
+  13%{
+    background: #FF1493; 
+    width: 300px;
+    height: 300px;
+    /*color: #FF1493*/
+  }
+  33%{
+    background: #BA55D3; 
+    width: 300px;
+    height: 300px;
+    /*color: #BA55D3*/
+  }
+  66%{
+    background: #00F5FF;
+    width: 300px;
+    height: 300px;
+    /*color: #00F5FF*/
+    }
+  100%{
+    background: #FFFF00; 
+    width: 300px;
+    height: 300px;
+    /*color: #FFFF00*/
+  }
+}
+
+/* keyframes duplicada para outros dispositivos /*
+/*
+@-webkit-keyframes colorchange 
+{
+  0%{
+    background: #7CFC00;
+    width: 300px;
+    height: 300px;
+    color: #7CFC00
+  }
+  13%{
+    background: #FF1493;
+    width: 300px;
+    height: 300px;
+    color: #FF1493
+  }
+  33%{
+    background: #BA55D3;
+    width: 300px;
+    height: 300px;
+    color: #BA55D3
+  }
+  66%{
+    background: #00F5FF;
+    width: 300px;
+    height: 300px;
+    color: #00F5FF
+  }
+  100%{
+    background: #FFFF00; 
+    width: 300px;
+    height: 300px;
+    color: #FFFF00
+    }
+}
+*/
+
+
+input, select, button{
+    display: flex;
+    width: 100%;
 }

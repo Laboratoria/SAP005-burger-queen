@@ -1,5 +1,4 @@
 .footerPage-container{
-    background-color: rgb(3, 3, 26);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,41 +44,3 @@
 .footerPage-content-socialDevs__render{
     text-decoration: none;
 }
-
-/*.footerPage-container{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    background-color: rgb(3, 3, 26);
-}
-
-.footerPage-content{
-    max-width: 1024px;
-    width: 100%;
-}
-
-.footerPage-content-wrapper{
-    display: flex;
-    flex-direction: column;
-    max-width: 1024px;
-    margin-top: 5px;
-    margin-left: 10px;
-    letter-spacing: 2px;
-}
-
-.footerPage-content-logo__render, .footerPage-content-socialDevs__render{
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.footerPage-content-allRights{
-    color: #fff;
-}
-
-i{
-    margin-right: 3px;
-}
-*/

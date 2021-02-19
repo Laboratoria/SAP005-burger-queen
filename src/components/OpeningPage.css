@@ -4,10 +4,8 @@
 .openingPage-container{
     height: 100vh;
     width: 100%;
-    background-color: rgb(3, 3, 26);
     display: flex;
     justify-content: center;
-    /*background: url('/images/backgroundsub.jpg');*/
 }
 
 .openingPage-wrapper{
@@ -18,7 +16,7 @@
     margin-top: -10%;
 }
 
-.openingPage-logo{
+/*.openingPage-logo{
     text-align: center;
     text-transform: uppercase;
     color: white;
@@ -110,4 +108,4 @@
         text-shadow: 0 0 1px #00FFFF, 0 0 1px #00FFFF, 0 0 1px #00FFFF, 0 0 1px #fa16c9, 0 0 2px #00FF00, 1px 1px 3px #FF1493;
         color: #fff;
     }
-}
+}*/

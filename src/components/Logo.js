@@ -1,9 +1,14 @@
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="2000.000000pt" height="2000.000000pt" viewBox="0 0 2000.000000 2000.000000"
+import React from 'react'
+
+function Logo() {
+    return (
+            
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="300" height="300" viewBox="0 0 2000.000000 2000.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="" stroke="">
 <path d="M0 10000 l0 -10000 9995 0 9995 0 0 10000 0 10000 -9995 0 -9995 0 0
 -10000z m3040 8444 c45 -25 48 -25 85 -10 93 39 195 3 241 -86 13 -25 20 -28
 70 -28 84 0 158 -45 183 -113 6 -16 11 -52 11 -81 0 -101 -77 -176 -181 -176
@@ -551,3 +556,9 @@ l-25 24 0 280 c0 154 3 287 6 296 17 43 153 57 320 34z"/>
 133 -96 188 -305 188 l-93 0 0 -210z"/>
 </g>
 </svg>
+
+
+    );
+}
+
+export default Logo;

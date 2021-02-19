@@ -1,5 +1,5 @@
 .navbar-container{
-    background-color: rgb(3, 3, 26);
+    background-color: #242424b2;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
     font-size: 1.2rem;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index:999;
 }
 
 .navbar-container-wrapper{
