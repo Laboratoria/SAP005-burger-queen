@@ -13,10 +13,10 @@ export default function MenuItens({
         className='product-img'
         src={srcImg}
         alt={altImg}
-        icon={FaPlus}
       />
       <p className='product-name'>{productName}</p>
       <p className='product-price'>R$ {productPrice}</p>
+      <FaPlus className='icon-img' />
     </Fragment>
   )
 }
