@@ -1,28 +1,35 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import React, { useState } from 'react';
+import './index.css';
 
 const menuHamburger = [
     {
-        id: 'gary',
-        name: 'Gary Goodspeed',
-        thumb: '/assets/1.jpg'
+        id: 'Word Of Burger',
+        name: 'Word Of Burger',
+        thumb: '/assets/1.jpg',
+        description: 'O Word Of Burger, contem hambúrger, queijo, tomate, maionese e cheddar.',
+        price: 23.00
     },
     {
         id: 'Game Of Burguer',
         name: 'Game Of Burguer',
         thumb: '/assets/2.jpg',
-        description: 'O Game Of Burguer, com 180 gramas de carne, rúcula, tomate e geléia de pimenta caseira.'
+        description: 'O Game Of Burguer, contem 180 gramas de carne, rúcula, tomate e geléia de pimenta caseira.',
+        price:25.60
     },
     {
         id: 'X-Chewbacca',
         name: 'X-Chewbacca',
         thumb: '/assets/3.jpg',
-        description: 'O X-Chewbacca preparado com hambúrguer, queijo cheddar, cebola caramelizada.'
+        description: 'O X-Chewbacca preparado com hambúrguer, queijo cheddar, cebola caramelizada.',
+        price: 24.65
     },
     {
-        id: 'mooncake',
-        name: 'Mooncake',
-        thumb: '/assets/4.jpg'
+        id: 'The Legend of Burger',
+        name: 'The Legend of Burger',
+        thumb: '/assets/4.jpg',
+        description: 'O The Legend of Burger contem hambúrger, queijo, alface, cebola e maionese',
+        price: 20.00
     },
     {
         id: 'quinn',
@@ -55,45 +62,45 @@ const menuHamburger = [
 
 export const Menu = () => {
     const [hamburgers, updateHamburgers] = useState (menuHamburger);
+    //const btnCard = document.getElementsByClassName('.front');
+    //btnCard.addEventListener('click', clickCard);
 
-    const handleOnDragEnd = (result) => {
-        if (!result.destination) return;
+    //const clickCard = () => {}
 
-        const items = Array.from(hamburgers);
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
-    
-        updateHamburgers(items);
-    }
     return(
         <div className=''>
             <header className=''>
                 <h1>Menu de Hamburgeres</h1>
-                <DragDropContext onDragEnd={handleOnDragEnd}>
-                    <Droppable droppableId='hamburgers'> 
-                        {(provided) => (
-                            <ul className='hamburgers' {...provided.droppableProps} ref={provided.innerRef}>
-                                {hamburgers.map(({id, name, thumb, description}, index) => {
-                                    return (
-                                        <Draggable key={id} draggableId={id} index={index}>
-                                            {(provided) => (
-                                                <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                    {hamburgers.map(({id, name, thumb, description, price}, index) => {
+                            return (
+                                    <div className="flip-container">
+                                        <div className="flipper">
+                                            <div class="front">
+                                                <li key={id }>
                                                     <div className="hamburgers-thumb">
                                                         <img src={thumb} alt={`${name} Thumb`} />
                                                     </div>
-                                                    <h3>{ name }</h3>
-                                                    <p>{ description }</p>
+                                                    <h4>{ name }</h4>
+                                                    <h4>R${ price }</h4>
                                                 </li>
-                                            )}
-                                        </Draggable>
-                                    );
-                                })}
-                                {provided.placeholder}
-                            </ul>
-                        )}
-                    </Droppable>
-                </DragDropContext>
+                                            </div>
+                                            <div className="back">
+                                                <li className="item">
+                                                    <h4>{ name }</h4>
+                                                    <p>{ description }</p>
+                                                    <button onClick>Adicionar</button>
+                                                </li>
+                                            </div>  
+                                        </div>
+                                    </div>
+                            );
+                    })}
             </header>
+            <main>
+                <div className='requestedOrder'>
+                    <div id='request'></div>
+                </div>
+            </main>
         </div>
     );
 }
