@@ -1,0 +1,61 @@
+/* Flipper */
+.flip-container {
+    perspective: 1000px;
+    width: 30%;
+    height: 330px;
+    margin: 0 2.5% 40px 2.5%;
+}
+
+.flip-container:nth-child(3n) {
+    margin-right: 0;
+}
+
+.flip-container:nth-child(3n+1) {
+    margin-left: 0;
+}
+
+.flipper {
+    display: flex;
+    position: relative;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+} 
+
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+    /*box-shadow: 4px 4px 20px rgba(197, 143, 43, 0.919);*/
+}
+
+/* verso inicialmente escondido */
+.back {
+    transform: rotateY(180deg);
+}
+
+.front p {
+    margin: 5px 0;
+}
+
+.back p {
+    align-self: center;
+    text-align: center;
+    width: 85%;
+    margin: 10px auto;
+} 
