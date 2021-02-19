@@ -9,7 +9,7 @@ import './navbar.css'
 export default function Navbar() {
   return (
     <Fragment>
-      <navbar className='responsive-wrap-navbar'>
+      <header className='responsive-wrap-navbar'>
         <p className='label-nav'><FaUserCircle className='icon-nav' /><br />Carol Costa</p>
         <Link className='link' to='/status-order'><p className='label-nav'><FaRegClock className='icon-nav' /><br />Status Pedidos</p></Link>
         {
@@ -18,7 +18,7 @@ export default function Navbar() {
             : null
         }
         <Link className='link' to='/'><p className='label-nav'><FaDoorOpen className='icon-nav' /><br />Sair</p></Link>
-      </navbar>
+      </header>
     </Fragment >
   )
 }
