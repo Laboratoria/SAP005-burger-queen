@@ -48,16 +48,14 @@ export const getProducts = async (
     method: 'GET',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
-      'id': 29,
-      'name': 'Café americano',
-      'price': 5,
-      'flavor': null,
-      'complement': null,
-      'type': 'breakfast',
-      'sub_type': 'breakfast',
-      'createdAt': '2021-02-16T13:11:54.173Z',
-      'updatedAt': '2021-02-16T13:11:54.173Z'
-
+      "id": 0,
+      "name": "string",
+      "flavor": "string",
+      "complement": "string",
+      "price": 0,
+      "image": "string",
+      "type": "string",
+      "subtype": "string"
     })
   })
 
