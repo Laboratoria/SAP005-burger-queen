@@ -53,7 +53,6 @@ export const getProducts = async (
       "flavor": "string",
       "complement": "string",
       "price": 0,
-      "image": "string",
       "type": "string",
       "subtype": "string"
     })
