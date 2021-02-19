@@ -6,3 +6,19 @@
 	border: none;
 	display: flex;
 }
+.logoWaiter {
+	justify-content: center;
+	width: 30%;
+}
+
+.AppWaiter {
+	background-color: #383838;
+	min-height: 100vh;
+	font-size: calc(10px + 2vmin);
+}
+.breakfast {
+	background-color: yellow;
+}
+.allDay {
+	background-color: tomato;
+}

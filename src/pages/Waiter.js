@@ -46,8 +46,17 @@ const Waiter = () => {
         <button className="exit"   onClick={rLogin}>
       <img src= {exit} alt="" className="exit"/></button>
       </nav>
-      <header className="App-header">
-        <img src={logo} alt="" className="logo" />
+      <header className="AppWaiter">
+        <div>
+        <img src={logo} alt="" className="logoWaiter" />
+        </div>
+        <button className='breakfast'onClick={( (e) => {
+              e.preventDefault();
+              console.log('clicou');
+              setMenu([{id:'fruta', name:'banana', price:'5,00', flavor:'vegetariano'}])
+        })}
+        >breakfast</button>
+
         <div className='menuItens'> {
           menu.map((menuItems) => {
 
@@ -60,8 +69,12 @@ const Waiter = () => {
             )
           })
         } </div>
+      {/* })} >CAFÉ DA MANHÃ</button> */}
         
-          <div className='menuItens'> {
+        {/* <button className='allDay'onClick={( (e) => {
+              e.preventDefault();
+              console.log('clicou'); */}
+          {/* <div className='menuItens'> {
           allDay.map((menuItems) => {
 
             return (
@@ -72,7 +85,8 @@ const Waiter = () => {
               </div>
             )
           })
-        } </div>
+        } </div> */}
+      {/* })} >REFEIÇÃO</button> */}
 
 
 
