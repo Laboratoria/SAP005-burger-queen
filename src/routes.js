@@ -13,10 +13,11 @@ function Routes() {
         <BrowserRouter>
             <Header />
             <Switch>
-                <Route path="/"component={Login} exact/>
-                <Route path="/Register"component={Register}exact />
-                <Route path="/Hall" component={Hall} exact /> 
-                <Route path="/Kitchen"component={Kitchen} exact/>
+                <Route path="/" exact component={Login} />
+                <Route path="/Register"component={Register} />
+                <Route path="/Hall" component={Hall} /> 
+                <Route path="/Kitchen"component={Kitchen} />
+                
             </Switch>
         </BrowserRouter>
         
