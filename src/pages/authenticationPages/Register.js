@@ -6,6 +6,8 @@ import { Box, Typography } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonCustom from './buttonRegister';
+import salon from './img/clerk.png';
+import kitchen from './img/cooking.png';
 
 export const Register = () => {
   const useStyles = makeStyles((theme) => ({
@@ -78,11 +80,10 @@ export const Register = () => {
 
         <div name="ordenar" error={(result.status === 400 && !role)} className="" value={role} onChange={(event) => setRole(event.target.value)}>
 
-          <label for="kitchen" class="radio-label">Cozinha</label>
+          <label for="kitchen" class="radio-label"><img src={kitchen} alt="" className="icon-kitchen"/><br/>Cozinha</label>
           <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro" />
-          <label for="hall" class="radio-label">Salão</label>
+          <label for="hall" class="radio-label"><img src={salon} alt="" className="icon-salon"/><br/>Salão</label>
           <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom" />
-
 
 
 
