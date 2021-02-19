@@ -6,7 +6,6 @@ export const Button = styled.button`
     width: 200px;
     height: 60px;
     margin-left: 120px;
-    margin-top: 10px;
     border-radius: 20px;
     cursor: pointer;
     border: none;
@@ -28,7 +27,6 @@ export const Span = styled.span`
 
 
 export const Title = styled.h2`
-    padding-top: 60px;
     // padding-bottom :50px;
     font-family: Roboto Slab;
     text-align: center;
@@ -43,20 +41,23 @@ export const Form = styled.form`
     display: center;
     height: 600px;
     padding-left: 20px;
+    padding-top: 20px;
+
     justify-content: center;
     width: 500px;
 `;
 
 export const Page = styled.div`
-    // box-shadow:  26px 26px 26px 15px black;
+// box-shadow:  26px 26px 26px 15px black;
     border-radius: 50px;
     display: flex;
-    flex:1;
-    padding: 0;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
-    margin-left: -22px;
-    margin: 25px;
+    margin-left: 22%;
+    margin-top: 8%;
+    padding-bottom: 8%;
 `;
 
 export const Images = styled.div`
