@@ -56,8 +56,8 @@ function Login() {
   }
   
   return (
-    <div className= "img-fundo-one">
-    <form >
+    <div className="login-page">
+    <form className="login-form">
       <center>
       <h2>CANTINA DA LAB</h2>
       <h3>Login</h3>

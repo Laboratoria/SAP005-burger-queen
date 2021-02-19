@@ -60,8 +60,8 @@ function Register() {
   }
 
   return (
-  <div className= "img-fundo-two">
-    <form>
+  <div className="register-page">
+    <form className="register-form">
       <center>
       <h3>Register</h3>
 
