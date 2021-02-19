@@ -47,7 +47,7 @@ export const Lounge = () => {
             </header>
             <form>
                 <input type="text" name="name" placeholder="Nome do cliente" id="client-name" value={client} onChange={handleClient} />
-                <input type="text" name="table" placeholder="Mesa" id="table" value={table} onChange={handleTable} />
+                <input type="text" name="table" placeholder="Mesa" id="table" value={table} onChange={handleTable}/>
                 <button onClick={handleSubmit}>Salvar</button>
             </form>
         </div>
