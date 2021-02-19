@@ -1,6 +1,7 @@
 import '../../Styles/CardapioCafeDaManha.css';
 import Trash from '../../assets/trash.png';
 import React, { useEffect, useState } from 'react';
+import { isEmpty } from 'lodash';
 
 
 const CardapioCafeManha = () => {
@@ -14,7 +15,6 @@ const CardapioCafeManha = () => {
   const [produtoExcluído, setProdutoExcluído] = useState([])
   const [precoTotal, setPrecoTotal] = useState([])
   const [precosProdutos, setPrecosProdutos] = useState([])
-  const [id, setId] = useState()
 
 
   useEffect(() => {
@@ -39,18 +39,21 @@ const CardapioCafeManha = () => {
       })
   }, [])
 
-  const handleAdicionar = (produto) => {
+  const handleAdicionar = async(produto) => {
     setResumoPedido([...resumoPedido, produto])
     setPrecosProdutos([...precosProdutos, produto.price])
+    
   }
 
   useEffect(() => {
     setOrder({ ...order, 'product': resumoPedido })
-  }, [resumoPedido])
+    }, [resumoPedido])
+  
 
   const handleExcluir = (produto) => {
+    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(produto), 1))
     setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto), 1))
-    console.log(resumoPedido)
+    handleSomar();
   }
 
   const handleSomar = () => {
@@ -67,36 +70,38 @@ const CardapioCafeManha = () => {
       )
     })
 
-    console.log(produtoApi)
+    const qtd = produtoApi.reduce(function (r, a) {
+      r[a.id] = r[a.id] || [];
+      r[a.id].push(a);
+      return r;
+    }, Object.create(null));
 
-    const qtd = _.chain(produtoApi)
-    .groupBy('id')
-    .map((produto, id) => ({ id, qtd : _.sumBy(produto, 'qtd') }))
-    .value();
+    const arrayProdutos = [];
+    for (const [key, value] of Object.entries(qtd)) {
+      arrayProdutos.push({
+        id: key,
+        qtd: value.length
+      });
+    }
+    
+    setOrder({ ...order, 'product': arrayProdutos })
 
-    // const qtd = _.chain(produtoApi).reduce(function (r, a) {
-    //   r[a.id = a.qtd] += a.qtd;
-    //   return r;
-    // }, {}).map((qtd, id) => ({id, qtd}))   
-    // .value();
+    console.log(order)
 
-    console.log(qtd)
-
-
-    setOrder({ ...order, 'product': produtoApi }) 
-
-    // fetch('https://lab-api-bq.herokuapp.com/orders', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Authorization': `${tokenUser}`
-    //   },
-    //   body: JSON.stringify(order)
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     console.log(data)
-    //   })
+    fetch('https://lab-api-bq.herokuapp.com/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${tokenUser}`
+      },
+      body: JSON.stringify(order)
+    })
+      .then((response) => {
+        response.json()
+      })  
+      .then(data => {
+        console.log(data)
+      })
   }
 
   return (
@@ -199,7 +204,7 @@ const CardapioCafeManha = () => {
           </tr>
           {resumoPedido.map((produto, index) => (
             <tr key={index}>
-              <td></td>
+              <td>1</td>
               <td>{produto.name}</td>
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>
