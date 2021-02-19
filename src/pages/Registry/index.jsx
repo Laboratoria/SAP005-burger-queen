@@ -3,7 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import { Button, Container, TextField, InputLabel,FormControl, Select, Typography } from '@material-ui/core';
 import {Copyright, Logo, useStyles} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { fetchRegistry } from '../../configApi/Api'
 
 function Registry() {
   const classes = useStyles();
@@ -13,6 +12,7 @@ function Registry() {
   const [passwordRegistry, inPassword] = useState('');
   const [passwordConfirm, inConfirm] = useState('');
   const [sectorRegistry, inSector] = useState('');
+  const urlCreate = `email=${emailRegistry}&password=${passwordRegistry}&role=${sectorRegistry}&restaurant=RatatouilleBurger`;
 
   const routerHall = () => {
     history.push('/Hall')
@@ -27,27 +27,38 @@ function Registry() {
     const password2 = passwordConfirm;
    
     if (password1 === password2)
-      handRegistry();
+      handleRegistry();
     else {
-      alert('As senha não são iguais. \nTente novamente!')
+      const errorPassword = 'As senha não são iguais. \nTente novamente!'
     }   
   }
 
-  const handRegistry = () => {
+  const handleRegistry = () => {
     
-    fetchRegistry(emailRegistry,passwordRegistry,sectorRegistry)
+    fetch('https://lab-api-bq.herokuapp.com/users', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: urlCreate
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        
+        console.log(json)
+        localStorage.setItem('token',json.token)
 
-    const roleSector = localStorage.getItem('role')
-
-    if(roleSector === 'garcom'){
-      routerHall();
-    }
-    else if(roleSector === 'cozinha'){
-      routerKitchen();
-    }
-    else{
-      alert('Não foi possível fazer o resgistro, tente novamente!')
-    }
+        if(json.role === 'garcom'){
+          routerHall();
+        }
+        else if(json.role === 'cozinha'){
+          routerKitchen();
+        }
+        else{
+         const errorMessage =  json.message
+        }
+      })
   }
   
   return (

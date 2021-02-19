@@ -7,17 +7,19 @@ import Registry from './pages/Registry/index';
 import Kitchen from './pages/Kitchen/index';
 import Menu from './pages/Menu/index';
 import Pending from './pages/Pending/index';
+import PrivateRoute from './privateRoute.js'
 
 function Routes() {
+
     return(
         <BrowserRouter>
             <Switch>
                 <Route path='/' exact component={Login}/>
                 <Route path='/Registry' component={Registry}/>
-                <Route path='/Hall' component={Home}/>
-                <Route path='/Kitchen' component={Kitchen}/>
-                <Route path='/Menu' component={Menu}/>
-                <Route path='/Pendentes' component={Pending}/>
+                <PrivateRoute path='/Hall' component={Home}/>
+                <PrivateRoute path='/Kitchen' component={Kitchen}/>
+                <PrivateRoute path='/Menu' component={Menu}/>
+                <PrivateRoute path='/Pendentes' component={Pending}/>
             </Switch>
         </BrowserRouter>
     )  

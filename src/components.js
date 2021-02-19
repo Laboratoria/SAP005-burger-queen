@@ -106,6 +106,10 @@ export function NavBar() {
 
   const classes = useStyles();
 
+  const localStorageClear = () => {
+    localStorage.clear()
+  }
+
   return (
     <AppBar position='static' elevation={0} className={classes.appBar}>
     <Toolbar className={classes.toolbar}>
@@ -113,9 +117,8 @@ export function NavBar() {
         <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
         Ratatouille
         </Typography>
-        <Button variant='outlined' className={classes.link}>
+        <Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
           <Link to='/' >Sair</Link>
-          
         </Button>
       </Toolbar>
     </AppBar>

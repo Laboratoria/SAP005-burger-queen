@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useHistory} from 'react-router-dom';
 import {Copyright, Logo, useStyles} from '../../components.js';
-import { Button, Container, TextField, Grid, Typography } from '@material-ui/core';
+import { Button, Container, TextField, Grid, Typography, Alert } from '@material-ui/core';
 import '../../style.css';
-import { fetchLogin } from '../../configApi/Api.jsx';
 
 
 function Login(){
@@ -12,6 +11,7 @@ function Login(){
 
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
+  const urlLogin = `email=${emailLogin}&password=${passwordLogin}`
  
   const history = useHistory();
 
@@ -23,23 +23,33 @@ function Login(){
     history.push('/Kitchen')
   }
 
-  const handLogin = () => {
-    
-    fetchLogin(emailLogin,passwordLogin)
+  const handleLogin = () => {
+    fetch('https://lab-api-bq.herokuapp.com/auth', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: urlLogin
 
-    const roleSector = localStorage.getItem('role')
+    })
+      .then((response) => response.json())
+      .then((json) => {
 
-    if(roleSector === 'garcom'){
-      routerHall();
-    }
-    else if(roleSector === 'cozinha'){
-      routerKitchen();
-    }
-    else{
-      alert('Não foi possível fazer o resgistro, tente novamente!')
-    }
+        console.log(json)
+        localStorage.setItem('token',json.token)
+        
+        if(json.role === 'garcom'){
+          routerHall();
+        }
+        else if(json.role === 'cozinha'){
+          routerKitchen();
+        }
+        else {
+          const errorMessage = json.message
+        }
+      })
   }
-  
 
     return (
       <Container className='container'>
@@ -53,7 +63,8 @@ function Login(){
             <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password'
             autoComplete='current-password' value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
 
-            <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => {event.preventDefault();handLogin();}}>Entrar</Button>
+            <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => {event.preventDefault();
+              handleLogin();}}>Entrar</Button>
           </form>
           <Grid item>
             <Link to='/Registry' >

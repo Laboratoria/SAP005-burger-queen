@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {useStyles, Copyright} from '../../components.js';
+import {useStyles, Copyright, NavBar} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 
@@ -14,6 +14,7 @@ function Pending(){
     return (
       
       <React.Fragment >
+        <NavBar/>
       <Container className='container'>
         <Typography component="div" />
           <div>

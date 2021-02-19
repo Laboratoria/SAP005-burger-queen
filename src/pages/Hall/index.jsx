@@ -21,14 +21,13 @@ function Home(){
     return (
       <React.Fragment >
         <NavBar/>
-      
           <Container>
               <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}>
                 + Novo Pedido
               </Button>
               <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} >
                 Pendentes
-              </Button>           
+              </Button >           
             </Container>   
         </React.Fragment>
 
