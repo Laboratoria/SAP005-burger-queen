@@ -96,6 +96,10 @@ html, .root {
     letter-spacing: 0.04em;
 }
 
+.jss6 {
+    text-align: center;
+}
+
 .label-job-position {
     padding-inline-start: 20px;
     font-size: 25px;

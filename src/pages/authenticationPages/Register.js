@@ -75,7 +75,7 @@ export const Register = () => {
 
 
         <label component="h1" variant="h4" style={{ textAlign: 'center' , marginBottom: '4vh' , textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
-     <h4> Cargo do Funcionário:</h4>
+     <h4 class="label-job-position"> Cargo do Funcionário:</h4>
     </label>
 
         <div name="ordenar" error={(result.status === 400 && !role)} className="" value={role} onChange={(event) => setRole(event.target.value)}>
