@@ -17,7 +17,6 @@ export const NewOrder = () => {
         <div>
           <MenuItens
             classNameImg='simple-hamburger'
-            srcImg={ }
             alt='Hambúrguer Simples'
             icon={FaPlus}
             classNameProduct='product-name'
