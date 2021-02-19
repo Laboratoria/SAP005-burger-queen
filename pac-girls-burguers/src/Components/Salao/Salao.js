@@ -84,6 +84,7 @@ console.log(token)
           <input placeholder="Mesa"/>
           <br />
           <p>pedidos...</p>
+          <li>ola</li>
           <p>valor total: R$....</p>
           <button onClick={()=>{orders(token)}}>enviar pedido</button>
           <button>editar pedido</button>
