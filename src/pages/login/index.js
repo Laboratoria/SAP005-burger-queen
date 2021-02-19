@@ -7,54 +7,60 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const routerLogin = () => {
-    history.push("/");
+    history.push("/Hall");
   };
 
-  const handleSubmit = (event) => {
+  const handleClick = (event) => {
     event.preventDefault();
-  };
 
-  fetch("https://lab-api-bq.herokuapp.com/users", {
-    method: "POST",
-    headers: {
-       "Content-Type": "application/x-www-form-urlencoded",
-      accept: "application/json",
-    },
-    body: `email=${email}&password=${password}`,
-  })
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-      routerLogin();
-    });
+    fetch("https://lab-api-bq.herokuapp.com/auth", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+        
+      },
+      body: JSON.stringify({email,password})
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        routerLogin();
+      });
+  
+  };
 
 
   return (
     <div>
       <h1>Login</h1>
-      <form class="login" onSubmit={handleSubmit}>
+      <form className="login" onSubmit={handleClick}>
+
+        <label htmlFor="email">Email</label>
         <input
+          className="login"
           type="email"
-          placeholder="E-mail "
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-           
         />
+
+        <label htmlFor="passowrd">Senha </label>
         <input
-           class="login"
+          className="login"
           type="password"
-          placeholder=" Senha de no mínimo 6 caracteres"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-        
-          />
-         
-        <button type="onClick" class="button" id="button">
-          Entrar
-        </button>
-          Não tem uma conta?
-          <Link to="/Register">Cadastrar</Link>
+        />
+          
 
+
+        <label htmlFor="login">Login</label>
+        <button type="submit" id="button" onClick={handleClick}>
+          Entrar
+         </button>
+
+        <p>Não tem uma conta?</p>
+        <Link to="/Register">Cadastrar</Link>
+       
       </form>
     </div>
   );
