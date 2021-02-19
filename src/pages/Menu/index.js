@@ -1,6 +1,6 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import React, { useState } from 'react';
-
+import './index.css';
 const menuHamburger = [
     {
         id: 'gary',
