@@ -4,12 +4,17 @@ import { Link } from 'react-router-dom';
 
 const STYLES = ['button-unClicked', 'button-Clicked'];
 
-
 export const Button = ({
     children,
     type,
     onClick,
     buttonStyle,
+
+  export const Button = ({
+  children,
+  type,
+  onClick,
+  buttonStyle,
 }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle)? buttonStyle: STYLES[0];
 
