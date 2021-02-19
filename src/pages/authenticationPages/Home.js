@@ -13,7 +13,7 @@ function Home () {
     history.push('/Register')
   }
   const routerLogin=()=>{
-    history.push('/login')
+    history.push('/Login')
   }
   return (
     <main class="_cjo0m2">
@@ -23,8 +23,8 @@ function Home () {
     <aside class="_1oez8w8">
       <section class="_1ytio68">
 
-        <button className="btnCad" onClick={routerLogin}>Login</button>
-        <button className="btnCad" onClick={routerRegister}>Cadastrar</button>
+        <button className="btnCad" onClick={routerLogin}><h2>Login</h2></button>
+        <button className="btnCad" onClick={routerRegister}><h2>Cadastrar</h2></button>
       </section>
     </aside>
   </main>

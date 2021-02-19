@@ -1,89 +1,90 @@
-import './LoginRegister.css';
-import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom'
+import React, {useState} from 'react';
+import {  useHistory} from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import { Typography } from '@material-ui/core';
+import ButtonCustom from './buttonRegister';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Alert from "@material-ui/lab/Alert";
 
-
-function Login() {  
-  const history = useHistory()
-
-  const routerHall=()=>{
-    history.push('/Hall')
-  }
-  const routerRegister=()=>{
-    history.push('/Register')
-  }
-
-  const routerKitchen=()=>{
-    history.push('/kitchen')
-  }
+export const Login = () => {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  
-    function loginBtn(e) {
-      e.preventDefault();
-      fetch('https://lab-api-bq.herokuapp.com/auth', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body :`email=${email}&password=${password}`
-        
-      })
-       
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-      const token = json.token
-      const id = json.id
-      const tokenUser = localStorage.setItem("token", token)
-      const idUser = localStorage.setItem("id", id)
-
-      if(tokenUser!== null && idUser!== null && json.role === "garcom") {
-        routerHall();
-      }else if(tokenUser!== null && idUser!== null && json.role === "cozinheiro") {
-        routerKitchen();
-      }else{
-        alert("Usuario não encontrado, verifique seu Email e Senha")
-      }
-    })
-};
-
-    return (
-      <div class="overlay">
-  <form>
-    <div class="con">
-      <header class="head-form">
-        <h2>Login</h2>
-        <p>Faça o login aqui usando seu email de usuário e senha</p>
-      </header>
-      <div class="field-set">
-        <label for="loginInputEmail"></label>
-        <input autocomplete="off" class="form-input" type="email" placeholder="E-mail" 
-          id="loginInputEmail" onChange={(event)=> setEmail(event.target.value)} required  value={email}/>
-
-<label for="loginInputPassword"> </label>
-        <input autocomplete="off" class="form-input" type="password" placeholder="Senha"  name="password"  
-          id="loginInputPassword" onChange={(event)=> setPassword(event.target.value)} required value={password} />
-
-        <button type="submit" class="btn submits login" onClick={loginBtn}>Login</button>
-        <div class="other">
-          <button class="btn submits sign-up" onClick={routerRegister}>Cadastro
-          </button>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-    );
+  const [result, setResult] = useState({status: '', message: ''});
+  const history = useHistory();
+  const routerKitchen=()=>{
+    history.push('/kitchen')
   }
+  const routerHall=()=>{
+    history.push('/Hall')
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch('https://lab-api-bq.herokuapp.com/auth', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body :`email=${email}&password=${password}`
+      
+    })
+      .then((response) => {
+        if (response.status === 400) {
+          setResult({status:400, message:'E-mail ou senha inválido!'});
+        }
+         return response.json()
+      })
+      .then((json) => {
+        console.log(json);
+        const token = json.token
+        const id = json.id
+        const tokenUser = localStorage.setItem("token", token)
+        const idUser = localStorage.setItem("id", id)
+  
+        if(tokenUser!== null && idUser!== null && json.role === "garcom") {
+          routerHall();
+        }else if(tokenUser!== null && idUser!== null && json.role === "cozinheiro") {
+          routerKitchen();
+        }else{
+          alert("Usuario não encontrado, verifique seu Email e Senha")
+        }
+      })
+  };
+  
+
+  return (
+    <div>
+      <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh'}}>
+    <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+      Hello Burger
+    </Typography>
+    <Typography component="h2" variant="h5" style={{ textAlign: 'center',fontWeight: 'normal', color: 'black', marginTop: '4vh', marginBottom: '2vh', marginLeft: '0.5rem'}}>
+      Bem-vindo(a)!
+    </Typography>
+    {result.status && (
+      <Alert severity="error">{result.message}</Alert>
+    )}
+    <form className={classes.root} noValidate autoComplete="off">
+      <TextField error={(result.status === 400 && !email)} id="outlined-basics" label="E-mail" variant="outlined" type="email" required fullWidth value={email} onChange={(event) => setEmail(event.target.value)} />
+      <TextField error={(result.status === 400 && !password)} id="outlined-basicss" label="Senha" variant="outlined" type="password" required fullWidth value={password} onChange={(event) => setPassword(event.target.value)} />
+      <ButtonCustom onClick={(event) => handleSubmit(event)} />
+     
+      </form>
  
 
-
-  export default Login;
-  
-
-     
-   
+    </Container>
+    </div>
+  )
+};

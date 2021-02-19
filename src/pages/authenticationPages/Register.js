@@ -1,77 +1,91 @@
 import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom'
-import './LoginRegister.css';
+import { useHistory } from 'react-router-dom'
+import Alert from "@material-ui/lab/Alert";
+import TextField from '@material-ui/core/TextField';
+import { Box, Typography } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import ButtonCustom from './buttonRegister';
 
-function Register() {
-  const history = useHistory()
+export const Register = () => {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
 
-  const routerLogin = () => {
-    history.push('/login')
-  }
-
-   const [name, setName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [result, setResult] = useState({ status: '', message: '' });
   const [role, setRole] = useState('');
+  const history = useHistory();
+  
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch('https://lab-api-bq.herokuapp.com/users/', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `email=${email}&password=${password}&role=${role}&restaurant=HelloBurguer&name=${name}`
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          setName('');
+          setEmail('');
+          setPassword('');
+          setRole('');
+          alert('Usuário criado com sucesso! Agora é só logar!')
+          history.push('/login');
+        } else if (response.status === 403) {
+          setResult({ status: 403, message: 'E-mail já cadastrado, por gentileza insira outro' });
+        } else {
+          setResult({ status: 400, message: 'Caro Funcionário, preencher todos os campos obrigatórios *' });
+        }
+      })
+      .catch(() => {
+        alert('Algo deu errado. Caro funcionário, tente novamente.');
+      })
+  }
   return (
 
 
     <div>
-      <h1 className="CadTitle">Cadastro</h1>
-      <form className="FormCadastro">
-        <label className="cadLabel" htmlFor="cadInputName"></label>
-        <input requered type="text" placeholder="Nome do Funcionário" className="cadInput" value={name} onChange={(event) => setName(event.target.value)} />
-
-        <label className="cadLabel" htmlFor="cadInputEmail"></label>
-        <input requered type="text" placeholder="E-mail" className="cadInput" value={email} onChange={(event) => setEmail(event.target.value)} />
-
-        <label className="cadLabel" htmlFor="cadInputPassword"></label>
-        <input requered type="password" placeholder="Senha" className="cadInput" value={password} onChange={(event) => setPassword(event.target.value)} />
-
+      <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh' }}>
+      <Typography component="h1" variant="h4" style={{ textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+      Hello Burger
+    </Typography>
+      
+        {result.status && (
+          <Alert severity="error">{result.message}</Alert>
+        )}
+  <form className={classes.root} noValidate autoComplete="off">
+        <TextField error={(result.status === 400 && !name)} id="outlined-basic" label="Funcionário: Nome e Sobrenome" variant="outlined" type="text" required fullWidth value={name} onChange={(event) => setName(event.target.value)} />
+        <TextField error={result.status === 403 || (result.status === 400 && !email)} className="cadLabel" id="outlined-basics" label="E-mail" variant="outlined" type="email" required fullWidth value={email} onChange={(event) => setEmail(event.target.value)} />
+        <TextField error={(result.status === 400 && !password)} id="outlined-basicss" className="cadLabel" label="Password" variant="outlined" type="password" required fullWidth value={password} onChange={(event) => setPassword(event.target.value)} />
+        <Box component="div">
         <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
 
-        <div name="ordenar" className="" value={role} onChange={(event) => setRole(event.target.value)}>
-        <label for="kitchen" class="radio-label">Cozinha</label>
-        <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro"/>
-         
-         <label for="hall" class="radio-label">Salão</label>
-         <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom"/>
+        <div name="ordenar" error={(result.status === 400 && !role)} className="" value={role} onChange={(event) => setRole(event.target.value)}>
 
-        
+          <label for="kitchen" class="radio-label">Cozinha</label>
+          <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro" />
+          <label for="hall" class="radio-label">Salão</label>
+          <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom" />
+
+
         </div>
-
-        
-         
-
-        <button className="btn submits login" onClick={(e) => {
-
-          e.preventDefault();
-
-          fetch('https://lab-api-bq.herokuapp.com/users/', {
-            method: 'POST',
-            headers: {
-              'accept': 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `email=${email}&password=${password}&role=${role}&restaurant=BurgerHunger&name=${name}`
-          })
-            .then((response) => response.json())
-            .then((json) => {
-              console.log(json);
-              if(json.id !== null) 
-              setName('');
-              setEmail('');
-              setPassword('');
-              setRole('');
-            })
-        }}>Cadastrar</button>
-         <button class="btn submits sign-up" onClick={routerLogin}>Entrar
-          </button>
+        </Box>
+        <ButtonCustom onClick={(event) => handleSubmit(event)} />       
       </form>
-    </div>
-    
-  );
-}
+      </Container>
+    </div >
 
-export default Register;
+  )
+};
