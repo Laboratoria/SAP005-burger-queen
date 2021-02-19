@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {  useHistory} from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Typography } from '@material-ui/core';
-import ButtonCustom from './buttonRegister';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from "@material-ui/lab/Alert";
