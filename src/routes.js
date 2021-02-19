@@ -5,6 +5,7 @@ import { Kitchen } from './pages/Kitchen/Kitchen';
 import { Lounge } from './pages/Lounge/Lounge';
 
 import { Switch, Route } from 'react-router-dom';
+import { CreateOrder } from './pages/Lounge/CreateOrder';
 
 export const Routes = () => {
     return (
@@ -12,7 +13,8 @@ export const Routes = () => {
         <Route path='/' component={Login} exact />
         <Route path='/Register' component={Register} exact />
         <Route path='/Kitchen' component={Kitchen} exact />
-        <Route path='/Lounge' component={Lounge} />
+        <Route path='/Lounge' component={Lounge} exact/>
+        <Route path='/CreateOrder' component={CreateOrder} />
       </Switch>
     );
 };
