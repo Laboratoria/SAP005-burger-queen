@@ -6,6 +6,7 @@ import ButtonCustom from './buttonRegister';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from "@material-ui/lab/Alert";
+import './Auth.css';
 
 export const Login = () => {
   const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,9 @@ export const Login = () => {
   }
   const routerHall=()=>{
     history.push('/Hall')
+  }
+  const routerRegister=()=>{
+    history.push('/Register')
   }
 
 
@@ -79,8 +83,9 @@ export const Login = () => {
     <form className={classes.root} noValidate autoComplete="off">
       <TextField error={(result.status === 400 && !email)} id="outlined-basics" label="E-mail" variant="outlined" type="email" required fullWidth value={email} onChange={(event) => setEmail(event.target.value)} />
       <TextField error={(result.status === 400 && !password)} id="outlined-basicss" label="Senha" variant="outlined" type="password" required fullWidth value={password} onChange={(event) => setPassword(event.target.value)} />
-      <ButtonCustom onClick={(event) => handleSubmit(event)} />
-     
+      <button className="bntRegister" type="submit"  onClick={handleSubmit}>LOGIN</button>
+
+      <button className="bntRegister" onClick={routerRegister}>CADASTRAR</button>
       </form>
  
 

@@ -58,7 +58,7 @@ export const Register = () => {
 
     <div>
       <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh' }}>
-      <Typography component="h1" variant="h4" style={{ textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+      <Typography component="h1" variant="h4" style={{ textAlign: 'center' , marginBottom: '4vh' , textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
       Hello Burger
     </Typography>
       
@@ -70,7 +70,11 @@ export const Register = () => {
         <TextField error={result.status === 403 || (result.status === 400 && !email)} className="cadLabel" id="outlined-basics" label="E-mail" variant="outlined" type="email" required fullWidth value={email} onChange={(event) => setEmail(event.target.value)} />
         <TextField error={(result.status === 400 && !password)} id="outlined-basicss" className="cadLabel" label="Password" variant="outlined" type="password" required fullWidth value={password} onChange={(event) => setPassword(event.target.value)} />
         <Box component="div">
-        <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
+
+
+        <label component="h1" variant="h4" style={{ textAlign: 'center' , marginBottom: '4vh' , textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+     <h4> Cargo do Funcionário:</h4>
+    </label>
 
         <div name="ordenar" error={(result.status === 400 && !role)} className="" value={role} onChange={(event) => setRole(event.target.value)}>
 
@@ -78,6 +82,8 @@ export const Register = () => {
           <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro" />
           <label for="hall" class="radio-label">Salão</label>
           <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom" />
+
+
 
 
         </div>
