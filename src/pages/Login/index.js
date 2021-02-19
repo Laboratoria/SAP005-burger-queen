@@ -1,5 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import './Login.css';
 
 export const Login = () => {
     
@@ -45,17 +46,24 @@ export const Login = () => {
       }
     return (
       <>
-        <input type="email" placeholder="Informe seu email"
+       <section className="login">
+      <form className="login-form">
+        <input  className="inputf" type="email" placeholder="Informe seu email"
         value={email} onChange={e=> setEmail(e.target.value)}
         />
-        <input type="password" placeholder="Informe sua senha"
+        <input className="inputf" type="password" placeholder="Informe sua senha"
         value={pass} onChange={e=> setPass(e.target.value)}
         />
-        <button type='submit' onClick={(e) => {
+        <button className="button-log" type='submit' onClick={(e) => {
         e.preventDefault();
         loginTeste();
         }}>Logar</button>
-        <Link to="/register">Cadastre-se</Link>
+        <p className="text">
+                Não tem uma conta? 
+        <Link className="link-register" to="/register">Registre-se</Link>
+        </p>
+        </form>
+        </section>
       </>
     );
 };

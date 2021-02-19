@@ -1,0 +1,60 @@
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+    background-image: url("/src/game.jpg");
+    background-size: cover;
+  }
+  
+.login {
+    margin:auto;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.text {
+    color: black;
+    margin: 5;
+    text-align: center;
+    font-size: 14px;
+}
+.link-register {
+    color: gray;
+    padding-left: 0.5rem;
+    letter-spacing: 0.10rem;
+    font-weight: bold;
+}
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFA54F	;
+    padding: 8rem 8rem;
+    border-radius: 14rem;
+    box-shadow: 5px 5px 5px 0px #383636;
+    width: 250px;
+    opacity: 0.9;
+}
+
+.inputf {
+    margin: 0.9rem 0rem;
+    border: 5px solid transparent;
+    border-radius: 10rem;
+    text-align: center;
+    background-color:#98FB98;
+    font-size: 16px;
+    padding: 0.2rem 0rem;
+}
+.button-log {
+    font-family: "ChunkFive";
+    margin: 1rem 0rem 0.5rem 0rem;
+    border: 1px solid transparent;
+    border-radius: 10rem;
+    background-color:#EEC900	;
+    padding: 0.3rem 0rem;
+    letter-spacing: 0.1rem;
+    font-size: 16px;
+}
+
+
