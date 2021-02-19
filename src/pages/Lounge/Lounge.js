@@ -9,33 +9,19 @@ export const Lounge = () => {
     const loginRoute = () => {
         route.push('/')
       }
-    const kitchenRoute = () => {
-        route.push('/Kitchen')
-      }
+    const orderRoute = () => {
+      route.push('/CreateOrder')
+    }
+
     const handleCreateOrder = (event) => {
         event.preventDefault();
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvYmVydGFAYm5tLmNvbSIsImlkIjo2MDgsImlhdCI6MTYxMzY1OTQ4MSwiZXhwIjoxNjQ1MjE3MDgxfQ.4IK5_6Iz6q4cTqrKhU1q4_gXvefTAh75U_3aH8mxDZc");
-        myHeaders.append("Content-Type", "application/json");
+        orderRoute();
+      }
 
-        var raw = "";
-
-        var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-        };
-
-    fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-        }
-      function BackBtn(event) {
+    function BackBtn(event) {
         event.preventDefault();
         loginRoute();
-      }
+      }         
     
     return(
         <div className="container">
