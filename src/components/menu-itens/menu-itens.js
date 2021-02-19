@@ -15,8 +15,8 @@ export default function MenuItens({
         alt={altImg}
       />
       <p className='product-name'>{productName}</p>
-      <p className='product-price'>R$ {productPrice}</p>
-      <FaPlus className='icon-img' />
+      <p className='product-price'>R$ {productPrice},00</p>
+      <FaPlus className='icon-plus' />
     </Fragment>
   )
 }
