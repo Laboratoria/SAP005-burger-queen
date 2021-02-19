@@ -45,11 +45,6 @@ const CardapioCafeManha = () => {
     
   }
 
-  useEffect(() => {
-    setOrder({ ...order, 'product': resumoPedido })
-    }, [resumoPedido])
-  
-
   const handleExcluir = (produto) => {
     setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(produto), 1))
     setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto), 1))
@@ -84,7 +79,7 @@ const CardapioCafeManha = () => {
       });
     }
     
-    setOrder({ ...order, 'product': arrayProdutos })
+    setOrder({ ...order, 'products': arrayProdutos })
 
     console.log(order)
 
