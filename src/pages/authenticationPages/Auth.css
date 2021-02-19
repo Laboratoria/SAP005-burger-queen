@@ -89,4 +89,26 @@ html, .root {
    
   }
 
+/* Register */
 
+.MuiBox-root-6 {
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+.jss6 {
+    text-align: center;
+}
+
+.label-job-position {
+    padding-inline-start: 20px;
+    font-size: 25px;
+}
+
+.radio-label {
+    font-weight: bold;
+    margin-inline-end: 15px;
+    margin-inline-start: 40px;
+    color: #2976a0;
+    font-size: 18px;
+}
