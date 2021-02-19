@@ -1,0 +1,8 @@
+.nav {
+	background-color: #383838;
+}
+.exit {
+	height: 30px;
+	border: none;
+	display: flex;
+}
