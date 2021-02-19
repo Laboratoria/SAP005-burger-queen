@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 
-
 import styled from "styled-components";
 import { Select } from "../Register/register-styled";
 
@@ -16,12 +15,13 @@ const CardContainer = styled.div`
 const CardItem = (props) => {
   const [produtos, setProdutos] = useState([]);
   const [token, setToken] = useState("");
-  const [options, setOptions] = useState("");
+  const [options, setOptions] = useState("breakfast");
 
   const breakfast =
     produtos.length > 0 && produtos.filter(({ type }) => type === "breakfast");
   const lunch =
-    produtos.length > 0 && produtos.filter(({ sub_type }) =>  sub_type === "hamburguer");
+    produtos.length > 0 &&
+    produtos.filter(({ sub_type }) => sub_type === "hamburguer");
   const drinks =
     produtos.length > 0 &&
     produtos.filter(({ sub_type }) => sub_type === "drinks");
@@ -56,16 +56,20 @@ const CardItem = (props) => {
   function renderProducts(options) {
     switch (options) {
       case "breakfast":
-        return breakfast.map((item) => (
-          <Item
-            key={item.id}
-            img={item.image}
-            name={item.name}
-            complement={item.complement}
-            price={item.price}
-            flavor={item.flavor}
-          />
-        ));
+        return breakfast ? (
+          breakfast.map((item) => (
+            <Item
+              key={item.id}
+              img={item.image}
+              name={item.name}
+              complement={item.complement}
+              price={item.price}
+              flavor={item.flavor}
+            />
+          ))
+        ) : (
+          <div>Carregando...</div>
+        );
       case "lunch":
         return lunch.map((item) => (
           <Item
@@ -118,10 +122,10 @@ const CardItem = (props) => {
         <option value={"drinks"}>Bebidas</option>
       </Select>
       <CardContainer>
-        {produtos.length > 0 ? (
-          renderProducts(options)
-        ) : (
+        {produtos.length === 0 ? (
           <div>Carregando...</div>
+        ) : (
+          renderProducts(options)
         )}
       </CardContainer>
     </>
@@ -129,4 +133,3 @@ const CardItem = (props) => {
 };
 
 export default CardItem;
-
