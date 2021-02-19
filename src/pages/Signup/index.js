@@ -121,11 +121,8 @@ export const SignUp = () => {
                 localStorage.setItem('userToken', response.token)
                 localStorage.setItem('userRole', response.role)
 
-                if( localStorage.getItem('userRole')  === 'hall'){
-                  history.push('/new-order')
-                }
-                else if (localStorage.getItem('userRole')  === 'kitchen') {
-                  history.push('/status-order')
+                if( localStorage.getItem('userToken')  !== null){
+                  history.push('/')
                 }
                 else {
                   console.log('não cadastrado')
