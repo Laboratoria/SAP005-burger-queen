@@ -1,6 +1,9 @@
 {
   "name": "burger-queen-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.x"
+  },
   "private": true,
   "dependencies": {
     "@heroku/buildpack-registry": "^1.0.1",
@@ -10,7 +13,7 @@
     "async-file": "^2.0.2",
     "cli-ux": "^4.9.3",
     "got": "^8.3.2",
-    "heroku": "^7.2.0",
+    "heroku": "^7.47.13",
     "phoenix": "^1.5.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
