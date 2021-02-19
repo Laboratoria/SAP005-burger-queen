@@ -3,8 +3,8 @@ import {BrowserRouter , Switch, Route} from 'react-router-dom'
 
 import Lounge from './pages/Lounge'
 import Kitchen from './pages/kitchen'
-import Login from './pages/Login'
-import Register from './pages/Register'
+import Login from './pages/login'
+import Register from './pages/register'
 
 
 
