@@ -30,24 +30,21 @@ const Salao = () => {
 
   async function orders(token) {
     try {
+      const body = {
+        client: "kaueny",
+        table: "07",
+        products: [{ id: 29, qtd: 2 }],
+      };
       const response = await fetch("https://lab-api-bq.herokuapp.com/orders", {
         method: "POST",
         headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
           Authorization: token,
         },
-        body: {
-          client: "carina",
-          table: "05",
-          products: [
-            {
-              id: 29,
-              qtd: 1,
-            },
-          ],
-        },
+        body: JSON.stringify(body),
       });
       const json = await response.json();
-
       console.log(json);
     } catch (error) {
       console.log(error);
@@ -58,7 +55,6 @@ const Salao = () => {
     <>
       <Container>
         <div>
-          {" "}
           <CardItem />
         </div>
         <div>
