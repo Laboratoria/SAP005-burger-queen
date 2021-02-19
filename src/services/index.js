@@ -37,16 +37,9 @@ export const authUser = async (
       'email': userEmail,
       'password': userPassword
     })
-  }).then((response) => response.json())
-  .then((json) => {
-
-    return json
-  })
-  .catch(() => {
-    console.log('deu ruim')
   })
 
-  return response
+  return await response.json()
 }
 
 export const openOrder = async (
