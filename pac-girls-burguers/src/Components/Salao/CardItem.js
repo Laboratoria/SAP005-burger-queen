@@ -3,6 +3,7 @@ import Item from "./Item";
 //import Item from './Item'
 
 import styled from "styled-components";
+import { Select } from "../Register/register-styled";
 
 const CardContainer = styled.div`
   display: flex;
@@ -18,16 +19,15 @@ const CardItem = (props) => {
   const [options, setOptions] = useState("");
 
   const breakfast =
-    produtos.length > 0 &&
-    produtos.filter((item) => item.sub_type === "breakfast");
-  const hamburguer =
-    produtos.length > 0 &&
-    produtos.filter((item) => item.sub_type === "hamburguer");
+    produtos.length > 0 && produtos.filter(({ type }) => type === "breakfast");
+  const lunch =
+    produtos.length > 0 && produtos.filter(({ sub_type }) =>  sub_type === "hamburguer");
   const drinks =
     produtos.length > 0 &&
-    produtos.filter((item) => item.sub_type === "drinks");
+    produtos.filter(({ sub_type }) => sub_type === "drinks");
   const side =
-    produtos.length > 0 && produtos.filter((item) => item.sub_type === "side");
+    produtos.length > 0 &&
+    produtos.filter(({ sub_type }) => sub_type === "side");
 
   async function getItems(token) {
     try {
@@ -55,42 +55,46 @@ const CardItem = (props) => {
 
   function renderProducts(options) {
     switch (options) {
-      case "Hamburguer":
-        return hamburguer.map((item) => (
-          <Item
-            key={item.id}
-            img={item.image}
-            name={item.name}
-            price={item.price}
-            flavor={item.flavor}
-          />
-        ));
-      case "Breakfast":
+      case "breakfast":
         return breakfast.map((item) => (
           <Item
             key={item.id}
             img={item.image}
             name={item.name}
+            complement={item.complement}
             price={item.price}
             flavor={item.flavor}
           />
         ));
-      case "Side":
-        return side.map((item) => (
+      case "lunch":
+        return lunch.map((item) => (
           <Item
             key={item.id}
             img={item.image}
             name={item.name}
+            complement={item.complement}
             price={item.price}
             flavor={item.flavor}
           />
         ));
-      case "Drinks":
+      case "drinks":
         return drinks.map((item) => (
           <Item
             key={item.id}
             img={item.image}
             name={item.name}
+            complement={item.complement}
+            price={item.price}
+            flavor={item.flavor}
+          />
+        ));
+      case "side":
+        return side.map((item) => (
+          <Item
+            key={item.id}
+            img={item.image}
+            name={item.name}
+            complement={item.complement}
             price={item.price}
             flavor={item.flavor}
           />
@@ -101,32 +105,24 @@ const CardItem = (props) => {
 
   return (
     <>
+      <Select
+        value={options}
+        onChange={(e) => {
+          setOptions(e.target.value);
+          console.log(e.target.value);
+        }}
+      >
+        <option value={"breakfast"}>Café da Manhã</option>
+        <option value={"lunch"}>Lanches</option>
+        <option value={"side"}>Acompanhamentos</option>
+        <option value={"drinks"}>Bebidas</option>
+      </Select>
       <CardContainer>
-        <select
-          value={options}
-          onChange={(e) => {
-            setOptions(e.target.value);
-            console.log(e.target.value);
-          }}
-        >
-          <option value={"Hamburguer"}>Hamburguers</option>
-          <option value={"Breakfast"}>Café da Manhã</option>
-          <option value={"Side"}> Acompanhamentos</option>
-          <option value={"Drinks"}>Bebidas</option>
-        </select>
-        {
-          /* {produtos.length > 0 &&
-          produtos.map((item) => (
-            <Item
-              key={item.id}
-              img={item.image}
-              name={item.name}
-              price={item.price}
-              flavor={item.flavor}
-            />
-          ))} */
+        {produtos.length > 0 ? (
           renderProducts(options)
-        }
+        ) : (
+          <div>Carregando...</div>
+        )}
       </CardContainer>
     </>
   );

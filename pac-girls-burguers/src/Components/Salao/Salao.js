@@ -4,8 +4,10 @@ import CardItem from "./CardItem";
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-`;
+
+
+`
+;
 
 const Comanda = styled.div`
   display: flex;
@@ -23,25 +25,15 @@ const Comanda = styled.div`
 const Salao = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>hamburguers</li>
-          <li>café da manhã</li>
-          <li>bebidas</li>
-          <li>Pedidos</li>
-        </ul>
-      </nav>
-     
-     
+      <CardItem />
       <Container>
-        <CardItem />
         <Comanda>
           <h2>Comanda</h2>
           <label>Cliente:</label>
-          <input placeholder="Nome do cliente"/>
+          <input placeholder="Nome do cliente" />
           <br />
           <label>Mesa:</label>
-          <input placeholder="Mesa"/>
+          <input placeholder="Mesa" />
           <br />
           <p>pedidos...</p>
           <p>valor total: R$....</p>
