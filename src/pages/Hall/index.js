@@ -10,6 +10,12 @@ function Hall(){
         history.push('/')
     }
 
+    const logout = () => {
+        const token  = localStorage.getItem("token");
+        localStorage.clear()
+        routerBack()
+    }
+
     const [cafe, setCafe] = useState('');
     const [menu, setMenu] = useState('');
     const token  = localStorage.getItem("token");
@@ -33,10 +39,12 @@ function Hall(){
             })
     }, []);
     
+  
     
     return(
         <div className="App">
-             <button className="btnExit" onClick={ routerBack}>Sair</button>
+             <button className="btnExit" onClick={logout}>Logout</button>
+
             <div className="cafe">
                 <h1>Café da Manhã</h1>
             <Cardapio className="container-cafe" title="" array={cafe} />

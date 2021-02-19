@@ -73,6 +73,9 @@ function Register() {
                 <button className="btnRegister" onClick={btnRegister}>Acessar</button>
 
 
+                <footer> © Desenvolvido por <a href="https://github.com/CamilaKikuchi" target="_blank">Camila Kikuchi</a>, <a href="https://github.com/giomadeira" target="_blank">Giovana Madeira</a>, <a href="https://github.com/julianaads" target="_blank">Juliana Souza</a></footer>
+
+
             </form>
 
         </div>

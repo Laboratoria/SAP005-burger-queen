@@ -1,5 +1,5 @@
 .container-allDay{
-    border: 1px solid black; 
+    
     margin-top:5em;
     display: flex;
     width: 850px;
@@ -9,17 +9,17 @@
 
 .container-cafe{
     margin-top:5em;
-    border: 1px solid black; 
+   
     display: flex;
     width: 850px;
-    height: 180px;
+    height: 200px;
    
 }
 
 .container-cardapio{
     border: 1px solid black;
     width: 250px;
-    height: 180px;
+    height: 210px;
     font-size: 12px;
     flex-direction: column;
     justify-content: flex-start;
