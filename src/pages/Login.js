@@ -5,8 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import logo from '../images/logo.png';
 
 
-function Login() {
 
+function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,10 +15,10 @@ function Login() {
 
   const waiter = () => {
     history.push('/waiter');
-}
-const kitchen = () => {
+  }
+  const kitchen = () => {
     history.push('/kitchen');
-}
+  }
 
   return (
     <div className="App">
@@ -56,7 +56,15 @@ const kitchen = () => {
                 setEmail('');
                 setPassword('');
 
+
+                const token = json.token
+                const tokenUser = localStorage.setItem("token", token)
+
+                console.log(tokenUser)
+
               })
+
+
 
           }} > ENTRAR</button>
         </form>

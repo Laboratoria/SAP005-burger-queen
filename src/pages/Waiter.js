@@ -1,17 +1,73 @@
 import '../style/Waiter.css';
-import React from "react";
+import { useEffect, useState } from 'react';
 import logo from '../images/logo.png';
 
+const Waiter = () => {
 
-function Waiter() {
+  const [menu, setMenu] = useState([]);
+  const [allDay, setDay] = useState([]);
+  const token = localStorage.getItem("token");
+
+  console.log(allDay)
+
+  useEffect(() => {
+    fetch('https://lab-api-bq.herokuapp.com/products', {
+      method: 'GET',
+      headers: {
+        "accept": "application/json",
+        'Authorization': `${token}`
+      },
+
+    })
+
+      .then((response) => response.json())
+      .then((json) => {
+        const breakfast = json.filter(item => item.type === 'breakfast')
+        const allday = json.filter(item => item.type === 'all-day')
+        setMenu(breakfast)
+        setDay(allday)
+
+        console.log(json)
+      })
+
+  }, [token])
+
   return (
+
     <div className="App">
       <header className="App-header">
-        <img src= {logo} alt="" className="logo"/>
-      <div>PEDIDOS</div>
+        <img src={logo} alt="" className="logo" />
+        <div className='menuItens'> {
+          menu.map((menuItems) => {
+
+            return (
+              <div key={menuItems.id}>
+                <p>{menuItems.name}</p>
+                <p>{menuItems.flavor}</p>
+                <p>R$:{menuItems.price},00</p>
+              </div>
+            )
+          })
+        } </div>
+        
+          <div className='menuItens'> {
+          allDay.map((menuItems) => {
+
+            return (
+              <div key={menuItems.id}>
+                <p>{menuItems.name}</p>
+                <p>{menuItems.flavor}</p>
+                <p>R$:{menuItems.price},00</p>
+              </div>
+            )
+          })
+        } </div>
+
+
+
       </header>
     </div>
-  );
+  )
 }
 
 export default Waiter;
