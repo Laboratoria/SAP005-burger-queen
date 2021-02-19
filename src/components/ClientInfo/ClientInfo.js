@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import { openOrder } from '../../services'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
 import Navbar from '../Navbar/Navbar'
@@ -53,8 +54,14 @@ export default function ClientInfo() {
             className='btn-order'
             type='submit'
             onClick={
-              (event) => {
+              async (event) => {
                 event.preventDefault()
+                const response = await openOrder(
+                  clientName,
+                  tableNumber,
+                )
+                
+                console.log(response)
               }
             }
           />
