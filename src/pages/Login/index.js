@@ -34,6 +34,7 @@ export const Login = () => {
             setEmail('')
             setPass('')
             console.log(data)
+            localStorage.setItem('token', data.token); 
             if(data.role === "waiter"){
               directMenu();
             }

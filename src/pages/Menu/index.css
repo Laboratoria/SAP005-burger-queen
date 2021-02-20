@@ -1,34 +1,31 @@
-/* Flipper */
-.flip-container {
+.hamburgers-thumb {
+    width: 200px;
+    height: 120px;
+    
+}
+
+.hamburgers-thumb img {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
     perspective: 1000px;
     width: 30%;
     height: 330px;
     margin: 0 2.5% 40px 2.5%;
 }
 
-.flip-container:nth-child(3n) {
+.card:nth-child(3n) {
     margin-right: 0;
 }
 
-.flip-container:nth-child(3n+1) {
+.card:nth-child(3n+1) {
     margin-left: 0;
 }
 
-.flipper {
-    display: flex;
-    position: relative;
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-} 
 
-.flip-container:hover .flipper {
-    transform: rotateY(180deg);
-}
-
-.front, .back {
+.card-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,18 +41,8 @@
     /*box-shadow: 4px 4px 20px rgba(197, 143, 43, 0.919);*/
 }
 
-/* verso inicialmente escondido */
-.back {
-    transform: rotateY(180deg);
-}
 
-.front p {
+
+.card-container p {
     margin: 5px 0;
 }
-
-.back p {
-    align-self: center;
-    text-align: center;
-    width: 85%;
-    margin: 10px auto;
-} 
