@@ -8,7 +8,7 @@ function Menu({ menu, addToCart }) {
             <h2>Menu</h2>
             <div id="menu-area">
                 {
-                    Object.keys(menu).map((key, index) => (
+                    Object.keys(menu).map((key) => (
                         <MenuItem
                             name={menu[key].name}
                             flavor={menu[key].flavor}
