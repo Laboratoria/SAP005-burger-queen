@@ -16,8 +16,6 @@ function Menu({ menu, addToCart }) {
                             price={menu[key].price}
                             addToCart={addToCart}
                             sku={key}
-
-
                         />
 
 

@@ -25,7 +25,7 @@ export const CREATE_USER = (body) => {
             body: JSON.stringify(body),
         },
     };
-}
+} 
 
 export const USER = () => {
     return {
@@ -38,3 +38,4 @@ export const USER = () => {
         },
     };
 }
+

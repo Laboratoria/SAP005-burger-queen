@@ -7,7 +7,7 @@ function Cart({total, cart, menu, reduceCart}) {
                     Object.keys(cart).map((sku, index) => (
                         <div className="cart-item" key={index}>
                             <span className="item-text"> {menu[sku].name} {menu[sku].flavor} {menu[sku].complement}  x {cart[sku]}</span>
-                            <span className="item-total"> R${menu[sku].price}</span>
+                            <span className="item-total"> R$ {menu[sku].price},00</span>
                             <button className="remove-button" onClick={() => reduceCart(sku)}>-</button> 
                         </div>
                     ))
@@ -16,7 +16,7 @@ function Cart({total, cart, menu, reduceCart}) {
                     <div>
                         <span>Total</span>
                         <p>
-                            R$<span id="total-amount">{total}</span>
+                            R$ <span id="total-amount">{total},00</span>
                         </p>
                     </div>
                 </div>

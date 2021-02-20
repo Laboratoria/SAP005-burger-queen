@@ -54,18 +54,21 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const {url, options} = CREATE_USER(form);
-        const response = await fetch(url, options);
-        const json = await response.json();
-        setResponse(json);
 
-        if (json.role === 'salao') {
-            goToHall();
-        }
-        else if (json.role === 'cozinha') {
-            goToKitchen();
+            const { url, options } = CREATE_USER(form);
+            const response = await fetch(url, options);
+            const json = await response.json();
+            setResponse(json);
+
+            if (json.role === 'salao') {
+                goToHall();
+            }
+            else if (json.role === 'cozinha') {
+                goToKitchen();
+
         }
     }
+
 
     return (
         <Page>
