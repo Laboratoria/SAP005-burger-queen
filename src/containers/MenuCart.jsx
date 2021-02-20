@@ -3,6 +3,10 @@ import Cart from "./Cart"
 import { useState, useEffect } from "react";
 
 function MenuCart() {
+    const [menuData, setMenuData] = useState({});
+    const [cartData, setCartData] = useState({});
+    const [cartTotal, setCartTotal] = useState(0);
+    
     let token = localStorage.getItem("token");
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -19,26 +23,12 @@ function MenuCart() {
                 setMenuData(response)
             })
     })
+    
+    
 
-    const [menuData, setMenuData] = useState({
-        
-        "1": {
-            productName: "pri",
-            price: 199
-        },
-        "2": {
-            productName: "suelen",
-            price: 699
-        },
-        "3": {
-            productName: "silveira",
-            price: 1999
-        },
-    });
-
-    const [cartData, setCartData] = useState({});
-    const [cartTotal, setCartTotal] = useState(0);
-
+  
+    // const breakfast = menuData.slice(0, 4);
+    // const allDay = menuData.slice(4, 29);
 
     useEffect(() => {
         let total = 0;
