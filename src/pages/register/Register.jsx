@@ -40,7 +40,6 @@ const Register = () => {
             };
         }, {}),
     );
-    console.log(form)
     const history = useHistory();
     const goToHall = () => {
         history.push('/Hall');
@@ -55,6 +54,7 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
             const { url, options } = CREATE_USER(form);
             const response = await fetch(url, options);
             const json = await response.json();
@@ -65,6 +65,7 @@ const Register = () => {
             }
             else if (json.role === 'cozinha') {
                 goToKitchen();
+
         }
     }
 
@@ -99,7 +100,12 @@ const Register = () => {
                         />
                     </div>
                 ))}
-                {response && response.ok && <p>Seu registro foi criado com sucesso</p>}
+                {response && response.ok && 
+                <p 
+                    style={{
+                        'padding': '10px',
+                    }}
+                >Seu registro foi criado com sucesso</p>}
                 <Button>Registrar</Button>
             </Form>
             <Template>

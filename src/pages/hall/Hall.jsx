@@ -11,15 +11,18 @@ const Hall = () => {
     const [cartData, setCartData] = useState({});
     const [cartTotal, setCartTotal] = useState(0);
 
-    // const cafe = 
-    useEffect(async function (token) {
+
+    useEffect(async function(token){
+
         const { url, options } = USER(token);
         const response = await fetch(url, options);
         const json = await response.json();
         setMenuData(json);
+
                 // setMenuData(json);
          const breakfast = () => ( json.filter(item => item.type === 'breakfast'))
     setMenuData(breakfast)
+
     })
 
     // const breakfast = menuData.filter(item => item.type === 'breakfast')
@@ -82,7 +85,6 @@ const Hall = () => {
                     :
                     <div>
                         {/* {menuData.slice(4, 29)} */}
-
                     </div>
             }
         </div>
