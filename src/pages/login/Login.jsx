@@ -21,7 +21,7 @@ const Login = () => {
     window.localStorage.setItem('token', token);
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        
         const {url, options } = TOKEN({
             email,
             password, 
@@ -56,7 +56,6 @@ const Login = () => {
                     onChange={({ target }) => setPassword(target.value)}
                 />
             <Button>Entrar</Button>
-
             <Register>
                 Não tem conta? <NavLink
                     to="/register"

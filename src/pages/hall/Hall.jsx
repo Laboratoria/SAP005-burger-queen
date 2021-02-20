@@ -1,25 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
+import { USER } from "../../components/api";
 
 const Hall = () => {
     const [show, setShow] = useState(true)  
     const [menu, setMenu] = useState([]);
-    const token = localStorage.getItem("token");
 
-    useEffect(() => {
-        fetch('https://lab-api-bq.herokuapp.com/products', {
-            method: 'GET',
-            headers: {
-                'access-control': 'allow-origin',
-                'Content-Type': 'application/json',
-                'Authorization': `${token}`
-            },
+    useEffect(async function (token) {
+            const { url, options } = USER(token);
+            const response = await fetch(url, options);
+            const json = await response.json(); 
+            setMenu(json);
         })
-        .then(response => response.json())
-        .then((response) => {
-            setMenu(response)
-        })
-    })
-
+        
     const data = [];
     for (const menus of menu) {
         data.push(
@@ -35,11 +28,6 @@ const Hall = () => {
     const breakfast = data.slice(0, 4);
     const allDay = data.slice(4, 29);
 
-    
-
-    // if (breakfast){
-    //     <p>deu certo</p>
-    // } else {<p>null</p>}
     return (
         <div>
             <h1>
@@ -64,6 +52,5 @@ const Hall = () => {
         </div>
     )
 }
-
 
 export default Hall;
