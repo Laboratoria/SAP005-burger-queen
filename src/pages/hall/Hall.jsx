@@ -11,11 +11,12 @@ const Hall = () => {
     const [cartData, setCartData] = useState({});
     const [cartTotal, setCartTotal] = useState(0);
 
-    useEffect(async function(token){
+    useEffect(async function (token) {
         const { url, options } = USER(token);
         const response = await fetch(url, options);
         const json = await response.json();
         setMenuData(json);
+        console.log(json)
     })
     // const breakfast = menuData.slice(0, 4);
     // const allDay = menuData.slice(4, 29);
@@ -75,6 +76,7 @@ const Hall = () => {
                     :
                     <div>
                         {/* {menuData.slice(4, 29)} */}
+
                     </div>
             }
         </div>
