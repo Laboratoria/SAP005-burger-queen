@@ -1,11 +1,9 @@
-.login-page, .register-page {
-  background-image: url(prato.jpg);
+.login-page, .register-page, .saloon-page, .kitchen-page {
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: black;
   -moz-background-size: 100%;
-  -webkit-background-size: 100%; 
-  background-size: 100%; 
+  -webkit-background-size: 100%;
+  background-size: 100%;
   background-position: center;
   position: absolute;
   top: 0;
@@ -14,6 +12,15 @@
   right: 0;
   margin: auto;
 }
+
+.login-page, .register-page {
+  background-image: url(prato.jpg);
+}
+
+/* Colocar imagem
+.saloon-page, .kitchen-page {
+  background-image: url(mesa.jpg);
+} */
 
 .login-form {
   width: 300px;
@@ -60,6 +67,6 @@ li {
 @media screen and (max-width: 1024px) {
 
   .login-page, .register-page {
-    background-size: 120%; 
+    background-size: 120%;
   }
 }
