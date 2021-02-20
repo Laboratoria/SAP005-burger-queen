@@ -67,6 +67,6 @@ li {
 @media screen and (max-width: 1024px) {
 
   .login-page, .register-page {
-    background-size: 120%;
+    background-size: 125%;
   }
 }

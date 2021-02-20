@@ -5,6 +5,9 @@ import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
   
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
   const history = useHistory();
 
   function saloonPage() {
@@ -19,7 +22,7 @@ function Login() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    let urlencoded = new URLSearchParams();
+    const urlencoded = new URLSearchParams();
     urlencoded.append("email", `${email}`);
     urlencoded.append("password", `${password}`);
 
@@ -45,11 +48,7 @@ function Login() {
     .catch(error => console.log('error', error));
   }
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
-
-  const handleSubmit = (event) => {
+  function handleSubmit (event) {
     event.preventDefault();
     loginAuth (email, password)
     console.log(loginAuth);
@@ -57,40 +56,39 @@ function Login() {
   
   return (
     <div className="login-page">
-    <form className="login-form">
-      <center>
-      <h2>CANTINA DA LAB</h2>
-      <h3>Login</h3>
+      <form className="login-form">
+        <center>
+          <h2>CANTINA DA LAB</h2>
+          <h3>Login</h3>
 
-      <div className= "form-group">
-      <label>
-        Email:
-        <input type="email" className="form-control" placeholder="Informar e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
-      </label>
-      </div>
+          <div className="form-group">
+            <label>
+              Email:
+              <input type="email" className="form-control" placeholder="Informar e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-      <label>
-        Password:
-        <input type="password" className="form-control" placeholder="Informar senha"  value={password} onChange={(event) => setPassword(event.target.value)} />
-      </label>
-      </div>
+          <div className="form-group">
+            <label>
+              Password:
+              <input type="password" className="form-control" placeholder="Informar senha" value={password} onChange={(event) => setPassword(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-        <div className="custom-control custom-checkbox">
-          <input type="checkbox" className="custom-control-input" id="customCheck1" />
-          <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-        </div>
-      </div>
-      <label>
-      <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)}/>
-      </label>
-
-      <p>
-        Não tem conta? <Link to='/register'>Cadastre-se!</Link>
-      </p>
-      </center>
-    </form>
+          <div className="form-group">
+            <div className="custom-control custom-checkbox">
+              <input type="checkbox" className="custom-control-input" id="customCheck1" />
+              <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+            </div>
+          </div>
+          <label>
+            <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)} />
+          </label>
+          <p>
+            Não tem conta? <Link to='/register'>Cadastre-se!</Link>
+          </p>
+        </center>
+      </form>
     </div>
   )
 }

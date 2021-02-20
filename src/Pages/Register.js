@@ -6,6 +6,11 @@ import { Link, useHistory } from 'react-router-dom';
 
 function Register() {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+  const [restaurant, setRestaurant] = useState('');
+  const [nome, setName] = useState('');
   const history = useHistory();
 
   function saloonPage() {
@@ -20,7 +25,7 @@ function Register() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    let urlencoded = new URLSearchParams();
+    const urlencoded = new URLSearchParams();
     urlencoded.append("email", `${email}`);
     urlencoded.append("password", `${password}`);
     urlencoded.append("role", `${role}`);
@@ -48,68 +53,62 @@ function Register() {
     .catch(error => console.log('error', error));
   }
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
-  const [restaurant, setRestaurant] = useState('');
-  const [nome, setName] = useState('');
-
-  const handleSubmit = (event) => {
+  function handleSubmit (event) {
     event.preventDefault();
     registerUser (email, password, role, restaurant, nome)
   }
 
   return (
-  <div className="register-page">
-    <form className="register-form">
-      <center>
-      <h3>Register</h3>
+    <div className="register-page">
+      <form className="register-form">
+        <center>
+          <h3>Register</h3>
 
-      <div className="form-group">
-        <label>
-          Email:
-        <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={(event) => setEmail(event.target.value)} />
-        </label>
-      </div>
+          <div className="form-group">
+            <label>
+              Email:
+            <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={(event) => setEmail(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-        <label>
-          Password:
-          <input type="password" className="form-control" placeholder="Enter password" value={password} onChange={(event) => setPassword(event.target.value)} />
-        </label>
-      </div>
+          <div className="form-group">
+            <label>
+              Password:
+              <input type="password" className="form-control" placeholder="Enter password" value={password} onChange={(event) => setPassword(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-        <label>
-          Role:
-          <input type="text" className="form-control" placeholder="waiter ou chef" value={role} onChange={(event) => setRole(event.target.value)} />
-        </label>
-      </div>
+          <div className="form-group">
+            <label>
+              Role:
+              <input type="text" className="form-control" placeholder="waiter ou chef" value={role} onChange={(event) => setRole(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-        <label>
-          Restaurant:
-          <input type="text" className="form-control" placeholder="Restaurant" value={restaurant} onChange={(event) => setRestaurant(event.target.value)} />
-        </label>
-      </div>
+          <div className="form-group">
+            <label>
+              Restaurant:
+              <input type="text" className="form-control" placeholder="Restaurant" value={restaurant} onChange={(event) => setRestaurant(event.target.value)} />
+            </label>
+          </div>
 
-      <div className="form-group">
-        <label>
-          Name:
-          <input type="text" className="form-control"  placeholder="Primeiro Nome" value={nome} onChange={(event) => setName(event.target.value)} />
-        </label>
-      </div>
-      <label>
-      <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)}/>
-      <p className="forgot-password text-right">
-        Já tem conta? <Link to='/'>Entrar!</Link>
-      </p>
-      </label>
-      </center>
-    </form>
-  </div>
+          <div className="form-group">
+            <label>
+              Name:
+              <input type="text" className="form-control"  placeholder="Primeiro Nome" value={nome} onChange={(event) => setName(event.target.value)} />
+            </label>
+          </div>
+
+          <label>
+            <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)} />
+          </label>
+          <p>
+            Já tem conta? <Link to='/'>Entrar!</Link>
+          </p>
+        </center>
+      </form>
+    </div>
   )
-  
 }
 
 export default Register;
