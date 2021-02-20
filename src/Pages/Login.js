@@ -5,6 +5,9 @@ import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
   
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
   const history = useHistory();
 
   function saloonPage() {
@@ -19,7 +22,7 @@ function Login() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    let urlencoded = new URLSearchParams();
+    const urlencoded = new URLSearchParams();
     urlencoded.append("email", `${email}`);
     urlencoded.append("password", `${password}`);
 
@@ -45,11 +48,7 @@ function Login() {
     .catch(error => console.log('error', error));
   }
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
-
-  const handleSubmit = (event) => {
+  function handleSubmit (event) {
     event.preventDefault();
     loginAuth (email, password)
     console.log(loginAuth);
