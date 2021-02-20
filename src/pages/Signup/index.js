@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input.js'
 import Footer from '../../components/Footer/Footer'
@@ -118,10 +118,11 @@ export const SignUp = () => {
                 )
                 console.log(response)
 
+                localStorage.setItem('userName', response.client_name)
                 localStorage.setItem('userToken', response.token)
                 localStorage.setItem('userRole', response.role)
 
-                if( localStorage.getItem('userToken')  !== null){
+                if (localStorage.getItem('userToken') !== null) {
                   history.push('/')
                 }
                 else {

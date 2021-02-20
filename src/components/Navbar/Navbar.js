@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <Fragment>
       <header className='responsive-wrap-navbar'>
-        <p className='label-nav'><FaUserCircle className='icon-nav' /><br />Carol Costa</p>
+        <p className='label-nav'><FaUserCircle className='icon-nav' /><br />{localStorage.getItem('userName')}</p>
         <Link className='link' to='/status-order'><p className='label-nav'><FaRegClock className='icon-nav' /><br />Status Pedidos</p></Link>
         {
           localStorage.getItem('userRole') === 'hall'
