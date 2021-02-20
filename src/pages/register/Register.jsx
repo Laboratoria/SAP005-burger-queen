@@ -75,27 +75,23 @@ const Register = () => {
     }
 
     return (
-
         <Page>
-            <Link to='/'>
-                <button
-                    style={{
-                        'padding': '15px',
-                        'margin': '30px',
-                        'width': '60px',
-                        'height': '60px',
-                        'backgroundColor': '#F57F17',
-                        'borderRadius': '100%',
-                        'border': 'none',
-                        'outlineColor': '#F57F17',
-                        'textAlign': 'center',
-                        'fontSize': '30px',
-                    }}
-                >
-                    <FiArrowLeft />
-                </button>
-            </Link>
             <Form onSubmit={handleSubmit}>
+                <Link to='/'>
+                    <button
+                        style={{
+                            'border': 'none',
+                            'outline': 'none',
+                            'backgroundColor': '#F3ECE5',
+                            'textAlign': 'center',
+                            'fontSize': '50px',
+                            'color': '#E65100',
+                            'cursor': 'pointer'
+                        }}
+                    >
+                        <FiArrowLeft />
+                    </button>
+                </Link>
                 <Title>Crie seu registro</Title>
                 {formFields.map(({ id, placeholder, type }) => (
                     <div key={id}>
@@ -109,7 +105,6 @@ const Register = () => {
                     </div>
                 ))}
                 {response && response.ok && <p>Seu registro foi criado com sucesso</p>}
-
                 <Button>Registrar</Button>
             </Form>
             <Template>

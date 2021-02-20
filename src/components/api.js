@@ -1,4 +1,5 @@
 export const BASE_URL = 'https://lab-api-bq.herokuapp.com';
+const token = localStorage.getItem("token");
 
 export const TOKEN = (body) => {
     return {
@@ -13,13 +14,13 @@ export const TOKEN = (body) => {
     };
 }
 
-export const USER = (token) => {
+export const USER = () => {
     return {
         url: BASE_URL + '/products',
         options: {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': `${token}`,
             },
         },
     };
