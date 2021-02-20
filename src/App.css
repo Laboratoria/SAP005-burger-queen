@@ -1,16 +1,28 @@
-body {
-  /*para imagem */
-  background-image: url(prato.jpg);
+.login-page, .register-page, .saloon-page, .kitchen-page {
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: black;
-  -moz-background-size: 100%; 
-  -webkit-background-size: 100%; 
-  background-size: 100%; 
+  -moz-background-size: 100%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
   background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-.img-fundo-one {
+.login-page, .register-page {
+  background-image: url(prato.jpg);
+}
+
+/* Colocar imagem
+.saloon-page, .kitchen-page {
+  background-image: url(mesa.jpg);
+} */
+
+.login-form {
   width: 300px;
   height: 400px;
   position: absolute;
@@ -21,9 +33,9 @@ body {
   margin: auto;
 }
 
-.img-fundo-two {
+.register-form {
   width: 300px;
-  height: 500px;
+  height: 550px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -50,4 +62,11 @@ body {
 
 li {
   list-style-type: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .login-page, .register-page {
+    background-size: 125%;
+  }
 }

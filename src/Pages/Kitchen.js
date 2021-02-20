@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 function Kitchen() {
   return (
-    <div>
+    <div className="kitchen-page">
       <h1>Cozinha</h1>
     </div>
   )
