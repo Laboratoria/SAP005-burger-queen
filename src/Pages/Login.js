@@ -1,21 +1,21 @@
-import { render } from '@testing-library/react';
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { render } from "@testing-library/react";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 
 function Login() {
   
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
   const history = useHistory();
 
   function saloonPage() {
-    history.push('/saloon');
+    history.push("/saloon");
   }
 
   function kitchenPage() {
-    history.push('/kitchen');
+    history.push("/kitchen");
   }
 
   function loginAuth(email, password) {
@@ -27,25 +27,25 @@ function Login() {
     urlencoded.append("password", `${password}`);
 
   const requestOptions = {
-    method: 'POST',
+    method: "POST",
     headers: myHeaders,
     body: urlencoded,
-    redirect: 'follow'
+    redirect: "follow"
   };
 
   fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
-      localStorage.setItem('token', result.token);
-      if (result.role === 'waiter') {
+      localStorage.setItem("token", result.token);
+      if (result.role === "waiter") {
         saloonPage();
       }
-      if (result.role === 'chef') {
+      if (result.role === "chef") {
         kitchenPage();
       }
     })
-    .catch(error => console.log('error', error));
+    .catch(error => console.log("error", error));
   }
 
   function handleSubmit (event) {
@@ -85,7 +85,7 @@ function Login() {
             <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)} />
           </label>
           <p>
-            Não tem conta? <Link to='/register'>Cadastre-se!</Link>
+            Não tem conta? <Link to="/register">Cadastre-se!</Link>
           </p>
         </center>
       </form>

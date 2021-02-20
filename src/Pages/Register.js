@@ -1,24 +1,24 @@
-// import logo from './logo.svg';
-// import './App.css';
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+// import logo from "./logo.svg";
+// import "./App.css";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 
 function Register() {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
-  const [restaurant, setRestaurant] = useState('');
-  const [nome, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [restaurant, setRestaurant] = useState("");
+  const [nome, setName] = useState("");
   const history = useHistory();
 
   function saloonPage() {
-    history.push('/saloon');
+    history.push("/saloon");
   }
 
   function kitchenPage() {
-    history.push('/kitchen');
+    history.push("/kitchen");
   }
 
   function registerUser(email, password, role, restaurant, nome) {
@@ -33,24 +33,24 @@ function Register() {
     urlencoded.append("name", `${nome}`);
 
     const requestOptions = {
-    method: 'POST',
+    method: "POST",
     headers: myHeaders,
     body: urlencoded,
-    redirect: 'follow'
+    redirect: "follow"
   };
 
   fetch("https://lab-api-bq.herokuapp.com/users", requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
-      if (result.role === 'waiter') {
+      if (result.role === "waiter") {
         saloonPage();
       }
-      if (result.role === 'chef') {
+      if (result.role === "chef") {
         kitchenPage();
       }
     })
-    .catch(error => console.log('error', error));
+    .catch(error => console.log("error", error));
   }
 
   function handleSubmit (event) {
@@ -103,7 +103,7 @@ function Register() {
             <input type="submit" className="btn btn-dark btn-lg btn-block" value="Enviar" onClick={(event) => handleSubmit(event)} />
           </label>
           <p>
-            Já tem conta? <Link to='/'>Entrar!</Link>
+            Já tem conta? <Link to="/">Entrar!</Link>
           </p>
         </center>
       </form>
