@@ -4,6 +4,8 @@ import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
 
+
+
 export const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -65,7 +67,6 @@ export const useStyles = makeStyles((theme) => ({
     paddingRight:'80vw',
     color: theme.palette.text.primary,
   },
-
   totalProducts: {
     paddingRight:'100px',
   },
@@ -81,6 +82,17 @@ export const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+  },
+  rootMenu: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+  gridList: {
+    width: 500,
+    height: 450,
   },
   
 }));
@@ -124,3 +136,30 @@ export function NavBar() {
     </AppBar>
   )
 }
+
+/* 
+export function breakfastComponent (){
+  return(
+  <ul>
+                  {this.state.ArrayBreakfast.map(item => (                    
+                      <li key={item.id}>
+                          <p><b>Tipo:</b> {item.type}</p>
+                          <p><b>Nome:</b> {item.name} {item.flavor} {item.complement}<button>+</button></p>
+                          <p><b>Preço:</b> R${item.price},00</p>                                                             
+                      </li>
+                  ))}
+              </ul>
+)}
+
+export function allDayComponent (){
+  return(
+<ul>
+{this.state.ArrayAllDay.map(item => (
+    <li key={item.id}>
+        <p><b>Tipo:</b> {item.type}</p>
+        <p><b>Nome:</b> {item.name} {item.flavor} {item.complement}<button>+</button></p>
+        <p><b>Preço:</b> R${item.price},00</p>                                                             
+    </li>
+))}
+</ul>
+)}; */

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory} from 'react-router-dom';
 import {Copyright, Logo, useStyles} from '../../components.js';
-import { Button, Container, TextField, Grid, Typography, Alert } from '@material-ui/core';
+import { Button, Container, TextField, Grid, Typography } from '@material-ui/core';
 import '../../style.css';
 
 
