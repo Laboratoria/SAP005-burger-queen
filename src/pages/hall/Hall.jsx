@@ -11,15 +11,21 @@ const Hall = () => {
     const [cartData, setCartData] = useState({});
     const [cartTotal, setCartTotal] = useState(0);
 
+    // const cafe = 
     useEffect(async function (token) {
         const { url, options } = USER(token);
         const response = await fetch(url, options);
         const json = await response.json();
         setMenuData(json);
-        console.log(json)
+                // setMenuData(json);
+         const breakfast = () => ( json.filter(item => item.type === 'breakfast'))
+    setMenuData(breakfast)
     })
+
+    // const breakfast = menuData.filter(item => item.type === 'breakfast')
+    // setMenuData(breakfast)
     // const breakfast = menuData.slice(0, 4);
-    // const allDay = menuData.slice(4, 29);
+      
 
     useEffect(() => {
         let total = 0;
@@ -71,7 +77,7 @@ const Hall = () => {
             {
                 show ?
                     <div>
-                        {/* {menuData.slice(0, 4)} */}
+                       {/* {cafe} */}
                     </div>
                     :
                     <div>
