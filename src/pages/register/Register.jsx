@@ -4,6 +4,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { Title, Form, Template, Page, Input, Button, Images, BurgerImage } from '../../components/stylesForm';
 import Burger from '../../images/burger.png'
 import Logo from '../../images/logoBranco.png'
+import { CREATE_USER } from '../../components/api';
 
 const formFields = [
     {
@@ -39,7 +40,6 @@ const Register = () => {
             };
         }, {}),
     );
-    console.log(form)
     const history = useHistory();
     const goToHall = () => {
         history.push('/Hall');
@@ -52,26 +52,19 @@ const Register = () => {
         setForm({ ...form, [id]: value });
     }
 
-    function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        const {url, options} = CREATE_USER(form);
+        const response = await fetch(url, options);
+        const json = await response.json();
+        setResponse(json);
 
-        fetch('https://lab-api-bq.herokuapp.com/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(form),
-        })
-            .then(response => {
-                console.log(response)
-                if (response.role === 'salao') {
-                    goToHall();
-                }
-                else if (response.role === 'cozinha') {
-                    goToKitchen();
-                }
-                setResponse(response);
-            })
+        if (json.role === 'salao') {
+            goToHall();
+        }
+        else if (json.role === 'cozinha') {
+            goToKitchen();
+        }
     }
 
     return (
@@ -104,7 +97,12 @@ const Register = () => {
                         />
                     </div>
                 ))}
-                {response && response.ok && <p>Seu registro foi criado com sucesso</p>}
+                {response && response.ok && 
+                <p 
+                    style={{
+                        'padding': '10px',
+                    }}
+                >Seu registro foi criado com sucesso</p>}
                 <Button>Registrar</Button>
             </Form>
             <Template>
