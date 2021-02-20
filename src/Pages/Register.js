@@ -6,6 +6,11 @@ import { Link, useHistory } from 'react-router-dom';
 
 function Register() {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+  const [restaurant, setRestaurant] = useState('');
+  const [nome, setName] = useState('');
   const history = useHistory();
 
   function saloonPage() {
@@ -20,7 +25,7 @@ function Register() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    let urlencoded = new URLSearchParams();
+    const urlencoded = new URLSearchParams();
     urlencoded.append("email", `${email}`);
     urlencoded.append("password", `${password}`);
     urlencoded.append("role", `${role}`);
@@ -48,13 +53,7 @@ function Register() {
     .catch(error => console.log('error', error));
   }
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
-  const [restaurant, setRestaurant] = useState('');
-  const [nome, setName] = useState('');
-
-  const handleSubmit = (event) => {
+  function handleSubmit (event) {
     event.preventDefault();
     registerUser (email, password, role, restaurant, nome)
   }
