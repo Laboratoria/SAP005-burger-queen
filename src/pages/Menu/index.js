@@ -40,7 +40,7 @@ export const Menu = () => {
     }
 
     const totalSum = (product) => {
-        updateAmount(productPrice.reduce((total, num) => total + num))
+        updateAmount(productPrice.reduce((total, num) => total + num));
     }
 
     const deleteItems = (product) => {
