@@ -70,37 +70,50 @@ export const SignUp = () => {
             }
           />
 
-          <p className='label-signup'>Função<span className='required'> *</span></p>
+          <p className='label-signup'>Qual setor você trabalha?<span className='required'> *</span></p>
           <div>
-            <label htmlFor='kitchen' className='radio-label'>Cozinha</label>
-            <Input
-              inputRequired
-              inputName='jobPosition'
-              inputClassName='radio-option'
-              inputId='kitchen'
-              inputType='radio'
-              inputValue='kitchen'
-              inputOnChange={
-                (event) => {
-                  setJobPosition(event.target.value)
-                  console.log(jobPosition)
-                }
-              }
-            />
-            <label htmlFor='hall' className='radio-label'>Salão</label>
-            <Input
-              inputRequired
-              inputName='jobPosition'
-              inputClassName='radio-option'
-              inputId='hall'
-              inputType='radio'
-              inputValue='hall'
-              inputOnChange={
-                (event) => {
-                  setJobPosition(event.target.value)
-                }
-              }
-            />
+
+            <div class="container">
+              <div class="radio-tile-group">
+                <div class="input-container">
+                  <Input
+                    inputRequired
+                    inputId='kitchen'
+                    inputClassName="radio-button"
+                    inputType="radio"
+                    inputName="radio"
+                    inputValue='kitchen'
+                    inputOnChange={
+                      (event) => {
+                        setJobPosition(event.target.value)
+                        console.log(jobPosition)
+                      }
+                    }
+                  />
+                  <div class="radio-tile">
+                    <label htmlFor='kitchen' className="radio-tile-label">Cozinha</label>
+                  </div>
+                </div>
+                <div class="input-container">
+                  <Input
+                    inputRequired
+                    inputId="hall"
+                    inputClassName="radio-button"
+                    inputType="radio"
+                    inputName="radio"
+                    inputValue='hall'
+                    inputOnChange={
+                      (event) => {
+                        setJobPosition(event.target.value)
+                      }
+                    }
+                  />
+                  <div class="radio-tile">
+                    <label htmlFor='hall' class="radio-tile-label">Salão</label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div><br />
 
           <Button

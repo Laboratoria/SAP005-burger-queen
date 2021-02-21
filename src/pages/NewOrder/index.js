@@ -42,7 +42,7 @@ const NewOrder = () => {
 
                   {
                     products
-                      .filter((product) => product.type === 'all-day')
+                      .filter((product) => product.sub_type === 'hamburguer')
                       .map((product) => {
                         return (
                           <MenuItens

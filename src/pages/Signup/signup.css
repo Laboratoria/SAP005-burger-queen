@@ -48,8 +48,6 @@
 }
 
 .btn-signup {
-	margin-left: 9rem;
-	margin-right: 9rem;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	border: solid 2px #db9e36;
@@ -62,21 +60,6 @@
 .btn-signup:hover {
 	background-color: #fff9d4;
 	color: #db9e36;
-}
-
-.radio-option {
-	margin-top: 1.5rem;
-	margin-bottom: 1rem;
-	width: 3rem;
-	height: 1.2rem;
-}
-
-.radio-label {
-	margin-left: 5rem;
-	margin-top: 1rem;
-	font-size: 1rem;
-	font-weight: 500;
-	color: #004c54;
 }
 
 .question-signup {
@@ -95,4 +78,65 @@
 	text-align: center;
 	color: #ffd34d;
 	padding-bottom: 3rem;
+}
+
+/*RADIO INPUT*/
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.radio-tile-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.input-container {
+	padding-top: 0.5rem;
+	position: relative;
+	height: 2rem;
+	width: 5em;
+	margin: 0.5rem;
+}
+
+.radio-button {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+
+.radio-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #004c54;
+	border-radius: 5px;
+	padding: 1rem;
+	transition: transform 300ms ease;
+}
+
+.radio-tile-label {
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #004c54;
+}
+
+.radio-button:checked + .radio-tile {
+	background-color: #004c54;
+}
+.radio-tile-label {
+	color: #db9e36;
 }
