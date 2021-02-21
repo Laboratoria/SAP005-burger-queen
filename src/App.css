@@ -22,26 +22,26 @@
   background-image: url(mesa.jpg);
 } */
 
-.login-form {
-  width: 300px;
-  height: 400px;
+.login-form, .register-form {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
+  width: 300px;
+}
+
+.login-form {
+  height: 400px;
 }
 
 .register-form {
-  width: 300px;
-  height: 550px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  height: 515px;
+}
+
+.radio {
+  margin: 4px 4px 4px 10px;
 }
 
 .cardapio {

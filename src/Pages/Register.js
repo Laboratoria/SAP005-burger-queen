@@ -10,7 +10,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [restaurant, setRestaurant] = useState("");
-  const [nome, setName] = useState("");
+  const [name, setName] = useState("");
   const history = useHistory();
 
   function saloonPage() {
@@ -21,7 +21,7 @@ function Register() {
     history.push("/kitchen");
   }
 
-  function registerUser(email, password, role, restaurant, nome) {
+  function registerUser(email, password, role, restaurant, name) {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -30,7 +30,7 @@ function Register() {
     urlencoded.append("password", `${password}`);
     urlencoded.append("role", `${role}`);
     urlencoded.append("restaurant", `${restaurant}`);
-    urlencoded.append("name", `${nome}`);
+    urlencoded.append("name", `${name}`);
 
     const requestOptions = {
     method: "POST",
@@ -42,7 +42,7 @@ function Register() {
   fetch("https://lab-api-bq.herokuapp.com/users", requestOptions)
     .then(response => response.json())
     .then(result => {
-      console.log(result)
+      console.log(result);
       if (result.role === "waiter") {
         saloonPage();
       }
@@ -55,47 +55,48 @@ function Register() {
 
   function handleSubmit (event) {
     event.preventDefault();
-    registerUser (email, password, role, restaurant, nome)
+    registerUser (email, password, role, restaurant, name)
   }
 
   return (
     <div className="register-page">
       <form className="register-form">
         <center>
-          <h3>Register</h3>
+          <h3>Cadastro</h3>
 
           <div className="form-group">
             <label>
-              Email:
-            <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={(event) => setEmail(event.target.value)} />
+              E-mail
+            <input type="email" className="form-control" placeholder="exemplo@email.com" value={email} onChange={(event) => setEmail(event.target.value)} />
             </label>
           </div>
 
           <div className="form-group">
             <label>
-              Password:
-              <input type="password" className="form-control" placeholder="Enter password" value={password} onChange={(event) => setPassword(event.target.value)} />
+              Senha:
+              <input type="password" className="form-control" placeholder="mínimo 6 caracteres" value={password} onChange={(event) => setPassword(event.target.value)} />
             </label>
           </div>
 
           <div className="form-group">
             <label>
-              Role:
-              <input type="text" className="form-control" placeholder="waiter ou chef" value={role} onChange={(event) => setRole(event.target.value)} />
+              Área de Trabalho:
+              <input type="radio" className="radio" name="role" value="waiter" onChange={(event) => setRole(event.target.value)} />Salão
+              <input type="radio" className="radio" name="role" value="chef" onChange={(event) => setRole(event.target.value)} />Cozinha
             </label>
           </div>
 
           <div className="form-group">
             <label>
-              Restaurant:
-              <input type="text" className="form-control" placeholder="Restaurant" value={restaurant} onChange={(event) => setRestaurant(event.target.value)} />
+              Restaurante:
+              <input type="text" className="form-control" placeholder="nome do restaurante" value={restaurant} onChange={(event) => setRestaurant(event.target.value)} />
             </label>
           </div>
 
           <div className="form-group">
             <label>
-              Name:
-              <input type="text" className="form-control"  placeholder="Primeiro Nome" value={nome} onChange={(event) => setName(event.target.value)} />
+              Nome:
+              <input type="text" className="form-control" placeholder="nome do funcionário" value={name} onChange={(event) => setName(event.target.value)} />
             </label>
           </div>
 
