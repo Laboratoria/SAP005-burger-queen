@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { FaPlus } from 'react-icons/fa'
 
 export default function MenuItens({
+  onClick,
   srcImg,
   altImg,
   productName,
@@ -9,7 +10,7 @@ export default function MenuItens({
 }) {
   return (
     <Fragment>
-      <section className='product-section'>
+      <section onClick={onClick} className='product-section'>
         <img
           className='product-img'
           src={srcImg}
