@@ -1,18 +1,18 @@
 .hamburgers-thumb {
-    width: 200px;
-    height: 120px;
+    width: 100px;
+    height: 60px;
     
 }
 
 .hamburgers-thumb img {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
 }
 
 .container {
-    perspective: 1000px;
-    width: 30%;
-    height: 330px;
+    perspective: 400px;
+    width: 20%;
+    height: 190px;
     margin: 0 2.5% 40px 2.5%;
 }
 
@@ -45,4 +45,6 @@
 
 .card-container p {
     margin: 5px 0;
+    font-size: 14px;
 }
+
