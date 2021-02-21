@@ -7,7 +7,7 @@ function Login() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const history = useHistory();
 
   function saloonPage() {

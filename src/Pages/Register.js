@@ -43,6 +43,7 @@ function Register() {
     .then(response => response.json())
     .then(result => {
       console.log(result);
+      localStorage.setItem("token", result.token);
       if (result.role === "waiter") {
         saloonPage();
       }
