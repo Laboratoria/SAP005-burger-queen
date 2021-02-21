@@ -9,14 +9,16 @@ export default function MenuItens({
 }) {
   return (
     <Fragment>
-      <img
-        className='product-img'
-        src={srcImg}
-        alt={altImg}
-      />
-      <p className='product-name'>{productName}</p>
-      <p className='product-price'>R$ {productPrice},00</p>
-      <FaPlus className='icon-plus' />
+      <section className='product-section'>
+        <img
+          className='product-img'
+          src={srcImg}
+          alt={altImg}
+        />
+        <p className='product-name'>{productName}</p>
+        <p className='product-price'>R$ {productPrice},00</p>
+        <FaPlus className='icon-plus' />
+      </section>
     </Fragment>
   )
 }

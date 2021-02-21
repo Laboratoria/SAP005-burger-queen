@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+body {
+	font-family: "Work Sans";
+}
+
+/* TAB STYLING */
+
+.container {
+	width: 100%;
+	height: fit-content;
+}
+
+.tabby {
+	position: relative;
+	max-height: 2000px;
+	clear: both;
+	margin: 0 auto;
+	display: flex;
+	min-width: 700px;
+	max-width: 200px;
+	margin-top: 30px;
+}
+.tab {
+	float: left;
+}
+.tab label {
+	background: #004c54;
+	padding: 10px;
+	color: #fff9d4;
+	margin-left: -1px;
+	position: relative;
+	left: 1px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	border-radius: 7px 7px 0px 0px;
+	font-size: 14px;
+}
+.tabby [type="radio"] {
+	display: none;
+}
+.content {
+	position: absolute;
+	top: 28px;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0);
+	right: 0;
+	bottom: 0;
+	padding: 20px;
+	overflow: hidden;
+	height: fit-content;
+	border-radius: 0px 3px 3px 3px;
+}
+.content > * {
+	opacity: 0;
+	transform: translateY(40px);
+	transition: transform 0.5s ease;
+	color: #fff9d4;
+	font-size: 12px;
+	line-height: 15px;
+	transition: transform 0.8s ease;
+}
+
+[type="radio"]:checked ~ label {
+	background: #21666e;
+	z-index: 2;
+}
+
+[type="radio"]:checked ~ label ~ .content {
+	z-index: 1;
+	background-color: #21666e;
+}
+
+[type="radio"]:checked ~ label ~ .content > * {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* GENERAL STYLING */
+
+.product-img {
+	max-width: 15vw;
+	height: auto;
+	flex-grow: 1;
+}
+
+.product-section {
+	max-width: 15vw;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+	padding: 1.5rem 0;
+}
