@@ -144,8 +144,9 @@ export const SignUp = () => {
               }
             }
           />
+          <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entre</Link></p>
         </form>
-        <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entre</Link></p>
+
       </main>
       <Footer />
     </Fragment>
