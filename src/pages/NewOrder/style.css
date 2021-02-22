@@ -79,15 +79,22 @@ body {
 	flex-grow: 1;
 }
 
-/*.product-section {
+.section-all-day,
+.section-breakfast {
+	background-color: green;
+}
+
+.div-container-menu-section {
 	background-color: yellow;
-	margin-top: 5rem;
-	height: auto;
+	border-radius: 0.3rem;
+	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1;
-	padding: 1rem 0;
-}*/
+	width: 50rem;
+	height: 470px;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
 
 .hide {
 	display: none;

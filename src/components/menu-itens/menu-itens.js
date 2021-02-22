@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { FaPlus } from 'react-icons/fa'
+import './menu-itens.css'
 
 export default function MenuItens({
   onClick,

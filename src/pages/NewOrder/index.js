@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, { Fragment, useState, useEffect } from 'react'
 import { getProducts } from '../../services/index'
 import Navbar from '../../components/Navbar/Navbar'
@@ -67,54 +68,64 @@ export const NewOrder = () => {
                 <label htmlFor='all-day' className='radio-tile-label-menu'>Almoço/Jantar</label>
               </div>
 
-              <section className={checkedMenu === 'breakfast' ? '' : 'hide'}>
-                <MenuSection
-                  menuSectionTitle='Lanches'
-                  products={products.filter((product) => product.name === 'Misto quente')}
-                  onClick={
-                    () => {
-                      console.log('misto')
+              <section className='section-breakfast' className={checkedMenu === 'breakfast' ? '' : 'hide'}>
+                <div className='div-container-menu-section'>
+                  <MenuSection
+                    menuSectionTitle='Lanches'
+                    products={products.filter((product) => product.name === 'Misto quente')}
+                    onClick={
+                      () => {
+                        console.log('misto')
+                      }
                     }
-                  }
-                />
-                <MenuSection
-                  menuSectionTitle='Bebidas'
-                  products={products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')}
-                  onClick={
-                    () => {
-                      console.log('bebida-quente')
+                  />
+                </div>
+                <div className='div-container-menu-section'>
+                  <MenuSection
+                    menuSectionTitle='Bebidas'
+                    products={products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')}
+                    onClick={
+                      () => {
+                        console.log('bebida-quente')
+                      }
                     }
-                  }
-                />
+                  />
+                </div>
               </section>
-              <section className={checkedMenu === 'all-day' ? '' : 'hide'}>
-                <MenuSection
-                  menuSectionTitle='Hambúrguer'
-                  products={products.filter((product) => product.sub_type === 'hamburguer' && (product.id === 33 || product.id === 42))}
-                  onClick={
-                    () => {
-                      setShowModal(true)
+              <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
+                <div className='div-container-menu-section'>
+                  <MenuSection
+                    menuSectionTitle='Hambúrguer'
+                    products={products.filter((product) => product.sub_type === 'hamburguer' && (product.id === 33 || product.id === 42))}
+                    onClick={
+                      () => {
+                        setShowModal(true)
+                      }
                     }
-                  }
-                />
-                <MenuSection
-                  menuSectionTitle='Acompanhamentos'
-                  products={products.filter((product) => product.sub_type === 'side')}
-                  onClick={
-                    () => {
-                      console.log('acompanhamento')
+                  />
+                </div>
+                <div className='div-container-menu-section'>
+                  <MenuSection
+                    menuSectionTitle='Acompanhamentos'
+                    products={products.filter((product) => product.sub_type === 'side')}
+                    onClick={
+                      () => {
+                        console.log('acompanhamento')
+                      }
                     }
-                  }
-                />
-                <MenuSection
-                  menuSectionTitle='Bebidas'
-                  products={products.filter((product) => product.sub_type === 'drinks')}
-                  onClick={
-                    () => {
-                      console.log('bebidas-frias')
+                  />
+                </div>
+                <div className='div-container-menu-section'>
+                  <MenuSection
+                    menuSectionTitle='Bebidas'
+                    products={products.filter((product) => product.sub_type === 'drinks')}
+                    onClick={
+                      () => {
+                        console.log('bebidas-frias')
+                      }
                     }
-                  }
-                />
+                  />
+                </div>
               </section>
 
             </div>
