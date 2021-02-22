@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React, { Fragment, useState, useEffect } from 'react'
 import { getProducts } from '../../services/index'
+import Button from '../../components/Button/Button'
 import Navbar from '../../components/Navbar/Navbar'
 import MenuItens from '../../components/menu-itens/menu-itens'
 import ReactModal from 'react-modal'
@@ -13,6 +14,12 @@ export const NewOrder = () => {
   const [products, setProducts] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [checkedMenu, setCheckedMenu] = useState('all-day')
+  const [burgerMeat, setBurgerMeat] = useState('')
+  const [burgerChicken, setBurgerChicken] = useState('')
+  const [burgerVeggie, setBurgerVeggie] = useState('')
+  const [extraCheese, setExtraCheese] = useState('')
+  const [extraEgg, setExtraEgg] = useState('')
+
 
   useEffect(() => {
     const storeProducts = async () => {
@@ -32,7 +39,6 @@ export const NewOrder = () => {
           <div className='radio-tile-group-menu'>
             <div className='input-container-menu'>
               <Input
-                inputRequired
                 inputId='breakfast'
                 inputClassName='radio-button-menu'
                 inputType='radio'
@@ -51,7 +57,6 @@ export const NewOrder = () => {
             </div>
             <div className='input-container-menu'>
               <Input
-                inputRequired
                 inputId='all-day'
                 inputClassName='radio-button-menu'
                 inputType='radio'
@@ -129,7 +134,137 @@ export const NewOrder = () => {
         className='modal'
         isOpen={showModal}
         contentLabel='Minimal Modal Example'
-      >Modal
+      >
+        <p>Escolha o tipo do hambúrguer:</p>
+        <div className='container-modal-option'>
+          <div className='radio-tile-modal-option'>
+
+            <div className='input-container-modal-option'>
+              <Input
+                inputRequired
+                inputId='meat'
+                inputClassName='radio-button-modal-option'
+                inputType='radio'
+                inputName='radio-burger-type'
+                inputValue='meat'
+                inputOnChange={
+                  () => {
+                    setBurgerMeat()
+                  }
+                }
+              />
+              <div className='radio-tile-modal-option'>
+                <label htmlFor='radio-burger-type' className='radio-tile-label-modal-option'>Carne</label>
+              </div>
+            </div>
+
+            <div className='input-container-modal-option'>
+              <Input
+                inputRequired
+                inputId='chicken'
+                inputClassName='radio-button-modal-option'
+                inputType='radio'
+                inputName='radio-burger-type'
+                inputValue='chicken'
+                inputOnChange={
+                  () => {
+                    setBurgerChicken()
+                  }
+                }
+              />
+              <div className='radio-tile-modal-option'>
+                <label htmlFor='radio-burger-type' className='radio-tile-label-modal-option'>Frango</label>
+              </div>
+            </div>
+
+            <div className='input-container-modal-option'>
+              <Input
+                inputRequired
+                inputId='veggie'
+                inputClassName='radio-button-modal-option'
+                inputType='radio'
+                inputName='radio-burger-type'
+                inputValue='veggie'
+                inputOnChange={
+                  () => {
+                    setBurgerVeggie()
+                  }
+                }
+              />
+              <div className='radio-tile-modal-option'>
+                <label htmlFor='radio-burger-type' className='radio-tile-label-modal-option'>Vegetariano</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>Adicionais + R$1,00:</p><br />
+        <div className='container-modal-option'>
+          <div className='radio-tile-modal-option'>
+
+            <div className='input-container-modal-option'>
+              <Input
+                inputRequired
+                inputId='cheese'
+                inputClassName='radio-button-modal-option'
+                inputType='radio'
+                inputName='radio-extra'
+                inputValue='cheese'
+                inputOnChange={
+                  () => {
+                    setExtraCheese()
+                  }
+                }
+              />
+              <div className='radio-tile-modal-option'>
+                <label htmlFor='radio-extra' className='radio-tile-label-modal-option'>Queijo</label>
+              </div>
+            </div>
+
+            <div className='input-container-modal-option'>
+              <Input
+                inputRequired
+                inputId='egg'
+                inputClassName='radio-button-modal-option'
+                inputType='radio'
+                inputName='radio-extra'
+                inputValue='egg'
+                inputOnChange={
+                  () => {
+                    setExtraEgg()
+                  }
+                }
+              />
+              <div className='radio-tile-modal-option'>
+                <label htmlFor='radio-extra' className='radio-tile-label-modal-option'>Ovo</label>
+              </div>
+            </div>
+
+            <div>
+              <Button
+                name='Cancelar'
+                className='btn-cancel'
+                type='submit'
+                onClick={
+                  async (event) => {
+                    event.preventDefault()
+                  }
+                }
+              />
+              <Button
+                name='Confirmar'
+                className='btn-confirm'
+                type='submit'
+                onClick={
+                  async (event) => {
+                    event.preventDefault()
+                  }
+                }
+              />
+            </div>
+
+          </div>
+        </div>
       </ReactModal>
     </Fragment>
   )
