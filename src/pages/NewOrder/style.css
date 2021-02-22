@@ -23,11 +23,11 @@ body {
 }
 
 .input-container-menu {
-	padding-top: 10rem;
 	position: relative;
-	height: 3rem;
-	width: 10em;
-	margin: 0.5rem;
+	height: 2rem;
+	width: 9rem;
+	margin-left: 1rem;
+	margin-top: 8rem;
 }
 
 .radio-button-menu {
@@ -49,7 +49,7 @@ body {
 	width: 100%;
 	height: 100%;
 	border: 2px solid #db9e36;
-	border-radius: 0.3rem;
+	border-radius: 0.2rem;
 	padding: 1rem;
 	transition: transform 300ms ease;
 	background-color: #fff9d4;
@@ -64,7 +64,7 @@ body {
 .radio-button-menu:checked + .radio-tile-menu {
 	background-color: #004c54;
 	border: solid 2px #004c54;
-	border-radius: 0.3rem;
+	border-radius: 0.2rem;
 	transform: scale(1.1, 1.1);
 }
 .radio-tile-label-menu {
@@ -72,6 +72,10 @@ body {
 }
 
 /* GENERAL STYLING */
+
+.hide {
+	display: none;
+}
 
 .product-img {
 	max-width: 15vw;
@@ -85,22 +89,41 @@ body {
 }
 
 .div-container-menu-section {
+	position: fixed;
 	background-color: yellow;
 	border-radius: 0.3rem;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	width: 50rem;
-	height: 50rem;
+	max-width: 50rem;
+	height: 32rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 	overflow: scroll;
 }
 
-.hide {
-	display: none;
+/* ScrollBar */
+
+::-webkit-scrollbar {
+	width: 0.7rem;
+	height: 0.7rem;
 }
 
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0.3rem #d9d9d9;
+	border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #db9e36;
+	border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ffd34d;
+}
+
+/* modal */
 .modal {
 	width: 60vh;
 	height: 60vh;
