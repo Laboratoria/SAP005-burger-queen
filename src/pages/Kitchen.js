@@ -10,6 +10,7 @@ function Kitchen() {
   const rLogin=()=> {
     history.push('/')
   }
+  
   return (
     <div className="App">
       <nav className="nav">

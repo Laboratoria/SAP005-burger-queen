@@ -50,7 +50,7 @@ const Waiter = () => {
         <img src={logo} alt="" className="logo" />
         <div className='menuItens'> {
           menu.map((menuItems) => {
-
+            
             return (
               <div key={menuItems.id}>
                 <p>{menuItems.name}</p>
@@ -60,6 +60,7 @@ const Waiter = () => {
             )
           })
         } </div>
+        <button></button>
         
           <div className='menuItens'> {
           allDay.map((menuItems) => {
