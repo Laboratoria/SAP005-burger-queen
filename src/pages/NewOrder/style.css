@@ -1,0 +1,140 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+body {
+	font-family: "Work Sans";
+}
+
+/*RADIO INPUT*/
+
+.container-menu {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.radio-tile-group-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.input-container-menu {
+	position: relative;
+	height: 2rem;
+	width: 9rem;
+	margin-left: 1rem;
+	margin-top: 8rem;
+}
+
+.radio-button-menu {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+
+.radio-tile-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #db9e36;
+	border-radius: 0.2rem;
+	padding: 1rem;
+	transition: transform 300ms ease;
+	background-color: #fff9d4;
+}
+
+.radio-tile-label-menu {
+	text-align: center;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.radio-button-menu:checked + .radio-tile-menu {
+	background-color: #004c54;
+	border: solid 2px #004c54;
+	border-radius: 0.2rem;
+	transform: scale(1.1, 1.1);
+}
+.radio-tile-label-menu {
+	color: #db9e36;
+}
+
+/* GENERAL STYLING */
+
+.hide {
+	display: none;
+}
+
+.product-img {
+	max-width: 15vw;
+	height: auto;
+	flex-grow: 1;
+}
+
+.section-all-day,
+.section-breakfast {
+	background-color: green;
+}
+
+.div-container-menu-section {
+	position: fixed;
+	background-color: yellow;
+	border-radius: 0.3rem;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	max-width: 50vw;
+	max-height: 70vh;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	margin-left: 1rem;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	white-space: nowrap;
+}
+
+/* ScrollBar */
+
+::-webkit-scrollbar {
+	width: 0.7rem;
+	height: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0.3rem #d9d9d9;
+	border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #db9e36;
+	border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ffd34d;
+}
+
+/* modal */
+.modal {
+	width: 60vh;
+	height: 60vh;
+	background: #fff9d4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3rem;
+	text-align: center;
+	margin: 9rem auto;
+}

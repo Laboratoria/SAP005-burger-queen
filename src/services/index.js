@@ -2,6 +2,7 @@ const RESTAURANT = 'UrbanBistro'
 const API_URL = 'https://lab-api-bq.herokuapp.com'
 const API_USERS = `${API_URL}/users`
 const API_AUTH = `${API_URL}/auth`
+const API_PRODUCTS = `${API_URL}/products`
 const API_ORDERS = `${API_URL}/orders`
 
 export const createUser = async (
@@ -12,7 +13,7 @@ export const createUser = async (
 ) => {
   const response = await fetch(API_USERS, {
     method: 'POST',
-    headers: { 'content-type': 'application/json' }, 
+    headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       'name': userName,
       'email': userEmail,
@@ -23,7 +24,7 @@ export const createUser = async (
   })
 
   return await response.json()
-  
+
 }
 
 export const authUser = async (
@@ -42,19 +43,32 @@ export const authUser = async (
   return await response.json()
 }
 
+export const getProducts = async (
+
+) => {
+  const response = await fetch(API_PRODUCTS, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': localStorage.getItem('userToken')
+    },
+  })
+  return await response.json()
+}
+
 export const openOrder = async (
   clientName,
   tableNumber,
 ) => {
   const response = await fetch(API_ORDERS, {
     method: 'POST',
-    mode: 'no-cors', 
-    headers : { 'Content-Type':'application/json', 'Authorization':localStorage.getItem('userToken') },
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('userToken') },
     body: JSON.stringify({
       'client': clientName,
       'table': tableNumber,
     })
-  })  
+  })
 
   return await response.json()
 }

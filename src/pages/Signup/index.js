@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { createUser } from '../../services/index'
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input.js'
 import Footer from '../../components/Footer/Footer'
@@ -70,37 +70,48 @@ export const SignUp = () => {
             }
           />
 
-          <p className='label-signup'>Função<span className='required'> *</span></p>
+          <p className='label-signup'>Qual setor você trabalha?<span className='required'> *</span></p>
           <div>
-            <label htmlFor='kitchen' className='radio-label'>Cozinha</label>
-            <Input
-              inputRequired
-              inputName='jobPosition'
-              inputClassName='radio-option'
-              inputId='kitchen'
-              inputType='radio'
-              inputValue='kitchen'
-              inputOnChange={
-                (event) => {
-                  setJobPosition(event.target.value)
-                  console.log(jobPosition)
-                }
-              }
-            />
-            <label htmlFor='hall' className='radio-label'>Salão</label>
-            <Input
-              inputRequired
-              inputName='jobPosition'
-              inputClassName='radio-option'
-              inputId='hall'
-              inputType='radio'
-              inputValue='hall'
-              inputOnChange={
-                (event) => {
-                  setJobPosition(event.target.value)
-                }
-              }
-            />
+            <div className='container'>
+              <div className='radio-tile-group'>
+                <div className='input-container'>
+                  <Input
+                    inputRequired
+                    inputId='kitchen'
+                    inputClassName='radio-button'
+                    inputType='radio'
+                    inputName='radio'
+                    inputValue='kitchen'
+                    inputOnChange={
+                      (event) => {
+                        setJobPosition(event.target.value)
+                      }
+                    }
+                  />
+                  <div className='radio-tile'>
+                    <label htmlFor='kitchen' className='radio-tile-label'>Cozinha</label>
+                  </div>
+                </div>
+                <div className='input-container'>
+                  <Input
+                    inputRequired
+                    inputId='hall'
+                    inputClassName='radio-button'
+                    inputType='radio'
+                    inputName='radio'
+                    inputValue='hall'
+                    inputOnChange={
+                      (event) => {
+                        setJobPosition(event.target.value)
+                      }
+                    }
+                  />
+                  <div className='radio-tile'>
+                    <label htmlFor='hall' className='radio-tile-label'>Salão</label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div><br />
 
           <Button
@@ -118,10 +129,11 @@ export const SignUp = () => {
                 )
                 console.log(response)
 
+                localStorage.setItem('userName', response.client_name)
                 localStorage.setItem('userToken', response.token)
                 localStorage.setItem('userRole', response.role)
 
-                if( localStorage.getItem('userToken')  !== null){
+                if (localStorage.getItem('userToken') !== null) {
                   history.push('/')
                 }
                 else {
@@ -130,8 +142,9 @@ export const SignUp = () => {
               }
             }
           />
+          <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entre</Link></p>
         </form>
-        <p className='question-signup'>Já tem uma conta? <br /><Link className='link-to-login' to='/'>Entre</Link></p>
+
       </main>
       <Footer />
     </Fragment>
