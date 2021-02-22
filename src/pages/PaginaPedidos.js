@@ -35,6 +35,7 @@ function PaginaPedidos(){
     const [resumoPedido, setResumoPedido] = useState([]);
     const [fazerPedido, setFazerPedido] = useState({"table": mesa});
     const [produtosPedido, setProdutosPedido] = useState([]);
+    const [quantidade, setQuantidade] = useState(1);
     const [precoTotal, setPrecoTotal] = useState([0]);
 
     useEffect(() => {
