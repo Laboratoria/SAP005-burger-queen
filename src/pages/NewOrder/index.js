@@ -38,6 +38,7 @@ export const NewOrder = () => {
                 inputType='radio'
                 inputName='radio'
                 inputValue='breakfast'
+                inputChecked={checkedMenu === 'breakfast'}
                 inputOnChange={
                   () => {
                     setCheckedMenu('breakfast')
@@ -57,6 +58,7 @@ export const NewOrder = () => {
                 inputType='radio'
                 inputName='radio'
                 inputValue='all-day'
+                inputChecked={checkedMenu === 'all-day'}
                 inputOnChange={
                   () => {
                     setCheckedMenu('all-day')
