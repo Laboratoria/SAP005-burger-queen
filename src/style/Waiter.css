@@ -47,7 +47,8 @@
 	justify-content: center;
 }
 
-#client {
+#client,
+#products {
 	padding: 11px;
 	width: 80%;
 	margin-top: 20px;
