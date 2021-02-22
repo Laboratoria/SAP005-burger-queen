@@ -99,7 +99,7 @@ body {
 	height: 28rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
-	margin-left: 0;
+	margin-left: 1rem;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	white-space: nowrap;
