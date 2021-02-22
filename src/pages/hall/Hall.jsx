@@ -1,29 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import Menu from "../../containers/Menu"
-import Cart from "../../containers/Cart"
+import Menu from "../../containers/Menu";
+import Cart from "../../containers/Cart";
 import { USER } from "../../components/api";
+import Logo from '../../images/logoLaranja.png';
+import { MenuOrders, DivMenus, LogoHall } from '../../components/stylesMenu';
+import { Link } from 'react-router-dom';
 
 
 const Hall = () => {
-    const [show, setShow] = useState(true)
     const [menuData, setMenuData] = useState({});
     const [cartData, setCartData] = useState({});
     const [cartTotal, setCartTotal] = useState(0);
 
-    useEffect(async function(token){
+    useEffect(async function (token) {
         const { url, options } = USER(token);
         const response = await fetch(url, options);
         const json = await response.json();
         setMenuData(json);
-        // setMenuData(json);
-        const breakfast = () => ( json.filter(item => item.type === 'breakfast'))
-        setMenuData(breakfast)
     })
 
-    // const breakfast = menuData.filter(item => item.type === 'breakfast')
-    // setMenuData(breakfast)
-    // const breakfast = menuData.slice(0, 4);
     useEffect(() => {
         let total = 0;
         Object.keys(cartData).map((sku) => {
@@ -55,27 +51,45 @@ const Hall = () => {
     };
 
     return (
-        <div id="menu-cart">
-            <Menu
-                menu={menuData}
-                addToCart={addToCart} />
-            <Cart
-                total={cartTotal}
-                menu={menuData}
-                cart={cartData}
-                reduceCart={reduceFromCart} />
-            <button onClick={() => setShow(true)}>Café da Manhã</button>
-            <button onClick={() => setShow(false)}>Hamburgueria</button>
-            {
-                show ?
-                    <div>
-                       {/* {cafe} */}
-                    </div>
-                    :
-                    <div>
-                        {/* {menuData.slice(4, 29)} */}
-                    </div>
-            }
+        <div>
+           
+            <Link to='/orders'>
+                <button
+                    style={{
+                        'border': 'none',
+                        'outline': 'none',
+                        'backgroundColor': '#F57F17',
+                        'textAlign': 'center',
+                        'fontSize': '30px',
+                        'color': '#fff',
+                        'cursor': 'pointer',
+                        'margin-left': '990px',
+                        'border-radius': '0 0 10px 10px',
+                        'height': '50px',     
+                        'width':'200px',
+                        'box-shadow': '9px 9px 19px #909092, -9px -9px 19px #fff'
+                    }}
+                >Pedidos
+                    </button>
+            </Link>
+            <LogoHall src={Logo} alt='' width='400' />
+            {/* <MenuTitulo>Menu</MenuTitulo> */}
+            <DivMenus>
+            <div>
+                <Menu
+                    menu={menuData}
+                    addToCart={addToCart} />
+            </div>
+            <MenuOrders>
+                <Cart
+                    total={cartTotal}
+                    menu={menuData}
+                    cart={cartData}
+                    reduceCart={reduceFromCart} />
+
+            </MenuOrders>
+
+        </DivMenus>
         </div>
     );
 }

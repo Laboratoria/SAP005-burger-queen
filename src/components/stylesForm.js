@@ -52,7 +52,6 @@ export const Page = styled.div`
     border-radius: 50px;
     display: flex;
     justify-content: center;
-
     width: 100%;
     height: 100%;
     margin-left: 22%;

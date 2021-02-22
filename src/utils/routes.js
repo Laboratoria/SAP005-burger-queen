@@ -5,6 +5,7 @@ import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Kitchen from '../pages/kitchen/Kitchen';
 import Hall from '../pages/hall/Hall';
+import Orders from '../pages/orders/Orders';
 
 const Routes = () => (
   <BrowserRouter>
@@ -24,6 +25,10 @@ const Routes = () => (
       <Route 
         component={props => <Hall {...props} />} 
         exact path='/hall'
+      />
+            <Route 
+        component={props => <Orders {...props} />} 
+        exact path='/orders'
       />
     </Switch>
   </BrowserRouter>

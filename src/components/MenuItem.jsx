@@ -1,11 +1,17 @@
-function MenuItem({name, flavor, complement, price, addToCart, sku}) {
-    return(
-        <div class="menu-item">
-            <span className="menu-text">{`${name} ${flavor} ${complement} - R$ ${price},00`}</span>
-            <span className="menu-action">
-                <button onClick={() => addToCart(sku)} >+</button>
+import {BtnAdition, Products}  from '../components/stylesMenu';
+function MenuItem({ name, flavor, complement, price, addToCart, sku }) {
+    return (
+        <Products>
+            <span className="menu-text">
+                <p>{`${name}`}</p>
+                <p>{` ${flavor}`} </p>
+                <p>{`${complement}`}</p>
+                <p>{`R$ ${price},00`}</p>
             </span>
-        </div>
+            <span className="menu-action">
+                <BtnAdition onClick={() => addToCart(sku)} >+</BtnAdition>
+            </span>
+        </Products>
     )
 }
 export default MenuItem;

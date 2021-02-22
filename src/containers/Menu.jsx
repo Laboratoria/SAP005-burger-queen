@@ -1,28 +1,53 @@
+import { useState } from "react";
 import MenuItem from "../components/MenuItem";
+import { ButtonMenu, DivButton, Teste } from '../components/stylesMenu'
 
 function Menu({ menu, addToCart }) {
-
+    const [show, setShow] = useState(true)
 
     return (
-        <div id="menu">
-            <h2>Menu</h2>
+        <div>
+
             <div id="menu-area">
-                {
-                    Object.keys(menu).map((key) => (
-                        <MenuItem
-                            name={menu[key].name}
-                            flavor={menu[key].flavor}
-                            complement={menu[key].complement}
-                            price={menu[key].price}
-                            addToCart={addToCart}
-                            sku={key}
-                        />
+              
+                    <DivButton>
+                        <ButtonMenu onClick={() => setShow(true)}>Café da Manhã</ButtonMenu>
+                        <ButtonMenu onClick={() => setShow(false)}>Hamburgueria</ButtonMenu>
+                    </DivButton>
+                
 
-
-
-                    ))
-                }
-
+                <Teste>
+                    {
+                        show ?
+                            <div>
+                                {Object.keys(menu).slice(0, 4).map((key) => (
+                                    <MenuItem
+                                        name={menu[key].name}
+                                        flavor={[]}
+                                        complement={[]}
+                                        price={menu[key].price}
+                                        addToCart={addToCart}
+                                        sku={key}
+                                    />
+                                ))
+                                }
+                            </div>
+                            :
+                            <div>
+                                {Object.keys(menu).slice(4, 28).map((key) => (
+                                    <MenuItem
+                                        name={menu[key].name}
+                                        flavor={menu[key].flavor}
+                                        complement={menu[key].complement}
+                                        price={menu[key].price}
+                                        addToCart={addToCart}
+                                        sku={key}
+                                    />
+                                ))
+                                }
+                            </div>
+                    }
+                </Teste>
             </div>
         </div>
     );
