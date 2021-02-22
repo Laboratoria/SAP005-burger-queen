@@ -7,6 +7,7 @@ import Register from "./pages/Register/index";
 import Confirm from "./pages/ConfirmCad/Confirm";
 import Hall from "./pages/Hall/Hall.js";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Hall from "./pages/Hall/Hall.js";
 
 
 ReactDOM.render(
@@ -15,8 +16,10 @@ ReactDOM.render(
       <Route path="/" component={Login} exact />
       <Route path="/register" component={Register} />
       <Route path="/confirm" component={Confirm} />
-      <Route path="/login" component={Login} exact/>
+      <Route path="/login" component={Login} />
       <Route path = "/hall" component={Hall} exact/>
+     
+
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

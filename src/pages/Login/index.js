@@ -47,22 +47,43 @@ function Login() {
           alert("Funcionário não encontrado!")
         }
       })
-  };
 
-  return (
-    <>
-      <div className="login">
-        <Logo />
-        <form className="login-right">
-          <label className="loginInputEmail" htmlFor="loginInputEmail">
-            <MdEmail />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          const token = json.token
+          const id = json.id
+          const name = json.name
+  
+          const tokenUser = localStorage.setItem("token", token)
+          const idUser = localStorage.setItem("id", id)
+          const nameUser = localStorage.setItem("name", name)
+
+          if(tokenUser!== null && nameUser!== null && idUser!== null && json.role === "salao") {
+            routerHall();
+          }else if(tokenUser!== null && nameUser!== null && idUser!== null && json.role === "cozinha") {
+            routerKitchen();
+          }else{
+            alert("Funcionário não encontrado!")
+          }
+        })
+    };
+    
+    return (
+    <>    
+    <div className="login">
+      <Logo />
+      <form className="login-right">
+        <label className="loginInputEmail" htmlFor="loginInputEmail">
+          <MdEmail />
+          <input 
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
+
 
           <label className="loginInputPassword" htmlFor="loginInputPassword">
             <MdLock />

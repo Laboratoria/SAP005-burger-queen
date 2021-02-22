@@ -1,3 +1,4 @@
+
 import { React, useState } from "react";
 import "./register.css";
 import { useHistory } from "react-router-dom";
@@ -167,4 +168,4 @@ function Register() {
     );
   };
 
-export default Register;
+export default Register
