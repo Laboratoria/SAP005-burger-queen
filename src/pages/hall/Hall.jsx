@@ -14,7 +14,6 @@ const Hall = () => {
     const [cartTotal, setCartTotal] = useState(0);
 
     useEffect(async function (token) {
-
         const { url, options } = USER(token);
         const response = await fetch(url, options);
         const json = await response.json();
@@ -27,30 +26,25 @@ const Hall = () => {
             let qty = cartData[sku];
             let price = menuData[sku].price;
             return (total += qty * price);
-
         })
         setCartTotal(total);
-
     }, [cartData])
+
     const addToCart = sku => {
         let newCart = { ...cartData };
-
         if (sku in cartData) {
             newCart[sku] += 1;
         }
         else {
             newCart[sku] = 1;
         }
-
         setCartData(newCart);
     };
 
     const reduceFromCart = sku => {
         let newCart = { ...cartData };
-
         if (sku in cartData) {
             newCart[sku] -= 1;
-
             if (newCart[sku] < 1) delete newCart[sku];
         }
         setCartData(newCart);
