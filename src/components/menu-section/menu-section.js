@@ -17,7 +17,6 @@ export default function MenuSection({
               .map((product) => {
                 return (
                   <MenuItens
-                    className='menu-section'
                     srcImg={product.image}
                     alt={product.name}
                     productName={product.name}
