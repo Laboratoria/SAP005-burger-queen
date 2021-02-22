@@ -10,8 +10,9 @@ const Waiter = () => {
 
   const [menu, setMenu] = useState([]);
   const [allDay, setDay] = useState([]);
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [products, setProducts] = useState([]);
+  const [client, setClient] = useState('');
+  const [table, setTable] = useState('');
   const token = localStorage.getItem("token");
 
   console.log(allDay)
@@ -20,6 +21,22 @@ const Waiter = () => {
   const rLogin=()=> {
     history.push('/')
   }
+
+  const order = () =>{
+    if(client !== '' && table !== ''){
+            Promise.add({
+                date: new Date().toLocaleString("pt-BR"),
+                client: client,
+                mesa: table,
+                pedido:products,
+            });
+            alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
+            setProducts([]);
+            setTable('');
+            setClient('');
+    }
+};
+
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -59,12 +76,12 @@ const Waiter = () => {
         <section className='Menu'>
             <button className="btnMenu"   onClick={((e)=>{
               e.preventDefault();
-              console.log(menu)
+              console.log('menu');
             })}><img src= {xicara} alt="" className='imgMenu' /></button>
 
             <button className="btnMenu"   onClick={((e)=>{
               e.preventDefault();
-              console.log(menu)
+              console.log('breakfast');
             })}><img src= {prato} alt="" className='imgMenu' /></button>
 
         
@@ -101,14 +118,35 @@ const Waiter = () => {
 
         <form className='order'>
           <h1>Pedido</h1>
-            <input type="text" id="client" placeholder="Digite o nome do cliente" value={name} onChange={(event) =>
-              setName(event.target.value)} />
-            <input type="number" id="number" min='0' max='20' value={number} onChange={(event) =>
-              setNumber(event.target.value)} />
+            <input type="text" id="client" placeholder="Digite o nome do cliente" value={client} onChange={(event) =>
+              setClient(event.target.value)} />
+            <input type="number" id="number" min='0' max='20' value={table} onChange={(event) =>
+              setTable(event.target.value)} />
+              <input type="text" id="products" value={products} onClick={order} />
           </form>
 
        </ol>
-       <button className='send'>ENVIAR</button>
+       <button className='send' onClick={( (e) => {
+
+              e.preventDefault();
+        fetch('https://lab-api-bq.herokuapp.com/orders', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "accept": "application/json",
+            'Authorization': `${token}`
+          },
+                body:`client=${client}&table=${table}&products=${menu}`
+              })
+                .then((response) => response.json())
+                .then((json) => {
+                  console.log(json);
+                  setClient('');
+                  setTable('');
+                  setProducts('');
+                })
+                console.log('foi')
+            })} >ENVIAR</button>
       </header>
     </div>
   )
