@@ -29,7 +29,6 @@ export const NewOrder = () => {
       <main>
         <div className='container-menu'>
           <div className='radio-tile-group-menu'>
-
             <div className='input-container-menu'>
               <Input
                 inputRequired
@@ -49,7 +48,6 @@ export const NewOrder = () => {
                 <label htmlFor='breakfast' className='radio-tile-label-menu'>Café da manhã</label>
               </div>
             </div>
-
             <div className='input-container-menu'>
               <Input
                 inputRequired
@@ -68,6 +66,7 @@ export const NewOrder = () => {
               <div className='radio-tile-menu'>
                 <label htmlFor='all-day' className='radio-tile-label-menu'>Almoço/Jantar</label>
               </div>
+
               <section className={checkedMenu === 'breakfast' ? '' : 'hide'}>
                 <MenuSection
                   menuSectionTitle='Lanches'
@@ -77,7 +76,6 @@ export const NewOrder = () => {
                       console.log('misto')
                     }
                   }
-
                 />
                 <MenuSection
                   menuSectionTitle='Bebidas'
@@ -87,7 +85,6 @@ export const NewOrder = () => {
                       console.log('bebida-quente')
                     }
                   }
-
                 />
               </section>
               <section className={checkedMenu === 'all-day' ? '' : 'hide'}>
@@ -99,7 +96,6 @@ export const NewOrder = () => {
                       setShowModal(true)
                     }
                   }
-
                 />
                 <MenuSection
                   menuSectionTitle='Acompanhamentos'
@@ -109,7 +105,6 @@ export const NewOrder = () => {
                       console.log('acompanhamento')
                     }
                   }
-
                 />
                 <MenuSection
                   menuSectionTitle='Bebidas'
@@ -119,17 +114,18 @@ export const NewOrder = () => {
                       console.log('bebidas-frias')
                     }
                   }
-
                 />
               </section>
+
             </div>
           </div>
         </div>
       </main>
       <ReactModal
+        className='modal'
         isOpen={showModal}
-        contentLabel='Minimal Modal Example'>
-        Modal
+        contentLabel='Minimal Modal Example'
+      >Modal
       </ReactModal>
     </Fragment>
   )

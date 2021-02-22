@@ -1,0 +1,25 @@
+/* CSS RESET */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+/* GERAL STYLING */
+
+.section-container {
+	background-color: red;
+}
+
+.menu-section-title {
+	background-color: blue;
+}
+
+.menu-section-container {
+	background-color: green;
+}
+
+.menu-section {
+	background-color: pink;
+}

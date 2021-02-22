@@ -13,9 +13,7 @@ body {
 
 .container-menu {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+	justify-content: flex-start;
 }
 
 .radio-tile-group-menu {
@@ -25,7 +23,7 @@ body {
 }
 
 .input-container-menu {
-	padding-top: 0.9rem;
+	padding-top: 10rem;
 	position: relative;
 	height: 3rem;
 	width: 10em;
@@ -58,7 +56,7 @@ body {
 
 .radio-tile-label-menu {
 	text-align: center;
-	font-size: 0.75rem;
+	font-size: 0.9rem;
 	font-weight: 600;
 }
 
@@ -79,16 +77,14 @@ body {
 	flex-grow: 1;
 }
 
-.product-section {
-	max-width: 15vw;
+/*.product-section {
+	background-color: yellow;
 	height: auto;
-	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	flex-grow: 1;
 	padding: 1.5rem 0;
-}
+}*/
 
 .hide {
 	display: none;
