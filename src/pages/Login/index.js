@@ -30,24 +30,6 @@ function Login() {
       body: `email=${email}&password=${password}`
 
     })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        const token = json.token
-        const id = json.id
-
-        const tokenUser = localStorage.setItem("token", token)
-        const idUser = localStorage.setItem("id", id)
-
-        if (tokenUser !== null && idUser !== null && json.role === "salao") {
-          routerHall();
-        } else if (tokenUser !== null && idUser !== null && json.role === "cozinha") {
-          routerKitchen();
-        } else {
-          alert("Funcionário não encontrado!")
-        }
-      })
-
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
