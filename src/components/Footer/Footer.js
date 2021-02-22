@@ -6,7 +6,7 @@ const Footer = () => (
   <footer>
     <p className="github">
       <GoOctoface/> Desenvolvido por <a href="https://github.com/ale-alves"><strong> Alessandra Alves </strong></a> e
-       <a href="https://github.com/juliaterin"><strong> Julia Terin</strong></a>
+      <a href="https://github.com/juliaterin"><strong> Julia Terin</strong></a>
     </p>
   </footer>
 );
