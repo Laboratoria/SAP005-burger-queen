@@ -1,8 +1,9 @@
 
  
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import './Hall.css';
 import React, { useEffect, useState } from 'react';
+
 
 
 const Hall = () => {
@@ -41,19 +42,31 @@ const Hall = () => {
       })
   }, [])
 
-  const Adicionar = async(produto) => {
-    setResumoPedido([...resumoPedido, produto])
-    setPrecosProdutos([...precosProdutos, produto.price])
-    
+  const Adicionar = async(products) => {
+    /*const atualizarPedido = resumoPedido.map((itens)=>{
+      if (products.id == itens.id){
+        itens.order++
+        return itens;
+      }else{
+        return itens;
+      }
+     
+    })
+    console.log(precosProdutos);
+    setPrecosProdutos([...precosProdutos, products.price])*/
   }
+  /*useEffect(() => {
+    Adicionar()
+    }, [])*/
 
-  const handleExcluir = (produto) => {
-    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(produto), 1))
-    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto), 1))
+  const Excluir = (products) => {
+    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(products), 1))
+    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(products), 1))
     Somar();
   }
 
   const Somar = () => {
+    console.log(precosProdutos);
     setPrecoTotal(precosProdutos.reduce((total, num) => total + num))
   }
 
@@ -67,10 +80,10 @@ const Hall = () => {
       )
     })
 
-    const qtd = produtoApi.reduce(function (r, a) {
-      r[a.id] = r[a.id] || [];
-      r[a.id].push(a);
-      return r;
+    const qtd = produtoApi.reduce(function (acumulador, currentValue) {
+      acumulador[currentValue.id] = acumulador[currentValue.id] || [];
+      acumulador[currentValue.id].push(currentValue);
+      return acumulador;
     }, Object.create(null));
 
     const arrayProdutos = [];
@@ -88,7 +101,7 @@ const Hall = () => {
     fetch('https://lab-api-bq.herokuapp.com/orders', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': `${token}`
       },
       body: JSON.stringify(order)
@@ -103,7 +116,7 @@ const Hall = () => {
 
   return (
     <div>
-
+      
       <div className='info-client'>
         <label>
           Nome:
@@ -205,7 +218,9 @@ const Hall = () => {
               <td>{produto.name}</td>
               <td>{produto.complement === 'null' ? '' : produto.complement}</td>
               <td>R$ {produto.price},00</td>
-              
+              <td>
+                <button><i className = "fa fa-trash" aria-hidden="true" onClick= {() =>Excluir(produto)}></i></button>
+              </td>
             </tr>
           ))}
           <tr className='total'>
