@@ -91,9 +91,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 50rem;
-	height: 470px;
+	height: 50rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+	overflow: scroll;
 }
 
 .hide {

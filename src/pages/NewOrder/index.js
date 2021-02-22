@@ -79,8 +79,6 @@ export const NewOrder = () => {
                       }
                     }
                   />
-                </div>
-                <div className='div-container-menu-section'>
                   <MenuSection
                     menuSectionTitle='Bebidas'
                     products={products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')}
@@ -103,8 +101,6 @@ export const NewOrder = () => {
                       }
                     }
                   />
-                </div>
-                <div className='div-container-menu-section'>
                   <MenuSection
                     menuSectionTitle='Acompanhamentos'
                     products={products.filter((product) => product.sub_type === 'side')}
@@ -114,8 +110,6 @@ export const NewOrder = () => {
                       }
                     }
                   />
-                </div>
-                <div className='div-container-menu-section'>
                   <MenuSection
                     menuSectionTitle='Bebidas'
                     products={products.filter((product) => product.sub_type === 'drinks')}
