@@ -9,81 +9,66 @@ body {
 	font-family: "Work Sans";
 }
 
-/* TAB STYLING */
+/*RADIO INPUT*/
 
-.container {
-	width: 100%;
-	height: fit-content;
-}
-
-.tabby {
-	position: relative;
-	max-height: 2000px;
-	clear: both;
-	margin: 0 auto;
+.container-menu {
 	display: flex;
-	min-width: 700px;
-	max-width: 200px;
-	margin-top: 30px;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
-.tab {
-	float: left;
+.radio-tile-group-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.tab label {
-	background: #004c54;
-	padding: 10px;
-	color: #fff9d4;
-	margin-left: -1px;
+.input-container-menu {
+	padding-top: 0.9rem;
 	position: relative;
-	left: 1px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-	border-radius: 7px 7px 0px 0px;
-	font-size: 14px;
+	height: 3rem;
+	width: 10em;
+	margin: 0.5rem;
 }
 
-.tabby [type="radio"] {
-	display: none;
-}
-
-.content {
-	position: absolute;
-	top: 28px;
-	left: 0;
-	background-color: rgba(209, 18, 18, 0);
-	right: 0;
-	bottom: 0;
-	padding: 20px;
-	overflow: hidden;
-	height: fit-content;
-	border-radius: 0px 3px 3px 3px;
-}
-
-.content > * {
+.radio-button-menu {
 	opacity: 0;
-	transform: translateY(40px);
-	transition: transform 0.5s ease;
-	color: #fff9d4;
-	font-size: 12px;
-	line-height: 15px;
-	transition: transform 0.8s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
 }
 
-[type="radio"]:checked ~ label {
-	background: #21666e;
-	z-index: 2;
+.radio-tile-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #db9e36;
+	border-radius: 0.7rem;
+	padding: 1rem;
+	transition: transform 300ms ease;
 }
 
-[type="radio"]:checked ~ label ~ .content {
-	z-index: 1;
-	background-color: #21666e;
+.radio-tile-label-menu {
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 600;
 }
 
-[type="radio"]:checked ~ label ~ .content > * {
-	opacity: 1;
-	transform: translateY(0);
+.radio-button-menu:checked + .radio-tile-menu {
+	background-color: #004c54;
+	border: solid 2px #004c54;
+	border-radius: 0.7rem;
+}
+.radio-tile-label-menu {
+	color: #db9e36;
 }
 
 /* GENERAL STYLING */
@@ -103,4 +88,8 @@ body {
 	justify-content: space-between;
 	flex-grow: 1;
 	padding: 1.5rem 0;
+}
+
+.hide {
+	display: none;
 }

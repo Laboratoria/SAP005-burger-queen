@@ -6,10 +6,11 @@ export default function MenuItens({
   srcImg,
   altImg,
   productName,
-  productPrice
+  productPrice,
 }) {
   return (
     <Fragment>
+
       <section onClick={onClick} className='product-section'>
         <img
           className='product-img'
@@ -20,6 +21,7 @@ export default function MenuItens({
         <p className='product-price'>R$ {productPrice},00</p>
         <FaPlus className='icon-plus' />
       </section>
+
     </Fragment>
   )
 }

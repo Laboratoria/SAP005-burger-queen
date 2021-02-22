@@ -72,35 +72,33 @@ export const SignUp = () => {
 
           <p className='label-signup'>Qual setor você trabalha?<span className='required'> *</span></p>
           <div>
-
-            <div class="container">
-              <div class="radio-tile-group">
-                <div class="input-container">
+            <div className='container'>
+              <div className='radio-tile-group'>
+                <div className='input-container'>
                   <Input
                     inputRequired
                     inputId='kitchen'
-                    inputClassName="radio-button"
-                    inputType="radio"
-                    inputName="radio"
+                    inputClassName='radio-button'
+                    inputType='radio'
+                    inputName='radio'
                     inputValue='kitchen'
                     inputOnChange={
                       (event) => {
                         setJobPosition(event.target.value)
-                        console.log(jobPosition)
                       }
                     }
                   />
-                  <div class="radio-tile">
-                    <label htmlFor='kitchen' className="radio-tile-label">Cozinha</label>
+                  <div className='radio-tile'>
+                    <label htmlFor='kitchen' className='radio-tile-label'>Cozinha</label>
                   </div>
                 </div>
-                <div class="input-container">
+                <div className='input-container'>
                   <Input
                     inputRequired
-                    inputId="hall"
-                    inputClassName="radio-button"
-                    inputType="radio"
-                    inputName="radio"
+                    inputId='hall'
+                    inputClassName='radio-button'
+                    inputType='radio'
+                    inputName='radio'
                     inputValue='hall'
                     inputOnChange={
                       (event) => {
@@ -108,8 +106,8 @@ export const SignUp = () => {
                       }
                     }
                   />
-                  <div class="radio-tile">
-                    <label htmlFor='hall' class="radio-tile-label">Salão</label>
+                  <div className='radio-tile'>
+                    <label htmlFor='hall' className='radio-tile-label'>Salão</label>
                   </div>
                 </div>
               </div>
