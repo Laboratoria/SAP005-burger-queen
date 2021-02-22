@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { TOKEN } from '../../components/api';
-import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from  '../../components/stylesForm';
+import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from '../../components/stylesForm';
 import Burger from '../../images/burger.png'
 import Logo from '../../images/logoBranco.png'
 
@@ -21,10 +21,10 @@ const Login = () => {
     window.localStorage.setItem('token', token);
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
-        const {url, options } = TOKEN({
+
+        const { url, options } = TOKEN({
             email,
-            password, 
+            password,
         })
 
         const response = await fetch(url, options);
@@ -55,16 +55,16 @@ const Login = () => {
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
                 />
-            <Button>Entrar</Button>
-            <Register>
-                Não tem conta? <NavLink
-                    to="/register"
-                    style={{
-                        'color': '#F57F17',
-                        'fontWeight': 'bold',
-                    }}
-                > Registre-se</NavLink>
-            </Register>
+                <Button>Entrar</Button>
+                <Register>
+                    Não tem conta? <NavLink
+                        to="/register"
+                        style={{
+                            'color': '#F57F17',
+                            'fontWeight': 'bold',
+                        }}
+                    > Registre-se</NavLink>
+                </Register>
             </Form>
             <Template>
                 <Images>
