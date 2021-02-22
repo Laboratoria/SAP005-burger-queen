@@ -4,12 +4,6 @@
     padding: 0;
 }
 
-html, body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .Confirm {
     background-color: #F8CB00;
     display: flex;
@@ -17,12 +11,15 @@ html, body {
     justify-content: center;
     align-items: center;
     margin-left: 50px;
-    height: 500px;
+    height: 30%;
+    width: 100%;
 }
+
  .logo img {
      width: 100px;
      height: 100px;
- }
+}
+
 .Confirm-btn {
     width: 70%;
     background-color: white;
@@ -39,6 +36,7 @@ html, body {
     color: white;
     cursor: pointer;
 }
+
 .Confirm-sucess h1 {
   font-size: 30px;
   margin: 0;

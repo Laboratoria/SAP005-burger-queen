@@ -6,6 +6,7 @@ import Login  from "./pages/Login/index";
 import Register from "./pages/Register/index";
 import Confirm from "./pages/ConfirmCad/Confirm";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Hall from "./pages/Hall/Hall.js";
 
 
 ReactDOM.render(
@@ -15,9 +16,8 @@ ReactDOM.render(
       <Route path="/register" component={Register} />
       <Route path="/confirm" component={Confirm} />
       <Route path="/login" component={Login} />
-      {/* <Route path = "/salao" component={Salao} exact/>
-      <Route path = "/cozinha" component={Cozinha} exact/>
-      <Route path = "/salao/cafe" component={Cafe} exact/> */}
+      <Route path = "/hall" component={Hall} exact/>
+     
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

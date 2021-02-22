@@ -1,6 +1,7 @@
+
 import { React, useState } from "react";
 import "./register.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   MdPerson,
   MdEmail,
@@ -26,7 +27,7 @@ function Register() {
   const [role, setRole] = useState("");
 
   
-  function Registre(event) {
+  const Registre = (e) => {
     let valRegister = false;
     let nameOk = false;
     let emailOk = false;
@@ -49,8 +50,8 @@ function Register() {
     }
 
     if (valRegister === true) {
-      event.preventDefault();
-
+      e.preventDefault();
+    }
       fetch("https://lab-api-bq.herokuapp.com/users/", {
         method: "POST",
         headers: {
@@ -59,8 +60,11 @@ function Register() {
         },
         body: `email=${email}&password=${password}&role=${role}&restaurant=LaBurger&name=${name}`,
       })
-        .then((response) => response.json())
+      .then((response) => {
+        return response.json()
+        })
         .then((json) => {
+          console.log(json);
           if (json.id !== null) {
             routerConfirm();
           }
@@ -70,7 +74,7 @@ function Register() {
           setRole("");
         });
     }
-  }
+  
     const handleClick = (e) => {
       e.preventDefault();
       setShow(!show);
@@ -153,7 +157,7 @@ function Register() {
             </div>
 
             <div className="register-btn">
-              <button type="submit" onClick={Registre}>
+              <button type="submit" onClick={(e)=>Registre(e)}>
                 Registrar
               </button>
             </div>
@@ -164,4 +168,4 @@ function Register() {
     );
   };
 
-export default Register;
+export default Register

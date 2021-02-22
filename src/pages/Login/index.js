@@ -35,13 +35,15 @@ function Login() {
           console.log(json);
           const token = json.token
           const id = json.id
+          const name = json.name
   
           const tokenUser = localStorage.setItem("token", token)
           const idUser = localStorage.setItem("id", id)
+          const nameUser = localStorage.setItem("name", name)
 
-          if(tokenUser!== null && idUser!== null && json.role === "salao") {
+          if(tokenUser!== null && nameUser!== null && idUser!== null && json.role === "salao") {
             routerHall();
-          }else if(tokenUser!== null && idUser!== null && json.role === "cozinha") {
+          }else if(tokenUser!== null && nameUser!== null && idUser!== null && json.role === "cozinha") {
             routerKitchen();
           }else{
             alert("Funcionário não encontrado!")
