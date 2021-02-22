@@ -4,6 +4,10 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import {useStyles, NavBar} from '../../components.js';
 import '../../style.css';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Link} from 'react-router-dom';
+
+
 
 function Home(){
 
@@ -29,6 +33,7 @@ function Home(){
                 Pendentes
               </Button >           
             </Container>   
+            <Link to="/Hall"><ArrowBackIosIcon color="disabled" fontSize="large"/> </Link>
         </React.Fragment>
 
     );
