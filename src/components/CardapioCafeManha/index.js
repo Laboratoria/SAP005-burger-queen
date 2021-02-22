@@ -39,23 +39,8 @@ const CardapioCafeManha = () => {
       })
   }, [])
 
-  const handleAdicionar = async(produto) => {
-    setResumoPedido([...resumoPedido, produto])
-    setPrecosProdutos([...precosProdutos, produto.price])
-    
-  }
+  const tratarObjeto = () => {
 
-  const handleExcluir = (produto) => {
-    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(produto), 1))
-    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto), 1))
-    handleSomar();
-  }
-
-  const handleSomar = () => {
-    setPrecoTotal(precosProdutos.reduce((total, num) => total + num))
-  }
-
-  const handleSubmit = () => {
     const produtoApi = resumoPedido.map((produto) => {
       return (
         {
@@ -74,15 +59,36 @@ const CardapioCafeManha = () => {
     const arrayProdutos = [];
     for (const [key, value] of Object.entries(qtd)) {
       arrayProdutos.push({
-        id: key,
+        id: Number(key),
         qtd: value.length
       });
     }
-    
-    setOrder({ ...order, 'products': arrayProdutos })
 
-    console.log(order)
+    setOrder({ ...order, products: arrayProdutos })
+  }
 
+  useEffect(() => {
+    tratarObjeto();
+  }, [resumoPedido])
+
+  const handleAdicionar = (produto) => {
+    setResumoPedido([...resumoPedido, produto])
+    setPrecosProdutos([...precosProdutos, produto.price])
+  }
+
+  const handleExcluir = (produto) => {
+    setPrecoTotal(precosProdutos.splice(resumoPedido.indexOf(produto), 1))
+    setProdutoExcluído(resumoPedido.splice(resumoPedido.indexOf(produto), 1))
+    handleSomar();
+  }
+
+
+  const handleSomar = (e) => {
+    e.preventDefault();
+    setPrecoTotal(precosProdutos.reduce((total, num) => total + num))
+  }
+
+  const enviarAPI = () => {
     fetch('https://lab-api-bq.herokuapp.com/orders', {
       method: 'POST',
       headers: {
@@ -91,13 +97,23 @@ const CardapioCafeManha = () => {
       },
       body: JSON.stringify(order)
     })
-      .then((response) => {
-        response.json()
-      })  
+      .then((response) => { response.json()})
       .then(data => {
         console.log(data)
       })
   }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(order)
+
+    enviarAPI();
+
+  }
+
+
 
   return (
     <div>
@@ -211,8 +227,8 @@ const CardapioCafeManha = () => {
           <tr className='total'>
             <th className='item-total'><h4>Total:</h4></th>
             <th className='item-total'><h4>R$ {precoTotal},00</h4></th>
-            <th><button onClick={() => handleSomar()}>Somar</button></th>
-            <th><button onClick={() => handleSubmit()}>FINALIZAR</button></th>
+            <th><button onClick={handleSomar}>Somar</button></th>
+            <th><button onClick={handleSubmit}>FINALIZAR</button></th>
           </tr>
         </tbody>
       </table>
