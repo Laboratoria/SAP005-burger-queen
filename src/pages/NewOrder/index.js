@@ -67,64 +67,63 @@ export const NewOrder = () => {
               <div className='radio-tile-menu'>
                 <label htmlFor='all-day' className='radio-tile-label-menu'>Almoço/Jantar</label>
               </div>
-
-              <section className='section-breakfast' className={checkedMenu === 'breakfast' ? '' : 'hide'}>
-                <div className='div-container-menu-section'>
-                  <MenuSection
-                    menuSectionTitle='Lanches'
-                    products={products.filter((product) => product.name === 'Misto quente')}
-                    onClick={
-                      () => {
-                        console.log('misto')
-                      }
-                    }
-                  />
-                  <MenuSection
-                    menuSectionTitle='Bebidas'
-                    products={products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')}
-                    onClick={
-                      () => {
-                        console.log('bebida-quente')
-                      }
-                    }
-                  />
-                </div>
-              </section>
-              <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
-                <div className='div-container-menu-section'>
-                  <MenuSection
-                    menuSectionTitle='Hambúrguer'
-                    products={products.filter((product) => product.sub_type === 'hamburguer' && (product.id === 33 || product.id === 42))}
-                    onClick={
-                      () => {
-                        setShowModal(true)
-                      }
-                    }
-                  />
-                  <MenuSection
-                    menuSectionTitle='Acompanhamentos'
-                    products={products.filter((product) => product.sub_type === 'side')}
-                    onClick={
-                      () => {
-                        console.log('acompanhamento')
-                      }
-                    }
-                  />
-                  <MenuSection
-                    menuSectionTitle='Bebidas'
-                    products={products.filter((product) => product.sub_type === 'drinks')}
-                    onClick={
-                      () => {
-                        console.log('bebidas-frias')
-                      }
-                    }
-                  />
-                </div>
-              </section>
-
             </div>
           </div>
         </div>
+
+        <section className='section-breakfast' className={checkedMenu === 'breakfast' ? '' : 'hide'}>
+          <div className='div-container-menu-section'>
+            <MenuSection
+              menuSectionTitle='Lanches'
+              products={products.filter((product) => product.name === 'Misto quente')}
+              onClick={
+                () => {
+                  console.log('misto')
+                }
+              }
+            />
+            <MenuSection
+              menuSectionTitle='Bebidas'
+              products={products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')}
+              onClick={
+                () => {
+                  console.log('bebida-quente')
+                }
+              }
+            />
+          </div>
+        </section>
+        <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
+          <div className='div-container-menu-section'>
+            <MenuSection
+              menuSectionTitle='Hambúrguer'
+              products={products.filter((product) => product.sub_type === 'hamburguer' && (product.id === 33 || product.id === 42))}
+              onClick={
+                () => {
+                  setShowModal(true)
+                }
+              }
+            />
+            <MenuSection
+              menuSectionTitle='Acompanhamentos'
+              products={products.filter((product) => product.sub_type === 'side')}
+              onClick={
+                () => {
+                  console.log('acompanhamento')
+                }
+              }
+            />
+            <MenuSection
+              menuSectionTitle='Bebidas'
+              products={products.filter((product) => product.sub_type === 'drinks')}
+              onClick={
+                () => {
+                  console.log('bebidas-frias')
+                }
+              }
+            />
+          </div>
+        </section>
       </main>
       <ReactModal
         className='modal'

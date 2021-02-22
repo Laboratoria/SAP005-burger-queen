@@ -95,11 +95,14 @@ body {
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	max-width: 50rem;
-	height: 32rem;
+	width: 30rem;
+	height: 28rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
-	overflow: scroll;
+	margin-left: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	white-space: nowrap;
 }
 
 /* ScrollBar */
