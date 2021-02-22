@@ -17,7 +17,8 @@ function Header() {
     return (
         <>
             <header>
-                <img className="img-header" alt="imagem-logo" src={logoBack} onClick={(event) => handleNavigate(event, '/salao')}></img>
+                <img className="img-header" alt="imagem-logo" src={logoBack} 
+                    onClick={(event) => handleNavigate(event, '/salao')}/>
                 <section className="header-input">
                     <input 
                         id="fazer-pedido"
@@ -44,7 +45,12 @@ function Header() {
                     ></input>
                     <label for="pedidos-entregues">Pedidos Entregues</label>
                 </section>
-                <img className="img-header" alt="imagem-sair" src={logout} onClick={(event) => handleNavigate(event, '/')}></img>
+                <img className="img-header" alt="imagem-sair" src={logout} 
+                    onClick={(event) => {
+                        handleNavigate(event, '/')
+                        localStorage.clear()
+                    }
+                }/>
             </header>
             <p className="nome-atendente">Atendente: {atendente}</p>
         </>

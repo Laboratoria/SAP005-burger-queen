@@ -8,13 +8,13 @@ const ErrorModal = ({ id = 'modal' ,onClose = () => {}, children }) =>{
   }
 
   return (
-      <div id={id} className="modal" onClick={handleOutsideClick}>
-        <div className="container">
-          <h2>Opss!</h2>
-          <div className="content">{children}</div>
-          <button className="close" onClick={onClose}>Ok</button>
-        </div>
+    <div id={id} className="modal" onClick={handleOutsideClick}>
+      <div className="container">
+        <h2>Opss!</h2>
+        <div className="content">{children}</div>
+        <button className="close" onClick={onClose}>Ok</button>
       </div>
+    </div>
   );
 };
 
