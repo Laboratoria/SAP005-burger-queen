@@ -9,6 +9,7 @@ import Frango from '../images/Ícones/frango.png';
 import Veggie from '../images/Ícones/planta.png';
 import Ovo from '../images/Ícones/ovo.png';
 import Queijo from '../images/Ícones/queijo.png';
+import Loading from '../components/Loading';
 
 function PaginaPedidos(){
     const {mesa} = useParams();
@@ -68,46 +69,56 @@ function PaginaPedidos(){
         
     }, [token]);
 
-    const hamburguers = [{name: "carne", img: Vaca}, {name: "frango", img: Frango}, {name: "vegetariano", img: Veggie},];
+    const hamburguers = [{name: "carne", img: Vaca, label: "carne"}, {name: "frango", img: Frango, label: "frango"}, {name: "vegetariano", img: Veggie, label: "veggie"},];
     const adicionais = [{name: "ovo", img: Ovo}, {name:"queijo", img: Queijo}];
 
     function extras() {
         return (
-            <>
-            <p>Hambúrguer</p>
-            {hamburguers.map(tipoHamburguer => (
-                <label key={tipoHamburguer.name}>
-                    <input
-                        className="button-extra-hamburguer"
-                        type="radio"
-                        name="escolher-hamburguer"
-                        id={tipoHamburguer.name}
-                        onChange={(event) => {
-                            setSelectedBurger(selectedBurger.flavor = event.currentTarget.id);
-                            setSelectedBurger({...selectedBurger, flavor: event.currentTarget.id});
-                        }}
-                    />
-                    <img className="button-extra-hamburguer" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
-                </label>
-                
-            ))}
-            <p>Adicionais R$1</p>
-            {adicionais.map(tipoAdicional => (
-                <label key={tipoAdicional.name}>
-                    <input
-                        className="button-extra-adicionais"
-                        type="radio"
-                        name="escolher-adicional"
-                        id={tipoAdicional.name}
-                        onChange={(event) => {
-                            setSelectedBurger({...selectedBurger, complement: event.currentTarget.id});
-                        }}
-                    />
-                    <img className="button-extra-adicionais" alt={tipoAdicional.name} src={tipoAdicional.img} />
-                </label>
-               
-            ))}
-            </>
+          <>
+            <section className="opcoes-burguer">
+              <p className="titulo-extras">Hambúrguer</p>
+              <section className="img-input-extras">
+              {hamburguers.map(tipoHamburguer => (
+                <>
+                  <input
+                    key={tipoHamburguer.name}
+                    type="radio"
+                    name="escolher-hamburguer"
+                    id={tipoHamburguer.name}
+                    onChange={(event) => {
+                      setSelectedBurger(selectedBurger.flavor = event.currentTarget.id);
+                      setSelectedBurger({...selectedBurger, flavor: event.currentTarget.id});
+                    }}
+                  />
+                  <label for={tipoHamburguer.name} >
+                    <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
+                  {tipoHamburguer.label}</label>
+                </>
+              ))}
+              </section>
+            </section>
+            <section className="opcoes-adicionais">
+              <p className="titulo-extras">Adicionais R$1</p>
+              <section className="img-input-extras">
+              {adicionais.map(tipoAdicional => (
+                <>
+                  <input
+                    key={tipoAdicional.name}
+                    type="radio"
+                    name="escolher-adicional"
+                    id={tipoAdicional.name}
+                    onChange={(event) => {
+                      setSelectedBurger({...selectedBurger, complement: event.currentTarget.id});
+                    }}
+                  />
+                  <label for={tipoAdicional.name} >
+                    <img className="img-button-extra" alt={tipoAdicional.name} src={tipoAdicional.img} />
+                  {tipoAdicional.name}</label>
+                </> 
+              ))}
+              </section>
+            </section>
+          </>
         )
     }
 
@@ -145,122 +156,129 @@ function PaginaPedidos(){
         console.log(precoTotal);
       }, [precoTotal, resumoPedido, fazerPedido])
 
-    return (
-        <>
-        <Header />
-        <main>
+  return (
+    <>
+      <Header />
+        <main className="pagina-pedido">
             {loading ? 
             (
-                <p>Carregando</p>
+              <Loading />
             ) : (
                 <>
-                <input type="button" value="Voltar" onClick={() => {
-                    history.push({
-                    pathname: `/salao`,
-                    })
-                }}/>
-
-                <p>Pedido Mesa {mesa}</p>
-
-                <input 
-                    type="text" 
-                    placeholder="Nome do Cliente"
-                    onChange={(event) => {
-                        setFazerPedido({...fazerPedido, "client": event.target.value})
-                    }}
-                />
-
-                <button onClick={() => setMenus(true)}>Café da Manhã</button>
-
-                <button onClick={() => setMenus(false)}>Almoço/Jantar</button>
-
-            
-                {menus ? (
-                    <ul className="lista-menu">
+                  <section className="menu-escolha">
+                    <section className="buttons-menu-escolha">
+                      <button className="button-menu-escolha" onClick={() => setMenus(true)}>Café da Manhã</button>
+                      <button className="button-menu-escolha" onClick={() => setMenus(false)}>Almoço/Jantar</button>
+                    </section>
+                
+                    {menus ? (
+                      <ul className="lista-menu">
                         {menuCafe.map((produto, index) => (
-                            <li key={index}>
-                                <label>{`${produto.name} R$${produto.price}`}</label>
-                                <input
-                                    className="button-adicionar"
-                                    id={produto.name}
-                                    type="image"
-                                    alt="button-adicionar"
-                                    src={Adicionar}
-                                    onClick={() => {
-                                        setPrecoTotal([...precoTotal, menuCafe[index].price]);
-                                        setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price, "qtd": quantidade}]);
-                                        setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": quantidade}]);
-                                    }}
-                                />
-                            </li>
+                          <li key={index} className="item-lista-menu">
+                            <label>{`${produto.name} R$${produto.price}`}</label>
+                            <input
+                              className="button-adicionar"
+                              id={produto.name}
+                              type="image"
+                              alt="button-adicionar"
+                              src={Adicionar}
+                              onClick={() => {
+                                setPrecoTotal([...precoTotal, menuCafe[index].price]);
+                                setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price}]);
+                                setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
+                              }}
+                            />
+                          </li>
                         ))}
-                    </ul>
-                ) : (
-                    <ul className="lista-menu">
+                      </ul>
+                    ) : (
+                      <ul className="lista-menu">
                         {menuAlmoco.map((produto, index) => (
-                            <li key={index}>
-                                <p>{`${produto.name} R$${produto.price}`}</p>
-                                <input
-                                    className="button-adicionar"
-                                    id={produto.name}
-                                    type="image"
-                                    alt="button-adicionar"
-                                    src={Adicionar}
-                                    name={produto.id}
-                                    onClick={(event) => {
-                                        handleExtras(event);
-                                    //     if(produto.name === "Hambúrguer simples" || produto.name === "Hambúrguer duplo"){
-                                    //         setSelectedBurger(selectedBurger.name = event.currentTarget.id);
-                                    //         setSelectedBurger({...selectedBurger, name: event.currentTarget.id});
-                                    //     } else {
-                                    //         setPedido([...pedido, {name: event.currentTarget.id, id: event.currentTarget.name, qtd: 1}])
-                                    //         pedido.map((item) => (
-                                    //             item.name === event.currentTarget.id ? (
-                                    //                 setPedido([...pedido, {name: item.name, id: event.currentTarget.name, qtd: item.qtd++}]) 
-                                    //             ) : (
-                                    //                 null
-                                    //             )
-                                    //         ))
-                                    //     }                                        
-                                    }}
-                                />
-                                {openExtrasBurgerSimples === true && produto.name === "Hambúrguer simples" && <div>{extrasBurgerSimples}</div>}
-                                {openExtrasBurgerDuplo === true && produto.name === "Hambúrguer duplo" && <div>{extrasBurgerDuplo}</div>}
-                            </li>
+                          <li key={index} className="item-lista-menu">
+                            <label>{`${produto.name} R$${produto.price}`}</label>
+                            <input
+                              className="button-adicionar"
+                              id={produto.name}
+                              type="image"
+                              alt="button-adicionar"
+                              src={Adicionar}
+                              name={produto.id}
+                              onClick={(event) => {
+                                handleExtras(event);
+                                // if(produto.name === "Hambúrguer simples" || produto.name === "Hambúrguer duplo"){
+                                //   setSelectedBurger(selectedBurger.name = event.currentTarget.id);
+                                //   setSelectedBurger({...selectedBurger, name: event.currentTarget.id});
+                                // } else {
+                                //   setPedido([...pedido, {name: event.currentTarget.id, id: event.currentTarget.name, qtd: 1}])
+                                //   pedido.map((item) => (
+                                //     item.name === event.currentTarget.id ? (
+                                //       setPedido([...pedido, {name: item.name, id: event.currentTarget.name, qtd: item.qtd++}]) 
+                                //     ) : (
+                                //       null
+                                //     )
+                                //   ))
+                                // }                                        
+                              }}
+                            />
+                            {openExtrasBurgerSimples === true && produto.name === "Hambúrguer simples" && <section className="menu-extras">{extrasBurgerSimples}</section>}
+                            {openExtrasBurgerDuplo === true && produto.name === "Hambúrguer duplo" && <section className="menu-extras">{extrasBurgerDuplo}</section>}
+                          </li>
                         ))}
-                    </ul>
-                )}
+                      </ul>
+                    )}
+                  </section>
 
-                {resumoPedido !== [] && <>
-                    {resumoPedido.map((item, index) => (
-                        <div key={index}>
-                            <p>{item.name}</p>
-                            <p>R${item.price}</p>
-                        </div>
+                  <section className="resumo-pedido">
+                    <p className="titulo-resumo-pedido">Resumo do Pedido</p>
+                    <p className="infos-resumo-pedido">Atendente: {atendente} | Mesa {mesa}</p>
+                    <input className="cliente-resumo-pedido"
+                      type="text" 
+                      placeholder="Nome do Cliente"
+                      onChange={(event) => {
+                        setFazerPedido({...fazerPedido, "client": event.target.value})
+                      }}
+                    />
+
+                    {resumoPedido !== [] && 
+                      <>
+                        <section className="titulo-lista-pedido">
+                          <label>Item/Valor</label>
+                          <label>Quantidade</label> 
+                        </section>
+                        <ul className="lista-pedido">
+                        {resumoPedido.map((item, index) => (
+                          <>
+                            <li className="item-lista-pedido" key={index}>
+                              <label>{item.name} R${item.price}</label>
+                            </li>
+                          </>
                         ))}
-                        <p>TOTAL: R${somarPrecoTotal(precoTotal)}</p>
-                        <input
+                        </ul>
+                        <p className="total-resumo-pedido">TOTAL: R${somarPrecoTotal(precoTotal)}</p>
+                        <section className="buttons-resumo-pedido">
+                          <input className="button-resumo-pedido"
                             type="button"
-                            value="Fazer Pedido"
+                            value="Enviar Pedido"
                             onClick={() => {
-                                setFazerPedido({...fazerPedido, "products": produtosPedido});
+                              setFazerPedido({...fazerPedido, "products": produtosPedido});
                             }}
-                        />
-                        <input
+                          />
+                          <input className="button-resumo-pedido"
                             type="button"
                             value="Limpar Pedido"
                             onClick={() => {
-                                setPrecoTotal([0]);
-                                setResumoPedido([]);
-                                setProdutosPedido([]);
+                              setPrecoTotal([0]);
+                              setResumoPedido([]);
+                              setProdutosPedido([]);
                             }}
-                        />
-                    </>
-                }
-
+                          />
+                        </section>
+                      </>
+                    }
+                  </section>
                 </>
-            )
-        }
+              )
+            }
         </main>
         <Footer />
         </>   

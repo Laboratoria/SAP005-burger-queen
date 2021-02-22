@@ -1,11 +1,11 @@
 import '../style/pagina404.css'
-import React, {useState} from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
+import Loading from '../components/Loading';
 
 function Pagina404() {
-    const [isModalVisible, setIsModalVisible] = useState(false);
     const history = useHistory()
 
     const handleNavigate = (event, path) => {
