@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import Logo from '../../Components/Logo';
+import styles from './login.module.css';
+// import MailIcon from '../Icons/MailIcon.png';
+// import PadlockIcon from '../Icons/PadlockIcon.png';
 
 function Login() {
   const history = useHistory();
@@ -41,37 +45,52 @@ function Login() {
       });
   };
 
-  return (
-    <div>
-      <h1>Login</h1>
-      <form className="login" onSubmit={handleClick}>
-        <label htmlFor="email">Email:</label>
-        <input
-          className="login"
-          type="Email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-        <p />
-        <label htmlFor="passowrd">Senha: </label>
-        <input
-          className="login"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-        />
-        <p />
 
-        <label htmlFor="login">Login:</label>
-        <button type="submit" id="button" onClick={handleClick}>
-          Entrar
-        </button>
+  return (    
+    <div className={styles.conteiner}>                       
+      <div className={styles.firstContent}>                  
+        <Logo/>          
+      </div>
 
-        <p>Não tem uma conta?</p>
-        <Link to="/Register">Cadastrar</Link>
-      </form>
+      <div className={styles.secondContent}> 
+        <h2 className={styles.title}>LOGIN</h2>   
+
+        <form className={styles.form} onSubmit={handleClick}>          
+          <label htmlFor="email" className={styles.labelInput}>      
+              {/* <img src={MailIcon} className={styles.icon}/>           */}
+            <input
+              className={styles.input}
+              type="email"
+              value={email}
+              placeholder="email"
+              onChange={(event) => setEmail(event.target.value)}
+              autocomplete="on"
+              required
+            />
+          </label>
+
+          <label htmlFor="password" className={styles.labelInput}>
+              {/* <img src={PadlockIcon} className={styles.icon}/>  */}
+            <input
+              className={styles.input}
+              type="password"
+              value={password}
+              placeholder="senha"
+              onChange={(event) => setPassword(event.target.value)}
+              autocomplete="off"
+              required
+            />
+          </label>
+
+          <button className={styles.button} type="submit" id="button" onClick={handleClick}>
+            Entrar
+          </button>
+
+          <p className={styles.noRegister}>Não tem uma conta?</p>
+            <Link to="/Register" className={styles.register}>Cadastrar</Link>
+        
+        </form>
+      </div>
     </div>
   );
 }
