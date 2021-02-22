@@ -9,13 +9,14 @@
 
 .menu-section-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 	background-color: red;
 }
 
 .menu-section-title {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 	background-color: blue;
 	display: flex;
 	flex-direction: column;

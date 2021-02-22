@@ -96,7 +96,7 @@ export const NewOrder = () => {
         <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
           <div className='div-container-menu-section'>
             <MenuSection
-              menuSectionTitle='Hambúrguer'
+              menuSectionTitle='Hambúrgueres'
               products={products.filter((product) => product.sub_type === 'hamburguer' && (product.id === 33 || product.id === 42))}
               onClick={
                 () => {
