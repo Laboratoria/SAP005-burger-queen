@@ -11,55 +11,44 @@ const Hall = () => {
     const [cartData, setCartData] = useState({});
     const [cartTotal, setCartTotal] = useState(0);
 
-
     useEffect(async function(token){
-
         const { url, options } = USER(token);
         const response = await fetch(url, options);
         const json = await response.json();
         setMenuData(json);
-
-                // setMenuData(json);
-         const breakfast = () => ( json.filter(item => item.type === 'breakfast'))
-    setMenuData(breakfast)
-
+        // setMenuData(json);
+        const breakfast = () => ( json.filter(item => item.type === 'breakfast'))
+        setMenuData(breakfast)
     })
 
     // const breakfast = menuData.filter(item => item.type === 'breakfast')
     // setMenuData(breakfast)
     // const breakfast = menuData.slice(0, 4);
-      
-
     useEffect(() => {
         let total = 0;
         Object.keys(cartData).map((sku) => {
             let qty = cartData[sku];
             let price = menuData[sku].price;
             return (total += qty * price);
-
         })
         setCartTotal(total);
-
     }, [cartData])
+
     const addToCart = sku => {
         let newCart = { ...cartData };
-
         if (sku in cartData) {
             newCart[sku] += 1;
         }
         else {
             newCart[sku] = 1;
         }
-
         setCartData(newCart);
     };
 
     const reduceFromCart = sku => {
         let newCart = { ...cartData };
-
         if (sku in cartData) {
             newCart[sku] -= 1;
-
             if (newCart[sku] < 1) delete newCart[sku];
         }
         setCartData(newCart);
