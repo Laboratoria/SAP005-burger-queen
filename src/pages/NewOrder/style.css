@@ -79,7 +79,7 @@ body {
 	flex-grow: 1;
 }
 
-.product-section {
+/*.product-section {
 	background-color: yellow;
 	margin-top: 5rem;
 	height: auto;
@@ -87,8 +87,20 @@ body {
 	flex-direction: column;
 	flex-grow: 1;
 	padding: 1rem 0;
-}
+}*/
 
 .hide {
 	display: none;
+}
+
+.modal {
+	width: 60vh;
+	height: 60vh;
+	background: #fff9d4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3rem;
+	text-align: center;
+	margin: 9rem auto;
 }
