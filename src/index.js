@@ -9,7 +9,29 @@ import Register from "./Pages/Register";
 import Saloon from "./Pages/Saloon";
 import Kitchen from "./Pages/Kitchen";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
+const isAuth = () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    { ...rest }
+    render={props => (
+      isAuth() ? (
+        <Component{...props} />
+      ) : (
+        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+     )
+    )}
+  />
+)
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,8 +39,8 @@ ReactDOM.render(
       <Switch>
         <Route path="/" component={Login} exact />
         <Route path="/register" component={Register} exact />
-        <Route path="/saloon" component={Saloon} exact />
-        <Route path="/kitchen" component={Kitchen} exact />
+        <PrivateRoute path="/saloon" component={Saloon} exact />
+        <PrivateRoute path="/kitchen" component={Kitchen} exact />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
