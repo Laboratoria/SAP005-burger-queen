@@ -69,11 +69,11 @@ const Hall = () => {
                         'fontSize': '30px',
                         'color': '#fff',
                         'cursor': 'pointer',
-                        'margin-left': '990px',
-                        'border-radius': '0 0 10px 10px',
+                        'marginLeft': '990px',
+                        'borderRadius': '0 0 10px 10px',
                         'height': '50px',     
                         'width':'200px',
-                        'box-shadow': '9px 9px 19px #909092, -9px -9px 19px #fff'
+                        'boxShadow': '9px 9px 19px #909092, -9px -9px 19px #fff'
                     }}
                 >Pedidos
                     </button>

@@ -48,7 +48,7 @@ export const Form = styled.form`
 `;
 
 export const Page = styled.div`
-// box-shadow:  26px 26px 26px 15px black;
+
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -57,6 +57,8 @@ export const Page = styled.div`
     margin-left: 22%;
     margin-top: 8%;
     padding-bottom: 8%;
+    // box-shadow:  -9px 9px 14px rgba(0, 0, 0, 0.5),
+    //         9px -9px 14px #ffffff;
 `;
 
 export const Images = styled.div`
