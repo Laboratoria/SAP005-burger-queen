@@ -52,7 +52,7 @@ const Hall = () => {
                 e.preventDefault();
                 breakfast();
               }}
-              children="Menu café da manhã"
+              children="Menu - Café da manhã"
             />
           </div>
 
@@ -62,7 +62,7 @@ const Hall = () => {
                 e.preventDefault();
                 burger();
               }}
-              children="Menu hamburguers"
+              children="Menu - Burgers"
             />
           </div>
 
