@@ -2,7 +2,7 @@ import  React from 'react';
 import {Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
 
-const Header = () => {
+const NavBar = () => {
 
     return (
         <header>                    
@@ -26,7 +26,7 @@ const Header = () => {
     )
 }
 
-export default Header
+export default NavBar
 
 
 

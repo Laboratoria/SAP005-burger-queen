@@ -20,7 +20,7 @@ const Register = () => {
     history.push("/hall");
   };
   const routerKitchen = () => {
-    history.push("/kitchen");
+    history.push("/Kitchen");
   };
 
   const handleSubmit = (event) => {

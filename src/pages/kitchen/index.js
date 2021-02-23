@@ -8,4 +8,4 @@ function Kitchen(){
         </div>
     )
 }
-export default Kitchen
+export default Kitchen;
