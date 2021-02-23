@@ -29,6 +29,7 @@ function Registry() {
       handleRegistry();
     else {
       const errorPassword = 'As senha não são iguais. \nTente novamente!'
+      alert(errorPassword)
     }   
   }
 
@@ -56,6 +57,7 @@ function Registry() {
         }
         else{
         const errorMessage =  json.message
+        alert(errorMessage)
         }
       })
   }

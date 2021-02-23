@@ -16,6 +16,7 @@ const Menu = () => {
   const [breakefast, setBreakfast] = useState([]);
   const [hamburguers, setHamburguers] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -27,19 +28,29 @@ const Menu = () => {
     })
       .then(response => response.json())
       .then(data => {
-        const products = data;
         console.log(data);
-
-        const productsBreakfast = products.filter(itens => itens.type===('breakfast'));
-        setBreakfast(productsBreakfast);
-
-        const productsHamburguers = products.filter(itens => itens.sub_type===('hamburguer'));
-        setHamburguers(productsHamburguers);
-        
-        const productsDrinks = products.filter(itens => itens.sub_type===('drinks'));
-        setDrinks(productsDrinks);
+        setList(data) 
       })
   }, [])
+
+  const listBreakFast = () => {
+    console.log(list)
+    const productsBreakfast = list.filter(itens => itens.type===('breakfast'));
+      setBreakfast(productsBreakfast); 
+  }
+
+  const listHamburguer = () => {
+    console.log(list)
+    const productsHamburguers = list.filter(itens => itens.sub_type===('hamburguer'));
+      setHamburguers(productsHamburguers);
+  }
+
+  const listDrinks = () => {
+    console.log(list)
+    const productsDrinks = list.filter(itens => itens.sub_type===('drinks'));
+      setDrinks(productsDrinks);
+    
+  }
 
   return (
     <div>
@@ -55,7 +66,7 @@ const Menu = () => {
 
         <div>
           <div>
-            <h1>Café</h1>
+            <button onClick={listBreakFast}>Café da manhã</button>
             {breakefast.map((produto) => (
               <div key={produto.id}>
                 <p>{produto.name} R$ {produto.price},00 {produto.complement} <IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
@@ -63,7 +74,7 @@ const Menu = () => {
             ))}
           </div>
           <div>
-            <h1>Resto do dia</h1>
+            <button onClick={listHamburguer}>Hamburguers</button>
             {hamburguers.map((produto) => (
               <p key={produto.id}>
                 <p>{produto.name} {produto.flavor} {produto.complement} R$ {produto.price},00<IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
@@ -71,7 +82,7 @@ const Menu = () => {
             ))}
           </div>
           <div>
-            <h1>Bebidas</h1>
+            <button onClick={listDrinks}>Bebidas</button>
             {drinks.map((produto) => (
               <p key={produto.id}>
                 <p>{produto.name} R$ {produto.price},00<IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
