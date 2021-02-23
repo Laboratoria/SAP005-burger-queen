@@ -29,10 +29,6 @@ function Login() {
       },
       body: `email=${email}&password=${password}`
     })
-<<<<<<< HEAD:src/pages/Login/Login.js
-
-=======
->>>>>>> fc8213de9ead88b146a9e08daa4eac16a2268757:src/pages/Login/index.js
         .then((response) => response.json())
         .then((json) => {
           console.log(json);

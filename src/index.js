@@ -1,14 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-<<<<<<< HEAD
 
 import Login  from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-=======
-import Login  from "./pages/Login/index";
-import Register from "./pages/Register/index";
->>>>>>> fc8213de9ead88b146a9e08daa4eac16a2268757
 import Confirm from "./pages/ConfirmCad/Confirm";
 import Hall from "./pages/Hall/Hall.js";
 import Kitchen from "./pages/Kitchen/Kitchen.js"
