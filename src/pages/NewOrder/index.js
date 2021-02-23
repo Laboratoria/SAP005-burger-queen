@@ -11,8 +11,8 @@ import './style.css'
 
 export const NewOrder = () => {
 
-  const [products, setProducts] = useState([])
   const [showModal, setShowModal] = useState(false)
+  const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
   const [burgerMeat, setBurgerMeat] = useState('')
   const [burgerChicken, setBurgerChicken] = useState('')

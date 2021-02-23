@@ -121,24 +121,13 @@ export const SignUp = () => {
             onClick={
               async (event) => {
                 event.preventDefault()
-                const response = await createUser(
+                await createUser(
                   userName,
                   userEmail,
                   userPassword,
                   jobPosition
                 )
-                console.log(response)
-
-                localStorage.setItem('userName', response.client_name)
-                localStorage.setItem('userToken', response.token)
-                localStorage.setItem('userRole', response.role)
-
-                if (localStorage.getItem('userToken') !== null) {
-                  history.push('/')
-                }
-                else {
-                  console.log('não cadastrado')
-                }
+                history.push('/')
               }
             }
           />
