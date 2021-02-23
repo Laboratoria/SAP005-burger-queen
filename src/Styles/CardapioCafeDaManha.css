@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    color: #fff;
+}
+
+.info-client{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+label{
+    font-family: 'Oswald', sans-serif;
+    font-size: 18pt;
+    text-align: center;
+    margin-left: 1em;
+    margin-bottom: 1em;
+
+}
+
+label> input{
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 12pt;
+    text-align: center;
+    margin-left: 1em;
+    border-radius: .2em;
+    height: 2em;
+    width: 14em;
+    border: none;
+    outline: none;
+}
+
+label> input:focus, :active{
+    border: none;
+    background-color:#ebe7e1;
+}
+
+
+th{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    font-size: 25pt;
+    letter-spacing: 2px;
+    padding-right: 3em;
+    text-align: start;
+    text-transform: uppercase;
+}
+
+td{
+    font-family: 'Open Sans', sans-serif;    
+    text-align: start;
+    text-transform: capitalize;
+    padding: 1.2em 5em 0 0;
+    font-size: 15pt;
+    font-weight: 100;
+}
+
+button{
+    background-color: #E5A33E;
+    font-family: 'Open Sans', sans-serif;  
+    font-size: 20pt;
+    border: none;
+    color: black;
+    border-radius: 2em;
+    margin-left: .5em;
+    cursor: pointer;
+    padding: .1em .8em;
+    font-weight: 1000;
+    box-shadow: 2px 1px 2px 0 rgba(250, 247, 247, 0.16);
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    outline: none;
+}
+
+button:hover{
+    background-color: #ecb868;
+    transform:scale(.9);
+}
+
+.itens{
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    border-style: double;
+    border-radius: 1em;
+    padding: 1em;
+    border-color:#E5A33E;
+}
+
+h5{
+    font-family: 'Oswald', sans-serif;
+    font-size: 25pt;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #E5A33E;
+    color: #000;
+    font-weight: 700;
+    padding: .2em 2em;
+
+}
+
+
+h4{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30pt;
+    text-align: center;
+    font-weight: 300;
+
+}
+
+.resumo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.icon-trash{
+    max-width: 1.5em;
+    padding: .2em
+}
+
+.icon-trash:hover{
+   opacity: .8;
+}
+
+.total{
+    display: flex;
+    align-items: center;
+ 
+}
+
+.item-total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align:center;
+}
+
+.item-total > h4{
+    text-transform: none;
+    font-weight: 800;
+}
