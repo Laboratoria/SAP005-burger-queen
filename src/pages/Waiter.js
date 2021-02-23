@@ -84,7 +84,6 @@ const Waiter = () => {
               console.log('breakfast');
             })}><img src= {prato} alt="" className='imgMenu' /></button>
 
-        
               <div className='menuItens'> {
                 menu.map((menuItems) => {
 
@@ -98,22 +97,8 @@ const Waiter = () => {
                 })
               } </div>
 
-            {/* <button className='allDay'onClick={( (e) => { 
-              e.preventDefault();
-              console.log('clicou');
-              <div className='menuItens'> {
-                allDay.map ((menuItems)=>{
-                  return (
-                    <div key={menuItems.id}>
-                      <p>{menuItems.name}</p>
-                      <p>{menuItems.flavor}</p>
-                      <p>R$:{menuItems.price},00</p>
-                    </div>
-                  )
-                })
-              }</div>
-            }
-          )}>Refeição</button> */}
+            {/* 
+             */}
         </section>
 
         <form className='order'>
