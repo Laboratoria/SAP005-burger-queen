@@ -128,8 +128,8 @@ body {
 
 /* modal */
 .modal {
-	width: 60vh;
-	height: 60vh;
+	width: 50vw;
+	height: 50vh;
 	background: #fff9d4;
 	display: flex;
 	flex-direction: column;

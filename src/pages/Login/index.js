@@ -65,20 +65,21 @@ export const Login = () => {
                 )
                 console.log(response)
 
+                localStorage.setItem('userName', response.name)
                 localStorage.setItem('userToken', response.token)
                 localStorage.setItem('userRole', response.role)
 
-                if( localStorage.getItem('userRole')  === 'hall'){
+                if (localStorage.getItem('userRole') === 'hall') {
                   history.push('/new-order')
                 }
-                else if (localStorage.getItem('userRole')  === 'kitchen') {
+                else if (localStorage.getItem('userRole') === 'kitchen') {
                   history.push('/status-order')
                 }
                 else {
                   console.log('não cadastrado')
                 }
+              }
             }
-          }
           />
         </form>
         <p className='question-login'>Funcionário novo? <br /><Link className='link-to-signup' to='/signup'>Cadastrar-se</Link></p>
