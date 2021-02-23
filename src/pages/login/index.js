@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import Logo from '../../Components/Logo';
-import styles from './login.module.css';
+import Logo from "../../Components/Logo";
+import styles from "./login.module.css";
 // import MailIcon from '../Icons/MailIcon.png';
 // import PadlockIcon from '../Icons/PadlockIcon.png';
 
@@ -45,19 +45,18 @@ function Login() {
       });
   };
 
-
-  return (    
-    <div className={styles.conteiner}>                       
-      <div className={styles.firstContent}>                  
-        <Logo/>          
+  return (
+    <div className={styles.conteiner}>
+      <div className={styles.firstContent}>
+        <Logo />
       </div>
 
-      <div className={styles.secondContent}> 
-        <h2 className={styles.title}>LOGIN</h2>   
+      <div className={styles.secondContent}>
+        <h2 className={styles.title}>LOGIN</h2>
 
-        <form className={styles.form} onSubmit={handleClick}>          
-          <label htmlFor="email" className={styles.labelInput}>      
-              {/* <img src={MailIcon} className={styles.icon}/>           */}
+        <form className={styles.form} onSubmit={handleClick}>
+          <label htmlFor="email" className={styles.labelInput}>
+            {/* <img src={MailIcon} className={styles.icon}/>           */}
             <input
               className={styles.input}
               type="email"
@@ -70,7 +69,7 @@ function Login() {
           </label>
 
           <label htmlFor="password" className={styles.labelInput}>
-              {/* <img src={PadlockIcon} className={styles.icon}/>  */}
+            {/* <img src={PadlockIcon} className={styles.icon}/>  */}
             <input
               className={styles.input}
               type="password"
@@ -82,13 +81,19 @@ function Login() {
             />
           </label>
 
-          <button className={styles.button} type="submit" id="button" onClick={handleClick}>
+          <button
+            className={styles.button}
+            type="submit"
+            id="button"
+            onClick={handleClick}
+          >
             Entrar
           </button>
 
           <p className={styles.noRegister}>Não tem uma conta?</p>
-            <Link to="/Register" className={styles.register}>Cadastrar</Link>
-        
+          <Link to="/Register" className={styles.register}>
+            Cadastrar
+          </Link>
         </form>
       </div>
     </div>
