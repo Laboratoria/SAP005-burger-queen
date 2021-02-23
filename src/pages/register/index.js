@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Logo from '../../Components/Logo';
+import styles from './register.module.css';
+// import mailIcon from '../Icons/MailIcon.png';
+// import padlockIcon from '../Icons/PadlockIcon.png';
+// import userIcon from '../Icons/UserIcon.png';
+// import hallIcon from '../Icons/HallIcon.png';
+// import kitchenIcon from '../Icons/KitchenIcon.png';
 
 const Register = () => {
   const history = useHistory();
@@ -13,7 +20,7 @@ const Register = () => {
     history.push("/hall");
   };
   const routerKitchen = () => {
-    history.push("/kitchen");
+    history.push("/Kitchen");
   };
 
   const handleSubmit = (event) => {
@@ -46,72 +53,89 @@ const Register = () => {
       });
   };
 
-        // routerLogin();
-
   return (
-    <div>
-      <h1>Cadastro</h1>
+    <div className={styles.conteiner}>  
+      <div className={styles.firstContent}>                  
+        <Logo/>          
+      </div>
 
-      <form className="login" onSubmit={handleSubmit}>
-        <label htmlFor="nome">Nome Completo:</label>
-        <input
-          className="login"
-          id="name"
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          required
-        />
-        <p />
-        <label htmlFor="email">Email:</label>
-        <input
-          className="login"
-          id="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-        <p />
+      <div className={styles.secondContent}>
+        <h2 className={styles.title}>CADASTRO</h2>  
 
-        <label htmlFor="passowrd">Senha: </label>
-        <input
-          className="login"
-          id="password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-        />
+        <form className={styles.form} onSubmit={handleSubmit}> 
+          <label htmlFor="nome" className={styles.labelInput}>
+              {/* <img src={UserIcon} className={styles.icon}/>   */}
+            <input
+              className={styles.input}
+              id="name"
+              type="text"
+              value={name}
+              placeholder="Nome"
+              onChange={(event) => setName(event.target.value)}  
+              required          
+            />
+          </label>
 
-        <p>Por Favor marque o seu setor:</p>
-        <input
-          type="radio"
-          id="kitchen"
-          name="radio"
-          value={(role, "kitchen")}
-          onClick={(e) => setRole(e.target.value)}
-          required
-        />
-        <label htmlFor="kitchen">Kitchen</label>
+          <label htmlFor="email" className={styles.labelInput}>
+              {/* <img src={MailIcon} className={styles.icon}/>   */}
+            <input
+              className={styles.input}
+              id="email"
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={(event) => setEmail(event.target.value)}  
+              required            
+            />
+          </label>
+            
+          <label htmlFor="password" className={styles.labelInput}>
+              {/* <img src={PadlockIcon} className={styles.icon}/>   */}
+            <input
+            className={styles.input}
+            id="password"
+            type="password"                
+            value={password}
+            placeholder="Senha"
+            onChange={(event) => setPassword(event.target.value)}   
+            required       
+            />
+          </label>
 
-        <p />
+          <p className={styles.sector}>Por Favor marque o seu setor:</p>
+          <label htmlFor="kitchen" className={styles.labelSector}>
+            {/* <img src={KitchenIcon} className={styles.icon}/> */}
+            <input 
+              className={styles.sectorSelect} 
+              type="radio" 
+              id="kitchen" 
+              name="radio" 
+              value={(role, "kitchen")}
+              onClick={(e) => setRole(e.target.value)}
+              required
+            />
+            Cozinha
+          </label>
 
-        <input
-          type="radio"
-          id="Hall"
-          name="radio"
-          value={(role, "Hall")}
-          onClick={(e) => setRole(e.target.value)}
-          required
-        />
-        <label htmlFor="Hall">Hall</label>
+          <label htmlFor="Hall" className={styles.labelSector}>
+            {/* <img src={HallIcon} className={styles.icon}/> */}
+            <input 
+              className={styles.sectorSelect} 
+              type="radio" 
+              id="Hall"
+              name="radio" 
+              value={(role, "Hall")}
+              onClick={(e) => setRole(e.target.value)}
+              required
+            />            
+            Hall
+          </label>
 
-        <p />
-        <button type="submit" id="button" onClick={handleSubmit}>
-          Cadastrar
-        </button>
-      </form>
+          <button className={styles.button} type="submit" id="button" onClick={handleSubmit}>
+            Cadastrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
