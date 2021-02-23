@@ -7,4 +7,5 @@ function Kitchen() {
     </div>
   );
 }
+
 export default Kitchen;
