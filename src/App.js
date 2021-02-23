@@ -1,27 +1,16 @@
-import React from 'react';
-import Routes from './routes';
-import './index.css';
+import React from "react";
+import Routes from "./routes";
+import "./index.css";
 
-function App () {
+function App() {
   return (
     <div>
-      <Routes/>
+      <Routes />
     </div>
-  )
+  );
 }
 
-export default App
-
-
-
-
-
-
-
-
-
-
-
+export default App;
 
 // import logo from './logo.svg';
 // import './App.css';
