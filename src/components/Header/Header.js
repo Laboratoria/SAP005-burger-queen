@@ -19,7 +19,7 @@ function Header() {
       <div className="header-hall">
         <div className="welcome-logo">
           <p className="welcome-header">Bem vindo {user}!!</p>
-           <img className="logo-header" src={Logo} alt="icon-logo"/>    
+          <img className="logo-header" src={Logo} alt="icon-logo"/>    
         </div>
         <div className="form-header">
           <form>
@@ -29,7 +29,10 @@ function Header() {
               <option value="table3">Mesa 03</option>
               <option value="table4">Mesa 04</option>
               <option value="table5">Mesa 05</option>
-              <option value="table6">Mesa 06</option>
+              <option value="table6">Mesa 07</option>
+              <option value="table6">Mesa 08</option>
+              <option value="table6">Mesa 09</option>
+              <option value="table6">Mesa 10</option>
             </select>
             <input
               className="nameCustomer"

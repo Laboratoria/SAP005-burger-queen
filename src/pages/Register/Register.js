@@ -16,13 +16,12 @@ function Register() {
   const history = useHistory();
 
   const routerConfirm = () => {
-    history.push("/confirm");
+    history.push("/Login");
   };
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [show, setShow] = useState(false);
   const [role, setRole] = useState("");
 
@@ -37,12 +36,6 @@ function Register() {
       alert('Opsss...Precisa preencher todos os campos!');
     } else {
       nameOk = true;
-    }
-
-    if (password !== passwordConfirmation) {
-      alert('As senhas estão diferentes!');
-    } else {
-      passwordOk = true;
     }
 
     if (nameOk === true && emailOk === true && passwordOk === true) {
@@ -126,25 +119,7 @@ function Register() {
                 )}
               </div>
             </div>
-
-            <div className="register-re-password">
-              <MdLock />
-              <input
-                type={show ? "text" : "password"}
-                placeholder="Confirme sua senha"
-                required
-                value={passwordConfirmation}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}
-              />
-              <div className="eye">
-                {show ? (
-                  <MdVisibility size={20} onClick={handleClick} />
-                ) : (
-                  <MdVisibilityOff size={20} onClick={handleClick} />
-                )}
-              </div>
-            </div>
-
+            
             <div className="register-function">
               <select
                 value={role}

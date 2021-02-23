@@ -14,10 +14,8 @@ const Hall = () => {
     const [client, setClient] = useState('');
     const [menu, setMenu] = useState([]);
     const [table, setTable] = useState('');
-    const [order, setOrder] = useState([]);
 
     const breakfast = () => {
-
 
     }
 
@@ -31,8 +29,7 @@ const Hall = () => {
 
     return (
         <>
-      
-      <div className="hall-lab">
+        <div className="hall-lab">
         <Header/>
         </div>
             <div className="hall-page">
@@ -49,6 +46,11 @@ const Hall = () => {
                     </div>
 
                     <div className='pedido'>
+                    </div>
+
+                    <div className='menu'>
+                        <div className='item-menu'>
+                        </div>
                     </div>
 
                     <div className="button-send">
