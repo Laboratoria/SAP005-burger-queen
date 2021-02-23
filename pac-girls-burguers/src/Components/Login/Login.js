@@ -28,14 +28,15 @@ const Login = () => {
         },
         body: `email=${email}&password=${password}`,
       });
-
       const json = await response.json();
+      localStorage.setItem("token", json.token);
       if (json.role === "cozinha") {
+        localStorage.getItem("token");
         history.push("/cozinha");
       } else if (json.role === "salao") {
+        history.push("/cozinha");
         history.push("/salao");
       }
-      localStorage.setItem("token", json.token);
       console.log(json);
     } catch (error) {
       console.log(error);

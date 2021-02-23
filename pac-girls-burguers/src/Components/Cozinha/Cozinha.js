@@ -9,9 +9,6 @@ const Cozinha = () => {
 
   return (
     <div>
-      <div>Café com leite</div>
-      <div>Misto Quente</div>
-      <div>Suco de Frutas</div>
       <div>{pedido}</div>
       <button onClick={recebePedido}>Criar Pedido</button>
     </div>

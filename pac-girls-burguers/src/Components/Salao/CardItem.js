@@ -42,24 +42,36 @@ const Container = styled.div`
 
 const CardItem = (props) => {
   const [token, setToken] = useState("");
-  const [produtos, setProdutos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [options, setOptions] = useState("breakfast");
   const [menu, setMenu] = useState([]);
   const [client, setClient] = useState();
   const [table, setTable] = useState();
-  const [products, setProducts] = useState([{ id: "", qtd: "" }]);
+  const [qtd, setQtd] = useState(0);
+  const [order, setOrder] = useState([]);
 
   const breakfast =
-    produtos.length > 0 && produtos.filter(({ type }) => type === "breakfast");
+    products.length > 0 && products.filter(({ type }) => type === "breakfast");
   const lunch =
-    produtos.length > 0 &&
-    produtos.filter(({ sub_type }) => sub_type === "hamburguer");
+    products.length > 0 &&
+    products.filter(({ sub_type }) => sub_type === "hamburguer");
   const drinks =
-    produtos.length > 0 &&
-    produtos.filter(({ sub_type }) => sub_type === "drinks");
+    products.length > 0 &&
+    products.filter(({ sub_type }) => sub_type === "drinks");
   const side =
-    produtos.length > 0 &&
-    produtos.filter(({ sub_type }) => sub_type === "side");
+    products.length > 0 &&
+    products.filter(({ sub_type }) => sub_type === "side");
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+    getItems(token);
+   
+  }, [token]);
+
+  useEffect(() => {
+
+    console.log(order);
+  }, [order]);
 
   async function getItems(token) {
     try {
@@ -73,18 +85,18 @@ const CardItem = (props) => {
         }
       );
       const json = await response.json();
-      setProdutos(json);
-      console.log(json);
+
+      setProducts(json);
     } catch (error) {
       console.log(error);
     }
   }
-  async function addOrders(token, client, table, products) {
+  async function addOrders(token, client, table, order) {
     try {
       const body = {
         client,
         table,
-        products: products,
+        products: order,
       };
       const response = await fetch("https://lab-api-bq.herokuapp.com/orders", {
         method: "POST",
@@ -103,35 +115,33 @@ const CardItem = (props) => {
     }
   }
 
-  function InputClient({ target }) {
-    setClient(target.value);
-  }
-
-  function InputTable({ target }) {
-    setTable(target.value);
-  }
-
-  function handleMenu(item) {
+  function handleClick(item) {
+    console.log(item.id);
+    const obj = {
+      id: item.id,
+      qtd:0,
+    }
     setMenu([...menu, item]);
-
-    console.log(menu);
+    setOrder((prevState) => [...prevState, obj]);
   }
 
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-    getItems(token);
-  }, [token]);
+ 
+// setItems(
+//   items.map((item) => {
+//     item.id === id ? newItem : item
+//   })
+// )
 
   function renderProducts(options) {
     switch (options) {
       case "breakfast":
         return breakfast ? (
-          breakfast.map((item) => (
+          breakfast.map((item, index) => (
             <Item
               onClick={() => {
-                handleMenu(item);
+                handleClick(item);
               }}
-              key={item.id}
+              key={index}
               img={item.image}
               name={item.name}
               complement={item.complement}
@@ -143,12 +153,12 @@ const CardItem = (props) => {
           <div>Carregando...</div>
         );
       case "lunch":
-        return lunch.map((item) => (
+        return lunch.map((item, index) => (
           <Item
             onClick={() => {
-              handleMenu(item);
+              handleClick(item);
             }}
-            key={item.id}
+            key={index}
             img={item.image}
             name={item.name}
             complement={item.complement}
@@ -157,12 +167,12 @@ const CardItem = (props) => {
           />
         ));
       case "drinks":
-        return drinks.map((item) => (
+        return drinks.map((item, index) => (
           <Item
             onClick={() => {
-              handleMenu(item);
+              handleClick(item);
             }}
-            key={item.id}
+            key={index}
             img={item.image}
             name={item.name}
             complement={item.complement}
@@ -171,12 +181,12 @@ const CardItem = (props) => {
           />
         ));
       case "side":
-        return side.map((item) => (
+        return side.map((item, index) => (
           <Item
             onClick={() => {
-              handleMenu(item);
+              handleClick(item);
             }}
-            key={item.id}
+            key={index}
             img={item.image}
             name={item.name}
             complement={item.complement}
@@ -203,7 +213,7 @@ const CardItem = (props) => {
           <option value={"drinks"}>Bebidas</option>
         </Select>
         <CardContainer>
-          {produtos.length === 0 ? (
+          {products.length === 0 ? (
             <div>Carregando...</div>
           ) : (
             renderProducts(options)
@@ -214,19 +224,33 @@ const CardItem = (props) => {
         <Comanda>
           <div>
             <h2>Comanda</h2>
-            <label>Cliente</label>
-            <input onChange={InputClient} placeholder="Nome do cliente" />
+            <label>Cliente: {"   "}</label>
+            <input
+              onChange={({ target }) => {
+                setClient(target.value);
+              }}
+            />
             <br />
-            <label>Mesa</label>
-            <input onChange={InputTable} placeholder="Mesa" />
+            <br />
+            <label>Mesa: </label>
+            <input
+              onChange={({ target }) => {
+                setTable(target.value);
+              }}
+            />
           </div>
           <div>
             <BoxOrders>
               {menu.length > 0 &&
-                menu.map((item) => (
-                  <div key={item.id}>
-                    <span>{item.name}{"  -  "}</span>
-                    <span>R${item.price.toFixed(2)}</span>
+                menu.map((item, index) => (
+                  <div key={index}>
+                    <span>
+                      {item.name}
+                      {"  -  "}
+                    </span>
+                    <span>R${item.price.toFixed(2)} </span>
+                    <button onClick={() => setQtd(qtd + 1)}>+</button>
+                    <span>qtd: {qtd}</span>
                   </div>
                 ))}
             </BoxOrders>
@@ -234,7 +258,7 @@ const CardItem = (props) => {
             <p>valor total: R$....</p>
             <button
               onClick={() => {
-                addOrders(token, client, table);
+                addOrders(token, client, table, order);
               }}
             >
               enviar pedido
