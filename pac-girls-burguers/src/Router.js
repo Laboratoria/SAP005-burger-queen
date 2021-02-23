@@ -4,27 +4,17 @@ import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Salao from "./Components/Salao/Salao";
 
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./Components/ProtectedRouter/ProtectedRouter";
 
 const Router = () => {
   return (
     <BrowserRouter>
-   
-    
-     
       <Switch>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route path="/cadastro">
-          <Register />
-        </Route>
-        <Route path="/cozinha">
-          <Cozinha />
-        </Route>
-        <Route path="/salao">
-          <Salao />
-        </Route>
+        <Route exact path="/" component={Login} />
+        <Route path="/cadastro" component={Register} />
+        <ProtectedRoute path="/cozinha" component={Cozinha} />
+        <ProtectedRoute path="/salao" component={Salao} />
       </Switch>
     </BrowserRouter>
   );

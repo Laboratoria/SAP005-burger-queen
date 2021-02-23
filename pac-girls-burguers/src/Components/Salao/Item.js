@@ -20,20 +20,20 @@ const ItemCard = styled.div`
   width: 150px;
 `;
 const Image = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
 `;
 
-const Item = ({ name, price, flavor, img, complement, onClick  }) => {
+const Item = ({ name, price, flavor, img, complement, onClick }) => {
   return (
     <ContainerCard onClick={onClick}>
       <ItemCard>
         <div>
           <Image src={img} />
         </div>
-        <p>
-          {name} {flavor} {complement}
-        </p>
+        <div>
+          {name} {flavor} {complement !== null ? <p>com  {complement}</p> : null}
+        </div>
 
         <p>R$ {price.toFixed(2)}</p>
       </ItemCard>
