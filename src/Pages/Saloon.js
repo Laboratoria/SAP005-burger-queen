@@ -101,3 +101,50 @@ function Saloon() {
 }
 
 export default Saloon;
+
+/*LÓGICA PARA ANOTAR PEDIDOS
+  <div className="anote-pedido">
+         { 
+		  const validate =[]
+		  const pedidOrder =[]
+		
+
+    	  const handleKitchen = (event) => {
+            event.preventDefault();
+            pedidOrder(clientBox, table)
+    	  }
+
+
+          products.length != 0 &&
+          products.map((cardapio) => {
+
+           pedidOrder.push(cardapio.id)
+           validate.push(cardapio.price)
+           
+           const conta = validate.reduce((sum, num) => sum + num, 0)
+
+           localStorage.setItem("order", pedidOrder)
+           localStorage.setItem("total", total)
+           
+             return (
+               <div className="anote-pedido" key={}>
+                 <p>{cardapio.name} - R${cardapio.price}</p>
+               </div>
+            )
+          })
+          }
+          </div>
+
+            <div className="total-enviar">
+             <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
+            </div>
+
+            <button className="" onClick={
+               (event) => handleKitchen (event)}>
+                 Confirmar
+              </button>
+            <button className="">Cancelar</button>
+          </div>
+        </div>
+    </div>
+  );*/
