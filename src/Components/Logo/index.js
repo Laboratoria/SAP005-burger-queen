@@ -8,7 +8,7 @@ const Logo = () => {
       {/* <figure>
         <img src={BotinBurger} className={styles.img} />
       </figure> */}
-      
+      Logo
     </h1>
   );
 };
