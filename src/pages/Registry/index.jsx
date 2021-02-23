@@ -25,7 +25,6 @@ function Registry() {
   function validadePassword(){
     const password1 = passwordRegistry;
     const password2 = passwordConfirm;
-   
     if (password1 === password2)
       handleRegistry();
     else {
@@ -56,7 +55,7 @@ function Registry() {
           routerKitchen();
         }
         else{
-         const errorMessage =  json.message
+        const errorMessage =  json.message
         }
       })
   }
