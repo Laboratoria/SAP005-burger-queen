@@ -246,8 +246,8 @@ export const NewOrder = () => {
                 className='btn-cancel'
                 type='submit'
                 onClick={
-                  async (event) => {
-                    event.preventDefault()
+                  () => {
+                    setShowModal(false)
                   }
                 }
               />
