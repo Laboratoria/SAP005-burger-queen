@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 
 function Saloon() {
@@ -8,6 +9,12 @@ function Saloon() {
   const [table, setTable] = useState("");
   const [products, setProducts] = useState("");
   const token = localStorage.getItem("token");
+  const history = useHistory();
+
+  function logout() {
+    localStorage.clear();
+    history.push("/");
+  }
 
   useEffect(() => { 
     const myHeaders = new Headers();
@@ -33,7 +40,7 @@ function Saloon() {
     myHeaders.append("Authorization", `${token}`);
     myHeaders.append("Content-Type", "application/json");
 
-    const raw = JSON.stringify({"client":{clientBox},"table":{table},"products":[{products}]});
+    const raw = JSON.stringify({ "client":{clientBox}, "table":{table}, "products":[ { products } ] });
 
     const requestOptions = {
       method: "POST",
@@ -56,6 +63,7 @@ function Saloon() {
   return (
     <div className="saloon-page">
       <h1>Salão</h1>
+      <button onClick={(event) => logout(event)}>Sair</button>
         <div className="anote-pedido">
           <label>
             Cliente:

@@ -7,7 +7,7 @@ function Login() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const history = useHistory();
 
   function saloonPage() {
@@ -36,7 +36,7 @@ function Login() {
   fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
     .then(response => response.json())
     .then(result => {
-      console.log(result)
+      console.log(result);
       localStorage.setItem("token", result.token);
       if (result.role === "waiter") {
         saloonPage();
@@ -63,14 +63,14 @@ function Login() {
 
           <div className="form-group">
             <label>
-              Email:
+              E-mail:
               <input type="email" className="form-control" placeholder="Informar e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
             </label>
           </div>
 
           <div className="form-group">
             <label>
-              Password:
+              Senha:
               <input type="password" className="form-control" placeholder="Informar senha" value={password} onChange={(event) => setPassword(event.target.value)} />
             </label>
           </div>
@@ -78,7 +78,7 @@ function Login() {
           <div className="form-group">
             <div className="custom-control custom-checkbox">
               <input type="checkbox" className="custom-control-input" id="customCheck1" />
-              <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+              <label className="custom-control-label" htmlFor="customCheck1">Lembrar-me</label>
             </div>
           </div>
           <label>
