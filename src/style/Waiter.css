@@ -1,8 +1,113 @@
 .nav {
 	background-color: #383838;
+	display: flex;
+	justify-content: flex-end;
+}
+.App-waiter {
+	background-color: #383838;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 .exit {
 	height: 30px;
 	border: none;
 	display: flex;
+}
+.logoWaiter {
+	justify-content: center;
+	width: 42%;
+}
+
+.AppWaiter {
+	background-color: #383838;
+	min-height: 100vh;
+	font-size: calc(10px + 2vmin);
+}
+
+.allDay {
+	background-color: tomato;
+}
+
+.order {
+	font-family: Arial;
+	text-align: center;
+	float: right;
+	color: yellow;
+	background-color: rgb(41, 39, 39);
+	border-radius: 9px;
+	margin: 26px;
+	width: 45%;
+	height: 387px;
+}
+#logoWaiter {
+	display: flex;
+	justify-content: center;
+}
+
+#client,
+#products {
+	padding: 11px;
+	width: 80%;
+	margin-top: 20px;
+	justify-content: center;
+	border-radius: 9px;
+	align-items: center;
+}
+#number {
+	padding: 11px;
+	width: 27%;
+	margin-top: 10px;
+	justify-content: center;
+	border-radius: 9px;
+	align-items: center;
+}
+
+h1 {
+	margin-top: 33px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+.Menu {
+	background-color: rgb(41, 39, 39);
+	border-radius: 9px;
+	width: 43%;
+	height: 387px;
+	float: left;
+	margin-top: 25px;
+	margin-left: 38px;
+	text-align: center;
+}
+
+.send {
+	text-align: center;
+	margin: auto;
+	justify-content: center;
+	padding: 11px;
+	width: 80%;
+	font-family: Arial;
+	font-weight: bold;
+	color: rgb(46, 45, 45);
+	font-size: 15px;
+	border-radius: 9px;
+	background-color: #ffde59;
+	margin-top: 20px;
+}
+
+.imgMenu {
+	height: 66px;
+}
+
+.btnMenu {
+	border: none;
+	margin: 17px;
+	margin-top: 23px;
+	height: 63px;
+	width: 116px;
+	background-color: #ffde59;
+	border-radius: 9px;
 }

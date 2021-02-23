@@ -3,6 +3,7 @@ import React from "react";
 import {useHistory} from 'react-router-dom'
 import logo from '../images/logo.png';
 import exit from '../images/exit.jpeg';
+import add from '../images/add.png';
 
 
 function Kitchen() {
@@ -20,6 +21,10 @@ function Kitchen() {
       <header className="App-header">
         <img src= {logo} alt="" className="logo"/>
       <div>COZINHA</div>
+      <button className="btnMenu"   onClick={((e)=>{
+              e.preventDefault();
+              console.log('cozinha')
+            })}><img src= {add} alt="" className='imgMenu' /></button>
       </header>
     </div>
   );
