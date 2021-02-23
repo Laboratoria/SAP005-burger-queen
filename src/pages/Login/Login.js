@@ -4,7 +4,7 @@ import logoburger from '../../img/logoburger.png';
 import './Login.css';
 
 export const Login = () => {
-
+   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,12 +30,15 @@ export const Login = () => {
         body: `email=${email}&password=${password}`
     })
         .then(result => result.json())
-        .then(result => {
-            console.log(result);
-            if(result.role === "lounge") {
+        .then((data) => {
+            console.log(data);
+            setEmail('')
+            setPassword('')
+            localStorage.setItem('token', data.token);
+            if(data.role === "lounge") {
                 loungeRoute();
             }
-            if(result.role === "kitchen") {
+            if(data.role === "kitchen") {
                 kitchenRoute();
             }
         });
