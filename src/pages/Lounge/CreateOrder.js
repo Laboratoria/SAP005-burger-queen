@@ -14,7 +14,7 @@ export const CreateOrder = () => {
   const [precoTotal, setPrecoTotal] = useState([0]);
   const [resumoPedido, setResumoPedido] = useState([]);
   const [produtosPedido, setProdutosPedido] = useState([]);
-   const [fazerPedido, setFazerPedido] = useState({"table": table});
+  const [fazerPedido, setFazerPedido] = useState({"table": table});
   
   
 
