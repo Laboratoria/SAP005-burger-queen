@@ -11,12 +11,9 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 const Menu = () => {
   const classes = useStyles();
   const tokenLocal = localStorage.getItem('token');
-
-
-  const [breakefast, setBreakfast] = useState([]);
-  const [hamburguers, setHamburguers] = useState([]);
-  const [drinks, setDrinks] = useState([]);
+  
   const [list, setList] = useState([]);
+  const [listMap, setListMap] = useState([]);
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -35,20 +32,21 @@ const Menu = () => {
 
   const listBreakFast = () => {
     console.log(list)
+
     const productsBreakfast = list.filter(itens => itens.type===('breakfast'));
-      setBreakfast(productsBreakfast); 
+      setListMap(productsBreakfast); 
   }
 
   const listHamburguer = () => {
     console.log(list)
     const productsHamburguers = list.filter(itens => itens.sub_type===('hamburguer'));
-      setHamburguers(productsHamburguers);
+      setListMap(productsHamburguers);
   }
 
   const listDrinks = () => {
     console.log(list)
     const productsDrinks = list.filter(itens => itens.sub_type===('drinks'));
-      setDrinks(productsDrinks);
+      setListMap(productsDrinks);
     
   }
 
@@ -67,28 +65,12 @@ const Menu = () => {
         <div>
           <div>
             <button onClick={listBreakFast}>Café da manhã</button>
-            {breakefast.map((produto) => (
+            <button onClick={listHamburguer}>Hamburguers</button>
+            <button onClick={listDrinks}>Bebidas</button>
+            {listMap.map((produto) => (
               <div key={produto.id}>
                 <p>{produto.name} R$ {produto.price},00 {produto.complement} <IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
               </div>
-            ))}
-          </div>
-          <div>
-            <button onClick={listHamburguer}>Hamburguers</button>
-            {hamburguers.map((produto) => (
-              <p key={produto.id}>
-                <p>{produto.name} {produto.flavor} {produto.complement} R$ {produto.price},00<IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
-              </p>
-            ))}
-          </div>
-          <div>
-            <button onClick={listDrinks}>Bebidas</button>
-            {drinks.map((produto) => (
-              <p key={produto.id}>
-                <p>{produto.name} R$ {produto.price},00<IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
-              <p>
-                </p>
-              </p>
             ))}
           </div>
         </div>
