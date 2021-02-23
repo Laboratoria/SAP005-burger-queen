@@ -21,36 +21,33 @@ function Login() {
 
   function loginBtn(e) {
     e.preventDefault();
-    fetch('https://lab-api-bq.herokuapp.com/users', {
-      method: 'GET',
+    fetch('https://lab-api-bq.herokuapp.com/auth', {
+      method: 'POST',
       headers: {
         'accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGlhQHRlc3RlMS5jb20iLCJpZCI6ODM3LCJpYXQiOjE2MTQxMDU1NjMsImV4cCI6MTY0NTY2MzE2M30.htIFmzcQ1Paa_2e27Z4NSie7_kJ1LaSQY_JQaDTP-RM'
+        // 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGlhQHRlc3RlMS5jb20iLCJpZCI6ODM3LCJpYXQiOjE2MTQxMDU1NjMsImV4cCI6MTY0NTY2MzE2M30.htIFmzcQ1Paa_2e27Z4NSie7_kJ1LaSQY_JQaDTP-RM'
       },
-      // body: `email=${email}&password=${password}`
+      body: `email=${email}&password=${password}`
     })
-        .then((response) => response.json())
+        .then((response) => response.json())     
         .then((data) => {
           console.log(data);
-          const token = data.token
-          const id = data.id
           const name = data.name
           const role = data.role
   
-          const tokenUser = localStorage.setItem("token", token)
-          const idUser = localStorage.setItem("id", id)
           const nameUser = localStorage.setItem("name", name)
 
-          if(tokenUser!== null && nameUser!== null && idUser!== null && role === "Cozinha") {
+          if(nameUser!== null && role === "cozinha") {
             routerKitchen();
-          }else if(tokenUser!== null && nameUser!== null && idUser!== null && role === "Salão") {
+          }else if(nameUser!== null && role === "salão") {
             routerHall();
           }else {
             alert("Funcionário não encontrado!")
           }
         }) 
     };
+  
 
     const handleClick = (e) => {
       e.preventDefault();
