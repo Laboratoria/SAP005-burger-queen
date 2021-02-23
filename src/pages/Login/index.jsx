@@ -47,34 +47,31 @@ function Login(){
         }
         else {
           const errorMessage = json.message
+          alert (errorMessage)
         }
       })
   }
 
-    return (
-      <Container className='container'>
-        <div className={classes.paper}>
-          <Logo/>
-          <form className={classes.form}>
+  return (
+    <Container className='container'>
+      <div className={classes.paper}>
+        <Logo/>
+        <form className={classes.form}>
           <Typography  component='h1' variant='h5'> Ratatouille Burguer </Typography>
-            <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email' 
-            autoComplete='username' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
-            <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password'
-            autoComplete='current-password' value={passwordLogin} onChange={event => setPassword(event.target.value)}/>
+          <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'  autoComplete='username' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
-            <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => {event.preventDefault();
-              handleLogin();}}>Entrar</Button>
-          </form>
-          <Grid item>
-            <Link to='/Registry' >
-              {'Novo usuário? Registre-se'}
-            </Link>
-          </Grid>
-        </div>
-        <Copyright/>
-      </Container>
-    );
-  }
-  
-  export default Login;
+          <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password' autoComplete='current-password' value={passwordLogin} 
+          onChange={event => setPassword(event.target.value)}/>
+
+          <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => {event.preventDefault(); handleLogin();}}>Entrar</Button>
+        </form>
+        <Grid item>
+          <Link to='/Registry' > {'Novo usuário? Registre-se'} </Link>
+        </Grid>
+      </div>
+      <Copyright/>
+    </Container>
+  );
+}  
+export default Login;

@@ -1,13 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
+import { Button, Container } from '@material-ui/core';
 import {useStyles, NavBar} from '../../components.js';
 import '../../style.css';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { Link} from 'react-router-dom';
-
-
 
 function Home(){
 
@@ -22,21 +17,14 @@ function Home(){
     history.push('/Menu')
   }
 
-    return (
-      <React.Fragment >
-        <NavBar/>
-          <Container>
-              <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}>
-                + Novo Pedido
-              </Button>
-              <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} >
-                Pendentes
-              </Button >           
-            </Container>   
-            <Link to="/Hall"><ArrowBackIosIcon color="disabled" fontSize="large"/> </Link>
-        </React.Fragment>
-
-    );
-  }
-
-  export default Home;
+  return (
+    <>
+      <NavBar/>
+      <Container>
+        <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
+        <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} > Pendentes </Button >           
+      </Container>   
+    </>
+  );
+}
+export default Home;

@@ -11,11 +11,9 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 const Menu = () => {
   const classes = useStyles();
   const tokenLocal = localStorage.getItem('token');
-
-
-  const [breakefast, setBreakfast] = useState([]);
-  const [hamburguers, setHamburguers] = useState([]);
-  const [drinks, setDrinks] = useState([]);
+  
+  const [list, setList] = useState([]);
+  const [listMap, setListMap] = useState([]);
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -27,19 +25,30 @@ const Menu = () => {
     })
       .then(response => response.json())
       .then(data => {
-        const products = data;
         console.log(data);
-
-        const productsBreakfast = products.filter(itens => itens.type===('breakfast'));
-        setBreakfast(productsBreakfast);
-
-        const productsHamburguers = products.filter(itens => itens.sub_type===('hamburguer'));
-        setHamburguers(productsHamburguers);
-        
-        const productsDrinks = products.filter(itens => itens.sub_type===('drinks'));
-        setDrinks(productsDrinks);
+        setList(data) 
       })
   }, [])
+
+  const listBreakFast = () => {
+    console.log(list)
+
+    const productsBreakfast = list.filter(itens => itens.type===('breakfast'));
+      setListMap(productsBreakfast); 
+  }
+
+  const listHamburguer = () => {
+    console.log(list)
+    const productsHamburguers = list.filter(itens => itens.sub_type===('hamburguer'));
+      setListMap(productsHamburguers);
+  }
+
+  const listDrinks = () => {
+    console.log(list)
+    const productsDrinks = list.filter(itens => itens.sub_type===('drinks'));
+      setListMap(productsDrinks);
+    
+  }
 
   return (
     <div>
@@ -55,29 +64,13 @@ const Menu = () => {
 
         <div>
           <div>
-            <h1>Café</h1>
-            {breakefast.map((produto) => (
+            <button onClick={listBreakFast}>Café da manhã</button>
+            <button onClick={listHamburguer}>Hamburguers</button>
+            <button onClick={listDrinks}>Bebidas</button>
+            {listMap.map((produto) => (
               <div key={produto.id}>
                 <p>{produto.name} R$ {produto.price},00 {produto.complement} <IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
               </div>
-            ))}
-          </div>
-          <div>
-            <h1>Resto do dia</h1>
-            {hamburguers.map((produto) => (
-              <p key={produto.id}>
-                <p>{produto.name} {produto.flavor} {produto.complement} R$ {produto.price},00<IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
-              </p>
-            ))}
-          </div>
-          <div>
-            <h1>Bebidas</h1>
-            {drinks.map((produto) => (
-              <p key={produto.id}>
-                <p>{produto.name} R$ {produto.price},00<IconButton color="primary" aria-label="add to shopping cart"><AddShoppingCartIcon/></IconButton></p>
-              <p>
-                </p>
-              </p>
             ))}
           </div>
         </div>
