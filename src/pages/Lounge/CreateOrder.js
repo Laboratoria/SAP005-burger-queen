@@ -14,17 +14,7 @@ export const CreateOrder = () => {
   const [precoTotal, setPrecoTotal] = useState([0]);
   const [resumoPedido, setResumoPedido] = useState([]);
   const [produtosPedido, setProdutosPedido] = useState([]);
-  const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false)
-  const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false)
-  const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
-  const [extrasBurgerDuplo, setExtrasBurgerDuplo] = useState('');
-  const [selectedBurger, setSelectedBurger] = useState({
-      name: null,
-      flavor: null,
-      complement: null
-  });
- 
-  const [fazerPedido, setFazerPedido] = useState({"table": table});
+   const [fazerPedido, setFazerPedido] = useState({"table": table});
   
   
 
@@ -107,6 +97,11 @@ export const CreateOrder = () => {
     return array.reduce(soma);
 }
 
+React.useEffect(() => {
+  console.log(resumoPedido);
+  console.log(fazerPedido)
+  console.log(precoTotal);
+}, [precoTotal, resumoPedido, fazerPedido])
 
   return (
     <div className="container">
@@ -179,8 +174,7 @@ export const CreateOrder = () => {
                                                                     
                                     }}
                                 />
-                                {openExtrasBurgerSimples === true && produto.name === "Hambúrguer simples" && <div>{extrasBurgerSimples}</div>}
-                                {openExtrasBurgerDuplo === true && produto.name === "Hambúrguer duplo" && <div>{extrasBurgerDuplo}</div>}
+                                
                             </li>
                         ))}
                     </ul>
