@@ -1,3 +1,4 @@
+import React from "react";
 import '../style/salon.css'
 import { useHistory } from "react-router-dom";
 import Mesa from '../images/Ícones/mesa-laranja.png'

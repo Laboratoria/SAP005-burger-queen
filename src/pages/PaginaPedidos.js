@@ -290,7 +290,7 @@ function PaginaPedidos(){
                         {resumoPedido.map((item, index) => (
                           <>
                             <li className="item-lista-pedido" key={index}>
-                              <label>{item.qtd}{item.name} R${item.price*item.qtd}</label>
+                              <label>{item.qtd}x {item.name} R${item.price*item.qtd}</label>
                             </li>
                           </>
                         ))}

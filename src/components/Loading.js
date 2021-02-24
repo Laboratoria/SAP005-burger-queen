@@ -1,3 +1,4 @@
+import React from "react";
 import '../style/paginapedidos.css'
 import Carregando from '../images/Ícones/loading-marrom.gif'
 
