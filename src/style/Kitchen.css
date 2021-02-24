@@ -18,6 +18,7 @@
 	display: flex;
 	justify-content: center;
 	width: 47%;
+	margin-left: 25%;
 }
 
 .AppKitchen {
@@ -26,7 +27,6 @@
 	display: flex;
 	font-size: calc(10px + 2vmin);
 	color: white;
-	justify-content: center;
 	flex-direction: column;
 }
 
@@ -38,12 +38,21 @@
 
 .App-Kitchen {
 	background-color: #383838;
-	min-height: 100vh;
-	font-size: calc(10px + 2vmin);
-	color: white;
 }
 
-.h1 {
+.Cozinha {
 	text-align: center;
+	margin-top: 16px;
+	font-size: 31px;
+	font-weight: bold;
+	font-family: Arial;
 	color: #ffde59;
+}
+
+.product {
+	border-radius: 9px;
+	width: 43%;
+	margin-top: 25px;
+	margin-left: 38px;
+	text-align: center;
 }

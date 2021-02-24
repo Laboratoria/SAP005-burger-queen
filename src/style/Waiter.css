@@ -27,10 +27,6 @@
 	font-size: calc(10px + 2vmin);
 }
 
-.allDay {
-	background-color: tomato;
-}
-
 .order {
 	font-family: Arial;
 	text-align: center;
