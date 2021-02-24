@@ -12,6 +12,8 @@ function Saloon() {
   const history = useHistory();
   const [counter, setCounter] = useState(0);
   const [itensMenu, setItens] = useState([]);
+  let contador = 0;
+  let idProducts = 0;
 
   function logout() {
     localStorage.clear();
@@ -37,12 +39,12 @@ function Saloon() {
       .catch(error => console.log("error", error));
   }, [])
 
-  function clientOrder(clientBox, table, products) {
+  function clientOrder(clientBox, table, contador, id) {
         const myHeaders = new Headers();
 		myHeaders.append("Authorization", `${token}`);
 		myHeaders.append("Content-Type", "application/json");
 
-		const raw = JSON.stringify({ "client":{clientBox}, "table":{table}, "products":[ { products } ] });
+		const raw = JSON.stringify({ "client":{clientBox}, "table":{table}, "products":[{ "id": id,"qtd": contador }]});
 
 		const requestOptions = {
 		method: "POST",
@@ -53,27 +55,28 @@ function Saloon() {
 
 		fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
 		.then(response => response.json())
-		.then(result => console.log(result))
+		.then(result => setMenu(result))
 		.catch(error => console.log("error", error));
 	}
 	
 	function handleClick (itens){
 		setItens([...itensMenu, itens]);
+		console.log("cliquei");
+		/*contador +=1;
 		const obj = {
 			id: itens.id,
-			qtd: 0,
+			qtd: contador,
 		};
 		
-		products.map((i) => {
-			if(itens.id === i.id){
-				obj.qtd = obj.qtd + 1
-				console.log("esse produto já existe!");
-			}
-		})
 		setProducts((prevState) => [...prevState, obj]);
 		console.log(products);
-		console.log(itensMenu);
+		console.log(itensMenu);*/
 
+	}
+
+	function handleOrder (event){
+		event.preventDefault();
+		clientOrder (clientBox, table, products, contador, idProducts)
 	}
 
     /*function handleSubmit (event) {
@@ -102,12 +105,9 @@ function Saloon() {
               <div className="products" key={index}>
 				  <ul>
       				<div>
-       				 <button disabled={counter === 0} onClick={() => setCounter(counter - 1)}>-</button>
-						<li>{counter}</li>
-						<button onClick={() => setCounter(counter + 1)}>+</button>
+   						<button className="add-item-btn" onClick={() => handleClick(cardapio)}>Adicionar</button>
 						</div>
 	 				 </ul>
-                <ul onClick = {() => {handleClick(cardapio)}}>
 					
                   <li>{cardapio.name}</li>
                   <li>{cardapio.flavor}</li>
@@ -115,19 +115,29 @@ function Saloon() {
                   <li>R$ {cardapio.price}</li>
                   <li>{cardapio.type}</li>
                   <li>{cardapio.sub_type}</li>
-                </ul>
 
               </div>
             )
           })
         }
-		</div>
-		<div>{
-			itensMenu.length > 0 &&
+			</div>
+			<div>{
+			itensMenu.length !== 0 &&
 			itensMenu.map((itens, index) => {
-					<p>{itens}</p>
+					idProducts= itens.id;
+					return(
+					<div key= {index}>
+						<p>{itens.name}</p>
+						<p>{itens.price}</p>
+						<button className="add-item-btn" onClick={() => (console.log(contador += 1))}>+</button>
+						<button className="add-item-btn" onClick={() => (console.log(contador -= 1))}>-</button>
+						
+					</div>)
 			})
  		}
+		 <div>
+		 <button className="enviar-pedido" onClick={(event) => handleOrder(event)}>Enviar Pedido</button> 
+		 </div>
 		</div>
     </div>
   )
@@ -135,7 +145,55 @@ function Saloon() {
 
 export default Saloon;
 
-	
+/*<button disabled={counter === 0} onClick={() => setCounter(counter - 1)}>-</button>
+						<li>{counter}</li>
+						<button onClick={() => setCounter(counter + 1)}>+</button>*/
+/*LÓGICA PARA ANOTAR PEDIDOS
+  <div className="anote-pedido">
+         { 
+		  const validate =[]
+		  const pedidOrder =[]
+		
+
+    	  const handleKitchen = (event) => {
+            event.preventDefault();
+            pedidOrder(clientBox, table)
+    	  }
+
+
+          products.length != 0 &&
+          products.map((cardapio) => {
+
+           pedidOrder.push(cardapio.id)
+           validate.push(cardapio.price)
+           
+           const conta = validate.reduce((sum, num) => sum + num, 0)
+
+           localStorage.setItem("order", pedidOrder)
+           localStorage.setItem("total", total)
+           
+             return (
+               <div className="anote-pedido" key={}>
+                 <p>{cardapio.name} - R${cardapio.price}</p>
+               </div>
+            )
+          })
+          }
+          </div>
+
+            <div className="total-enviar">
+             <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
+            </div>
+
+            <button className="" onClick={
+               (event) => handleKitchen (event)}>
+                 Confirmar
+              </button>
+            <button className="">Cancelar</button>
+          </div>
+        </div>
+    </div>
+  );*/
 
  /* <img className="img-product" src={cardapio.image} /> */
 
@@ -161,4 +219,6 @@ export default Saloon;
 	})
   )*/
 
+ /* <button className="remove-item-btn" onClick={() => removeItem()}>-</button>
+  <button className="add-item-btn" onClick={() => addItem()}>+</button>*/
   
