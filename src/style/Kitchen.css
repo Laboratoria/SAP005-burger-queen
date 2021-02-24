@@ -3,3 +3,47 @@
 	margin: 0px;
 	box-sizing: border-box;
 }
+.nav {
+	background-color: #383838;
+	display: flex;
+	justify-content: flex-end;
+}
+.exit {
+	height: 30px;
+	border: none;
+	display: flex;
+}
+
+.logoKitchen {
+	display: flex;
+	justify-content: center;
+	width: 47%;
+}
+
+.AppKitchen {
+	background-color: #383838;
+	min-height: 100vh;
+	display: flex;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.btnAdd {
+	border: none;
+	display: flex;
+	width: 69px;
+}
+
+.App-Kitchen {
+	background-color: #383838;
+	min-height: 100vh;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.h1 {
+	text-align: center;
+	color: #ffde59;
+}

@@ -97,25 +97,7 @@ const Waiter = () => {
                   )
                 })
               } </div>
-
            
-
-            {/* <button className='allDay'onClick={( (e) => { 
-              e.preventDefault();
-              console.log('clicou');
-              <div className='menuItens'> {
-                allDay.map ((menuItems)=>{
-                  return (
-                    <div key={menuItems.id}>
-                      <p>{menuItems.name}</p>
-                      <p>{menuItems.flavor}</p>
-                      <p>R$:{menuItems.price},00</p>
-                    </div>
-                  )
-                })
-              }</div>
-            }
-          )}>Refeição</button> */}
         </section>
 
         <form className='order'>
@@ -138,7 +120,7 @@ const Waiter = () => {
             "accept": "application/json",
             'Authorization': `${token}`
           },
-                body:`client=${client}&table=${table}&products=${menu}`
+                body:`client=${client}&table=${table}&products=${menu}&products=${allDay}`
               })
                 .then((response) => response.json())
                 .then((json) => {
