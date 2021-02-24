@@ -7,4 +7,5 @@ function Hall() {
     </div>
   );
 }
+
 export default Hall;

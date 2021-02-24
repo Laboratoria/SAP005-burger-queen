@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Hall from "./pages/hall";
+import Hall from "./pages/Hall";
 import Kitchen from "./pages/Kitchen";
 import Login from "./pages/login";
 import Register from "./pages/Register";
