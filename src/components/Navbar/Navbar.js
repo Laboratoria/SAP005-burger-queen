@@ -14,7 +14,7 @@ export default function Navbar() {
         <Link className='link' to='/status-order'><p className='label-nav'><FaRegClock className='icon-nav' /><br />Status Pedidos</p></Link>
         {
           localStorage.getItem('userRole') === 'hall'
-            ? <Link Link className='link' to='/new-order'><p className='label-nav'><GiKnifeFork className='icon-nav' /><br />Novo Pedido</p></Link>
+            ? <Link Link className='link' to='/client-info'><p className='label-nav'><GiKnifeFork className='icon-nav' /><br />Novo Pedido</p></Link>
             : null
         }
         <Link className='link' to='/'><p className='label-nav'><FaDoorOpen className='icon-nav' /><br />Sair</p></Link>

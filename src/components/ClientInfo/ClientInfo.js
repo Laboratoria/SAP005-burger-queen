@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import { openOrder } from '../../services'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
@@ -10,13 +11,15 @@ export default function ClientInfo() {
   const [clientName, setClientName] = useState('')
   const [tableNumber, setTableNumber] = useState('')
 
+  const history = useHistory()
+
   return (
     <Fragment>
       <header>
         <Navbar />
       </header>
       <main>
-        <form className='form-client-info'>
+        <form className='form-client-info' onSubmit={openOrder}>
 
           <label htmlFor='clientName' className='label-client-info'>Nome<span className='required'> *</span></label><br />
           <Input
@@ -56,12 +59,18 @@ export default function ClientInfo() {
             onClick={
               async (event) => {
                 event.preventDefault()
-                const response = await openOrder(
+                {/*await openOrder(
                   clientName,
                   tableNumber,
-                )
-                
-                console.log(response)
+                )*/}
+                if (clientName === null || clientName === undefined || clientName === '') {
+                  console.log('Insira o nome')
+                } else if (tableNumber === null || tableNumber === undefined || tableNumber === '') {
+                  console.log('Insira o número da mesa')
+                } else {
+                  history.push('/new-order')
+                }
+
               }
             }
           />
