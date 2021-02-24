@@ -30,7 +30,7 @@ function Kitchen() {
       <header className="App-Kitchen">
 
         <img src= {logo} alt="" className="logoKitchen"/>
-        <h1>Cozinha</h1>
+        <p className="Cozinha">Cozinha</p>
      
         <button className="btnAdd"   onClick={(e)=>{
               e.preventDefault();
@@ -55,8 +55,8 @@ function Kitchen() {
                   
       </header>
       <section className="product">
-      { 
-      orders.map((order) => {
+
+      { orders.map((order) => {
 
         return (
           <div key={order.id}>
