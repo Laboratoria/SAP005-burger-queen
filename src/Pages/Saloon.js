@@ -7,9 +7,11 @@ function Saloon() {
   const [menu, setMenu] = useState([]);
   const [clientBox, setClient] = useState("");
   const [table, setTable] = useState("");
-  const [products, setProducts] = useState("");
+  const [products, setProducts] = useState([]);
   const token = localStorage.getItem("token");
   const history = useHistory();
+  const [counter, setCounter] = useState(0);
+  const [itensMenu, setItens] = useState([]);
 
   function logout() {
     localStorage.clear();
@@ -36,26 +38,45 @@ function Saloon() {
   }, [])
 
   function clientOrder(clientBox, table, products) {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", `${token}`);
-    myHeaders.append("Content-Type", "application/json");
+        const myHeaders = new Headers();
+		myHeaders.append("Authorization", `${token}`);
+		myHeaders.append("Content-Type", "application/json");
 
-    const raw = JSON.stringify({ "client":{clientBox}, "table":{table}, "products":[ { products } ] });
+		const raw = JSON.stringify({ "client":{clientBox}, "table":{table}, "products":[ { products } ] });
 
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow"
-    };
+		const requestOptions = {
+		method: "POST",
+		headers: myHeaders,
+		body: raw,
+		redirect: "follow"
+		};
 
-    fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
-      .then(response => response.json())
-      .then(result => console.log(result))
-      .catch(error => console.log("error", error));
-  }
-    
-  /*function handleSubmit (event) {
+		fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
+		.then(response => response.json())
+		.then(result => console.log(result))
+		.catch(error => console.log("error", error));
+	}
+	
+	function handleClick (itens){
+		setItens([...itensMenu, itens]);
+		const obj = {
+			id: itens.id,
+			qtd: 0,
+		};
+		
+		products.map((i) => {
+			if(itens.id === i.id){
+				obj.qtd = obj.qtd + 1
+				console.log("esse produto já existe!");
+			}
+		})
+		setProducts((prevState) => [...prevState, obj]);
+		console.log(products);
+		console.log(itensMenu);
+
+	}
+
+    /*function handleSubmit (event) {
     event.preventDefault();
     clientOrder (clientBox, table, products)
   }*/
@@ -73,18 +94,21 @@ function Saloon() {
             Mesa:
             <input type="text" value={table} onChange={(event) => setTable(event.target.value)} />
           </label>
-          <label>
-            Pedido:
-            <input type="text" value={products} onChange={(event) => setProducts(event.target.value)} />
-          </label>
         </div>
 
         <div className="cardapio">{
-          menu.map((cardapio) => {
+          menu.map((cardapio, index) => {
             return (
-              <div className="products" key={cardapio.id}>
-                <img className="img-product" src={cardapio.image} />
-                <ul>
+              <div className="products" key={index}>
+				  <ul>
+      				<div>
+       				 <button disabled={counter === 0} onClick={() => setCounter(counter - 1)}>-</button>
+						<li>{counter}</li>
+						<button onClick={() => setCounter(counter + 1)}>+</button>
+						</div>
+	 				 </ul>
+                <ul onClick = {() => {handleClick(cardapio)}}>
+					
                   <li>{cardapio.name}</li>
                   <li>{cardapio.flavor}</li>
                   <li>{cardapio.complement}</li>
@@ -92,59 +116,49 @@ function Saloon() {
                   <li>{cardapio.type}</li>
                   <li>{cardapio.sub_type}</li>
                 </ul>
+
               </div>
             )
           })
-        }</div>
+        }
+		</div>
+		<div>{
+			itensMenu.length > 0 &&
+			itensMenu.map((itens, index) => {
+					<p>{itens}</p>
+			})
+ 		}
+		</div>
     </div>
   )
 }
 
 export default Saloon;
 
-/*LÓGICA PARA ANOTAR PEDIDOS
-  <div className="anote-pedido">
-         { 
-		  const validate =[]
-		  const pedidOrder =[]
-		
+	
 
-    	  const handleKitchen = (event) => {
-            event.preventDefault();
-            pedidOrder(clientBox, table)
-    	  }
+ /* <img className="img-product" src={cardapio.image} /> */
 
 
-          products.length != 0 &&
-          products.map((cardapio) => {
+ /*function handleClick(item) {
+    console.log(item.id);
+    const obj = {
+      id: item.id,
+      qtd:0,
+    }
+    setMenu([...menu, item]);
+   
+  }
+  order = [ {id:31, qtd: 1}, {id:33, qtd: 2},  {id:35, qtd: 4},  ]
+  
+  obj = {id: 1, qtd: 5}
 
-           pedidOrder.push(cardapio.id)
-           validate.push(cardapio.price)
-           
-           const conta = validate.reduce((sum, num) => sum + num, 0)
+  obj.qtd = qtd + 1
 
-           localStorage.setItem("order", pedidOrder)
-           localStorage.setItem("total", total)
-           
-             return (
-               <div className="anote-pedido" key={}>
-                 <p>{cardapio.name} - R${cardapio.price}</p>
-               </div>
-            )
-          })
-          }
-          </div>
+  setItems(
+	items.map((item, index) => {
+	  item.id === id ? newItem : item
+	})
+  )*/
 
-            <div className="total-enviar">
-             <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
-            </div>
-
-            <button className="" onClick={
-               (event) => handleKitchen (event)}>
-                 Confirmar
-              </button>
-            <button className="">Cancelar</button>
-          </div>
-        </div>
-    </div>
-  );*/
+  
