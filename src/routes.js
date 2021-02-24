@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NavBar from "./Components/Navigation/NavBar.js";
 
-function routes() {
+function Routes() {
   return ( 
     <BrowserRouter>
       <NavBar />
@@ -21,4 +21,4 @@ function routes() {
   );
 }
 
-export default routes;
+export default Routes;
