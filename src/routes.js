@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Hall from "./pages/Hall";
-import Kitchen from "./pages/Kitchen";
+import Kitchen from "./pages/kitchen";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NavBar from "./Components/Navigation/NavBar.js";
 
-function Routes() {
+function routes() {
   return ( 
     <BrowserRouter>
       <NavBar />
@@ -21,4 +21,4 @@ function Routes() {
   );
 }
 
-export default Routes;
+export default routes;
