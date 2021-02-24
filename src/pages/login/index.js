@@ -16,11 +16,11 @@ function Login() {
   //   history.push("/");
   // }
   const routerKitchen = () => {
-    history.push("/kitchen");
+    history.push("/Kitchen");
   };
 
   const routerHall = () => {
-    history.push("/hall");
+    history.push("/Hall");
   };
 
   const handleClick = (event) => {

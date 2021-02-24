@@ -19,7 +19,7 @@ const Register = () => {
     history.push("/hall");
   };
   const routerKitchen = () => {
-    history.push("/Kitchen");
+    history.push("/kitchen");
   };
 
   const handleSubmit = (event) => {
@@ -46,7 +46,7 @@ const Register = () => {
         if (json.role === "hall") {
           routerHall();
         }
-        if (json.role === "kitchen") {
+        if (json.role === "Kitchen") {
           routerKitchen();
         }
       });
@@ -102,14 +102,14 @@ const Register = () => {
           </label>
 
           <p className={styles.sector}>Por Favor marque o seu setor:</p>
-          <label htmlFor="kitchen" className={styles.labelSector}>
+          <label htmlFor="Kitchen" className={styles.labelSector}>
             {/* <img src={KitchenIcon} className={styles.icon}/> */}
             <input
               className={styles.sectorSelect}
               type="radio"
-              id="kitchen"
+              id="Kitchen"
               name="radio"
-              value={(role, "kitchen")}
+              value={(role, "Kitchen")}
               onClick={(e) => setRole(e.target.value)}
               required
             />
