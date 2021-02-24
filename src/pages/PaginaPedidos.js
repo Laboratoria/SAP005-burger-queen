@@ -22,6 +22,7 @@ function PaginaPedidos(){
 
     const [menus, setMenus] = useState(true);
 
+    const [listaCompletaDeProdutos, setListaCompletaDeProdutos] = useState("");
     const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false)
     const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false)
     const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
@@ -32,7 +33,7 @@ function PaginaPedidos(){
         complement: null
     });
     const [resumoPedido, setResumoPedido] = useState([]);
-    const [fazerPedido, setFazerPedido] = useState({"table": mesa});
+    const [fazerPedido, setFazerPedido] = useState({"client": "", "table": mesa, "products": []});
     const [produtosPedido, setProdutosPedido] = useState([]);
     const [quantidade, setQuantidade] = useState(1);
     const [precoTotal, setPrecoTotal] = useState([0]);
@@ -49,8 +50,9 @@ function PaginaPedidos(){
         fetch('https://lab-api-bq.herokuapp.com/products', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+
                 const products = data;
+                setListaCompletaDeProdutos(data)
 
                 const slice1 = products.slice(0,5);
                 const slice2 = products.slice(22);
@@ -143,7 +145,9 @@ function PaginaPedidos(){
         console.log(resumoPedido);
         console.log(fazerPedido)
         console.log(precoTotal);
-      }, [precoTotal, resumoPedido, fazerPedido])
+        console.log(produtosPedido)
+
+      }, [produtosPedido, precoTotal, resumoPedido, fazerPedido])
 
     return (
         <>
@@ -166,7 +170,7 @@ function PaginaPedidos(){
                     type="text" 
                     placeholder="Nome do Cliente"
                     onChange={(event) => {
-                        setFazerPedido({...fazerPedido, "client": event.target.value})
+                        setFazerPedido(fazerPedido.client = event.target.value)
                     }}
                 />
 
@@ -187,9 +191,29 @@ function PaginaPedidos(){
                                     alt="button-adicionar"
                                     src={Adicionar}
                                     onClick={() => {
+
+                                        if(!produtosPedido.some(produtoPedido => produtoPedido.id === menuCafe[index].id)){
+                                            setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
+                                        }else {
+                                            produtosPedido.find(produtoPedido => {
+                                                if(produtoPedido.id === menuCafe[index].id) {
+                                                    produtoPedido.qtd = produtoPedido.qtd+1;
+                                                }
+                                            })
+                                        }
+                                        
                                         setPrecoTotal([...precoTotal, menuCafe[index].price]);
-                                        setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price, "qtd": quantidade}]);
-                                        setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": quantidade}]);
+
+                                        if(!resumoPedido.some(pedido => pedido.name === menuCafe[index].name)){
+                                            setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price, "qtd": 1}]);
+                                        }else {
+                                            resumoPedido.find(produto => {
+                                                if(produto.name === menuCafe[index].name) {
+                                                    produto.qtd = produto.qtd+1
+                                                }
+                                            })
+                                        }
+                                    
                                     }}
                                 />
                             </li>
@@ -209,6 +233,7 @@ function PaginaPedidos(){
                                     name={produto.id}
                                     onClick={(event) => {
                                         handleExtras(event);
+                                        console.log(listaCompletaDeProdutos);
                                     //     if(produto.name === "Hambúrguer simples" || produto.name === "Hambúrguer duplo"){
                                     //         setSelectedBurger(selectedBurger.name = event.currentTarget.id);
                                     //         setSelectedBurger({...selectedBurger, name: event.currentTarget.id});
@@ -234,8 +259,8 @@ function PaginaPedidos(){
                 {resumoPedido !== [] && <>
                     {resumoPedido.map((item, index) => (
                         <div key={index}>
-                            <p>{item.name}</p>
-                            <p>R${item.price}</p>
+                            <p>{item.qtd}x {item.name}</p>
+                            <p>R${item.price*item.qtd}</p>
                         </div>
                         ))}
                         <p>TOTAL: R${somarPrecoTotal(precoTotal)}</p>
