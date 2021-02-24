@@ -97,12 +97,10 @@ const Register = () => {
                         />
                     </div>
                 ))}
-                {response && response.ok &&
-                    <p
-                        style={{
-                            'padding': '10px',
-                        }}
-                    >Seu registro foi criado com sucesso</p>}
+                {
+                    response && response.ok &&
+                    <p style={{'padding': '10px',}}>Seu registro foi criado com sucesso</p>
+                }
                 <Button>Registrar</Button>
             </Form>
             <Template>

@@ -85,9 +85,7 @@ const Hall = () => {
                     menu={menuData}
                     cart={cartData}
                     reduceCart={reduceFromCart} />
-
             </MenuOrders>
-
         </DivMenus>
         </div>
     );
