@@ -1,11 +1,8 @@
 .icon-order-itens {
-	font-size: 10rem;
-	background-color: aqua;
+	font-size: 1.5rem;
 }
 
 .teste {
 	display: flex;
 	flex-wrap: nowrap;
-	margin-left: 20rem;
-	margin-top: 10rem;
 }
