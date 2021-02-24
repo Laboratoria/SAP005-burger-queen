@@ -20,7 +20,7 @@ function Menu({ menu, addToCart }) {
                     {
                         show ?
                             <div>
-                                {Object.keys(menu).slice(0, 4).map((key) => (
+                                {Object.keys(menu).slice(0, 4).map((key, index) => (
                                     <MenuItem
                                         name={menu[key].name}
                                         flavor={[]}
@@ -28,13 +28,15 @@ function Menu({ menu, addToCart }) {
                                         price={menu[key].price}
                                         addToCart={addToCart}
                                         sku={key}
+                                        key={index}
                                     />
                                 ))
                                 }
                             </div>
                             :
                             <div>
-                                {Object.keys(menu).slice(4, 28).map((key) => (
+                                {Object.keys(menu).slice(4, 28).map((key, index) => (
+                                    
                                     <MenuItem
                                         name={menu[key].name}
                                         flavor={menu[key].flavor}
@@ -42,6 +44,7 @@ function Menu({ menu, addToCart }) {
                                         price={menu[key].price}
                                         addToCart={addToCart}
                                         sku={key}
+                                        key={index}
                                     />
                                 ))
                                 }

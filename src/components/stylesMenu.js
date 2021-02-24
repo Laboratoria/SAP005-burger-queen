@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Teste = styled.div`
     border-radius: 30px;
     background: linear-gradient(145deg, #fffdf5, #dbd4ce);
@@ -18,7 +17,7 @@ export const MenuOrders = styled.div`
     box-shadow:  11px 11px 57px #999590,
              -11px -11px 57px #ffffff;
     height: 350px;     
-    width:400px;
+    width:450px;
     overflow: auto;
     padding: 20px;
     margin-left: 100px;
@@ -54,6 +53,9 @@ export const ButtonMenu = styled.button`
     margin-left: 15px;
     margin-top: -100px;
     cursor: pointer;
+    font-family: Roboto Slab;
+    font-size: 15px;
+    font-weight: 400;
 `;
 
 export const DivButton = styled.div`
@@ -89,12 +91,106 @@ export const LogoHall = styled.img`
 
 export const Textarea = styled.textarea`
     background: linear-gradient(145deg, #fffdf5, #dbd4ce);
-    box-shadow:  9px 9px 19px #909092,
-                -9px -9px 19px #ffffff;
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.5),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.9);
     border: none;
     outline: none;
     margin-top: 50px;
     padding: 20px;
     border-radius: 10px;
+    color:  #E65100;
 `;
 
+export const Name = styled.p`
+    padding-right: 50px;
+    font-family: Roboto Slab;
+    font-size: 15px;
+`;
+
+export const Complement = styled.p`
+    padding-right: 20px;
+    color: #E65100;
+    font-family: Roboto Slab;
+    font-size: 15px;
+`;
+
+export const SpamMenuItem = styled.div`
+    padding: 15px;
+`;
+
+export const SpanFlavor = styled.span`
+    display:flex;
+    justify-content: space-between;
+    width: 160px;
+`;
+
+export const SpanName = styled.span`
+    display:flex;
+    justify-content: space-between;
+    width: 270px;
+`;
+
+export const SpamQtd = styled.span`
+    display:flex;
+    justify-content: space-between;
+    width: 400px;
+    padding: 20px;
+    color:  #E65100;
+`;
+
+export const DivOrders= styled.span`
+    display:flex;
+    justify-content: space-between;
+    width: 420px;
+`;
+
+export const ProductsOrders = styled.div`
+    background: #F3ECE5;
+    box-shadow: 0 2px 6px rgba(88,116,159,.15);
+    border-radius: 4px;
+    width: 400px;
+    height: 64px;
+    margin-top: 3%;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #fffdf5, #dbd4ce);
+    box-shadow:  11px 11px 57px #999590,
+                 -11px -11px 57px #ffffff;
+    padding: 15px;
+`;
+
+export const SpanNameOrders = styled.span`
+    display:flex;
+    justify-content: space-between;
+    width: 370px;
+`;
+
+export const DivTotal = styled.div`
+    display:flex;
+    justify-content: flex-end;
+    width: 370px;
+    padding:15px;
+`;
+
+export const Total = styled.span`
+    padding-right: 20px;
+    padding: 10px;
+    font-family: Roboto Slab;
+`;
+
+export const Soma = styled.span`
+    background: linear-gradient(145deg, #fffdf5, #dbd4ce);
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.5),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.9);
+    height:35px;
+    width: 100px;
+    padding: 10px;
+    text-align:center;
+    border-radius: 10px;
+    color:  #E65100;
+    font-family: Roboto Slab;
+    font-weight: bold;
+`;
+
+export const Itens = styled.p`
+    font-family: Roboto Slab;
+`;
