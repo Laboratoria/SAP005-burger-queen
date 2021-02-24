@@ -106,6 +106,5 @@
 }
 
 button:focus {
-    border: none;
-    outline: none;
+  outline: none;
 }
