@@ -33,10 +33,10 @@ export const NewOrder = () => {
 
   return (
     <Fragment>
-      <header>
+      {/*<header>
         <Navbar />
       </header>
-      {/*<main>
+      <main>
         <div className='container-menu'>
           <div className='radio-tile-group-menu'>
             <div className='input-container-menu'>
@@ -131,8 +131,7 @@ export const NewOrder = () => {
             />
           </div>
         </section>
-            </main>*/}
-      <OrderItens />
+      </main>*/}
       <OrderSection />
       <ReactModal
         className='modal'

@@ -12,7 +12,8 @@ export default function OrderItens({
 }) {
   return (
     <Fragment>
-      <div className={classNameContainer} className='teste'>
+      <div className={classNameContainer}>
+        Oi, tudo bom? Porque não tá aparecendo?
         <p className={classNameOrderItens}></p>
         <FiMinusSquare className='icon-order-itens' />
         <p className={classNameNumber}></p>
