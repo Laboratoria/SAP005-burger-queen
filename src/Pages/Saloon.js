@@ -10,7 +10,6 @@ function Saloon() {
   const [products, setProducts] = useState([]);
   const token = localStorage.getItem("token");
   const history = useHistory();
-  const [counter, setCounter] = useState(0);
   const [itensMenu, setItens] = useState([]);
   let contador = 0;
   let idProducts = 0;
@@ -78,11 +77,6 @@ function Saloon() {
 		event.preventDefault();
 		clientOrder (clientBox, table, products, contador, idProducts)
 	}
-
-    /*function handleSubmit (event) {
-    event.preventDefault();
-    clientOrder (clientBox, table, products)
-  }*/
     
   return (
     <div className="saloon-page">
@@ -145,80 +139,4 @@ function Saloon() {
 
 export default Saloon;
 
-/*<button disabled={counter === 0} onClick={() => setCounter(counter - 1)}>-</button>
-						<li>{counter}</li>
-						<button onClick={() => setCounter(counter + 1)}>+</button>*/
-/*LÓGICA PARA ANOTAR PEDIDOS
-  <div className="anote-pedido">
-         { 
-		  const validate =[]
-		  const pedidOrder =[]
-		
-
-    	  const handleKitchen = (event) => {
-            event.preventDefault();
-            pedidOrder(clientBox, table)
-    	  }
-
-
-          products.length != 0 &&
-          products.map((cardapio) => {
-
-           pedidOrder.push(cardapio.id)
-           validate.push(cardapio.price)
-           
-           const conta = validate.reduce((sum, num) => sum + num, 0)
-
-           localStorage.setItem("order", pedidOrder)
-           localStorage.setItem("total", total)
-           
-             return (
-               <div className="anote-pedido" key={}>
-                 <p>{cardapio.name} - R${cardapio.price}</p>
-               </div>
-            )
-          })
-          }
-          </div>
-
-            <div className="total-enviar">
-             <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
-            </div>
-
-            <button className="" onClick={
-               (event) => handleKitchen (event)}>
-                 Confirmar
-              </button>
-            <button className="">Cancelar</button>
-          </div>
-        </div>
-    </div>
-  );*/
-
- /* <img className="img-product" src={cardapio.image} /> */
-
-
- /*function handleClick(item) {
-    console.log(item.id);
-    const obj = {
-      id: item.id,
-      qtd:0,
-    }
-    setMenu([...menu, item]);
-   
-  }
-  order = [ {id:31, qtd: 1}, {id:33, qtd: 2},  {id:35, qtd: 4},  ]
-  
-  obj = {id: 1, qtd: 5}
-
-  obj.qtd = qtd + 1
-
-  setItems(
-	items.map((item, index) => {
-	  item.id === id ? newItem : item
-	})
-  )*/
-
- /* <button className="remove-item-btn" onClick={() => removeItem()}>-</button>
-  <button className="add-item-btn" onClick={() => addItem()}>+</button>*/
   
