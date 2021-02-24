@@ -9,12 +9,6 @@ export const Button = ({
     type,
     onClick,
     buttonStyle,
-
-  export const Button = ({
-  children,
-  type,
-  onClick,
-  buttonStyle,
 }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle)? buttonStyle: STYLES[0];
 
