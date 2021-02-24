@@ -124,6 +124,7 @@ function Saloon() {
 						<p>{itens.name}</p>
 						<p>{itens.price}</p>
 						<button className="add-item-btn" onClick={() => (console.log(contador += 1))}>+</button>
+						
 						<button className="add-item-btn" onClick={() => (console.log(contador -= 1))}>-</button>
 						
 					</div>)
