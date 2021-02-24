@@ -3,7 +3,9 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { getProducts } from '../../services/index'
 import Button from '../../components/Button/Button'
 import Navbar from '../../components/Navbar/Navbar'
-import MenuItens from '../../components/menu-itens/menu-itens'
+//import MenuItens from '../../components/menu-itens/menu-itens'
+import OrderItens from '../../components/order-itens/order-itens'
+import OrderSection from '../../components/order-section/order-section'
 import ReactModal from 'react-modal'
 import Input from '../../components/Input/Input'
 import MenuSection from '../../components/menu-section/menu-section'
@@ -34,7 +36,7 @@ export const NewOrder = () => {
       <header>
         <Navbar />
       </header>
-      <main>
+      {/*<main>
         <div className='container-menu'>
           <div className='radio-tile-group-menu'>
             <div className='input-container-menu'>
@@ -129,7 +131,9 @@ export const NewOrder = () => {
             />
           </div>
         </section>
-      </main>
+            </main>*/}
+      <OrderItens />
+      <OrderSection />
       <ReactModal
         className='modal'
         isOpen={showModal}

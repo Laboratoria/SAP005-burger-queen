@@ -3,6 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { FaEdit } from 'react-icons/fa'
 import { FiPlusSquare } from 'react-icons/fi'
 import { FiMinusSquare } from 'react-icons/fi'
+import './order-itens.css'
 
 export default function OrderItens({
   classNameContainer,
@@ -11,7 +12,7 @@ export default function OrderItens({
 }) {
   return (
     <Fragment>
-      <div className={classNameContainer}>
+      <div className={classNameContainer} className='teste'>
         <p className={classNameOrderItens}></p>
         <FiMinusSquare className='icon-order-itens' />
         <p className={classNameNumber}></p>

@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Work Sans", sans-serif;
+}
+
+.section-container-menu-order {
+	margin: 20rem;
+}
+
+.menu-order-section-title {
+}
+
+.menu-order-section-container {
+}
+
+.hr-menu-order {
+	margin: 1rem 0;
+}
+
+.menu-order-total {
+}
