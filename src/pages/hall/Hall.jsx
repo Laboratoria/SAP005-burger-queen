@@ -52,7 +52,6 @@ const Hall = () => {
 
     return (
         <div>
-           
             <Link to='/orders'>
                 <button
                     style={{
