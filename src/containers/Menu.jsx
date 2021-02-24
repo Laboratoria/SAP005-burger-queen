@@ -34,6 +34,7 @@ function Menu({ menu, addToCart }) {
                             :
                             <div>
                                 {Object.keys(menu).slice(4, 28).map((key, index) => (
+
                                     <MenuItem
                                         name={menu[key].name}
                                         flavor={menu[key].flavor}
