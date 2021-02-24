@@ -133,7 +133,7 @@ export const SpanName = styled.span`
 export const SpamQtd = styled.span`
     display:flex;
     justify-content: space-between;
-    width: 400px;
+    width: 370px;
     padding: 20px;
     color:  #E65100;
 `;

@@ -27,7 +27,6 @@ function Menu({ menu, addToCart }) {
                                         addToCart={addToCart}
                                         key={index}
                                         sku={key}
-                                        key={index}
                                     />
                                 ))
                                 }
@@ -44,7 +43,6 @@ function Menu({ menu, addToCart }) {
                                         addToCart={addToCart}
                                         key={index}
                                         sku={key}
-                                        key={index}
                                     />
                                 ))
                                 }
