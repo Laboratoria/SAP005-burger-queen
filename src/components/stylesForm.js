@@ -41,7 +41,6 @@ export const Form = styled.form`
     height: 600px;
     padding-left: 20px;
     padding-top: 20px;
-
     justify-content: center;
     width: 500px;
 `;
@@ -94,4 +93,12 @@ export const Input = styled.input`
     font-size: 20px;
     outline:none;
     background: linear-gradient(225deg, #b4b4b7, #d6d6d9);
+`;
+
+export const EYE = styled.span`
+    margin: 380px;
+    position:absolute;
+    margin-top: -65px;
+    color: #E65100;
+    cursor: pointer;
 `;
