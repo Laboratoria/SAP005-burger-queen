@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { TOKEN } from '../../components/api';
-import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage } from '../../components/stylesForm';
+import Password from '../../components/Password';
+import { Title, Form, Template, Page, Input, Button, Register, Images, BurgerImage, EYE } from '../../components/stylesForm';
 import Burger from '../../images/burger.png'
 import Logo from '../../images/logoBranco.png'
 
 const Login = () => {
+    const [PasswordInputType, TogleIcon] = Password();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
@@ -50,11 +52,12 @@ const Login = () => {
                     onChange={({ target }) => setEmail(target.value)}
                 />
                 <Input
-                    type="password"
+                    type={PasswordInputType}
                     placeholder="Password"
                     value={password}
                     onChange={({ target }) => setPassword(target.value)}
                 />
+                <EYE>{TogleIcon}</EYE>
                 <Button>Entrar</Button>
                 <Register>
                     Não tem conta? <NavLink
