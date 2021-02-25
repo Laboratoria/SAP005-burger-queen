@@ -10,7 +10,6 @@ import Kitchen from "./pages/Kitchen/Kitchen.js"
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
