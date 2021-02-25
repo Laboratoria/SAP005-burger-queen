@@ -6,19 +6,18 @@
 .formLogin {
 	margin-bottom: 15px;
 	margin-top: 5%;
+	margin-left: 12%;
 }
 
-a, 
+a,
 .pRegister {
 	font-size: 17px;
 }
 
-@media (min-width:920px) and (max-width:1700px) {
-
+@media (min-width: 920px) and (max-width: 1700px) {
 	.formLogin {
 		margin-bottom: 3%;
 		margin-top: 2%;
-	
 	}
 
 	.divRegister {
