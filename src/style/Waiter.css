@@ -15,10 +15,12 @@
 	height: 43px;
 	border: none;
 	display: flex;
+	margin-top: 6px;
+	background-color: #383838;
 }
 .logoWaiter {
 	justify-content: center;
-	width: 42%;
+	width: 20%;
 }
 
 .AppWaiter {
@@ -36,15 +38,14 @@
 	border-radius: 9px;
 	margin: 26px;
 	width: 45%;
-	height: 387px;
+	height: 589px;
 }
 #logoWaiter {
 	display: flex;
 	justify-content: center;
 }
 
-#client,
-#products {
+#client {
 	padding: 11px;
 	width: 80%;
 	margin-top: 20px;
@@ -52,18 +53,29 @@
 	border-radius: 9px;
 	align-items: center;
 }
+
+#products {
+	padding: 11px;
+	width: 80%;
+	margin-top: 20px;
+	justify-content: center;
+	border-radius: 9px;
+	height: 180px;
+	align-items: center;
+}
+
 #number {
 	padding: 11px;
 	width: 27%;
-	margin-top: 10px;
+	margin-top: 20px;
 	justify-content: center;
 	border-radius: 9px;
 	align-items: center;
 }
 
 h1 {
-	margin-top: 33px;
-	font-size: 20px;
+	margin-top: 53px;
+	font-size: 30px;
 	font-weight: bold;
 	font-family: Arial;
 }
@@ -72,7 +84,7 @@ h1 {
 	background-color: rgb(41, 39, 39);
 	border-radius: 9px;
 	width: 43%;
-	height: 387px;
+	height: 100%;
 	float: left;
 	margin-top: 25px;
 	margin-left: 38px;
@@ -103,7 +115,13 @@ h1 {
 	margin: 17px;
 	margin-top: 23px;
 	height: 63px;
-	width: 116px;
+	width: 71px;
 	background-color: #ffde59;
 	border-radius: 9px;
+}
+
+.Produtos {
+	background-color: rgb(87, 84, 84);
+	width: 59%;
+	padding: 17px;
 }
