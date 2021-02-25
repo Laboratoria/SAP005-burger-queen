@@ -22,6 +22,10 @@ const Waiter = () => {
   const rLogin=()=> {
     history.push('/')
   }
+  
+  const Historic=()=>{
+    history.push('/Historic')
+  }
 
   const order = () =>{
     if(client !== '' && table !== ''){
@@ -66,6 +70,7 @@ const Waiter = () => {
       <nav className="nav">
         <button className="exit"   onClick={rLogin}>
       <img src= {exit} alt="" className="exit"/></button>
+      <button className="histo" onClick={Historic}>Histórico</button>
       </nav>
 
       <header className="App-waiter">
