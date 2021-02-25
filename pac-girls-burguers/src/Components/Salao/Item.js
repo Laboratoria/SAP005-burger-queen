@@ -5,37 +5,49 @@ const ContainerCard = styled.div`
   display: flex;
   flex-wrap: wrap;
   border: none;
-  border-radius: 3px;
 `;
 
 const ItemCard = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
   justify-items: center;
   border: 1pt solid black;
   border-radius: 3px;
   margin: 5px;
   padding: 5px;
-  width: 150px;
+  width: 100px;
 `;
 const Image = styled.img`
   width: 60px;
   height: 60px;
 `;
 
-const Item = ({ name, price, flavor, img, complement, onClick }) => {
+const Name = styled.span``;
+const Flavor = styled.span``;
+const Complement = styled.span`
+  color: red;
+`;
+const Price = styled.span``;
+const Qtd = styled.span``;
+const ButtonQtd = styled.span``;
+
+const Item = ({ name, price, flavor, img, complement, onClick, qtd }) => {
   return (
     <ContainerCard onClick={onClick}>
       <ItemCard>
+        <Image src={img} />
+        <Name>{name}</Name>
+        <Flavor>{flavor}</Flavor>
+        <Complement>
+          {complement !== null ? <p>com {complement}</p> : null}
+        </Complement>
+        <Price>R$ {price.toFixed(2)}</Price>
         <div>
-          <Image src={img} />
+          {/* <ButtonQtd onClick={onClick}>+</ButtonQtd>
+          <Qtd>{qtd}</Qtd> */}
         </div>
-        <div>
-          {name} {flavor} {complement !== null ? <p>com  {complement}</p> : null}
-        </div>
-
-        <p>R$ {price.toFixed(2)}</p>
       </ItemCard>
     </ContainerCard>
   );
