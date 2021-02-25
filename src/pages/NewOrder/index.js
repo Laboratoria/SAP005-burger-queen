@@ -16,17 +16,17 @@ export const NewOrder = () => {
   const [showModal, setShowModal] = useState(false)
   const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
-  const [burgerMeat, setBurgerMeat] = useState('')
-  const [burgerChicken, setBurgerChicken] = useState('')
-  const [burgerVeggie, setBurgerVeggie] = useState('')
-  const [extraCheese, setExtraCheese] = useState('')
-  const [extraEgg, setExtraEgg] = useState('')
-
+  const [simpleBurger, setSimpleBurger] = useState([])
+  const [doubleBurger, setDoubleBurger] = useState([])
+  const [burgerFlavor, setBurgerFlavor] = useState('')
+  const [burgerExtra, setBurgerExtra] = useState('')
 
   useEffect(() => {
     const storeProducts = async () => {
       const response = await getProducts()
       setProducts(response)
+      setSimpleBurger(products.filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer simples'))
+      setDoubleBurger(products.filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer duplo'))
     }
     storeProducts()
   }, [])
@@ -104,7 +104,14 @@ export const NewOrder = () => {
           <div className='div-container-menu-section'>
             <MenuSection
               menuSectionTitle='Hambúrgueres'
-              products={products.filter((product) => product.sub_type === 'hamburguer' && (product.id === 33 || product.id === 42))}
+              products={
+                [
+                  products
+                    .filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer simples')[0],
+                  products
+                    .filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer duplo')[0]
+                ]
+              }
               onClick={
                 () => {
                   setShowModal(true)
@@ -152,7 +159,7 @@ export const NewOrder = () => {
                 inputValue='meat'
                 inputOnChange={
                   () => {
-                    setBurgerMeat()
+                    setBurgerFlavor('carne')
                   }
                 }
               />
@@ -171,7 +178,7 @@ export const NewOrder = () => {
                 inputValue='chicken'
                 inputOnChange={
                   () => {
-                    setBurgerChicken()
+                    setBurgerFlavor('frango')
                   }
                 }
               />
@@ -190,7 +197,7 @@ export const NewOrder = () => {
                 inputValue='veggie'
                 inputOnChange={
                   () => {
-                    setBurgerVeggie()
+                    setBurgerFlavor('vegetariano')
                   }
                 }
               />
@@ -215,7 +222,7 @@ export const NewOrder = () => {
                 inputValue='cheese'
                 inputOnChange={
                   () => {
-                    setExtraCheese()
+                    setBurgerExtra('queijo')
                   }
                 }
               />
@@ -234,7 +241,7 @@ export const NewOrder = () => {
                 inputValue='egg'
                 inputOnChange={
                   () => {
-                    setExtraEgg()
+                    setBurgerExtra('ovo')
                   }
                 }
               />
@@ -261,6 +268,8 @@ export const NewOrder = () => {
                 onClick={
                   async (event) => {
                     event.preventDefault()
+
+
                   }
                 }
               />
