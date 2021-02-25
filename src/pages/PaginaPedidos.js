@@ -35,7 +35,7 @@ function PaginaPedidos(){
     const [resumoPedido, setResumoPedido] = useState([]);
     const [fazerPedido, setFazerPedido] = useState({"table": mesa});
     const [produtosPedido, setProdutosPedido] = useState([]);
-    const [quantidade, setQuantidade] = useState(1);
+    const [quantidade, setQuantidade] = useState(0);
     const [precoTotal, setPrecoTotal] = useState([0]);
 
     useEffect(() => {
@@ -52,15 +52,16 @@ function PaginaPedidos(){
             .then(data => {
                 console.log(data);
                 const products = data;
-
                 const slice1 = products.slice(0,5);
                 const slice2 = products.slice(22);
+                const slice3 = products.slice(4,7);
+                const slice4 = products.slice(13,16);
                 let listaDeProdutosSemRepeticao = [];
                 listaDeProdutosSemRepeticao = listaDeProdutosSemRepeticao.concat(slice1, products[13], slice2);
                 
                 const listaCafeDaManha = listaDeProdutosSemRepeticao.slice(0,4);
                 setMenuCafe(listaCafeDaManha);
-            
+                
                 const listaAlmoco = listaDeProdutosSemRepeticao.slice(4,12);
                 setMenuAlmoco(listaAlmoco);
                 
@@ -86,11 +87,12 @@ function PaginaPedidos(){
                     name="escolher-hamburguer"
                     id={tipoHamburguer.name}
                     onChange={(event) => {
+                      console.log(event.target.id);
                       setSelectedBurger(selectedBurger.flavor = event.currentTarget.id);
                       setSelectedBurger({...selectedBurger, flavor: event.currentTarget.id});
                     }}
                   />
-                  <label for={tipoHamburguer.name} >
+                  <label for={tipoHamburguer.name}>
                     <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
                   {tipoHamburguer.label}</label>
                 </>
@@ -100,18 +102,19 @@ function PaginaPedidos(){
             <section className="opcoes-adicionais">
               <p className="titulo-extras">Adicionais R$1</p>
               <section className="img-input-extras">
-              {adicionais.map(tipoAdicional => (
+              {adicionais.map((tipoAdicional, index) => (
                 <>
                   <input
-                    key={tipoAdicional.name}
+                    key={index}
                     type="radio"
                     name="escolher-adicional"
                     id={tipoAdicional.name}
                     onChange={(event) => {
+                      console.log(event.target.id)
                       setSelectedBurger({...selectedBurger, complement: event.currentTarget.id});
                     }}
                   />
-                  <label for={tipoAdicional.name} >
+                  <label for={tipoAdicional.name} key={index}>
                     <img className="img-button-extra" alt={tipoAdicional.name} src={tipoAdicional.img} />
                   {tipoAdicional.name}</label>
                 </> 
@@ -129,7 +132,7 @@ function PaginaPedidos(){
                 event.currentTarget.classList.remove("rotate");
             } else {
                 event.currentTarget.classList.add("rotate");
-                setExtrasBurgerSimples(extras());
+                setExtrasBurgerSimples(extras);
                 setOpenExtrasBurgerSimples(true);
             }
         }
@@ -174,7 +177,7 @@ function PaginaPedidos(){
                     {menus ? (
                       <ul className="lista-menu">
                         {menuCafe.map((produto, index) => (
-                          <li key={index} className="item-lista-menu">
+                          <li key={index} className={`item-lista-menu ${index}`}>
                             <label>{`${produto.name} R$${produto.price}`}</label>
                             <input
                               className="button-adicionar"
