@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Input = styled.input`
+  outline: none;
   width: 400px;
   height: 30px;
   font-size: 16px;
@@ -21,6 +22,7 @@ export const Button = styled.button`
 `;
 
 export const Select = styled.select`
+  outline: none;
   width: 430px;
   height: 50px;
   font-size: 16px;
