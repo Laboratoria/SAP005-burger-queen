@@ -42,7 +42,7 @@ function Cart({ total, cart, menu, reduceCart }) {
                 }
                 <div id="cart-total">
 
-                    <Textarea name="" id="" cols="47" rows="2" placeholder="observações" ></Textarea>
+                    <Textarea name="" id="" cols="45" rows="2" placeholder="observações" ></Textarea>
                     <DivTotal>
                         <Total>Total </Total>
                         <Soma>

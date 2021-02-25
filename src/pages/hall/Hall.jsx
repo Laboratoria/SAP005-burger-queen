@@ -4,7 +4,7 @@ import Menu from "../../containers/Menu";
 import Cart from "../../containers/Cart";
 import { USER } from "../../components/api";
 import Logo from '../../images/logoLaranja.png';
-import { MenuOrders, DivMenus, LogoHall } from '../../components/stylesMenu';
+import { MenuOrders, DivMenus, LogoHall, ButtonPedidos } from '../../components/stylesMenu';
 import { Link } from 'react-router-dom';
 
 
@@ -53,23 +53,7 @@ const Hall = () => {
     return (
         <div>
             <Link to='/orders'>
-                <button
-                    style={{
-                        'border': 'none',
-                        'outline': 'none',
-                        'backgroundColor': '#F57F17',
-                        'textAlign': 'center',
-                        'fontSize': '30px',
-                        'color': '#fff',
-                        'cursor': 'pointer',
-                        'marginLeft': '990px',
-                        'borderRadius': '0 0 10px 10px',
-                        'height': '50px',     
-                        'width':'200px',
-                        'boxShadow': '9px 9px 19px #909092, -9px -9px 19px #fff'
-                    }}
-                >Pedidos
-                    </button>
+                <ButtonPedidos>Pedidos</ButtonPedidos>
             </Link>
             <LogoHall src={Logo} alt='' width='400' />
             {/* <MenuTitulo>Menu</MenuTitulo> */}
@@ -87,7 +71,6 @@ const Hall = () => {
                     reduceCart={reduceFromCart} />
 
             </MenuOrders>
-
         </DivMenus>
         </div>
     );

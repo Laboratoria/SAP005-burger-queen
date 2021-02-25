@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MenuItem from "../components/MenuItem";
-import { ButtonMenu, DivButton, Teste } from '../components/stylesMenu'
+import { ButtonMenu, DivButton, MenuPedidos } from '../components/stylesMenu'
 
 function Menu({ menu, addToCart }) {
     const [show, setShow] = useState(true)
@@ -14,7 +14,7 @@ function Menu({ menu, addToCart }) {
                     </DivButton>
                 
 
-                <Teste>
+                <MenuPedidos>
                     {
                         show ?
                             <div>
@@ -48,7 +48,7 @@ function Menu({ menu, addToCart }) {
                                 }
                             </div>
                     }
-                </Teste>
+                </MenuPedidos>
             </div>
         </div>
     );
