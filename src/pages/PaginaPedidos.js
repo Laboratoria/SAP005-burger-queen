@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ErrorModal from '../components/ModalError';
 import Adicionar from '../images/Ícones/add-close.png';
 import Vaca from '../images/Ícones/vaca.png';
 import Frango from '../images/Ícones/frango.png';
 import Veggie from '../images/Ícones/planta.png';
 import Ovo from '../images/Ícones/ovo.png';
 import Queijo from '../images/Ícones/queijo.png';
+import Lixeira from '../images/Ícones/lixo.png';
 import Loading from '../components/Loading';
 
 function PaginaPedidos(){
@@ -35,9 +37,8 @@ function PaginaPedidos(){
     });
     const [resumoPedido, setResumoPedido] = useState([]);
     const [fazerPedido, setFazerPedido] = useState({"client": "", "table": mesa, "products": []});
-    const [produtosPedido, setProdutosPedido] = useState([]);
-    const [quantidade, setQuantidade] = useState(1);
-    const [precoTotal, setPrecoTotal] = useState([0]);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         const requestOptions = {
@@ -148,20 +149,18 @@ function PaginaPedidos(){
     }
 
     function somarPrecoTotal(array) {
-        const soma = ((total, num) => total+num);
-        return array.reduce(soma);
+        return array.reduce((total, item) => total + (item.qtd*item.price), 0);
     }
 
     React.useEffect(() => {
         console.log(resumoPedido);
-        console.log(fazerPedido)
-        console.log(precoTotal);
-        console.log(produtosPedido)
+        // console.log(fazerPedido)
 
-      }, [produtosPedido, precoTotal, resumoPedido, fazerPedido])
+      }, [resumoPedido, fazerPedido])
 
   return (
     <>
+      {isModalVisible ? (<ErrorModal onClose={() => setIsModalVisible(false)}>{errorMessage}</ErrorModal>) : null}
       <Header />
         <main className="pagina-pedido">
             {loading ? 
@@ -169,19 +168,13 @@ function PaginaPedidos(){
               <Loading />
             ) : (
                 <>
-                <input type="button" value="Voltar" onClick={() => {
-                    history.push({
-                    pathname: `/salao`,
-                    })
-                }}/>
-
-                <p>Pedido Mesa {mesa}</p>
-
                 <input 
-                    type="text" 
-                    placeholder="Nome do Cliente"
-                    onChange={(event) => {
-                        setFazerPedido(fazerPedido.client = event.target.value)
+                    type="button" 
+                    value="Voltar" 
+                    onClick={() => {
+                        history.push({
+                        pathname: `/salao`,
+                        })
                     }}
                 />
 
@@ -196,7 +189,7 @@ function PaginaPedidos(){
                     <ul className="lista-menu">
                         {menuCafe.map((produto, index) => (
                             <li key={index}>
-                                <label>{`${produto.name} R$${produto.price}`}</label>
+                                <label>{`${produto.name} R$${produto.price} `}</label>
                                 <input
                                     className="button-adicionar"
                                     id={produto.name}
@@ -204,29 +197,16 @@ function PaginaPedidos(){
                                     alt="button-adicionar"
                                     src={Adicionar}
                                     onClick={() => {
-
-                                        if(!produtosPedido.some(produtoPedido => produtoPedido.id === menuCafe[index].id)){
-                                            setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
-                                        }else {
-                                            produtosPedido.find(produtoPedido => {
-                                                if(produtoPedido.id === menuCafe[index].id) {
-                                                    produtoPedido.qtd = produtoPedido.qtd+1;
-                                                }
-                                            })
-                                        }
-                                        
-                                        setPrecoTotal([...precoTotal, menuCafe[index].price]);
-
                                         if(!resumoPedido.some(pedido => pedido.name === menuCafe[index].name)){
-                                            setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price, "qtd": 1}]);
-                                        }else {
-                                            resumoPedido.find(produto => {
+                                            setResumoPedido([...resumoPedido, {"id": menuCafe[index].id, "name": menuCafe[index].name, "price": menuCafe[index].price, "qtd": 1}]);
+                                        } else {
+                                            resumoPedido.map((produto, i) => {
                                                 if(produto.name === menuCafe[index].name) {
-                                                    produto.qtd = produto.qtd+1
+                                                  resumoPedido[i].qtd++; 
+                                                  setResumoPedido([...resumoPedido]);
                                                 }
                                             })
                                         }
-                                    
                                     }}
                                 />
                             </li>
@@ -246,19 +226,21 @@ function PaginaPedidos(){
                               name={produto.id}
                               onClick={(event) => {
                                 handleExtras(event);
-                                // if(produto.name === "Hambúrguer simples" || produto.name === "Hambúrguer duplo"){
-                                //   setSelectedBurger(selectedBurger.name = event.currentTarget.id);
-                                //   setSelectedBurger({...selectedBurger, name: event.currentTarget.id});
-                                // } else {
-                                //   setPedido([...pedido, {name: event.currentTarget.id, id: event.currentTarget.name, qtd: 1}])
-                                //   pedido.map((item) => (
-                                //     item.name === event.currentTarget.id ? (
-                                //       setPedido([...pedido, {name: item.name, id: event.currentTarget.name, qtd: item.qtd++}]) 
-                                //     ) : (
-                                //       null
-                                //     )
-                                //   ))
-                                // }                                        
+                                if(produto.name === "Hambúrguer simples" || produto.name === "Hambúrguer duplo"){
+                                  setSelectedBurger(selectedBurger.name = event.currentTarget.id);
+                                  setSelectedBurger({...selectedBurger, name: event.currentTarget.id});
+                                } else {
+                                  if(!resumoPedido.some(pedido => pedido.name === menuAlmoco[index].name)){
+                                    setResumoPedido([...resumoPedido, {"id": menuAlmoco[index].id, "name": menuAlmoco[index].name, "price": menuAlmoco[index].price, "qtd": 1}]);
+                                  } else {
+                                    resumoPedido.map((produto, i) => {
+                                        if(produto.name === menuAlmoco[index].name) {
+                                          resumoPedido[i].qtd++; 
+                                          setResumoPedido([...resumoPedido]);
+                                        }
+                                    })
+                                  }
+                                }                                        
                               }}
                             />
                             {openExtrasBurgerSimples === true && produto.name === "Hambúrguer simples" && <section className="menu-extras">{extrasBurgerSimples}</section>}
@@ -290,27 +272,94 @@ function PaginaPedidos(){
                         {resumoPedido.map((item, index) => (
                           <>
                             <li className="item-lista-pedido" key={index}>
-                              <label>{item.qtd}x {item.name} R${item.price*item.qtd}</label>
+                                <label>{item.qtd}x {item.name} R${item.price*item.qtd}</label>
+                                <input
+                                    className="button-manipular-qtd"
+                                    id="diminuir-qtd"
+                                    type="button"
+                                    value="-"
+                                    onClick={() => {
+                                      if(item.qtd > 1 && item.name === resumoPedido[index].name) {
+                                        resumoPedido[index].qtd--; 
+                                        setResumoPedido([...resumoPedido]);
+                                      } else if(item.name === resumoPedido[index].name && item.qtd === 1) {
+                                        resumoPedido.splice(index, 1);
+                                        setResumoPedido([...resumoPedido]);
+                                      } 
+                                    }}
+                                />
+                                <p>{item.qtd}</p>
+                                <input
+                                    className="button-manipular-qtd"
+                                    id="aumentar-qtd"
+                                    type="button"
+                                    value="+"
+                                    onClick={() => {
+                                      if(item.name === resumoPedido[index].name) {
+                                        resumoPedido[index].qtd++; 
+                                        setResumoPedido([...resumoPedido]);
+                                      }
+                                    }}
+                                />
+                                <input
+                                    className="button-excluir-item"
+                                    id="excluir-item"
+                                    type="image"
+                                    src={Lixeira}
+                                    alt="icone-lixeira"
+                                    onClick={() => {
+                                      resumoPedido.splice(index, 1);
+                                      setResumoPedido([...resumoPedido]);
+                                    }}
+                                />
                             </li>
                           </>
                         ))}
                         </ul>
-                        <p className="total-resumo-pedido">TOTAL: R${somarPrecoTotal(precoTotal)}</p>
+                        <p className="total-resumo-pedido">TOTAL: R${somarPrecoTotal(resumoPedido)}</p>
                         <section className="buttons-resumo-pedido">
                           <input className="button-resumo-pedido"
                             type="button"
                             value="Enviar Pedido"
                             onClick={() => {
-                              setFazerPedido({...fazerPedido, "products": produtosPedido});
-                            }}
+                              if(fazerPedido.client !== "") {
+                                const products = resumoPedido.map(produto => {
+                                  return {"id": produto.id, "qtd": produto.qtd};
+                                });
+  
+                                fazerPedido.products = products;
+  
+                                const requestOptions = {
+                                  method: 'POST',
+                                  headers: { 
+                                      'Content-Type': 'application/json',
+                                      'Authorization': `${token}`,
+                                  },
+                                  body: JSON.stringify(fazerPedido),
+                                };
+                      
+                                fetch('https://lab-api-bq.herokuapp.com/orders', requestOptions)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                      if(data.id !== undefined){
+                                        console.log(data);
+                                      } else {
+                                        setIsModalVisible(true)
+                                        setErrorMessage(`${data.message}`)
+                                      }
+                                    })
+                              }else{
+                                setIsModalVisible(true);
+                                setErrorMessage("Preencha o nome do cliente!");
+                              }
+                            }} 
                           />
+
                           <input className="button-resumo-pedido"
                             type="button"
                             value="Limpar Pedido"
                             onClick={() => {
-                              setPrecoTotal([0]);
                               setResumoPedido([]);
-                              setProdutosPedido([]);
                             }}
                           />
                         </section>
