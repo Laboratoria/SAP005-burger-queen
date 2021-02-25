@@ -181,3 +181,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.button-excluir-item {
+  width: 20px;
+  height: auto;
+}
