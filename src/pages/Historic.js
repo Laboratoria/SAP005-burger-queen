@@ -20,10 +20,11 @@ function Historic() {
 
       <div className="AppHistoric">
 
-        <nav className="nav">
-            <button className="histo" onClick={rWaiter}>Menu</button>
-            <button className="exit"   onClick={rLogin}>
-                <img src= {exit} alt="" className="exit"/></button>         
+        <nav className="wrap-menu">
+           
+                <button className="histo" onClick={rWaiter}>Menu</button>
+                <button className="exit"   onClick={rLogin}>
+                <img src= {exit} alt="" className="exit"/></button>   
         </nav>
 
         <header className="App-Historic">

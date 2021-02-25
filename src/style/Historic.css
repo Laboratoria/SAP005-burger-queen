@@ -1,7 +1,8 @@
-.nav {
+.wrap-menu {
 	background-color: #383838;
 	display: flex;
 	justify-content: flex-end;
+	margin-right: 35px;
 }
 .App-Historic {
 	background-color: #383838;
@@ -19,14 +20,14 @@
 }
 
 .histo {
-	height: 20px;
-	border: none;
 	margin-top: 11px;
+	padding: 9px;
+	border-radius: 9px;
 	display: flex;
 	font-family: Arial;
 	font-size: 20px;
-	color: #ffde59;
-	background-color: #383838;
+	color: white;
+	background-color: #ffde59;
 }
 .logoHistoric {
 	justify-content: center;
@@ -37,4 +38,8 @@
 	background-color: #383838;
 	min-height: 100vh;
 	font-size: calc(10px + 2vmin);
+}
+
+.menu {
+	margin-top: 20px;
 }
