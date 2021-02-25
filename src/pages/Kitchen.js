@@ -60,14 +60,16 @@ function Kitchen() {
 
         return (
           <div key={order.id}>
-            <p>{order.client_name}</p>
-            <p>{order.table}</p> 
+            <p>Cliente: {order.client_name}</p>
+            <p>Mesa: {order.table}</p> 
+            <p className="pedido">Pedido</p>
             <div>
               {
                 order.Products.map((product)=> {
                   return(
                     <div key={product.id}> 
                     <p>{product.name}</p>
+                    <button className="food">Entregue</button>
                     </div>
                   )
                 })
