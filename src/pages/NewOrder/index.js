@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-duplicate-props */
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useCallback } from 'react'
 import { getProducts } from '../../services/index'
 import Button from '../../components/Button/Button'
 import Navbar from '../../components/Navbar/Navbar'
@@ -16,129 +16,144 @@ export const NewOrder = () => {
   const [showModal, setShowModal] = useState(false)
   const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
-  const [simpleBurger, setSimpleBurger] = useState([])
-  const [doubleBurger, setDoubleBurger] = useState([])
+  const [simpleBurger, setSimpleBurger] = useState({})
+  const [doubleBurger, setDoubleBurger] = useState({})
+  const [drinks, setDrinks] = useState([])
+  const [misto, setMisto] = useState({})
   const [burgerFlavor, setBurgerFlavor] = useState('')
   const [burgerExtra, setBurgerExtra] = useState('')
 
+  const filterProducts = useCallback(() => {
+    const xablau = products.find((product) => product.id === 33)
+    const xablau2 = products.find((product) => product.id === 42)
+    const xablau3 = products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')
+    const xablau4 = products.find((product) => product.name === 'Misto quente')
+    setSimpleBurger(xablau)
+    setDoubleBurger(xablau2)
+    setDrinks(xablau3)
+    setMisto(xablau4)
+  },
+    [products]
+  )
+  const storeProducts = useCallback(async () => {
+    const response = await getProducts()
+    setProducts(response)
+    filterProducts()
+  }, [filterProducts])
+
   useEffect(() => {
-    const storeProducts = async () => {
-      const response = await getProducts()
-      setProducts(response)
-      setSimpleBurger(products.filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer simples'))
-      setDoubleBurger(products.filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer duplo'))
-    }
     storeProducts()
-  }, [])
+
+
+  }, [storeProducts])
 
   return (
     <Fragment>
       <header>
         <Navbar />
       </header>
-      <main>
-        <div className='container-menu'>
-          <div className='radio-tile-group-menu'>
-            <div className='input-container-menu'>
-              <Input
-                inputId='breakfast'
-                inputClassName='radio-button-menu'
-                inputType='radio'
-                inputName='radio'
-                inputValue='breakfast'
-                inputChecked={checkedMenu === 'breakfast'}
-                inputOnChange={
-                  () => {
-                    setCheckedMenu('breakfast')
+      {products.length > 0 && simpleBurger && doubleBurger && misto && drinks.length > 0 &&
+        <main>
+          <div className='container-menu'>
+            <div className='radio-tile-group-menu'>
+              <div className='input-container-menu'>
+                <Input
+                  inputId='breakfast'
+                  inputClassName='radio-button-menu'
+                  inputType='radio'
+                  inputName='radio'
+                  inputValue='breakfast'
+                  inputChecked={checkedMenu === 'breakfast'}
+                  inputOnChange={
+                    () => {
+                      setCheckedMenu('breakfast')
+                    }
                   }
-                }
-              />
-              <div className='radio-tile-menu'>
-                <label htmlFor='breakfast' className='radio-tile-label-menu'>Café da manhã</label>
+                />
+                <div className='radio-tile-menu'>
+                  <label htmlFor='breakfast' className='radio-tile-label-menu'>Café da manhã</label>
+                </div>
               </div>
-            </div>
-            <div className='input-container-menu'>
-              <Input
-                inputId='all-day'
-                inputClassName='radio-button-menu'
-                inputType='radio'
-                inputName='radio'
-                inputValue='all-day'
-                inputChecked={checkedMenu === 'all-day'}
-                inputOnChange={
-                  () => {
-                    setCheckedMenu('all-day')
+              <div className='input-container-menu'>
+                <Input
+                  inputId='all-day'
+                  inputClassName='radio-button-menu'
+                  inputType='radio'
+                  inputName='radio'
+                  inputValue='all-day'
+                  inputChecked={checkedMenu === 'all-day'}
+                  inputOnChange={
+                    () => {
+                      setCheckedMenu('all-day')
+                    }
                   }
-                }
-              />
-              <div className='radio-tile-menu'>
-                <label htmlFor='all-day' className='radio-tile-label-menu'>Almoço/Jantar</label>
+                />
+                <div className='radio-tile-menu'>
+                  <label htmlFor='all-day' className='radio-tile-label-menu'>Almoço/Jantar</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <section className='section-breakfast' className={checkedMenu === 'breakfast' ? '' : 'hide'}>
-          <div className='div-container-menu-section'>
-            <MenuSection
-              menuSectionTitle='Lanches'
-              products={products.filter((product) => product.name === 'Misto quente')}
-              onClick={
-                () => {
-                  console.log('misto')
+          <section className='section-breakfast' className={checkedMenu === 'breakfast' ? '' : 'hide'}>
+            <div className='div-container-menu-section'>
+              <MenuSection
+                menuSectionTitle='Lanches'
+                products={[misto]}
+                onClick={
+                  () => {
+                    console.log('misto ')
+                  }
                 }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Bebidas'
-              products={products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')}
-              onClick={
-                () => {
-                  console.log('bebida-quente')
+              />
+              <MenuSection
+                menuSectionTitle='Bebidas'
+                products={drinks}
+                onClick={
+                  () => {
+                    console.log('bebida-quente')
+                  }
                 }
-              }
-            />
-          </div>
-        </section>
-        <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
-          <div className='div-container-menu-section'>
-            <MenuSection
-              menuSectionTitle='Hambúrgueres'
-              products={
-                [
-                  products
-                    .filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer simples')[0],
-                  products
-                    .filter((product) => product.sub_type === 'hamburguer' && product.name === 'Hambúrguer duplo')[0]
-                ]
-              }
-              onClick={
-                () => {
-                  setShowModal(true)
-                }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Acompanhamentos'
-              products={products.filter((product) => product.sub_type === 'side')}
-              onClick={
-                () => {
-                  console.log('acompanhamento')
-                }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Bebidas'
-              products={products.filter((product) => product.sub_type === 'drinks')}
-              onClick={
-                () => {
-                  console.log('bebidas-frias')
-                }
-              }
-            />
-          </div>
-        </section>
-      </main>
+              />
+            </div>
+          </section>
+          <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
+            <div className='div-container-menu-section'>
+
+              <Fragment>
+                <MenuSection
+                  menuSectionTitle='Hambúrgueres'
+                  products={
+                    [simpleBurger, doubleBurger]
+                  }
+                  onClick={
+                    () => {
+                      setShowModal(true)
+                    }
+                  }
+                />
+                {/* <MenuSection
+                  menuSectionTitle='Acompanhamentos'
+                  products={products.filter((product) => product.sub_type === 'side')}
+                  onClick={
+                    () => {
+                      console.log('acompanhamento')
+                    }
+                  }
+                />
+                <MenuSection
+                  menuSectionTitle='Bebidas'
+                  products={products.filter((product) => product.sub_type === 'drinks')}
+                  onClick={
+                    () => {
+                      console.log('bebidas-frias')
+                    }
+                  }
+                /> */}
+              </Fragment>
+            </div>
+          </section>
+        </main>}
       <OrderSection />
       <ReactModal
         className='modal'
