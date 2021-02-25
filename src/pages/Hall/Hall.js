@@ -2,9 +2,9 @@ import { React, useState } from "react";
 import "./Hall.css";
 import { useHistory } from "react-router-dom";
 import { } from "react-icons/md";
-import Header from "../../components/Header/Header.js";
-import Button from "../../components/Button/Button.js";
-import Input from "../../components/Input/Input.js";
+import Header from '../../components/Header/Header.js';
+import Button from '../../components/Button/Button.js';
+
 
 const Hall = () => {
     const history = useHistory();
