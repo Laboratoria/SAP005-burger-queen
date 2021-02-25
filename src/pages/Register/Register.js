@@ -14,7 +14,7 @@ import Logo from "../../components/Logo/Logo";
 function Register() {
   const history = useHistory();
 
-  const routerConfirm = () => {
+  const routerLogin = () => {
     history.push("/Login");
   };
 
@@ -58,7 +58,7 @@ function Register() {
         .then((json) => {
           console.log(json);
           if (json.id !== null) {
-            routerConfirm();
+            routerLogin();
           }
           setName("");
           setEmail("");
