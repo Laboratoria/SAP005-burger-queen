@@ -10,30 +10,13 @@ const Menu = () => {
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${tokenUser}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const products = data;
-        const itensCoffee = products.filter((itens) =>
-          itens.type.includes('breakfast')
-        );
-        setBreakfast(itensCoffee);
-        const itemBurgers = products.filter((itens) =>
-          itens.sub_type.includes('hamburger')
-        );
-        setBurgers(itemBurgers);
-        const itemSideDish = products.filter((itens) =>
-          itens.sub_type.includes('side')
-        );
-        setSideDish(itemSideDish);
-        const itemDrinks = products.filter((itens) =>
-          itens.sub_type.includes('drinks')
-        );
-        setDrinks(itemDrinks);
-      });
-  }, []);
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${tokenUser}`,
+        },      
+  })
+}
+  )}
+
+      
