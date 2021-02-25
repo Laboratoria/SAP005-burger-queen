@@ -50,6 +50,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .button-menu-escolha:focus, .button-resumo-pedido:focus {
@@ -180,4 +181,9 @@
 .img-input-extras {
   display: flex;
   justify-content: space-between;
+}
+
+.button-excluir-item {
+  width: 20px;
+  height: auto;
 }
