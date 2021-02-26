@@ -147,7 +147,7 @@ export const Register = () => {
           </div>
         </div>
         <div>
-          <button id="back-btn" onClick={BackBtn}>Voltar</ button>
+          <button className="back-btn" onClick={BackBtn}>Voltar</ button>
           <button className='register-btn' type='submit' onClick={handleSubmit}>Cadastrar</button>
         </div>
       </form>
