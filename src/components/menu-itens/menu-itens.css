@@ -6,7 +6,11 @@
 }
 
 .product-section {
-	background-color: pink;
+	width: 12rem;
+	height: 12rem;
+	background-color: #db9e36;
+	box-shadow: 0 1px 6px 1px #e8dcb5;
+	border-radius: 0.5rem;
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 	font-size: 1rem;
@@ -19,4 +23,10 @@
 .icon-plus {
 	margin-top: 0.3rem;
 	font-size: 1.2rem;
+}
+
+.product-img {
+	width: 7rem;
+	height: 7rem;
+	flex-grow: 1;
 }

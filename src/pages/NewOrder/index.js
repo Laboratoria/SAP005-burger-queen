@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 import React, { Fragment, useState, useEffect, useCallback } from 'react'
 import { getProducts } from '../../services/index'
 import Button from '../../components/Button/Button'
@@ -23,29 +22,22 @@ export const NewOrder = () => {
   const [burgerFlavor, setBurgerFlavor] = useState('')
   const [burgerExtra, setBurgerExtra] = useState('')
 
-  const filterProducts = useCallback(() => {
-    const xablau = products.find((product) => product.id === 33)
-    const xablau2 = products.find((product) => product.id === 42)
-    const xablau3 = products.filter((product) => product.name !== 'Misto quente' && product.type === 'breakfast')
-    const xablau4 = products.find((product) => product.name === 'Misto quente')
-    setSimpleBurger(xablau)
-    setDoubleBurger(xablau2)
-    setDrinks(xablau3)
-    setMisto(xablau4)
-  },
-    [products]
-  )
   const storeProducts = useCallback(async () => {
-    const response = await getProducts()
-    setProducts(response)
-    filterProducts()
-  }, [filterProducts])
-
+    const products = await getProducts();
+    setProducts(products)
+    setSimpleBurger(products.find((product) => product.id === 33));
+    setDoubleBurger(products.find((product) => product.id === 42));
+    setDrinks(
+      products.filter(
+        (product) =>
+          product.name !== 'Misto quente' && product.type === 'breakfast'
+      )
+    );
+    setMisto(products.find((product) => product.name === 'Misto quente'));
+  }, []);
   useEffect(() => {
-    storeProducts()
-
-
-  }, [storeProducts])
+    storeProducts();
+  }, [storeProducts]);
 
   return (
     <Fragment>
@@ -119,38 +111,35 @@ export const NewOrder = () => {
           </section>
           <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
             <div className='div-container-menu-section'>
-
-              <Fragment>
-                <MenuSection
-                  menuSectionTitle='Hambúrgueres'
-                  products={
-                    [simpleBurger, doubleBurger]
+              <MenuSection
+                menuSectionTitle='Hambúrgueres'
+                products={
+                  [simpleBurger, doubleBurger]
+                }
+                onClick={
+                  () => {
+                    setShowModal(true)
                   }
-                  onClick={
-                    () => {
-                      setShowModal(true)
-                    }
+                }
+              />
+              <MenuSection
+                menuSectionTitle='Acompanhamentos'
+                products={products.filter((product) => product.sub_type === 'side')}
+                onClick={
+                  () => {
+                    console.log('acompanhamento')
                   }
-                />
-                {/* <MenuSection
-                  menuSectionTitle='Acompanhamentos'
-                  products={products.filter((product) => product.sub_type === 'side')}
-                  onClick={
-                    () => {
-                      console.log('acompanhamento')
-                    }
+                }
+              />
+              <MenuSection
+                menuSectionTitle='Bebidas'
+                products={products.filter((product) => product.sub_type === 'drinks')}
+                onClick={
+                  () => {
+                    console.log('bebidas-frias')
                   }
-                />
-                <MenuSection
-                  menuSectionTitle='Bebidas'
-                  products={products.filter((product) => product.sub_type === 'drinks')}
-                  onClick={
-                    () => {
-                      console.log('bebidas-frias')
-                    }
-                  }
-                /> */}
-              </Fragment>
+                }
+              />
             </div>
           </section>
         </main>}
