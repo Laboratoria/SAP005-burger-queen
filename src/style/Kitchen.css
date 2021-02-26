@@ -2,7 +2,6 @@
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
-	background-color: #383838;
 }
 .nav {
 	height: 64px;
@@ -58,7 +57,7 @@
 	width: 68%;
 	font-family: Arial;
 	font-weight: bold;
-	color: rgb(46, 45, 45);
+	color: white;
 	font-size: 20px;
 	border-radius: 9px;
 	background-color: #ffde59;
@@ -75,7 +74,8 @@
 	margin: 8px;
 	border: 1px solid silver;
 	border-radius: 10px;
-	margin-bottom: 5vh;
+	margin-bottom: 1vh;
+	height: 229px;
 	text-align: center;
 	filter: drop-shadow(0 0 0.45rem rgb(17, 17, 17));
 }
@@ -88,4 +88,8 @@
 	height: 70vh;
 	margin: auto;
 	margin-bottom: 5vh;
+}
+
+.nameClient {
+	margin-top: 18px;
 }

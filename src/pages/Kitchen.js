@@ -7,11 +7,6 @@ import add from '../images/add.png';
 import { useState } from 'react';
 
 function Kitchen() {
-  // const [ setMenu] = useState([]);
-  // const [ setDay] = useState([]);
-  // const [products, setProducts] = useState([]);
-  // const [client, setClient] = useState('');
-  // const [table, setTable] = useState('');
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem("token");
   // const [status, setStatus] = useState('');
@@ -21,6 +16,7 @@ function Kitchen() {
   const rLogin=()=> {
     history.push('/')
   }
+  
   return (
     <div className="AppKitchen">
       <nav className="nav">
@@ -60,7 +56,7 @@ function Kitchen() {
 
         return (
           <div className="Cl" key={order.id}>
-            <p>Cliente: {order.client_name}</p>
+            <p className="nameClient">Cliente: {order.client_name}</p>
             <p>Mesa: {order.table}</p> 
             <p className="pedido">Pedido</p>
             <div>
