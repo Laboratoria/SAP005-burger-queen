@@ -122,16 +122,16 @@ React.useEffect(() => {
         </div>
         {loading ? 
             (
-                <p>Carregando</p>
+                <p>Carregando...</p>
             ) : (
                 <>
                 
                
 
 
-                <button onClick={() => setMenus(true)}>Café da Manhã</button>
+                <button className="break-btn" onClick={() => setMenus(true)}>Café da Manhã</button>
 
-                <button onClick={() => setMenus(false)}>Almoço/Jantar</button>
+                <button className="lunch-btn" onClick={() => setMenus(false)}>Almoço/Jantar</button>
 
             
                 {menus ? (
