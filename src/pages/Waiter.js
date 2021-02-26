@@ -6,7 +6,7 @@ import prato from '../images/prato.png';
 import xicara from '../images/xicara.png';
 import copo from '../images/copo.png';
 import b from '../images/b.png';
-import exit from '../images/exit.jpeg';
+import exit from '../images/exit.png';
 
 const Waiter = () => {
 

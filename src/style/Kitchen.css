@@ -2,32 +2,22 @@
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
+	background-color: #383838;
 }
 .nav {
-	background-color: #383838;
-	display: flex;
-	justify-content: flex-end;
-}
-.exit {
-	height: 43px;
-	border: none;
-	display: flex;
+	height: 64px;
 }
 
 .logoKitchen {
-	display: flex;
-	justify-content: center;
-	width: 47%;
-	margin-left: 25%;
+	width: 26%;
+	margin-left: 37%;
 }
 
 .AppKitchen {
 	background-color: #383838;
-	min-height: 100vh;
-	display: flex;
+
 	font-size: calc(10px + 2vmin);
 	color: white;
-	flex-direction: column;
 }
 
 .btnAdd {
@@ -35,10 +25,6 @@
 	display: flex;
 	width: 69px;
 	margin-left: 37px;
-	background-color: #383838;
-}
-
-.App-Kitchen {
 	background-color: #383838;
 }
 
@@ -73,8 +59,33 @@
 	font-family: Arial;
 	font-weight: bold;
 	color: rgb(46, 45, 45);
-	font-size: 15px;
+	font-size: 20px;
 	border-radius: 9px;
 	background-color: #ffde59;
 	margin-top: 10px;
+}
+
+.food:hover {
+	background-color: rgb(151, 158, 158);
+}
+
+.Cl {
+	width: 47%;
+	flex-direction: column;
+	margin: 8px;
+	border: 1px solid silver;
+	border-radius: 10px;
+	margin-bottom: 5vh;
+	text-align: center;
+	filter: drop-shadow(0 0 0.45rem rgb(17, 17, 17));
+}
+
+.section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 80vw;
+	height: 70vh;
+	margin: auto;
+	margin-bottom: 5vh;
 }

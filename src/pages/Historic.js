@@ -2,7 +2,7 @@ import '../style/Historic.css';
 import React from "react";
 import {useHistory} from 'react-router-dom'
 import logo from '../images/logo.png';
-import exit from '../images/exit.jpeg';
+import exit from '../images/exit.png';
 
 
 function Historic() {
