@@ -13,6 +13,7 @@ const Waiter = () => {
   const [products, setProducts] = useState([]);
   const [client, setClient] = useState('');
   const [table, setTable] = useState('');
+  const [breakfast, setBreakfast] = useState([]);
   const token = localStorage.getItem("token");
 
   console.log(allDay)
@@ -25,7 +26,6 @@ const Waiter = () => {
   const order = () =>{
     if(client !== '' && table !== ''){
             Promise.add({
-                date: new Date().toLocaleString("pt-BR"),
                 client: client,
                 mesa: table,
                 pedido:products,
@@ -76,16 +76,17 @@ const Waiter = () => {
         <section className='Menu'>
             <button className="btnMenu"   onClick={((e)=>{
               e.preventDefault();
-              console.log('menu');
+              setBreakfast(menu)
             })}><img src= {xicara} alt="" className='imgMenu' /></button>
 
             <button className="btnMenu"   onClick={((e)=>{
               e.preventDefault();
-              console.log('breakfast');
+              setBreakfast(allDay) 
             })}><img src= {prato} alt="" className='imgMenu' /></button>
 
+        
               <div className='menuItens'> {
-                menu.map((menuItems) => {
+                breakfast.map((menuItems) => {
 
                   return (
                     <div key={menuItems.id}>
@@ -97,8 +98,24 @@ const Waiter = () => {
                 })
               } </div>
 
-            {/* 
-             */}
+           
+
+            {/* <button className='allDay'onClick={( (e) => { 
+              e.preventDefault();
+              console.log('clicou');
+              <div className='menuItens'> {
+                allDay.map ((menuItems)=>{
+                  return (
+                    <div key={menuItems.id}>
+                      <p>{menuItems.name}</p>
+                      <p>{menuItems.flavor}</p>
+                      <p>R$:{menuItems.price},00</p>
+                    </div>
+                  )
+                })
+              }</div>
+            }
+          )}>Refeição</button> */}
         </section>
 
         <form className='order'>
