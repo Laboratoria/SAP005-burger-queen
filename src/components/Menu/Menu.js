@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import "./Menu.css";
 import Add from "../../assets/plus.png";
 
+
 const Menu = () => {
+  const {table} = useParams();
   const tokenUser = localStorage.getItem("token");
   const [breakfast, setBreakfast] = useState([]);
   const [allDay, setAllDay] = useState([]);
   const [menus, setMenus] = useState(true);
   const [orderSummary, setOrderSummary] = useState([]);
+  const [makeOrder, setMakeOrder] = useState({"client": "", "table": table, "products": []});
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
@@ -100,8 +104,20 @@ const Menu = () => {
             </ul>
           )}
       </section>
+      <section className="resumo-pedido">
+      <p className="titulo-resumo-pedido">Resumo do Pedido</p>
+      <p className="infos-resumo-pedido">Atendente:</p>
+      <input className="cliente-resumo-pedido"
+        type="text"
+        placeholder="Nome do Cliente"
+        onChange={(event) => {
+          setMakeOrder({ ...makeOrder, "client": event.target.value })
+        }}
+      />
+      </section>
     </>
   )
 }
+
 
 export default Menu;
