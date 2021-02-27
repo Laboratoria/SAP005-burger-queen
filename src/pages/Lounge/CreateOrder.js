@@ -5,26 +5,26 @@ import add from '../../img/add.png';
 import './Lounge.css'
 
 export const CreateOrder = () => {
-  const [client, setClient] = useState('');
-  const [table, setTable] = useState('');
+  //const [client, setClient] = useState('');
+  //const [table, setTable] = useState('');
   let token = localStorage.getItem('token')
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [allDayMenu, setAllDayMenu] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalPrice, setTotalPrice] = useState([0]);
   const [orderSummary, setOrderSummary] = useState([]);
-  const [orderProducts, setOrderProducts] = useState([]);
+  //const [orderProducts, setOrderProducts] = useState([]);
   const [order, setOrder] = useState({});
   const [productsPrice, setProductsPrice] = useState([]);
-  const [placeOrder, setplaceOrder] = useState({ "table": table });
+  //const [placeOrder, setplaceOrder] = useState({ "table": table });
 
   const [menus, setMenus] = useState(true);
 
   const handleClient = (event) => {
-    setClient(event.target.value);
+    setOrder({ ...order, client: event.target.value });
   }
   const handleTable = (event) => {
-    setTable(event.target.value);
+    setOrder({ ...order, table: event.target.value });
   };
   const route = useHistory();
   const loungeRoute = () => {
@@ -37,6 +37,7 @@ export const CreateOrder = () => {
   }
   const handleSum = () => {
     setTotalPrice(productsPrice.reduce((total, num) => total + num));
+    console.log('productsPrice',productsPrice)
   };
   useEffect(() => {
 
@@ -58,11 +59,15 @@ export const CreateOrder = () => {
         const breakfast = typeProducts.filter((products) =>
           products.type.includes("breakfast")
         );
+        console.log('breakfast',breakfast)
         setBreakfastMenu(breakfast);
+        console.log('breakfast no set',breakfast)
         const allDay = typeProducts.filter((products) =>
           products.type.includes("all-day")
         );
+        console.log('allDay',allDay)
         setAllDayMenu(allDay)
+        console.log('allDay setado',allDay)
 
         setLoading(false);
       })
@@ -74,8 +79,9 @@ export const CreateOrder = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", token);
-
-    const raw = JSON.stringify({ "client": client, "table": table, "products": [{ "id": 29, "qtd": 1 }, { "id": 30, "qtd": 1 }, { "id": 40, "qtd": 1 }] });
+    console.log(order)
+    const raw = JSON.stringify(order);
+    console.log('raw', raw)
 
     const requestOptions = {
       method: 'POST',
@@ -86,7 +92,15 @@ export const CreateOrder = () => {
 
     fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
       .then(response => response.json())
-      .then(result => console.log(result))
+      .then(result => {
+        console.log(result)
+        setOrder({});
+        setOrderSummary([]);
+        setTotalPrice([0]);
+        setProductsPrice([]);
+        //setOrderProducts([]);
+      }
+        )
       .catch(error => console.log('error', error));
   }
   const handleAdd = (products) => {
@@ -98,14 +112,18 @@ export const CreateOrder = () => {
         qtd: 1,
       };
     });
+    console.log('productsApi',productsApi)
 
     const qtd = productsApi.reduce(function (r, a) {
+      console.log('r',r)
       r[a.id] = r[a.id] || [];
       r[a.id].push(a);
       return r;
     }, Object.create(null));
+    console.log('qtd', qtd)
 
     const arrayProducts = [];
+    console.log('arrayProducts', arrayProducts)
     for (const [key, value] of Object.entries(qtd)) {
       arrayProducts.push({
         id: key,
@@ -114,15 +132,15 @@ export const CreateOrder = () => {
     }
 
     setOrder({ ...order, products: arrayProducts });
-    alert(products.name + 'adicionado!');
+    
   };
 
 
-  React.useEffect(() => {
-    console.log(orderSummary);
-    console.log(placeOrder)
-    console.log(totalPrice);
-  }, [totalPrice, orderSummary, placeOrder])
+  //React.useEffect(() => {
+    //console.log(orderSummary);
+    //console.log(placeOrder)
+    //console.log(totalPrice);
+  //}, [totalPrice, orderSummary /*placeOrder*/])//
 
   return (
     <div className="container">
@@ -134,12 +152,12 @@ export const CreateOrder = () => {
       <div className="row">
         <div className="col">
           <input type="text" className="form-control" placeholder="Cliente" aria-label="Cliente" onChange={handleClient}
-            value={client}
+            
             required />
         </div>
         <div className="col">
           <input type="text" className="form-control" placeholder="Mesa" aria-label="Mesa" onChange={handleTable}
-            value={table}
+            
             required />
         </div>
         {loading ?
@@ -159,50 +177,50 @@ export const CreateOrder = () => {
                       <th>Produto</th>
                       <th>Preço</th>
                     </tr>
-                  {breakfastMenu.map((products) => (
-                    <tr key={products.id}>
-                      <td>{products.name}</td>
-                      <td> R${products.price}</td>
-                      <td>
-                        <button 
-                          onClick={() => {
-                            handleAdd(products)
-                        }}>+</button>                      
-                    </td>
-                  </tr>
-                  ))}
+                    {breakfastMenu.map((products) => (
+                      <tr key={products.id}>
+                        <td>{products.name}</td>
+                        <td> R${products.price}</td>
+                        <td>
+                          <button
+                            onClick={() => {
+                              handleAdd(products)
+                            }}>+</button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               ) : (
-                  <ul className="menuList">
-                    {allDayMenu.map((products) => (
-                      <li key={products.id}>
-                        <p>{`${products.name + ' ' + products.flavor}
-                         R$${products.price}`}</p>
-                        <input
-                          className="add-btn"
-                          id={products.name}
-                          type="image"
-                          alt="add-button"
-                          src={add}
-
-
-                          name={products.id}
-                          onClick={(event) => {
-
-                          }}
-                        />
-
-                      </li>
-                    ))}
-                  </ul>
+                  <table className="menuList">
+                    <tbody>
+                      <tr>
+                        <th>Produto</th>
+                        <th>...</th>
+                        <th>Preço</th>
+                      </tr>
+                      {allDayMenu.map((products) => (
+                        <tr key={products.id}>
+                          <td>{products.name + ' ' + products.flavor}</td>
+                          <td>{products.complement === 'null' ? '' : products.complement}</td>
+                          <td>R${products.price}</td>
+                          <td>
+                          <button
+                            onClick={() => 
+                              handleAdd(products)}>+
+                          </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 )}
 
               {orderSummary !== [] && <>
-                {orderSummary.map((item, products) => (
-                  <div key={products}>
-                    <p>{item.name}</p>
-                    <p>R${item.price}</p>
+                {orderSummary.map((products, index) => (
+                  <div key={index}>
+                    <p>{products.name}</p>
+                    <p>R${products.price}</p>
                   </div>
                 ))}
                 <button onClick={() => handleSum()}>SOMAR</button>
@@ -215,7 +233,7 @@ export const CreateOrder = () => {
                   onClick={() => {
                     setTotalPrice([0]);
                     setOrderSummary([]);
-                    setOrderProducts([]);
+                    //setOrderProducts([]);
                   }}
                 />
               </>
