@@ -8,15 +8,15 @@ export const CreateOrder = () => {
   const [client, setClient] = useState('');
   const [table, setTable] = useState('');
   let token = localStorage.getItem('token')
-  const [menuCafe, setMenuCafe] = useState([]);
-  const [menuAlmoco, setMenuAlmoco] = useState([]);
+  const [breakfastMenu, setBreakfastMenu] = useState([]);
+  const [allDayMenu, setAllDayMenu] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [precoTotal, setPrecoTotal] = useState([0]);
-  const [resumoPedido, setResumoPedido] = useState([]);
-  const [produtosPedido, setProdutosPedido] = useState([]);
-  const [fazerPedido, setFazerPedido] = useState({"table": table});
-  
-  
+  const [totalPrice, setTotalPrice] = useState([0]);
+  const [orderSummary, setOrderSummary] = useState([]);
+  const [orderProducts, setOrderProducts] = useState([]);
+  const [order, setOrder] = useState({});
+  const [productsPrice, setProductsPrice] = useState([]);
+  const [placeOrder, setplaceOrder] = useState({ "table": table });
 
   const [menus, setMenus] = useState(true);
 
@@ -35,18 +35,18 @@ export const CreateOrder = () => {
     event.preventDefault();
     loungeRoute();
   }
+  const handleSum = () => {
+    setTotalPrice(productsPrice.reduce((total, num) => total + num));
+  };
   useEffect(() => {
-    
+
     const myHeaders = new Headers();
     myHeaders.append("Authorization", token);
     myHeaders.append("Content-Type", "application/json");
 
-    //const raw = "";
-
     const requestOptions = {
       method: 'GET',
       headers: myHeaders,
-      //body: raw,
       redirect: 'follow'
     };
 
@@ -54,18 +54,15 @@ export const CreateOrder = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        const products = data;
-
-        const slice1 = products.slice(0, 5);
-        const slice2 = products.slice(22);
-        let listaDeProdutosSemRepeticao = [];
-        listaDeProdutosSemRepeticao = listaDeProdutosSemRepeticao.concat(slice1, products[13], slice2);
-
-        const listaCafeDaManha = listaDeProdutosSemRepeticao.slice(0, 4);
-        setMenuCafe(listaCafeDaManha);
-
-        const listaAlmoco = listaDeProdutosSemRepeticao.slice(4, 12);
-        setMenuAlmoco(listaAlmoco);
+        const typeProducts = data;
+        const breakfast = typeProducts.filter((products) =>
+          products.type.includes("breakfast")
+        );
+        setBreakfastMenu(breakfast);
+        const allDay = typeProducts.filter((products) =>
+          products.type.includes("all-day")
+        );
+        setAllDayMenu(allDay)
 
         setLoading(false);
       })
@@ -92,16 +89,40 @@ export const CreateOrder = () => {
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   }
-  function somarPrecoTotal(array) {
-    const soma = ((total, num) => total+num);
-    return array.reduce(soma);
-}
+  const handleAdd = (products) => {
+    setOrderSummary([...orderSummary, products]);
+    setProductsPrice([...productsPrice, products.price]);
+    const productsApi = orderSummary.map((products) => {
+      return {
+        id: products.id,
+        qtd: 1,
+      };
+    });
 
-React.useEffect(() => {
-  console.log(resumoPedido);
-  console.log(fazerPedido)
-  console.log(precoTotal);
-}, [precoTotal, resumoPedido, fazerPedido])
+    const qtd = productsApi.reduce(function (r, a) {
+      r[a.id] = r[a.id] || [];
+      r[a.id].push(a);
+      return r;
+    }, Object.create(null));
+
+    const arrayProducts = [];
+    for (const [key, value] of Object.entries(qtd)) {
+      arrayProducts.push({
+        id: key,
+        qtd: value.length,
+      });
+    }
+
+    setOrder({ ...order, products: arrayProducts });
+    alert(products.name + 'adicionado!');
+  };
+
+
+  React.useEffect(() => {
+    console.log(orderSummary);
+    console.log(placeOrder)
+    console.log(totalPrice);
+  }, [totalPrice, orderSummary, placeOrder])
 
   return (
     <div className="container">
@@ -121,92 +142,90 @@ React.useEffect(() => {
             value={table}
             required />
         </div>
-        {loading ? 
-            (
-                <p>Carregando</p>
-            ) : (
-                <>
-                
-               
+        {loading ?
+          (
+            <p>Carregando</p>
+          ) : (
+            <>
+
+              <button onClick={() => setMenus(true)}>Café da Manhã</button>
+
+              <button onClick={() => setMenus(false)}>Comum</button>
+
+              {menus ? (
+                <table className="menuList">
+                  <tbody>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Preço</th>
+                    </tr>
+                  {breakfastMenu.map((products) => (
+                    <tr key={products.id}>
+                      <td>{products.name}</td>
+                      <td> R${products.price}</td>
+                      <td>
+                        <button 
+                          onClick={() => {
+                            handleAdd(products)
+                        }}>+</button>                      
+                    </td>
+                  </tr>
+                  ))}
+                  </tbody>
+                </table>
+              ) : (
+                  <ul className="menuList">
+                    {allDayMenu.map((products) => (
+                      <li key={products.id}>
+                        <p>{`${products.name + ' ' + products.flavor}
+                         R$${products.price}`}</p>
+                        <input
+                          className="add-btn"
+                          id={products.name}
+                          type="image"
+                          alt="add-button"
+                          src={add}
 
 
-                <button onClick={() => setMenus(true)}>Café da Manhã</button>
+                          name={products.id}
+                          onClick={(event) => {
 
-                <button onClick={() => setMenus(false)}>Almoço/Jantar</button>
+                          }}
+                        />
 
-            
-                {menus ? (
-                    <ul className="lista-menu">
-                        {menuCafe.map((produto, index) => (
-                            <li key={index}>
-                                <label>{`${produto.name} R$${produto.price}`}</label>
-                                <input
-                                    className="add-btn"
-                                    id={produto.name}
-                                    type="image"
-                                    alt="add-button"
-                                    src={add}
-                                   
-                                    onClick={() => {
-                                        setPrecoTotal([...precoTotal, menuCafe[index].price]);
-                                        setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price}]);
-                                        setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
-                                    }}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <ul className="lista-menu">
-                        {menuAlmoco.map((produto, index) => (
-                            <li key={index}>
-                                <p>{`${produto.name} R$${produto.price}`}</p>
-                                <input
-                                    className="add-btn"
-                                    id={produto.name}
-                                    type="image"
-                                    alt="add-button"
-                                    src={add}
-                                    
-                                    
-                                    name={produto.id}
-                                    onClick={(event) => {
-                                                                    
-                                    }}
-                                />
-                                
-                            </li>
-                        ))}
-                    </ul>
+                      </li>
+                    ))}
+                  </ul>
                 )}
 
-                {resumoPedido !== [] && <>
-                    {resumoPedido.map((item, index) => (
-                        <div key={index}>
-                            <p>{item.name}</p>
-                            <p>R${item.price}</p>
-                        </div>
-                        ))}
-                        <p>TOTAL: R${somarPrecoTotal(precoTotal)}</p>                     
-                        
-                        <input
-                        className="btn"
-                            type="button"
-                            value="Excluir pedido"
-                            onClick={() => {
-                                setPrecoTotal([0]);
-                                setResumoPedido([]);
-                                setProdutosPedido([]);
-                            }}
-                        />
-                    </>
-                }
+              {orderSummary !== [] && <>
+                {orderSummary.map((item, products) => (
+                  <div key={products}>
+                    <p>{item.name}</p>
+                    <p>R${item.price}</p>
+                  </div>
+                ))}
+                <button onClick={() => handleSum()}>SOMAR</button>
+                <p>TOTAL: R${totalPrice}</p>
 
-                </>
-            )
+                <input
+                  className="btn"
+                  type="button"
+                  value="Excluir pedido"
+                  onClick={() => {
+                    setTotalPrice([0]);
+                    setOrderSummary([]);
+                    setOrderProducts([]);
+                  }}
+                />
+              </>
+              }
+
+            </>
+          )
         }
-         
-    
+
+
 
       </div>
       <button id="back-btn" onClick={BackBtn}>Voltar</ button>
