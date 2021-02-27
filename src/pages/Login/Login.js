@@ -32,12 +32,13 @@ function Login() {
     })
         .then((response) => response.json())     
         .then((data) => {
-          console.log(data);
           const name = data.name
           const role = data.role
   
           const nameUser = localStorage.setItem("name", name)
-
+          localStorage.setItem("token", data.token)
+          localStorage.setItem("userId", data.id)
+          
           if(nameUser!== null && role === "cozinha") {
             routerKitchen();
           }else if(nameUser!== null && role === "salão") {
