@@ -19,8 +19,9 @@ export const NewOrder = () => {
   const [doubleBurger, setDoubleBurger] = useState({})
   const [drinks, setDrinks] = useState([])
   const [misto, setMisto] = useState({})
+  const [burgerType, setBurgerType] = useState([])
   const [burgerFlavor, setBurgerFlavor] = useState('')
-  const [burgerExtra, setBurgerExtra] = useState('')
+  const [burgerExtra, setBurgerExtra] = useState(null)
   const [orderItems, setOrderItems] = useState([])
 
   const storeProducts = useCallback(async () => {
@@ -65,10 +66,22 @@ export const NewOrder = () => {
     const productId = event.target.attributes['value'].value
     const newArray = [...orderItems]
     const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
-    orderItem.product_quantity = Number(orderItem.product_quantity) + 1
     newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+    orderItem.product_quantity = Number(orderItem.product_quantity) + 1
     newArray.push(orderItem)
     setOrderItems(newArray)
+  }
+
+  const decrementQuantity = (event) => {
+    const productId = event.target.attributes['value'].value
+    const newArray = [...orderItems]
+    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
+    if (orderItem.product_quantity !== 1) {
+      newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+      orderItem.product_quantity = Number(orderItem.product_quantity) - 1
+      newArray.push(orderItem)
+      setOrderItems(newArray)
+    }
   }
 
   return (
@@ -149,8 +162,11 @@ export const NewOrder = () => {
                   [simpleBurger, doubleBurger]
                 }
                 onClick={
-                  () => {
+                  (event) => {
+                    const productId = event.target.attributes['value'].value
+                    setBurgerType(productId === '33' ? 'simples' : 'duplo')
                     setShowModal(true)
+
                   }
                 }
               />
@@ -189,6 +205,7 @@ export const NewOrder = () => {
         className='modal'
         isOpen={showModal}
         contentLabel='Minimal Modal Example'
+        id="modal"
       >
         <p>Escolha o tipo do hambúrguer:</p>
         <div className='container-modal-option'>
@@ -259,7 +276,6 @@ export const NewOrder = () => {
 
             <div className='input-container-modal-option'>
               <Input
-                inputRequired
                 inputId='cheese'
                 inputClassName='radio-button-modal-option'
                 inputType='radio'
@@ -278,7 +294,6 @@ export const NewOrder = () => {
 
             <div className='input-container-modal-option'>
               <Input
-                inputRequired
                 inputId='egg'
                 inputClassName='radio-button-modal-option'
                 inputType='radio'
@@ -313,7 +328,29 @@ export const NewOrder = () => {
                 onClick={
                   async (event) => {
                     event.preventDefault()
+                    const selected = products
+                      .filter(product => product.name === 'Hambúrguer ' + burgerType)
+                      .filter(product => product.flavor === burgerFlavor)
+                      .filter(product => product.complement === burgerExtra)[0]
+                    const newArray = [...orderItems]
+                    const orderItem = newArray.filter((orderItem) => orderItem.product_id === selected.id)[0]
 
+                    if (orderItem !== null && orderItem !== undefined) {
+                      orderItem.product_quantity = Number(orderItem.product_quantity) + 1
+                      newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === selected.id), 1)
+                      newArray.push(orderItem)
+                    } else {
+                      newArray.push(
+                        {
+                          'product_id': String(selected.id),
+                          'product_name': selected.name + ' de ' + selected.flavor + ' com ' + selected.complement,
+                          'product_price': selected.price,
+                          'product_quantity': 1
+                        }
+                      )
+                    }
+                    setOrderItems(newArray)
+                    setShowModal(false)
 
                   }
                 }
