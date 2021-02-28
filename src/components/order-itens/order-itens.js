@@ -9,23 +9,30 @@ export default function OrderItens({
   classNameContainer,
   classNameOrderItens,
   classNameNumber,
+  classNamePrice,
   quantity,
   plus,
   minus,
+  remove,
   name,
   price,
   id
 }) {
   return (
+
     <Fragment>
-      <div className={classNameContainer, 'teste'}>
-        <p className={classNameOrderItens}>{name} {price}</p>
-        <FiMinusSquare value={id} onClick={minus} className='icon-order-itens' />
-        <p className={classNameNumber}>{quantity}</p>
-        <FiPlusSquare value={id} onClick={plus} className='icon-order-itens' />
-        <FaEdit className='icon-order-itens' />
-        <FaTrashAlt className='icon-order-itens' />
-      </div>
+      {name && price && id && minus && quantity && plus && remove &&
+        <div className={classNameContainer + ' teste'}>
+          <p className={classNameOrderItens}>{name}</p>
+          <p className={classNamePrice}>{price}</p>
+          <FiMinusSquare id={id} onClick={minus} className='icon-order-itens' />
+          <p className={classNameNumber}>{quantity}</p>
+          <FiPlusSquare id={id} onClick={plus} className='icon-order-itens' />
+          <FaEdit className='icon-order-itens' />
+          <FaTrashAlt id={id} onClick={remove} className='icon-order-itens' />
+        </div>
+      }
+
     </Fragment>
   )
 }

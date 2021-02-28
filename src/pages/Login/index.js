@@ -70,7 +70,7 @@ export const Login = () => {
                 localStorage.setItem('userRole', response.role)
 
                 if (localStorage.getItem('userRole') === 'hall') {
-                  history.push('/new-order')
+                  history.push('/status-order')
                 }
                 else if (localStorage.getItem('userRole') === 'kitchen') {
                   history.push('/status-order')

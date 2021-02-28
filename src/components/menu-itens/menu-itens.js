@@ -13,37 +13,41 @@ export default function MenuItens({
   return (
     <Fragment>
 
-      <section value={productId} onClick={onClick} className='product-section'>
-        <img
-          className='product-img'
-          src={srcImg}
-          alt={altImg}
-          value={productId}
-          description={productName}
-          price={productPrice}
-        />
-        <p
-          description={productName}
-          price={productPrice}
-          value={productId}
-          className='product-name'
-        >
-          {productName}
+      {
+
+        productId && productName && productPrice && srcImg && altImg && onClick &&
+        <section value={productId} onClick={onClick} className='product-section'>
+          <img
+            className='product-img'
+            src={srcImg}
+            alt={altImg}
+            id={productId}
+            name={productName}
+            price={productPrice}
+          />
+          <p
+            name={productName}
+            price={productPrice}
+            id={productId}
+            className='product-name'
+          >
+            {productName}
+          </p>
+          <p
+            name={productName}
+            price={productPrice}
+            id={productId}
+            className='product-price'
+          >
+            R$ {productPrice},00
         </p>
-        <p
-          description={productName}
-          price={productPrice}
-          value={productId}
-          className='product-price'
-        >
-          R$ {productPrice},00
-        </p>
-        <FaPlus
-          description={productName}
-          price={productPrice}
-          value={productId}
-          className='icon-plus' />
-      </section>
+          <FaPlus
+            name={productName}
+            price={productPrice}
+            id={productId}
+            className='icon-plus' />
+        </section>
+      }
 
     </Fragment>
   )

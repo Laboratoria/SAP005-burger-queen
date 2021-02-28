@@ -1,13 +1,11 @@
-import React, { Fragment, useState, useEffect, useCallback } from 'react'
-import { getProducts } from '../../services/index'
-import Button from '../../components/Button/Button'
-import Navbar from '../../components/Navbar/Navbar'
-//import MenuItens from '../../components/menu-itens/menu-itens'
-import OrderItens from '../../components/order-itens/order-itens'
-import OrderSection from '../../components/order-section/order-section'
+import React, { Fragment, useCallback, useEffect, useState } from 'react'
 import ReactModal from 'react-modal'
+import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import MenuSection from '../../components/menu-section/menu-section'
+import Navbar from '../../components/Navbar/Navbar'
+import OrderSection from '../../components/order-section/order-section'
+import { getProducts } from '../../services/index'
 import './style.css'
 
 export const NewOrder = () => {
@@ -15,89 +13,85 @@ export const NewOrder = () => {
   const [showModal, setShowModal] = useState(false)
   const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
-  const [simpleBurger, setSimpleBurger] = useState({})
-  const [doubleBurger, setDoubleBurger] = useState({})
-  const [drinks, setDrinks] = useState([])
-  const [misto, setMisto] = useState({})
   const [burgerType, setBurgerType] = useState([])
   const [burgerFlavor, setBurgerFlavor] = useState('')
   const [burgerExtra, setBurgerExtra] = useState(null)
+
   const [orderItems, setOrderItems] = useState([])
 
   const storeProducts = useCallback(async () => {
     const products = await getProducts();
     setProducts(products)
-    setSimpleBurger(products.find((product) => product.id === 33));
-    setDoubleBurger(products.find((product) => product.id === 42));
-    setDrinks(
-      products.filter(
-        (product) =>
-          product.name !== 'Misto quente' && product.type === 'breakfast'
-      )
-    );
-    setMisto(products.find((product) => product.name === 'Misto quente'));
   }, []);
+
   useEffect(() => {
     storeProducts();
-  }, [storeProducts]);
+  });
 
-  const addOrUpdateOrderItem = (event) => {
-    const newArray = [...orderItems]
-    const productId = event.target.attributes['value'].value
-    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
-    if (orderItem !== null && orderItem !== undefined) {
+
+  const addOrUpdateOrderItem = useCallback(
+    (event) => {
+      const newOrderItens = [...orderItems]
+      const productId = event.target.attributes['id'].value
+      const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === productId)[0]
+      if (orderItem !== null && orderItem !== undefined) {
+        orderItem.product_quantity = Number(orderItem.product_quantity) + 1
+        newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
+        newOrderItens.push(orderItem)
+      } else {
+        newOrderItens.push(
+          {
+            'product_id': event.target.attributes['id'].value,
+            'product_name': event.target.attributes['name'].value,
+            'product_price': event.target.attributes['price'].value,
+            'product_quantity': 1
+          }
+        )
+      }
+      setOrderItems(newOrderItens)
+    }, [orderItems])
+
+  const incrementQuantity = useCallback((event) => {
+    event.preventDefault()
+    const idMap = event.target.attributes['id']
+    if (idMap) {
+      const productId = event.target.attributes['id'].value
+      const newOrderItens = [...orderItems]
+      const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === productId)[0]
+      newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
       orderItem.product_quantity = Number(orderItem.product_quantity) + 1
-      newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
-      newArray.push(orderItem)
-    } else {
-      newArray.push(
-        {
-          'product_id': event.target.attributes['value'].value,
-          'product_name': event.target.attributes['description'].value,
-          'product_price': event.target.attributes['price'].value,
-          'product_quantity': 1
-        }
-      )
+      newOrderItens.push(orderItem)
+      setOrderItems(newOrderItens)
     }
-    setOrderItems(newArray)
-  }
+  }, [orderItems])
 
-  const incrementQuantity = (event) => {
-    const productId = event.target.attributes['value'].value
-    const newArray = [...orderItems]
-    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
-    newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
-    orderItem.product_quantity = Number(orderItem.product_quantity) + 1
-    newArray.push(orderItem)
-    setOrderItems(newArray)
-  }
-
-  const decrementQuantity = (event) => {
-    const productId = event.target.attributes['value'].value
-    const newArray = [...orderItems]
-    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
+  const decrementQuantity = useCallback((event) => {
+    event.preventDefault()
+    const productId = event.target.attributes['id'].value
+    const newOrderItens = [...orderItems]
+    const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === productId)[0]
     if (orderItem.product_quantity !== 1) {
-      newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+      newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
       orderItem.product_quantity = Number(orderItem.product_quantity) - 1
-      newArray.push(orderItem)
-      setOrderItems(newArray)
+      newOrderItens.push(orderItem)
+      setOrderItems(newOrderItens)
     }
-  }
+  }, [orderItems])
 
-  const deletePOrderItem = (event) => {
-    const productId = event.target.attributes['value'].value
-    const newArray = [...orderItems]
-    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
-    newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
-    setOrderItems(newArray)
-  }
+  const deleteOrderItem = useCallback((event) => {
+    event.preventDefault()
+    const productId = event.target.attributes['id'].value
+    const newOrderItens = [...orderItems]
+    newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
+    setOrderItems(newOrderItens)
+  }, [orderItems])
 
   return (
     <Fragment>
       <header>
         <Navbar />
       </header>
-      {products.length > 0 && simpleBurger && doubleBurger && misto && drinks.length > 0 &&
+      {
         <main>
           <div className='container-menu'>
             <div className='radio-tile-group-menu'>
@@ -142,41 +136,41 @@ export const NewOrder = () => {
             </div>
           </div>
 
-          <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide, section-breakfast'}>
+          <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide section-breakfast'}>
             <div className='div-container-menu-section'>
               <MenuSection
                 menuSectionTitle='Lanches'
-                products={[misto]}
+                products={products.filter((product) => product.name === 'Misto quente')}
                 onClick={
                   (event) => {
                     event.preventDefault()
-                    console.log('misto ')
+                    addOrUpdateOrderItem(event)
                   }
                 }
               />
               <MenuSection
                 menuSectionTitle='Bebidas'
-                products={drinks}
+                products={products.filter(product => product.name !== 'Misto quente' && product.type === 'breakfast')}
                 onClick={
                   (event) => {
                     event.preventDefault()
-                    console.log('bebida-quente')
+                    addOrUpdateOrderItem(event)
                   }
                 }
               />
             </div>
           </section>
-          <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide, section-all-day'}>
+          <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide section-all-day'}>
             <div className='div-container-menu-section'>
               <MenuSection
                 menuSectionTitle='Hambúrgueres'
                 products={
-                  [simpleBurger, doubleBurger]
+                  products.filter((product) => product.id === 33 || product.id === 42)
                 }
                 onClick={
                   (event) => {
                     event.preventDefault()
-                    const productId = event.target.attributes['value'].value
+                    const productId = event.target.attributes['id'].value
                     setBurgerType(productId === '33' ? 'simples' : 'duplo')
                     setShowModal(true)
 
@@ -200,7 +194,7 @@ export const NewOrder = () => {
                 onClick={
                   (event) => {
                     event.preventDefault()
-                    console.log('bebidas-frias')
+                    addOrUpdateOrderItem(event)
                   }
                 }
               />
@@ -215,10 +209,18 @@ export const NewOrder = () => {
             incrementQuantity(event)
           }
         }
+
         minus={
           (event) => {
             event.preventDefault()
             decrementQuantity(event)
+          }
+        }
+
+        remove={
+          (event) => {
+            event.preventDefault()
+            deleteOrderItem(event)
           }
         }
       />
@@ -347,33 +349,33 @@ export const NewOrder = () => {
                 className='btn-confirm'
                 type='submit'
                 onClick={
-                  (event) => {
+                  useCallback((event) => {
                     event.preventDefault()
                     const selected = products
                       .filter(product => product.name === 'Hambúrguer ' + burgerType)
                       .filter(product => product.flavor === burgerFlavor)
                       .filter(product => product.complement === burgerExtra)[0]
-                    const newArray = [...orderItems]
-                    const orderItem = newArray.filter((orderItem) => orderItem.product_id === selected.id)[0]
+                    const newOrderItens = [...orderItems]
+                    const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === selected.id)[0]
 
                     if (orderItem !== null && orderItem !== undefined) {
                       orderItem.product_quantity = Number(orderItem.product_quantity) + 1
-                      newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === selected.id), 1)
-                      newArray.push(orderItem)
+                      newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === selected.id), 1)
+                      newOrderItens.push(orderItem)
                     } else {
-                      newArray.push(
+                      newOrderItens.push(
                         {
                           'product_id': String(selected.id),
-                          'product_name': selected.name + ' de ' + selected.flavor + ' com ' + selected.complement,
+                          'product_name': selected.name + selected.flavor + ' com ' + selected.complement,
                           'product_price': selected.price,
                           'product_quantity': 1
                         }
                       )
                     }
-                    setOrderItems(newArray)
+                    setOrderItems(newOrderItens)
                     setShowModal(false)
 
-                  }
+                  }, [burgerType, burgerFlavor, burgerExtra, orderItems, products])
                 }
               />
             </div>

@@ -5,6 +5,7 @@ import './order-section.css'
 export default function OrderSection({
   plus,
   minus,
+  remove,
   items
 }) {
   return (
@@ -22,6 +23,7 @@ export default function OrderSection({
                   quantity={item.product_quantity}
                   plus={plus}
                   minus={minus}
+                  remove={remove}
                   key={index}
                 />
               )
