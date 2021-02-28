@@ -1,6 +1,6 @@
 import '../style/Waiter.css';
 import { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import logo from '../images/logo.png';
 import prato from '../images/prato.png';
 import xicara from '../images/xicara.png';
@@ -19,31 +19,31 @@ const Waiter = () => {
   const [table, setTable] = useState('');
   const [breakfast, setBreakfast] = useState([]);
   const token = localStorage.getItem("token");
+  const [quantidade, setQuantidade] = useState([]);
 
-  
 
   const history = useHistory()
-  const rLogin=()=> {
+  const rLogin = () => {
     history.push('/')
   }
-  
-  const Historic=()=>{
+
+  const Historic = () => {
     history.push('/Historic')
   }
 
-  const order = () =>{
-    if(client !== '' && table !== ''){
-            Promise.add({
-                client: client,
-                mesa: table,
-                pedido:products,
-            });
-            alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
-            setProducts([]);
-            setTable('');
-            setClient('');
+  const order = () => {
+    if (client !== '' && table !== '') {
+      Promise.add({
+        client: client,
+        mesa: table,
+        pedido: products,
+      });
+      alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
+      setProducts([]);
+      setTable('');
+      setClient('');
     }
-};
+  };
 
 
   useEffect(() => {
@@ -71,94 +71,103 @@ const Waiter = () => {
 
   }, [token])
 
+  function clickQuantidade(item) {
+    item.qtd = 1;
+    item.subtotal = item.price;
+    setQuantidade([...quantidade, item]);
+    console.log(item);
+  }
+
+
   return (
 
     <div className="App">
       <nav className="nav">
-       
-      <button className="histo" onClick={Historic}>Histórico</button>
-        <button className="exit"   onClick={rLogin}>
-      <img src= {exit} alt="" className="exit"/></button>
-      
-      
+
+        <button className="histo" onClick={Historic}>Histórico</button>
+        <button className="exit" onClick={rLogin}>
+          <img src={exit} alt="" className="exit" /></button>
+
       </nav>
 
       <header className="App-waiter">
-       <div id="logoWaiter"> 
-        <img src={logo} alt="" className="logoWaiter" /> 
+        <div id="logoWaiter">
+          <img src={logo} alt="" className="logoWaiter" />
         </div>
-      <ol>
-        <section className='Menu'>
-            <button className="btnMenu"   onClick={((e)=>{
+        <ol>
+          <section className='Menu'>
+            <button className="btnMenu" onClick={((e) => {
               e.preventDefault();
               setBreakfast(menu)
-            })}><img src= {xicara} alt="" className='imgMenu' /></button>
+            })}><img src={xicara} alt="" className='imgMenu' /></button>
 
-            <button className="btnMenu"   onClick={((e)=>{
+            <button className="btnMenu" onClick={((e) => {
               e.preventDefault();
               setBreakfast(hamburguer)
-            })}><img src= {prato} alt="" className='imgMenu' /></button>
+            })}><img src={prato} alt="" className='imgMenu' /></button>
 
-            <button className="btnMenu"   onClick={((e)=>{
+            <button className="btnMenu" onClick={((e) => {
               e.preventDefault();
               setBreakfast(side);
-            })}><img src= {b} alt="" className='imgMenu' /></button>
+            })}><img src={b} alt="" className='imgMenu' /></button>
 
-             <button className="btnMenu"   onClick={((e)=>{
+            <button className="btnMenu" onClick={((e) => {
               e.preventDefault();
               setBreakfast(drinks)
-            })}><img src= {copo} alt="" className='imgMenu' /></button>
+            })}><img src={copo} alt="" className='imgMenu' /></button>
 
+            <div className='menuItens'> {
+              breakfast.map((menuItems) => {
 
-        
-              <div className='menuItens'> {
-                breakfast.map((menuItems) => {
-
-                  return (
-                    <div className="Produtos">
-                      <div key={menuItems.id}>
-                        <p>{menuItems.name}</p>
-                        <p>{menuItems.flavor}</p>
-                        <p>R$:{menuItems.price},00</p>
+                return (
+                  <div className="Produtos">
+                    <div key={menuItems.id}>
+                      <div className="teste">
+                        <ul>{menuItems.name}</ul>
+                        <ul>{menuItems.flavor}</ul>
+                        {/* <ul>{menuItems.complement}</ul> */}
+                        <ul>R$:{menuItems.price},00</ul>
+                        <button className="btnMenu" onClick={() => clickQuantidade(menuItems)}> + </button>
                       </div>
                     </div>
-                  )
-                })
-              } </div>
-           
-        </section>
+                  </div>
+                )
+              })
+            } </div>
 
-        <form className='order'>
-          <h1>Pedido</h1>
+          </section>
+
+          <form className='order'>
+            <h1>Pedido</h1>
             <input type="text" id="client" placeholder="Digite o nome do cliente" value={client} onChange={(event) =>
               setClient(event.target.value)} />
-            <input type="number" id="number" min='0' max='20' value={table} onChange={(event) =>
+            <input type="number" id="number" min='0' max='20' placeholder="Mesa" value={table} onChange={(event) =>
               setTable(event.target.value)} />
-              <input type="text" id="products" value={products} onClick={order} />
+            <input type="text" id="products" value={products} onClick={order} />
 
-              <button className='send' onClick={( (e) => {
-                  e.preventDefault();
-                  fetch('https://lab-api-bq.herokuapp.com/orders', {
-                  method: "POST",
-                  headers: {
+            <button className='send' onClick={((e) => {
+              e.preventDefault();
+              fetch('https://lab-api-bq.herokuapp.com/orders', {
+                method: "POST",
+                headers: {
                   "Content-Type": "application/json",
                   "accept": "application/json",
                   'Authorization': `${token}`
-                  },
-                    body:`client=${client}&table=${table}&products=${menu}`
-                  })
-                    .then((response) => response.json())
-                    .then((json) => {
-                      console.log(json);
-                      setClient('');
-                      setTable('');
-                      setProducts('');
-                    })
-                    console.log('foi')
-                  })} >ENVIAR</button>
+                },
+                body: `client=${client}&table=${table}&products=${menu}`
+              })
+                .then((response) => response.json())
+                .then((json) => {
+                  console.log(json);
+                  setClient('');
+                  setTable('');
+                  setProducts('');
+                })
+              console.log('foi')
+            })} >ENVIAR</button>
 
           </form>
-       </ol>      
+        </ol>
       </header>
     </div>
   )

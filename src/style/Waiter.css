@@ -3,6 +3,7 @@
 	display: flex;
 	justify-content: flex-end;
 }
+
 .App-waiter {
 	background-color: #383838;
 	min-height: 100vh;
@@ -11,6 +12,7 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
+
 .exit {
 	height: 43px;
 	border: none;
@@ -18,6 +20,7 @@
 	margin-top: 6px;
 	background-color: #383838;
 }
+
 .logoWaiter {
 	justify-content: center;
 	width: 20%;
@@ -38,8 +41,9 @@
 	border-radius: 9px;
 	margin: 26px;
 	width: 45%;
-	height: 589px;
+	height: 685px;
 }
+
 #logoWaiter {
 	display: flex;
 	justify-content: center;
@@ -47,11 +51,13 @@
 
 #client {
 	padding: 11px;
-	width: 80%;
+	width: 50%;
 	margin-top: 20px;
 	justify-content: center;
 	border-radius: 9px;
 	align-items: center;
+	background-color: rgb(56, 55, 55);
+	border: none;
 }
 
 #products {
@@ -60,17 +66,21 @@
 	margin-top: 20px;
 	justify-content: center;
 	border-radius: 9px;
-	height: 180px;
+	height: 250px;
 	align-items: center;
+	background-color: rgb(56, 55, 55);
+	border: none;
 }
 
 #number {
+	display: flex;
 	padding: 11px;
-	width: 27%;
+	width: 25%;
 	margin-top: 20px;
-	justify-content: center;
 	border-radius: 9px;
-	align-items: center;
+	background-color: rgb(56, 55, 55);
+	margin-left: 40%;
+	border: none;
 }
 
 h1 {
@@ -93,7 +103,6 @@ h1 {
 
 .send {
 	text-align: center;
-	margin: auto;
 	justify-content: center;
 	padding: 11px;
 	width: 80%;
@@ -103,7 +112,7 @@ h1 {
 	font-size: 15px;
 	border-radius: 9px;
 	background-color: #ffde59;
-	margin-top: 20px;
+	margin-top: 10%;
 }
 
 .imgMenu {
@@ -121,7 +130,27 @@ h1 {
 }
 
 .Produtos {
-	background-color: rgb(87, 84, 84);
-	width: 59%;
-	padding: 17px;
+	display: flex;
+	width: 90%;
+}
+
+ul {
+	font-size: 60%;
+	display: flex;
+}
+
+.teste {
+	display: flex;
+	justify-content: space-between;
+	width: 700px;
+}
+
+.amount {
+	width: 80px;
+}
+
+.menuItens {
+	width: 90%;
+	height: 589px;
+	overflow-y: auto;
 }
