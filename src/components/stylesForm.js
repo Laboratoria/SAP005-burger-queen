@@ -53,10 +53,10 @@ export const Page = styled.div`
     width: 100%;
     height: 600px;
     margin-left: 22%;
-    margin-top: 8%;
+    margin-top: 2%;
     padding-bottom: 8%;
     box-shadow:  -9px 9px 14px rgba(0, 0, 0, 0.5),
-             9px -9px 14px #ffffff;
+             9px -9px 14px rgba(0, 0, 0, 0.5);
 `;
 
 export const Images = styled.div`
