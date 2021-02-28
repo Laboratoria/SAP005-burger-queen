@@ -1,5 +1,111 @@
-.icon-button-add {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+  align-content: stretch;
 }
+
+.main-left {
+}
+
+
+
+.btn-menu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.btn-menu-breakfast,
+.btn-menu-allDay {
+  width: 217px;
+  height: 50px;
+  position: absolute;
+  right: 490px;
+  font-size: 18px;
+  background: #f8cb00;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.btn-menu-allDay {
+  position: absolute;
+  top: 270px;
+}
+
+.btn-menu-breakfast {
+  position: absolute;
+  top: 190px;
+}
+
+.container-order {
+  position: absolute;
+  width: 330px;
+  height: 320px;
+  left: 20px;
+  top: 360px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.item-container-p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.item-btn-send-order {
+  width: 160px;
+  height: 46px;
+  position: absolute;
+  left: 100px;
+  top: 690px;
+  background: #f8cb00;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 12px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.main-right {
+	display: flex;
+	position: absolute;
+	top: 150px;
+	right: 100px;
+}
+
+.breakfast {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: baseline;
+	list-style-type: none;
+}
+
+.list-menu-breakfast {
+	background-color: #fff;
+	padding: 20px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	position: relative;
+    left: 60px
+
+}
+.icon-button-add {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+/* .item-product-image {
+	width: 150px;
+	height:150px;
+} */

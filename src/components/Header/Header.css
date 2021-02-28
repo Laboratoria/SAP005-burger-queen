@@ -1,18 +1,92 @@
-/* body {
-    background-color: #000;
-}  */
-
-.header-hall {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: baseline;
-	align-content: center;
-    background-color: #000;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.welcome-logo {
+.header-hall {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: center;
+  padding-top: 20px;
+}
+
+.welcome-header {
+  width: 273px;
+  left: 81px;
+  top: 38px;
+  font-family: Roboto, "Helvetica Neue";
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  justify-content: flex-start;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+  position: absolute;
+  right: 70px;
+}
+
+.select-Table {
+  width: 100px;;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #000;
+}
+
+.select-Table select:hover,
+select:focus,
+select:active {
+  background-color: #f8cb00;
+  transition: 0s;
+}
+
+.item-nameCustomer {
+  width: 150px;
+  height: 50px;
+  margin-right: 20px;
+  padding-left: 10px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-size: 17px;
+}
+
+.item-btn-myOrder {
+width: 150px;
+height: 50px;
+font-size: 18px;
+font-weight: bold;
+background: #F8CB00;
+border-radius: 50px;
+}
+
+.item-icon-logout {
+    position: absolute;
+    left: 445px;
+    bottom: 5px;
+    width: 47px;
+    height: 47px;
+    margin-left: 10px;
+   
+}
+/* .welcome-logo {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -22,66 +96,5 @@
     width: 40%;
     margin-top: 50px;
     margin-left: 50px;
-}
+} */
 
-.welcome-header {
-    color: #fff;
-
-}
-
-.logo-header {
-    width: 40%;
-    height: 40%;
-    align-items: center;
-}
-
-.form-header form {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.select-Table {
-    width: 25%;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-    margin-right: 20px;
-    padding-left: 8px;
-    font-size: 17px;
-    color: #fff;
-    background-color: #000;
-}
-.select-Table
-select:hover,
-select:focus,
-select:active {
-  background-color: #F8CB00;
-  transition:0s;
-}
-
-.nameCustomer {
-    width: 35%;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-    margin-right: 20px;
-    padding-left: 5px;
-    font-size: 16px;
-    color: #000;
-}
-
-.btn-myOrder{
-    width: 30%;
-    background-color: #F8CB00;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px; 
-    margin-right: 20px;
-}
-
-.icon-logout {
-    width: 40px;
-    height: 40px;
-    margin-right: 18px;
-}
