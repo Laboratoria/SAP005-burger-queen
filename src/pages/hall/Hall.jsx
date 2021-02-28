@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import Menu from "../../containers/Menu";
 import Cart from "../../containers/Cart";
-import { USER } from "../../components/api";
 import Logo from '../../images/logoLaranja.png';
+import { USER } from "../../components/api";
 import { MenuOrders, DivMenus, LogoHall } from '../../components/stylesMenu';
-import { Link } from 'react-router-dom';
-
 
 const Hall = () => {
     const [menuData, setMenuData] = useState({});
@@ -21,10 +20,10 @@ const Hall = () => {
     })
 
     useEffect(() => {
-        let total = 0;
+        let total = (0);
         Object.keys(cartData).map((sku) => {
-            let qty = cartData[sku];
-            let price = menuData[sku].price;
+            let qty = (cartData[sku]);
+            let price = (menuData[sku].price);
             return (total += qty * price);
         })
         setCartTotal(total);
@@ -80,11 +79,14 @@ const Hall = () => {
                     addToCart={addToCart} />
             </div>
             <MenuOrders>
-                <Cart
-                    total={cartTotal}
-                    menu={menuData}
-                    cart={cartData}
-                    reduceCart={reduceFromCart} />
+                <form action="submit">
+                    <Cart
+                        total={cartTotal}
+                        menu={menuData}
+                        cart={cartData}
+                        reduceCart={reduceFromCart} 
+                    />
+                </form>
             </MenuOrders>
         </DivMenus>
         </div>

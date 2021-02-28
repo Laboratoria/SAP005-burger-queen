@@ -26,7 +26,7 @@ const Routes = () => (
         component={props => <Hall {...props} />} 
         exact path='/hall'
       />
-            <Route 
+      <Route 
         component={props => <Orders {...props} />} 
         exact path='/orders'
       />
