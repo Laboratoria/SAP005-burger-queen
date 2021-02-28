@@ -1,94 +1,92 @@
-import React, { useEffect, useState } from 'react';
+// // import React, { useEffect, useState } from 'react';
 
-const Order = () => {
-    const tokenUser = localStorage.getItem('token');
-    const order = JSON.parse(localStorage.getItem('order'));
-    const [sum, setSum] = useState(0);
-    const [orderSummary, setOrderSummary] = useState([]);
-    const [order, setOrder] = useState({});
-    const [deletedItem, setDeletedItem] = useState([]);
-    const [finalPrice, setFinalPrice] = useState([]);
-    const [itemPrice, setItemPrice] = useState([]);
+// // const Order = () => {
+// //     const [resumoPedido, setResumoPedido] = useState([]);
+// //     const [fazerPedido, setFazerPedido] = useState({"client": "", "table": mesa, "products": []});
 
-    const sumOrder = () => {
-        const soma = document.getElementById("soma")
-        order.forEach(item => {
-            let add = Number(item.objeto.price)
-            setSum(add = add + sum)
-            soma.innerText = `
-                    <p> ${sum} oi </p>
-                    `
-        })
-    }
 
-    const handleAdd = (product) => {
-        setOrderSummary([...orderSummary, product]);
-        setItemPrice([...itemPrice, product.price]);
-        const productApi = orderSummary.map((product) => {
-            return {
-                id: product.id,
-                qtd: 1,
-            };
-        });
 
-        const qtd = productApi.reduce(function (r, a) {
-            r[a.id] = r[a.id] || [];
-            r[a.id].push(a);
-            return r;
-        }, Object.create(null));
 
-        const arrayProducts = [];
-        for (const [key, value] of Object.entries(qtd)) {
-            arrayProducts.push({
-                id: key,
-                qtd: value.length,
-            });
-        }
+// //     <section className="resumo-pedido">
+// //         <p className="titulo-resumo-pedido">Resumo do Pedido</p>
+// //         <p className="infos-resumo-pedido">Atendente: {atendente} | Mesa {mesa}</p>
+// //         <input className="cliente-resumo-pedido"
+// //             type="text"
+// //             placeholder="Nome do Cliente"
+// //             onChange={(event) => {
+// //                 setFazerPedido({ ...fazerPedido, "client": event.target.value })
+// //             }}
+// //         />
 
-        setOrder({ ...order, products: arrayProducts });
-    };
 
-    const handleDelet = (product) => {
-        setFinalPrice(itemPrice.splice(orderSummary.indexOf(product), 1));
-        setDeletedItem(orderSummary.splice(orderSummary.indexOf(product), 1));
-        handleSum();
-    };
 
-    const handleSum = () => {
-        setFinalPrice(itemPrice.reduce((total, num) => total + num));
-    };
 
-    const handleSubmit = () => {
-        fetch('https://lab-api-bq.herokuapp.com/orders', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `${tokenUser}`,
-            },
-            body: JSON.stringify(order),
-        })
-            .then((response) => {
-                response.json().then((data) => {
-                    console.log(data);
-                });
-                setOrder({});
-                setOrderSummary([]);
-                setFinalPrice([]);
-                setItemPrice([]);
-                setDeletedItem([]);
-                clearInput();
-                alert('Pedido enviado');
-            })
-            .catch((error) => {
-                alert(error.message);
-            });
-    };
+// // return (
 
-    function clearInput() {
-        const inputs = document.querySelectorAll('input');
-        [].map.call(inputs, (entrada) => (entrada.value = ''));
-    }
+// {
+//     orderSummary !== [] &&
+//     <>
+//         <section className="titulo-lista-pedido">
+//             <label>Item/Valor</label>
+//             <label>Quantidade</label>
+//         </section>
+//         <ul className="lista-pedido">
+//             {orderSummary.map((item, index) => (
+//                 <>
+//                     <li className="item-lista-pedido" key={index}>
+//                         <label>
+//                             {typeof item.name === "string" ? item.name : item.name.map((item) => <><label>{item.name}</label> <label>{item.flavor}</label> <label>{item.complement}</label></>)}
+//                             {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price * item.qtd)}
+//                         </label>
+//                         <input
+//                             className="button-manipular-qtd"
+//                             id="diminuir-qtd"
+//                             type="button"
+//                             value="-"
+//                             onClick={() => {
+//                                 if (item.qtd > 1 && item.name === orderSummary[index].name) {
+//                                     orderSummary[index].qtd--;
+//                                     ([...orderSummary]);
+//                                 } else if (item.name === orderSummary[index].name && item.qtd === 1) {
+//                                     orderSummary.splice(index, 1);
+//                                     setOrderSummary([...orderSummary]);
+//                                 }
+//                             }}
+//                         />
+//                         <label>{item.qtd}</label>
+//                         <input
+//                             className="button-manipular-qtd"
+//                             id="aumentar-qtd"
+//                             type="button"
+//                             value="+"
+//                             onClick={() => {
+//                                 if (item.name === orderSummary[index].name) {
+//                                     orderSummary[index].qtd++;
+//                                     setOrderSummary([...orderSummary]);
+//                                 }
+//                             }}
+//                         />
+//                         <input
+//                             className="button-excluir-item"
+//                             id="excluir-item"
+//                             type="image"
+//                             src={Lixeira}
+//                             alt="icone-lixeira"
+//                             onClick={() => {
+//                                 orderSummary.splice(index, 1);
+//                                 setOrderSummary([...orderSummary]);
+//                             }}
+//                         />
+//                     </li>
+//                 </>
+//             ))}
+//         </ul>
+//       }
+//     )}
+//     </>
+//   )
+// }
 
-        return(
-            
-        )       
+//         )
+
+// export default Order,
