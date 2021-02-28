@@ -9,15 +9,15 @@ import Menu from '../../components/Menu/Menu';
 
 
 function Hall() {
-  return (
-    <>
-    <div className="hall-page">
-      <Header />
-      <Menu />
-      
-    </div>
-    </>
-  );
+    return (
+        <>
+            <div className="hall-page">
+                <Header />
+                <Menu />
+
+            </div>
+        </>
+    );
 }
 
 export default Hall;
