@@ -3,6 +3,7 @@
 	display: flex;
 	justify-content: flex-end;
 }
+
 .App-waiter {
 	background-color: #383838;
 	min-height: 100vh;
@@ -11,14 +12,18 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
+
 .exit {
-	height: 30px;
+	height: 43px;
 	border: none;
 	display: flex;
+	margin-top: 6px;
+	background-color: #383838;
 }
+
 .logoWaiter {
 	justify-content: center;
-	width: 42%;
+	width: 20%;
 }
 
 .AppWaiter {
@@ -27,47 +32,60 @@
 	font-size: calc(10px + 2vmin);
 }
 
-.allDay {
-	background-color: tomato;
-}
-
 .order {
 	font-family: Arial;
 	text-align: center;
 	float: right;
-	color: yellow;
+	color: #ffde59;
 	background-color: rgb(41, 39, 39);
 	border-radius: 9px;
 	margin: 26px;
 	width: 45%;
-	height: 387px;
+	height: 685px;
 }
+
 #logoWaiter {
 	display: flex;
 	justify-content: center;
 }
 
-#client,
+#client {
+	padding: 11px;
+	width: 50%;
+	margin-top: 20px;
+	justify-content: center;
+	border-radius: 9px;
+	align-items: center;
+	background-color: rgb(56, 55, 55);
+	border: none;
+}
+
 #products {
 	padding: 11px;
 	width: 80%;
 	margin-top: 20px;
 	justify-content: center;
 	border-radius: 9px;
+	height: 250px;
 	align-items: center;
+	background-color: rgb(56, 55, 55);
+	border: none;
 }
+
 #number {
+	display: flex;
 	padding: 11px;
-	width: 27%;
-	margin-top: 10px;
-	justify-content: center;
+	width: 25%;
+	margin-top: 20px;
 	border-radius: 9px;
-	align-items: center;
+	background-color: rgb(56, 55, 55);
+	margin-left: 40%;
+	border: none;
 }
 
 h1 {
-	margin-top: 33px;
-	font-size: 20px;
+	margin-top: 53px;
+	font-size: 30px;
 	font-weight: bold;
 	font-family: Arial;
 }
@@ -76,7 +94,7 @@ h1 {
 	background-color: rgb(41, 39, 39);
 	border-radius: 9px;
 	width: 43%;
-	height: 387px;
+	height: 100%;
 	float: left;
 	margin-top: 25px;
 	margin-left: 38px;
@@ -85,7 +103,6 @@ h1 {
 
 .send {
 	text-align: center;
-	margin: auto;
 	justify-content: center;
 	padding: 11px;
 	width: 80%;
@@ -95,7 +112,7 @@ h1 {
 	font-size: 15px;
 	border-radius: 9px;
 	background-color: #ffde59;
-	margin-top: 20px;
+	margin-top: 10%;
 }
 
 .imgMenu {
@@ -107,7 +124,33 @@ h1 {
 	margin: 17px;
 	margin-top: 23px;
 	height: 63px;
-	width: 116px;
+	width: 71px;
 	background-color: #ffde59;
 	border-radius: 9px;
+}
+
+.Produtos {
+	display: flex;
+	width: 90%;
+}
+
+ul {
+	font-size: 60%;
+	display: flex;
+}
+
+.teste {
+	display: flex;
+	justify-content: space-between;
+	width: 700px;
+}
+
+.amount {
+	width: 80px;
+}
+
+.menuItens {
+	width: 90%;
+	height: 589px;
+	overflow-y: auto;
 }
