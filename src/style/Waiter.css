@@ -1,14 +1,16 @@
 .nav {
 	background-color: #383838;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+}
+.header {
+	background-color: #383838;
 }
 
 .App-waiter {
 	background-color: #383838;
 	min-height: 100vh;
 	display: flex;
-	flex-direction: column;
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
@@ -19,6 +21,7 @@
 	display: flex;
 	margin-top: 6px;
 	background-color: #383838;
+	margin-right: 17px;
 }
 
 .logoWaiter {
@@ -41,7 +44,8 @@
 	border-radius: 9px;
 	margin: 26px;
 	width: 45%;
-	height: 685px;
+	height: 691px;
+	margin-top: 65px;
 }
 
 #logoWaiter {
@@ -56,7 +60,7 @@
 	justify-content: center;
 	border-radius: 9px;
 	align-items: center;
-	background-color: rgb(56, 55, 55);
+	background-color: hsl(0deg 0% 100% / 80%);
 	border: none;
 }
 
@@ -68,7 +72,7 @@
 	border-radius: 9px;
 	height: 250px;
 	align-items: center;
-	background-color: rgb(56, 55, 55);
+	background-color: hsl(0deg 0% 100% / 80%);
 	border: none;
 }
 
@@ -78,7 +82,7 @@
 	width: 25%;
 	margin-top: 20px;
 	border-radius: 9px;
-	background-color: rgb(56, 55, 55);
+	background-color: hsl(0deg 0% 100% / 80%);
 	margin-left: 40%;
 	border: none;
 }
@@ -93,11 +97,11 @@ h1 {
 .Menu {
 	background-color: rgb(41, 39, 39);
 	border-radius: 9px;
-	width: 43%;
+	width: 47%;
 	height: 100%;
 	float: left;
-	margin-top: 25px;
-	margin-left: 38px;
+	margin-top: 65px;
+	margin-left: 22px;
 	text-align: center;
 }
 
@@ -118,6 +122,19 @@ h1 {
 .imgMenu {
 	height: 66px;
 }
+.imgteste {
+	height: 40px;
+}
+.btnTeste {
+	border: none;
+	margin: 20px;
+	align-items: center;
+	margin-top: 23px;
+	height: 45px;
+	width: 46px;
+	background-color: #ffde59;
+	border-radius: 43px;
+}
 
 .btnMenu {
 	border: none;
@@ -135,14 +152,16 @@ h1 {
 }
 
 ul {
-	font-size: 60%;
+	margin-top: 33px;
+	font-size: 21px;
 	display: flex;
 }
 
 .teste {
 	display: flex;
 	justify-content: space-between;
-	width: 700px;
+	width: 388px;
+	margin-left: 47px;
 }
 
 .amount {

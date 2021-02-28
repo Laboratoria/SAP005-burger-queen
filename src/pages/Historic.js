@@ -5,6 +5,7 @@ import logo from '../images/logo.png';
 import exit from '../images/exit.png';
 import add from '../images/add.png';
 import { useState } from 'react';
+import re from '../images/re.png';
 
 
 function Historic() {
@@ -28,7 +29,9 @@ function Historic() {
 
         <nav className="wrap-menu">
            
-                <button className="histo" onClick={rWaiter}>Menu</button>
+                <button className="btnRe" onClick={rWaiter}>
+                <img src= {re} alt="" className="Re"/>
+                </button>
                 <button className="exit"   onClick={rLogin}>
                 <img src= {exit} alt="" className="exit"/></button>   
         </nav>
