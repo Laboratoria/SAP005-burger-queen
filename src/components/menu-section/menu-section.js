@@ -14,9 +14,10 @@ export default function MenuSection({
         <div className='menu-section-container'>
           {
             products.length > 0 && products.map((product, index) => {
-              console.log(product)
               return (
                 <MenuItens
+                  value={product.id}
+                  productId={product.id}
                   srcImg={product.image}
                   alt={product.name}
                   productName={product.name}

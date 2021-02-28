@@ -4,6 +4,7 @@ import './menu-itens.css'
 
 export default function MenuItens({
   onClick,
+  productId,
   srcImg,
   altImg,
   productName,
@@ -12,15 +13,36 @@ export default function MenuItens({
   return (
     <Fragment>
 
-      <section onClick={onClick} className='product-section'>
+      <section value={productId} onClick={onClick} className='product-section'>
         <img
           className='product-img'
           src={srcImg}
           alt={altImg}
+          value={productId}
+          description={productName}
+          price={productPrice}
         />
-        <p className='product-name'>{productName}</p>
-        <p className='product-price'>R$ {productPrice},00</p>
-        <FaPlus className='icon-plus' />
+        <p
+          description={productName}
+          price={productPrice}
+          value={productId}
+          className='product-name'
+        >
+          {productName}
+        </p>
+        <p
+          description={productName}
+          price={productPrice}
+          value={productId}
+          className='product-price'
+        >
+          R$ {productPrice},00
+        </p>
+        <FaPlus
+          description={productName}
+          price={productPrice}
+          value={productId}
+          className='icon-plus' />
       </section>
 
     </Fragment>

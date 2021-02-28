@@ -8,15 +8,21 @@ import './order-itens.css'
 export default function OrderItens({
   classNameContainer,
   classNameOrderItens,
-  classNameNumber
+  classNameNumber,
+  quantity,
+  plus,
+  minus,
+  name,
+  price,
+  id
 }) {
   return (
     <Fragment>
       <div className={classNameContainer, 'teste'}>
-        <p className={classNameOrderItens}>Hambúrguer Simples R$10,00</p>
-        <FiMinusSquare className='icon-order-itens' />
-        <p className={classNameNumber}>1</p>
-        <FiPlusSquare className='icon-order-itens' />
+        <p className={classNameOrderItens}>{name} {price}</p>
+        <FiMinusSquare value={id} onClick={minus} className='icon-order-itens' />
+        <p className={classNameNumber}>{quantity}</p>
+        <FiPlusSquare value={id} onClick={plus} className='icon-order-itens' />
         <FaEdit className='icon-order-itens' />
         <FaTrashAlt className='icon-order-itens' />
       </div>

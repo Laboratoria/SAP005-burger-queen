@@ -21,6 +21,7 @@ export const NewOrder = () => {
   const [misto, setMisto] = useState({})
   const [burgerFlavor, setBurgerFlavor] = useState('')
   const [burgerExtra, setBurgerExtra] = useState('')
+  const [orderItems, setOrderItems] = useState([])
 
   const storeProducts = useCallback(async () => {
     const products = await getProducts();
@@ -38,6 +39,28 @@ export const NewOrder = () => {
   useEffect(() => {
     storeProducts();
   }, [storeProducts]);
+
+  const addOrUpdateOrderItem = (event) => {
+    const newArray = [...orderItems]
+    const productId = event.target.attributes['value'].value
+    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
+    if (orderItem !== null && orderItem !== undefined) {
+      orderItem.product_quantity = Number(orderItem.product_quantity) + 1
+      newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+      newArray.push(orderItem)
+    } else {
+      newArray.push(
+        {
+          'product_id': event.target.attributes['value'].value,
+          'product_name': event.target.attributes['description'].value,
+          'product_price': event.target.attributes['price'].value,
+          'product_quantity': 1
+        }
+      )
+    }
+    setOrderItems(newArray)
+  }
+
 
   return (
     <Fragment>
@@ -87,7 +110,7 @@ export const NewOrder = () => {
             </div>
           </div>
 
-          <section className='section-breakfast' className={checkedMenu === 'breakfast' ? '' : 'hide'}>
+          <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide, section-breakfast'}>
             <div className='div-container-menu-section'>
               <MenuSection
                 menuSectionTitle='Lanches'
@@ -109,7 +132,7 @@ export const NewOrder = () => {
               />
             </div>
           </section>
-          <section className='section-all-day' className={checkedMenu === 'all-day' ? '' : 'hide'}>
+          <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide, section-all-day'}>
             <div className='div-container-menu-section'>
               <MenuSection
                 menuSectionTitle='Hambúrgueres'
@@ -126,9 +149,10 @@ export const NewOrder = () => {
                 menuSectionTitle='Acompanhamentos'
                 products={products.filter((product) => product.sub_type === 'side')}
                 onClick={
-                  () => {
-                    console.log('acompanhamento')
+                  (event) => {
+                    addOrUpdateOrderItem(event)
                   }
+
                 }
               />
               <MenuSection
@@ -143,7 +167,22 @@ export const NewOrder = () => {
             </div>
           </section>
         </main>}
-      <OrderSection />
+      <OrderSection
+        items={orderItems}
+        plus={
+          (event) => {
+            const productId = event.target.attributes['value'].value
+            const newArray = [...orderItems]
+            const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
+            orderItem.product_quantity = Number(orderItem.product_quantity) + 1
+            newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+            newArray.push(orderItem)
+            setOrderItems(newArray)
+
+          }
+
+        }
+      />
       <ReactModal
         className='modal'
         isOpen={showModal}
