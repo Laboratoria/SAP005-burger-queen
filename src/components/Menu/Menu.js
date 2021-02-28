@@ -104,17 +104,7 @@ const Menu = () => {
             </ul>
           )}
       </section>
-      <section className="resumo-pedido">
-      <p className="titulo-resumo-pedido">Resumo do Pedido</p>
-      <p className="infos-resumo-pedido">Atendente:</p>
-      <input className="cliente-resumo-pedido"
-        type="text"
-        placeholder="Nome do Cliente"
-        onChange={(event) => {
-          setMakeOrder({ ...makeOrder, "client": event.target.value })
-        }}
-      />
-      </section>
+      
     </>
   )
 }
