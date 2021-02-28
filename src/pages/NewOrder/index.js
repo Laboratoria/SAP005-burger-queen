@@ -84,6 +84,14 @@ export const NewOrder = () => {
     }
   }
 
+  const deletePOrderItem = (event) => {
+    const productId = event.target.attributes['value'].value
+    const newArray = [...orderItems]
+    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
+    newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+    setOrderItems(newArray)
+  }
+
   return (
     <Fragment>
       <header>
@@ -102,7 +110,8 @@ export const NewOrder = () => {
                   inputValue='breakfast'
                   inputChecked={checkedMenu === 'breakfast'}
                   inputOnChange={
-                    () => {
+                    (event) => {
+                      event.preventDefault()
                       setCheckedMenu('breakfast')
                     }
                   }
@@ -120,7 +129,8 @@ export const NewOrder = () => {
                   inputValue='all-day'
                   inputChecked={checkedMenu === 'all-day'}
                   inputOnChange={
-                    () => {
+                    (event) => {
+                      event.preventDefault()
                       setCheckedMenu('all-day')
                     }
                   }
@@ -138,7 +148,8 @@ export const NewOrder = () => {
                 menuSectionTitle='Lanches'
                 products={[misto]}
                 onClick={
-                  () => {
+                  (event) => {
+                    event.preventDefault()
                     console.log('misto ')
                   }
                 }
@@ -147,7 +158,8 @@ export const NewOrder = () => {
                 menuSectionTitle='Bebidas'
                 products={drinks}
                 onClick={
-                  () => {
+                  (event) => {
+                    event.preventDefault()
                     console.log('bebida-quente')
                   }
                 }
@@ -163,6 +175,7 @@ export const NewOrder = () => {
                 }
                 onClick={
                   (event) => {
+                    event.preventDefault()
                     const productId = event.target.attributes['value'].value
                     setBurgerType(productId === '33' ? 'simples' : 'duplo')
                     setShowModal(true)
@@ -175,6 +188,7 @@ export const NewOrder = () => {
                 products={products.filter((product) => product.sub_type === 'side')}
                 onClick={
                   (event) => {
+                    event.preventDefault()
                     addOrUpdateOrderItem(event)
                   }
 
@@ -184,7 +198,8 @@ export const NewOrder = () => {
                 menuSectionTitle='Bebidas'
                 products={products.filter((product) => product.sub_type === 'drinks')}
                 onClick={
-                  () => {
+                  (event) => {
+                    event.preventDefault()
                     console.log('bebidas-frias')
                   }
                 }
@@ -196,9 +211,15 @@ export const NewOrder = () => {
         items={orderItems}
         plus={
           (event) => {
+            event.preventDefault()
             incrementQuantity(event)
           }
-
+        }
+        minus={
+          (event) => {
+            event.preventDefault()
+            decrementQuantity(event)
+          }
         }
       />
       <ReactModal
@@ -326,7 +347,7 @@ export const NewOrder = () => {
                 className='btn-confirm'
                 type='submit'
                 onClick={
-                  async (event) => {
+                  (event) => {
                     event.preventDefault()
                     const selected = products
                       .filter(product => product.name === 'Hambúrguer ' + burgerType)
