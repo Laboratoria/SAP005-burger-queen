@@ -67,23 +67,29 @@ export const NewOrder = () => {
 
   const decrementQuantity = useCallback((event) => {
     event.preventDefault()
-    const productId = event.target.attributes['id'].value
-    const newOrderItens = [...orderItems]
-    const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === productId)[0]
-    if (orderItem.product_quantity !== 1) {
-      newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
-      orderItem.product_quantity = Number(orderItem.product_quantity) - 1
-      newOrderItens.push(orderItem)
-      setOrderItems(newOrderItens)
+    const idMap = event.target.attributes['id']
+    if (idMap) {
+      const productId = event.target.attributes['id'].value
+      const newOrderItens = [...orderItems]
+      const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === productId)[0]
+      if (orderItem.product_quantity !== 1) {
+        newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
+        orderItem.product_quantity = Number(orderItem.product_quantity) - 1
+        newOrderItens.push(orderItem)
+        setOrderItems(newOrderItens)
+      }
     }
   }, [orderItems])
 
   const deleteOrderItem = useCallback((event) => {
-    event.preventDefault()
-    const productId = event.target.attributes['id'].value
-    const newOrderItens = [...orderItems]
-    newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
-    setOrderItems(newOrderItens)
+    const idMap = event.target.attributes['id']
+    if (idMap) {
+      event.preventDefault()
+      const productId = event.target.attributes['id'].value
+      const newOrderItens = [...orderItems]
+      newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === productId), 1)
+      setOrderItems(newOrderItens)
+    }
   }, [orderItems])
 
   return (
@@ -242,6 +248,7 @@ export const NewOrder = () => {
                 inputType='radio'
                 inputName='radio-burger-type'
                 inputValue='meat'
+                inputChecked='meat'
                 inputOnChange={
                   () => {
                     setBurgerFlavor('carne')
@@ -296,6 +303,25 @@ export const NewOrder = () => {
         <p>Adicionais + R$1,00:</p><br />
         <div className='container-modal-option'>
           <div className='radio-tile-modal-option'>
+
+            <div className='input-container-modal-option'>
+              <Input
+                inputId='no-extra'
+                inputClassName='radio-button-modal-option'
+                inputType='radio'
+                inputName='radio-extra'
+                inputValue='no-extra'
+                inputChecked='no-extra'
+                inputOnChange={
+                  () => {
+                    setBurgerExtra(null)
+                  }
+                }
+              />
+              <div className='radio-tile-modal-option'>
+                <label htmlFor='radio-extra' className='radio-tile-label-modal-option'>Sem Adicionais</label>
+              </div>
+            </div>
 
             <div className='input-container-modal-option'>
               <Input
@@ -366,7 +392,7 @@ export const NewOrder = () => {
                       newOrderItens.push(
                         {
                           'product_id': String(selected.id),
-                          'product_name': selected.name + selected.flavor + ' com ' + selected.complement,
+                          'product_name': selected.name + selected.flavor + `${selected.complement}`,
                           'product_price': selected.price,
                           'product_quantity': 1
                         }
@@ -374,7 +400,6 @@ export const NewOrder = () => {
                     }
                     setOrderItems(newOrderItens)
                     setShowModal(false)
-
                   }, [burgerType, burgerFlavor, burgerExtra, orderItems, products])
                 }
               />
