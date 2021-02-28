@@ -5,7 +5,7 @@ import Menu from "../../containers/Menu";
 import Cart from "../../containers/Cart";
 import Logo from '../../images/logoLaranja.png';
 import { USER } from "../../components/api";
-import { MenuOrders, DivMenus, LogoHall } from '../../components/stylesMenu';
+import { MenuOrders, DivMenus, LogoHall, ButtonPedidos } from '../../components/stylesMenu';
 
 const Hall = () => {
     const [menuData, setMenuData] = useState({});
