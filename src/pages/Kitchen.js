@@ -24,9 +24,8 @@ function Kitchen() {
       <img src= {exit} alt="" className="exit"/></button>
       </nav>
       <header className="App-Kitchen">
-
         <img src= {logo} alt="" className="logoKitchen"/>
-        <p className="Cozinha">Cozinha</p>
+        
      
         <button className="btnAdd"   onClick={(e)=>{
               e.preventDefault();

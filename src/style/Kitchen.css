@@ -1,8 +1,3 @@
-* {
-	padding: 0px;
-	margin: 0px;
-	box-sizing: border-box;
-}
 .nav {
 	height: 64px;
 }
@@ -14,7 +9,6 @@
 
 .AppKitchen {
 	background-color: #383838;
-
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
@@ -85,7 +79,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 80vw;
-	height: 70vh;
+	height: 100%;
 	margin: auto;
 	margin-bottom: 5vh;
 }
