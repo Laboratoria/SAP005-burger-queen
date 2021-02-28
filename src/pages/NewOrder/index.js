@@ -61,6 +61,15 @@ export const NewOrder = () => {
     setOrderItems(newArray)
   }
 
+  const incrementQuantity = (event) => {
+    const productId = event.target.attributes['value'].value
+    const newArray = [...orderItems]
+    const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
+    orderItem.product_quantity = Number(orderItem.product_quantity) + 1
+    newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
+    newArray.push(orderItem)
+    setOrderItems(newArray)
+  }
 
   return (
     <Fragment>
@@ -171,14 +180,7 @@ export const NewOrder = () => {
         items={orderItems}
         plus={
           (event) => {
-            const productId = event.target.attributes['value'].value
-            const newArray = [...orderItems]
-            const orderItem = newArray.filter((orderItem) => orderItem.product_id === productId)[0]
-            orderItem.product_quantity = Number(orderItem.product_quantity) + 1
-            newArray.splice(newArray.findIndex(orderItem => orderItem.product_id === productId), 1)
-            newArray.push(orderItem)
-            setOrderItems(newArray)
-
+            incrementQuantity(event)
           }
 
         }
