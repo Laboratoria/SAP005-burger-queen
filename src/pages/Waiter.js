@@ -6,7 +6,8 @@ import prato from '../images/prato.png';
 import xicara from '../images/xicara.png';
 import copo from '../images/copo.png';
 import b from '../images/b.png';
-import exit from '../images/exit.jpeg';
+import exit from '../images/exit.png';
+import add from '../images/add.png';
 
 const Waiter = () => {
 
@@ -14,7 +15,7 @@ const Waiter = () => {
   const [hamburguer, setHamburguer] = useState([]);
   const [side, setSide] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [client, setClient] = useState('');
   const [table, setTable] = useState('');
   const [breakfast, setBreakfast] = useState([]);
@@ -31,19 +32,19 @@ const Waiter = () => {
     history.push('/Historic')
   }
 
-  const order = () => {
-    if (client !== '' && table !== '') {
-      Promise.add({
-        client: client,
-        mesa: table,
-        pedido: products,
-      });
-      alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
-      setProducts([]);
-      setTable('');
-      setClient('');
-    }
-  };
+  // const order = () => {
+  //   if (client !== '' && table !== '') {
+  //     Promise.add({
+  //       client: client,
+  //       mesa: table,
+  //       pedido: products,
+  //     });
+  //     alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
+  //     setProducts([]);
+  //     setTable('');
+  //     setClient('');
+  //   }
+  // };
 
 
   useEffect(() => {
@@ -90,11 +91,12 @@ const Waiter = () => {
 
       </nav>
 
-      <header className="App-waiter">
+      <header className="header">
         <div id="logoWaiter">
           <img src={logo} alt="" className="logoWaiter" />
         </div>
-        <ol>
+        </header>
+        <ol className="App-waiter">
           <section className='Menu'>
             <button className="btnMenu" onClick={((e) => {
               e.preventDefault();
@@ -126,8 +128,8 @@ const Waiter = () => {
                         <ul>{menuItems.name}</ul>
                         <ul>{menuItems.flavor}</ul>
                         {/* <ul>{menuItems.complement}</ul> */}
-                        <ul>R$:{menuItems.price},00</ul>
-                        <button className="btnMenu" onClick={() => clickQuantidade(menuItems)}> + </button>
+                        <ul >R$:{menuItems.price},00</ul>
+                        <button className="btnTeste" onClick={() => clickQuantidade(menuItems)}><img src= {add} alt="" className='imgteste' /></button>
                       </div>
                     </div>
                   </div>
@@ -143,7 +145,8 @@ const Waiter = () => {
               setClient(event.target.value)} />
             <input type="number" id="number" min='0' max='20' placeholder="Mesa" value={table} onChange={(event) =>
               setTable(event.target.value)} />
-            <input type="text" id="products" value={products} onClick={order} />
+            <input type="text" id="products" value={quantidade} onClick={(event) =>
+              setQuantidade(event.target.value)} />
 
             <button className='send' onClick={((e) => {
               e.preventDefault();
@@ -154,21 +157,20 @@ const Waiter = () => {
                   "accept": "application/json",
                   'Authorization': `${token}`
                 },
-                body: `client=${client}&table=${table}&products=${menu}`
+                body: `client=${client}&table=${table}&products=${quantidade}`
               })
                 .then((response) => response.json())
                 .then((json) => {
                   console.log(json);
                   setClient('');
                   setTable('');
-                  setProducts('');
+                  setQuantidade('');
                 })
               console.log('foi')
             })} >ENVIAR</button>
 
           </form>
         </ol>
-      </header>
     </div>
   )
 }

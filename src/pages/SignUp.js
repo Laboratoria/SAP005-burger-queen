@@ -20,10 +20,12 @@ function SignUp() {
   return (
     <div className="signUp">
       <header className="signUp-header">
-        <img src={logo} alt="" className="logo" />
+        <img src={logo} alt="" className="logoS" />
+      </header>  
+      <section className="formSig">
         <div className="divRegister">
-          <div className="role">
-            <label>
+          <div>
+            <label className="role">
               <img src={panela} alt="" className="logop" />
               <input
                 type="radio"
@@ -32,7 +34,7 @@ function SignUp() {
                 onChange={() => setRole("Cozinha")}
               />
             </label>
-            <label className="waiter">
+            <label className="role">
               <img src={hand} alt="" className="logoh" />
               <input
                 type="radio"
@@ -68,14 +70,13 @@ function SignUp() {
                   setRole('');
                   //setConfirme('');
                 })
-
-
+                alert ("Usuário cadastrado com sucesso!");
               rLogin();
             })} >CADASTRAR</button>
-            <h1 className="ConfmTitle">Usuário criado com sucesso!</h1>
+            
           </form>
         </div>
-      </header>
+        </section>
     </div>
   );
 }

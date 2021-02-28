@@ -1,8 +1,9 @@
 .wrap-menu {
 	background-color: #383838;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	margin-right: 35px;
+	margin-left: 35px;
 }
 .App-Historic {
 	background-color: #383838;
@@ -20,10 +21,12 @@
 }
 
 .histo {
-	margin-top: 11px;
-	padding: 9px;
+	margin-top: 17px;
+	width: 106px;
+	text-align: center;
+	margin-left: 35px;
+	height: 32px;
 	border-radius: 9px;
-	display: flex;
 	font-family: Arial;
 	font-size: 20px;
 	color: white;
@@ -42,4 +45,18 @@
 
 .menu {
 	margin-top: 20px;
+}
+
+.btnRe {
+	height: 43px;
+	border: none;
+	display: flex;
+	background-color: #383838;
+	margin-top: 12px;
+	margin-right: 15px;
+}
+
+.re {
+	margin-top: 2px;
+	height: 35px;
 }
