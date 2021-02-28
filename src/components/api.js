@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://lab-api-bq.herokuapp.com';
-const token = localStorage.getItem("token");
+const token = localStorage.getItem('token');
 
 export const TOKEN = (body) => {
     return {
@@ -39,3 +39,24 @@ export const USER = () => {
     };
 }
 
+export const CREATE_ORDER = () => {
+    return {
+        url: BASE_URL + '/orders',
+        options: {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `${token}`,
+            },
+            body: JSON.stringify({
+                'client': '',
+                'table':  '',
+                'products': [{
+                    'id': '',
+                    'qtd': 1
+                }]
+            }),
+        },
+    };
+}
