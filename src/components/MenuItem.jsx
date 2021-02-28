@@ -1,7 +1,6 @@
 import { BtnAdition, Products, Name, Complement, SpamMenuItem, SpanFlavor, SpanName } from '../components/stylesMenu';
 function MenuItem({ name, flavor, complement, price, addToCart, sku }) {
     return (
-
         <Products>
             <SpamMenuItem>
                 <SpanName className="menu-text">
@@ -14,7 +13,7 @@ function MenuItem({ name, flavor, complement, price, addToCart, sku }) {
                 </SpanFlavor>
             </SpamMenuItem>
             <span className="menu-action">
-                <BtnAdition onClick={() => addToCart(sku)} >+</BtnAdition>
+                <BtnAdition onClick={() => addToCart(sku)}>+</BtnAdition>
             </span>
         </Products>
     )

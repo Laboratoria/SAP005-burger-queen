@@ -35,6 +35,7 @@ const Hall = () => {
         if (sku in cartData) {
             newCart[sku] += 1;
         }
+
         else {
             newCart[sku] = 1;
         }
@@ -56,22 +57,21 @@ const Hall = () => {
                 <ButtonPedidos>Pedidos</ButtonPedidos>
             </Link>
             <LogoHall src={Logo} alt='' width='400' />
-            {/* <MenuTitulo>Menu</MenuTitulo> */}
             <DivMenus>
-            <div>
-                <Menu
-                    menu={menuData}
-                    addToCart={addToCart} />
-            </div>
-            <MenuOrders>
-                <Cart
-                    total={cartTotal}
-                    menu={menuData}
-                    cart={cartData}
-                    reduceCart={reduceFromCart} />
-
-            </MenuOrders>
-        </DivMenus>
+                <div>
+                    <Menu
+                        menu={menuData}
+                        addToCart={addToCart} 
+                        />
+                </div>
+                <MenuOrders>
+                    <Cart
+                        total={cartTotal}
+                        menu={menuData}
+                        cart={cartData}
+                        reduceCart={reduceFromCart} />
+                </MenuOrders>
+            </DivMenus>
         </div>
     );
 }
