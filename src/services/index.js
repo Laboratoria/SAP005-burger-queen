@@ -56,6 +56,8 @@ export const getProducts = async (
   return await response.json()
 }
 
+
+
 export const openOrder = async (
   clientName,
   tableNumber,
