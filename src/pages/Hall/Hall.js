@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header.js';
 // import LeftColumn from '../../components/LeftColumn/LeftColumn.js';
 // import Button from '../../components/Button/Button.js';
 import Menu from '../../components/Menu/Menu';
-import Order from '../../components/ Order /Order'
+import Order from '../../components/Order/Order';
 
 
 
