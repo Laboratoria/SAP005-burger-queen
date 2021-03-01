@@ -60,8 +60,11 @@
 	justify-content: center;
 	border-radius: 9px;
 	align-items: center;
-	background-color: hsl(0deg 0% 100% / 80%);
+	color: #f4f4f9;
+	background-color:rgb(41, 39, 39);
 	border: none;
+	outline: none;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
 #products {
@@ -72,8 +75,11 @@
 	border-radius: 9px;
 	height: 250px;
 	align-items: center;
-	background-color: hsl(0deg 0% 100% / 80%);
+	outline: none;
+	color:white;
 	border: none;
+	background:rgb(41, 39, 39);
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
 #number {
@@ -82,13 +88,15 @@
 	width: 25%;
 	margin-top: 20px;
 	border-radius: 9px;
-	background-color: hsl(0deg 0% 100% / 80%);
 	margin-left: 40%;
 	border: none;
+	color:white;
+	background-color:rgb(29, 27, 27);
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
 h1 {
-	margin-top: 53px;
+	margin-top: 40px;
 	font-size: 30px;
 	font-weight: bold;
 	font-family: Arial;
@@ -103,6 +111,7 @@ h1 {
 	margin-top: 65px;
 	margin-left: 22px;
 	text-align: center;
+	overflow: auto;
 }
 
 .send {
@@ -133,9 +142,10 @@ h1 {
 	height: 45px;
 	width: 46px;
 	background-color: #ffde59;
+	font-size: 30px;
 	border-radius: 43px;
+	outline: none;
 }
-
 .btnMenu {
 	border: none;
 	margin: 17px;
@@ -144,6 +154,7 @@ h1 {
 	width: 71px;
 	background-color: #ffde59;
 	border-radius: 9px;
+	outline: none;
 }
 
 .Produtos {
@@ -160,8 +171,12 @@ ul {
 .teste {
 	display: flex;
 	justify-content: space-between;
-	width: 388px;
-	margin-left: 47px;
+	width: 440px;
+	margin-left: 55px;
+	margin: 8px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+	border-radius: 9px;
+	padding: 10px;
 }
 
 .amount {
@@ -171,5 +186,97 @@ ul {
 .menuItens {
 	width: 90%;
 	height: 589px;
-	overflow-y: auto;
+  
+	margin: 5px;
 }
+
+.file {
+	background: transparent;
+	border: none;
+}
+
+.nameProducts {
+	width: 50px;
+	margin-left: 40px;
+}
+
+.sabor {
+	width: 60px;
+	height: 20px;
+	margin-left: 60px;
+	margin-right: 40px;
+}
+
+.complement {
+	margin-top: -30px;
+}
+
+/*********************MenuHamburger*********************/
+
+#check{
+    display: none;
+}
+
+#icone{
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+.menuLateral{
+    background-color: transparent;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    transition: all .2s linear;
+    left: -300px;
+	margin-top: 50px;
+	outline: none;
+}
+
+nav{
+    width: 100%;
+    position: absolute;
+    top: 60px;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+
+.link{
+    background-color: rgb(41, 39, 39);  
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all .2s linear;
+    color: #f4f4f9;
+    border-bottom: 1px solid rgb(63, 62, 62);
+	height: 30px;
+	padding-left: 70px;
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+}
+
+.link:hover{
+    background-color:  #ffde59;
+	color:black;
+}
+
+#check:checked ~ .menuLateral{
+    transform: translateX(300px);
+}
+
+#check:checked ~ .menuLateral nav a .link{
+    opacity: 5;
+    margin-top: 0;
+    transition-delay: .2s;
+}
+
+.btn-burguer{
+    width: 60px;
+	margin: 20px;
+}
+/*********************MenuHamburger*********************/
