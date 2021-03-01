@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import "./Menu.css";
 import Add from "../../assets/plus.png";
 // import Logo from "../../assets/logo.png";
+import Trash from "../../assets/trash.svg"
 
 
 const Menu = () => {
@@ -169,7 +170,7 @@ const Menu = () => {
         <section className="container-order">
                 <p className="titulo-resumo-pedido">Resumo do Pedido</p>
                 <p className="infos-resumo-pedido">Atendente: </p>
-                <input className="cliente-resumo-pedido"
+                <input className="client-order"
                     type="text"
                     placeholder="Nome do Cliente"
                     onChange={(event) => {
@@ -219,10 +220,11 @@ const Menu = () => {
                                             }}
                                         />
                                         <input
-                                            className="button-excluir-item"
+                                            className="icon-button-delete"
                                             id="excluir-item"
-                                            type="icon"
-                                            // <MdDelete size={20} 
+                                            type="image"
+                                            src={Trash}
+                                            alt="icone-lixeira"
                                             onClick={() => {
                                                 orderSummary.splice(index, 1);
                                                 setOrderSummary([...orderSummary]);
@@ -261,7 +263,7 @@ const Menu = () => {
                                                 if (data.id !== undefined) {
                                                     console.log(data);
                                                     setOrderSummary([]);
-                                                    document.querySelector(".cliente-resumo-pedido").value = "";
+                                                    document.querySelector(".client-order").value = "";
                                                 } else {
                                                     setErrorMessage(`${data.message}`)
                                                 }
