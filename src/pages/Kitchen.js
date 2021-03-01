@@ -9,9 +9,17 @@ import { useState } from 'react';
 function Kitchen() {
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem("token");
-  // const [Pronto, setPronto] = useState([]);
-  // const productId = sessionStorage.getItem("product.id");
-  // console.log(productId); 
+  // const [pronto, setPronto] = useState([]);
+  const productId = sessionStorage.getItem("product.id");
+  console.log(productId); 
+
+  // function Status(item) {
+  //   item.id = [];
+  //   setPronto([pronto, item]);
+  //   console.log(item);
+  //   console.log(pronto)
+  // }
+  // console.log(pronto);
 
   const history = useHistory()
   const rLogin=()=> {
@@ -54,6 +62,7 @@ function Kitchen() {
           <div className="Cl" key={order.id}>
             <p className="nameClient">Cliente: {order.client_name}</p>
             <p  className="tble">Mesa: {order.table}</p> 
+            <p  className="tble">Mesa: {order.status}</p>
             <p className="pedido">Pedido</p>
             <div>
             
@@ -68,20 +77,21 @@ function Kitchen() {
               }
               <button className="food" onClick={(e)=>{
               e.preventDefault();
-              // fetch('https://lab-api-bq.herokuapp.com/orders/${}', {
-              //   method: "PUT",
-              //   headers: {
-              //     "Content-Type": "application/json",
-              //     "accept": "application/json",
-              //     'Authorization': `${token}`
-              //   }  
-              //  , body: JSON.stringify({"status": Pronto})              
+              fetch(`https://lab-api-bq.herokuapp.com/orders/${order.id}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json",
+                    'Authorization': `${token}`
+                  }  
+                , body: JSON.stringify({"status": "pronto"})              
           
-              // })
-              //         .then((response) => response.json())
-              //         .then((json) => {
-              //           setPronto(json);
-              //         })
+              })
+                      .then((response) => response.json())
+                      .then((json) => {
+                        // setPronto(json);
+                        console.log(json);
+                       })
                   }}>Pedido Pronto</button>
             </div>
           </div>
@@ -91,6 +101,5 @@ function Kitchen() {
     </div>
   );
 }
-
 
 export default Kitchen;

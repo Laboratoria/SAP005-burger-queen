@@ -31,23 +31,9 @@ const Waiter = () => {
     history.push('/Historic')
   }
 
-  // const order = () => {
-  //   if (client !== '' && table !== '') {
-  //     Promise.add({
-  //       client: client,
-  //       mesa: table,
-  //       pedido: products,
-  //     });
-  //     alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
-  //     setProducts([]);
-  //     setTable('');
-  //     setClient('');
-  //   }
-  // };
-
 
   useEffect(() => {
-    fetch('https://lab-api-bq.herokuapp.com/products', {
+    fetch(`https://lab-api-bq.herokuapp.com/products`, {
       method: 'GET',
       headers: {
         "accept": "application/json",
@@ -156,22 +142,50 @@ const Waiter = () => {
             setClient(event.target.value)} />
           <input type="number" id="number" min='0' max='20' placeholder="Mesa" value={table} onChange={(event) =>
             setTable(event.target.value)} />
-          {/* <input type="text" id="products" value={quantidade} onClick={(event) =>
-            setQuantidade(event.target.value)} /> */}
-            {quantidade.map(item => 
-              item.name
+          <div>
+          {quantidade.map(item =>
+              <div>
+                <span>
+                <p className='nameProducts'>{item.id}</p>
+                  <p className='nameProducts'>{item.name}</p>
+                  <p className='nameProducts'>R$:{item.price},00</p>
+                </span>
+                <span>
+                  <p className='complement'>{item.flavor}</p>
+                  <p className='complement'>{item.complement}</p>
+                </span>
+
+              </div>
             )}
+          </div>
 
           <button className='send' onClick={((e) => {
             e.preventDefault();
-            fetch('https://lab-api-bq.herokuapp.com/orders', {
+            fetch(`https://lab-api-bq.herokuapp.com/orders`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
                 "accept": "application/json",
                 'Authorization': `${token}`
               },
-              body: `client=${client}&table=${table}&products=${quantidade}`
+              body: JSON.stringify({
+                "client": `${client}`,
+                "table":`${table}`,
+                "products": quantidade.map((item) => (
+                  {
+                    "id": Number(item.id),
+                    "qtd": 1
+                  }
+                ))
+      
+                // "products": [
+                //   {
+                //     "id":`${quantidade}`,
+                //     "qtd":`${quantidade}`
+                //   }
+                // ]
+              }) 
+              // body: `client=${client}&table=${table}&products= [${quantidade}]`
             })
               .then((response) => response.json())
               .then((json) => {
