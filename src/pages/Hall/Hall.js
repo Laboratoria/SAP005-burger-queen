@@ -1,12 +1,17 @@
 
 import React from 'react';
 import './Hall.css';
+import {Copyright, NavBar} from "../../components/Hearder/Hearder.js";
 
 function Hall() {
   return (
-    <div className="Salao">
-      <h1 className="SalaoTitle">Página salão em construção</h1>
-    </div>
+    <div className="container-delivery">
+
+   <NavBar />
+   <Copyright />
+
+
+      </div>
   );
 }
 export default Hall;

@@ -1,17 +1,4 @@
-
-
-.Salao {
-  background-color: #ff8800;
-  width: 850px;
-  height: 1150px;
-  border: 3px solid #000000;
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.SalaoTitle {
-  font-size: 90px;
-  line-height: 53px;
+.container-delivery {
+  width: 100%;
+ 
 }
