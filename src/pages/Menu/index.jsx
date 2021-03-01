@@ -11,6 +11,7 @@ import { SettingsEthernetTwoTone } from '@material-ui/icons';
 const Menu = () => {
   const classes = useStyles();
   const tokenLocal = localStorage.getItem('token');
+  console.log(tokenLocal)
   const [list, setList] = useState([]);
   const [listMap, setListMap] = useState([]); 
 
@@ -45,6 +46,7 @@ const Menu = () => {
 
   const [order, setOrder] = useState({});
   const [productsPrices, setProductsPrices] = useState([]);
+  const [totalOrder, setTotalOrder] = useState([]);
  
 
   
@@ -52,6 +54,7 @@ const Menu = () => {
 
     const itemId = product.id
     setProductsPrices([...productsPrices, product.price]);
+    setTotalOrder([...totalOrder, product]);
     
 
     const storageOrder = JSON.parse(localStorage.getItem('orderList') || '[]');
@@ -61,9 +64,7 @@ const Menu = () => {
     });
 
     localStorage.setItem("orderList", JSON.stringify(storageOrder));
-
   }
-
 
   const storedArray = localStorage.getItem("orderList");
   const ourArray = JSON.parse(storedArray)
@@ -89,6 +90,8 @@ const Menu = () => {
 
       })
     }).then((response) => console.log(response.json()))
+    .then(() => setTotalOrder([])
+    )
   }
 
   return (
@@ -112,6 +115,19 @@ const Menu = () => {
               setOrder({ ...order, table: event.target.value })
             } />
         </form>
+        {totalOrder.map((product, index) => (
+            <div key={index}>
+              
+              <span>1 {product.name} </span>
+              <span>{product.flavor === 'null' ? '' : product.flavor} </span>
+              <span>{product.complement === 'null' ? '' : product.complement }</span>
+              <span> R$ {product.price},00  </span>
+              <span>
+                <span style={{ cursor: 'pointer' }} type='button' >🗑</span>
+              </span>
+            </div>
+          ))} 
+        
         <div>
           <button onClick={() => sendOrder()}>Enviar para cozinha</button>
         </div>
