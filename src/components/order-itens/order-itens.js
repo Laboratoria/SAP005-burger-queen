@@ -24,7 +24,7 @@ export default function OrderItens({
       {name && price && id && minus && quantity && plus && remove &&
         <div className={classNameContainer + ' teste'}>
           <p className={classNameOrderItens}>{name}</p>
-          <p className={classNamePrice}>{price}</p>
+          <p className={classNamePrice}>R${price},00</p>
           <FiMinusSquare id={id} onClick={minus} className='icon-order-itens' />
           <p className={classNameNumber}>{quantity}</p>
           <FiPlusSquare id={id} onClick={plus} className='icon-order-itens' />

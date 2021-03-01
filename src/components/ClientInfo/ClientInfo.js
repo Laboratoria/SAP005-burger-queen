@@ -64,10 +64,11 @@ export default function ClientInfo() {
                   tableNumber,
                 )*/}
                 if (clientName === null || clientName === undefined || clientName === '') {
-                  console.log('Insira o nome')
                 } else if (tableNumber === null || tableNumber === undefined || tableNumber === '') {
                   console.log('Insira o número da mesa')
                 } else {
+                  localStorage.setItem('clientName', clientName)
+                  localStorage.setItem('tableNumber', tableNumber)
                   history.push('/new-order')
                 }
 

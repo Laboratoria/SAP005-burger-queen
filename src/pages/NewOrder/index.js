@@ -14,7 +14,7 @@ export const NewOrder = () => {
   const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
   const [burgerType, setBurgerType] = useState([])
-  const [burgerFlavor, setBurgerFlavor] = useState('')
+  const [burgerFlavor, setBurgerFlavor] = useState('carne')
   const [burgerExtra, setBurgerExtra] = useState(null)
   const [orderItems, setOrderItems] = useState([])
 
@@ -25,7 +25,7 @@ export const NewOrder = () => {
 
   useEffect(() => {
     storeProducts();
-  });
+  }, [storeProducts]);
 
   const addOrUpdateOrderItem = useCallback(
     (event) => {
@@ -246,6 +246,7 @@ export const NewOrder = () => {
                   inputType='radio'
                   inputName='radio-burger-type'
                   inputValue='meat'
+                  inputChecked={burgerFlavor === 'carne'}
                   inputOnChange={
                     () => {
                       setBurgerFlavor('carne')
@@ -265,6 +266,7 @@ export const NewOrder = () => {
                   inputType='radio'
                   inputName='radio-burger-type'
                   inputValue='chicken'
+                  inputChecked={burgerFlavor === 'frango'}
                   inputOnChange={
                     () => {
                       setBurgerFlavor('frango')
@@ -284,6 +286,7 @@ export const NewOrder = () => {
                   inputType='radio'
                   inputName='radio-burger-type'
                   inputValue='veggie'
+                  inputChecked={burgerFlavor === 'vegetariano'}
                   inputOnChange={
                     () => {
                       setBurgerFlavor('vegetariano')
@@ -309,6 +312,7 @@ export const NewOrder = () => {
                   inputType='radio'
                   inputName='radio-extra'
                   inputValue='no-extra'
+                  inputChecked={burgerExtra === null}
                   inputOnChange={
                     () => {
                       setBurgerExtra(null)
@@ -328,6 +332,7 @@ export const NewOrder = () => {
                   inputType='radio'
                   inputName='radio-extra'
                   inputValue='cheese'
+                  inputChecked={burgerExtra === 'queijo'}
                   inputOnChange={
                     () => {
                       setBurgerExtra('queijo')
@@ -347,6 +352,7 @@ export const NewOrder = () => {
                   inputType='radio'
                   inputName='radio-extra'
                   inputValue='egg'
+                  inputChecked={burgerExtra === 'ovo'}
                   inputOnChange={
                     () => {
                       setBurgerExtra('ovo')
@@ -392,14 +398,16 @@ export const NewOrder = () => {
                         newOrderItens.push(
                           {
                             'product_id': String(selected.id),
-                            'product_name': selected.name + selected.flavor + `${selected.complement}`,
-                            'product_price': `${selected.price},00`,
+                            'product_name': selected.name + ' ' + selected.flavor + ' + ' + (selected.complement === null ? 'sem adicional' : selected.complement),
+                            'product_price': selected.price,
                             'product_quantity': 1
                           }
                         )
                       }
                       setOrderItems(newOrderItens)
                       setShowModal(false)
+                      setBurgerFlavor('carne')
+                      setBurgerExtra(null)
                     }, [burgerType, burgerFlavor, burgerExtra, orderItems, products])
                   }
                 />

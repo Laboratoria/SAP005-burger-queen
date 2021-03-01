@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react'
 import OrderItens from '../order-itens/order-itens'
+import Button from '../Button/Button'
+import { openOrder } from '../../services/index'
 import './order-section.css'
 
 export default function OrderSection({
@@ -31,10 +33,41 @@ export default function OrderSection({
           }
         </div>
         <hr className='hr-menu-order' />
-        <h2 className='menu-order-total'>Total: {items.reduce(
+        <h2 className='menu-order-total'>Total: R${items.reduce(
           (accumulator, currentValue) => accumulator + Number(currentValue.product_price) * Number(currentValue.product_quantity)
-          , 0)}
+          , 0)},00
         </h2>
+        <Button
+          name='Cancelar pedido'
+          className='btn-order-cancel'
+          type='button'
+          onClick={
+            (event) => {
+              event.preventDefault()
+            }}
+        />
+        <Button
+          name='Confirmar pedido'
+          className='btn-order-confirm'
+          type='button'
+          onClick={
+            async (event) => {
+              event.preventDefault()
+              await openOrder(
+                localStorage.getItem('clientName'),
+                localStorage.getItem('tableNumber'),
+                items.map((item) => {
+                  return {
+                    'id': Number(item.product_id),
+                    'qtd': Number(item.product_quantity)
+                  }
+                })
+              )
+            }
+          }
+
+
+        />
       </section>
     </Fragment>
   )
