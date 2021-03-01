@@ -1,5 +1,7 @@
-.nav {
+.navK {
 	height: 64px;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .logoKitchen {
@@ -11,6 +13,7 @@
 	background-color: #383838;
 	font-size: calc(10px + 2vmin);
 	color: white;
+	min-height: 100vh;
 }
 
 .btnAdd {
@@ -40,10 +43,12 @@
 }
 
 .pedido {
+	text-align: center;
 	color: #ffde59;
 }
 
 .food {
+	display: flex;
 	text-align: center;
 	margin: auto;
 	justify-content: center;
@@ -56,6 +61,9 @@
 	border-radius: 9px;
 	background-color: #ffde59;
 	margin-top: 10px;
+}
+.prod {
+	text-align: center;
 }
 
 .food:hover {
@@ -70,10 +78,11 @@
 	border-radius: 10px;
 	margin-bottom: 1vh;
 	height: 229px;
-	text-align: center;
 	filter: drop-shadow(0 0 0.45rem rgb(17, 17, 17));
 }
-
+.Cl:hover {
+	background-color: rgb(19, 20, 20);
+}
 .section {
 	display: flex;
 	flex-wrap: wrap;
@@ -86,4 +95,9 @@
 
 .nameClient {
 	margin-top: 18px;
+	margin-left: 34px;
+}
+
+.tble {
+	margin-left: 34px;
 }
