@@ -20,7 +20,7 @@ export const Login = () => {
         <img className='logo' src={logo} alt='Logo Urban Bistro' />
       </header>
       <main>
-        <form className='form-login'>
+        <form className='form-login' onSubmit={authUser}>
 
           <label htmlFor='userEmail' className='label-login'>E-mail<span className='required'> *</span></label>
           <Input

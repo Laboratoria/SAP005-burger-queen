@@ -6,8 +6,8 @@
 }
 
 .form-client-info {
-	background-color: #fff9d4;
-	box-shadow: 0 1px 6px 1px #e8dcb5;
+	background-color: #fffff0;
+	box-shadow: 0 1px 6px 1px #e0d8be;
 	border-radius: 0.5rem;
 	max-width: 30rem;
 	display: flex;
@@ -29,7 +29,7 @@
 	border-radius: 0.4rem;
 	outline: none;
 	padding: 0.3rem 0.4rem;
-	background-color: #ffecb4;
+	background-color: #fff9dd;
 	font-size: 1rem;
 	color: #004c54;
 }
@@ -44,11 +44,11 @@
 	border: solid 2px #ffd34d;
 	border-radius: 0.7rem;
 	background-color: #ffd34d;
-	color: #fff9d4;
+	color: #ffffe0;
 	transition: 0.3s ease-in-out;
 }
 
 .btn-order:hover {
-	background-color: #fff9d4;
+	background-color: #ffffe0;
 	color: #ffd34d;
 }

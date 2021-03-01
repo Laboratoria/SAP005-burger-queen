@@ -52,7 +52,7 @@ body {
 	border-radius: 0.2rem;
 	padding: 1rem;
 	transition: transform 300ms ease;
-	background-color: #fff9d4;
+	background-color: #fffff0;
 }
 
 .radio-tile-label-menu {
@@ -79,7 +79,8 @@ body {
 
 .div-container-menu-section {
 	position: fixed;
-	background-color: #fcf5cb;
+	background-color: #fff9d4;
+	box-shadow: 0 1px 1px 1px #ece8dc;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	display: flex;
@@ -102,12 +103,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 0.3rem #bebbbb;
+	box-shadow: inset 0 0 0.3rem #d8d8d8;
 	border-radius: 0.7rem;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #f7d291;
+	background: #e2ddbb;
 	border-radius: 0.7rem;
 }
 

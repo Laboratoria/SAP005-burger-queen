@@ -8,15 +8,13 @@
 .product-section {
 	width: 12rem;
 	height: 12rem;
-	background-color: #db9e36;
-	box-shadow: 0 1px 6px 1px #e8dcb5;
 	border-radius: 0.5rem;
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 	font-size: 1rem;
 	font-weight: 500;
 	text-align: center;
-	color: #000;
+	color: #004c54;
 	padding: 0.7rem;
 }
 
@@ -26,6 +24,7 @@
 }
 
 .product-img {
+	border-radius: 0.5rem;
 	width: 7rem;
 	height: 7rem;
 	flex-grow: 1;
