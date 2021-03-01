@@ -33,14 +33,14 @@ function Header() {
             <option value="table6">Mesa 10</option>
           </select>
 
-          <div className="container-nameCustomer">
+          {/* <div className="container-nameCustomer">
             <input
               className="item-nameCustomer"
               type="text"
               id="nome"
               placeholder="Nome do Cliente"
             />
-          </div>
+          </div> */}
 
           <div className="container-btn-myOrder">
             <button className="item-btn-myOrder" type="submit">
