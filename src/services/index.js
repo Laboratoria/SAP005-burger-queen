@@ -72,16 +72,16 @@ export const getOrders = async (
 
 export const getAllOrders = async (
 
-  ) => {
-    const response = await fetch(API_ORDERS, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-        'Authorization': localStorage.getItem('userToken'),
-      },
-    })
-    return await response.json()
-  }
+) => {
+  const response = await fetch(API_ORDERS, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': localStorage.getItem('userToken'),
+    },
+  })
+  return await response.json()
+}
 
 export const openOrder = async (
   clientName,
@@ -90,7 +90,10 @@ export const openOrder = async (
   const response = await fetch(API_ORDERS, {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('userToken') },
+    headers: { 
+      'Content-Type': 'application/json', 
+      'Authorization': localStorage.getItem('userToken') 
+    },
     body: JSON.stringify({
       'client': clientName,
       'table': tableNumber,
