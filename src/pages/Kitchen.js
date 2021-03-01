@@ -9,17 +9,27 @@ import { useState } from 'react';
 function Kitchen() {
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem("token");
-  // const [status, setStatus] = useState('');
-  
+  // const [pronto, setPronto] = useState([]);
+  const productId = sessionStorage.getItem("product.id");
+  console.log(productId); 
+
+  // function Status(item) {
+  //   item.id = [];
+  //   setPronto([pronto, item]);
+  //   console.log(item);
+  //   console.log(pronto)
+  // }
+  // console.log(pronto);
 
   const history = useHistory()
   const rLogin=()=> {
     history.push('/')
   }
+
   
   return (
     <div className="AppKitchen">
-      <nav className="nav">
+      <nav className="navK">
         <button className="exit"   onClick={rLogin}>
       <img src= {exit} alt="" className="exit"/></button>
       </nav>
@@ -40,11 +50,6 @@ function Kitchen() {
                       .then((response) => response.json())
                       .then((json) => {
                         setOrders(json);
-                        // setClient('');
-                        // setTable('');
-                        // setProducts('');
-                        // setDay('');
-                        // setMenu('');
                       })
                   }}><img src= {add} alt="" className='imgMenu' /></button>
                   
@@ -56,41 +61,38 @@ function Kitchen() {
         return (
           <div className="Cl" key={order.id}>
             <p className="nameClient">Cliente: {order.client_name}</p>
-            <p>Mesa: {order.table}</p> 
+            <p  className="tble">Mesa: {order.table}</p> 
+            <p  className="tble">Mesa: {order.status}</p>
             <p className="pedido">Pedido</p>
             <div>
             
-            {/* <div className="product1">
-            <label>
-              <input
-                type="radio"
-                value="pending"
-                checked={status === "pending"}
-                onChange={() => setStatus("pending")}
-              />
-              <p>Pendente</p>
-            </label>
-            <label className="product2">
-              <input
-                type="radio"
-                value="Pronto"
-                checked={status === "pronto"}
-                onChange={() => setStatus("pronto")}
-              />
-              <p>Pronto</p>
-            </label>
-          </div> */}
-
               {
                 order.Products.map((product)=> {
                   return(
                     <div key={product.id}> 
-                    <p>{product.name}</p>
-                    <button className="food">Pedido Pronto</button>
+                    <p className="prod">{product.name}</p>
                     </div>
                   )
                 })
               }
+              <button className="food" onClick={(e)=>{
+              e.preventDefault();
+              fetch(`https://lab-api-bq.herokuapp.com/orders/${order.id}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json",
+                    'Authorization': `${token}`
+                  }  
+                , body: JSON.stringify({"status": "pronto"})              
+          
+              })
+                      .then((response) => response.json())
+                      .then((json) => {
+                        // setPronto(json);
+                        console.log(json);
+                       })
+                  }}>Pedido Pronto</button>
             </div>
           </div>
         )
@@ -99,6 +101,5 @@ function Kitchen() {
     </div>
   );
 }
-
 
 export default Kitchen;
