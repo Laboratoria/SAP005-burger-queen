@@ -9,7 +9,6 @@ import Menu from '../../components/Menu/Menu';
 import Order from '../../components/Order/Order';
 
 
-
 function Hall() {
     return (
         <>
