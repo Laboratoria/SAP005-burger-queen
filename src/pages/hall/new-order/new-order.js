@@ -1,11 +1,11 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react'
 import ReactModal from 'react-modal'
-import Button from '../../components/Button/Button'
-import Input from '../../components/Input/Input'
-import MenuSection from '../../components/menu-section/menu-section'
-import Navbar from '../../components/Navbar/Navbar'
-import OrderSection from '../../components/order-section/order-section'
-import { getProducts } from '../../services/index'
+import { getProducts } from '../../../services/services'
+import Button from '../../../components/generic-components/button/button'
+import Input from '../../../components/generic-components/input/input'
+import MenuSection from '../../../components/hall-components/menu-section/menu-section'
+import Navbar from '../../../components/generic-components/navbar/navbar'
+import OrderSection from '../../../components/hall-components/order-section-menu/order-section-menu'
 import './style.css'
 
 export const NewOrder = () => {

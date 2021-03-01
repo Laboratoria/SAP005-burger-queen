@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { openOrder } from '../../services'
-import Button from '../Button/Button'
-import Input from '../Input/Input'
-import Navbar from '../Navbar/Navbar'
+import Button from '../../button/button'
+import Input from '../../generic-components/input/input'
+import Navbar from '../../generic-components/navbar/navbar'
 import './clientinfo.css'
 
 export default function ClientInfo() {

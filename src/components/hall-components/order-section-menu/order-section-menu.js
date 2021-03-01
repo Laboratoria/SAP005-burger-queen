@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import OrderItens from '../order-itens/order-itens'
-import Button from '../Button/Button'
+import OrderItens from '../order-items-menu/order-items-menu'
+import Button from '../../button/button'
 import { openOrder } from '../../services/index'
 import './order-section.css'
 
