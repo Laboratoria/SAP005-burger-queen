@@ -7,9 +7,10 @@
 
 body {
 	font-family: "Work Sans";
+	font-size: 16px;
 }
 
-/*RADIO INPUT*/
+/* RADIO INPUT */
 
 .container-menu {
 	display: flex;
@@ -48,7 +49,7 @@ body {
 	justify-content: center;
 	width: 100%;
 	height: 100%;
-	border: 2px solid #db9e36;
+	border: 2px solid #ffd34d;
 	border-radius: 0.2rem;
 	padding: 1rem;
 	transition: transform 300ms ease;
@@ -62,13 +63,13 @@ body {
 }
 
 .radio-button-menu:checked + .radio-tile-menu {
-	background-color: #004c54;
-	border: solid 2px #004c54;
+	background-color: #ffd34d5b;
+	border: solid 2px #ffd34d;
 	border-radius: 0.2rem;
 	transform: scale(1.1, 1.1);
 }
 .radio-tile-label-menu {
-	color: #db9e36;
+	color: #ffbf00;
 }
 
 /* GENERAL STYLING */
@@ -77,6 +78,7 @@ body {
 	display: none;
 }
 
+/* MENU STYLING */
 .div-container-menu-section {
 	position: fixed;
 	background-color: #fff9d4;
@@ -85,8 +87,8 @@ body {
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	max-width: 50vw;
-	max-height: 70vh;
+	width: 30rem;
+	height: 33rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 	margin-left: 1rem;
@@ -95,7 +97,49 @@ body {
 	white-space: nowrap;
 }
 
-/* ScrollBar */
+/* ORDER BUTTON */
+
+.container-btn-modal {
+	max-width: 40vw;
+	display: flex;
+	padding: 0 2rem;
+}
+
+.btn-confirm,
+.btn-cancel {
+	width: 14rem;
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: solid 2px;
+	color: #fffff0;
+	transition: 0.3s ease-in-out;
+	margin: 2rem 1rem;
+}
+
+.btn-cancel {
+	background-color: #bc4931;
+	border-color: #bc4931;
+}
+
+.btn-cancel:hover {
+	background-color: #fffff0;
+	color: #bc4931;
+}
+
+.btn-confirm {
+	background-color: #004c54;
+	border-color: #005761;
+}
+
+.btn-confirm:hover {
+	background-color: #fffff0;
+	color: #005761;
+}
+
+/* ORDER BUTTON */
+
+/* SCROLLBAR */
 
 ::-webkit-scrollbar {
 	width: 0.5rem;
@@ -112,15 +156,88 @@ body {
 	border-radius: 0.7rem;
 }
 
-/* modal */
+/* MODAL */
 .modal {
-	width: 50vw;
-	height: 50vh;
-	background: #fff9d4;
+	width: 35rem;
+	height: 35rem;
+	background: #fffff0;
+	border: dotted 0.25rem #004c54;
+	outline: none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 3rem;
+	padding: 2rem;
 	text-align: center;
-	margin: 9rem auto;
+	margin: 6rem auto;
+}
+
+/* RADIO BUTTON MODAL */
+
+.burger-type-title,
+.burger-extra-title {
+	margin-top: 0.5rem;
+	padding-top: 0.9rem;
+	font-weight: 600;
+	font-size: 1rem;
+	text-transform: uppercase;
+	color: #004c54;
+}
+
+.container-modal-option {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.radio-tile-group-modal-option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-container-modal-option {
+	padding-top: 0.9rem;
+	position: relative;
+	height: 3rem;
+	width: 10rem;
+	margin: 0.2rem;
+}
+
+.radio-button-modal-option {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+.radio-tile-modal-option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #db9e36;
+	border-radius: 0.2rem;
+	padding: 1rem;
+	transition: transform 300ms ease;
+}
+
+.radio-tile-label-modal-option {
+	text-align: center;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.radio-button-modal-option:checked + .radio-tile-modal-option {
+	background-color: #db9f3660;
+	border: solid 2px #db9e36;
+	border-radius: 0.2rem;
+}
+.radio-tile-label-modal-option {
+	color: #db9e36;
 }

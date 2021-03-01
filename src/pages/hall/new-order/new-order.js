@@ -95,9 +95,10 @@ export const NewOrder = () => {
       <header>
         <Navbar />
       </header>
-      <main>
+      <main className='main-container'>
         <div className='container-menu'>
           <div className='radio-tile-group-menu'>
+
             <div className='input-container-menu'>
               <Input
                 inputId='breakfast'
@@ -117,6 +118,7 @@ export const NewOrder = () => {
                 <label htmlFor='breakfast' className='radio-tile-label-menu'>Café da manhã</label>
               </div>
             </div>
+
             <div className='input-container-menu'>
               <Input
                 inputId='all-day'
@@ -203,220 +205,221 @@ export const NewOrder = () => {
             />
           </div>
         </section>
-      </main>
-      <OrderSection
-        items={orderItems}
-        plus={
-          (event) => {
-            event.preventDefault()
-            incrementQuantity(event)
+
+        <OrderSection
+          items={orderItems}
+          plus={
+            (event) => {
+              event.preventDefault()
+              incrementQuantity(event)
+            }
           }
-        }
 
-        minus={
-          (event) => {
-            event.preventDefault()
-            decrementQuantity(event)
+          minus={
+            (event) => {
+              event.preventDefault()
+              decrementQuantity(event)
+            }
           }
-        }
 
-        remove={
-          (event) => {
-            event.preventDefault()
-            deleteOrderItem(event)
+          remove={
+            (event) => {
+              event.preventDefault()
+              deleteOrderItem(event)
+            }
           }
-        }
-      />
-      <ReactModal
-        className='modal'
-        isOpen={showModal}
-        contentLabel='Minimal Modal Example'
-        id="modal"
-      >
-        <form>
-          <p>Escolha o tipo do hambúrguer:</p>
-          <div className='container-modal-option'>
-            <div className='radio-tile-modal-option'>
+        />
+        <ReactModal
+          className='modal'
+          isOpen={showModal}
+          contentLabel='Minimal Modal Example'
+          id="modal"
+        >
+          <form>
+            <h1 className='burger-type-title'>Escolha o tipo do hambúrguer</h1>
+            <div className='container-modal-option'>
+              <div className='radio-tile-group-modal-option'>
 
-              <div className='input-container-modal-option'>
-                <Input
-                  inputRequired
-                  inputId='meat'
-                  inputClassName='radio-button-modal-option'
-                  inputType='radio'
-                  inputName='radio-burger-type'
-                  inputValue='meat'
-                  inputChecked={burgerFlavor === 'carne'}
-                  inputOnChange={
-                    () => {
-                      setBurgerFlavor('carne')
-                    }
-                  }
-                />
-                <div className='radio-tile-modal-option'>
-                  <label htmlFor='radio-burger-type' className='radio-tile-label-modal-option'>Carne</label>
-                </div>
-              </div>
-
-              <div className='input-container-modal-option'>
-                <Input
-                  inputRequired
-                  inputId='chicken'
-                  inputClassName='radio-button-modal-option'
-                  inputType='radio'
-                  inputName='radio-burger-type'
-                  inputValue='chicken'
-                  inputChecked={burgerFlavor === 'frango'}
-                  inputOnChange={
-                    () => {
-                      setBurgerFlavor('frango')
-                    }
-                  }
-                />
-                <div className='radio-tile-modal-option'>
-                  <label htmlFor='radio-burger-type' className='radio-tile-label-modal-option'>Frango</label>
-                </div>
-              </div>
-
-              <div className='input-container-modal-option'>
-                <Input
-                  inputRequired
-                  inputId='veggie'
-                  inputClassName='radio-button-modal-option'
-                  inputType='radio'
-                  inputName='radio-burger-type'
-                  inputValue='veggie'
-                  inputChecked={burgerFlavor === 'vegetariano'}
-                  inputOnChange={
-                    () => {
-                      setBurgerFlavor('vegetariano')
-                    }
-                  }
-                />
-                <div className='radio-tile-modal-option'>
-                  <label htmlFor='radio-burger-type' className='radio-tile-label-modal-option'>Vegetariano</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p>Adicionais + R$1,00:</p><br />
-          <div className='container-modal-option'>
-            <div className='radio-tile-modal-option'>
-
-              <div className='input-container-modal-option'>
-                <Input
-                  inputRequired
-                  inputId='no-extra'
-                  inputClassName='radio-button-modal-option'
-                  inputType='radio'
-                  inputName='radio-extra'
-                  inputValue='no-extra'
-                  inputChecked={burgerExtra === null}
-                  inputOnChange={
-                    () => {
-                      setBurgerExtra(null)
-                    }
-                  }
-                />
-                <div className='radio-tile-modal-option'>
-                  <label htmlFor='radio-extra' className='radio-tile-label-modal-option'>Sem Adicionais</label>
-                </div>
-              </div>
-
-              <div className='input-container-modal-option'>
-                <Input
-                  inputRequired
-                  inputId='cheese'
-                  inputClassName='radio-button-modal-option'
-                  inputType='radio'
-                  inputName='radio-extra'
-                  inputValue='cheese'
-                  inputChecked={burgerExtra === 'queijo'}
-                  inputOnChange={
-                    () => {
-                      setBurgerExtra('queijo')
-                    }
-                  }
-                />
-                <div className='radio-tile-modal-option'>
-                  <label htmlFor='radio-extra' className='radio-tile-label-modal-option'>Queijo</label>
-                </div>
-              </div>
-
-              <div className='input-container-modal-option'>
-                <Input
-                  inputRequired
-                  inputId='egg'
-                  inputClassName='radio-button-modal-option'
-                  inputType='radio'
-                  inputName='radio-extra'
-                  inputValue='egg'
-                  inputChecked={burgerExtra === 'ovo'}
-                  inputOnChange={
-                    () => {
-                      setBurgerExtra('ovo')
-                    }
-                  }
-                />
-                <div className='radio-tile-modal-option'>
-                  <label htmlFor='radio-extra' className='radio-tile-label-modal-option'>Ovo</label>
-                </div>
-              </div>
-
-              <div>
-                <Button
-                  name='Cancelar'
-                  className='btn-cancel'
-                  type='submit'
-                  onClick={
-                    useCallback((event) => {
-                      event.preventDefault()
-                      setShowModal(false)
-                    })
-                  }
-                />
-                <Button
-                  name='Confirmar'
-                  className='btn-confirm'
-                  type='submit'
-                  onClick={
-                    useCallback((event) => {
-                      event.preventDefault()
-                      const selected = products
-                        .filter(product => product.name === 'Hambúrguer ' + burgerType)
-                        .filter(product => product.flavor === burgerFlavor)
-                        .filter(product => product.complement === burgerExtra)[0]
-                      const newOrderItens = [...orderItems]
-                      const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === selected.id)[0]
-
-                      if (orderItem !== null && orderItem !== undefined) {
-                        orderItem.product_quantity = Number(orderItem.product_quantity) + 1
-                        newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === selected.id), 1)
-                        newOrderItens.push(orderItem)
-                      } else {
-                        newOrderItens.push(
-                          {
-                            'product_id': String(selected.id),
-                            'product_name': selected.name + ' ' + selected.flavor + ' + ' + (selected.complement === null ? 'sem adicional' : selected.complement),
-                            'product_price': selected.price,
-                            'product_quantity': 1
-                          }
-                        )
+                <div className='input-container-modal-option'>
+                  <Input
+                    inputRequired
+                    inputId='meat'
+                    inputClassName='radio-button-modal-option'
+                    inputType='radio'
+                    inputName='radio-burger-type'
+                    inputValue='meat'
+                    inputChecked={burgerFlavor === 'carne'}
+                    inputOnChange={
+                      () => {
+                        setBurgerFlavor('carne')
                       }
-                      setOrderItems(newOrderItens)
-                      setShowModal(false)
-                      setBurgerFlavor('carne')
-                      setBurgerExtra(null)
-                    }, [burgerType, burgerFlavor, burgerExtra, orderItems, products])
-                  }
-                />
-              </div>
+                    }
+                  />
+                  <div className='radio-tile-modal-option'>
+                    <label htmlFor='meat' className='radio-tile-label-modal-option'>Carne</label>
+                  </div>
+                </div>
 
+                <div className='input-container-modal-option'>
+                  <Input
+                    inputRequired
+                    inputId='chicken'
+                    inputClassName='radio-button-modal-option'
+                    inputType='radio'
+                    inputName='radio-burger-type'
+                    inputValue='chicken'
+                    inputChecked={burgerFlavor === 'frango'}
+                    inputOnChange={
+                      () => {
+                        setBurgerFlavor('frango')
+                      }
+                    }
+                  />
+                  <div className='radio-tile-modal-option'>
+                    <label htmlFor='chicken' className='radio-tile-label-modal-option'>Frango</label>
+                  </div>
+                </div>
+
+                <div className='input-container-modal-option'>
+                  <Input
+                    inputRequired
+                    inputId='veggie'
+                    inputClassName='radio-button-modal-option'
+                    inputType='radio'
+                    inputName='radio-burger-type'
+                    inputValue='veggie'
+                    inputChecked={burgerFlavor === 'vegetariano'}
+                    inputOnChange={
+                      () => {
+                        setBurgerFlavor('vegetariano')
+                      }
+                    }
+                  />
+                  <div className='radio-tile-modal-option'>
+                    <label htmlFor='veggie' className='radio-tile-label-modal-option'>Vegetariano</label>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </form>
-      </ReactModal>
+
+            <h1 className='burger-extra-title'>Adicionais + R$1,00:</h1>
+            <div className='container-modal-option'>
+              <div className='radio-tile-group-modal-option'>
+
+                <div className='input-container-modal-option'>
+                  <Input
+                    inputRequired
+                    inputId='no-extra'
+                    inputClassName='radio-button-modal-option'
+                    inputType='radio'
+                    inputName='radio-extra'
+                    inputValue='no-extra'
+                    inputChecked={burgerExtra === null}
+                    inputOnChange={
+                      () => {
+                        setBurgerExtra(null)
+                      }
+                    }
+                  />
+                  <div className='radio-tile-modal-option'>
+                    <label htmlFor='no-extra' className='radio-tile-label-modal-option'>Sem Adicionais</label>
+                  </div>
+                </div>
+
+                <div className='input-container-modal-option'>
+                  <Input
+                    inputRequired
+                    inputId='cheese'
+                    inputClassName='radio-button-modal-option'
+                    inputType='radio'
+                    inputName='radio-extra'
+                    inputValue='cheese'
+                    inputChecked={burgerExtra === 'queijo'}
+                    inputOnChange={
+                      () => {
+                        setBurgerExtra('queijo')
+                      }
+                    }
+                  />
+                  <div className='radio-tile-modal-option'>
+                    <label htmlFor='cheese' className='radio-tile-label-modal-option'>Queijo</label>
+                  </div>
+                </div>
+
+                <div className='input-container-modal-option'>
+                  <Input
+                    inputRequired
+                    inputId='egg'
+                    inputClassName='radio-button-modal-option'
+                    inputType='radio'
+                    inputName='radio-extra'
+                    inputValue='egg'
+                    inputChecked={burgerExtra === 'ovo'}
+                    inputOnChange={
+                      () => {
+                        setBurgerExtra('ovo')
+                      }
+                    }
+                  />
+                  <div className='radio-tile-modal-option'>
+                    <label htmlFor='egg' className='radio-tile-label-modal-option'>Ovo</label>
+                  </div>
+                </div>
+
+                <div className='container-btn-modal'>
+                  <Button
+                    name='Cancelar'
+                    className='btn-cancel'
+                    type='button'
+                    onClick={
+                      useCallback((event) => {
+                        event.preventDefault()
+                        setShowModal(false)
+                      })
+                    }
+                  />
+                  <Button
+                    name='Confirmar'
+                    className='btn-confirm'
+                    type='button'
+                    onClick={
+                      useCallback((event) => {
+                        event.preventDefault()
+                        const selected = products
+                          .filter(product => product.name === 'Hambúrguer ' + burgerType)
+                          .filter(product => product.flavor === burgerFlavor)
+                          .filter(product => product.complement === burgerExtra)[0]
+                        const newOrderItens = [...orderItems]
+                        const orderItem = newOrderItens.filter((orderItem) => orderItem.product_id === selected.id)[0]
+
+                        if (orderItem !== null && orderItem !== undefined) {
+                          orderItem.product_quantity = Number(orderItem.product_quantity) + 1
+                          newOrderItens.splice(newOrderItens.findIndex(orderItem => orderItem.product_id === selected.id), 1)
+                          newOrderItens.push(orderItem)
+                        } else {
+                          newOrderItens.push(
+                            {
+                              'product_id': String(selected.id),
+                              'product_name': selected.name + ' ' + selected.flavor + ' + ' + (selected.complement === null ? 'sem adicional' : selected.complement),
+                              'product_price': selected.price,
+                              'product_quantity': 1
+                            }
+                          )
+                        }
+                        setOrderItems(newOrderItens)
+                        setShowModal(false)
+                        setBurgerFlavor('carne')
+                        setBurgerExtra(null)
+                      }, [burgerType, burgerFlavor, burgerExtra, orderItems, products])
+                    }
+                  />
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </ReactModal>
+      </main>
     </Fragment>
   )
 }

@@ -37,37 +37,39 @@ export default function OrderSection({
           (accumulator, currentValue) => accumulator + Number(currentValue.product_price) * Number(currentValue.product_quantity)
           , 0)},00
         </h2>
-        <Button
-          name='Cancelar pedido'
-          className='btn-order-cancel'
-          type='button'
-          onClick={
-            (event) => {
-              event.preventDefault()
-            }}
-        />
-        <Button
-          name='Confirmar pedido'
-          className='btn-order-confirm'
-          type='button'
-          onClick={
-            async (event) => {
-              event.preventDefault()
-              await openOrder(
-                localStorage.getItem('clientName'),
-                localStorage.getItem('tableNumber'),
-                items.map((item) => {
-                  return {
-                    'id': Number(item.product_id),
-                    'qtd': Number(item.product_quantity)
-                  }
-                })
-              )
+        <div className='container-btn-order'>
+          <Button
+            name='Cancelar pedido'
+            className='btn-order-cancel'
+            type='button'
+            onClick={
+              (event) => {
+                event.preventDefault()
+              }}
+          />
+          <Button
+            name='Confirmar pedido'
+            className='btn-order-confirm'
+            type='button'
+            onClick={
+              async (event) => {
+                event.preventDefault()
+                await openOrder(
+                  localStorage.getItem('clientName'),
+                  localStorage.getItem('tableNumber'),
+                  items.map((item) => {
+                    return {
+                      'id': Number(item.product_id),
+                      'qtd': Number(item.product_quantity)
+                    }
+                  })
+                )
+              }
             }
-          }
 
 
-        />
+          />
+        </div>
       </section>
     </Fragment>
   )
