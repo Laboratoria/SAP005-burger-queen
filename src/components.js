@@ -36,6 +36,14 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.warning.dark,
     color: '#fafafa'
   },
+  submitMenuType: {
+    fontSize: '1rem',
+    height: '10vh',
+    width: '20vw',
+    margin: theme.spacing(4, 2, 2),
+    backgroundColor: theme.palette.warning.dark,
+    color: '#fafafa'
+  },
   
   inputTableName: {
     fontSize: '1rem',
@@ -55,6 +63,21 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0, 0),
     backgroundColor: theme.palette.text.primary,
     color: '#fafafa',
+  },
+  submitMenuItems: {
+    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 68,
+    width:390,
+    paddingTop: '20px',
+    marginTop:'2px',
+    paddingRight:'5px',
+    marginLeft:'16px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    display: 'flex',
+    justifyContent: 'center',
   },
   logo: {
     maxWidth: 200,
@@ -137,29 +160,3 @@ export function NavBar() {
   )
 }
 
-/* 
-export function breakfastComponent (){
-  return(
-  <ul>
-                  {this.state.ArrayBreakfast.map(item => (                    
-                      <li key={item.id}>
-                          <p><b>Tipo:</b> {item.type}</p>
-                          <p><b>Nome:</b> {item.name} {item.flavor} {item.complement}<button>+</button></p>
-                          <p><b>Preço:</b> R${item.price},00</p>                                                             
-                      </li>
-                  ))}
-              </ul>
-)}
-
-export function allDayComponent (){
-  return(
-<ul>
-{this.state.ArrayAllDay.map(item => (
-    <li key={item.id}>
-        <p><b>Tipo:</b> {item.type}</p>
-        <p><b>Nome:</b> {item.name} {item.flavor} {item.complement}<button>+</button></p>
-        <p><b>Preço:</b> R${item.price},00</p>                                                             
-    </li>
-))}
-</ul>
-)}; */
