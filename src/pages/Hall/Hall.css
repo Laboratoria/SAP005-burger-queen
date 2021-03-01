@@ -1,72 +1,8 @@
 .hall-page {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     height: 100vh;
-    width: 100%;
+    width: 1024px;
     background-color: #000;
+    font-family: 'Roboto', sans-serif;
 }
 
-
-.button-breakfast button{
-    position: absolute;
-    width: 217px;
-    height: 50px;
-    left: 118px;
-    top: 224px;
-    font-size: 18px;
-    background: #F8CB00;
-    border-radius: 50px;
-} 
-
-.button-burger button{
-    position: absolute;
-    width: 217px;
-    height: 50px;
-    left: 118px;
-    top: 322px;
-    font-size: 18px;
-    background: #F8CB00;
-    border-radius: 50px;
-}
-
-.pedido {
-    position: absolute;
-    width: 364px;
-    height: 330px;
-    left: 40px;
-    top: 420px;
-    background: #F2EEEA;
-    border-radius: 10px;
-}
-
-.menu {
-    position: absolute;
-    width: 702px;
-    height: 756px;
-    left: 492px;
-    top: 78px;
-    background: black;
-}
-
-.item-menu {
-    position: absolute;
-    width: 90%;
-    height: 35%;
-    left: 5%;
-    top: 10%;
-    background: #F2EEEA;
-    border-radius: 10px;
-}
-
-.button-send {
-    position: absolute;
-    width: 160px;
-    height: 46px;
-    left: 147px;
-    top: 768px;
-    font-size: 18px;
-    background: #F8CB00;
-    border-radius: 50px;
-}
 
