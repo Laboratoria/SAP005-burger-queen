@@ -3,6 +3,7 @@ import { SignUp } from './pages/Signup/index'
 import { Login } from './pages/Login/index'
 import { NewOrder } from './pages/NewOrder/index'
 import { StatusOrder } from './pages/StatusOrder/index'
+import {OrderInfo} from './components/OrderInfo'
 //import ClientInfo from './components/ClientInfo/ClientInfo'
 import { Switch, Route } from 'react-router-dom'
 
@@ -13,6 +14,7 @@ export const Routes = () => {
       <Route path='/signup' component={SignUp} />
       <Route path='/new-order' component={NewOrder} />
       <Route path='/status-order' component={StatusOrder} />
+      <Route path='/order' component={OrderInfo} />
     </Switch>
   )
 }
