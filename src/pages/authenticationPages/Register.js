@@ -60,6 +60,8 @@ export const Register = () => {
 
     <div>
       <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh' }}>
+      <a href="/Login"><svg class="MuiSvgIcon-root makeStyles-arrow-14 MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path></svg> </a>
+
       <Typography component="h1" variant="h4" style={{ textAlign: 'center' , marginBottom: '4vh' , textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
       Hello Burger
     </Typography>
@@ -78,7 +80,7 @@ export const Register = () => {
      <h4 class="label-job-position"> Cargo do Funcionário:</h4>
     </label>
 
-        <div name="ordenar" error={(result.status === 400 && !role)} className="" value={role} onChange={(event) => setRole(event.target.value)}>
+        <div  style={{ textAlign: 'center'}}    name="ordenar" error={(result.status === 400 && !role)}  className="" value={role} onChange={(event) => setRole(event.target.value)}>
 
           <label for="kitchen" class="radio-label"><img src={kitchen} alt="" className="icon-kitchen"/><br/>Cozinha</label>
           <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro" />
