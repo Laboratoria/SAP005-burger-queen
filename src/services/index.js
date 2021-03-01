@@ -58,13 +58,26 @@ export const getProducts = async (
 
 export const getOrders = async (
 
+) => {
+  const response = await fetch(API_ORDERS, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': localStorage.getItem('userToken'),
+      'orderId': localStorage.getItem('orderId')
+    },
+  })
+  return await response.json()
+}
+
+export const getAllOrders = async (
+
   ) => {
     const response = await fetch(API_ORDERS, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
         'Authorization': localStorage.getItem('userToken'),
-        'orderId': localStorage.getItem('orderId')
       },
     })
     return await response.json()
