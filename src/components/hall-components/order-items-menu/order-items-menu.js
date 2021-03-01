@@ -3,7 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { FaEdit } from 'react-icons/fa'
 import { FiPlusSquare } from 'react-icons/fi'
 import { FiMinusSquare } from 'react-icons/fi'
-import './order-itens.css'
+import './order-items-menu.css'
 
 export default function OrderItens({
   classNameContainer,

@@ -6,7 +6,7 @@ import Input from '../../../components/generic-components/input/input'
 import MenuSection from '../../../components/hall-components/menu-section/menu-section'
 import Navbar from '../../../components/generic-components/navbar/navbar'
 import OrderSection from '../../../components/hall-components/order-section-menu/order-section-menu'
-import './style.css'
+import './new-order.css'
 
 export const NewOrder = () => {
 

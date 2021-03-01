@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { FaUserAlt } from 'react-icons/fa'
-import { getOrders } from '../../services/index'
+import { getOrders } from '../../../services/services'
 import Navbar from '../navbar/navbar'
 import Footer from '../footer/footer'
 //import Button from '../button/button'

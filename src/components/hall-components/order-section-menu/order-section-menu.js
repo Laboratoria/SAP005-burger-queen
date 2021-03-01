@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import OrderItens from '../order-items-menu/order-items-menu'
-import Button from '../../button/button'
-import { openOrder } from '../../services/index'
-import './order-section.css'
+import Button from '../../generic-components/button/button'
+import { openOrder } from '../../../services/services'
+import './order-section-menu.css'
 
 export default function OrderSection({
   plus,

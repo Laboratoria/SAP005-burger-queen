@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { createUser } from '../../services/services'
-import Button from '../../components/button/button'
+import Button from '../../components/generic-components/button/button'
 import Input from '../../components/generic-components/input/input'
 import Footer from '../../components/generic-components/footer/footer'
 import logo from '../../assets/logo.png'
