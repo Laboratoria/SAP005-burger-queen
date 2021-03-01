@@ -94,7 +94,7 @@
     left: 60px
 
 }
-.icon-button-add {
+.icon-button-add, .icon-button-delete {
   width: 30px;
   height: 30px;
   margin-left: 10px;

@@ -10,14 +10,12 @@ import Order from '../../components/Order/Order';
 
 
 
-
 function Hall() {
     return (
         <>
             <div className="hall-page">
                 <Header />
                 <Menu />
-                <Order />
 
             </div>
         </>
