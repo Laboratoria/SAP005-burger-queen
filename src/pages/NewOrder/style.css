@@ -52,7 +52,7 @@ body {
 	border-radius: 0.2rem;
 	padding: 1rem;
 	transition: transform 300ms ease;
-	background-color: #fff9d4;
+	background-color: #fffff0;
 }
 
 .radio-tile-label-menu {
@@ -77,21 +77,11 @@ body {
 	display: none;
 }
 
-.product-img {
-	max-width: 15vw;
-	height: auto;
-	flex-grow: 1;
-}
-
-.section-all-day,
-.section-breakfast {
-	background-color: green;
-}
-
 .div-container-menu-section {
 	position: fixed;
-	background-color: yellow;
-	border-radius: 0.3rem;
+	background-color: #fff9d4;
+	box-shadow: 0 1px 1px 1px #ece8dc;
+	border-radius: 0.5rem;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
@@ -108,22 +98,18 @@ body {
 /* ScrollBar */
 
 ::-webkit-scrollbar {
-	width: 0.7rem;
-	height: 0.7rem;
+	width: 0.5rem;
+	height: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 0.3rem #d9d9d9;
-	border-radius: 0.2rem;
+	box-shadow: inset 0 0 0.3rem #d8d8d8;
+	border-radius: 0.7rem;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #db9e36;
-	border-radius: 0.2rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: #ffd34d;
+	background: #e2ddbb;
+	border-radius: 0.7rem;
 }
 
 /* modal */

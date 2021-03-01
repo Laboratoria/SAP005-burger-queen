@@ -12,7 +12,7 @@ html {
 	height: 100%;
 	width: 100%;
 	font-size: 15.5px;
-	background-color: #fff9d4;
+	background-color: #fffff0;
 }
 
 .logo {
@@ -52,7 +52,7 @@ html {
 	border-bottom: solid 1px #004c54;
 	outline: none;
 	padding: 0.3rem 0.4rem;
-	background-color: #fff9d4;
+	background-color: #fffff0;
 	font-size: 1rem;
 	color: #004c54;
 }
@@ -63,12 +63,12 @@ html {
 	border: solid 2px #db9e36;
 	border-radius: 0.7rem;
 	background-color: #db9e36;
-	color: #fff9d4;
+	color: #fffff0;
 	transition: 0.3s ease-in-out;
 }
 
 .btn-login:hover {
-	background-color: #fff9d4;
+	background-color: #fffff0;
 	color: #db9e36;
 }
 

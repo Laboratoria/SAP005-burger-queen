@@ -4,7 +4,7 @@ import { Login } from './pages/Login/index'
 import { NewOrder } from './pages/NewOrder/index'
 import { StatusOrder } from './pages/StatusOrder/index'
 import {OrderInfo} from './components/OrderInfo'
-//import ClientInfo from './components/ClientInfo/ClientInfo'
+import ClientInfo from './components/ClientInfo/ClientInfo'
 import { Switch, Route } from 'react-router-dom'
 
 export const Routes = () => {
@@ -13,6 +13,7 @@ export const Routes = () => {
       <Route path='/' component={Login} exact />
       <Route path='/signup' component={SignUp} />
       <Route path='/new-order' component={NewOrder} />
+      <Route path='/client-info' component={ClientInfo} />
       <Route path='/status-order' component={StatusOrder} />
       <Route path='/order' component={OrderInfo} />
     </Switch>

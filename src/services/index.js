@@ -86,17 +86,18 @@ export const getAllOrders = async (
 export const openOrder = async (
   clientName,
   tableNumber,
+  orderItems
 ) => {
   const response = await fetch(API_ORDERS, {
     method: 'POST',
-    mode: 'no-cors',
-    headers: { 
-      'Content-Type': 'application/json', 
-      'Authorization': localStorage.getItem('userToken') 
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': localStorage.getItem('userToken')
     },
     body: JSON.stringify({
       'client': clientName,
       'table': tableNumber,
+      'products': orderItems,
     })
   })
 
