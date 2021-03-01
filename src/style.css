@@ -11,6 +11,11 @@ body{
     max-width: 900px;
     color: black;
 }
+.containerMenu {
+    background-color: #64b5f6;
+
+    color: black;
+}
 .copyRight{
     color: black;
 }
