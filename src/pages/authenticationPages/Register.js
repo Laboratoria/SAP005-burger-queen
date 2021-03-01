@@ -8,6 +8,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import ButtonCustom from './buttonRegister';
 import salon from './img/clerk.png';
 import kitchen from './img/cooking.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css'; 
+
 
 export const Register = () => {
   const useStyles = makeStyles((theme) => ({
@@ -25,7 +29,7 @@ export const Register = () => {
   const [result, setResult] = useState({ status: '', message: '' });
   const [role, setRole] = useState('');
   const history = useHistory();
-  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,8 +46,9 @@ export const Register = () => {
           setName('');
           setEmail('');
           setPassword('');
-          setRole('');
-          alert('Usuário criado com sucesso! Agora é só logar!')
+          setRole(''); 
+          toast.success("Cadastro realizado com sucesso!");
+          <ToastContainer />
           history.push('/login');
         } else if (response.status === 403) {
           setResult({ status: 403, message: 'E-mail já cadastrado, por gentileza insira outro' });
@@ -58,9 +63,8 @@ export const Register = () => {
   return (
 
 
-    <div>
       <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh' }}>
-      <a href="/Login"><svg class="MuiSvgIcon-root makeStyles-arrow-14 MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path></svg> </a>
+      <a href="/Login"><svg className="MuiSvgIcon-root makeStyles-arrow-14 MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path></svg> </a>
 
       <Typography component="h1" variant="h4" style={{ textAlign: 'center' , marginBottom: '4vh' , textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
       Hello Burger
@@ -77,24 +81,24 @@ export const Register = () => {
 
 
         <label component="h1" variant="h4" style={{ textAlign: 'center' , marginBottom: '4vh' , textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
-     <h4 class="label-job-position"> Cargo do Funcionário:</h4>
+     <h4 className="label-job-position"> Cargo do Funcionário:</h4>
     </label>
 
         <div  style={{ textAlign: 'center'}}    name="ordenar" error={(result.status === 400 && !role)}  className="" value={role} onChange={(event) => setRole(event.target.value)}>
 
-          <label for="kitchen" class="radio-label"><img src={kitchen} alt="" className="icon-kitchen"/><br/>Cozinha</label>
+          <label htmlfor="kitchen" className="radio-label"><img src={kitchen} alt="" className="icon-kitchen"/><br/>Cozinha</label>
           <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro" />
-          <label for="hall" class="radio-label"><img src={salon} alt="" className="icon-salon"/><br/>Salão</label>
+          <label htmlfor="hall" className="radio-label"><img src={salon} alt="" className="icon-salon"/><br/>Salão</label>
           <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom" />
 
-
-
+          
         </div>
         </Box>
         <ButtonCustom onClick={(event) => handleSubmit(event)} />       
+        
       </form>
       </Container>
-    </div >
+ 
 
   )
 };

@@ -68,7 +68,7 @@ export const Login = () => {
   
 
   return (
-    <div>
+    
       <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh'}}>
     <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
       Hello Burger
@@ -89,6 +89,6 @@ export const Login = () => {
  
 
     </Container>
-    </div>
+  
   )
 };
