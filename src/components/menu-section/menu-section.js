@@ -13,18 +13,19 @@ export default function MenuSection({
         <h1 className='menu-section-title'>{menuSectionTitle}</h1>
         <div className='menu-section-container'>
           {
-            products
-              .map((product) => {
-                return (
-                  <MenuItens
-                    srcImg={product.image}
-                    alt={product.name}
-                    productName={product.name}
-                    productPrice={product.price}
-                    onClick={onClick}
-                  />
-                )
-              })
+            products && products.length > 0 && products.map((product, index) => {
+              return (
+                <MenuItens
+                  productId={product.id}
+                  srcImg={product.image}
+                  altImg={product.name}
+                  productName={product.name}
+                  productPrice={product.price}
+                  onClick={onClick}
+                  key={index}
+                />
+              )
+            })
           }
         </div>
       </section>

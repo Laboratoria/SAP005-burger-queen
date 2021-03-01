@@ -20,7 +20,7 @@ export const Login = () => {
         <img className='logo' src={logo} alt='Logo Urban Bistro' />
       </header>
       <main>
-        <form className='form-login'>
+        <form className='form-login' onSubmit={authUser}>
 
           <label htmlFor='userEmail' className='label-login'>E-mail<span className='required'> *</span></label>
           <Input
@@ -70,7 +70,7 @@ export const Login = () => {
                 localStorage.setItem('userRole', response.role)
 
                 if (localStorage.getItem('userRole') === 'hall') {
-                  history.push('/new-order')
+                  history.push('/status-order')
                 }
                 else if (localStorage.getItem('userRole') === 'kitchen') {
                   history.push('/status-order')

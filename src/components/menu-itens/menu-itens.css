@@ -6,17 +6,26 @@
 }
 
 .product-section {
-	background-color: pink;
+	width: 12rem;
+	height: 12rem;
+	border-radius: 0.5rem;
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 	font-size: 1rem;
 	font-weight: 500;
 	text-align: center;
-	color: #000;
+	color: #004c54;
 	padding: 0.7rem;
 }
 
 .icon-plus {
 	margin-top: 0.3rem;
 	font-size: 1.2rem;
+}
+
+.product-img {
+	border-radius: 0.5rem;
+	width: 7rem;
+	height: 7rem;
+	flex-grow: 1;
 }
