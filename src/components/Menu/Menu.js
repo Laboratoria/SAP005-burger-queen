@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import "./Menu.css";
 import Add from "../../assets/plus.png";
 // import Logo from "../../assets/logo.png";
 
+
 const Menu = () => {
+  const {table} = useParams();
   const tokenUser = localStorage.getItem("token");
   const [breakfast, setBreakfast] = useState([]);
   const [allDay, setAllDay] = useState([]);
   const [menus, setMenus] = useState(true);
   const [orderSummary, setOrderSummary] = useState([]);
+  const [makeOrder, setMakeOrder] = useState({"client": "", "table": table, "products": []});
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
@@ -61,6 +65,7 @@ const Menu = () => {
             </div>
           </div>
         </div>
+
 
         <div className="main-right">
           <div className="item-main-right">
@@ -158,5 +163,6 @@ const Menu = () => {
     </>
   );
 };
+
 
 export default Menu;
