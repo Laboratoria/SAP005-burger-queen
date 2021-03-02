@@ -9,8 +9,8 @@ export default function OrderInfo({
   clientName,
   buttonNameStatus,
   onClickStatus,
-  onClickAddStatus,
   buttonNameAddStatus,
+  onClickAddStatus,
   orderItems
 }) {
   return (
