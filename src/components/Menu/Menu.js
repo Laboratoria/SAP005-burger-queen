@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Menu.css";
 import Add from "../../assets/plus.png";
-// import Logo from "../../assets/logo.png";
+import Logotipo from "../../components/Logotipo/Logotipo";
 import Trash from "../../assets/trash.svg"
 
 
@@ -50,7 +50,7 @@ const Menu = () => {
     <>
       <div className="main">
         <div className="main-left">
-          {/* <Logo /> */}
+          <Logotipo />
           <div className="btn-menu">
             <button
               className="btn-menu-breakfast"
@@ -63,14 +63,14 @@ const Menu = () => {
             </button>
           </div>
 
-          <div className="menu-order">
+          {/* <div className="menu-order">
             <div className="container-order">
               <p className="item-container-p">Resumo do Pedido:</p>
             </div>
             <div className="btn-send-order">
               <buttom className="item-btn-send-order">ENVIAR PEDIDO</buttom>
             </div>
-          </div>
+          </div> */}
         </div>
 
 
@@ -168,8 +168,8 @@ const Menu = () => {
         </div>
 
         <section className="container-order">
-                <p className="titulo-resumo-pedido">Resumo do Pedido</p>
-                <p className="infos-resumo-pedido">Atendente: </p>
+                <p className="title-order">Resumo do Pedido</p>
+                {/* <p className="infos-resumo-pedido">Atendente: </p> */}
                 <input className="client-order"
                     type="text"
                     placeholder="Nome do Cliente"
@@ -179,20 +179,20 @@ const Menu = () => {
                 />
                 {orderSummary !== [] &&
                     <>
-                        <section className="titulo-lista-pedido">
+                        <section className="order-list">
                             <label>Item/Valor</label>
                             <label>Quantidade</label>
                         </section>
-                        <ul className="lista-pedido">
+                        <ul className="orders-client">
                             {orderSummary.map((item, index) => (
                                 <>
-                                    <li className="item-lista-pedido" key={index}>
-                                        <label>
+                                    <li className="item-orders-client" key={index}>
+                                        <label className="itens">
                                             {typeof item.name === "string" ? item.name : item.name.map((item) => <><label>{item.name}</label> <label>{item.flavor}</label> <label>{item.complement}</label></>)}
                                             {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price * item.qtd)}
                                         </label>
                                         <input
-                                            className="button-manipular-qtd"
+                                            className="button-qtd"
                                             id="diminuir-qtd"
                                             type="button"
                                             value="-"
@@ -206,9 +206,9 @@ const Menu = () => {
                                                 }
                                             }}
                                         />
-                                        <label>{item.qtd}</label>
+                                        <label className="qnt"> {item.qtd} </label>
                                         <input
-                                            className="button-manipular-qtd"
+                                            className="button-qtd"
                                             id="aumentar-qtd"
                                             type="button"
                                             value="+"
@@ -235,9 +235,9 @@ const Menu = () => {
                                 </>
                             ))}
                         </ul>
-                        <p className="total-resumo-pedido">TOTAL: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
+                        <p className="total"><strong>TOTAL:</strong> {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
                         <section className="buttons-resumo-pedido">
-                            <input className="button-resumo-pedido"
+                            <input className="item-btn-send-order"
                                 type="button"
                                 value="Enviar Pedido"
                                 onClick={() => {
@@ -274,7 +274,7 @@ const Menu = () => {
                                 }}
                             />
 
-                            <input className="button-resumo-pedido"
+                            <input className="button-clean"
                                 type="button"
                                 value="Limpar Pedido"
                                 onClick={() => {
@@ -285,6 +285,7 @@ const Menu = () => {
                     </>
                 }
             </section>
+            
       </div>
     </>
   );

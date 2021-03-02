@@ -20,7 +20,7 @@
   width: 250px;
   height: 70px;
   position: absolute;
-  right: 700px;
+  left: 110px;
   font-size: 30px;
   background: #f8cb00;
   border-radius: 50px;
@@ -39,32 +39,77 @@
 
 .container-order {
   position: absolute;
-  width: 330px;
-  height: 320px;
-  left: 20px;
-  top: 760px;
+  width: 450px;
+  height: 370px;
+  left: 60px;
+  top: 650px;
   border-radius: 10px;
   background: #fff;
+  font-size: 18px;
 }
 
-.item-container-p {
+.title-order {
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.order-list label {
+  font-size: 25px;
+}
+
+.client-order {
+  font-size: 25px;
+}
+
+.qnt {
+  font-size: 25px;
+}
+
+.button-qtd {
+  height: 30px;
+  width: 40px;
+  font-size: 18px;
+}
+
+.itens {
+  font-size: 25px;
+}
+
+.total {
+  font-size: 25px;
+  position: absolute;
+  bottom: 25px;
+  padding-left: 10px;
+}
+
+.button-clean {
+  width: 180px;
+  height: 40px;
+  position: absolute;
+  left: 260px;
+  top: 320px;
+  font-size: 21px;
+  background: #000;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: bold;  
 }
 
 .item-btn-send-order {
-  width: 160px;
-  height: 46px;
+  width: 180px;
+  height: 56px;
   position: absolute;
-  left: 100px;
-  bottom: 200px;
+  left: 135px;
+  top: 410px;
   background: #f8cb00;
   border-radius: 50px;
   text-align: center;
   padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .main-right {

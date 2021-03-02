@@ -19,9 +19,9 @@
 .welcome-header {
   width: 273px;
   position: absolute;
-  left: 31px;
+  left: 30px;
   top: 50px;
-  font-size: 35px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   text-align: center;
@@ -42,15 +42,15 @@
 }
 
 .select-Table {
-  width: 170px;;
-  height: 70px;
+  width: 140px;;
+  height: 50px;
   position: absolute;
-  right: 250px;
+  right: 230px;
   border: none;
   border-radius: 20px;
-  margin-right: 20px;
-  font-size: 35px;
-  color: #fff;
+  margin-right: 10px;
+  font-size: 30px;
+  color: #F8CB00;
   background-color: #000;
 }
 
@@ -81,7 +81,7 @@ select:active {
 
 .item-btn-myOrder {
 width: 230px;
-height: 70px;
+height: 50px;
 font-size: 30px;
 font-weight: bold;
 background: #F8CB00;
@@ -91,7 +91,7 @@ border-radius: 50px;
 .item-icon-logout {
     position: absolute;
     left: 250px;
-    bottom: 7px;
+    bottom: 5px;
     width: 60px;
     height: 60px;
     margin-left: 10px;
