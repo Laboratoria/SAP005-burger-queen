@@ -6,6 +6,15 @@ import logo from './logo.png';
 import './Hearder.css';
 
 
+
+//document.querySelector('.hamburger-menu').addEventListener('click', () => {
+  //document.querySelector('.nav-wrapper').classList.toggle('change');
+//});
+
+
+
+
+
 export const useStyles = makeStyles((theme) => ({
   
   formControl: {
@@ -136,7 +145,8 @@ export function NavBar() {
   const localStorageClear = () => {
     localStorage.clear()
   }
-
+  
+  
   return (
     <AppBar position='static' elevation={0} className={classes.appBar}>
     <Toolbar className={classes.toolbar}>
@@ -146,10 +156,24 @@ export function NavBar() {
         
         </Typography>
 
-        
-        <Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
+        <div class="nav-wrapper">
+            <div class="hamburger-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+        <nav class="top-nav">
+             <ul class="nav-list">
+                    <li><a href="#" class="nav-link" data-text="Home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-text="About Us">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-text="Services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-text="Contact">Contact</a></li>
+              </ul>
+           </nav>
+        </div>
+        {/*<Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
           <Link to='/' >Sair</Link>
-        </Button>
+  </Button>*/}
       </Toolbar>
     </AppBar>
   )
