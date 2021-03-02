@@ -19,7 +19,6 @@ export default function OrderItens({
   id
 }) {
   return (
-
     <Fragment>
       {name && price && id && minus && quantity && plus && remove &&
         <div className={classNameContainer + ' teste'}>
@@ -32,7 +31,6 @@ export default function OrderItens({
           <FaTrashAlt id={id} onClick={remove} className='icon-order-itens' />
         </div>
       }
-
     </Fragment>
   )
 }

@@ -46,7 +46,6 @@ export default function OrderInfo({
           />
         </div>
       </section>
-
     </Fragment>
   )
 }
