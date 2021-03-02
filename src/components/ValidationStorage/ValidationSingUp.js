@@ -13,10 +13,10 @@ const schema = yup.object().shape({
     yup.string()
     .min(5,'Senha invalída. Sua senha deve conter no mínimo 5 caracteres')
     .required('Preechimento obrigatório'),
-    passwordconfirm:
-    yup.string()
-    .min(5,'Senha invalída. Sua senha deve conter no mínimo 5 caracteres')
-    .required('Preechimento obrigatório'),
+    //passwordconfirm:
+    //yup.string()
+    //.min(5,'Senha invalída. Sua senha deve conter no mínimo 5 caracteres')
+    //.required('Preechimento obrigatório'),
 });
 
 export default schema;

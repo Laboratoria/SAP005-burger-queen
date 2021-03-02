@@ -1,8 +1,6 @@
-.loginForm-container{
+/*.loginForm-container{
     height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 .loginForm-content-logo {
@@ -82,10 +80,10 @@
     color: #FFFF00
     }
 }
-*/
+
 
 
 input, select, button{
     display: flex;
     width: 100%;
-}
+}*/
