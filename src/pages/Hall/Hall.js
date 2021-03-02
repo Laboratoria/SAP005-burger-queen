@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Hall.css';
-import {Copyright, NavBar, useStyles} from "../../components/Hearder/Hearder.js";
+import { Copyright, NavBar, useStyles, CssTextField } from "../../components/Hearder/Hearder.js";
+import { AppBar, Typography, Toolbar } from '@material-ui/core';
 //import Grid from '@material-ui/core/Grid';
 //import Input from '@material-ui/core/Input'; 
 //import { Link } from 'react-router-dom';
@@ -12,13 +13,13 @@ const Hall = () => {
   const tokenLocal = localStorage.getItem('token');
   console.log(tokenLocal)
   const [list, setList] = useState([]);
-  const [listMap, setListMap] = useState([]); 
+  const [listMap, setListMap] = useState([]);
   const [totalOrder, setTotalOrder] = useState([]);
   const [order, setOrder] = useState({});
   const [deletedProduct, setDeletedProduct] = useState([]);
   const [totalPrice, setTotalPrices] = useState([]);
   const [productsPrices, setProductsPrices] = useState([]);
-  
+
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       method: 'GET',
@@ -30,10 +31,10 @@ const Hall = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        setList(data) 
+        setList(data)
       })
   }, [tokenLocal])
-  
+
   //inserir order
   const postOrder = () => {
     fetch('https://lab-api-bq.herokuapp.com/orders', {
@@ -60,25 +61,25 @@ const Hall = () => {
         alert("deu ruim");
       });
   };
-  
+
   const listBreakFast = () => {
     console.log(list)
-  
-    const productsBreakfast = list.filter(itens => itens.type===('breakfast'));
-      setListMap(productsBreakfast); 
+
+    const productsBreakfast = list.filter(itens => itens.type === ('breakfast'));
+    setListMap(productsBreakfast);
   }
-  
+
   const listHamburguer = () => {
     console.log(list)
-    const productsHamburguers = list.filter(itens => itens.sub_type===('hamburguer'));
-      setListMap(productsHamburguers);
-      console.log(productsHamburguers)
+    const productsHamburguers = list.filter(itens => itens.sub_type === ('hamburguer'));
+    setListMap(productsHamburguers);
+    console.log(productsHamburguers)
   }
-  
+
   const listDrinks = () => {
     console.log(list)
-    const productsDrinks = list.filter(itens => itens.sub_type===('drinks'));
-      setListMap(productsDrinks);
+    const productsDrinks = list.filter(itens => itens.sub_type === ('drinks'));
+    setListMap(productsDrinks);
   }
   const addItems = (product) => {
     setTotalOrder([...totalOrder, product]);
@@ -89,13 +90,13 @@ const Hall = () => {
         qtd: 1,
       };
     });
-    
+
     const qtd = quantityOrder.reduce(function (array, productItem) {
       array[productItem.id] = array[productItem.id] || [];
       array[productItem.id].push(productItem);
       return array;
     }, Object.create(null));//criar um novo objeto
-  
+
     const arrayProducts = [];
     for (const [key, value] of Object.entries(qtd)) {
       arrayProducts.push({
@@ -103,7 +104,7 @@ const Hall = () => {
         qtd: value.length,
       });
     }
-  
+
     setOrder({ ...order, products: arrayProducts });
   };
   //splice insere ao array
@@ -112,18 +113,33 @@ const Hall = () => {
     setDeletedProduct(totalOrder.splice(totalOrder.indexOf(product), 1));
     sumFunction();
   };
-  
+
   const sumFunction = () => {
     setTotalPrices(productsPrices.reduce((resume, num) => resume + num));
   };
   return (
+    
+    <div className={classes.Hall}>
+       <NavBar />
     <div className={classes.containerdelivery}>
-
-   <NavBar />
-   <Copyright />
-
-   <button onClick={() => postOrder()}>Enviar para cozinha</button>
+     
+           <div className={classes.customertable}>
+      <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+          Cardápio Salão
+    </Typography>
+          <div class="box-data">
+            <input class="input name-input" type="text" placeholder="Nome"/>
+              <div class="data-table"><h1 class="text">MESA</h1>
+                <input class="input table-input" placeholder="Mesa" type="number"/>
+              </div>
+          </div>
       </div>
+      {/*<CssTextField className={classes.margin}label="Custom CSS" variant="outlined" id="custom-css-outlined-input" />*/}
+
+
+          </div>
+          <Copyright />
+          </div>
   )
 };
 

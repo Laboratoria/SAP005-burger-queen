@@ -74,9 +74,9 @@ export const Login = () => {
     <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
       Hello Burger
     </Typography>
-    <Typography component="h2" variant="h5" style={{ textAlign: 'center',fontWeight: 'normal', color: 'black', marginTop: '4vh', marginBottom: '2vh', marginLeft: '0.5rem'}}>
+    {/*<Typography component="h2" variant="h5" style={{ textAlign: 'center',fontWeight: 'normal', color: 'black', marginTop: '4vh', marginBottom: '2vh', marginLeft: '0.5rem'}}>
       Bem-vindo(a)!
-    </Typography>
+  </Typography>*/}
     {result.status && (
       <Alert severity="error">{result.message}</Alert>
     )}

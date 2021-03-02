@@ -1,14 +1,4 @@
 
-.footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    background-color: hsl(23, 79%, 45%, 50%);
-    color: #000000;
-    text-align: center;
-  }
-
-  
 .hamburger-menu {
   width: 45px;
   height: 35px;
@@ -46,8 +36,6 @@
 .change .line-3 {
   transform: rotateZ(45deg);
 }
-
-
 
 .change .top-nav {
   top: 0;
@@ -91,9 +79,6 @@
   transform: rotateX(-90deg);
   transform-origin: top;
 }
-
-
-
 
 @media(max-width: 1200px) {
   .top-nav {
