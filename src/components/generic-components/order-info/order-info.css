@@ -1,0 +1,10 @@
+.title-add-status {
+	margin: 1rem 0;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.container-order-status {
+	overflow-y: scroll;
+}

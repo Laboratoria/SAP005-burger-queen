@@ -17,7 +17,7 @@ export default function OrderCard({
       <section className='container-order-info'>
         <div className='container-text'>
           <h1 className='order-table-number'>Mesa: {tableNumber}</h1>
-          <h2 className='order-client-name'><FaUserAlt className='icon-client' />{clientName}</h2>
+          <h2 className='order-client-name'><FaUserAlt className='icon-client' /> {clientName}</h2>
         </div>
         <p className='status-title'>{status}</p>
         <main className='container-list-products'>

@@ -1,1 +1,11 @@
-
+.ready-status {
+	width: 30rem;
+	max-height: 35rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	margin-top: 10rem;
+	border-radius: 7px 7px 7px 7px;
+	background-color: #fff9d4;
+}
