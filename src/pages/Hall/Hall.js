@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Hall.css';
-import { Copyright, NavBar, useStyles, CssTextField } from "../../components/Hearder/Hearder.js";
+import { Copyright, NavBar, useStyles, HallConteiner } from "../../components/Hearder/Hearder.js";
 import { AppBar, Typography, Toolbar } from '@material-ui/core';
 //import Grid from '@material-ui/core/Grid';
 //import Input from '@material-ui/core/Input'; 
@@ -118,8 +118,8 @@ const Hall = () => {
     setTotalPrices(productsPrices.reduce((resume, num) => resume + num));
   };
   return (
-    
-    <div className={classes.Hall}>
+   
+    <div>
        <NavBar />
     <div className={classes.containerdelivery}>
      
@@ -134,11 +134,8 @@ const Hall = () => {
               </div>
           </div>
       </div>
-      {/*<CssTextField className={classes.margin}label="Custom CSS" variant="outlined" id="custom-css-outlined-input" />*/}
-
-
+      <Copyright />
           </div>
-          <Copyright />
           </div>
   )
 };
