@@ -2,7 +2,7 @@ import '../style/Kitchen.css';
 import React from "react";
 import {useHistory} from 'react-router-dom'
 import logo from '../images/logo.png';
-import exit from '../images/exit.png';
+import menuburguer from '../images/menuburguer.png';
 import add from '../images/add.png';
 import { useState } from 'react';
 
@@ -29,10 +29,16 @@ function Kitchen() {
   
   return (
     <div className="AppKitchen">
-      <nav className="navK">
-        <button className="exit"   onClick={rLogin}>
-      <img src= {exit} alt="" className="exit"/></button>
-      </nav>
+      <div className="nav1">
+          <input type="checkbox" id="check"></input>
+          <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
+
+          <div class="menuLateral">
+            <nav>
+              <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
+            </nav>
+          </div>
+        </div>
       <header className="App-Kitchen">
         <img src= {logo} alt="" className="logoKitchen"/>
         
