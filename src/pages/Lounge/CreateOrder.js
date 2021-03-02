@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import logoburger from '../../img/logoburger.png';
-import add from '../../img/add.png';
 import './Lounge.css'
 
 export const CreateOrder = () => {
@@ -139,19 +138,17 @@ React.useEffect(() => {
                         {menuCafe.map((produto, index) => (
                             <li key={index}>
                                 <label>{`${produto.name} R$${produto.price}`}</label>
-                                <input
+                                <button
                                     className="add-btn"
                                     id={produto.name}
                                     type="image"
-                                    alt="add-button"
-                                    src={add}
-                                   
+                                    alt="add-button"                                   
                                     onClick={() => {
                                         setPrecoTotal([...precoTotal, menuCafe[index].price]);
                                         setResumoPedido([...resumoPedido, {"name": menuCafe[index].name, "price": menuCafe[index].price}]);
                                         setProdutosPedido([...produtosPedido, {"id": menuCafe[index].id, "qtd": 1}]);
                                     }}
-                                />
+                                >+</button>
                             </li>
                         ))}
                     </ul>
@@ -164,10 +161,7 @@ React.useEffect(() => {
                                     className="add-btn"
                                     id={produto.name}
                                     type="image"
-                                    alt="add-button"
-                                    src={add}
-                                    
-                                    
+                                    alt="add-button"                                    
                                     name={produto.id}
                                     onClick={(event) => {
                                                                     
