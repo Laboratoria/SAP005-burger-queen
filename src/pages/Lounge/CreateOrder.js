@@ -5,7 +5,7 @@ import './Lounge.css'
 
 export const CreateOrder = () => {
   
-  let token = localStorage.getItem('token')
+  const token = localStorage.getItem('token')
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [allDayMenu, setAllDayMenu] = useState([]);
   //const [sideMenu, setSideMenu] = useState([]);
@@ -84,19 +84,17 @@ export const CreateOrder = () => {
 
 
   const handleAdd = (products) => {
-    setOrderSummary([...orderSummary, products]);
-    setProductsPrice([...productsPrice, products.price]);
-    const productsApi = orderSummary.map((products) => {
+    const newOrder = [...orderSummary, products]
+    const newProductsPrice= [...productsPrice, products.price]
+    setOrderSummary(newOrder);
+    setProductsPrice(newProductsPrice);
+    const productsApi = newOrder.map((products) => {
       return {
         id: products.id,
-        qtdProducts: 1,
+        qtd: 1,
       };
     });
     console.log('productsApi', productsApi)
-    const handleSum = () => {
-      setTotalPrice(productsPrice.reduce((total, num) => total + num));
-      console.log('productsPrice', productsPrice)
-    };
 
     const qtdProducts = productsApi.reduce(function (idItem, qtdItem) {
       console.log('idItem', idItem)
@@ -104,6 +102,7 @@ export const CreateOrder = () => {
       idItem[qtdItem.id].push(qtdItem);
       return idItem;
     }, Object.create(null));
+    
     console.log('qtdProducts', qtdProducts)
 
     const arrayProducts = [];
@@ -111,13 +110,14 @@ export const CreateOrder = () => {
     for (const [key, value] of Object.entries(qtdProducts)) {
       arrayProducts.push({
         id: key,
-        qtdProducts: value.length,
+        qtd: value.length,
       });
     }
 
     setOrder({ ...order, products: arrayProducts });
-
+    
   };
+  
 
   const handleDeleteProducts = (products) => {
     setTotalPrice(productsPrice.splice(orderSummary.indexOf(products), 1));
@@ -126,7 +126,7 @@ export const CreateOrder = () => {
   };
 
   const handleSum = () => {
-    setTotalPrice(productsPrice.reduce((total, num) => total + num));
+    setTotalPrice(productsPrice.reduce((total, num) => total + num, 0));
     console.log('productsPrice', productsPrice)
   };
 

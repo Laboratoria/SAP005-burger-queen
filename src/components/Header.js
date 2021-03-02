@@ -9,9 +9,9 @@ const Header = () => {
       
         <header>
           <img src={logoburger} className="logoburger" alt="logoburger" />
-          <h1>MENU</h1>
+          <h1>Pedidos</h1>
         </header>
-        <h1>Criar Pedido</h1>
+        
       
 
     </>
