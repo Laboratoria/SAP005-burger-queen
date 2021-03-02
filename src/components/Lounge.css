@@ -10,32 +10,29 @@
   font-size: 20pt;  
 }
 
-.createorder-btn, 
-.orderread-btn, 
-.btn,
-#back-btn,
-.break-btn,
-.lunch-btn {
+.createorder-btn, .orderread-btn, .btn,#back-btn {
     border: solid 2px #fff;
     border-radius: 3rem;
-    background-color: silver;
+    background-color: #D92534;
     padding: 0.9rem 1.5rem;
     text-transform: uppercase;
+    color: #fff;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
+    box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
+    transition: 0.3s ease-in-out;
     margin-bottom: 2em;
     margin-left: 1em;
-}
+  }
 
-input {
-    margin-bottom: 2em;
+  input {
     border-radius: 50px;
     font-family: 'Nunito', sans-serif;
     text-align: center;
     box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;  
-}
+  }
 
-h1 {
+  h1 {
   text-align: center;
 	font-family: 'Nunito', sans-serif;
   font-weight: bold;
