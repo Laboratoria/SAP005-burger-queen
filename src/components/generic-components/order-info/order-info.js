@@ -30,7 +30,7 @@ export default function OrderInfo({
               <ListOrderItems
                 itemName={item.name}
                 itemQuantity={item.qtd}
-                key={index}
+                key={`order-item-${index}`}
               />
             )
           }

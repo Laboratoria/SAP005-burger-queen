@@ -4,7 +4,9 @@ import './add-status-order.css'
 
 export default function AddStatusOrder({
   statusTitle,
-  orders
+  orders,
+  nextStatus,
+  onClickNextStatus
 }) {
   return (
     <Fragment>
@@ -16,9 +18,10 @@ export default function AddStatusOrder({
               tableNumber={order.table}
               clientName={order.client_name}
               buttonNameStatus={order.status}
-              buttonNameAddStatus=''
-              onClickAddStatus=''
-              key={index}
+              buttonNameAddStatus={nextStatus}
+              onClickAddStatus={onClickNextStatus}
+              orderItems={order.Products}
+              key={`order-${index}`}
             />
           )
         }
