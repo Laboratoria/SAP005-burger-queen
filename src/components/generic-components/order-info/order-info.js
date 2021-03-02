@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react'
 import OrderCard from '../order-card/order-card'
+import { updateOrder } from '../../../services/services'
 import './order-info.css'
 
 export default function OrderInfo({
   statusTitle,
   orders,
   nextStatus,
-  onClickNextStatus
+  nextStatusApi,
+  callback
 }) {
   return (
     <Fragment>
@@ -19,7 +21,13 @@ export default function OrderInfo({
               clientName={order.client_name}
               status={order.status}
               buttonNameAddStatus={nextStatus}
-              onClickAddStatus={onClickNextStatus}
+              onClickAddStatus={
+                async (event) => {
+                  event.preventDefault()
+                  await updateOrder(order.id, nextStatusApi)
+                  callback()
+                }
+              }
               orderItems={order.Products}
               key={`order-${index}`}
             />

@@ -1,10 +1,24 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect, useCallback } from 'react'
 import React from 'react'
 import Navbar from '../../components/generic-components/navbar/navbar'
 import OrderInfo from '../../components/generic-components/order-info/order-info'
+import { getAllOrders } from '../../services/services'
 import './status-order.css'
 
 export const StatusOrder = () => {
+
+  const [orders, setOrders] = useState([])
+
+  const storeOrders = useCallback(async () => {
+    const orders = await getAllOrders()
+    setOrders(orders)
+  }, []);
+
+  useEffect(() => {
+    storeOrders()
+  }, [storeOrders])
+
+
   return (
     <Fragment>
       <header>
@@ -13,59 +27,24 @@ export const StatusOrder = () => {
       <main>
         <section className='ready-status'>
           <OrderInfo
-            statusTitle='Pronto'
-            nextStatus='Entregar'
-            onClickNextStatus=''
+            statusTitle='Pendente'
+            nextStatus='Preparar'
+            nextStatusApi='preparing'
             orders={
-              (
-                [
-                  {
-                    "id": 0,
-                    "client_name": "Carol",
-                    "user_id": 0,
-                    "table": 5,
-                    "status": "Pronto",
-                    "processedAt": "2021-03-02",
-                    "createdAt": "2021-03-02",
-                    "updatedAt": "2021-03-02",
-                    "Products": [
-                      {
-                        "id": 0,
-                        "name": "Hambúrguer simples",
-                        "flavor": "string",
-                        "complement": "string",
-                        "qtd": 2
-                      }
-                    ]
-                  },
-                  {
-                    "id": 0,
-                    "client_name": "Cris",
-                    "user_id": 0,
-                    "table": 7,
-                    "status": "Pronto",
-                    "processedAt": "2021-03-02",
-                    "createdAt": "2021-03-02",
-                    "updatedAt": "2021-03-02",
-                    "Products": [
-                      {
-                        "id": 0,
-                        "name": "Batata frita",
-                        "flavor": "string",
-                        "complement": "string",
-                        "qtd": 1
-                      },
-                      {
-                        "id": 0,
-                        "name": "Refrigerante 500ml",
-                        "flavor": "string",
-                        "complement": "string",
-                        "qtd": 1
-                      }
-                    ]
-                  }
-                ]
-              )
+              orders.filter((order) => order.status === 'pending')
+            }
+            callback={
+              () => {
+                storeOrders()
+              }
+            }
+          />
+          <OrderInfo
+            statusTitle='Preparando'
+            nextStatus='Pronto'
+            nextStatusApi='ready_kitchen'
+            orders={
+              orders.filter((order) => order.status === 'preparing')
             }
           />
 

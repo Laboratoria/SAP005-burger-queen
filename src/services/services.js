@@ -103,3 +103,20 @@ export const openOrder = async (
 
   return await response.json()
 }
+
+export const updateOrder = async (
+  orderId,
+  status
+) => {
+  const response = await fetch(`${API_ORDERS}/${orderId}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': localStorage.getItem('userToken')
+    },
+    body: JSON.stringify({
+      'status': status
+    })
+  })
+  return await response.json()
+}
