@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logoburger from '../img/logoburger.png';
-import './Lounge.css'
+import './Header.css'
 
 const Header = () => {
 
