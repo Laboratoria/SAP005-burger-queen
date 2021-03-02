@@ -8,8 +8,8 @@ export const CreateOrder = () => {
   const token = localStorage.getItem('token')
   const [breakfastMenu, setBreakfastMenu] = useState([]);
   const [allDayMenu, setAllDayMenu] = useState([]);
-  //const [sideMenu, setSideMenu] = useState([]);
-  //const [drinksMenu, setDrinksMenu] = useState([]);
+  const [sideMenu, setSideMenu] = useState([]);
+  const [drinksMenu, setDrinksMenu] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalPrice, setTotalPrice] = useState([0]);
   const [orderSummary, setOrderSummary] = useState([]);
@@ -18,7 +18,7 @@ export const CreateOrder = () => {
   
   const [excludedProduct, setExcludedProduct] = useState([]);
 
-  const [menus, setMenus] = useState(true);
+  const [menus, setMenus] = useState('');
 
   const handleClient = (event) => {
     setOrder({ ...order, client: event.target.value });
@@ -61,21 +61,21 @@ export const CreateOrder = () => {
         console.log('breakfast no set', breakfast)
 
         const allDay = typeProducts.filter((products) =>
-          products.type.includes("all-day")
+          products.sub_type.includes("hamburguer")
         );
         console.log('allDay', allDay)
         setAllDayMenu(allDay)
         console.log('allDay setado', allDay)
 
-        //const sideMenu = typeProducts.filter((products) =>
-        // products.sub_type.includes("side")
-        //);
-        //setSideMenu(sideMenu);
+        const sideMenu = typeProducts.filter((products) =>
+         products.sub_type.includes("side")
+        );
+        setSideMenu(sideMenu);
 
-        //const drinksMenu = typeProducts.filter((products) =>
-        //  products.sub_type.includes("drinks")
-        //);
-        //setDrinksMenu(drinksMenu);
+        const drinksMenu = typeProducts.filter((products) =>
+         products.sub_type.includes("drinks")
+        );
+        setDrinksMenu(drinksMenu);
 
         setLoading(false);
       })
@@ -190,11 +190,15 @@ export const CreateOrder = () => {
           ) : (
             <>
 
-              <button onClick={() => setMenus(true)}>Café da Manhã</button>
+              <button onClick={() => setMenus('breakfast')}>Café da Manhã</button>
 
-              <button onClick={() => setMenus(false)}>Comum</button>
+              <button onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
 
-              {menus ? (
+              <button onClick={() => setMenus('side')}>Acompanhamentos</button>
+              
+              <button onClick={() => setMenus('drink')}>Bebidas</button>
+
+              {menus === 'breakfast' && (
                 <table className="menuList">
                   <tbody>
                     <tr>
@@ -215,7 +219,8 @@ export const CreateOrder = () => {
                     ))}
                   </tbody>
                 </table>
-              ) : (
+              )} 
+              {menus === 'hamburguer' && (
                   <table className="menuList">
                     <tbody>
                       <tr>
@@ -239,6 +244,51 @@ export const CreateOrder = () => {
                     </tbody>
                   </table>
                 )}
+                {menus === 'side' && (
+                <table className="menuList">
+                  <tbody>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Preço</th>
+                    </tr>
+                    {sideMenu.map((products) => (
+                      <tr key={products.id}>
+                        <td>{products.name}</td>
+                        <td> R${products.price}</td>
+                        <td>
+                          <button
+                            onClick={() => {
+                              handleAdd(products)
+                            }}>+</button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )} 
+              {menus === 'drink' && (
+                <table className="menuList">
+                  <tbody>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Preço</th>
+                    </tr>
+                    {drinksMenu.map((products) => (
+                      <tr key={products.id}>
+                        <td>{products.name}</td>
+                        <td> R${products.price}</td>
+                        <td>
+                          <button
+                            onClick={() => {
+                              handleAdd(products)
+                            }}>+</button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )} 
+
 
               <table className="order">
                 <tbody>
@@ -285,7 +335,9 @@ export const CreateOrder = () => {
                       <th> R${totalPrice}</th>
                     </tr>
                     <tr>
-
+                    <th>
+                        <button id="back-btn" className="btn" onClick={BackBtn}>Voltar</ button>
+                      </th>
 
                       <th>
                         <button
@@ -294,13 +346,11 @@ export const CreateOrder = () => {
                           value="Excluir pedido"
                           onClick={() => {
                             setTotalPrice([0]);
-                            setOrderSummary([]);
-                            //setOrderProducts([]);
+                            setOrderSummary([0]);
+                            setProductsPrice([0])
+                            
                           }}>
                           excluir comanda</button>
-                      </th>
-                      <th>
-                        <button id="back-btn" className="btn" onClick={BackBtn}>Voltar</ button>
                       </th>
                       <th>
                         <button className="btn" onClick={handleSendKitchen}>Enviar para cozinha</button>
