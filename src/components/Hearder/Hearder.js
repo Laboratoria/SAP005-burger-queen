@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import logo from './logo.png';
+import logoNav from './img/logoNav.png';
 import './Hearder.css';
 
 
@@ -21,6 +21,9 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 120,
   },
+  
+
+
   margin: {
     margin: theme.spacing(1),
   },
@@ -89,10 +92,10 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
   },
-  logo: {
+  logoNav: {
     maxWidth: 200,
   },
-  logoComponent: {
+  logoComponent: {   //Okay
     maxWidth: 50,
   },
   arrow:{
@@ -103,11 +106,11 @@ export const useStyles = makeStyles((theme) => ({
   totalProducts: {
     paddingRight:'100px',
   },
-  appBar: {
+  appBar: { //Okay
     borderBottom: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.warning.main,
   },
-  toolbar: {
+  toolbar: {   //Okay
     flexWrap: 'wrap',
   },
   toolbarTitle: {
@@ -131,10 +134,10 @@ export const useStyles = makeStyles((theme) => ({
   
 }));
 
-export function Logo() {
+export function LogoNav () {
   const classes = useStyles();
   return (
-    <img className={classes.logo} src={logo} alt='logo'/>
+    <img className={classes.logoNav} src={logoNav} alt='logo'/>
   )
 }
 
@@ -150,13 +153,10 @@ export function NavBar() {
   return (
     <AppBar position='static' elevation={0} className={classes.appBar}>
     <Toolbar className={classes.toolbar}>
-        <img className={classes.logoComponent} src={logo} alt='logo'/>
+        <img className={classes.logoComponent} src={logoNav} alt='logo '/>
         <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
        novo do funcionario
-        
-        </Typography>
-
-        <div class="nav-wrapper">
+       <div class="nav-wrapper">
             <div class="hamburger-menu">
                 <div class="line line-1"></div>
                 <div class="line line-2"></div>
@@ -164,16 +164,15 @@ export function NavBar() {
             </div>
         <nav class="top-nav">
              <ul class="nav-list">
-                    <li><a href="#" class="nav-link" data-text="Home">Home</a></li>
-                    <li><a href="#" class="nav-link" data-text="About Us">About Us</a></li>
-                    <li><a href="#" class="nav-link" data-text="Services">Services</a></li>
-                    <li><a href="#" class="nav-link" data-text="Contact">Contact</a></li>
+                    <li><a href="/Hall" class="nav-link" data-text="Home">Novo Pedido</a></li>
+                    <li><a href="#" class="nav-link" data-text="About Us">Pedidos</a></li>
+                    <li><a href="#" class="nav-link" data-text="Services">Cozinha</a></li>
+                    <li><a href="/" onClick={(localStorageClear)} className="nav-link" data-text="Contact">Sair</a></li>
               </ul>
            </nav>
         </div>
-        {/*<Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
-          <Link to='/' >Sair</Link>
-  </Button>*/}
+        </Typography>
+
       </Toolbar>
     </AppBar>
   )
