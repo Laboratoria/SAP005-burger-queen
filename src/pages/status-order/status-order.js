@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import React from 'react'
 import Navbar from '../../components/generic-components/navbar/navbar'
-import AddStatusOrder from '../../components/generic-components/add-status-order/add-status-order'
+import OrderInfo from '../../components/generic-components/order-info/order-info'
 import './status-order.css'
 
 export const StatusOrder = () => {
@@ -11,7 +11,7 @@ export const StatusOrder = () => {
         <Navbar />
       </header>
       <main>
-        <AddStatusOrder
+        <OrderInfo
           statusTitle='Pronto'
           nextStatus='Entregar'
           onClickNextStatus=''
@@ -22,7 +22,7 @@ export const StatusOrder = () => {
                   "id": 0,
                   "client_name": "Carol",
                   "user_id": 0,
-                  "table": 0,
+                  "table": 5,
                   "status": "Pronto",
                   "processedAt": "2021-03-02",
                   "createdAt": "2021-03-02",

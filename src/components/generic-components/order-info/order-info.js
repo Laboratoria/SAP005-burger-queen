@@ -1,49 +1,31 @@
 import React, { Fragment } from 'react'
-import { FaUserAlt } from 'react-icons/fa';
-import ListOrderItems from '../list-order-items/list-order-items'
-import Button from '../button/button'
+import OrderCard from '../order-card/order-card'
 import './order-info.css'
 
 export default function OrderInfo({
-  tableNumber,
-  clientName,
-  buttonNameStatus,
-  buttonNameAddStatus,
-  onClickAddStatus,
-  orderItems
+  statusTitle,
+  orders,
+  nextStatus,
+  onClickNextStatus
 }) {
   return (
     <Fragment>
-      <section className='container-order-info'>
-        <h1 className='order-table-number'>Mesa: {tableNumber}</h1>
-        <h2 className='order-client-name'><FaUserAlt className='icon-client' />{clientName}</h2>
-        <div className='container-btn-order-info'>
-          <Button
-            name={buttonNameStatus}
-            className='btn-order-info'
-            type='button'
-          />
-        </div>
-        <main className='container-list-products'>
-          {orderItems.map((item, index) => {
-            return (
-              <ListOrderItems
-                itemName={item.name}
-                itemQuantity={item.qtd}
-                key={`order-item-${index}`}
-              />
-            )
-          }
-          )}
-        </main>
-        <div className='container-btn-order-info'>
-          <Button
-            name={buttonNameAddStatus}
-            className='btn-order-info'
-            type='button'
-            onClick={onClickAddStatus}
-          />
-        </div>
+      <section>
+        <h1 className='title-add-status'>{statusTitle}</h1>
+        {orders.map((order, index) => {
+          return (
+            <OrderCard
+              tableNumber={order.table}
+              clientName={order.client_name}
+              status={order.status}
+              buttonNameAddStatus={nextStatus}
+              onClickAddStatus={onClickNextStatus}
+              orderItems={order.Products}
+              key={`order-${index}`}
+            />
+          )
+        }
+        )}
       </section>
     </Fragment>
   )

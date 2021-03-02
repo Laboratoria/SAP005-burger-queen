@@ -115,6 +115,7 @@ body {
 	color: #fffff0;
 	transition: 0.3s ease-in-out;
 	margin: 2rem 1rem;
+	box-shadow: 0 4px 7px 0 #c2c2c0;
 }
 
 .btn-cancel {
@@ -136,8 +137,6 @@ body {
 	background-color: #fffff0;
 	color: #005761;
 }
-
-/* ORDER BUTTON */
 
 /* SCROLLBAR */
 

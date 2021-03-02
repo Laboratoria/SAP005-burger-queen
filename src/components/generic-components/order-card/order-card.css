@@ -1,0 +1,70 @@
+.container-order-info {
+	max-width: 20rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	overflow-y: auto;
+	margin-top: 8rem;
+	border-radius: 7px 7px 7px 7px;
+	background-color: #fff9d4;
+	box-shadow: 2px 2px 7px 2px #c2c2c044;
+}
+
+.order-table-number {
+	padding-top: 0.5rem;
+	background: #260101;
+	height: 2.5rem;
+	border-radius: 7px 7px 0 0;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #fffff0;
+	text-align: center;
+}
+
+.order-client-name,
+.status-title {
+	margin-top: 1.5rem;
+	text-align: center;
+	font-size: 1rem;
+}
+
+.icon-client {
+	font-size: 1rem;
+}
+
+.status-title {
+	font-size: 1rem;
+	margin: 1.2rem 2rem;
+	padding: 0.5rem 1rem;
+	border: solid 2px #056137;
+	border-radius: 0.3rem;
+	background-color: #056137;
+	color: #fcfcd0;
+}
+
+.container-list-products {
+	margin: 1rem 1.5rem;
+}
+
+.hr-break {
+	border-top: dashed 0.2rem #d9d9d9;
+	margin-top: 0.5rem;
+}
+
+.btn-order-info {
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	margin: 1.8rem 2rem;
+	border: solid 2px #ffd34d;
+	border-radius: 0.3rem;
+	background-color: #ffd34d;
+	color: #fff9d4;
+	transition: 0.3s ease-in-out;
+	box-shadow: 0 1.5px 7px 0 #c2c2c0;
+}
+
+.btn-order-info:hover {
+	background-color: #fff9d4;
+	color: #ffd34d;
+}

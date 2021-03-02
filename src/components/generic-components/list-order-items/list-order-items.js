@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import './list-order-items.css'
 
 export default function ListOrderItems({
   classNameItemContainer,
@@ -12,7 +11,7 @@ export default function ListOrderItems({
   return (
     <Fragment>
       <section className={classNameItemContainer}>
-        <p className={classNameItemQuantity}>{itemQuantity}</p>
+        <p className={classNameItemQuantity}>{itemQuantity}x</p>
         <p className={classNameItemName}>{itemName}</p>
         <hr className={classNameBreak} />
       </section>
