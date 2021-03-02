@@ -59,16 +59,8 @@ a,
 	}
 	.formLogin {
 		display: flex;
-		width: 40%;
-		padding: 10px;
-	}
-
-	#pass,
-	#password,
-	#email,
-	#name {
-		padding: 10px;
-		margin-top: 5px;
+		width: 30%;
+		padding: 15px;
 	}
 
 	a,
@@ -83,8 +75,15 @@ a,
 		justify-content: center;
 		padding: 5px;
 		width: 30%;
-		font-size: 15px;
+		font-size: 20px;
 		border-radius: 9px;
 		margin-top: 10px;
+	}
+
+	.App-header {
+		background-color: #383838;
+		min-height: 100vh;
+		width: 100%;
+		position: absolute;
 	}
 }

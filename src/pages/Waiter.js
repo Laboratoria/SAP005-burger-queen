@@ -69,23 +69,26 @@ const Waiter = () => {
   return (
 
     <div className="App">
+     <div className="nav1">
+        <input type="checkbox" id="check"></input>
+        <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
 
-      <input type="checkbox" id="check"></input>
-      <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
-
-      <div class="menuLateral">
-        <nav>
-          <a href={Historic}><div onClick={Historic} className="link">Historico</div></a>
-          <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
-        </nav>
+        <div class="menuLateral">
+          <nav>
+            <a href={Historic}><div onClick={Historic} className="link">Historico</div></a>
+            <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
+          </nav>
+        </div>
       </div>
       <header className="header">
         <div id="logoWaiter">
           <img src={logo} alt="" className="logoWaiter" />
         </div>
       </header>
+      <div className ="All">
       <ol className="App-waiter">
-        <section className='Menu'>
+
+          <div className="btns">
           <button className="btnMenu" onClick={((e) => {
             e.preventDefault();
             setBreakfast(menu)
@@ -106,6 +109,8 @@ const Waiter = () => {
             setBreakfast(drinks)
           })}><img src={copo} alt="" className='imgMenu' /></button>
 
+          </div>
+          <section className='Menu'>
           <div className='menuItens'> {
             breakfast.map((menuItems) => {
 
@@ -142,17 +147,14 @@ const Waiter = () => {
             setClient(event.target.value)} />
           <input type="number" id="number" min='0' max='20' placeholder="Mesa" value={table} onChange={(event) =>
             setTable(event.target.value)} />
-          <div>
+          <div className="pedidos">
           {quantidade.map(item =>
               <div>
                 <span>
-                <p className='nameProducts'>{item.id}</p>
-                  <p className='nameProducts'>{item.name}</p>
-                  <p className='nameProducts'>R$:{item.price},00</p>
-                </span>
-                <span>
+                  <p className='orderProducts'>{item.name}</p>
                   <p className='complement'>{item.flavor}</p>
                   <p className='complement'>{item.complement}</p>
+                  <p className='orderProducts'>R$:{item.price},00</p>
                 </span>
 
               </div>
@@ -199,6 +201,7 @@ const Waiter = () => {
 
         </form>
       </ol>
+    </div>
     </div>
   )
 }
