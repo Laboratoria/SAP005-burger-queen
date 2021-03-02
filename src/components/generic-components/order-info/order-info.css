@@ -8,3 +8,7 @@
 .container-order-status {
 	overflow-y: scroll;
 }
+
+/*.div-h1 {
+	overflow-y: unset;
+}*/

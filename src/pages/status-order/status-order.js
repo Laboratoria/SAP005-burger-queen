@@ -25,29 +25,51 @@ export const StatusOrder = () => {
         <Navbar />
       </header>
       <main>
-        <section className='ready-status'>
-          <OrderInfo
-            statusTitle='Pendente'
-            nextStatus='Preparar'
-            nextStatusApi='preparing'
-            orders={
-              orders.filter((order) => order.status === 'pending')
-            }
-            callback={
-              () => {
-                storeOrders()
+        <section className='container-status-orders'>
+          <div className='preparing-status'>
+            <OrderInfo
+              statusTitle='Pendente'
+              nextStatus='Preparar'
+              nextStatusApi='preparing'
+              orders={
+                orders.filter((order) => order.status === 'pending')
               }
-            }
-          />
-          <OrderInfo
-            statusTitle='Preparando'
-            nextStatus='Pronto'
-            nextStatusApi='ready_kitchen'
-            orders={
-              orders.filter((order) => order.status === 'preparing')
-            }
-          />
-
+              callback={
+                () => {
+                  storeOrders()
+                }
+              }
+            />
+          </div>
+          <div className='ready-status'>
+            <OrderInfo
+              statusTitle='Preparando'
+              nextStatus='Pronto'
+              nextStatusApi='ready_kitchen'
+              orders={
+                orders.filter((order) => order.status === 'preparing')
+              }
+              callback={
+                () => {
+                  storeOrders()
+                }
+              }
+            />
+          </div>
+          <div className='ready-status'>
+            <OrderInfo
+              statusTitle='Pronto'
+              nextStatusApi='ready_hall'
+              orders={
+                orders.filter((order) => order.status === 'ready_kitchen')
+              }
+              callback={
+                () => {
+                  storeOrders()
+                }
+              }
+            />
+          </div>
         </section>
       </main>
     </Fragment >

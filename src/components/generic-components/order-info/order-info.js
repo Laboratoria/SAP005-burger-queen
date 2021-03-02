@@ -12,8 +12,10 @@ export default function OrderInfo({
 }) {
   return (
     <Fragment>
-      <section className='container-order-status'>
+      <div className='div-h1'>
         <h1 className='title-add-status'>{statusTitle}</h1>
+      </div>
+      <section className='container-order-status'>
         {orders.map((order, index) => {
           return (
             <OrderCard
