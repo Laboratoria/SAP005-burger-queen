@@ -2,16 +2,14 @@ import '../style/Historic.css';
 import React from "react";
 import {useHistory} from 'react-router-dom'
 import logo from '../images/logo.png';
-import exit from '../images/exit.png';
+import menuburguer from '../images/menuburguer.png';
 import add from '../images/add.png';
+import del from '../images/del.png';
 import { useState } from 'react';
-import re from '../images/re.png';
-
 
 function Historic() {
     const [orders, setOrders] = useState([]);
     const token = localStorage.getItem("token");
-    const [status, setStatus] = useState('');
     console.log(orders);
     
     const history = useHistory()
@@ -27,69 +25,99 @@ function Historic() {
 
       <div className="AppHistoric">
 
-        <nav className="wrap-menu">
+        <div className="nav1">
+          <input type="checkbox" id="check"></input>
+          <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
+
+          <div class="menuLateral">
+            <nav>
+              <a href={rWaiter}><div onClick={rWaiter} className="link">Voltar</div></a>
+              <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
+            </nav>
+          </div>
+        </div>
+
+        {/* <nav className="wrap-menu">
            
                 <button className="btnRe" onClick={rWaiter}>
                 <img src= {re} alt="" className="Re"/>
                 </button>
                 <button className="exit"   onClick={rLogin}>
                 <img src= {exit} alt="" className="exit"/></button>   
-        </nav>
+        </nav> */}
 
         <header className="App-Historic">
   
           <img src= {logo} alt="" className="logoHistoric"/>
-          <p className="Cozinha">Pedidos Prontos</p>     
-
-          <button className="btnAdd"   onClick={(e)=>{
-              e.preventDefault();
-              fetch('https://lab-api-bq.herokuapp.com/orders', {
-                method: "GET",
-                headers: {
-                  "Content-Type": "application/json",
-                  "accept": "application/json",
-                  'Authorization': `${token}`
-                }                  
-                    })
-                      .then((response) => response.json())
-                      .then((json) => {
-                        setOrders(json);
+          <p className="Cozinha">Pedidos</p>     
+          <section>
+          <button className="btnAddH"   onClick={(e)=>{
+                e.preventDefault();
+                fetch('https://lab-api-bq.herokuapp.com/orders', {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json",
+                    'Authorization': `${token}`
+                  }                  
                       })
-                  }}><img src= {add} alt="" className='imgMenu' /></button>      
+                        .then((response) => response.json())
+                        .then((json) => {
+                          setOrders(json);
+                        })
+                    }}><img src= {add} alt="" className='imgMenu' /></button>      
+        </section>
         </header>
+        
+       <section className="sectionH">
 
-        <section className="section">
+          { orders.map((order) => {
 
-      { orders.map((order) => {
+            return (
+              <div className="H" key={order.id}>
+               <button className="btnDel"   onClick={(e)=>{
+                e.preventDefault();
+                // fetch(`https://lab-api-bq.herokuapp.com/orders/${order.id}`, {
+                //   method: "DELETE",
+                //   headers: {
+                //     "Content-Type": "application/json",
+                //     "accept": "application/json",
+                //     'Authorization': `${token}`
+                //   }        
+                //       })
+                //         .then((response) => response.json())
+                //         .then((json) => {
+                //           setOrders(json);
+                //         })
+                    }}><img src= {del} alt="" className='imgDel' /></button> 
+ 
+                <p  className="tbleH">Mesa: {order.table}</p> 
+                <p className="pedidoH">Pedido  {order.status}</p>
+                <div>
+                
+                  {
+                    order.Products.map((product)=> {
+                      return(
+                        <div key={product.id}> 
+                        <p className="prodH">{product.name}</p>
+                        </div>
+                      )
+                    })
+                  }
 
-        return (
-          <div  key={order.id}>
-            <p>Mesa: {order.table}</p>             
-            <div>
-            <label>
-              <input
-                type="radio"
-                value="pending"
-                checked={status === "pending"}
-                onChange={() => setStatus("pending")}
-              />
-              <p>Entregue</p>
-            </label>
+                  <label className="entregue">
+                    <input
+                      type="radio"
+                      onChange={() => ("Entregue")}
+                    /> Entregue </label>
+
+                </div>
+                
+              </div>
+            )
             
-              {
-                order.Products.map((product)=> {
-                  return(
-                    <div key={product.id}> 
-                    <p>{product.name}</p>
-                    <button className="food">Pedido Pronto</button>
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-        )
-      })}
+          })}
+
       </section>
         
       </div>

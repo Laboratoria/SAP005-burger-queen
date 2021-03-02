@@ -58,12 +58,22 @@ const Waiter = () => {
   }, [token])
 
   function clickQuantidade(item) {
-    item.qtd = 1;
-    item.subtotal = item.price;
-    setQuantidade([...quantidade, item]);
-    console.log(item);
-    console.log(quantidade)
+    const elementoExiste = quantidade.find(elemento => elemento === item)
+    if (elementoExiste) {
+      elementoExiste.qtd += 1
+      setQuantidade(prevQuantidade => prevQuantidade.map(prevElem => prevElem.id === elementoExiste.id ? elementoExiste : prevElem))
+    } else {
+      item.qtd = 1;
+      item.subtotal = item.price;
+      setQuantidade([...quantidade, item]);
+
+    }
   }
+  useEffect(() => {
+    console.log(quantidade)
+
+  }, [quantidade]
+  )
 
 
   return (
@@ -154,6 +164,7 @@ const Waiter = () => {
                   <p className='orderProducts'>{item.name}</p>
                   <p className='complement'>{item.flavor}</p>
                   <p className='complement'>{item.complement}</p>
+                  <p className='complement'> Quantidade: {item.qtd}</p>
                   <p className='orderProducts'>R$:{item.price},00</p>
                 </span>
 
@@ -176,7 +187,7 @@ const Waiter = () => {
                 "products": quantidade.map((item) => (
                   {
                     "id": Number(item.id),
-                    "qtd": 1
+                    "qtd":`${quantidade}`
                   }
                 ))
       

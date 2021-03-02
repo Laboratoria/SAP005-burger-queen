@@ -4,8 +4,8 @@
 	justify-content: space-between;
 }
 .App {
-	position: fixed;
 	width: 101%;
+	position: fixed;
 }
 .header {
 	background-color: #383838;
@@ -211,7 +211,6 @@ ul {
 .menuItens {
 	width: 90%;
 	height: 589px;
-
 	margin: 5px;
 }
 
@@ -237,7 +236,7 @@ ul {
 
 .orderProducts {
 	font-size: 20px;
-	padding: 16px;
+	padding: 4px;
 }
 
 .sabor {

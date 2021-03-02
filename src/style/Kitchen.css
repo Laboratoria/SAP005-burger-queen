@@ -7,6 +7,7 @@
 .logoKitchen {
 	width: 26%;
 	margin-left: 37%;
+	margin-top: 68px;
 }
 
 .AppKitchen {
@@ -81,10 +82,9 @@
 	margin-bottom: 1vh;
 	height: 272px;
 	filter: drop-shadow(0 0 0.45rem rgb(17, 17, 17));
+	overflow: auto;
 }
-.Cl:hover {
-	background-color: rgb(19, 20, 20);
-}
+
 .section {
 	display: flex;
 	flex-wrap: wrap;
@@ -103,3 +103,72 @@
 .tble {
 	margin-left: 34px;
 }
+
+/*********************MenuHamburger*********************/
+
+#check {
+	display: none;
+}
+
+#icone {
+	cursor: pointer;
+	padding: 15px;
+	position: absolute;
+	z-index: 1;
+}
+
+.menuLateral {
+	background-color: transparent;
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	transition: all .2s linear;
+	left: -300px;
+	margin-top: 50px;
+	outline: none;
+}
+
+nav {
+	width: 100%;
+	position: absolute;
+	top: 60px;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+.link {
+	background-color: rgb(41, 39, 39);
+	font-family: Arial, Helvetica, sans-serif;
+	transition: all .2s linear;
+	color: #f4f4f9;
+	border-bottom: 1px solid rgb(63, 62, 62);
+	height: 30px;
+	padding-left: 70px;
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
+}
+
+.link:hover {
+	background-color: #ffde59;
+	color: black;
+}
+
+#check:checked ~ .menuLateral {
+	transform: translateX(300px);
+}
+
+#check:checked ~ .menuLateral nav a .link {
+	opacity: 5;
+	margin-top: 0;
+	transition-delay: .2s;
+}
+
+.btn-burguer {
+	width: 60px;
+	margin: 20px;
+}
+/*********************MenuHamburger*********************/
