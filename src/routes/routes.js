@@ -1,11 +1,11 @@
 import React from 'react'
-import { SignUp } from './pages/Signup/index'
-import { Login } from './pages/Login/index'
-import { NewOrder } from './pages/NewOrder/index'
-import { StatusOrder } from './pages/StatusOrder/index'
-import {OrderInfo} from './components/OrderInfo'
-import ClientInfo from './components/ClientInfo/ClientInfo'
 import { Switch, Route } from 'react-router-dom'
+import { Login } from '../pages/login/login'
+import { SignUp } from '../pages/signup/signup'
+import { NewOrder } from '../pages/hall/new-order/new-order'
+import ClientInfo from '../components/hall-components/client-info/client-info'
+import { StatusOrder } from '../pages/status-order/status-order'
+import { OrderInfo } from '../components/generic-components/order-info/order-info'
 
 export const Routes = () => {
   return (

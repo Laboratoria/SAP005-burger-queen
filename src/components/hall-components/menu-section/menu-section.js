@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import MenuItens from '../menu-itens/menu-itens'
+import MenuItens from '../menu-items/menu-items'
 import './menu-section.css'
 
 export default function MenuSection({
