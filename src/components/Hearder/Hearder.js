@@ -1,18 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Typography, Toolbar} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Typography, Toolbar} from '@material-ui/core';
+import { makeStyles, withStyles  } from '@material-ui/core/styles';
 import logoNav from './img/logoNav.png';
 import './Hearder.css';
-
+import TextField from '@material-ui/core/TextField';
 
 //               menu hamburguer
 //document.querySelector('.hamburger-menu').addEventListener('click', () => {
   //document.querySelector('.nav-wrapper').classList.toggle('change');
 //});
-
-
-
 
 
 export const useStyles = makeStyles((theme) => ({
@@ -30,9 +27,8 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: '30px',
-    padding: '30px',
-   
     marginBottom: '20px',
+    
 
   },
   HallConteiner:{
@@ -43,116 +39,27 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-   
-},
+ },
 
   margin: {           
     margin: theme.spacing(1),
-  },
-  paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  paperTable: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: 0,
-    textAlign: 'center', 
-  },
-  submitHall: {
-    fontSize: '1rem',
-    height: '20vh',
-    width: '40vw',
-    margin: theme.spacing(4, 2, 2),
-    backgroundColor: theme.palette.warning.dark,
-    color: '#fafafa'
-  },
-  submitMenuType: {
-    fontSize: '1rem',
-    height: '10vh',
-    width: '20vw',
-    margin: theme.spacing(4, 2, 2),
-    backgroundColor: theme.palette.warning.dark,
-    color: '#fafafa'
-  },
-  
-  inputTableName: {
-    fontSize: '1rem',
-    height: '5vh',
-    width: '40vw',
-    margin: theme.spacing(3, 2, 2),
-    backgroundColor: theme.palette.text.primary,
-    color: '#C9CDCB'
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    backgroundColor: theme.palette.text.primary,
-    color: '#fafafa'
-  },
-  submitMenu: {
-    display:'inline',
-    margin: theme.spacing(2, 0, 0),
-    backgroundColor: theme.palette.text.primary,
-    color: '#fafafa',
-  },
-  submitMenuItems: {
-    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 68,
-    width:390,
-    paddingTop: '20px',
-    marginTop:'2px',
-    paddingRight:'5px',
-    marginLeft:'16px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    display: 'flex',
-    justifyContent: 'center',
   },
   
   logoComponent: {   //Okay
     maxWidth: 80,
   },
-  arrow:{
-    margin: 25,
-    paddingRight:'80vw',
-    color: theme.palette.text.primary,
-  },
-  totalProducts: {
-    paddingRight:'100px',
-  },
-
-  toolbar: {   //Okay
+    toolbar: {   //Okay
     flexWrap: 'wrap',
     top: '0',
     backgroundColor: '#ce5f18',
     width: '100%',
     display: 'flex',
   },
-  toolbarTitle: {
-    flexGrow: 1,
-   
-  },
+  
   link: {
     margin: theme.spacing(1, 1.5),
   },
-  rootMenu: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-  },
-
+  
   Footer: {               //Okay
     position: 'fixed',
     width: '100%',
@@ -161,11 +68,32 @@ export const useStyles = makeStyles((theme) => ({
     color: '#000000',
     textAlign: 'center',
   },
-
-
-
   
 }));
+
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'green',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
+    },
+  },
+})(TextField);
+
+
 // Logo Tipo
 export function LogoNav () {
   const classes = useStyles();
@@ -174,7 +102,7 @@ export function LogoNav () {
   )
 }
 
-// Logo Tipo
+// Menu Hamb
 export function MenuHamb () {
   const classes = useStyles();
   const localStorageClear  = async () => {
@@ -204,7 +132,7 @@ export function MenuHamb () {
 }
 
 
-
+// Menu inteiro superior
 export function HallConteiner () {
   const classes = useStyles();
   return ( 
@@ -213,27 +141,50 @@ export function HallConteiner () {
 }
 
 
-//
+//Menu Superior
 export function NavBar() {
-
-  const classes = useStyles();
-
- 
-  
-  return (
-   < div> 
-    <Toolbar className={classes.toolbar}>
+ const classes = useStyles();
+   return (
+     <Toolbar className={classes.toolbar}>
         <LogoNav/>
         <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
        novo do funcionario
        <MenuHamb> </MenuHamb>
         </Typography>
-
-      </Toolbar>
-      </div>
+              </Toolbar>        
   )
 }
 
+//Footer (rodapé)
+export function Customertable() {
+  const classes = useStyles();
+  return ( <div className={classes.containerdelivery}>
+  
+    <div className={classes.customertable}>
+    <Typography component="h1" variant="h4" style={{ paddingRight: '70px', textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+     Cardápio Salão
+     </Typography>
+     <div class="box-data">
+     <Typography component="h1" variant="h5" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+    Nome do Cliente
+     </Typography>
+     <CssTextField className={classes.margin} label="Nome do Cliente" type="text" variant="outlined" id="custom-css-outlined-input"  />
+     <Typography component="h1" variant="h5" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+    Mesa
+     </Typography>
+
+    <CssTextField className={classes.margin} label="Número da Mesa" type="number"  min="1" max="999" variant="outlined" id="custom-css-outlined-input-numer"  />
+     </div>
+  </div>
+  
+ </div>
+  );
+}
+
+
+
+
+//Footer (rodapé)
 export function Copyright() {
   const classes = useStyles();
   return (
@@ -243,3 +194,8 @@ export function Copyright() {
       </footer>
   );
 }
+
+
+
+
+

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Hall.css';
-import { Copyright, NavBar, useStyles, HallConteiner } from "../../components/Hearder/Hearder.js";
-import { AppBar, Typography, Toolbar } from '@material-ui/core';
+import { Copyright, NavBar, useStyles, Customertable } from "../../components/Hearder/Hearder.js";
+import { Typography, Toolbar } from '@material-ui/core';
 //import Grid from '@material-ui/core/Grid';
 //import Input from '@material-ui/core/Input'; 
 //import { Link } from 'react-router-dom';
@@ -81,6 +81,7 @@ const Hall = () => {
     const productsDrinks = list.filter(itens => itens.sub_type === ('drinks'));
     setListMap(productsDrinks);
   }
+  
   const addItems = (product) => {
     setTotalOrder([...totalOrder, product]);
     setProductsPrices([...productsPrices, product.price]);
@@ -119,24 +120,12 @@ const Hall = () => {
   };
   return (
    
-    <div>
+    <div className={classes.HallConteiner}>
        <NavBar />
-    <div className={classes.containerdelivery}>
-     
-           <div className={classes.customertable}>
-      <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
-          Cardápio Salão
-    </Typography>
-          <div class="box-data">
-            <input class="input name-input" type="text" placeholder="Nome"/>
-              <div class="data-table"><h1 class="text">MESA</h1>
-                <input class="input table-input" placeholder="Mesa" type="number"/>
-              </div>
-          </div>
-      </div>
-      <Copyright />
-          </div>
-          </div>
+       <Customertable/>
+       <Copyright />
+          
+    </div>
   )
 };
 
