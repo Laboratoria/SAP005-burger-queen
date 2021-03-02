@@ -8,7 +8,6 @@ export default function OrderInfo({
   tableNumber,
   clientName,
   buttonNameStatus,
-  onClickStatus,
   buttonNameAddStatus,
   onClickAddStatus,
   orderItems
@@ -23,7 +22,6 @@ export default function OrderInfo({
             name={buttonNameStatus}
             className='btn-order-info'
             type='button'
-            onClick={onClickStatus}
           />
         </div>
         <main className='container-list-products'>
@@ -32,6 +30,7 @@ export default function OrderInfo({
               <ListOrderItems
                 itemName={item.name}
                 itemQuantity={item.qtd}
+                key={index}
               />
             )
           }

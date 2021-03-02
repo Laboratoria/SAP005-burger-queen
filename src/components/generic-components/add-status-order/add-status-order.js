@@ -4,19 +4,25 @@ import './add-status-order.css'
 
 export default function AddStatusOrder({
   statusTitle,
+  orders
 }) {
   return (
     <Fragment>
       <section>
         <h1 className='title-add-status'>{statusTitle}</h1>
-        <OrderInfo
-          tableNumber=''
-          clientName=''
-          buttonNameStatus=''
-          onClickStatus=''
-          buttonNameAddStatus=''
-          onClickAddStatus=''
-        />
+        {orders.map((order, index) => {
+          return (
+            <OrderInfo
+              tableNumber={order.table}
+              clientName={order.client_name}
+              buttonNameStatus={order.status}
+              buttonNameAddStatus=''
+              onClickAddStatus=''
+              key={index}
+            />
+          )
+        }
+        )}
       </section>
     </Fragment>
   )
