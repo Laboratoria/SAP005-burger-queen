@@ -4,9 +4,6 @@ import Input from '@material-ui/core/Input';
 import {Copyright, useStyles, NavBar, NewTaskInput, ListItem} from '../../components.js';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { SettingsEthernetTwoTone } from '@material-ui/icons';
-
-
 
 const Menu = () => {
   const classes = useStyles();
@@ -47,8 +44,6 @@ const Menu = () => {
   const [order, setOrder] = useState({});
   const [productsPrices, setProductsPrices] = useState([]);
   const [totalOrder, setTotalOrder] = useState([]);
- 
-
   
   const setOrderItem = (product) => {
 
@@ -91,6 +86,7 @@ const Menu = () => {
       })
     }).then((response) => console.log(response.json()))
     .then(() => setTotalOrder([])
+    .then(localStorage.removeItem('orderList'))
     )
   }
 
@@ -118,13 +114,11 @@ const Menu = () => {
         {totalOrder.map((product, index) => (
             <div key={index}>
               
-              <span>1 {product.name} </span>
+              <span>{product.name} </span>
               <span>{product.flavor === 'null' ? '' : product.flavor} </span>
               <span>{product.complement === 'null' ? '' : product.complement }</span>
               <span> R$ {product.price},00  </span>
-              <span>
-                <span style={{ cursor: 'pointer' }} type='button' >🗑</span>
-              </span>
+              <span style={{ cursor: 'pointer' }} type='button' >🗑</span>
             </div>
           ))} 
         
