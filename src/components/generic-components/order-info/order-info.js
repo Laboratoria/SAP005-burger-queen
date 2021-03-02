@@ -1,42 +1,52 @@
-import { Fragment } from 'react'
-import { FaUserAlt } from 'react-icons/fa'
-import { getOrders } from '../../../services/services'
-import Navbar from '../navbar/navbar'
-import Footer from '../footer/footer'
-//import Button from '../button/button'
+import React, { Fragment } from 'react'
+import { FaUserAlt } from 'react-icons/fa';
+import ListOrderItems from '../list-order-items/list-order-items'
+import Button from '../button/button'
 import './order-info.css'
 
-export const OrderInfo = () => {
-
+export default function OrderInfo({
+  tableNumber,
+  clientName,
+  buttonNameStatus,
+  onClickStatus,
+  onClickAddStatus,
+  buttonNameAddStatus,
+  orderItems
+}) {
   return (
     <Fragment>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <section className='card-order-info'>
+      <section className='container-order-info'>
+        <h1 className='order-table-number'>Mesa: {tableNumber}</h1>
+        <h2 className='order-client-name'><FaUserAlt className='icon-client' />{clientName}</h2>
+        <div className='container-btn-order-info'>
+          <Button
+            name={buttonNameStatus}
+            className='btn-order-info'
+            type='button'
+            onClick={onClickStatus}
+          />
+        </div>
+        <main className='container-list-products'>
+          {orderItems.map((item, index) => {
+            return (
+              <ListOrderItems
+                itemName={item.name}
+                itemQuantity={item.qtd}
+              />
+            )
+          }
+          )}
+        </main>
+        <div className='container-btn-order-info'>
+          <Button
+            name={buttonNameAddStatus}
+            className='btn-order-info'
+            type='button'
+            onClick={onClickAddStatus}
+          />
+        </div>
+      </section>
 
-          <p className='order-status'>{getOrders.status}</p>
-
-          <div className='order-info'>
-            <p className='table'>Mesa:{getOrders.table}</p>
-            < FaUserAlt className='icon' /> <p className='client-name'>{getOrders.client_Name}</p>
-            <div className='order-products'>
-              <p className='products-name'>{getOrders.products.qtd}</p>
-              <p className='products-price'>{getOrders.products.name}</p>
-            </div>
-            {/* <Button>
-          name='delivery'
-          className='btn-order'
-          type='submit'
-          onClick={}
-        </Button> */}
-          </div>
-
-        </section>
-
-      </main>
-      <Footer />
     </Fragment>
   )
 }
