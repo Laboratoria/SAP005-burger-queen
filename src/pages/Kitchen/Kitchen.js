@@ -74,58 +74,95 @@ export const Kitchen = () => {
 
   return (
     <div>
-      <h1>Pedidos</h1>
-      {pendingOrders.map((order) => {
-        return (
-          <table key={order.id} className="kitchen-orders" >
-            <tbody>
-              <tr>
-                <th>Pedido nº {order.id}</th>
-                <th>Cliente: {order.client_name}</th>
-                <th>Mesa: {order.table}</th>
-                <th>
-                  Status:
+      <>
+        <h1>Pedidos Pendentes</h1>
+        {pendingOrders.map((order) => {
+          return (
+            <table key={order.id} className="kitchen-orders" >
+              <tbody>
+                <tr>
+                  <th>Pedido nº {order.id}</th>
+                  <th>Cliente: {order.client_name}</th>
+                  <th>Mesa: {order.table}</th>
+                  <th>
+                    Status:
                   {order.status
-                    .replace('pending', 'Pendente')
-                    .replace('preparing', 'Preparando')}
-                </th>
-              </tr>
-              <tr>
-                <th>Qtde</th>
-                <th>Ítem</th>
-                <th>Complemento</th>
-                <th>Adicionais</th>
-              </tr>
-
-              {order.Products.map((items, index) => (
-                <tr key={index}>
-                  <td>{items.qtd}</td>
-                  <td>{items.name}</td>
-                  <td>{items.flavor === 'null' ? '' : items.flavor}</td>
-                  <td>{items.complement === 'null' ? '' : items.complement}</td>
+                      .replace('pending', 'Pendente')}
+                  </th>
                 </tr>
-              ))}
-              <tr>
-                <th>
-                  <button
-                    className="prepare-btn"
-                    onClick={() => handlePrepare(order)}>
-                    Preparar Pedido
-                  </button>
-                </th>
+                <tr>
+                  <th>Qtde</th>
+                  <th>Ítem</th>
+                  <th>Complemento</th>
+                  <th>Adicionais</th>
+                </tr>
 
-                <th>
-                  <button 
-                    className="finish-btn"
-                    onClick={() => handleFinish(order)}>
-                    Pedido Pronto
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
-        );
-      })}
+                {order.Products.map((items, index) => (
+                  <tr key={index}>
+                    <td>{items.qtd}</td>
+                    <td>{items.name}</td>
+                    <td>{items.flavor === 'null' ? '' : items.flavor}</td>
+                    <td>{items.complement === 'null' ? '' : items.complement}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <th>
+                    <button
+                      className="prepare-btn"
+                      onClick={() => handlePrepare(order)}>
+                      Preparar Pedido
+                    </button>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          )
+        })}
+
+        <h1>Pedidos em Andamento</h1>
+        {preparingOrders.map((order) => {
+          return (
+            <table key={order.id} className="kitchen-orders" >
+              <tbody>
+                <tr>
+                  <th>Pedido nº {order.id}</th>
+                  <th>Cliente: {order.client_name}</th>
+                  <th>Mesa: {order.table}</th>
+                  <th>
+                    Status:
+                  {order.status
+                      .replace('preparing', 'Preparando')}
+                  </th>
+                </tr>
+                <tr>
+                  <th>Qtde</th>
+                  <th>Ítem</th>
+                  <th>Complemento</th>
+                  <th>Adicionais</th>
+                </tr>
+
+                {order.Products.map((items, index) => (
+                  <tr key={index}>
+                    <td>{items.qtd}</td>
+                    <td>{items.name}</td>
+                    <td>{items.flavor === 'null' ? '' : items.flavor}</td>
+                    <td>{items.complement === 'null' ? '' : items.complement}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <th>
+                    <button
+                      className="finish-btn"
+                      onClick={() => handleFinish(order)}>
+                      Pedido Pronto
+                    </button>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          )
+        })}
+      </>
     </div>
   )
 };
