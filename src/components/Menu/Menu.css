@@ -7,6 +7,28 @@
   align-content: stretch;
 }
 
+.select-Table {
+  width: 140px;;
+  height: 50px;
+  position: absolute;
+  right: 230px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 30px;
+  color: #F8CB00;
+  background-color: #000;
+}
+
+.select-Table select:hover,
+select:focus,
+select:active {
+  background-color: #f8cb00;
+  transition: 0s;
+  font-size: 16px;
+  color: #000;
+}
+
 .btn-menu {
   display: flex;
   flex-direction: column;
@@ -39,10 +61,10 @@
 
 .container-order {
   position: absolute;
-  width: 450px;
+  width: 400px;
   height: 370px;
   left: 60px;
-  top: 650px;
+  top: 800px;
   border-radius: 10px;
   background: #fff;
   font-size: 18px;
@@ -118,6 +140,12 @@
 	right: 100px;
 }
 
+/* .item-main-right{
+  position: absolute;
+  left: 10px;
+  top: 20px;
+} */
+
 .breakfast {
 	display: flex;
 	flex-direction: column;
@@ -125,22 +153,24 @@
 	justify-content: space-around;
 	align-items: baseline;
 	list-style-type: none;
+  
 }
 
-.list-menu-breakfast {
+.list-menu-breakfast, .list-menu-allDay {
 	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 	margin-top: 10px;
 	margin-right: 10px;
-	font-size: 18px;
+	font-size: 28px;
 	font-weight: bold;
 	position: relative;
-    left: 60px
-
+  left: 290px;
+  top: 40px;
 }
+
 .icon-button-add, .icon-button-delete {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-left: 10px;
 }
 

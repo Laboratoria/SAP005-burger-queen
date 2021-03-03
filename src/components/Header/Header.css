@@ -19,9 +19,9 @@
 .welcome-header {
   width: 273px;
   position: absolute;
-  left: 30px;
-  top: 50px;
-  font-size: 30px;
+  left: 50px;
+  top: 40px;
+  font-size: 33px;
   font-style: normal;
   font-weight: 400;
   text-align: center;
@@ -39,28 +39,6 @@
   align-items: baseline;
   position: absolute;
   right: 100px;
-}
-
-.select-Table {
-  width: 140px;;
-  height: 50px;
-  position: absolute;
-  right: 230px;
-  border: none;
-  border-radius: 20px;
-  margin-right: 10px;
-  font-size: 30px;
-  color: #F8CB00;
-  background-color: #000;
-}
-
-.select-Table select:hover,
-select:focus,
-select:active {
-  background-color: #f8cb00;
-  transition: 0s;
-  font-size: 16px;
-  color: #000;
 }
 
 /* .item-nameCustomer {
@@ -82,6 +60,8 @@ select:active {
 .item-btn-myOrder {
 width: 230px;
 height: 50px;
+position: absolute;
+left: 5px;
 font-size: 30px;
 font-weight: bold;
 background: #F8CB00;
@@ -90,22 +70,10 @@ border-radius: 50px;
 
 .item-icon-logout {
     position: absolute;
-    left: 250px;
-    bottom: 5px;
-    width: 60px;
-    height: 60px;
+    left: 260px;
+    width: 65px;
+    height: 65px;
     margin-left: 10px;
    
 }
-/* .welcome-logo {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content:flex-end;
-    align-items: baseline;
-    align-items: flex-start;
-    width: 40%;
-    margin-top: 50px;
-    margin-left: 50px;
-} */
 

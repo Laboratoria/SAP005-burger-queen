@@ -1,54 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { useHistory } from "react-router-dom";
 import Logout from "../../assets/logout.png";
 
-
 function Header() {
   const user = localStorage.getItem("name");
   const history = useHistory();
-
+ 
   const handleSignOut = (event) => {
     alert("Usuário deslogado");
     localStorage.clear();
     history.push("/");
   };
 
-
-// const [table, setTable] = useState ("")
+  const routerOrderReady = () => {
+    history.push("/OrderReady");
+  };
 
   return (
     <header>
       <div className="header-hall">
         <p className="welcome-header">Bem vindo, {user}!!</p>
-        {/* <img className="logo-header" src={Logo} alt="icon-logo"/>     */}
-
         <div className="form-header">
-          {/* <select className="select-table" name="tables" id="tables" onChange={(e) => setTable(e.target.value)}>
-            <option value="table1">Mesa 01</option>
-            <option value="table2">Mesa 02</option>
-            <option value="table3">Mesa 03</option>
-            <option value="table4">Mesa 04</option>
-            <option value="table5">Mesa 05</option>
-            <option value="table6">Mesa 07</option>
-            <option value="table6">Mesa 08</option>
-            <option value="table6">Mesa 09</option>
-            <option value="table6">Mesa 10</option>
-          </select> */}
-
-
-          <div className="container-nameCustomer">
-            {/* <input
-              className="item-nameCustomer"
-              type="text"
-              id="nome"
-              placeholder="Nome do Cliente"
-            /> */}
-          </div>
-
           <div className="container-btn-myOrder">
-            <button className="item-btn-myOrder" type="submit">
-
+            <button
+              className="item-btn-myOrder"
+              type="submit"
+              onClick={() => {
+                routerOrderReady();
+              }}
+            >
               {" "}
               Meus Pedidos
             </button>
