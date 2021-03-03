@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import { useHistory } from "react-router-dom";
 import Logout from "../../assets/logout.png";
-// import Input from "../../components/Input/Input.js"
+
 
 function Header() {
   const user = localStorage.getItem("name");
