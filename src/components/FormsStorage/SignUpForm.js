@@ -1,15 +1,112 @@
 import React,{useState}  from 'react';
-import '../App.css';
-import './SignUpForm.css';
+import '../../../src/App.css';
+import {FormsContainer} from '../FormsStorage/FormsContainer';
+import {Forms} from '../FormsStorage/Forms';
+import {Inputs} from '../FormsStorage/Inputs';
+import {FormsButton} from '../FormsStorage/FormsButtons';
+//import './SignUpForm.css';
 import {yupResolver}  from '@hookform/resolvers/yup';
-import schema from './ValidationSingUp';
+import schema from '../ValidationStorage/ValidationSingUp';
 import { useForm } from 'react-hook-form';
-import Logo from './Logo';
+import Logo from '../LogoStorage/Logo';
 import {useHistory} from 'react-router-dom'
 
 
 
-function SignUpForm() {
+export const SignUpForm= ()=> {
+    const {register, handleSubmit, errors} = useForm({
+        mode: 'onBlur',
+        resolver: yupResolver(schema),
+    });
+    const [nome, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState('');
+    
+    const history = useHistory();
+    const routerHall=()=>{
+        history.push('/hall')
+    }
+    const routerKitchen=()=>{
+        history.push('/kitchen')
+    }
+
+    const onSubmit = ()=>{
+        alert('Sucesso, nenem');
+    }
+    
+    const data=()=>{
+        fetch('https://lab-api-bq.herokuapp.com/users', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'accept': 'application/json'
+                    },
+            body: `email=${email}&password=${password}&role=${role}&restaurant=subsolo&name=${nome}`
+            })
+            .then((response) => response.json())
+            .then((json)=> {
+            const token = json.token    
+            const tokenUser = localStorage.setItem("token", token)
+            if(tokenUser!== null && json.role === "hall") {
+                routerHall()
+            }
+            if(tokenUser!== null && json.role === "kitchen") {
+                routerKitchen()
+                }
+            })
+    }
+    return(
+        <FormsContainer>
+            <Logo/>
+            <Forms onSubmit={handleSubmit(onSubmit)}>
+                <Inputs
+                    onChange={(event) => setName(event.target.value)}
+                    value={nome}
+                    type='text'
+                    id='name' 
+                    name='name' 
+                    ref={register}
+                    label='Name'
+                    helperText={errors.name?.message}
+                />
+                <Inputs
+                    onChange={(event) => setEmail(event.target.value)}
+                    value={email}
+                    type='text'
+                    id='email' 
+                    name='email' 
+                    ref={register}
+                    label='Email'
+                    helperText={errors.email?.message}
+                />
+                <Inputs
+                    onChange={(event) => setPassword(event.target.value)}
+                    value={password}
+                    type='password' 
+                    id='password'
+                    name='password' 
+                    ref={register}
+                    label='Senha'
+                    helperText={errors.password?.message}
+                />
+                <select 
+                    onChange={(event) => setRole(event.target.value)}
+                    value={role}
+                    name='role' 
+                    ref={register}
+                    >
+                    <option value=''>Cargo</option>
+                    <option value='kitchen'>Cozinha</option>
+                    <option value='hall'>Salão</option>
+                </select>
+                <FormsButton onClick={()=>{data();}}>Cadastrar</FormsButton>
+            </Forms>
+        </FormsContainer>
+    );
+};
+
+/*function SignUpForm() {
     const history = useHistory()
 
     const routerHall=()=>{
@@ -138,4 +235,4 @@ function SignUpForm() {
     </div>
     );
 }
-    export default SignUpForm;
+    export default SignUpForm; */

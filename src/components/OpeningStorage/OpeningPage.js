@@ -1,6 +1,7 @@
 import React from 'react';
-import '../App.css';
-import './OpeningPage.css';
+import '../../../src/App.css';
+import '../OpeningStorage/OpeningPage.css';
+
 
 
 
