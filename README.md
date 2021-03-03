@@ -7,15 +7,12 @@
 ___
 ## Índice
 
-- [1. Introdução](#1-Introdução)
-- [2. Histórias de Usuario](#2-Histórias-de-Usuários)
-- [3. Planejamento e Organização](#3-planejamento-e-organização)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker Edition](#6-hacker-edition)
-- [7. Dicas e leituras complementares](#7-dicas-e-leituras-complementares)
-- [8. Checklist](#8-checklist)
+- [Introdução](#Introdução)
+- [Histórias de Usuario](#Histórias-de-Usuários)
+- [Funcionalidades](#Funcionalidades)
+- [Planejamento e Organização](#Planejamento-e-Organização)
+- [Pré Requisitos](#Pré-Requisitos)
+- [Tecnologias utilizadas](#Tecnologias-utilizadas)
 
 ---
 
@@ -26,14 +23,14 @@ ___
 
 ---
 
-### 1. Introdução
+### Introdução
 
 A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/SAP005-burger-queen), o Burguer Queen. Desenvolvemos em dupla uma aplicação 100% por demanda para suprir de forma ordenada e eficiente as histórias de usuário de um restaurante. Desenvolvemos uma aplicação de gestão, onde a interface é sincronizada entre os pedidos(realizados através de um Tablet) e a cozinha.
 
 ![gifBela](https://www.hypeness.com.br/1/2021/02/7d47e737-bela-e-a-fera-comidas.gif)
 
 
-### 2. Histórias de Usuários
+### Histórias de Usuários
 
 As Histórias de usuário foram fornecidas por um fast food em expansão, e seguem abaixo:
 
@@ -48,31 +45,39 @@ produto e poder enviar o pedido para a cozinha para ser preparado.
 
 ## Funcionalidades
 
-HU 1: Criar perfil
+#### 1: Criar perfil
 
-[x] Poder realizar cadastro com e-mail, senha e função.
- Poder realizar login com e-mail e senha.
- Redirecionar para a tela correta.
-HU 2: Anotar pedidos
- Digitar o nome do cliente e mesa.
- Filtrar menu para café da manhã e almoço/jantar.
- Adicionar item ao pedido.
- Excluir item do pedido.
- Mostrar resumo do pedido com todos os itens e o total.
- Enviar para a cozinha (isso deve salvar o pedido).
-HU 3: Ver pedidos na cozinha
- Visualizar pedidos pendentes para produção.
- Marcar pedido como pronto para entrega.
- Ver histórico dos pedidos.
-HU 4: Entrega de pedidos
- Visualizar pedidos pendentes para entrega.
- Marcar pedido como entregue ao cliente.
-UX
- Funciona bem em tablets.
- Fácil utilização em telas sensíveis ao toque.
- Status atual do pedido sempre visível enquanto fazemos um pedido.
+- [x] Poder realizar cadastro com e-mail, senha e função.
+- [x] Poder realizar login com e-mail e senha.
+- [x] Redirecionar para a tela correta.
 
-## 3. Planejamento e Organização
+#### 2: Anotar pedidos
+
+- [x] Digitar o nome do cliente e mesa.
+- [x] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
+- [x] Adicionar item ao pedido.
+- [x] Excluir item do pedido.
+- [x] Mostrar _resumo_ do pedido com todos os itens e o total.
+- [x] Enviar para a cozinha (isso deve salvar o pedido).
+
+#### 3: Ver pedidos na cozinha
+
+- [x] Visualizar pedidos pendentes para produção.
+- [x] Marcar pedido como pronto para entrega.
+- [x] Ver histórico dos pedidos.
+
+#### 4: Entrega de pedidos
+
+- [x] Visualizar pedidos pendentes para entrega.
+- [x] Marcar pedido como entregue ao cliente.
+
+### UX
+
+- [x] Funciona bem em tablets.
+- [x] Fácil utilização em telas sensíveis ao toque.
+- [x] Status atual do pedido sempre visível enquanto fazemos um pedido.
+
+## Planejamento e Organização
 📌Organização
 
 Ao recebermos esse projeto, definimos as sprints de acordo com cada historia de usuario. Utilizando o método Kanban organizado através do [Trello](https://trello.com/pt-BR)
@@ -97,7 +102,7 @@ Desenvolvemos o wireframe para ser amigável ao usuário e de fácil compreensã
 
 ![Paleta](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c550785833f2f8c4e9800/cd001c684e990df6706e9906e4ca5a8b/AdobeColor-burguer-queen.jpeg)
 
-## 4. Pré requisitos
+## Pré Requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
@@ -113,7 +118,7 @@ $ npm install
 $ npm run start
 - A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
-## 5. Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/)
