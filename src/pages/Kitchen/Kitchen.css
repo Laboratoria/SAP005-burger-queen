@@ -1,10 +1,20 @@
-
-
 .kitchen-orders {
     background-color: #fff;
     border:solid 2px grey; 
     margin-left: 5em;
     margin-right: 5em;
     margin-top: 20px;
+}
 
+.prepare-btn, 
+.finish-btn {
+    border: solid 2px #fff;
+    border-radius: 3rem;
+    background-color: green;
+    padding: 0.9rem 1.9rem;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 2em;
 }

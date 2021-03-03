@@ -4,8 +4,7 @@ import './Kitchen.css';
 export const Kitchen = () => {
   let token = localStorage.getItem('token');
   const [pendingOrders, setPendingOrders] = useState([])
-  const [progressOrders, setProgressOrders] = useState([])
-  // const [loading, setLoading] = useState(true);
+  const [preparingOrders, setPreparingOrders] = useState([])
 
   const ordersList = () => {
     fetch('https://lab-api-bq.herokuapp.com/orders', {
@@ -22,9 +21,8 @@ export const Kitchen = () => {
         if (data) {
           const allOrders = data;
           setPendingOrders(allOrders.filter((order) => order.status.includes("pending")))
-          setProgressOrders(allOrders.filter((order) => order.status.includes("preparing")))
+          setPreparingOrders(allOrders.filter((order) => order.status.includes("preparing")))
         }
-        // setLoading(false)
       })
   };
 
@@ -34,7 +32,7 @@ export const Kitchen = () => {
 
 
   console.log(pendingOrders)
-  console.log(progressOrders)
+  console.log(preparingOrders)
 
   const handlePrepare = (order) => {
     const url = 'https://lab-api-bq.herokuapp.com/orders/';
@@ -45,7 +43,26 @@ export const Kitchen = () => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `${token}`,
+        'Authorization': `${token}`,
+      },
+      body: JSON.stringify(status),
+    }).then((response) => {
+      response.json().then(() => {
+        ordersList();
+      });
+    });
+  };
+
+  const handleFinish = (order) => {
+    const url = 'https://lab-api-bq.herokuapp.com/orders/';
+    const id = order.id;
+    const status = { status: 'ready' };
+
+    fetch(url + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
       },
       body: JSON.stringify(status),
     }).then((response) => {
@@ -57,10 +74,10 @@ export const Kitchen = () => {
 
   return (
     <div>
-      <h1>Pedidos Pendentes</h1>
+      <h1>Pedidos</h1>
       {pendingOrders.map((order) => {
         return (
-          <table className="kitchen-orders" key={order.id}>
+          <table key={order.id} className="kitchen-orders" >
             <tbody>
               <tr>
                 <th>Pedido nº {order.id}</th>
@@ -97,14 +114,13 @@ export const Kitchen = () => {
                   </button>
                 </th>
 
-              <h1>Pedidos em Andamento</h1>
-                {/* <th>
+                <th>
                   <button 
                     className="finish-btn"
                     onClick={() => handleFinish(order)}>
-                    FINALIZAR
+                    Pedido Pronto
                   </button>
-                </th> */}
+                </th>
               </tr>
             </tbody>
           </table>
