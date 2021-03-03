@@ -12,11 +12,10 @@ const Kitchen = () => {
     fetch('https://lab-api-bq.herokuapp.com/orders', {
       method: 'GET',
       headers: {
-        'accept': 'application/json',
-        'Authorization': `${token}`,
+        "accept": "application/json",
+        "Authorization": `${token}`,
       },
     })
-
       .then((response) => response.json())
       .then((json) => {
 
@@ -83,7 +82,7 @@ const Kitchen = () => {
 
                   <button className="btn-finish-order"
                     type="submit"
-                    onClick={() => { readyOrders(product.id) }}>
+                    onClick={() => {readyOrders(product.id)}}>
                     Pronto
                   </button>
 
