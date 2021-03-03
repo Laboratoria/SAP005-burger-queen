@@ -1,8 +1,10 @@
 
 import React from 'react';
-import Logo from './img/logo.png';
 import './Auth.css';
 import {useHistory} from 'react-router-dom'
+import { StandardButtonPrincipal2, StandardButtonPrincipal }  from '../../components/StandardButton/buttonRegister';
+import { LogoHome } from '../../components/Logos/Logos.js';
+
 
 
 
@@ -18,13 +20,12 @@ function Home () {
   return (
     <main class="_cjo0m2">
     <article class="_hjfkep">
-      <img src={Logo} className="logo" alt="logo Hello Burguer" />
+    <LogoHome/>
     </article>
     <aside class="_1oez8w8">
       <section class="_1ytio68">
-
-        <button className="btnCad" onClick={routerLogin}>Login</button>
-        <button className="btnCad" onClick={routerRegister}>Cadastrar</button>
+        <StandardButtonPrincipal content="Login" onClick={routerLogin}/>
+        <StandardButtonPrincipal2 content="Cadastrar" onClick={routerRegister}/>
       </section>
     </aside>
   </main>

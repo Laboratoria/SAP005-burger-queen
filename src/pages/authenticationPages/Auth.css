@@ -1,19 +1,4 @@
-body,
-html, .root { 
-    background-color: white;
-    font-family: 'Open Sans', sans-serif; 
-    background-image: url(/src/pages/authenticationPages/img/background.png);
-    background-size: cover;
-    background-position: 50% -344px;
-  }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-  }
-     
-/* Home */
 
 ._cjo0m2 {
     box-direction: normal !important;
@@ -70,28 +55,6 @@ html, .root {
 
   }
 
-.logo {
-    max-width: 55%;
-}
-
-  /* Login */
-
-  .bntRegister {
-    
-      color: white;
-      width: 100%;
-      border: 0;
-      height: 48px;
-      padding: 0 30px;
-      font-size: 1rem;
-      background: linear-gradient(45deg , rgb(206, 95, 24) 30%, #ce5f18 90%);
-      box-shadow: 0 3px 5px 2px rgb(206, 95, 24);
-      margin-top: 0.5rem;
-      margin-left: 0.5rem;
-      border-radius: 3px;
-      margin-top: 4vh;
-   
-  }
 
 /* Register */
 

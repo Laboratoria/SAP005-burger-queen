@@ -5,6 +5,7 @@ import { Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from "@material-ui/lab/Alert";
+import { StandardButton } from '../../components/StandardButton/buttonRegister.js';
 import './Auth.css';
 
 export const Login = () => {
@@ -30,8 +31,6 @@ export const Login = () => {
   const routerRegister=()=>{
     history.push('/Register')
   }
-
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,26 +69,20 @@ export const Login = () => {
 
   return (
     
-      <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh'}}>
+    <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh'}}>
     <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
       Hello Burger
     </Typography>
-    {/*<Typography component="h2" variant="h5" style={{ textAlign: 'center',fontWeight: 'normal', color: 'black', marginTop: '4vh', marginBottom: '2vh', marginLeft: '0.5rem'}}>
-      Bem-vindo(a)!
-  </Typography>*/}
-    {result.status && (
+      {result.status && (
       <Alert severity="error">{result.message}</Alert>
     )}
     <form className={classes.root} noValidate autoComplete="off">
       <TextField error={(result.status === 400 && !email)} id="outlined-basics" label="E-mail" variant="outlined" type="email" required fullWidth value={email} onChange={(event) => setEmail(event.target.value)} />
       <TextField error={(result.status === 400 && !password)} id="outlined-basicss" label="Senha" variant="outlined" type="password" required fullWidth value={password} onChange={(event) => setPassword(event.target.value)} />
-      <button className="bntRegister" type="submit"  onClick={handleSubmit}>LOGIN</button>
-
-      <button className="bntRegister" onClick={routerRegister}>CADASTRAR</button>
-      </form>
- 
-
-    </Container>
+      <StandardButton onClick={(event) => handleSubmit(event)} content="Entrar" />
+      <StandardButton onClick={routerRegister} content="CADASTRAR" />
+    </form>
+  </Container>
   
   )
 };
