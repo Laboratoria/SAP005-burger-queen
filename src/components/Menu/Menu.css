@@ -7,11 +7,6 @@
   align-content: stretch;
 }
 
-.main-left {
-}
-
-
-
 .btn-menu {
   display: flex;
   flex-direction: column;
@@ -22,11 +17,11 @@
 
 .btn-menu-breakfast,
 .btn-menu-allDay {
-  width: 217px;
-  height: 50px;
+  width: 250px;
+  height: 70px;
   position: absolute;
-  right: 490px;
-  font-size: 18px;
+  left: 110px;
+  font-size: 30px;
   background: #f8cb00;
   border-radius: 50px;
   font-weight: bold;
@@ -34,28 +29,72 @@
 
 .btn-menu-allDay {
   position: absolute;
-  top: 270px;
+  top: 480px;
 }
 
 .btn-menu-breakfast {
   position: absolute;
-  top: 190px;
+  top: 360px;
 }
 
 .container-order {
   position: absolute;
-  width: 330px;
-  height: 320px;
-  left: 20px;
-  top: 360px;
+  width: 450px;
+  height: 370px;
+  left: 60px;
+  top: 650px;
   border-radius: 10px;
   background: #fff;
+  font-size: 18px;
 }
 
 .title-order {
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.order-list label {
+  font-size: 25px;
+}
+
+.client-order {
+  font-size: 25px;
+}
+
+.qnt {
+  font-size: 25px;
+}
+
+.button-qtd {
+  height: 30px;
+  width: 40px;
+  font-size: 18px;
+}
+
+.itens {
+  font-size: 25px;
+}
+
+.total {
+  font-size: 25px;
+  position: absolute;
+  bottom: 25px;
+  padding-left: 10px;
+}
+
+.button-clean {
+  width: 180px;
+  height: 40px;
+  position: absolute;
+  left: 260px;
+  top: 320px;
+  font-size: 21px;
+  background: #000;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: bold;  
 }
 
 .btn-send-order {
@@ -69,7 +108,7 @@
   text-align: center;
   padding-top: 1px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .main-right {

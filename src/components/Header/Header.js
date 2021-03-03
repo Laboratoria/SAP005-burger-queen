@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Header.css";
 import { useHistory } from "react-router-dom";
 import Logout from "../../assets/logout.png";
-import Logo from "../../assets/logo.png";
 // import Input from "../../components/Input/Input.js"
 
 function Header() {
@@ -36,6 +35,7 @@ function Header() {
             <option value="table6">Mesa 09</option>
             <option value="table6">Mesa 10</option>
           </select> */}
+
 
           <div className="container-nameCustomer">
             {/* <input

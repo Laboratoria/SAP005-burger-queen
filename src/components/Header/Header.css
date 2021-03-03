@@ -7,6 +7,7 @@
 .header-hall {
   display: flex;
   width: 100%;
+  height: 100px;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -17,10 +18,10 @@
 
 .welcome-header {
   width: 273px;
-  left: 81px;
-  top: 38px;
-  font-family: Roboto, "Helvetica Neue";
-  font-size: 27px;
+  position: absolute;
+  left: 30px;
+  top: 50px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   text-align: center;
@@ -30,22 +31,26 @@
 
 .form-header {
   display: flex;
+  position: absolute;
+  top: 40px;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: baseline;
   position: absolute;
-  right: 70px;
+  right: 100px;
 }
 
 .select-Table {
-  width: 100px;;
+  width: 140px;;
   height: 50px;
+  position: absolute;
+  right: 230px;
   border: none;
   border-radius: 20px;
-  margin-right: 20px;
-  font-size: 18px;
-  color: #fff;
+  margin-right: 10px;
+  font-size: 30px;
+  color: #F8CB00;
   background-color: #000;
 }
 
@@ -54,24 +59,30 @@ select:focus,
 select:active {
   background-color: #f8cb00;
   transition: 0s;
+  font-size: 16px;
+  color: #000;
 }
 
-.item-nameCustomer {
-  width: 150px;
-  height: 50px;
+/* .item-nameCustomer {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  right: 170px;
+  bottom: 2px;
   margin-right: 20px;
   padding-left: 10px;
   background: #ffffff;
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 50px;
-  font-size: 17px;
-}
+  font-size: 22px;
+  font-weight: bold;
+} */
 
 .item-btn-myOrder {
-width: 150px;
+width: 230px;
 height: 50px;
-font-size: 18px;
+font-size: 30px;
 font-weight: bold;
 background: #F8CB00;
 border-radius: 50px;
@@ -79,10 +90,10 @@ border-radius: 50px;
 
 .item-icon-logout {
     position: absolute;
-    left: 445px;
+    left: 250px;
     bottom: 5px;
-    width: 47px;
-    height: 47px;
+    width: 60px;
+    height: 60px;
     margin-left: 10px;
    
 }

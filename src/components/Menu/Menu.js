@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Menu.css";
 import Add from "../../assets/plus.png";
-// import Logo from "../../assets/logo.png";
+import Logotipo from "../../components/Logotipo/Logotipo";
 import Trash from "../../assets/trash.svg"
 
 
@@ -65,7 +65,7 @@ const Menu = () => {
           </div>
       <div className="main">
         <div className="main-left">
-          {/* <Logo /> */}
+          <Logotipo />
           <div className="btn-menu">
             <button
               className="btn-menu-breakfast"
@@ -175,6 +175,7 @@ const Menu = () => {
         <section className="container-order">
                 <p className="title-order">Resumo do Pedido</p>
                 <p className="user-order">Atendente: {user}</p>
+
                 <input className="client-order"
                     type="text"
                     placeholder="Nome do Cliente"
@@ -198,6 +199,7 @@ const Menu = () => {
                                             {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price * item.qtd)}
                                         </label>
                                         <input
+
                                             className="btn-quantity-order"
                                             id="reduce-quantity"
                                             type="button"
@@ -212,7 +214,7 @@ const Menu = () => {
                                                 }
                                             }}
                                         />
-                                        <label>{item.qtd}</label>
+                                        <label className="qnt"> {item.qtd} </label>
                                         <input
                                             className="btn-quantity-order"
                                             id="increase-quantity"
@@ -241,6 +243,7 @@ const Menu = () => {
                                 </>
                             ))}
                         </ul>
+
                         <p className="total-order">TOTAL: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
                         <section className="send-order">
                             <input className="btn-send-order"
@@ -280,6 +283,7 @@ const Menu = () => {
                                 }}
                             />
 
+
                             <input className="btn-clean-order"
                                 type="button"
                                 value="Limpar Pedido"
@@ -291,6 +295,7 @@ const Menu = () => {
                     </>
                 }
             </section>
+            
       </div>
     </>
   );
