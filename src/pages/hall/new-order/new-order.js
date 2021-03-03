@@ -140,95 +140,97 @@ export const NewOrder = () => {
             </div>
           </div>
         </div>
+        <div className='container-new-order'>
+          <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide section-breakfast'}>
+            <div className='div-container-menu-section'>
+              <MenuSection
+                menuSectionTitle='Lanches'
+                products={products.filter((product) => product.name === 'Misto quente')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
+                }
+              />
 
-        <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide section-breakfast'}>
-          <div className='div-container-menu-section'>
-            <MenuSection
-              menuSectionTitle='Lanches'
-              products={products.filter((product) => product.name === 'Misto quente')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
+              <MenuSection
+                menuSectionTitle='Bebidas'
+                products={products.filter(product => product.name !== 'Misto quente' && product.type === 'breakfast')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
                 }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Bebidas'
-              products={products.filter(product => product.name !== 'Misto quente' && product.type === 'breakfast')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
+              />
+            </div>
+          </section>
+          <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide section-all-day'}>
+            <div className='div-container-menu-section'>
+              <MenuSection
+                menuSectionTitle='Hambúrgueres'
+                products={
+                  products.filter((product) => product.id === 33 || product.id === 42)
                 }
-              }
-            />
-          </div>
-        </section>
-        <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide section-all-day'}>
-          <div className='div-container-menu-section'>
-            <MenuSection
-              menuSectionTitle='Hambúrgueres'
-              products={
-                products.filter((product) => product.id === 33 || product.id === 42)
-              }
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  const productId = event.target.attributes['id'].value
-                  setBurgerType(productId === '33' ? 'simples' : 'duplo')
-                  setShowModal(true)
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    const productId = event.target.attributes['id'].value
+                    setBurgerType(productId === '33' ? 'simples' : 'duplo')
+                    setShowModal(true)
+
+                  }
+                }
+              />
+              <MenuSection
+                menuSectionTitle='Acompanhamentos'
+                products={products.filter((product) => product.sub_type === 'side')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
 
                 }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Acompanhamentos'
-              products={products.filter((product) => product.sub_type === 'side')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
+              />
+              <MenuSection
+                menuSectionTitle='Bebidas'
+                products={products.filter((product) => product.sub_type === 'drinks')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
                 }
+              />
+            </div>
+          </section>
 
+          <OrderSection
+            items={orderItems}
+            plus={
+              (event) => {
+                event.preventDefault()
+                incrementQuantity(event)
               }
-            />
-            <MenuSection
-              menuSectionTitle='Bebidas'
-              products={products.filter((product) => product.sub_type === 'drinks')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
-                }
-              }
-            />
-          </div>
-        </section>
-
-        <OrderSection
-          items={orderItems}
-          plus={
-            (event) => {
-              event.preventDefault()
-              incrementQuantity(event)
             }
-          }
 
-          minus={
-            (event) => {
-              event.preventDefault()
-              decrementQuantity(event)
+            minus={
+              (event) => {
+                event.preventDefault()
+                decrementQuantity(event)
+              }
             }
-          }
 
-          remove={
-            (event) => {
-              event.preventDefault()
-              deleteOrderItem(event)
+            remove={
+              (event) => {
+                event.preventDefault()
+                deleteOrderItem(event)
+              }
             }
-          }
-        />
+          />
+        </div>
         <ReactModal
           className='modal'
           isOpen={showModal}

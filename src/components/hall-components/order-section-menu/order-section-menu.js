@@ -23,6 +23,7 @@ export default function OrderSection({
                   name={item.product_name}
                   price={item.product_price}
                   quantity={item.product_quantity}
+                  classNameIcon='icon-order'
                   plus={plus}
                   minus={minus}
                   remove={remove}

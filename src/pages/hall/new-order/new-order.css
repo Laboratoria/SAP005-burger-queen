@@ -1,10 +1,3 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Work Sans", sans-serif;
-}
-
 body {
 	font-family: "Work Sans";
 	font-size: 16px;
@@ -20,14 +13,13 @@ body {
 .radio-tile-group-menu {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	align-content: center;
 }
 
 .input-container-menu {
 	position: relative;
 	height: 2rem;
-	width: 9rem;
-	margin-left: 1rem;
+	width: 14.9rem;
 	margin-top: 8rem;
 }
 
@@ -49,27 +41,24 @@ body {
 	justify-content: center;
 	width: 100%;
 	height: 100%;
+	border-radius: 7px 7px 0 0;
 	border: 2px solid #ffd34d;
-	border-radius: 0.2rem;
 	padding: 1rem;
-	transition: transform 300ms ease;
+	transition: 0.3s ease;
 	background-color: #fffff0;
 }
 
 .radio-tile-label-menu {
 	text-align: center;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-weight: 600;
+	color: #ffd34d;
 }
 
 .radio-button-menu:checked + .radio-tile-menu {
 	background-color: #ffd34d5b;
 	border: solid 2px #ffd34d;
-	border-radius: 0.2rem;
-	transform: scale(1.1, 1.1);
-}
-.radio-tile-label-menu {
-	color: #ffbf00;
+	border-radius: 7px 7px 0 0;
 }
 
 /* GENERAL STYLING */
@@ -80,21 +69,16 @@ body {
 
 /* MENU STYLING */
 .div-container-menu-section {
+	max-width: 30rem;
+	height: 35rem;
 	position: fixed;
+	margin: 0.2rem auto;
 	background-color: #fff9d4;
-	box-shadow: 0 1px 1px 1px #ece8dc;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
-	width: 30rem;
-	height: 33rem;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	margin-left: 1rem;
-	overflow-x: hidden;
 	overflow-y: scroll;
-	white-space: nowrap;
 }
 
 /* ORDER BUTTON */
@@ -109,6 +93,7 @@ body {
 .btn-cancel {
 	width: 14rem;
 	font-size: 1rem;
+	font-weight: 600;
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 	border: solid 2px;
@@ -129,13 +114,13 @@ body {
 }
 
 .btn-confirm {
-	background-color: #004c54;
-	border-color: #005761;
+	background-color: #056b59;
+	border-color: #056b59;
 }
 
 .btn-confirm:hover {
 	background-color: #fffff0;
-	color: #005761;
+	color: #056b59;
 }
 
 /* SCROLLBAR */
@@ -179,7 +164,7 @@ body {
 	font-weight: 600;
 	font-size: 1rem;
 	text-transform: uppercase;
-	color: #004c54;
+	color: #260101;
 }
 
 .container-modal-option {

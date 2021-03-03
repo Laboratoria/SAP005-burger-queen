@@ -1,13 +1,7 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Work Sans", sans-serif;
-}
-
 .section-container-menu-order {
 	position: fixed;
 	max-width: 30rem;
+
 	margin-left: 35rem;
 	margin-top: 2rem;
 	background-color: #fff9d4;
@@ -44,6 +38,7 @@
 .btn-order-cancel {
 	width: 14rem;
 	font-size: 1rem;
+	font-weight: 600;
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 	border: solid 2px;
@@ -63,11 +58,15 @@
 }
 
 .btn-order-confirm {
-	background-color: #004c54;
-	border-color: #005761;
+	background-color: #056b59;
+	border-color: #056b59;
 }
 
 .btn-order-confirm:hover {
 	background-color: #fff9d4;
-	color: #005761;
+	color: #056b59;
+}
+
+.icon-order {
+	font-size: 1.5rem;
 }
