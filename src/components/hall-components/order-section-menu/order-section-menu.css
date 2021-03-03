@@ -1,9 +1,5 @@
 .section-container-menu-order {
-	position: fixed;
-	max-width: 30rem;
-
-	margin-left: 35rem;
-	margin-top: 2rem;
+	width: 50rem;
 	background-color: #fff9d4;
 }
 

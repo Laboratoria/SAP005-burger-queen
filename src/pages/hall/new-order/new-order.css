@@ -68,16 +68,23 @@ body {
 }
 
 /* MENU STYLING */
+
+.container-new-order {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	background-color: purple;
+}
 .div-container-menu-section {
-	max-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	max-width: 50rem;
 	height: 35rem;
-	position: fixed;
 	margin: 0.2rem auto;
 	background-color: #fff9d4;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
-	display: flex;
-	flex-direction: column;
 	overflow-y: scroll;
 }
 
