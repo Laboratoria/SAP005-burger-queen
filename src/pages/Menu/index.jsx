@@ -30,7 +30,9 @@ const Menu = () => {
     })
     .then(response => response.json())
     .then(data => {
-      setList(data) 
+      const dados = data.map(elem =>  ({...elem, disabled: false}));
+      console.log(dados);
+      setList(dados) 
     })
   }, [tokenLocal])
 
@@ -65,14 +67,24 @@ const Menu = () => {
     const product = e.target.parentNode;
     console.log(product)
 
-    const idProduct = product.getAttribute('id')
+    const idProduct = Number(product.getAttribute('id'))
+    console.log(idProduct)
     const nameProduct = product.getAttribute('name')
     const priceProduct = product.getAttribute('price')
-   
+    const flavorProduct = product.getAttribute('flavor')
+    const complementProduct = product.getAttribute('complement')
+    
+    setListMap(prevListMap => {
+      return prevListMap.map(prevElem => prevElem.id === idProduct ? {...prevElem, disabled: true } : prevElem)
+    })
+
+
     const orderTemplate = {
       id: idProduct,
       name: nameProduct,
       price: priceProduct,
+      flavor: flavorProduct,
+      complement: complementProduct,
       qtd: 1
     }
 
@@ -97,7 +109,7 @@ const Menu = () => {
     console.log(table)
     console.log(client)
     if ( client === undefined || table === undefined )
-     alert('Preencha os campos corretamente')
+    alert('Preencha os campos corretamente')
     else {
       sendOrder()   
     }   
@@ -127,6 +139,7 @@ const Menu = () => {
       clearHall() 
     })
   } 
+
 
   return (
     <>
@@ -160,10 +173,14 @@ const Menu = () => {
               <button>{product.qtd }</button>
               <input value='-' type='button' onClick={() => {
                 if(product.name === totalOrder[index].name && product.qtd === 1){
+                  setListMap(prevListMap => {
+                    return prevListMap.map(prevElem => prevElem.id === product.id ? {...prevElem, disabled: false } : prevElem)
+                  })
                   console.log(totalOrder.splice(index, 1));
                   setTotalOrder([...totalOrder]);
                   calculatorOrder()
                 }else if (product.name === totalOrder[index].name) {
+              
                   totalOrder[index].qtd--;
                   setTotalOrder([...totalOrder]);
                   calculatorOrder(); 
@@ -187,8 +204,8 @@ const Menu = () => {
           <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
           <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
           {listMap.map((product) => (
-            <div key={product.id} id={product.id} name={product.name} price={product.price}>
-              <button className={classes.submitMenuItems}  disabled={estado} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
+            <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
+              <button className={classes.submitMenuItems}  disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
             </div>)
           )}
         </div>

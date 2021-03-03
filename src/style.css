@@ -16,6 +16,10 @@ body{
 
     color: black;
 }
+#headPending{
+    width:100%;
+    margin-left: 0px;
+}
 .copyRight{
     color: black;
 }
