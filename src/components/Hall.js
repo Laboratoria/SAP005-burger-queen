@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
+import '../components/Hall.css'
 
 
 function Hall() {
@@ -19,6 +20,8 @@ function Hall() {
   const [nome, setNome] = useState('');
   const [role, setRole] = useState('');
   const [menu, setMenu] = useState([]);
+  const [pedidos, setPedidos] = useState ([]);
+  const [menuAllDay, setMenuAllDay] = useState ([]);
   
   useEffect(() => { var myHeaders = new Headers();
     myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ");
@@ -30,10 +33,16 @@ function Hall() {
       headers: myHeaders,
       redirect: 'follow'
     };
-    
+
     fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
-      .then(response => response.text())
-      .then(result => setMenu(result))
+      .then(response => response.json())
+      .then(result => {
+        const cafeDaManha = result.filter(item => item.type === 'breakfast')
+        const allDay = result.filter(item => item.type === 'all-day')
+        console.log(cafeDaManha)
+        setMenu(cafeDaManha)
+        setMenuAllDay(allDay)
+      })
       .catch(error => console.log('error', error));},[])
 
   fetch(`https://lab-api-bq.herokuapp.com/users/${id}`,{
@@ -54,16 +63,50 @@ function Hall() {
     localStorage.removeItem("id");
     history.push('/');
   }
+function add (e) {
+  const parent = e.target.parentNode
+  console.log(parent)
+  const name = parent.getAttribute('name')
+  const id = parent.getAttribute('id')
+  const price = parent.getAttribute('price')
+  const pedido = {
+    name: name, 
+    id: id,
+    price: price,
+  } 
+  adicionarItem (pedido)
+  }
 
+  function adicionarItem (item){
+    const newArray = pedidos 
+    newArray.push(item)
+    setPedidos(newArray)
+console.log(pedidos)
+  }
   return (
     <div className="Hall">
       <div className="HallHeader">
       <h1>{nome} - {role}</h1> 
       <div>
-          {menu.lenght > 1 && menu.map(p => (<div>{p.type}</div>)) 
+          {menu && menu.map(p => (
+          <div className = 'menu-cafe'
+          name = {p.name} id = {p.id} price = {p.price}>
+            <p>{p.name}</p>
+            <p>{p.price}</p>
+            <button onClick = {add}>Adicionar</button>
+          </div>
+          )) 
           } 
-          {console.log(menu)}
+          {/* {console.log(menu)} */}
           
+          <div className = 'menu-cafe'>
+            {pedidos && pedidos.map(p => (
+              <div>
+                <p>{p.name}</p>
+                <p>{p.price}</p>
+              </div>
+            ))}
+          </div>
       </div>
       <button onClick={(e) => logout(e)} className="logout">Sair</button>
       </div>

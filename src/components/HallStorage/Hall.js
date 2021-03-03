@@ -21,8 +21,9 @@ export const HallTst= () =>{
     })
     .then((response)=> response.json())
     .then((json)=>{
-        console.log(json)
-        setMenu(json)
+        const cafeDaManha = json.filter(item => item.type === 'breakfast')
+        console.log(cafeDaManha)
+        setMenu(cafeDaManha)
     })
 }
 /*   const TraditionalFamilyBreakfastMenu = ()=>{
