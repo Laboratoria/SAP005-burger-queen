@@ -8,6 +8,7 @@ export default function OrderCard({
   tableNumber,
   clientName,
   status,
+  showButton,
   buttonNameAddStatus,
   onClickAddStatus,
   orderItems
@@ -35,7 +36,7 @@ export default function OrderCard({
         </main>
         <Button
           name={buttonNameAddStatus}
-          className='btn-order-info'
+          className={showButton ? 'btn-order-info' : 'hide'}
           type='button'
           onClick={onClickAddStatus}
         />

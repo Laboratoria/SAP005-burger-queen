@@ -8,6 +8,7 @@ export default function OrderInfo({
   orders,
   nextStatus,
   nextStatusApi,
+  showButton,
   callback
 }) {
   return (
@@ -23,6 +24,7 @@ export default function OrderInfo({
               clientName={order.client_name}
               status={order.status}
               buttonNameAddStatus={nextStatus}
+              showButton={showButton}
               onClickAddStatus={
                 async (event) => {
                   event.preventDefault()

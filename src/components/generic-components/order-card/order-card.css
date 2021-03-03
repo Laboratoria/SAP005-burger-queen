@@ -73,3 +73,7 @@
 	background-color: #fffff0;
 	color: #004c54;
 }
+
+.hide {
+	display: none;
+}

@@ -1,4 +1,5 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import ReactModal from 'react-modal'
 import { getProducts } from '../../../services/services'
 import Button from '../../../components/generic-components/button/button'
@@ -9,7 +10,7 @@ import OrderSection from '../../../components/hall-components/order-section-menu
 import './new-order.css'
 
 export const NewOrder = () => {
-
+  const history = useHistory()
   const [showModal, setShowModal] = useState(false)
   const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
@@ -208,6 +209,18 @@ export const NewOrder = () => {
           </section>
 
           <OrderSection
+            cancelCallback={
+              () => {
+                console.log(2)
+                history.push('/client-info')
+              }
+            }
+            confirmCallback={
+              () => {
+                console.log(3)
+                history.push('/client-info')
+              }
+            }
             items={orderItems}
             plus={
               (event) => {
