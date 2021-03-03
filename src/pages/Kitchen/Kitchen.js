@@ -81,11 +81,18 @@ const Kitchen = () => {
                   )
                 })}
 
-                  <button className="btn-finish-order"
+                  <button className="btn-reader-order"
                     type="submit"
                     onClick={() => { readyOrders(product.id) }}>
                     Pronto
                   </button>
+
+                  <p>
+        <Link to="/finalized-orders">
+          <span id="button"
+            className="btn-finish-order">Pedidos Finalizados</span>
+        </Link>
+      </p>
 
                 </p>
               </span>
@@ -95,12 +102,12 @@ const Kitchen = () => {
 
       </div>
 
-      <p>
+      {/* <p>
         <Link to="/finalized-orders">
           <span id="button"
             className="btn-finish-order">Pedidos Finalizados</span>
         </Link>
-      </p>
+      </p> */}
 
     </div>
   )
