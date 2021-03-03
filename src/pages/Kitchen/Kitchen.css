@@ -1,11 +1,23 @@
-
-
 .btn-finish-order {
+    width: 200px;
+    height: 46px;
+    /* position: absolute;
+    left: 60px;
+    top: 250px; */
+    background: #f8cb00;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 1px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn-ready-order {
     width: 200px;
     height: 46px;
     position: absolute;
     left: 60px;
-    top: 250px;
+    top: 200px;
     background: #f8cb00;
     border-radius: 50px;
     text-align: center;
