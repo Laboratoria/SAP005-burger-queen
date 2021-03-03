@@ -1,13 +1,16 @@
 .menu-section-container {
 	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	width: 30vw;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	background-color: aqua;
 }
 
 .menu-section-title {
 	display: flex;
 	flex-direction: column;
-	margin-top: 1rem;
+	margin: 1rem 0;
 	align-items: center;
 	font-size: 1rem;
 	font-weight: 600;
