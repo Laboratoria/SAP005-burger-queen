@@ -52,22 +52,22 @@
   background: #fff;
 }
 
-.item-container-p {
+.title-order {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
 
-.item-btn-send-order {
-  width: 160px;
+.btn-send-order {
+  width: 200px;
   height: 46px;
   position: absolute;
-  left: 100px;
-  top: 690px;
+  left: 60px;
+  top: 250px;
   background: #f8cb00;
   border-radius: 50px;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 1px;
   font-weight: bold;
   font-size: 18px;
 }
