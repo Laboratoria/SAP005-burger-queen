@@ -20,7 +20,6 @@ const Menu = () => {
     history.push('/Hall')
   }
 
-
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       method: 'GET',
@@ -51,8 +50,46 @@ const Menu = () => {
   } 
 
   const [order, setOrder] = useState({});
-  const [productsPrices, setProductsPrices] = useState([]);
+  const [productPrices, setProductPrices] = useState(0);
   const [totalOrder, setTotalOrder] = useState([]);
+
+  let estado = ''
+
+  useEffect(()=>{
+    console.log(totalOrder)
+  },[totalOrder])
+
+  const HandleOrder = (e) => {
+    e.preventDefault()
+
+    const product = e.target.parentNode;
+    console.log(product)
+
+    const idProduct = product.getAttribute('id')
+    const nameProduct = product.getAttribute('name')
+    const priceProduct = product.getAttribute('price')
+   
+    const orderTemplate = {
+      id: idProduct,
+      name: nameProduct,
+      price: priceProduct,
+      qtd: 1
+    }
+
+    orderUpdate(orderTemplate)
+    calculatorOrder()
+  }
+
+  const calculatorOrder = () => {
+    setProductPrices(totalOrder.reduce((acumulado, product) => acumulado + (product.qtd*Number(product.price)), 0))
+  }
+
+  const orderUpdate = (product) => {
+    const newArray = totalOrder
+    newArray.push(product)
+    setTotalOrder(newArray)
+    console.log(totalOrder)
+  }
 
   function validadeInputs(){
     const table = (order.table);
@@ -89,16 +126,12 @@ const Menu = () => {
     .then(() => {
       clearHall() 
     })
-  }
-
-  useEffect(()=>{
-    console.log(totalOrder)
-  },[totalOrder])
+  } 
 
   return (
     <>
       <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
-        <NavBar/>      
+        <NavBar/>   
         <form className={classes.paperTable}  noValidate autoComplete="off" >
             <Input placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
             name='nome'
@@ -121,13 +154,19 @@ const Menu = () => {
                 if(product.name === totalOrder[index].name){
                   totalOrder[index].qtd++;
                   setTotalOrder([...totalOrder]); 
+                  calculatorOrder();
                 }
               }}/>
               <button>{product.qtd }</button>
               <input value='-' type='button' onClick={() => {
-                if(product.name === totalOrder[index].name){
+                if(product.name === totalOrder[index].name && product.qtd === 1){
+                  console.log(totalOrder.splice(index, 1));
+                  setTotalOrder([...totalOrder]);
+                  calculatorOrder()
+                }else if (product.name === totalOrder[index].name) {
                   totalOrder[index].qtd--;
-                  setTotalOrder([...totalOrder]); 
+                  setTotalOrder([...totalOrder]);
+                  calculatorOrder(); 
                 }
               }}/>
               <span>{product.name} </span>
@@ -138,6 +177,7 @@ const Menu = () => {
           ))} 
         
         <div>
+          <p> Total Pedido: R$ {productPrices}</p>
           <button onClick={() => clearHall()}>Cancelar</button>
           <button onClick={() => validadeInputs()}>Enviar para cozinha</button>
         </div>
@@ -147,8 +187,8 @@ const Menu = () => {
           <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
           <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
           {listMap.map((product) => (
-            <div key={product.id} >
-              <button className={classes.submitMenuItems} onClick={()=> setTotalOrder([...totalOrder, product])}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
+            <div key={product.id} id={product.id} name={product.name} price={product.price}>
+              <button className={classes.submitMenuItems}  disabled={estado} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
             </div>)
           )}
         </div>
