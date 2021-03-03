@@ -80,7 +80,7 @@ export const LoginForm=()=> {
                         label='Senha'
                         helperText={errors.password?.message}
                     />
-                                    <select 
+                    <select 
                     onChange={(event) => setRole(event.target.value)}
                     value={role}
                     name='role' 

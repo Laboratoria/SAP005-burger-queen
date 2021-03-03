@@ -4,6 +4,7 @@ import '../OpeningStorage/OpeningPage.css';
 
 
 
+
 function OpeningPage() {
     return (
         <div className='openingPage-container'>
