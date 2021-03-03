@@ -23,7 +23,7 @@ const Menu = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${tokenUser}`,
+        "Authorization": `${tokenUser}`,
       },
     })
       .then((response) => response.json())
