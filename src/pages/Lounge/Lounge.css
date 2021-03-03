@@ -13,7 +13,7 @@
 .createorder-btn, .orderread-btn, .btn,#back-btn {
     border: solid 2px #fff;
     border-radius: 3rem;
-    background-color: gray;
+    background-color: rgb(41, 105, 28);
     padding: 0.9rem 1.5rem;
     text-transform: uppercase;
     color: #fff;
@@ -61,4 +61,5 @@ table {
   padding: 30px;
   
 }
+
 
