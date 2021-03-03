@@ -55,8 +55,6 @@ const Menu = () => {
   const [productPrices, setProductPrices] = useState(0);
   const [totalOrder, setTotalOrder] = useState([]);
 
-  let estado = ''
-
   useEffect(()=>{
     console.log(totalOrder)
   },[totalOrder])
@@ -90,6 +88,30 @@ const Menu = () => {
 
     orderUpdate(orderTemplate)
     calculatorOrder()
+  }
+
+  function ascendQuantity (product,index) {
+    if(product.name === totalOrder[index].name){
+      totalOrder[index].qtd++;
+      setTotalOrder([...totalOrder]); 
+      calculatorOrder();
+    }
+  }
+
+  function downQuantity (product, index) {
+    if(product.name === totalOrder[index].name && product.qtd === 1){
+      setListMap(prevListMap => {
+        return prevListMap.map(prevElem => prevElem.id === product.id ? {...prevElem, disabled: false } : prevElem)
+      })
+      console.log(totalOrder.splice(index, 1));
+      setTotalOrder([...totalOrder]);
+      calculatorOrder()
+    }else if (product.name === totalOrder[index].name) {
+  
+      totalOrder[index].qtd--;
+      setTotalOrder([...totalOrder]);
+      calculatorOrder(); 
+    }
   }
 
   const calculatorOrder = () => {
@@ -163,29 +185,9 @@ const Menu = () => {
         </form>
         {totalOrder.map((product, index) => (
             <div key={index}>
-              <input value='+' type='button' onClick={() => {
-                if(product.name === totalOrder[index].name){
-                  totalOrder[index].qtd++;
-                  setTotalOrder([...totalOrder]); 
-                  calculatorOrder();
-                }
-              }}/>
+              <input value='+' type='button' onClick={ () => {ascendQuantity (product,index)}}/>
               <button>{product.qtd }</button>
-              <input value='-' type='button' onClick={() => {
-                if(product.name === totalOrder[index].name && product.qtd === 1){
-                  setListMap(prevListMap => {
-                    return prevListMap.map(prevElem => prevElem.id === product.id ? {...prevElem, disabled: false } : prevElem)
-                  })
-                  console.log(totalOrder.splice(index, 1));
-                  setTotalOrder([...totalOrder]);
-                  calculatorOrder()
-                }else if (product.name === totalOrder[index].name) {
-              
-                  totalOrder[index].qtd--;
-                  setTotalOrder([...totalOrder]);
-                  calculatorOrder(); 
-                }
-              }}/>
+              <input value='-' type='button' onClick={() => {downQuantity (product, index)}}/>
               <span>{product.name} </span>
               <span>{product.flavor === 'null' ? '' : product.flavor} </span>
               <span>{product.complement === 'null' ? '' : product.complement }</span>
