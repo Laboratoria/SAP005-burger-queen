@@ -15,7 +15,8 @@ const Menu = () => {
   const [orderSummary, setOrderSummary] = useState([]);
   const [makeOrder, setMakeOrder] = useState({"client": "", "table": table, "products": []});
   const [errorMessage, setErrorMessage] = useState("");
-
+  
+ 
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
@@ -127,8 +128,11 @@ const Menu = () => {
             ) : (
               <ul className="list-menu">
                 {allDay.map((item, index) => (
+                  // {if(item.name === "Hambúrguer simples"){
+
+                  // }}
                   <li key={index} className="list-menu-allDay">
-                    <label>{`${item.name} ${Intl.NumberFormat("pt-BR", {
+                    <label>{`${item.name} ${item.flavor} ${item.complements} ${Intl.NumberFormat("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                     }).format(item.price)}`}</label>

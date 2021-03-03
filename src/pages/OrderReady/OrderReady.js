@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "./Kitchen.css";
+import "./OrderReady.css";
 import { Link } from "react-router-dom";
 
-const Kitchen = () => {
+const OrderReady = () => {
   const token = localStorage.getItem("token");
   const [order, setOrder] = useState([]);
 
@@ -16,7 +16,8 @@ const Kitchen = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        const order = json.filter((item) => item.status === "pending");
+        const order = json.filter((item) => item.status === "Pedido Pronto");
+        console.log(json)
         setOrder(order);
       });
   }, [token]);
@@ -25,32 +26,9 @@ const Kitchen = () => {
     getOrders();
   }, [getOrders]);
 
-  const readyOrders = (productId) => {
-    console.log(productId);
-
-    fetch(`https://lab-api-bq.herokuapp.com/orders/${productId}`, {
-      method: "PUT",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `${token}`,
-      },
-      body: JSON.stringify({
-        status: "Pedido Pronto",
-      }),
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        const changeOrder = order.filter((item) => item.id !== productId);
-
-        console.log(changeOrder);
-        setOrder(changeOrder);
-      });
-  };
-
   return (
-    <div className="pending">
-      <div className="show-order">
+    <div className="order-ready">
+      <div className="show-ready">
         {order &&
           order.map(function (product, index) {
             return (
@@ -77,39 +55,14 @@ const Kitchen = () => {
                         </div>
                       );
                     })}
-
-                    <button
-                      className="btn-reader-order"
-                      type="submit"
-                      onClick={() => {
-                        readyOrders(product.id);
-                      }}
-                    >
-                      Pronto
-                    </button>
-
-                    <p>
-                      <Link to="/finalized-orders">
-                        <span id="button" className="btn-finish-order">
-                          Pedidos Finalizados
-                        </span>
-                      </Link>
-                    </p>
                   </p>
                 </span>
               </div>
             );
           })}
       </div>
-
-      {/* <p>
-        <Link to="/finalized-orders">
-          <span id="button"
-            className="btn-finish-order">Pedidos Finalizados</span>
-        </Link>
-      </p> */}
     </div>
   );
 };
 
-export default Kitchen;
+export default OrderReady;
