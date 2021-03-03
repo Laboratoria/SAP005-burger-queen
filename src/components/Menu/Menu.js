@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
 import "./Menu.css";
 import Add from "../../assets/plus.png";
 import Logotipo from "../../components/Logotipo/Logotipo";
