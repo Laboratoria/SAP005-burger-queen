@@ -24,7 +24,11 @@ export const StatusOrder = () => {
         <Navbar />
       </header>
       <main>
-        <section className='container-status-orders'>
+        <section className={
+          localStorage.getItem('userRole') === 'kitchen'
+            ? 'container-status-orders'
+            : 'hide container-status-orders'
+        }>
           <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Pendente'
@@ -44,7 +48,7 @@ export const StatusOrder = () => {
             <OrderInfo
               statusTitle='Preparando'
               nextStatus='Pronto'
-              nextStatusApi='ready_kitchen'
+              nextStatusApi='ready'
               orders={
                 orders.filter((order) => order.status === 'preparing')
               }
@@ -60,7 +64,7 @@ export const StatusOrder = () => {
               statusTitle='Pronto'
               nextStatusApi='ready_hall'
               orders={
-                orders.filter((order) => order.status === 'ready_kitchen')
+                orders.filter((order) => order.status === 'ready')
               }
               callback={
                 () => {
@@ -70,14 +74,18 @@ export const StatusOrder = () => {
             />
           </div>
         </section>
-        <section>
+        <section className={
+          localStorage.getItem('userRole') === 'hall'
+            ? 'container-status-orders'
+            : 'hide container-status-orders'
+        }>
           <div className='status-hall'>
             <OrderInfo
               statusTitle='Pronto'
               nextStatus='Entregar'
               nextStatusApi='delivery'
               orders={
-                orders.filter((order) => order.status === 'ready_hall')
+                orders.filter((order) => order.status === 'ready')
               }
               callback={
                 () => {
