@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { useHistory } from "react-router-dom";
 import Logout from "../../assets/logout.png";
@@ -14,6 +14,9 @@ function Header() {
     history.push("/");
   };
 
+
+// const [table, setTable] = useState ("")
+
   return (
     <header>
       <div className="header-hall">
@@ -21,7 +24,7 @@ function Header() {
         {/* <img className="logo-header" src={Logo} alt="icon-logo"/>     */}
 
         <div className="form-header">
-          <select className="select-table" name="tables" id="tables">
+          {/* <select className="select-table" name="tables" id="tables" onChange={(e) => setTable(e.target.value)}>
             <option value="table1">Mesa 01</option>
             <option value="table2">Mesa 02</option>
             <option value="table3">Mesa 03</option>
@@ -31,16 +34,17 @@ function Header() {
             <option value="table6">Mesa 08</option>
             <option value="table6">Mesa 09</option>
             <option value="table6">Mesa 10</option>
-          </select>
+          </select> */}
 
-          {/* <div className="container-nameCustomer">
-            <input
+
+          <div className="container-nameCustomer">
+            {/* <input
               className="item-nameCustomer"
               type="text"
               id="nome"
               placeholder="Nome do Cliente"
-            />
-          </div> */}
+            /> */}
+          </div>
 
           <div className="container-btn-myOrder">
             <button className="item-btn-myOrder" type="submit">

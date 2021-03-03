@@ -7,7 +7,8 @@ import Trash from "../../assets/trash.svg"
 
 
 const Menu = () => {
-  const {table} = useParams();
+  const [table, setTable] = useState ("")
+  const user = localStorage.getItem("name");
   const tokenUser = localStorage.getItem("token");
   const [breakfast, setBreakfast] = useState([]);
   const [allDay, setAllDay] = useState([]);
@@ -28,7 +29,6 @@ const Menu = () => {
       .then((response) => response.json())
       .then((data) => {
         const products = data;
-        console.log(products);
 
         const itemBreakfast = products.filter((itens) =>
           itens.type.includes("breakfast")
@@ -46,8 +46,23 @@ const Menu = () => {
     return array.reduce((total, item) => total + (item.qtd*item.price), 0);
 };
 
+
   return (
     <>
+    <div className="tables">
+          <select className="select-table" name="tables" id="tables" value={table} onChange={(e) => setTable(Number(e.target.value))} >
+            <option value="1">Mesa 01</option>
+            <option value="2">Mesa 02</option>
+            <option value="3">Mesa 03</option>
+            <option value="4">Mesa 04</option>
+            <option value="5">Mesa 05</option>
+            <option value="6">Mesa 05</option>
+            <option value="7">Mesa 07</option>
+            <option value="8">Mesa 08</option>
+            <option value="9">Mesa 09</option>
+            <option value="10">Mesa 10</option>
+          </select>
+          </div>
       <div className="main">
         <div className="main-left">
           <Logotipo />
@@ -62,17 +77,7 @@ const Menu = () => {
               Almoço/Jantar
             </button>
           </div>
-
-          {/* <div className="menu-order">
-            <div className="container-order">
-              <p className="item-container-p">Resumo do Pedido:</p>
-            </div>
-            <div className="btn-send-order">
-              <buttom className="item-btn-send-order">ENVIAR PEDIDO</buttom>
-            </div>
-          </div> */}
         </div>
-
 
         <div className="main-right">
           <div className="item-main-right">
@@ -85,7 +90,7 @@ const Menu = () => {
                       currency: "BRL",
                     }).format(item.price)}`}</label>
                       {/* <img className="item-product-image" src={item.image} /> */}
-                                      
+                      
                     <input
                       className="icon-button-add"
                       id={item.name}
@@ -169,7 +174,8 @@ const Menu = () => {
 
         <section className="container-order">
                 <p className="title-order">Resumo do Pedido</p>
-                {/* <p className="infos-resumo-pedido">Atendente: </p> */}
+                <p className="user-order">Atendente: {user}</p>
+
                 <input className="client-order"
                     type="text"
                     placeholder="Nome do Cliente"
@@ -179,21 +185,23 @@ const Menu = () => {
                 />
                 {orderSummary !== [] &&
                     <>
-                        <section className="order-list">
-                            <label>Item/Valor</label>
+                        <section className="title-list-order">
+                            <label>Item</label>
+                            <label>Valor</label>
                             <label>Quantidade</label>
                         </section>
-                        <ul className="orders-client">
+                        <ul className="list-order">
                             {orderSummary.map((item, index) => (
                                 <>
-                                    <li className="item-orders-client" key={index}>
-                                        <label className="itens">
+                                    <li className="item-list-order" key={index}>
+                                        <label>
                                             {typeof item.name === "string" ? item.name : item.name.map((item) => <><label>{item.name}</label> <label>{item.flavor}</label> <label>{item.complement}</label></>)}
                                             {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price * item.qtd)}
                                         </label>
                                         <input
-                                            className="button-qtd"
-                                            id="diminuir-qtd"
+
+                                            className="btn-quantity-order"
+                                            id="reduce-quantity"
                                             type="button"
                                             value="-"
                                             onClick={() => {
@@ -208,8 +216,8 @@ const Menu = () => {
                                         />
                                         <label className="qnt"> {item.qtd} </label>
                                         <input
-                                            className="button-qtd"
-                                            id="aumentar-qtd"
+                                            className="btn-quantity-order"
+                                            id="increase-quantity"
                                             type="button"
                                             value="+"
                                             onClick={() => {
@@ -221,7 +229,7 @@ const Menu = () => {
                                         />
                                         <input
                                             className="icon-button-delete"
-                                            id="excluir-item"
+                                            id="delete-item"
                                             type="image"
                                             src={Trash}
                                             alt="icone-lixeira"
@@ -235,9 +243,10 @@ const Menu = () => {
                                 </>
                             ))}
                         </ul>
-                        <p className="total"><strong>TOTAL:</strong> {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
-                        <section className="buttons-resumo-pedido">
-                            <input className="item-btn-send-order"
+
+                        <p className="total-order">TOTAL: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
+                        <section className="send-order">
+                            <input className="btn-send-order"
                                 type="button"
                                 value="Enviar Pedido"
                                 onClick={() => {
@@ -247,6 +256,7 @@ const Menu = () => {
                                         });
 
                                         makeOrder.products = products;
+                                        makeOrder.table = table;
 
                                         const requestOptions = {
                                             method: 'POST',
@@ -261,7 +271,6 @@ const Menu = () => {
                                             .then(response => response.json())
                                             .then(data => {
                                                 if (data.id !== undefined) {
-                                                    console.log(data);
                                                     setOrderSummary([]);
                                                     document.querySelector(".client-order").value = "";
                                                 } else {
@@ -274,7 +283,8 @@ const Menu = () => {
                                 }}
                             />
 
-                            <input className="button-clean"
+
+                            <input className="btn-clean-order"
                                 type="button"
                                 value="Limpar Pedido"
                                 onClick={() => {
