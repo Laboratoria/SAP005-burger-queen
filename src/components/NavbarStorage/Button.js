@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const STYLES = ['button-unClicked', 'button-Clicked'];
 
-
 export const Button = ({
     children,
     type,
