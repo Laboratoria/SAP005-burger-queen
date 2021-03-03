@@ -18,7 +18,6 @@ export const StatusOrder = () => {
     storeOrders()
   }, [storeOrders])
 
-
   return (
     <Fragment>
       <header>
@@ -26,7 +25,7 @@ export const StatusOrder = () => {
       </header>
       <main>
         <section className='container-status-orders'>
-          <div className='preparing-status'>
+          <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Pendente'
               nextStatus='Preparar'
@@ -41,7 +40,7 @@ export const StatusOrder = () => {
               }
             />
           </div>
-          <div className='ready-status'>
+          <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Preparando'
               nextStatus='Pronto'
@@ -56,12 +55,42 @@ export const StatusOrder = () => {
               }
             />
           </div>
-          <div className='ready-status'>
+          <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Pronto'
               nextStatusApi='ready_hall'
               orders={
                 orders.filter((order) => order.status === 'ready_kitchen')
+              }
+              callback={
+                () => {
+                  storeOrders()
+                }
+              }
+            />
+          </div>
+        </section>
+        <section>
+          <div className='status-hall'>
+            <OrderInfo
+              statusTitle='Pronto'
+              nextStatus='Entregar'
+              nextStatusApi='delivery'
+              orders={
+                orders.filter((order) => order.status === 'ready_hall')
+              }
+              callback={
+                () => {
+                  storeOrders()
+                }
+              }
+            />
+          </div>
+          <div className='status-hall'>
+            <OrderInfo
+              statusTitle='Entregue'
+              orders={
+                orders.filter((order) => order.status === 'delivery')
               }
               callback={
                 () => {

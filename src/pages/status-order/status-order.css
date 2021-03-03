@@ -5,8 +5,7 @@
 	justify-content: space-around;
 }
 
-.preparing-status,
-.ready-status {
+.status-kitchen {
 	width: 22rem;
 	height: 35rem;
 	display: flex;
