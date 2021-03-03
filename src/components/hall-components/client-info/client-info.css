@@ -7,7 +7,7 @@
 
 .form-client-info {
 	background-color: #fffff0;
-	box-shadow: 0 1px 6px 1px #e0d8be;
+	box-shadow: 0 1px 3px 0 #e0d8be;
 	border-radius: 0.5rem;
 	max-width: 30rem;
 	display: flex;
@@ -42,10 +42,11 @@
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	border: solid 2px #ffd34d;
-	border-radius: 0.7rem;
+	border-radius: 0.5rem;
 	background-color: #ffd34d;
 	color: #ffffe0;
 	transition: 0.3s ease-in-out;
+	box-shadow: 0 4px 7px 0 #c2c2c0;
 }
 
 .btn-order:hover {

@@ -5,7 +5,6 @@ import { SignUp } from '../pages/signup/signup'
 import { NewOrder } from '../pages/hall/new-order/new-order'
 import ClientInfo from '../components/hall-components/client-info/client-info'
 import { StatusOrder } from '../pages/status-order/status-order'
-import { OrderInfo } from '../components/generic-components/order-info/order-info'
 
 export const Routes = () => {
   return (
@@ -15,7 +14,6 @@ export const Routes = () => {
       <Route path='/new-order' component={NewOrder} />
       <Route path='/client-info' component={ClientInfo} />
       <Route path='/status-order' component={StatusOrder} />
-      <Route path='/order' component={OrderInfo} />
     </Switch>
   )
 }
