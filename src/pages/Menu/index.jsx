@@ -12,14 +12,11 @@ const Menu = () => {
   const history = useHistory();
 
   const tokenLocal = localStorage.getItem('token');
-  const storedArray = localStorage.getItem("orderList");
-  const ourArray = JSON.parse(storedArray)
-
+  
   const [list, setList] = useState([]);
   const [listMap, setListMap] = useState([]); 
 
   const clearHall = () => {
-    localStorage.removeItem('orderList')
     history.push('/Hall')
   }
 
@@ -57,8 +54,6 @@ const Menu = () => {
   const [productsPrices, setProductsPrices] = useState([]);
   const [totalOrder, setTotalOrder] = useState([]);
 
-  const [ordemGeral, setOrdemGeral]= useState([])
-
   function validadeInputs(){
     const table = (order.table);
     const client = (order.client);
@@ -83,10 +78,10 @@ const Menu = () => {
         "client": `${order.client}`,
         "table": `${order.table}`,
         "products":
-          ordemGeral.map((product) => (
+        totalOrder.map((product) => (
             {
               "id": Number(product.id),
-              "qtd": 1
+              "qtd": Number(product.qtd)
             }
           ))
       })
@@ -94,12 +89,11 @@ const Menu = () => {
     .then(() => {
       clearHall() 
     })
-  
   }
 
   useEffect(()=>{
-    console.log(ordemGeral)
-  },[ordemGeral])
+    console.log(totalOrder)
+  },[totalOrder])
 
   return (
     <>
@@ -121,13 +115,25 @@ const Menu = () => {
               setOrder({ ...order, table: event.target.value })
             } />
         </form>
-        {ordemGeral.map((product, index) => (
+        {totalOrder.map((product, index) => (
             <div key={index}>
+              <input value='+' type='button' onClick={() => {
+                if(product.name === totalOrder[index].name){
+                  totalOrder[index].qtd++;
+                  setTotalOrder([...totalOrder]); 
+                }
+              }}/>
+              <button>{product.qtd }</button>
+              <input value='-' type='button' onClick={() => {
+                if(product.name === totalOrder[index].name){
+                  totalOrder[index].qtd--;
+                  setTotalOrder([...totalOrder]); 
+                }
+              }}/>
               <span>{product.name} </span>
               <span>{product.flavor === 'null' ? '' : product.flavor} </span>
               <span>{product.complement === 'null' ? '' : product.complement }</span>
-              <span> R$ {product.price},00  </span>
-              <span style={{ cursor: 'pointer' }} type='button' >🗑</span>
+              <span> R$ {product.price},00  </span> 
             </div>
           ))} 
         
@@ -141,8 +147,8 @@ const Menu = () => {
           <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
           <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
           {listMap.map((product) => (
-            <div key={product.id}>
-              <button className={classes.submitMenuItems}  onClick={()=> setOrdemGeral([...ordemGeral, product])}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
+            <div key={product.id} >
+              <button className={classes.submitMenuItems} onClick={()=> setTotalOrder([...totalOrder, product])}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
             </div>)
           )}
         </div>
