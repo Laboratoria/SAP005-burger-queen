@@ -9,9 +9,7 @@ import { useState } from 'react';
 
 function Historic() {
     const [orders, setOrders] = useState([]);
-    const token = localStorage.getItem("token");
-    console.log(orders);
-    
+    const token = localStorage.getItem("token"); 
     const history = useHistory()
     const rLogin=()=> {
       history.push('/')
@@ -19,6 +17,38 @@ function Historic() {
 
     const rWaiter=()=> {
         history.push('/Waiter')
+      }
+
+      function post (e){
+        e.preventDefault();
+        fetch('https://lab-api-bq.herokuapp.com/orders', {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "accept": "application/json",
+            'Authorization': `${token}`
+          }                  
+              })
+                .then((response) => response.json())
+                .then((json) => {
+                  setOrders (json);
+                })
+      }
+
+      function delet (e, id, index){
+        fetch(`https://lab-api-bq.herokuapp.com/orders/${id}`, {
+                  method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json",
+                    'Authorization': `${token}`
+                  }        
+                      })
+                        .then((response) => response.json())
+                        .then((json) => {
+                        const newOrders= [...orders]
+                        newOrders.splice(index, 1)
+                        setOrders(newOrders)})
       }
 
     return (
@@ -37,14 +67,7 @@ function Historic() {
           </div>
         </div>
 
-        {/* <nav className="wrap-menu">
-           
-                <button className="btnRe" onClick={rWaiter}>
-                <img src= {re} alt="" className="Re"/>
-                </button>
-                <button className="exit"   onClick={rLogin}>
-                <img src= {exit} alt="" className="exit"/></button>   
-        </nav> */}
+        
 
         <header className="App-Historic">
   
@@ -52,47 +75,28 @@ function Historic() {
           <p className="Cozinha">Pedidos</p>     
           <section>
           <button className="btnAddH"   onClick={(e)=>{
-                e.preventDefault();
-                fetch('https://lab-api-bq.herokuapp.com/orders', {
-                  method: "GET",
-                  headers: {
-                    "Content-Type": "application/json",
-                    "accept": "application/json",
-                    'Authorization': `${token}`
-                  }                  
-                      })
-                        .then((response) => response.json())
-                        .then((json) => {
-                          setOrders(json);
-                        })
-                    }}><img src= {add} alt="" className='imgMenu' /></button>      
+            post(e)}}><img src= {add} alt="" className='imgMenu' /></button>
         </section>
         </header>
         
        <section className="sectionH">
 
-          { orders.map((order) => {
+          { orders.map((order, index) => {
 
             return (
               <div className="H" key={order.id}>
+                <p className="btnLabel">
+                <label className="entregue">
+                    <input
+                      type="radio"
+                      onChange={() => ("Entregue")}
+                    /> Entregue </label>
                <button className="btnDel"   onClick={(e)=>{
-                e.preventDefault();
-                // fetch(`https://lab-api-bq.herokuapp.com/orders/${order.id}`, {
-                //   method: "DELETE",
-                //   headers: {
-                //     "Content-Type": "application/json",
-                //     "accept": "application/json",
-                //     'Authorization': `${token}`
-                //   }        
-                //       })
-                //         .then((response) => response.json())
-                //         .then((json) => {
-                //           setOrders(json);
-                //         })
-                    }}><img src= {del} alt="" className='imgDel' /></button> 
- 
+                delet(e, order.id, index)
+                 }}><img src= {del} alt="" className='imgDel' /></button> 
+                </p>    
                 <p  className="tbleH">Mesa: {order.table}</p> 
-                <p className="pedidoH">Pedido  {order.status}</p>
+                <p className="pedidoH">{order.status}</p>
                 <div>
                 
                   {
@@ -104,12 +108,6 @@ function Historic() {
                       )
                     })
                   }
-
-                  <label className="entregue">
-                    <input
-                      type="radio"
-                      onChange={() => ("Entregue")}
-                    /> Entregue </label>
 
                 </div>
                 

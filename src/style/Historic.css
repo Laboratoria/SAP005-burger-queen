@@ -37,6 +37,9 @@
 	width: 30%;
 	margin-top: 35px;
 }
+.radio {
+	height: 20px;
+}
 
 .AppHistoric {
 	background-color: #383838;
@@ -58,11 +61,19 @@
 	border: 1px solid silver;
 	border-radius: 10px;
 	margin-bottom: 1vh;
-	height: 209px;
+	height: auto;
 	font-size: 27px;
-	overflow: auto;
 	background-color: rgb(41, 39, 39);
 	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
+}
+.btnLabel {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 19px;
+}
+.entregue {
+	color: #ffde59;
 }
 
 .sectionH {
@@ -89,25 +100,14 @@
 	padding: 3px;
 }
 .btnDel {
-	border-radius: 69px;
-	display: flex;
+	border-radius: 56px;
 	background-color: rgb(41, 39, 39);
-	margin-top: 5px;
-	margin-left: 322px;
-	width: 36px;
-	height: 37px;
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
-}
-
-.btnDel:hover {
-	background-color: rgb(151, 158, 158);
+	width: 41px;
+	height: 42px;
 }
 
 .imgDel {
-	border: none;
-	width: 22px;
-	margin-left: 5px;
-	margin-top: 2px;
+	width: 27px;
 }
 
 /*********************MenuHamburger*********************/
