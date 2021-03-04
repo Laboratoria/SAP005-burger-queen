@@ -5,11 +5,17 @@ import Input from '@material-ui/core/Input';
 import {Copyright, useStyles, NavBar, NewTaskInput, ListItem} from '../../components.js';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
 
 function Kitchen (){
   const classes = useStyles();
   const tokenLocal = localStorage.getItem('token');
   const [list, setList] = useState([])
+  const [open, setOpen] = React.useState(false);
 
 
 
@@ -37,6 +43,15 @@ function Kitchen (){
     Kitchen()
   }, [Kitchen])
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
+
   return (
     <div className='pending'>
       <NavBar/>  
@@ -46,27 +61,37 @@ function Kitchen (){
           return(
             <div  key={index}>
               <span>
-                <div>
-                  <span>{product.client_name} {product.table}</span>
-                  <span>{product.id} </span>
-                  <span>{product.status}</span>
-                  <span>{product.createdAt}</span>
-                </div>
-                <span>{product.Products.map(function(item) {
+                <button type='button' className={classes.submitMenuItems} onClick={handleOpen} cursor='pointer'>Cliente {product.client_name} Qtd {product.table} {product.id} Status {product.status} Horário {product.createdAt}</button>
+                <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}> 
+                <Fade in={open} overflow="scroll" style={{overflowX : 'auto',fontSize: '14px'}} >
+                <span> {product.Products.map(function(item) {
                   console.log(item)
                   return(
-                    <div key={item.id}>
-                      <span>{item.qtd} </span>
-                      <span>{item.name} </span> 
-                      <span>{item.price} </span>
-                      <span>{item.flavor === 'null' ? '' : item.flavor} </span>
-                      <span>{item.complement === 'null' ? '' : item.complement } </span>                 
-                    </div>                    
+                    <div className={classes.submitMenuCardsModal} key={item.id}>
+                      <span >
+                      x {item.qtd } 
+                      {item.name}  
+                      {item.flavor === 'null' ? '' : item.flavor} 
+                      {item.complement === 'null' ? '' : item.complement } </span>  
+                    </div>                          
                   )})}
                 </span>
-                
+              </Fade>
+              </Modal>
               </span>
             </div>
+            
+            
           )
         })}
       </Grid>
