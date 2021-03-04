@@ -74,9 +74,9 @@ const Kitchen = () => {
                       return (
                         <div key={item.id}>
                           <p>Item: {item.qtd} x {item.name} </p>
-                          {/* <p>Quant: {item.qtd}</p> */}
-                          {/* <p>Sabor: {item.flavor}</p>
-                          <p>Complemento: {item.complement}</p> */}
+                          <p>Quant: {item.qtd}</p>
+                          <p>Sabor: {item.flavor}</p>
+                          <p>Complemento: {item.complement}</p>
                         </div>
                       );
                     })}
