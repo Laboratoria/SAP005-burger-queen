@@ -39,14 +39,14 @@ A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/
 
 As Histórias de usuário foram fornecidas por um fast food em expansão, e seguem abaixo:
 
-- Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
+- Eu, como funcionário do restaurante, quero entrar na plataforma e ver apenas a tela que for importante para o meu trabalho.
 
-- Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada
+- Eu, como garçom/garçonete, quero poder anotar o meu pedido, saber o valor de cada
 produto e poder enviar o pedido para a cozinha para ser preparado.
 
-- Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
+- Eu, como chefe de cozinha, quero ver os pedidos dos clientes em ordem, poder marcar quando estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
 
-- Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
+- Eu, como garçom/garçonete, quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
 
 ### Funcionalidades
 
@@ -85,7 +85,7 @@ produto e poder enviar o pedido para a cozinha para ser preparado.
 ### Planejamento e Organização
 📌Organização
 
-Ao recebermos esse projeto, definimos as sprints de acordo com cada historia de usuario. Utilizando o método Kanban organizado através do [Trello](https://trello.com/pt-BR)
+Ao recebermos esse projeto, definimos as sprints de acordo com cada história de usuário. Utilizando o método Kanban, organizado através do [Trello](https://trello.com/pt-BR)
 
 ![imagen trello](src\assets\imgs\ubTrello.jpg)
 
@@ -107,7 +107,7 @@ Determinamos trajetos claros para cada perfil de usuário, desde o login, cadast
 
 ![Fluxograma](https://trello-attachments.s3.amazonaws.com/601c543fb62fd88ab1f9eb85/851x641/e4e11491c0af1103c38844de16590234/burguer-queen-login-signup.png)
 
-📌Armonização Visual
+📌Harmonização Visual
 Queríamos manter a estética minimalista e com cores agradáveis ao olhar. Mantemos o padrão entre o logo e a aplicação utilizando a paleta disposta abaixo.
 
 ☑️ Paleta de Cores
@@ -119,7 +119,7 @@ Queríamos manter a estética minimalista e com cores agradáveis ao olhar. Mant
 
 A partir do primeiro deploy da aplicação, conseguimos testar a usabilidade durante o processo de desenvolvimento. Com isso, identificamos que:
 
-❌Os usuários não estavam satisfeitos com a cor do fundo da aplicação, pois estava tudo opaco.
+❌Os usuários não estavam satisfeitos com a cor de fundo da aplicação, pois estava tudo opaco.
 
 ✔️Alteramos a cor de fundo para uma cor que mais contrastava com o restante da aplicação.
 
