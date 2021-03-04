@@ -21,12 +21,12 @@
     align-items: center;
     margin-left: 50px;
     padding: 20px;
-    width: 300px;
-    height: 500px;
+    width: 350px;
+    height: 600px;
 }
 
 .right h1{
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -35,11 +35,11 @@
     align-items: center;
     padding:3px;
     width: 98%;
-    height: 40px;
+    height: 50px;
 }
 
 .register-name svg, .register-email svg, .register-password svg, .register-re-password svg {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .register-name input, .register-email input, .register-password input, .register-re-password input {
@@ -58,27 +58,38 @@
     border: none;
     background: none;
     border-bottom: 1px solid #000;
-    font-size: 16px;
+    font-size: 24px;
+}
+
+.select {
+    width: 120px;
+    height: 40px;
+    background-color: #F8CB00;
 }
 
 .register-function {
-    margin-top: 10px;
+    width: 100px;
+    margin-top: 15px;
+    margin-bottom: 12px;
 }
 
 .register-function select {
-    font-size: 18px;
+    font-size: 24px;
     border-radius: 10px;
     border-color: #000;
 }
-.register-function select ::after{
-    background-color: pink;
+.register-function select ::after {
+    background-color: #F8CB00;
+    font-size: 24px;
 }
 
 
 .register-function option {
     font-size: 16px;
     border-radius: 10px;
-    border-color: #000;
+    border-color: #F8CB00;
+    background-color: #F8CB00;
+    color: #000;
 }
 
 .register-page button {
@@ -88,8 +99,8 @@
     border: none;
     box-shadow: 4px 4px #333131a9;
     border-radius: 20px;
-    font-size: 18px;
-    font-style: bold;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: 10px;
 }
 

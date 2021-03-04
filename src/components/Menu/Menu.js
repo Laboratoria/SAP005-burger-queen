@@ -29,6 +29,7 @@ const Menu = () => {
       .then((response) => response.json())
       .then((data) => {
         const products = data;
+        console.log(products)
 
         const itemBreakfast = products.filter((itens) =>
           itens.type.includes("breakfast")
@@ -132,7 +133,7 @@ const Menu = () => {
 
                   // }}
                   <li key={index} className="list-menu-allDay">
-                    <label>{`${item.name} ${item.flavor} ${item.complements} ${Intl.NumberFormat("pt-BR", {
+                    <label>{`${item.name} ${item.flavor} ${item.complement} ${Intl.NumberFormat("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                     }).format(item.price)}`}</label>
@@ -235,7 +236,7 @@ const Menu = () => {
                                             id="delete-item"
                                             type="image"
                                             src={Trash}
-                                            alt="icone-lixeira"
+                                            alt="icon-trash"
                                             onClick={() => {
                                                 orderSummary.splice(index, 1);
                                                 setOrderSummary([...orderSummary]);

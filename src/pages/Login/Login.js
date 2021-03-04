@@ -81,9 +81,9 @@ function Login() {
               />
               <div className="eye">
                 {show ? (
-                  <MdVisibility size={20} onClick={handleClick} />
+                  <MdVisibility size={25} onClick={handleClick} />
                 ) : (
-                  <MdVisibilityOff size={20} onClick={handleClick} />
+                  <MdVisibilityOff size={25} onClick={handleClick} />
                 )}
               </div>
           </label>
