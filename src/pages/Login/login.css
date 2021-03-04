@@ -21,16 +21,17 @@
     align-items: center;
     margin-left: 50px;
     padding: 20px;
-    width: 300px;
-    height: 500px;
+    width: 350px;
+    height: 600px;
 }
 
 .login-right h4 {
     font-weight: 300;
     margin-top:10px;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 500;
     color: #000;
+    text-align: center;
 }
 
 .loginInputEmail, .loginInputPassword {
@@ -38,11 +39,11 @@
     align-items: center;
     padding:3px;
     width: 98%;
-    height: 40px;
+    height: 60px;
 }
 
 .loginInputEmail svg, .loginInputPassword svg {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .loginInputEmail input, .loginInputPassword input {
@@ -61,7 +62,7 @@
     border: none;
     background: none;
     border-bottom: 1px solid #000;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .login-right button {
@@ -71,7 +72,8 @@
     border: none;
     box-shadow: 4px 4px #333131a9;
     border-radius: 20px;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: 20px;
 }
 

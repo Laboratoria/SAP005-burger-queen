@@ -112,15 +112,15 @@ function Register() {
               />
               <div className="eye">
                 {show ? (
-                  <MdVisibility size={20} onClick={handleClick} />
+                  <MdVisibility size={25} onClick={handleClick} />
                 ) : (
-                  <MdVisibilityOff size={20} onClick={handleClick} />
+                  <MdVisibilityOff size={25} onClick={handleClick} />
                 )}
               </div>
             </div>
             
             <div className="register-function">
-              <select
+              <select className="select"
                 value={role}
                 onChange={(event) => setRole(event.target.value)}
               >
