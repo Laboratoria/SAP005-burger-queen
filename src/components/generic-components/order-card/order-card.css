@@ -1,5 +1,5 @@
 .container-order-info {
-	max-width: 15rem;
+	width: 15rem;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -13,7 +13,7 @@
 
 .order-table-number {
 	padding-top: 0.5rem;
-	background: #260101;
+	background: #004c54;
 	height: 2.5rem;
 	border-radius: 7px 7px 0 0;
 	font-size: 1.2rem;
@@ -27,10 +27,12 @@
 	text-align: center;
 	font-size: 1rem;
 	font-weight: 500;
+	color: #004c54;
 }
 
 .icon-client {
 	font-size: 1rem;
+	color: #004c54;
 }
 
 .status-title {
@@ -48,6 +50,7 @@
 .container-list-products {
 	margin: 1rem 1.9rem;
 	font-size: 0.9rem;
+	color: #004c54;
 }
 
 .hr-break {

@@ -3,64 +3,6 @@ body {
 	font-size: 16px;
 }
 
-/* RADIO INPUT */
-
-.container-menu {
-	display: flex;
-	justify-content: flex-start;
-}
-
-.radio-tile-group-menu {
-	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
-}
-
-.input-container-menu {
-	position: relative;
-	height: 2rem;
-	width: 14.9rem;
-	margin-top: 8rem;
-}
-
-.radio-button-menu {
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	cursor: pointer;
-}
-
-.radio-tile-menu {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	border-radius: 7px 7px 0 0;
-	border: 2px solid #ffd34d;
-	padding: 1rem;
-	transition: 0.3s ease;
-	background-color: #fffff0;
-}
-
-.radio-tile-label-menu {
-	text-align: center;
-	font-size: 1rem;
-	font-weight: 600;
-	color: #ffd34d;
-}
-
-.radio-button-menu:checked + .radio-tile-menu {
-	background-color: #ffd34d5b;
-	border: solid 2px #ffd34d;
-	border-radius: 7px 7px 0 0;
-}
-
 /* GENERAL STYLING */
 
 .hide {
@@ -73,15 +15,15 @@ body {
 	height: 100%;
 	width: 100%;
 	display: flex;
+	flex-wrap: nowrap;
 	justify-content: space-between;
-	background-color: purple;
 }
+
 .div-container-menu-section {
 	display: flex;
 	flex-direction: column;
-	max-width: 50rem;
-	height: 35rem;
-	margin: 0.2rem auto;
+	width: 55vw;
+	height: 75vh;
 	background-color: #fff9d4;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
@@ -130,6 +72,64 @@ body {
 	color: #056b59;
 }
 
+/* RADIO INPUT CHANGE MENU */
+
+.container-menu {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.radio-tile-group-menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+.input-container-menu {
+	position: relative;
+	height: 2rem;
+	width: 14.9rem;
+	margin-top: 7.9rem;
+}
+
+.radio-button-menu {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+
+.radio-tile-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 7px 7px 0 0;
+	border: 2px solid #db9e36;
+	padding: 1rem;
+	transition: 0.3s ease;
+	background-color: #fffff0;
+}
+
+.radio-tile-label-menu {
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #db9e36;
+}
+
+.radio-button-menu:checked + .radio-tile-menu {
+	background-color: #fff9d4;
+	border: solid 2px #db9e36;
+	border-radius: 7px 7px 0 0;
+}
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
@@ -159,10 +159,10 @@ body {
 	align-items: center;
 	padding: 2rem;
 	text-align: center;
-	margin: 6rem auto;
+	margin: 4rem auto;
 }
 
-/* RADIO BUTTON MODAL */
+/* RADIO INPUT MODAL */
 
 .burger-type-title,
 .burger-extra-title {
@@ -171,7 +171,7 @@ body {
 	font-weight: 600;
 	font-size: 1rem;
 	text-transform: uppercase;
-	color: #260101;
+	color: #bc4931;
 }
 
 .container-modal-option {

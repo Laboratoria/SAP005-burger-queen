@@ -25,7 +25,12 @@ export default function OrderSection({
                   name={item.product_name}
                   price={item.product_price}
                   quantity={item.product_quantity}
+                  classNameOrderItens='order-product-name'
+                  classNameContainer='container-order-section'
+                  classNameIconContainer='container-icon'
+                  classNameTeste='teste-div'
                   classNameIcon='icon-order'
+                  classNamePrice='order-product-price'
                   plus={plus}
                   minus={minus}
                   remove={remove}
@@ -68,7 +73,6 @@ export default function OrderSection({
                     }
                   })
                 )
-                console.log("1")
                 confirmCallback()
               }
             }

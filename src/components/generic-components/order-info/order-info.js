@@ -13,7 +13,7 @@ export default function OrderInfo({
 }) {
   return (
     <Fragment>
-      <div className='div-h1'>
+      <div>
         <h1 className='title-add-status'>{statusTitle}</h1>
       </div>
       <section className='container-order-status'>
