@@ -164,7 +164,7 @@ const Waiter = () => {
                   <p className='orderProducts'>{item.name}</p>
                   <p className='complement'>{item.flavor}</p>
                   <p className='complement'>{item.complement}</p>
-                  <p className='complement'> Quantidade: {item.qtd}</p>
+                  <p className='complement'> Quantidade:{item.qtd}</p>
                   <p className='orderProducts'>R$:{item.price},00</p>
                 </span>
 
@@ -191,14 +191,8 @@ const Waiter = () => {
                   }
                 ))
       
-                // "products": [
-                //   {
-                //     "id":`${quantidade}`,
-                //     "qtd":`${quantidade}`
-                //   }
-                // ]
+                
               }) 
-              // body: `client=${client}&table=${table}&products= [${quantidade}]`
             })
               .then((response) => response.json())
               .then((json) => {
