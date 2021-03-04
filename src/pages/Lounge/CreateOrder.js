@@ -32,10 +32,6 @@ export const CreateOrder = () => {
     route.push('/Lounge')
   }
 
-  function BackBtn(event) {
-    event.preventDefault();
-    loungeRoute();
-  }
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -165,7 +161,8 @@ export const CreateOrder = () => {
    return (
     <>
       <Header />
-     
+        <h1>Criar Pedido</h1>
+        <div className="container">
         <div className="row">
           <div className="col">
             <input type="text" className="form-control" placeholder="Cliente" aria-label="Cliente" onChange={handleClient}
@@ -329,10 +326,6 @@ export const CreateOrder = () => {
                       <th> R${totalPrice}</th>
                     </tr>
                     <tr>
-                    <th>
-                        <button id="back-btn" className="btn" onClick={BackBtn}>Voltar</ button>
-                      </th>
-
                       <th>
                         <button
                           className="btn"
@@ -356,7 +349,7 @@ export const CreateOrder = () => {
               </table>
             </>)}
     
-    
+    </div>
     </>
 
 

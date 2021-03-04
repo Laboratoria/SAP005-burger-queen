@@ -40,6 +40,7 @@ table {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: whitesmoke;
   padding: 30px;
   margin-bottom: 30px;
   
@@ -71,4 +72,7 @@ table {
     opacity: 0.5;
   }
 
-
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}

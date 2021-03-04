@@ -35,6 +35,7 @@ export const Lounge = () => {
     return(
       <>
       <Header />
+      <h1>Pedidos</h1>
         <div className="container">
           
         <div>            
