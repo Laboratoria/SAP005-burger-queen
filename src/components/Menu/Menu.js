@@ -11,6 +11,7 @@ const Menu = () => {
   const tokenUser = localStorage.getItem("token");
   const [breakfast, setBreakfast] = useState([]);
   const [allDay, setAllDay] = useState([]);
+  const [burguer, setBurguer] = useState([]);
   const [menus, setMenus] = useState(true);
   const [orderSummary, setOrderSummary] = useState([]);
   const [makeOrder, setMakeOrder] = useState({"client": "", "table": table, "products": []});
@@ -39,6 +40,12 @@ const Menu = () => {
           itens.type.includes("all-day")
         );
         setAllDay(itemAllDay);
+
+        const itemBurguer = products.filter((itens) =>
+        itens.sub_type.includes("hamburguer")
+      );
+      setBurguer(itemBurguer);
+        
       });
   }, [tokenUser]);
 
