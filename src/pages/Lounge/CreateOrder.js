@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
+import Footer from '../../components/Footer.js';
 import './Lounge.css'
 
 export const CreateOrder = () => {
@@ -27,12 +28,7 @@ export const CreateOrder = () => {
     setOrder({ ...order, table: event.target.value });
   };
 
-  const route = useHistory();
-  const loungeRoute = () => {
-    route.push('/Lounge')
-  }
-
-
+  
   useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", token);
@@ -350,6 +346,7 @@ export const CreateOrder = () => {
             </>)}
     
     </div>
+    <Footer />
     </>
 
 

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
+
+  p {
+  text-align: center;
+	font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}

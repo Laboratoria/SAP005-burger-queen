@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Header from '../../components/Header.js';
+import Footer from '../../components/Footer.js';
 import './Lounge.css'
 
 
@@ -44,6 +45,7 @@ export const Lounge = () => {
         </div>
         
         </div>
+        <Footer />
         </>
      )
           
