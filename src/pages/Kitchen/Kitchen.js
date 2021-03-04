@@ -50,56 +50,50 @@ const Kitchen = () => {
   };
 
   return (
-    <div className="pending">
+    <div className="main-kitchen">
       <div className="show-order">
         {order &&
           order.map(function (product, index) {
             return (
               <div className="card-orders" key={index}>
-                <span>
-                  <p>Atendente: {product.user_id}</p>
+                <span className="header-card">
+                  <div><strong>Mesa:</strong> {product.table} | <strong>Pedido:</strong> {product.id}</div>
                 </span>
-                <span>
-                  <div>
-                    <p>Cliente: {product.client_name}</p>
-                    <p>Mesa: {product.table}</p>
-                    <p>Pedido Nº: {product.id}</p>
-                  </div>
-                  <div>
-                    <p>Status: {product.status}</p>
-                    <p>Data/Hora: {product.createdAt}</p>
-                  </div>
-                  <p>
-                    {product.Products.map(function (item) {
-                      return (
-                        <div key={item.id}>
-                          <p>Item: {item.qtd} x {item.name} </p>
-                          <p>Quant: {item.qtd}</p>
-                          <p>Sabor: {item.flavor}</p>
-                          <p>Complemento: {item.complement}</p>
-                        </div>
-                      );
-                    })}
+                <p className="main-list">
+                  {product.Products.map(function (item) {
+                    return (
+                      <div key={item.id}>
+                        <p><strong>Item: </strong>{item.qtd} x {item.name} </p>
+                        {/* <p>Quant: {item.qtd}</p> */}
+                        {/* <p>Sabor: {item.flavor}</p>
+                          <p>Complemento: {item.complement}</p> */}
+                      </div>
+                    );
+                  })}
+                </p>
 
-                    <button
-                      className="btn-reader-order"
-                      type="submit"
-                      onClick={() => {
-                        readyOrders(product.id);
-                      }}
-                    >
-                      Pronto
-                    </button>
-
-                    <div className="btn-finish-order">
+                  {/* <div className="btn-finish-order">
                       <Link to="/finalized-orders">
                         <span id="button" className="btn-finish-order">
                           Pedidos Finalizados
                         </span>
                       </Link>
-                    </div>
-                  </p>
-                </span> 
+                    </div> */}
+                
+                  <div className="infos">
+                    <p><strong>Atendente:</strong> {product.user_id}</p>
+                    <p><strong>Cliente:</strong> {product.client_name}</p>
+                    <p><strong>Status:</strong> {product.status}</p>
+                    <p><strong>Data/Hora:</strong> {product.createdAt}</p>
+                  </div>
+                   <button 
+                    className="btn-reader-order"
+                    type="submit"
+                    onClick={() => {
+                      readyOrders(product.id);
+                    }}>
+                    Pronto
+                    </button>
               </div>
             );
           })}
