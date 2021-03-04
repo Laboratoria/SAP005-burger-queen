@@ -2,9 +2,9 @@
 	display: flex;
 	justify-content: space-around;
 	align-content: center;
-	width: 30vw;
 	flex-wrap: wrap;
-	background-color: aqua;
+	width: 30vw;
+	margin: 0 auto;
 }
 
 .menu-section-title {
@@ -14,5 +14,6 @@
 	align-items: center;
 	font-size: 1rem;
 	font-weight: 600;
+	color: #bc4931;
 	text-transform: uppercase;
 }

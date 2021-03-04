@@ -23,7 +23,6 @@ export default function OrderItens({
   return (
     <Fragment>
       {name && price && id && minus && quantity && plus && remove &&
-
         <div className={classNameContainer}>
           <div>
             <p className={classNameOrderItens}>{name}</p>
@@ -33,7 +32,6 @@ export default function OrderItens({
             <FiMinusSquare id={id} onClick={minus} className={classNameIcon} />
             <p className={classNameNumber}>{quantity}</p>
             <FiPlusSquare id={id} onClick={plus} className={classNameIcon} />
-            <FaEdit className={classNameIcon} />
             <FaTrashAlt id={id} onClick={remove} className={classNameIcon} />
           </div>
         </div>
