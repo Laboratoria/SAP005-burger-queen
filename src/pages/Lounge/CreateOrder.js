@@ -154,7 +154,7 @@ export const CreateOrder = () => {
         </div>
         {loading ?
           (
-            <p>Carregando</p>
+            <p>Carregando...</p>
           ) : (
             <>
 

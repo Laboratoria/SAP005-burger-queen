@@ -31,7 +31,6 @@ export const Login = () => {
     })
         .then(result => result.json())
         .then((data) => {
-            console.log(data);
             setEmail('')
             setPassword('')
             localStorage.setItem('token', data.token);
