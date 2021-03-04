@@ -21,9 +21,11 @@ function Kitchen (){
 
   const [open, setOpen] = React.useState(false);
 
-  const [itemIdOrder, setItemIdOrder] = useState([])
+  const [itemIdOrder, setItemIdOrder] = useState()
 
-  const orderId = useCallback (() => {
+  console.log(itemIdOrder)
+
+  const orderId = () => {
     
     fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
       method: 'GET',
@@ -42,11 +44,7 @@ function Kitchen (){
 
       });
     
-  }, [itemIdOrder])
-
-  useEffect(() => {
-    orderId()
-  }, [orderId])
+  }
 
   const Kitchen = useCallback (() => {
     
@@ -71,6 +69,12 @@ function Kitchen (){
     Kitchen()
   }, [Kitchen])
 
+  useEffect(() => {
+    console.log(itemIdOrder)
+    orderId()
+    
+  }, [itemIdOrder])
+
   const handleOpen = (e) => {
     e.preventDefault()
     const product = e.target.parentNode;
@@ -80,7 +84,6 @@ function Kitchen (){
 
     setItemIdOrder(idProduct)  
     console.log(itemIdOrder) 
-    
     setOpen(true);
   };
 
@@ -113,7 +116,7 @@ function Kitchen (){
                 }}> 
                 <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
                   <div className={classes.submitMenuCardsModal}>
-                    <p>{order.id} <br></br> {order.client_name} <br></br> {order.table}<br></br>{product.status}</p> 
+                    <span><p>{order.id} <br></br> {order.client_name} <br></br> {order.table}<br></br>{product.status}</p> </span>
                     <span>{orderProduct.map (function (item, index) {
                       return(
                         <div key={index}>
@@ -124,6 +127,7 @@ function Kitchen (){
                         </div> 
                       )
                     })}</span>
+                   
                   </div>
                 </Fade>
               </Modal>
