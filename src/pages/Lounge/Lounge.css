@@ -10,23 +10,23 @@
 }
 
 .createorder-btn, .orderread-btn, .btn, #back-btn {
-    border: solid 2px #fff;
-    border-radius: 3rem;
-    background-color: silver;
-    padding: 0.9rem 1.5rem;
-    text-transform: uppercase;    
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-    margin-bottom: 2em;
-    margin-left: 1em;
+  border: solid 2px #fff;
+  border-radius: 3rem;
+  background-color: #ffdb49;
+  padding: 0.9rem 1.5rem;
+  text-transform: uppercase;    
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  margin-bottom: 2em;
+  margin-left: 1em;
 }
 
 input {
-    margin-bottom: 2em;
-    border-radius: 50px;
-    font-family: 'Nunito', sans-serif;
-    text-align: center;
-    box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;  
+  margin-bottom: 2em;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;  
 }
 
 h1 {
@@ -42,10 +42,9 @@ table {
   background-color: whitesmoke;
   padding: 30px;
   margin-bottom: 30px;
-  
-
 }
-.order{
+
+.order {
   background-color: antiquewhite;
   border:solid 1px #000; 
   padding:10px;
@@ -55,21 +54,20 @@ table {
   padding: 30px;
 }
 
-.row{
+.row {
   padding: 30px;
-  
 }
 
 .bi {
-   cursor: pointer;
+  cursor: pointer;
   transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;   
   }
-.bi:hover{
+.bi:hover {
   height: 4.8em;
-    width: 4.8em;
-    opacity: 0.5;
-  }
+  width: 4.8em;
+  opacity: 0.5;
+}
 
 .flex-container {
   display: flex;

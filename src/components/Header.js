@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import logoburger from '../img/logoburger.png';
 import './Header.css'
 
 const Header = () => {
   const route = useHistory();
-
 
   function BackBtn(event) {
     event.preventDefault();
