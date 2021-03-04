@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,6 +7,11 @@ import logo from '../src/images/logo.png';
 
 
 export const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -66,6 +71,21 @@ export const useStyles = makeStyles((theme) => ({
   },
   submitMenuItems: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
+    borderRadius: 5,
+    border: 0,
+    color: 'white',
+    height: 68,
+    width:390,
+    paddingTop: '20px',
+    marginTop:'2px',
+    paddingRight:'5px',
+    marginLeft:'16px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  submitMenuCardsModal: {
+    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
     borderRadius: 3,
     border: 0,
     color: 'white',
@@ -78,6 +98,7 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'flex',
     justifyContent: 'center',
+    overflow:'scroll'
   },
   logo: {
     maxWidth: 200,
