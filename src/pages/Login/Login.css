@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  background-image: url("/src/img/background.PNG");
+  background-size: cover;
+}
+
+h1 {
+  color: #fff;
+}
+  
+.Login, 
+form {
+  height: 100vh;
+  display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+  font-size: 20pt;
+}
+
+img {
+  margin-bottom: 2em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p, a {
+  font-family: 'Nunito', sans-serif;
+  color: white;
+}
+
+#login-btn {
+  border: solid 2px #fff;
+  border-radius: 3rem;
+  background-color: silver;
+  padding: 0.9rem 1.9rem;
+  text-transform: uppercase;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  margin-bottom: 2em;
+}
+  
+input {
+  padding: 0.9rem 1.5rem;
+  font-family: 'Nunito', sans-serif;
+}

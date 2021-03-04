@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.container {
+  margin:10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20pt;  
+}
+
+.createorder-btn, 
+.orderread-btn, 
+.btn,
+#back-btn,
+.break-btn,
+.lunch-btn {
+    border: solid 2px #fff;
+    border-radius: 3rem;
+    background-color: silver;
+    padding: 0.9rem 1.5rem;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+input {
+    margin-bottom: 2em;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;  
+}
+
+h1 {
+  text-align: center;
+	font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-bottom: 30px;
+
+}
+.order{
+  background-color: antiquewhite;
+  border:solid 1px #000; 
+  padding:10px;
+}
+
+.menuList {
+  padding: 30px;
+}
+
+.row{
+  padding: 30px;
+}
+
+
