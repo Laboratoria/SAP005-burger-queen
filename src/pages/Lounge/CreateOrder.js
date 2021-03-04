@@ -158,13 +158,13 @@ export const CreateOrder = () => {
           ) : (
             <>
 
-              <button onClick={() => setMenus('breakfast')}>Café da Manhã</button>
+              <button className="menu-btn" onClick={() => setMenus('breakfast')}>Café da Manhã</button>
 
-              <button onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
+              <button className="menu-btn" onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
 
-              <button onClick={() => setMenus('side')}>Acompanhamentos</button>
+              <button className="menu-btn" onClick={() => setMenus('side')}>Acompanhamentos</button>
               
-              <button onClick={() => setMenus('drink')}>Bebidas</button>
+              <button className="menu-btn" onClick={() => setMenus('drink')}>Bebidas</button>
 
               {menus === 'breakfast' && (
                 <table className="menuList">
@@ -262,7 +262,7 @@ export const CreateOrder = () => {
                 <tbody>
                   <thead>
                     <tr>
-                      <th colspan='4'><h1>Comanda</h1></th>
+                      <th colspan='4'><h1 className="comanda-h1">Comanda</h1></th>
                     </tr>
                   </thead>
                   <tr>

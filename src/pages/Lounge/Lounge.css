@@ -21,6 +21,17 @@
   margin-left: 1em;
 }
 
+.menu-btn {
+  border: solid 2px #fff;
+  border-radius: 3rem;
+  padding: 0.9rem 1.5rem;
+  text-transform: uppercase;    
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  margin-bottom: 2em;
+  margin-left: 1em;
+}
+
 input {
   margin-bottom: 2em;
   border-radius: 50px;
@@ -45,9 +56,12 @@ table {
 }
 
 .order {
-  background-color: antiquewhite;
   border:solid 1px #000; 
   padding:10px;
+}
+
+.comanda-h1 {
+  color: black;
 }
 
 .menuList {
@@ -62,7 +76,8 @@ table {
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;   
-  }
+}
+
 .bi:hover {
   height: 4.8em;
   width: 4.8em;
@@ -73,3 +88,4 @@ table {
   display: flex;
   justify-content: space-between;
 }
+

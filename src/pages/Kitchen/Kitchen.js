@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Card, Button, CardTitle, CardText, CardGroup, Row, Col } from 'reactstrap';
 import './Kitchen.css';
 
 export const Kitchen = () => {
@@ -73,40 +74,50 @@ export const Kitchen = () => {
         {pendingOrders.map((order) => {
           const createdDate = new Date(order.createdAt).toLocaleString()
           return (
-            <table key={order.id} className="kitchen-orders" >
-              <tbody>
-                <tr>
-                  <th>Pedido nº {order.id}</th>
-                  <th>Cliente: {order.client_name}</th>
-                  <th>Mesa: {order.table}</th>
-                  <th>Status: {order.status.replace("pending", "Pendente")}</th>
-                  <th>Criado: {createdDate}</th>
-                </tr>
-                <tr>
-                  <th>Qtde</th>
-                  <th>Ítem</th>
-                  <th>Complemento</th>
-                  <th>Adicionais</th>
-                </tr>
-                {order.Products.map((items, index) => (
-                  <tr key={index}>
-                    <td>{items.qtd}</td>
-                    <td>{items.name}</td>
-                    <td>{items.flavor}</td>
-                    <td>{items.complement}</td>
-                  </tr>
-                ))}
-                <tr>
-                  <th>
-                    <button
-                      className="prepare-btn"
-                      onClick={() => handlePrepare(order)}>
-                      Preparar Pedido
-                    </button>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+            <Row>
+              <Col>
+                <CardGroup>
+                  <Card body className="text-center" key={order.id}>
+                    <CardText>
+                      <table className="table" >
+                        <tbody>
+                          <tr>
+                            <th>Pedido nº {order.id}</th>
+                            <th>Cliente: {order.client_name}</th>
+                            <th>Mesa: {order.table}</th>
+                            <th>Status: {order.status.replace("pending", "Pendente")}</th>
+                            <th>Criado: {createdDate}</th>
+                          </tr>
+                          <tr>
+                            <th>Qtde</th>
+                            <th>Ítem</th>
+                            <th>Complemento</th>
+                            <th>Adicionais</th>
+                          </tr>
+                          {order.Products.map((items, index) => (
+                            <tr key={index}>
+                              <td>{items.qtd}</td>
+                              <td>{items.name}</td>
+                              <td>{items.flavor}</td>
+                              <td>{items.complement}</td>
+                            </tr>
+                          ))}
+                          <tr>
+                            <th>
+                              <button
+                                className="prepare-btn"
+                                onClick={() => handlePrepare(order)}>
+                                Preparar Pedido
+                              </button>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </CardText>
+                  </Card>
+                </CardGroup>
+              </Col>
+            </Row>
           )
         })}
 
@@ -115,41 +126,51 @@ export const Kitchen = () => {
           const createdDateString = new Date(order.createdAt).toLocaleString()
           const updatedDate = new Date(order.updatedAt).toLocaleString()
           return (
-            <table key={order.id} className="kitchen-orders" >
-              <tbody>
-                <tr>
-                  <th>Pedido nº {order.id}</th>
-                  <th>Cliente: {order.client_name}</th>
-                  <th>Mesa: {order.table}</th>
-                  <th>Status: {order.status.replace("preparing", "Preparando")}</th>
-                  <th>Criado: {createdDateString}</th>
-                  <th>Atualizado: {updatedDate}</th>
-                </tr>
-                <tr>
-                  <th>Qtde</th>
-                  <th>Ítem</th>
-                  <th>Complemento</th>
-                  <th>Adicionais</th>
-                </tr>
-                {order.Products.map((items, index) => (
-                  <tr key={index}>
-                    <td>{items.qtd}</td>
-                    <td>{items.name}</td>
-                    <td>{items.flavor}</td>
-                    <td>{items.complement}</td>
-                  </tr>
-                ))}
-                <tr>
-                  <th>
-                    <button
-                      className="finish-btn"
-                      onClick={() => handleFinish(order)}>
-                      Pedido Pronto
-                    </button>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+            <Row>
+              <Col>
+                <CardGroup>
+                  <Card body className="text-center" key={order.id}>
+                    <CardText>
+                      <table className="table">
+                        <tbody>
+                          <tr>
+                            <th>Pedido nº {order.id}</th>
+                            <th>Cliente: {order.client_name}</th>
+                            <th>Mesa: {order.table}</th>
+                            <th>Status: {order.status.replace("preparing", "Preparando")}</th>
+                            <th>Criado: {createdDateString}</th>
+                            <th>Atualizado: {updatedDate}</th>
+                          </tr>
+                          <tr>
+                            <th>Qtde</th>
+                            <th>Ítem</th>
+                            <th>Complemento</th>
+                            <th>Adicionais</th>
+                          </tr>
+                          {order.Products.map((items, index) => (
+                            <tr key={index}>
+                              <td>{items.qtd}</td>
+                              <td>{items.name}</td>
+                              <td>{items.flavor}</td>
+                              <td>{items.complement}</td>
+                            </tr>
+                          ))}
+                          <tr>
+                            <th>
+                              <button
+                                className="finish-btn"
+                                onClick={() => handleFinish(order)}>
+                                Pedido Pronto
+                              </button>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </CardText>
+                  </Card>
+                </CardGroup>
+              </Col>
+            </Row>
           )
         })}
       </>
