@@ -55,7 +55,7 @@ const Kitchen = () => {
         {order &&
           order.map(function (product, index) {
             return (
-              <div key={index}>
+              <div className="card-orders" key={index}>
                 <span>
                   <p>Atendente: {product.user_id}</p>
                 </span>
@@ -73,8 +73,10 @@ const Kitchen = () => {
                     {product.Products.map(function (item) {
                       return (
                         <div key={item.id}>
-                          <p>Quant. {item.qtd}</p>
-                          <p>Item {item.name} </p>
+                          <p>Item: {item.qtd} x {item.name} </p>
+                          {/* <p>Quant: {item.qtd}</p> */}
+                          {/* <p>Sabor: {item.flavor}</p>
+                          <p>Complemento: {item.complement}</p> */}
                         </div>
                       );
                     })}
@@ -89,13 +91,13 @@ const Kitchen = () => {
                       Pronto
                     </button>
 
-                    <p>
+                    <div className="btn-finish-order">
                       <Link to="/finalized-orders">
                         <span id="button" className="btn-finish-order">
                           Pedidos Finalizados
                         </span>
                       </Link>
-                    </p>
+                    </div>
                   </p>
                 </span> 
               </div>
