@@ -1,38 +1,88 @@
 .section-container-menu-order {
-	width: 50rem;
+	display: flex;
+	flex-direction: column;
+	width: 40vw;
+	height: 75vh;
+	border-radius: 0.5rem;
 	background-color: #fff9d4;
 }
 
 .menu-order-section-title {
+	display: flex;
+	flex-direction: column;
 	padding-top: 1.5rem;
+	margin-bottom: 1rem;
 	text-align: center;
 	font-size: 1rem;
 	font-weight: 600;
 	text-transform: uppercase;
+	color: #bc4931;
 }
 
-.menu-order-section-container {
-	display: flex;
-}
-
-.hr-menu-order {
-	margin: 1rem 1rem;
-	border-top: 1px solid #004c54;
-}
-
-.menu-order-total {
+.container-order-section {
 	display: flex;
 	justify-content: space-between;
 }
 
+.container-icon {
+	margin: 0 2rem;
+	width: 10rem;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+.icon-order {
+	font-size: 1.2rem;
+	color: #004c54;
+}
+
+.order-product-price {
+	width: 20vw;
+	margin: 0.5rem 2rem;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #db9e36;
+}
+
+.order-product-name {
+	width: 20vw;
+	margin: 0.5rem 2rem;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #004c54;
+}
+
+.menu-order-section-container {
+	height: 40vh;
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+}
+
+.hr-menu-order {
+	margin: 1rem 1rem;
+	border-top: 0.12rem solid #004c54;
+}
+
+.menu-order-total {
+	margin: 0;
+	display: flex;
+	padding: 0 1.5rem;
+	font-size: 1rem;
+}
+
+/* BUTTON */
+
 .container-btn-order {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
+	margin-top: 3rem;
 }
 
 .btn-order-confirm,
 .btn-order-cancel {
-	width: 14rem;
+	width: 15vw;
 	font-size: 1rem;
 	font-weight: 600;
 	padding: 0.5rem 1rem;
@@ -40,7 +90,6 @@
 	border: solid 2px;
 	color: #fff9d4;
 	transition: 0.3s ease-in-out;
-	margin: 2rem 1rem;
 }
 
 .btn-order-cancel {
@@ -61,8 +110,4 @@
 .btn-order-confirm:hover {
 	background-color: #fff9d4;
 	color: #056b59;
-}
-
-.icon-order {
-	font-size: 1.5rem;
 }

@@ -41,12 +41,6 @@ export default function MenuItens({
           >
             R$ {productPrice},00
         </p>
-          {/*<FaPlus
-              name={productName}
-              price={productPrice}
-              id={productId}
-              className='icon-plus'
-            />*/}
         </section>
       }
 

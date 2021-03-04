@@ -6,21 +6,27 @@
 	text-align: center;
 	margin-top: 1rem;
 	padding: 0.7rem;
-	font-size: 1rem;
-	font-weight: 500;
-	color: #260101;
-	background-color: #f2eddf;
+	background-color: #fffff0;
 	box-shadow: 0 1px 7px 0 #c2c2c0;
 }
 
-/*.icon-plus {
-	margin-top: -0.5rem;
-	font-size: 1.2rem;
-}*/
-
 .product-img {
 	border-radius: 0.2rem;
-	width: 7rem;
-	height: 7rem;
+	width: 6rem;
+	height: 6rem;
 	flex-grow: 1;
+}
+
+.product-name {
+	margin-top: 0.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #004c54;
+}
+
+.product-price {
+	margin-top: 0.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #db9e36;
 }

@@ -1,6 +1,6 @@
 .container-status-orders {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	justify-content: space-around;
 }
@@ -8,12 +8,12 @@
 .status-kitchen,
 .status-hall {
 	width: 22rem;
-	height: 35rem;
+	height: 32rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
-	margin-top: 10rem;
+	margin-top: 8rem;
 	border-radius: 7px 7px 7px 7px;
 	background-color: #fff9d4;
 }
