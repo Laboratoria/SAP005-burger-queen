@@ -45,43 +45,35 @@ function Hall() {
       })
       .catch(error => console.log('error', error));},[])
 
-  fetch(`https://lab-api-bq.herokuapp.com/users/${id}`,{
-    headers:{ 
-      "accept": "application/json",
-    "Authorization":`${token}`},    
-
-  })
-  .then((response) => response.json())
-  .then((json) => {  
-    setNome(json.name)
-    setRole(json.role)
-  }) 
-
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
     localStorage.removeItem("id");
     history.push('/');
   }
-function add (e) {
-  const parent = e.target.parentNode
-  console.log(parent)
-  const name = parent.getAttribute('name')
-  const id = parent.getAttribute('id')
-  const price = parent.getAttribute('price')
-  const pedido = {
-    name: name, 
-    id: id,
-    price: price,
-  } 
-  adicionarItem (pedido)
+function add (produto) {
+
+  // const parent = e.target.parentNode
+  // console.log(parent)
+  // const name = parent.getAttribute('name')
+  // const id = parent.getAttribute('id')
+  // const price = parent.getAttribute('price')
+  // const pedido = {
+  //   name: name, 
+  //   id: id,
+  //   price: price,
+  // } 
+  adicionarItem (produto)
   }
 
   function adicionarItem (item){
-    const newArray = pedidos 
-    newArray.push(item)
-    setPedidos(newArray)
-console.log(pedidos)
+    setPedidos(prevPedidos => {
+     return [... prevPedidos, item]
+      //   const newArray = prevPedidos 
+      // newArray.push(item)
+      // return newArray
+})
+// console.log(pedidos)
   }
   return (
     <div className="Hall">
@@ -90,10 +82,10 @@ console.log(pedidos)
       <div>
           {menu && menu.map(p => (
           <div className = 'menu-cafe'
-          name = {p.name} id = {p.id} price = {p.price}>
+          name = {p.name} id = {p.id} price = {p.price} key = {p.id}>
             <p>{p.name}</p>
             <p>{p.price}</p>
-            <button onClick = {add}>Adicionar</button>
+            <button onClick = { () => add (p)}>Adicionar</button>
           </div>
           )) 
           } 
@@ -101,7 +93,7 @@ console.log(pedidos)
           
           <div className = 'menu-cafe'>
             {pedidos && pedidos.map(p => (
-              <div>
+              <div key = {p.id}>
                 <p>{p.name}</p>
                 <p>{p.price}</p>
               </div>
