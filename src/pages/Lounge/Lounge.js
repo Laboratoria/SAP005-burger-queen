@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import logoburger from '../../img/logoburger.png';
+import Header from '../../components/Header.js';
 import './Lounge.css'
 
 
@@ -33,19 +33,17 @@ export const Lounge = () => {
       }         
     
     return(
+      <>
+      <Header />
         <div className="container">
-          <header>
-            <img src={logoburger} className="logoburger" alt="logoburger" />
-            <h1>MENU</h1>
-        </header>
+          
         <div>            
             <button className='createorder-btn' onClick={handleCreateOrder}>Criar Pedido</button>
             <button className='orderread-btn' onClick={handleReadyOrder}>Pedidos Prontos</button>
         </div>
-        <div> 
-            <button id="back-btn" onClick={BackBtn}>Voltar</ button>
+        
         </div>
-        </div>
+        </>
      )
           
 };

@@ -6,6 +6,10 @@ body {
   background-image: url("/src/img/background.PNG");
   background-size: cover;
 }
+
+h1 {
+  color: #fff;
+}
   
 .Login, 
 form {
@@ -19,23 +23,24 @@ form {
 
 img {
   margin-bottom: 2em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p, a {
   font-family: 'Nunito', sans-serif;
-  color: black;
+  color: white;
 }
 
 #login-btn {
   border: solid 2px #fff;
   border-radius: 3rem;
-  background-color: #D92534;
-  padding: 0.9rem 1.5rem;
+  background-color: silver;
+  padding: 0.9rem 1.9rem;
   text-transform: uppercase;
-  color: #fff;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
   transition: 0.3s ease-in-out;
   margin-bottom: 2em;
 }
