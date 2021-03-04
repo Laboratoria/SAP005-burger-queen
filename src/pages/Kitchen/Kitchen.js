@@ -112,6 +112,7 @@ export const Kitchen = () => {
 
         <h1>Pedidos em Preparo</h1>
         {preparingOrders.map((order) => {
+          const createdDateString = new Date(order.createdAt).toLocaleString()
           const updatedDate = new Date(order.updatedAt).toLocaleString()
           return (
             <table key={order.id} className="kitchen-orders" >
@@ -121,6 +122,7 @@ export const Kitchen = () => {
                   <th>Cliente: {order.client_name}</th>
                   <th>Mesa: {order.table}</th>
                   <th>Status: {order.status.replace("preparing", "Preparando")}</th>
+                  <th>Criado: {createdDateString}</th>
                   <th>Atualizado: {updatedDate}</th>
                 </tr>
                 <tr>
