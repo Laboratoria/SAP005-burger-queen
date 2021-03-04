@@ -14,10 +14,36 @@ import Checkbox from '@material-ui/core/Checkbox';
 function Kitchen (){
   const classes = useStyles();
   const tokenLocal = localStorage.getItem('token');
+
+  const [order, setOrder] = useState([])
   const [list, setList] = useState([])
+
   const [open, setOpen] = React.useState(false);
 
+  const itemIdOrder = 284
 
+  const orderId = useCallback (() => {
+    
+    fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
+      method: 'GET',
+      headers: {
+        'accept': 'application/json',
+        'Authorization': `${tokenLocal}`,
+      },
+    })       
+    
+    .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setOrder(data)
+
+      });
+    
+  }, [itemIdOrder])
+
+  useEffect(() => {
+    orderId()
+  }, [orderId])
 
   const Kitchen = useCallback (() => {
     
@@ -33,8 +59,7 @@ function Kitchen (){
       .then((data) => {
         console.log(data);
         const dados = data.filter(product => product.status === 'pending')
-        setList(dados)
-        
+        setList(dados)    
       });
     
   }, [tokenLocal])
@@ -57,11 +82,12 @@ function Kitchen (){
       <NavBar/>  
       <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">  
 
-        {list && list.map (function (product, index) {
+        {list.map (function (product, index) {
           return(
             <div  key={index}>
               <span>
-                <button type='button' className={classes.submitMenuItems} onClick={handleOpen} cursor='pointer'>Cliente {product.client_name} Qtd {product.table} {product.id} Status {product.status} Horário {product.createdAt}</button>
+                <button type='button' className={classes.submitMenuItems} onClick={handleOpen} 
+                cursor='pointer'>Pedido {product.id} <br></br> Status  {product.status} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -73,25 +99,14 @@ function Kitchen (){
                 BackdropProps={{
                   timeout: 500,
                 }}> 
-                <Fade in={open} overflow="scroll" style={{overflowX : 'auto',fontSize: '14px'}} >
-                <span> {product.Products.map(function(item) {
-                  console.log(item)
-                  return(
-                    <div className={classes.submitMenuCardsModal} key={item.id}>
-                      <span >
-                      x {item.qtd } 
-                      {item.name}  
-                      {item.flavor === 'null' ? '' : item.flavor} 
-                      {item.complement === 'null' ? '' : item.complement } </span>  
-                    </div>                          
-                  )})}
-                </span>
-              </Fade>
+                <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
+                  <div className={classes.submitMenuCardsModal}>
+                    <p>{order.id} <br></br> {order.client_name} <br></br> {order.table}<br></br>{product.status}</p> 
+                  </div>
+                </Fade>
               </Modal>
               </span>
-            </div>
-            
-            
+            </div>          
           )
         })}
       </Grid>
