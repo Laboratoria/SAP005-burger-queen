@@ -1,0 +1,22 @@
+
+Definir uma forma de comparar password e password confirm e apresentar o erro caso conflitante;
+
+Ajustar comportamento inadequado do menu ao colocar em dispositivos menores;
+
+Ajustar responsividade (principalmente nas telas de ipad). Espaço do burger e texto, tamanho de letras do footer ;
+
+Criar uma forma de alterar as cores de cada elemento do H1 de forma individual;
+
+Altera o desenho do burger pelo desenho da Lu S2;
+
+Resolver problema da imagem de fundo da página;
+
+arrumar os renders do footer ;
+
+css do loginform e outros ajustes, conf;
+
+css do login e cadastro. Colocar a Api. estabelecer.
+renderizar para a page correta após envio do form cadastro
+
+FEITO:
+setErrors e validações adequadas https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation.
