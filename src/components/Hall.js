@@ -11,10 +11,7 @@ function Hall() {
 
     history.push('/hall/cafe')
   }
-
-  const token = localStorage.getItem("token")
-  const id = localStorage.getItem("id")
-
+  
   const [nameClient, setNameClient] = useState([]);
   const [table, setTable] = useState('');
   const [nome, setNome] = useState('');
@@ -23,12 +20,12 @@ function Hall() {
   const [pedidos, setPedidos] = useState ([]);
   const [menuAllDay, setMenuAllDay] = useState ([]);
   
-  useEffect(() => { var myHeaders = new Headers();
+  useEffect(() => { let myHeaders = new Headers();
     myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ");
     
-    var raw = "";
+    let raw = "";
     
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -52,28 +49,21 @@ function Hall() {
     history.push('/');
   }
 function add (produto) {
-
-  // const parent = e.target.parentNode
-  // console.log(parent)
-  // const name = parent.getAttribute('name')
-  // const id = parent.getAttribute('id')
-  // const price = parent.getAttribute('price')
-  // const pedido = {
-  //   name: name, 
-  //   id: id,
-  //   price: price,
-  // } 
-  adicionarItem (produto)
-  }
-
-  function adicionarItem (item){
+    produto.qtd = 1
+    console.log(produto)
     setPedidos(prevPedidos => {
-     return [... prevPedidos, item]
-      //   const newArray = prevPedidos 
-      // newArray.push(item)
-      // return newArray
+     return [... prevPedidos, produto]
 })
-// console.log(pedidos)
+  }
+  function addQtd (index) {
+    const copyPedidos = [...pedidos]
+    copyPedidos[index].qtd++
+    setPedidos(copyPedidos)
+  }
+  function removeQtd (index) {
+    const copyPedidos = [...pedidos]
+    copyPedidos[index].qtd--
+    setPedidos(copyPedidos)
   }
   return (
     <div className="Hall">
@@ -85,17 +75,19 @@ function add (produto) {
           name = {p.name} id = {p.id} price = {p.price} key = {p.id}>
             <p>{p.name}</p>
             <p>{p.price}</p>
-            <button onClick = { () => add (p)}>Adicionar</button>
+            <button disabled = {p.qtd && p.qtd != 0} onClick = { () => add (p)}>Adicionar</button>
           </div>
           )) 
-          } 
-          {/* {console.log(menu)} */}
+          }
           
-          <div className = 'menu-cafe'>
-            {pedidos && pedidos.map(p => (
+          <div className = 'pedidos'>
+            {pedidos && pedidos.map((p, index) => (
               <div key = {p.id}>
                 <p>{p.name}</p>
                 <p>{p.price}</p>
+                <p>{p.qtd}</p>
+                <button onClick = { () => addQtd (index)}> + </button>
+                <button onClick = { () => removeQtd (index)}> - </button>
               </div>
             ))}
           </div>
