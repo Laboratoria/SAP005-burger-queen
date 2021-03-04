@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import "./Kitchen.css";
 import { Link } from "react-router-dom";
 
+
 const Kitchen = () => {
   const token = localStorage.getItem("token");
   const [order, setOrder] = useState([]);
@@ -96,18 +97,11 @@ const Kitchen = () => {
                       </Link>
                     </p>
                   </p>
-                </span>
+                </span> 
               </div>
             );
           })}
       </div>
-
-      {/* <p>
-        <Link to="/finalized-orders">
-          <span id="button"
-            className="btn-finish-order">Pedidos Finalizados</span>
-        </Link>
-      </p> */}
     </div>
   );
 };

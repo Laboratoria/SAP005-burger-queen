@@ -14,7 +14,6 @@ function Hall() {
             <div className="hall-page">
                 <Header />
                 <Menu />
-
             </div>
         </>
     );
