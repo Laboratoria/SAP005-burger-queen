@@ -30,7 +30,9 @@ ___
 
 A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/SAP005-burger-queen), desenvolvemos em dupla uma aplicação 100% por demanda, suprindo de forma ordenada e eficiente as histórias de usuário. Implementamos uma aplicação de gestão de um restaurante, onde a interface é sincronizada entre os pedidos do salão(realizados através de um Tablet) e a cozinha.
 
-![gifBela](https://www.hypeness.com.br/1/2021/02/7d47e737-bela-e-a-fera-comidas.gif)
+<h4 align="center">
+<img src='https://www.hypeness.com.br/1/2021/02/7d47e737-bela-e-a-fera-comidas.gif' >
+</h4>
 
 
 ### Histórias de Usuários
