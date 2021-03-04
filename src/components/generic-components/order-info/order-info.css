@@ -3,12 +3,9 @@
 	text-align: center;
 	font-size: 1.5rem;
 	font-weight: 600;
+	color: #004c54;
 }
 
 .container-order-status {
 	overflow-y: scroll;
 }
-
-/*.div-h1 {
-	overflow-y: unset;
-}*/
