@@ -12,6 +12,6 @@ const isAuthenticated = () => {
 	return isAuthenticated() ? (
 		<Route {...props} />
 	) : (
-		<Redirect to={{ pathname: '/', state: { from: props.location } }} />
+		<Redirect to={{ pathname: '/Login', state: { from: props.location } }} />
 	);
 };

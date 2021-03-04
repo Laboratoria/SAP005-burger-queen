@@ -72,7 +72,7 @@ import { withStyles  } from '@material-ui/core/styles';
     <Typography component="h1" variant="h4" style={{ paddingRight: '70px', textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
      Cardápio Salão
      </Typography>
-     <div class="box-data">
+     <div className="box-data">
      <Typography component="h1" variant="h5" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
     Nome do Cliente
      </Typography>
