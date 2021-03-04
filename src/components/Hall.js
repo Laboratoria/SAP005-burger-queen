@@ -80,7 +80,7 @@ function add (produto) {
           )) 
           }
           
-          <div className = 'menu-cafe'>
+          <div className = 'pedidos'>
             {pedidos && pedidos.map((p, index) => (
               <div key = {p.id}>
                 <p>{p.name}</p>
