@@ -71,7 +71,6 @@ const Kitchen = () => {
                     );
                   })}
                 </p>
-                 
 
                   {/* <div className="btn-finish-order">
                       <Link to="/finalized-orders">

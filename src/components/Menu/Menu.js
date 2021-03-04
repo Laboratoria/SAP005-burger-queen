@@ -6,8 +6,8 @@ import Trash from "../../assets/trash.svg"
 
 
 const Menu = () => {
-  const [table, setTable] = useState ("")
   const user = localStorage.getItem("name");
+  const [table, setTable] = useState ("");
   const tokenUser = localStorage.getItem("token");
   const [breakfast, setBreakfast] = useState([]);
   const [allDay, setAllDay] = useState([]);
@@ -16,43 +16,153 @@ const Menu = () => {
   const [orderSummary, setOrderSummary] = useState([]);
   const [makeOrder, setMakeOrder] = useState({"client": "", "table": table, "products": []});
   const [errorMessage, setErrorMessage] = useState("");
-  
-
-  useEffect(() => {
-    fetch("https://lab-api-bq.herokuapp.com/products", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `${tokenUser}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const products = data;
-        console.log(products)
-
-        const itemBreakfast = products.filter((itens) =>
-          itens.type.includes("breakfast")
-        );
-        setBreakfast(itemBreakfast);
-
-        const itemAllDay = products.filter((itens) =>
-          itens.type.includes("all-day")
-        );
-        setAllDay(itemAllDay);
-
-        const itemBurguer = products.filter((itens) =>
-        itens.sub_type.includes("hamburguer")
-      );
-      setBurguer(itemBurguer);
-        
+  const [radioButton, setRadioButton] = useState(false);
+  const [productsList, setProductsList] = useState("");
+  const [extrasBurger, setExtrasBurger] = useState('');
+  const [extrasDoubleBurger, setExtrasBurgerDuplo] = useState('');
+  const [openExtrasBurger, setOpenExtrasBurgerSimples] = useState(false);
+  const [openExtrasDoubleBurger, setOpenExtrasDoubleBurger] = useState(false);
+  const [selectedBurger, setSelectedBurger] = useState({
+      name: null,
+      flavor: null,
+      complement: null
       });
+  const burgers = [{name:"carne", label:"carne"}, {name:"frango", label:"frango"}, {name:"vegetariano", label:"vegetariano"}];
+  const additional = [{name:"ovo"}, {name:"queijo"}];
+    
+    useEffect(() => {
+          fetch("https://lab-api-bq.herokuapp.com/products", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `${tokenUser}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const products = data;
+              setProductsList(data)
+
+              const slice1 = products.slice(0,5);
+              const slice2 = products.slice(22);
+              let NoRepetitionList = [];
+              NoRepetitionList = NoRepetitionList.concat(slice1, products[13], slice2);
+              
+              const breakfastList = NoRepetitionList.slice(0,4);
+              setBreakfast(breakfastList);
+              const allDayList = NoRepetitionList.slice(4,12);
+              setAllDay(allDayList);
+          })   
+      
   }, [tokenUser]);
 
-  function sumPriceTotal(array) {
-    return array.reduce((total, item) => total + (item.qtd*item.price), 0);
-};
+  useEffect(() => {
+  }, [radioButton])
 
+  function extras() {
+    return (
+      <>
+        <div className="extras">
+          <section className="burger">
+            <p className="title-burger">Hambúrguer</p>
+            <section className="input-burger">
+            {burgers.map(typeBurger => (
+              <>
+                <input
+                  key={typeBurger.name}
+                  type="radio"
+                  name="option-burguer"
+                  id={typeBurger.name}
+                  onClick={(e) => {
+                    selectedBurger.flavor = e.currentTarget.id;
+                    setSelectedBurger({...selectedBurger});
+                  }}
+                />
+                <label for={typeBurger.name}>
+                {typeBurger.name}</label>
+              </>
+            ))}
+            </section>
+          </section>
+            <section className="additional">
+              <p className="title-additional">Adicionais R$1</p>
+              <section className="input-additional">
+              {additional.map((typeAdditional, index) => (
+                <>
+                  <input
+                    key={index}
+                    type="radio"
+                    name="choice-additional"
+                    id={typeAdditional.name}
+                    onChange={(e) => {
+                      selectedBurger.complement = e.currentTarget.id;
+                      setSelectedBurger({...selectedBurger});
+                    }}
+                  />
+                  <label key={index}>
+                  {typeAdditional.name}</label>
+                </> 
+              ))}
+            </section>
+          </section>
+        </div>
+
+          <input 
+            className="button-send"
+            type="button"
+            value="Pedir"
+            onClick={(e) => {
+              if(selectedBurger.flavor !== null) {
+                productsList.filter(produto => {
+                  if(produto.name === selectedBurger.name && produto.flavor === selectedBurger.flavor && produto.complement === selectedBurger.complement) {
+                    setOrderSummary([...orderSummary, {"id": produto.id, "name": [{"name": produto.name, "flavor": produto.flavor, "complement": produto.complement}], "price": produto.price, "qtd": 1}]);
+                  }
+                  return orderSummary
+                })
+                setOpenExtrasBurgerSimples(false);
+                setOpenExtrasDoubleBurger(false);
+                      e.currentTarget.parentNode.parentNode.querySelector(".icon-button-add").classList.remove("rotate");
+                setSelectedBurger({
+                  name: null,
+                  flavor: null,
+                  complement: null
+                });
+              }else {
+                setErrorMessage(alert("Escolha o hamburguer"));
+              }
+              
+            }}
+          />
+        </>
+      )
+  }
+
+  function handlerExtras(e) {
+      if(e.target.id === "Hambúrguer simples"){
+          if(openExtrasBurger === true){
+              setOpenExtrasBurgerSimples(false);
+              e.currentTarget.classList.remove("rotate");
+          } else {
+              e.currentTarget.classList.add("rotate");
+              setExtrasBurger(extras());
+              setOpenExtrasBurgerSimples(true);
+          }
+      }
+      if(e.target.id === "Hambúrguer duplo"){
+          if(openExtrasDoubleBurger === true){
+              setOpenExtrasDoubleBurger(false);
+              e.currentTarget.classList.remove("rotate");
+          } else {
+              e.currentTarget.classList.add("rotate");
+              setExtrasBurgerDuplo(extras());
+              setOpenExtrasDoubleBurger(true);
+          }
+      }
+  }
+
+  function sumPriceTotal(array) {
+      return array.reduce((total, item) => total + (item.qtd*item.price), 0);
+  }
 
   return (
     <>
@@ -76,11 +186,12 @@ const Menu = () => {
           <div className="btn-menu">
             <button
               className="btn-menu-breakfast"
-              onClick={() => setMenus(true)}
-            >
+              onClick={() => setMenus(true)}>
               Café da Manhã
             </button>
-            <button className="btn-menu-allDay" onClick={() => setMenus(false)}>
+            <button 
+            className="btn-menu-allDay" 
+            onClick={() => setMenus(false)}>
               Almoço/Jantar
             </button>
           </div>
@@ -96,8 +207,7 @@ const Menu = () => {
                       style: "currency",
                       currency: "BRL",
                     }).format(item.price)}`}</label>
-                      {/* <img className="item-product-image" src={item.image} /> */}
-                      
+
                     <input
                       className="icon-button-add"
                       id={item.name}
@@ -107,7 +217,7 @@ const Menu = () => {
                       onClick={() => {
                         if (
                           !orderSummary.some(
-                            (pedido) => pedido.name === breakfast[index].name
+                            (order) => order.name === breakfast[index].name
                           )
                         ) {
                           setOrderSummary([
@@ -135,11 +245,10 @@ const Menu = () => {
             ) : (
               <ul className="list-menu">
                 {allDay.map((item, index) => (
-                  // {if(item.name === "Hambúrguer simples"){
-
-                  // }}
+                
                   <li key={index} className="list-menu-allDay">
-                    <label>{`${item.name} ${item.flavor} ${item.complement} ${Intl.NumberFormat("pt-BR", {
+                    <label>{`${item.name} 
+                      ${Intl.NumberFormat("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                     }).format(item.price)}`}</label>
@@ -151,9 +260,14 @@ const Menu = () => {
                       src={Add}
                       name={item.id}
                       onClick={(event) => {
+                        handlerExtras(event);
+                        if(item.name === "Hambúrguer simples" || item.name === "Hambúrguer duplo"){
+                        selectedBurger.name = allDay[index].name;
+                        setSelectedBurger({...selectedBurger});
+                        } else {
                         if (
                           !orderSummary.some(
-                            (pedido) => pedido.name === allDay[index].name
+                            (order) => order.name === allDay[index].name
                           )
                         ) {
                           setOrderSummary([
@@ -173,8 +287,11 @@ const Menu = () => {
                             }
                           });
                         }
+                      }
                       }}
                     />
+                    {openExtrasBurger === true && item.name === "Hambúrguer simples" && <section className="menu-extras">{extrasBurger}</section>}
+                    {openExtrasDoubleBurger === true && item.name === "Hambúrguer duplo" && <section className="menu-extras">{extrasDoubleBurger}</section>}
                   </li>
                 ))}
               </ul>
@@ -205,8 +322,15 @@ const Menu = () => {
                                 <>
                                     <li className="item-list-order" key={index}>
                                         <label>
-                                            {typeof item.name === "string" ? item.name : item.name.map((item) => <><label>{item.name}</label> <label>{item.flavor}</label> <label>{item.complement}</label></>)}
+                                            {typeof item.name === "string" ? item.name : item.name.map((item) => 
+                                            <>
+                                            <label className="burger-title" >{item.name}</label> 
+                                            <label className="burger-flavor" >{item.flavor}</label> 
+                                            <label className="burger-complement" >{item.complement}</label>
+                                            </>)}
+                                            <label className="item-price">
                                             {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price * item.qtd)}
+                                            </label>
                                         </label>
                                         <input
 
@@ -261,13 +385,12 @@ const Menu = () => {
                                 value="Enviar Pedido"
                                 onClick={() => {
                                     if (makeOrder.client !== "") {
-                                        const products = orderSummary.map(produto => {
-                                            return { "id": produto.id, "qtd": produto.qtd };
+                                        const products = orderSummary.map(product => {
+                                            return { "id": product.id, "qtd": product.qtd };
                                         });
 
                                         makeOrder.products = products;
                                         makeOrder.table = table;
-
                                         const requestOptions = {
                                             method: 'POST',
                                             headers: {
@@ -288,7 +411,7 @@ const Menu = () => {
                                                 }
                                             })
                                     } else {
-                                        setErrorMessage("Preencha o nome do cliente!");
+                                        setErrorMessage(alert("Preencha o nome do cliente e escolha sua mesa!"));
                                     }
                                 }}
                             />
