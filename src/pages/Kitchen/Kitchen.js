@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Kitchen.css';
 
 export const Kitchen = () => {
-  let token = localStorage.getItem('token');
+  let token = localStorage.getItem("token");
   const [pendingOrders, setPendingOrders] = useState([])
   const [preparingOrders, setPreparingOrders] = useState([])
 
@@ -18,21 +18,15 @@ export const Kitchen = () => {
 
       .then(response => response.json())
       .then(data => {
-        if (data) {
-          const allOrders = data;
-          setPendingOrders(allOrders.filter((order) => order.status.includes("pending")))
-          setPreparingOrders(allOrders.filter((order) => order.status.includes("preparing")))
-        }
+        const allOrders = data;
+        setPendingOrders(allOrders.filter((order) => order.status.includes("pending")))
+        setPreparingOrders(allOrders.filter((order) => order.status.includes("preparing")))
       })
   };
 
   useEffect(() => {
     ordersList();
   }, []);
-
-
-  console.log(pendingOrders)
-  console.log(preparingOrders)
 
   const handlePrepare = (order) => {
     const url = 'https://lab-api-bq.herokuapp.com/orders/';
@@ -77,6 +71,7 @@ export const Kitchen = () => {
       <>
         <h1>Pedidos Pendentes</h1>
         {pendingOrders.map((order) => {
+          const createdDate = new Date(order.createdAt).toLocaleString()
           return (
             <table key={order.id} className="kitchen-orders" >
               <tbody>
@@ -84,11 +79,8 @@ export const Kitchen = () => {
                   <th>Pedido nº {order.id}</th>
                   <th>Cliente: {order.client_name}</th>
                   <th>Mesa: {order.table}</th>
-                  <th>
-                    Status:
-                  {order.status
-                      .replace('pending', 'Pendente')}
-                  </th>
+                  <th>Status: {order.status.replace("pending", "Pendente")}</th>
+                  <th>Criado: {createdDate}</th>
                 </tr>
                 <tr>
                   <th>Qtde</th>
@@ -96,13 +88,12 @@ export const Kitchen = () => {
                   <th>Complemento</th>
                   <th>Adicionais</th>
                 </tr>
-
                 {order.Products.map((items, index) => (
                   <tr key={index}>
                     <td>{items.qtd}</td>
                     <td>{items.name}</td>
-                    <td>{items.flavor === 'null' ? '' : items.flavor}</td>
-                    <td>{items.complement === 'null' ? '' : items.complement}</td>
+                    <td>{items.flavor}</td>
+                    <td>{items.complement}</td>
                   </tr>
                 ))}
                 <tr>
@@ -119,8 +110,9 @@ export const Kitchen = () => {
           )
         })}
 
-        <h1>Pedidos em Andamento</h1>
+        <h1>Pedidos em Preparo</h1>
         {preparingOrders.map((order) => {
+          const updatedDate = new Date(order.updatedAt).toLocaleString()
           return (
             <table key={order.id} className="kitchen-orders" >
               <tbody>
@@ -128,11 +120,8 @@ export const Kitchen = () => {
                   <th>Pedido nº {order.id}</th>
                   <th>Cliente: {order.client_name}</th>
                   <th>Mesa: {order.table}</th>
-                  <th>
-                    Status:
-                  {order.status
-                      .replace('preparing', 'Preparando')}
-                  </th>
+                  <th>Status: {order.status.replace("preparing", "Preparando")}</th>
+                  <th>Atualizado: {updatedDate}</th>
                 </tr>
                 <tr>
                   <th>Qtde</th>
@@ -140,13 +129,12 @@ export const Kitchen = () => {
                   <th>Complemento</th>
                   <th>Adicionais</th>
                 </tr>
-
                 {order.Products.map((items, index) => (
                   <tr key={index}>
                     <td>{items.qtd}</td>
                     <td>{items.name}</td>
-                    <td>{items.flavor === 'null' ? '' : items.flavor}</td>
-                    <td>{items.complement === 'null' ? '' : items.complement}</td>
+                    <td>{items.flavor}</td>
+                    <td>{items.complement}</td>
                   </tr>
                 ))}
                 <tr>
