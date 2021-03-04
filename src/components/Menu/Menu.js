@@ -16,7 +16,6 @@ const Menu = () => {
   const [makeOrder, setMakeOrder] = useState({"client": "", "table": table, "products": []});
   const [errorMessage, setErrorMessage] = useState("");
   
- 
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
@@ -57,7 +56,7 @@ const Menu = () => {
             <option value="3">Mesa 03</option>
             <option value="4">Mesa 04</option>
             <option value="5">Mesa 05</option>
-            <option value="6">Mesa 05</option>
+            <option value="6">Mesa 06</option>
             <option value="7">Mesa 07</option>
             <option value="8">Mesa 08</option>
             <option value="9">Mesa 09</option>
