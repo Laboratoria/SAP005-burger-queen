@@ -1,35 +1,71 @@
 
 import React from 'react';
-import './Auth.css';
-import {useHistory} from 'react-router-dom'
-import { StandardButtonPrincipal2, StandardButtonPrincipal }  from '../../components/StandardButton/buttonRegister';
+import { useHistory } from 'react-router-dom'
+import { StandardButtonPrincipal2, StandardButtonPrincipal } from '../../components/StandardButton/buttonRegister';
 import { LogoHome } from '../../components/Logos/Logos.js';
+import { Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
+export const Home = () => {
+  const useStyles = makeStyles((theme) => ({
+    conteinerPrincipalHome: {
 
+      boxdirection: 'normal !important',
+      boxOrient: 'horizontal!important',
+      display: 'flex!important',
+      flexDirection: 'row!important',
+  },
 
+    conteinerSecondary: {
+      boxDirection: 'normal !important',
+      boxOrient: 'vertical !important',
+      boxAlign: 'center !important', 
+      boxPack: 'center !important', 
+      display: 'flex !important', 
+      justifyContent: 'center !important',
+      alignItems: 'center !important',
+      flexDirection: 'column !important',
+      width: '55vw !important',
+      backgroundColor: '#cf5e18 !important',
+      minHeight: '100vh !important',
+  },
 
-function Home () {
-  const history = useHistory()
+    conteinerTertiary: { 
+      webkitBoxAlign: 'center !important',
+      webkitBoxPack: 'center !important',
+      display: 'flex !important', 
+      justifyContent: 'center !important', 
+      alignItems: 'center !important',
+      width: '45vw !important', 
 
-  const routerRegister=()=>{
-    history.push('/Register')
-  }
-  const routerLogin=()=>{
-    history.push('/Login')
-  }
-  return (
-    <main class="_cjo0m2">
-    <article class="_hjfkep">
-    <LogoHome/>
-    </article>
-    <aside class="_1oez8w8">
-      <section class="_1ytio68">
-        <StandardButtonPrincipal content="Login" onClick={routerLogin}/>
-        <StandardButtonPrincipal2 content="Cadastrar" onClick={routerRegister}/>
-      </section>
-    </aside>
-  </main>
-  );
- 
+  },
+    conteinerQuarticiario: {
+      display: 'flex',
+      flexDirection: 'column',
+  },
+
+  }));
+const classes = useStyles();
+const history = useHistory();
+const routerLogin = () => {
+  history.push('/Login')
 }
-export default Home;
+const routerRegister = () => {
+  history.push('/Register')
+}
+
+return (
+  <Box className={classes.conteinerPrincipalHome}>
+    <Box className={classes.conteinerSecondary}>
+      <LogoHome />
+    </Box>
+    <Box className={classes.conteinerTertiary}>
+      <section className={classes.conteinerQuarticiario}>
+        <StandardButtonPrincipal content="Login" onClick={routerLogin} />
+        <StandardButtonPrincipal2 content="Cadastrar" onClick={routerRegister} />
+      </section>
+    </Box>
+  </Box>
+
+)
+};

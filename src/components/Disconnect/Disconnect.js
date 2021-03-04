@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 export const Disconnect = (props) => {
   const history = useHistory();
@@ -14,7 +14,7 @@ export const Disconnect = (props) => {
   return (
   <Button onClick={() => handleLogout()} >
     {props.content}
-    <ExitToAppIcon />
+    <HighlightOffIcon />
   </Button>
   )
 };

@@ -4,7 +4,8 @@ import { Footer } from "../../components/Footer/Footer.js";
 import { Typography, Box } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { withStyles  } from '@material-ui/core/styles';
-import { NavTabs } from '../../components/products/tab/index.js';
+//import { NavTabs } from '../../components/products/tab/index.js';
+//<NavTabs addProductToQuote={addProductToQuote} products={products} client={client} table={table} total={total} />
 
     const  Hall = () => {
     const classes = useStyles();
@@ -15,8 +16,7 @@ import { NavTabs } from '../../components/products/tab/index.js';
   
       const addProductToQuote = (data) => {
       let newObject = {...products};
-      //console.log(newObject);
-      if (data.product) {
+        if (data.product) {
         delete newObject[data.product.id];
         if (data.product.qtd > 0) {
           newObject[data.product.id] = data.product;
@@ -27,11 +27,10 @@ import { NavTabs } from '../../components/products/tab/index.js';
         setClient('');
         setTable('');
       }
-      //getTotals();
+     
       setTotal(getTotals(newObject));
       setProducts(newObject);
-      //localStorage.setItem('order', JSON.stringify(newObject));
-      //console.log(quoteData);
+      
     };
   
     const getTotals = (products) => {
@@ -52,10 +51,10 @@ import { NavTabs } from '../../components/products/tab/index.js';
         },
         '& .MuiOutlinedInput-root': {
           '& fieldset': {
-            borderColor: 'red',
+            borderColor: 'yellow',
           },
           '&:hover fieldset': {
-            borderColor: 'yellow',
+            borderColor: 'red',
           },
           '&.Mui-focused fieldset': {
             borderColor: 'green',
@@ -85,7 +84,6 @@ import { NavTabs } from '../../components/products/tab/index.js';
     <CssTextField className={classes.margin} label="Número da Mesa" type="number"  min="1" max="999" variant="outlined" id="custom-css-outlined-input-numer" required fullWidth value={table} onChange={(event) => setTable(event.target.value)} />
      </div>
   </Box>
-  <NavTabs addProductToQuote={addProductToQuote} products={products} client={client} table={table} total={total} />
 
        <Footer />
           

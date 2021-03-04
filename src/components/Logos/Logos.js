@@ -12,9 +12,7 @@ export const useStyles = makeStyles(() => ({
       alignItems: 'center',
       width: '100%',
       position: 'absolute',
-      left: '50%',
-      
-        },
+      },
   
     logoComponent: {   //Okay
       maxWidth: 60,
@@ -31,9 +29,7 @@ export const useStyles = makeStyles(() => ({
 export function LogoNav () {
     const classes = useStyles();
     return (
-
         <div className={classes.Logoheader}> 
-
       <img className={classes.logoComponent} src={logoNav} alt='logo'/>
       </div>
     )
@@ -43,9 +39,7 @@ export function LogoNav () {
   export function LogoHome () {
     const classes = useStyles();
     return (
-   
-
-      <img className={classes.logoHome} src={logoNav} alt='logo'/>
+    <img className={classes.logoHome} src={logoNav} alt='logo'/>
       
     )
   }

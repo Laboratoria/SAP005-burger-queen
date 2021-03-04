@@ -6,7 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from "@material-ui/lab/Alert";
 import { StandardButton } from '../../components/StandardButton/buttonRegister.js';
-import './Auth.css';
 
 export const Login = () => {
   const useStyles = makeStyles((theme) => ({
@@ -70,8 +69,8 @@ export const Login = () => {
   return (
     
     <Container maxWidth="xs" component="main" style={{ backgroundColor: '#fff', height: '80vh', marginTop: '10vh'}}>
-    <Typography component="h1" variant="h4" style={{ textAlign: 'center', fontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
-      Hello Burger
+     <Typography component="h1" variant="h4" style={{ textAlign: 'center', marginBottom: '4vh', textfontWeight: 'bolder', color: '#ce5f18', marginLeft: '0.5rem' }}>
+        Hello Burger
     </Typography>
       {result.status && (
       <Alert severity="error">{result.message}</Alert>

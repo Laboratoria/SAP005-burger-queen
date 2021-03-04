@@ -76,8 +76,7 @@ export function NavBar() {
          </Typography>
          </div>
          <LogoNav/>
-       
-         
+                
          <Disconnect content="Deslogar"/>
          </Toolbar>        
   )
