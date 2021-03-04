@@ -13,7 +13,7 @@ export const CreateOrder = () => {
   const [loading, setLoading] = useState(true);
   const [totalPrice, setTotalPrice] = useState([0]);
   const [orderSummary, setOrderSummary] = useState([]);
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState([]);
   const [productsPrice, setProductsPrice] = useState([]);
   
   const [excludedProduct, setExcludedProduct] = useState([]);
@@ -32,10 +32,6 @@ export const CreateOrder = () => {
     route.push('/Lounge')
   }
 
-  function BackBtn(event) {
-    event.preventDefault();
-    loungeRoute();
-  }
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -84,11 +80,11 @@ export const CreateOrder = () => {
 
 
   const handleAdd = (products) => {
-    const newOrder = [...orderSummary, products]
+    const newOrderSummary = [...orderSummary, products]
     const newProductsPrice= [...productsPrice, products.price]
-    setOrderSummary(newOrder);
+    setOrderSummary(newOrderSummary);
     setProductsPrice(newProductsPrice);
-    const productsApi = newOrder.map((products) => {
+    const productsApi = newOrderSummary.map((products) => {
       return {
         id: products.id,
         qtd: 1,
@@ -105,8 +101,7 @@ export const CreateOrder = () => {
     
     console.log('qtdProducts', qtdProducts)
 
-    const arrayProducts = [];
-    console.log('arrayProducts', arrayProducts)
+    const arrayProducts = [];    
     for (const [key, value] of Object.entries(qtdProducts)) {
       arrayProducts.push({
         id: key,
@@ -114,7 +109,8 @@ export const CreateOrder = () => {
       });
     }
 
-    setOrder({ ...order, products: arrayProducts });
+    setOrder( {...order, products: arrayProducts} );
+    console.log('order no add',order)
     
   };
   
@@ -162,16 +158,11 @@ export const CreateOrder = () => {
       .catch(error => console.log('error', error));
   }
 
-  /*React.useEffect(() => {
-  console.log(orderSummary);
-  console.log(placeOrder)
-  console.log(totalPrice);
-  }, [totalPrice, orderSummary])*/
-
    return (
     <>
       <Header />
-     
+        <h1>Criar Pedido</h1>
+        <div className="container">
         <div className="row">
           <div className="col">
             <input type="text" className="form-control" placeholder="Cliente" aria-label="Cliente" onChange={handleClient}
@@ -211,9 +202,9 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
-                            onClick={() => {
+                            onClick={() => 
                               handleAdd(products)
-                            }}>+</button>
+                            }>+</button>
                         </td>
                       </tr>
                     ))}
@@ -257,9 +248,9 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
-                            onClick={() => {
+                            onClick={() => 
                               handleAdd(products)
-                            }}>+</button>
+                            }>+</button>
                         </td>
                       </tr>
                     ))}
@@ -279,9 +270,9 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
-                            onClick={() => {
+                            onClick={() => 
                               handleAdd(products)
-                            }}>+</button>
+                            }>+</button>
                         </td>
                       </tr>
                     ))}
@@ -335,10 +326,6 @@ export const CreateOrder = () => {
                       <th> R${totalPrice}</th>
                     </tr>
                     <tr>
-                    <th>
-                        <button id="back-btn" className="btn" onClick={BackBtn}>Voltar</ button>
-                      </th>
-
                       <th>
                         <button
                           className="btn"
@@ -362,7 +349,7 @@ export const CreateOrder = () => {
               </table>
             </>)}
     
-    
+    </div>
     </>
 
 

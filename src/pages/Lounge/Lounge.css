@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-.container {
-  margin:10px;
+.container { 
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,13 +9,12 @@
   font-size: 20pt;  
 }
 
-.createorder-btn, .orderread-btn, .btn,#back-btn {
+.createorder-btn, .orderread-btn, .btn, #back-btn {
     border: solid 2px #fff;
     border-radius: 3rem;
-    background-color: #D92534;
+    background-color: silver;
     padding: 0.9rem 1.5rem;
-    text-transform: uppercase;
-    color: #fff;
+    text-transform: uppercase;    
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     box-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
@@ -42,8 +40,10 @@ table {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: whitesmoke;
   padding: 30px;
   margin-bottom: 30px;
+  
 
 }
 .order{
@@ -58,6 +58,21 @@ table {
 
 .row{
   padding: 30px;
+  
 }
 
+.bi {
+   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;   
+  }
+.bi:hover{
+  height: 4.8em;
+    width: 4.8em;
+    opacity: 0.5;
+  }
 
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
