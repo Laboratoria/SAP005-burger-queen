@@ -9,7 +9,6 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import '../../style.css';
 
-
 function Pending(){
   const classes = useStyles();
     return (

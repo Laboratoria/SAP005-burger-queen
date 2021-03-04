@@ -165,8 +165,8 @@ const Menu = () => {
 
   return (
     <>
+      <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
         <NavBar/>   
-        <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
         <form className={classes.paperTable}  noValidate autoComplete="off" >
             <Input placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
             name='nome'
