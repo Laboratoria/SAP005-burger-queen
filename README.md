@@ -11,8 +11,11 @@ ___
 - [Histórias de Usuario](#Histórias-de-Usuários)
 - [Funcionalidades](#Funcionalidades)
 - [Planejamento e Organização](#Planejamento-e-Organização)
-- [Pré Requisitos](#Pré-Requisitos)
+- [Testes](#Testes)
+- [Instalação](#Instalação)
+- [Dependências](#Dependências)
 - [Tecnologias utilizadas](#Tecnologias-utilizadas)
+- [Desenvolvedoras](#Desenvolvedoras)
 
 ---
 
@@ -25,7 +28,7 @@ ___
 
 ### Introdução
 
-A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/SAP005-burger-queen), o Burguer Queen. Desenvolvemos em dupla uma aplicação 100% por demanda para suprir de forma ordenada e eficiente as histórias de usuário de um restaurante. Desenvolvemos uma aplicação de gestão, onde a interface é sincronizada entre os pedidos(realizados através de um Tablet) e a cozinha.
+A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/SAP005-burger-queen), desenvolvemos em dupla uma aplicação 100% por demanda, suprindo de forma ordenada e eficiente as histórias de usuário. Implementamos uma aplicação de gestão de um restaurante, onde a interface é sincronizada entre os pedidos do salão(realizados através de um Tablet) e a cozinha.
 
 ![gifBela](https://www.hypeness.com.br/1/2021/02/7d47e737-bela-e-a-fera-comidas.gif)
 
@@ -34,24 +37,24 @@ A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/
 
 As Histórias de usuário foram fornecidas por um fast food em expansão, e seguem abaixo:
 
-1. Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
+- Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
 
-2. Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada
+- Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada
 produto e poder enviar o pedido para a cozinha para ser preparado.
 
-3. Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
+- Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
 
-4. Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
+- Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
 
-## Funcionalidades
+### Funcionalidades
 
-#### 1: Criar perfil
+##### 1: Criar perfil
 
 - [x] Poder realizar cadastro com e-mail, senha e função.
 - [x] Poder realizar login com e-mail e senha.
 - [x] Redirecionar para a tela correta.
 
-#### 2: Anotar pedidos
+##### 2: Anotar pedidos
 
 - [x] Digitar o nome do cliente e mesa.
 - [x] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
@@ -60,27 +63,28 @@ produto e poder enviar o pedido para a cozinha para ser preparado.
 - [x] Mostrar _resumo_ do pedido com todos os itens e o total.
 - [x] Enviar para a cozinha (isso deve salvar o pedido).
 
-#### 3: Ver pedidos na cozinha
+##### 3: Ver pedidos na cozinha
 
 - [x] Visualizar pedidos pendentes para produção.
 - [x] Marcar pedido como pronto para entrega.
 - [x] Ver histórico dos pedidos.
 
-#### 4: Entrega de pedidos
+##### 4: Entrega de pedidos
 
 - [x] Visualizar pedidos pendentes para entrega.
 - [x] Marcar pedido como entregue ao cliente.
 
-### UX
+##### 5: UX
 
 - [x] Funciona bem em tablets.
 - [x] Fácil utilização em telas sensíveis ao toque.
 - [x] Status atual do pedido sempre visível enquanto fazemos um pedido.
 
-## Planejamento e Organização
+### Planejamento e Organização
 📌Organização
 
 Ao recebermos esse projeto, definimos as sprints de acordo com cada historia de usuario. Utilizando o método Kanban organizado através do [Trello](https://trello.com/pt-BR)
+
 ![imagen trello](src\assets\imgs\ubTrello.jpg)
 
 📌Interface
@@ -94,31 +98,54 @@ Desenvolvemos o wireframe para ser amigável ao usuário e de fácil compreensã
 
 ![img Tablet](src\assets\imgs\ubTabletLogin.jpg)
 
+📌Fluxo do usuário
+Determinamos trajetos claros para cada perfil de usuário, desde o login, cadastro e descriminação de salão ou cozinha.
+
 🔲 Fluxograma da aplicação
 
 ![Fluxograma](https://trello-attachments.s3.amazonaws.com/601c543fb62fd88ab1f9eb85/851x641/e4e11491c0af1103c38844de16590234/burguer-queen-login-signup.png)
+
+📌Armonização Visual
+Queríamos manter a estética minimalista e com cores agradáveis ao olhar. Mantemos o padrão entre o logo e a aplicação utilizando a paleta disposta abaixo.
 
 ☑️ Paleta de Cores
 
 ![Paleta](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c550785833f2f8c4e9800/cd001c684e990df6706e9906e4ca5a8b/AdobeColor-burguer-queen.jpeg)
 
-## Pré Requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+### Testes
+
+A partir do primeiro deploy da aplicação, conseguimos testar a usabilidade durante o processo de desenvolvimento. Com isso, identificamos que:
+
+❌Os usuários não estavam satisfeitos com a cor do fundo da aplicação, pois estava tudo opaco.
+
+✔️Alteramos a cor de fundo para uma cor que mais contrastava com o restante da aplicação.
+
+
+### Instalação
+
+Antes de começar, é preciso ter instalado em sua máquina as seguintes ferramentas:
+
+[Git](https://git-scm.com);
+[Node.js](https://nodejs.org/en/).
+
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-Para iniciar este projeto você terá que fazer um _fork_ e _clone_ deste repositório.
+Para iniciar este projeto, é necessário realizar um _fork_ e _clone_ deste repositório<https://github.com/CarolineSCosta/SAP005-burger-queen.git>.
 
- - Clone este repositório <https://github.com/CarolineSCosta/SAP005-burger-queen.git>
- - Acesse a pasta do projeto no seu terminal/cmd
-- Instale as dependências
-$ npm install
-- Execute a aplicação em modo de desenvolvimento
-$ npm run start
-- A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+### Dependências
 
-## Tecnologias utilizadas
+![REACT](https://img.shields.io/badge/REACT-17.0.1-brightgreen)
+![REACT-DOM](https://img.shields.io/badge/REACT--DOM-17.0.1-brightgreen)
+![REACT-ICONS](https://img.shields.io/badge/REACT--ICONS-4.2.0-brightgreen)
+![REACT-MODAL](https://img.shields.io/badge/REACT--MODAL-3.12.1-brightgreen)
+![REACT-ROUTER](https://img.shields.io/badge/REACT--ROUTER-5.2.0-brightgreen)
+![REACT-ROUTER-DOM](https://img.shields.io/badge/REACT--ROUTER--DOM-5.2.0-brightgreen)
+![REACT-SCRIPTS](https://img.shields.io/badge/REACT--SCRIPTS-4.0.2-brightgreen)
+![WEB-VITALS](https://img.shields.io/badge/WEB--VITALS-1.1.0-green)
+
+
+### Tecnologias utilizadas
 
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/)
@@ -126,7 +153,7 @@ $ npm run start
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [React Routes](https://reactrouter.com/web/guides/quick-start)
 - [React + Fetch](https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples)
-- [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+- [React Modal](https://www.npmjs.com/package/react-modal)
 - [Deploy + Vercel](https://vercel.com/dashboard)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
@@ -135,16 +162,16 @@ $ npm run start
 ### Desenvolvedoras
 
 
- <img style="border-radius: 50%;" src="https://trello-members.s3.amazonaws.com/5761c7f01e4799bd615d27c4/77a78139f98bf137e41f9733b34227bb/original.png" width="100px;" alt=""/>
+ <img style="border-radius: 50%;" src="https://trello-members.s3.amazonaws.com/5761c7f01e4799bd615d27c4/77a78139f98bf137e41f9733b34227bb/original.png" width="100px;" alt="Foto Carol"/>
  <br />
  <sub><b>Caroline Costa</b></sub>
 
- [![Linkedin Badge](https://img.shields.io/badge/-Carol-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/brasil-elis/)](https://www.linkedin.com/in/brasil-elis/) 
+ [![Linkedin Badge](https://img.shields.io/badge/-Carol-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolinescosta/)](https://www.linkedin.com/in/carolinescosta/) 
 
  [![GitHub Badge](https://img.shields.io/github/followers/CarolineSCosta?label=Carol&style=social)](https://github.com/CarolineSCosta)
 
 
- <img  style="border-radius: 50%;" src="https://trello-members.s3.amazonaws.com/5f2016fa61b72f2f43291e33/014299053b1f879e01fd511b01695e77/original.png" width="100px;" alt=""/>
+ <img  style="border-radius: 50%;" src="https://trello-members.s3.amazonaws.com/5f2016fa61b72f2f43291e33/014299053b1f879e01fd511b01695e77/original.png" width="100px;" alt="Foto Elis"/>
  <br />
  <sub><b>Elis Brasil</b></sub> 
 
