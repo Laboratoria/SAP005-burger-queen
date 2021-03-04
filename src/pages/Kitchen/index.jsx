@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input'; 
@@ -8,45 +8,70 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 function Kitchen (){
   const classes = useStyles();
-  const [list, setList] = useState([]);
-  const [listMap, setListMap] = useState([]);
   const tokenLocal = localStorage.getItem('token');
+  const [list, setList] = useState([])
 
-  useEffect(() => {
+
+
+  const Kitchen = useCallback (() => {
+    
     fetch('https://lab-api-bq.herokuapp.com/orders', {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `${tokenLocal}`
+        'accept': 'application/json',
+        'Authorization': `${tokenLocal}`,
       },
-    })
-    .then(response => response.json())
-    .then(data => {
-      const dados = data
-      console.log(dados);
-      setList(dados) 
-    })
+    })       
+    
+    .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const dados = data.filter(product => product.status === 'pending')
+        setList(dados)
+        
+      });
+    
   }, [tokenLocal])
-  const listAllOrders = () => {
-    const productsList = list;
-    setListMap(productsList);
-  } 
+
+  useEffect(() => {
+    Kitchen()
+  }, [Kitchen])
 
   return (
-      <div>
-        <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
-          <NavBar/>   
-        <h1>Kitchen</h1>
-        <button onClick={listAllOrders} className={classes.submitMenuType} >Pedidos</button>
-        {listMap.map((product) => (
-            <div key={product.id} name={product.client_name} table={product.table}>
-              <button className={classes.submitMenuItems} >{product.client_name} {product.table} {product.Products.name}</button>
-            </div>)
-          )}
-    
-        </Grid>
-      </div>
-  );
+    <div className='pending'>
+      <NavBar/>  
+      <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">  
+
+        {list && list.map (function (product, index) {
+          return(
+            <div  key={index}>
+              <span>
+                <div>
+                  <span>{product.client_name} {product.table}</span>
+                  <span>{product.id} </span>
+                  <span>{product.status}</span>
+                  <span>{product.createdAt}</span>
+                </div>
+                <span>{product.Products.map(function(item) {
+                  console.log(item)
+                  return(
+                    <div key={item.id}>
+                      <span>{item.qtd} </span>
+                      <span>{item.name} </span> 
+                      <span>{item.price} </span>
+                      <span>{item.flavor === 'null' ? '' : item.flavor} </span>
+                      <span>{item.complement === 'null' ? '' : item.complement } </span>                 
+                    </div>                    
+                  )})}
+                </span>
+                
+              </span>
+            </div>
+          )
+        })}
+      </Grid>
+    </div>
+  )
 }
-  
-  export default Kitchen;
+
+export default Kitchen;
