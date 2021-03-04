@@ -7,14 +7,15 @@
 }
 
 .select-Table {
-  width: 140px;;
+  width: 200px;;
   height: 50px;
   position: absolute;
-  right: 230px;
+  right: 430px;
+  top: 700px;
   border: none;
   border-radius: 20px;
   margin-right: 10px;
-  font-size: 30px;
+  font-size: 40px;
   color: #F8CB00;
   background-color: #000;
 }
