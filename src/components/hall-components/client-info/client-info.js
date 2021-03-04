@@ -59,10 +59,6 @@ export default function ClientInfo() {
             onClick={
               async (event) => {
                 event.preventDefault()
-                {/*await openOrder(
-                  clientName,
-                  tableNumber,
-                )*/}
                 if (clientName === null || clientName === undefined || clientName === '') {
                 } else if (tableNumber === null || tableNumber === undefined || tableNumber === '') {
                   console.log('Insira o número da mesa')
@@ -71,7 +67,6 @@ export default function ClientInfo() {
                   localStorage.setItem('tableNumber', tableNumber)
                   history.push('/new-order')
                 }
-
               }
             }
           />

@@ -8,7 +8,9 @@ export default function OrderSection({
   plus,
   minus,
   remove,
-  items
+  items,
+  cancelCallback,
+  confirmCallback
 }) {
   return (
     <Fragment>
@@ -23,6 +25,7 @@ export default function OrderSection({
                   name={item.product_name}
                   price={item.product_price}
                   quantity={item.product_quantity}
+                  classNameIcon='icon-order'
                   plus={plus}
                   minus={minus}
                   remove={remove}
@@ -43,9 +46,10 @@ export default function OrderSection({
             className='btn-order-cancel'
             type='button'
             onClick={
-              (event) => {
-                event.preventDefault()
-              }}
+              () => {
+                cancelCallback()
+              }
+            }
           />
           <Button
             name='Confirmar pedido'
@@ -64,6 +68,8 @@ export default function OrderSection({
                     }
                   })
                 )
+                console.log("1")
+                confirmCallback()
               }
             }
 

@@ -1,42 +1,44 @@
-import { Fragment } from 'react'
-import { FaUserAlt } from 'react-icons/fa'
-import { getOrders } from '../../../services/services'
-import Navbar from '../navbar/navbar'
-import Footer from '../footer/footer'
-//import Button from '../button/button'
+import React, { Fragment } from 'react'
+import OrderCard from '../order-card/order-card'
+import { updateOrder } from '../../../services/services'
 import './order-info.css'
 
-export const OrderInfo = () => {
-
+export default function OrderInfo({
+  statusTitle,
+  orders,
+  nextStatus,
+  nextStatusApi,
+  showButton,
+  callback
+}) {
   return (
     <Fragment>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <section className='card-order-info'>
-
-          <p className='order-status'>{getOrders.status}</p>
-
-          <div className='order-info'>
-            <p className='table'>Mesa:{getOrders.table}</p>
-            < FaUserAlt className='icon' /> <p className='client-name'>{getOrders.client_Name}</p>
-            <div className='order-products'>
-              <p className='products-name'>{getOrders.products.qtd}</p>
-              <p className='products-price'>{getOrders.products.name}</p>
-            </div>
-            {/* <Button>
-          name='delivery'
-          className='btn-order'
-          type='submit'
-          onClick={}
-        </Button> */}
-          </div>
-
-        </section>
-
-      </main>
-      <Footer />
+      <div className='div-h1'>
+        <h1 className='title-add-status'>{statusTitle}</h1>
+      </div>
+      <section className='container-order-status'>
+        {orders.map((order, index) => {
+          return (
+            <OrderCard
+              tableNumber={order.table}
+              clientName={order.client_name}
+              status={order.status}
+              buttonNameAddStatus={nextStatus}
+              showButton={showButton}
+              onClickAddStatus={
+                async (event) => {
+                  event.preventDefault()
+                  await updateOrder(order.id, nextStatusApi)
+                  callback()
+                }
+              }
+              orderItems={order.Products}
+              key={`order-${index}`}
+            />
+          )
+        }
+        )}
+      </section>
     </Fragment>
   )
 }

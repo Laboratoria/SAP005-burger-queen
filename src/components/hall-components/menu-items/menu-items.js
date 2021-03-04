@@ -24,7 +24,7 @@ export default function MenuItens({
             id={productId}
             name={productName}
             price={productPrice}
-          />
+          /><br />
           <p
             name={productName}
             price={productPrice}
@@ -41,11 +41,12 @@ export default function MenuItens({
           >
             R$ {productPrice},00
         </p>
-          <FaPlus
-            name={productName}
-            price={productPrice}
-            id={productId}
-            className='icon-plus' />
+          {/*<FaPlus
+              name={productName}
+              price={productPrice}
+              id={productId}
+              className='icon-plus'
+            />*/}
         </section>
       }
 

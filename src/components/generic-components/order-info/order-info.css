@@ -1,12 +1,14 @@
-.card-order-info {
-	background-color: #fff9d4;
-	box-shadow: 0 1px 6px 1px #e8dcb5;
-	border-radius: 0.5rem;
-	max-width: 30rem;
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	padding: 1.5rem;
-	margin-top: 10rem;
-
+.title-add-status {
+	margin: 1rem 0;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 600;
 }
+
+.container-order-status {
+	overflow-y: scroll;
+}
+
+/*.div-h1 {
+	overflow-y: unset;
+}*/

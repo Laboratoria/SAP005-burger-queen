@@ -1,4 +1,5 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import ReactModal from 'react-modal'
 import { getProducts } from '../../../services/services'
 import Button from '../../../components/generic-components/button/button'
@@ -9,7 +10,7 @@ import OrderSection from '../../../components/hall-components/order-section-menu
 import './new-order.css'
 
 export const NewOrder = () => {
-
+  const history = useHistory()
   const [showModal, setShowModal] = useState(false)
   const [products, setProducts] = useState([])
   const [checkedMenu, setCheckedMenu] = useState('all-day')
@@ -140,95 +141,109 @@ export const NewOrder = () => {
             </div>
           </div>
         </div>
+        <div className='container-new-order'>
+          <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide section-breakfast'}>
+            <div className='div-container-menu-section'>
+              <MenuSection
+                menuSectionTitle='Lanches'
+                products={products.filter((product) => product.name === 'Misto quente')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
+                }
+              />
 
-        <section className={checkedMenu === 'breakfast' ? 'section-breakfast' : 'hide section-breakfast'}>
-          <div className='div-container-menu-section'>
-            <MenuSection
-              menuSectionTitle='Lanches'
-              products={products.filter((product) => product.name === 'Misto quente')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
+              <MenuSection
+                menuSectionTitle='Bebidas'
+                products={products.filter(product => product.name !== 'Misto quente' && product.type === 'breakfast')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
                 }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Bebidas'
-              products={products.filter(product => product.name !== 'Misto quente' && product.type === 'breakfast')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
+              />
+            </div>
+          </section>
+          <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide section-all-day'}>
+            <div className='div-container-menu-section'>
+              <MenuSection
+                menuSectionTitle='Hambúrgueres'
+                products={
+                  products.filter((product) => product.id === 33 || product.id === 42)
                 }
-              }
-            />
-          </div>
-        </section>
-        <section className={checkedMenu === 'all-day' ? 'section-all-day' : 'hide section-all-day'}>
-          <div className='div-container-menu-section'>
-            <MenuSection
-              menuSectionTitle='Hambúrgueres'
-              products={
-                products.filter((product) => product.id === 33 || product.id === 42)
-              }
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  const productId = event.target.attributes['id'].value
-                  setBurgerType(productId === '33' ? 'simples' : 'duplo')
-                  setShowModal(true)
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    const productId = event.target.attributes['id'].value
+                    setBurgerType(productId === '33' ? 'simples' : 'duplo')
+                    setShowModal(true)
+
+                  }
+                }
+              />
+              <MenuSection
+                menuSectionTitle='Acompanhamentos'
+                products={products.filter((product) => product.sub_type === 'side')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
 
                 }
-              }
-            />
-            <MenuSection
-              menuSectionTitle='Acompanhamentos'
-              products={products.filter((product) => product.sub_type === 'side')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
+              />
+              <MenuSection
+                menuSectionTitle='Bebidas'
+                products={products.filter((product) => product.sub_type === 'drinks')}
+                onClick={
+                  (event) => {
+                    event.preventDefault()
+                    addOrUpdateOrderItem(event)
+                  }
                 }
+              />
+            </div>
+          </section>
 
+          <OrderSection
+            cancelCallback={
+              () => {
+                console.log(2)
+                history.push('/client-info')
               }
-            />
-            <MenuSection
-              menuSectionTitle='Bebidas'
-              products={products.filter((product) => product.sub_type === 'drinks')}
-              onClick={
-                (event) => {
-                  event.preventDefault()
-                  addOrUpdateOrderItem(event)
-                }
-              }
-            />
-          </div>
-        </section>
-
-        <OrderSection
-          items={orderItems}
-          plus={
-            (event) => {
-              event.preventDefault()
-              incrementQuantity(event)
             }
-          }
-
-          minus={
-            (event) => {
-              event.preventDefault()
-              decrementQuantity(event)
+            confirmCallback={
+              () => {
+                console.log(3)
+                history.push('/client-info')
+              }
             }
-          }
-
-          remove={
-            (event) => {
-              event.preventDefault()
-              deleteOrderItem(event)
+            items={orderItems}
+            plus={
+              (event) => {
+                event.preventDefault()
+                incrementQuantity(event)
+              }
             }
-          }
-        />
+
+            minus={
+              (event) => {
+                event.preventDefault()
+                decrementQuantity(event)
+              }
+            }
+
+            remove={
+              (event) => {
+                event.preventDefault()
+                deleteOrderItem(event)
+              }
+            }
+          />
+        </div>
         <ReactModal
           className='modal'
           isOpen={showModal}
