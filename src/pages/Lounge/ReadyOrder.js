@@ -17,18 +17,14 @@ export const ReadyOrderList = (props) => {
     const requestOptions = {
       method: 'GET',
       headers: myHeaders,
-
       redirect: 'follow'
     };
     fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
-
         const orders = data;
-        const readyOrders = orders.filter((o) => o.status.includes("ready"))
+        const readyOrders = orders.filter((order) => order.status.includes("ready"))
         setReadyOrders(readyOrders)
-        console.log(readyOrders)
         setLoading(false)
       })
   }
@@ -36,12 +32,11 @@ export const ReadyOrderList = (props) => {
     updatedReadyOrderList();
   }, []);
 
-  const handleUpdateStatus = (o) => {
-    console.log('entrou handleUpdateStatus')
+  const handleUpdateStatus = (order) => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", token);
     myHeaders.append("Content-Type", "application/json");
-    const id = o.id;
+    const id = order.id;
     const status = { status: "delivered" };
     const raw = JSON.stringify(status);
 
@@ -58,53 +53,44 @@ export const ReadyOrderList = (props) => {
         updatedReadyOrderList();
       }
       )
-      .catch(error => console.log('error', error));
+      .catch(error => alert('error', error));
   }
 
   return (
     <>
-
       <Header />
       <h1>Pedidos Prontos</h1>
-
       {loading ?
         (
-          <p>Carregando</p>
+          <p>Carregando...</p>
         ) : (
           <>
 
             <div className="ready-orders">
-
-              {readyOrders.map((o) => {
-                const updatedAt = o.updatedAt;
-                console.log('updatedAt', updatedAt)
-                const createdAt = o.createdAt;
-                console.log('createdAt', createdAt)
+              {readyOrders.map((order) => {
+                const updatedAt = order.updatedAt;
+                const createdAt = order.createdAt;
                 const dataUpdated = new Date(updatedAt);
-                console.log('dataUpdated', dataUpdated)
                 const dataCreated = new Date(createdAt);
-                console.log('dataCreated', dataCreated)
-                const subtraction = Math.abs(dataUpdated) - dataCreated;// math abs retorna o valor absoluto de um nº
-                console.log(subtraction)
-                const minutes = Math.floor(subtraction / 1000 / 60); // retorna um número inteiro (sem - e ,)
-                console.log(minutes)
-                return (
+                const subtraction = Math.abs(dataUpdated) - dataCreated;
+                const minutes = Math.floor(subtraction / 1000 / 60);
 
+                return (
                   <Row >
                     <Col >
                       <CardGroup>
 
-                        <Card body className="text-center" key={o.id}>
+                        <Card body className="text-center" key={order.id}>
 
-                          <CardTitle tag="h5">Mesa: {o.table}</CardTitle>
+                          <CardTitle tag="h5">Mesa: {order.table}</CardTitle>
                           <CardText>
                             <table className="table" >
                               <tbody>
                                 <tr>
-                                  <th>Pedido n° {o.id}   </th>
-                                  <th>Cliente: {o.client_name}</th>
-                                  <th>Status: {o.status}</th>
-                                  <th>Demora:
+                                  <th>Pedido n° {order.id}</th>
+                                  <th>Cliente: {order.client_name}</th>
+                                  <th>Status: {order.status.replace("ready", "Pronto")}</th>
+                                  <th>Tempo de Preparo:
                                 {minutes}min
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
                                       <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
@@ -120,18 +106,18 @@ export const ReadyOrderList = (props) => {
                                   <th>Adicionais</th>
                                 </tr>
 
-                                {o.Products.map((itens, index) => (
+                                {order.Products.map((items, index) => (
                                   <tr key={index}>
-                                    <td>{itens.qtd}</td>
-                                    <td>{itens.name}</td>
-                                    <td>{itens.flavor === 'null' ? '' : itens.flavor}</td>
-                                    <td>{itens.complement === 'null' ? '' : itens.complement}</td>
+                                    <td>{items.qtd}</td>
+                                    <td>{items.name}</td>
+                                    <td>{items.flavor}</td>
+                                    <td>{items.complement}</td>
                                   </tr>
                                 ))}
                               </tbody>
                             </table>
                           </CardText>
-                          <Button onClick={() => handleUpdateStatus(o)}>Entregar</Button>
+                          <Button onClick={() => handleUpdateStatus(order)}>Entregar</Button>
                         </Card>
                       </CardGroup>
                     </Col>
@@ -139,13 +125,10 @@ export const ReadyOrderList = (props) => {
                 )
               })}
             </div>
-
           </>
         )
       }
       <Footer />
     </>
   )
-
-
 };

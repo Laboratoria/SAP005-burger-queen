@@ -33,7 +33,6 @@ const Header = () => {
       
       <header>
         <img src={logoburger} className="logoburger" alt="logoburger" />
-
       </header>
 
 

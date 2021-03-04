@@ -64,17 +64,14 @@ export const Register = () => {
     fetch("https://lab-api-bq.herokuapp.com/users", requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log('result', result)
         if(result.role === "lounge") {
           loungeRoute();
-          console.log('entrou aquin lounge')
         }
         if(result.role === "kitchen") {
           kitchenRoute();
-          console.log('entrou aquin kitchen')
       }
        })
-      .catch(error => console.log('error', error));
+      .catch(error => alert('error', error));
   }
   
 
@@ -147,7 +144,7 @@ export const Register = () => {
           </div>
         </div>
         <div>
-          <button id="back-btn" onClick={BackBtn}>Voltar</ button>
+          <button className="back-btn" onClick={BackBtn}>Voltar</ button>
           <button className='register-btn' type='submit' onClick={handleSubmit}>Cadastrar</button>
         </div>
       </form>

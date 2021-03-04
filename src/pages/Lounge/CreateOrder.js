@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
 import './Lounge.css'
@@ -28,7 +27,6 @@ export const CreateOrder = () => {
     setOrder({ ...order, table: event.target.value });
   };
 
-  
   useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", token);
@@ -43,21 +41,16 @@ export const CreateOrder = () => {
     fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const typeProducts = data;
         const breakfast = typeProducts.filter((products) =>
           products.type.includes("breakfast")
         );
-        console.log('breakfast', breakfast)
         setBreakfastMenu(breakfast);
-        console.log('breakfast no set', breakfast)
 
         const allDay = typeProducts.filter((products) =>
           products.sub_type.includes("hamburguer")
         );
-        console.log('allDay', allDay)
         setAllDayMenu(allDay)
-        console.log('allDay setado', allDay)
 
         const sideMenu = typeProducts.filter((products) =>
          products.sub_type.includes("side")
@@ -86,17 +79,13 @@ export const CreateOrder = () => {
         qtd: 1,
       };
     });
-    console.log('productsApi', productsApi)
 
     const qtdProducts = productsApi.reduce(function (idItem, qtdItem) {
-      console.log('idItem', idItem)
       idItem[qtdItem.id] = idItem[qtdItem.id] || [];
       idItem[qtdItem.id].push(qtdItem);
       return idItem;
     }, Object.create(null));
     
-    console.log('qtdProducts', qtdProducts)
-
     const arrayProducts = [];    
     for (const [key, value] of Object.entries(qtdProducts)) {
       arrayProducts.push({
@@ -105,9 +94,7 @@ export const CreateOrder = () => {
       });
     }
 
-    setOrder( {...order, products: arrayProducts} );
-    console.log('order no add',order)
-    
+    setOrder( {...order, products: arrayProducts} );    
   };
   
 
@@ -119,7 +106,6 @@ export const CreateOrder = () => {
 
   const handleSum = () => {
     setTotalPrice(productsPrice.reduce((total, num) => total + num, 0));
-    console.log('productsPrice', productsPrice)
   };
 
   const handleSendKitchen = (event) => {
@@ -127,10 +113,7 @@ export const CreateOrder = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", token);
-    console.log('order',order)
     const raw = JSON.stringify(order);
-    console.log('raw', raw)
-    console.log('order', order)
 
     const requestOptions = {
       method: 'POST',
@@ -142,7 +125,6 @@ export const CreateOrder = () => {
     fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
         setOrder({});
         setOrderSummary([]);
         setTotalPrice([]);
@@ -151,7 +133,7 @@ export const CreateOrder = () => {
         
       }
       )
-      .catch(error => console.log('error', error));
+      .catch(error => alert('error', error));
   }
 
    return (
@@ -173,7 +155,7 @@ export const CreateOrder = () => {
         </div>
         {loading ?
           (
-            <p>Carregando</p>
+            <p>Carregando...</p>
           ) : (
             <>
 
