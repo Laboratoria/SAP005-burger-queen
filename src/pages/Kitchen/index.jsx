@@ -16,11 +16,12 @@ function Kitchen (){
   const tokenLocal = localStorage.getItem('token');
 
   const [order, setOrder] = useState([])
+  const [orderProduct, setOrderProduct] = useState([])
   const [list, setList] = useState([])
 
   const [open, setOpen] = React.useState(false);
 
-  const itemIdOrder = 284
+  const [itemIdOrder, setItemIdOrder] = useState([])
 
   const orderId = useCallback (() => {
     
@@ -35,6 +36,8 @@ function Kitchen (){
     .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        const productItem = data.Products
+        setOrderProduct(productItem)
         setOrder(data)
 
       });
@@ -68,7 +71,16 @@ function Kitchen (){
     Kitchen()
   }, [Kitchen])
 
-  const handleOpen = () => {
+  const handleOpen = (e) => {
+    e.preventDefault()
+    const product = e.target.parentNode;
+    console.log(product)
+    const idProduct = Number(product.getAttribute('id'))
+    console.log(idProduct)
+
+    setItemIdOrder(idProduct)  
+    console.log(itemIdOrder) 
+    
     setOpen(true);
   };
 
@@ -84,9 +96,9 @@ function Kitchen (){
 
         {list.map (function (product, index) {
           return(
-            <div  key={index}>
-              <span>
-                <button type='button' className={classes.submitMenuItems} onClick={handleOpen} 
+            <div  key={index} id={product.id}>
+              
+                <button  type='button' className={classes.submitMenuItems} onClick={handleOpen} 
                 cursor='pointer'>Pedido {product.id} <br></br> Status  {product.status} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"
@@ -102,10 +114,20 @@ function Kitchen (){
                 <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
                   <div className={classes.submitMenuCardsModal}>
                     <p>{order.id} <br></br> {order.client_name} <br></br> {order.table}<br></br>{product.status}</p> 
+                    <span>{orderProduct.map (function (item, index) {
+                      return(
+                        <div key={index}>
+                          <p>{item.name}</p>
+                          <p>{item.qtd}</p>
+                          <p>{item.flavor === 'null' ? '' : item.flavor}</p>
+                          <p>{item.complement === 'null' ? '' : item.complement }</p>   
+                        </div> 
+                      )
+                    })}</span>
                   </div>
                 </Fade>
               </Modal>
-              </span>
+              
             </div>          
           )
         })}
