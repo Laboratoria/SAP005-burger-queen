@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
 import './Lounge.css'
 
@@ -13,7 +12,7 @@ export const CreateOrder = () => {
   const [loading, setLoading] = useState(true);
   const [totalPrice, setTotalPrice] = useState([0]);
   const [orderSummary, setOrderSummary] = useState([]);
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState([]);
   const [productsPrice, setProductsPrice] = useState([]);
   
   const [excludedProduct, setExcludedProduct] = useState([]);
@@ -26,16 +25,6 @@ export const CreateOrder = () => {
   const handleTable = (event) => {
     setOrder({ ...order, table: event.target.value });
   };
-
-  const route = useHistory();
-  const loungeRoute = () => {
-    route.push('/Lounge')
-  }
-
-  function BackBtn(event) {
-    event.preventDefault();
-    loungeRoute();
-  }
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -51,21 +40,16 @@ export const CreateOrder = () => {
     fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
         const typeProducts = data;
         const breakfast = typeProducts.filter((products) =>
           products.type.includes("breakfast")
         );
-        // console.log('breakfast', breakfast)
         setBreakfastMenu(breakfast);
-        // console.log('breakfast no set', breakfast)
 
         const allDay = typeProducts.filter((products) =>
           products.sub_type.includes("hamburguer")
         );
-        // console.log('allDay', allDay)
         setAllDayMenu(allDay)
-        // console.log('allDay setado', allDay)
 
         const sideMenu = typeProducts.filter((products) =>
          products.sub_type.includes("side")
@@ -84,29 +68,24 @@ export const CreateOrder = () => {
 
 
   const handleAdd = (products) => {
-    const newOrder = [...orderSummary, products]
+    const newOrderSummary = [...orderSummary, products]
     const newProductsPrice= [...productsPrice, products.price]
-    setOrderSummary(newOrder);
+    setOrderSummary(newOrderSummary);
     setProductsPrice(newProductsPrice);
-    const productsApi = newOrder.map((products) => {
+    const productsApi = newOrderSummary.map((products) => {
       return {
         id: products.id,
         qtd: 1,
       };
     });
-    // console.log('productsApi', productsApi)
 
     const qtdProducts = productsApi.reduce(function (idItem, qtdItem) {
-      // console.log('idItem', idItem)
       idItem[qtdItem.id] = idItem[qtdItem.id] || [];
       idItem[qtdItem.id].push(qtdItem);
       return idItem;
     }, Object.create(null));
     
-    // console.log('qtdProducts', qtdProducts)
-
-    const arrayProducts = [];
-    // console.log('arrayProducts', arrayProducts)
+    const arrayProducts = [];    
     for (const [key, value] of Object.entries(qtdProducts)) {
       arrayProducts.push({
         id: key,
@@ -114,8 +93,7 @@ export const CreateOrder = () => {
       });
     }
 
-    setOrder({ ...order, products: arrayProducts });
-    
+    setOrder( {...order, products: arrayProducts} );    
   };
   
 
@@ -127,7 +105,6 @@ export const CreateOrder = () => {
 
   const handleSum = () => {
     setTotalPrice(productsPrice.reduce((total, num) => total + num, 0));
-    // console.log('productsPrice', productsPrice)
   };
 
   const handleSendKitchen = (event) => {
@@ -135,10 +112,7 @@ export const CreateOrder = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", token);
-    // console.log('order',order)
     const raw = JSON.stringify(order);
-    // console.log('raw', raw)
-    // console.log('order', order)
 
     const requestOptions = {
       method: 'POST',
@@ -150,7 +124,6 @@ export const CreateOrder = () => {
     fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
       .then(response => response.json())
       .then(result => {
-        // console.log(result)
         setOrder({});
         setOrderSummary([]);
         setTotalPrice([]);
@@ -159,19 +132,14 @@ export const CreateOrder = () => {
         
       }
       )
-      .catch(error => console.log('error', error));
+      .catch(error => alert('error', error));
   }
-
-  /*React.useEffect(() => {
-  console.log(orderSummary);
-  console.log(placeOrder)
-  console.log(totalPrice);
-  }, [totalPrice, orderSummary])*/
 
    return (
     <>
       <Header />
-     
+        <h1>Criar Pedido</h1>
+        <div className="container">
         <div className="row">
           <div className="col">
             <input type="text" className="form-control" placeholder="Cliente" aria-label="Cliente" onChange={handleClient}
@@ -211,9 +179,9 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
-                            onClick={() => {
+                            onClick={() => 
                               handleAdd(products)
-                            }}>+</button>
+                            }>+</button>
                         </td>
                       </tr>
                     ))}
@@ -257,9 +225,9 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
-                            onClick={() => {
+                            onClick={() => 
                               handleAdd(products)
-                            }}>+</button>
+                            }>+</button>
                         </td>
                       </tr>
                     ))}
@@ -279,9 +247,9 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
-                            onClick={() => {
+                            onClick={() => 
                               handleAdd(products)
-                            }}>+</button>
+                            }>+</button>
                         </td>
                       </tr>
                     ))}
@@ -335,10 +303,6 @@ export const CreateOrder = () => {
                       <th> R${totalPrice}</th>
                     </tr>
                     <tr>
-                    <th>
-                        <button id="back-btn" className="btn" onClick={BackBtn}>Voltar</ button>
-                      </th>
-
                       <th>
                         <button
                           className="btn"
@@ -362,7 +326,7 @@ export const CreateOrder = () => {
               </table>
             </>)}
     
-    
+    </div>
     </>
 
 
