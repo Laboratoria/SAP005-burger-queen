@@ -40,10 +40,9 @@ você for trabalhar.
 
 ## 2. Resumo do projeto
 
-A aplicação tem finalidade uma interface para inserir os pedidos de um restaurante 
-chamada Ratatouille Burger.Os pedidos ao serem inseridos pelo garçom, devem ser 
-encaminhados para a cozinha. Ao finalizar a preparação do itens, o pedido é 
-disponibilizado para o cliente.
+Um pequeno restaurante de hambúrgueres chamado Ratatouille Burger está crescendo, 
+e necessitava de uma interface em que se possa realizar pedidos utilizando um _tablet_,
+e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
 Os usuários desta aplicação são o cozinheiro e o garçom, portanto, esta aplicação 
 foi desenvolvida com atenção para estes usuários, de tal forma que sua usabilidade
@@ -51,9 +50,7 @@ seja a mais simples possível para os mesmos, sendo que para cada tipo de usuár
 (cozinha/salão) seja disponibilizada somente a tela necessária para o mesmo poder 
 trabalhar.
 
-Um pequeno restaurante de hambúrgueres chamado , que está crescendo, necessita uma
-interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
-para a cozinha para que sejam preparados de forma ordenada e eficiente.
+
 
 ![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
 
