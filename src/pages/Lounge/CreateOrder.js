@@ -156,7 +156,7 @@ export const CreateOrder = () => {
             <p>Carregando...</p>
           ) : (
             <>
-              <div className="menus-btn">
+              <div className="btn-group" role="group" aria-label="Basic example">
               <button className="menu-btn" onClick={() => setMenus('breakfast')}>Café da Manhã</button>
 
               <button className="menu-btn" onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
@@ -246,6 +246,7 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
+                            className="add-products"
                             onClick={() => 
                               handleAdd(products)
                             }>+</button>

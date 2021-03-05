@@ -6,11 +6,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 20pt;  
-}
-
-.menus-btn {
-  text-align: center;
 }
 
 .createorder-btn, .orderread-btn {
@@ -23,6 +18,7 @@
   font-weight: bold;
   margin-left: 2em;
   margin-top: 150px;
+  font-size: 15pt;
 }
 
 .btn, #back-btn {
@@ -58,14 +54,11 @@
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   margin-left: 0.3em;
-  padding: 0.3rem 0.5rem;
-}
-
-.delete-products {
-  color: black;
+  padding: 0.5rem 0.5rem;
 }
 
 .menu-btn {
+  background-color: #ffdb49;
   border: solid 2px #fff;
   border-radius: 3rem;
   padding: 0.9rem 1.5rem;
@@ -74,6 +67,7 @@
   font-weight: bold;
   margin-bottom: 2em;
   margin-left: 1em;
+  font-size: 12px;
 }
 
 input {
@@ -98,6 +92,7 @@ table {
   padding: 30px;
   margin-bottom: 30px;
   border:solid 2px #fff; 
+  font-size: 20px;
 }
 
 .menuList {
