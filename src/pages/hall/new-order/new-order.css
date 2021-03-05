@@ -38,6 +38,7 @@ body {
 	margin: 1.5rem 0;
 	justify-content: space-evenly;
 	flex-direction: initial;
+	cursor: pointer;
 }
 
 .btn-confirm,
@@ -50,6 +51,7 @@ body {
 	border-radius: 0.5rem;
 	border: solid 2px;
 	color: #fffff0;
+	cursor: pointer;
 	transition: 0.3s ease-in-out;
 	box-shadow: 0 4px 7px 0 #c2c2c0;
 }
