@@ -40,11 +40,18 @@ você for trabalhar.
 
 ## 2. Resumo do projeto
 
-Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
-sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
-primeiro deve se assegurar de cumprir os requisitos.
+A aplicação tem finalidade uma interface para inserir os pedidos de um restaurante 
+chamada Ratatouille Burger.Os pedidos ao serem inseridos pelo garçom, devem ser 
+encaminhados para a cozinha. Ao finalizar a preparação do itens, o pedido é 
+disponibilizado para o cliente.
 
-Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
+Os usuários desta aplicação são o cozinheiro e o garçom, portanto, esta aplicação 
+foi desenvolvida com atenção para estes usuários, de tal forma que sua usabilidade
+seja a mais simples possível para os mesmos, sendo que para cada tipo de usuário 
+(cozinha/salão) seja disponibilizada somente a tela necessária para o mesmo poder 
+trabalhar.
+
+Um pequeno restaurante de hambúrgueres chamado , que está crescendo, necessita uma
 interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
 para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
