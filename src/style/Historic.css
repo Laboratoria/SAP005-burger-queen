@@ -59,13 +59,14 @@
     flex-direction: column;
     border-radius: 10px;
     margin-bottom: 1vh;
-    height: 100%;
-	background-color: rgb(41, 39, 39);
+    height: 250px;
+    background-color: rgb(41, 39, 39);
     box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
-	text-align: center;
-	margin: 8px;
-	color: white;
-	font-size: 27px;
+    text-align: center;
+    margin: 8px;
+    color: white;
+    font-size: 27px;
+    overflow: auto;
 }
 .btnLabel {
 	display: flex;
@@ -84,6 +85,7 @@
 	width: 80vw;
 	margin: auto;
 	margin-bottom: 5vh;
+	overflow: auto;
 }
 
 .btnAddH {
