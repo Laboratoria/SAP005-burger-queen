@@ -80,7 +80,7 @@ produto e poder enviar o pedido para a cozinha para ser preparado.
 
 Ao recebermos esse projeto, definimos as sprints de acordo com cada história de usuário. Utilizando o método Kanban, organizado através do [Trello](https://trello.com/pt-BR)
 
-![imagen trello](https://github.com/CarolineSCosta/SAP005-burger-queen/blob/main/src/assets/imgs/ubTrello.jpg)
+![imagen trello](https://github.com/CarolineSCosta/SAP005-burger-queen/blob/main/src/assets/imgs/ubTrello.jpg?raw=true)
 
 📌Interface
 Desenvolvemos o wireframe para ser amigável ao usuário e de fácil compreensão.
@@ -101,7 +101,7 @@ Desenvolvemos o wireframe para ser amigável ao usuário e de fácil compreensã
 
 ✔️ Interface Final Tablet
 
-![img Tablet](https://github.com/CarolineSCosta/SAP005-burger-queen/blob/main/src/assets/imgs/ubTabletLogin.jpg)
+![img Tablet](https://github.com/CarolineSCosta/SAP005-burger-queen/blob/main/src/assets/imgs/ubTabletLogin.jpg?raw=true)
 
 
 📌Harmonização Visual
