@@ -161,7 +161,7 @@ Para iniciar este projeto, é necessário realizar um _fork_ e _clone_ deste rep
 ### Desenvolvedoras
 
 
- <img style="border-radius: 50%" src="https://trello-members.s3.amazonaws.com/5761c7f01e4799bd615d27c4/77a78139f98bf137e41f9733b34227bb/original.png" width="100px;" alt="Foto Carol"/>
+ <img style="border-radius:50%" src="https://trello-members.s3.amazonaws.com/5761c7f01e4799bd615d27c4/77a78139f98bf137e41f9733b34227bb/original.png" width="100px;" alt="Foto Carol"/>
  <br />
  <sub><b>Caroline Costa</b></sub>
 
@@ -170,7 +170,7 @@ Para iniciar este projeto, é necessário realizar um _fork_ e _clone_ deste rep
  [![GitHub Badge](https://img.shields.io/github/followers/CarolineSCosta?label=Carol&style=social)](https://github.com/CarolineSCosta)
 
 
- <img  style="border-radius: 50%" src="https://trello-members.s3.amazonaws.com/5f2016fa61b72f2f43291e33/014299053b1f879e01fd511b01695e77/original.png" width="100px;" alt="Foto Elis"/>
+ <img  style="border-radius:50%" src="https://trello-members.s3.amazonaws.com/5f2016fa61b72f2f43291e33/014299053b1f879e01fd511b01695e77/original.png" width="100px;" alt="Foto Elis"/>
  <br />
  <sub><b>Elis Brasil</b></sub> 
 
