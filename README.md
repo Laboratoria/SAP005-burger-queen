@@ -66,7 +66,6 @@ O que deve acontecer para satisfazer as necessidades do usuário?
 O acordado abaixo deve acontecer para dizer que a história está terminada:
 - Você fez testes de usabilidade e incorporou o feedback do usuário.
 - Você deu deploy de seu aplicativo.
-- 
 
 ![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6042a6c8603c595a9fcd7f5e/adb92529c7b328eb4f95a8d3d02f9d7e/historia3.jpg)
 ##### Critérios de aceitação:
@@ -76,7 +75,6 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 ##### Definição de pronto:
 - Você fez testes de usabilidade e incorporou o feedback do usuário.
 - Você deu deploy de seu aplicativo.
-- 
 
 ![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6042a6c8603c595a9fcd7f5e/283cdd40e4ee8fb2006c2f89f8941532/historia4.jpg)
 ##### Critérios de aceitação:
