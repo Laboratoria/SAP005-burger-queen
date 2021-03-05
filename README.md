@@ -5,18 +5,25 @@
 # Burger Nota 1000 
 
 Aplicação para a hamburgueria: "Burger Nota 1000", em que com o uso de um _tablet_ possibilita que seus funcionários do salão possa enviar os pedidos à cozinha para que sejam preparados de forma ordenada e eficiente.
-### :hamburger: Link para a aplicação
-[Burguer Nota 1000](https://burger-nota-1000.vercel.app/)
+### Link para a aplicação
+:hamburger: [Burguer Nota 1000](https://burger-nota-1000.vercel.app/)
 
-<p align="center">
- <a href="#-sobre-o-projeto">Sobre</a> • 
- <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-processo-de-design">Design</a> • 
- <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-para-desenvolvedorxs">Como executar</a> • 
- <a href="#-para-desenvolvedores">Para desenvolvedores</a> • 
- <a href="#-autoras">Autoras</a>   
-</p>
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#sobre-o-projeto)
+   * [Tecnologias](#tecnologias)
+   * [Design](#processo-de-design)
+      * [Definição do produto](#definição-do-produto)
+      * [Fluxo da Aplicação](#fluxo-da-aplicação)
+      * [Protótipos](#protótipos)
+      * [Versão final](#versão-final)
+   * [Funcionalidades](#funcionalidades)
+   * [Para desenvolvedorxs](#para-desenvolvedorxs)
+   * [Desenvolvido por](#deselvolvido-por)
+<!--te-->
+
+
 
 ---
 
@@ -43,7 +50,7 @@ Lógica implementada em JavaScript (ES6 +), uso do [React](https://reactjs.org/)
 ![fluxograma](https://trello-attachments.s3.amazonaws.com/6023ebbadd2840507fb61d9e/715x593/61a839874520f4a293b8ff242f1f32f3/image.png)
 
 ### Protótipos
-  Foram realizados protótipos no [Canva]() com o objetivo de realizar testes de usabilidade.
+  Foram realizados protótipos no [Canva](https://www.canva.com/) com o objetivo de realizar testes de usabilidade.
 
 - Tela de Login e Cadastro:
 ![prototipo1-2](src/img/proto1-2.png)
