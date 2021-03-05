@@ -41,22 +41,6 @@
   right: 150px;
 }
 
-/* .item-nameCustomer {
-  width: 200px;
-  height: 60px;
-  position: absolute;
-  right: 170px;
-  bottom: 2px;
-  margin-right: 20px;
-  padding-left: 10px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 50px;
-  font-size: 22px;
-  font-weight: bold;
-} */
-
 .item-btn-myOrder, .item-btn-myOrder-finished {
 height: 60px;
 font-size: 30px;
@@ -75,13 +59,13 @@ border-radius: 50px;
   left: 270px;
   bottom: 0px;
 }
+
 .item-icon-logout {
     position: absolute;
     left: 587px;
     bottom: 3px;
     width: 65px;
     height: 65px;
-    margin-left: 10px;
-   
+    margin-left: 10px;  
 }
 
