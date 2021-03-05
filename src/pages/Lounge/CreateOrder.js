@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
+import Footer from '../../components/Footer.js';
+import { Spinner } from 'reactstrap';
 import './Lounge.css'
 
 export const CreateOrder = () => {
@@ -154,7 +157,7 @@ export const CreateOrder = () => {
         </div>
         {loading ?
           (
-            <p>Carregando...</p>
+            <Spinner color="warning" />
           ) : (
             <>
 
@@ -327,6 +330,7 @@ export const CreateOrder = () => {
             </>)}
     
     </div>
+    <Footer />
     </>
 
 
