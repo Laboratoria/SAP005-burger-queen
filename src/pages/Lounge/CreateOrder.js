@@ -140,10 +140,9 @@ export const CreateOrder = () => {
       <Header />
         <h1>Criar Pedido</h1>
         <div className="container">
-        <div className="row">
+        <div className="div-input-order">
           <div className="col">
             <input type="text" className="form-control" placeholder="Cliente" aria-label="Cliente" onChange={handleClient}
-
               required />
           </div>
           <div className="col">
@@ -157,15 +156,15 @@ export const CreateOrder = () => {
             <p>Carregando...</p>
           ) : (
             <>
+              <div className="btn-group" role="group" aria-label="Basic example">
+              <button className="menu-btn" onClick={() => setMenus('breakfast')}>Café da Manhã</button>
 
-              <button onClick={() => setMenus('breakfast')}>Café da Manhã</button>
+              <button className="menu-btn" onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
 
-              <button onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
-
-              <button onClick={() => setMenus('side')}>Acompanhamentos</button>
+              <button className="menu-btn" onClick={() => setMenus('side')}>Acompanhamentos</button>
               
-              <button onClick={() => setMenus('drink')}>Bebidas</button>
-
+              <button className="menu-btn" onClick={() => setMenus('drink')}>Bebidas</button>
+              </div>
               {menus === 'breakfast' && (
                 <table className="menuList">
                   <tbody>
@@ -247,6 +246,7 @@ export const CreateOrder = () => {
                         <td> R${products.price}</td>
                         <td>
                           <button
+                            className="add-products"
                             onClick={() => 
                               handleAdd(products)
                             }>+</button>
@@ -262,7 +262,7 @@ export const CreateOrder = () => {
                 <tbody>
                   <thead>
                     <tr>
-                      <th colspan='4'><h1>Comanda</h1></th>
+                      <th colspan='4'><h1 className="comanda-h1">COMANDA</h1></th>
                     </tr>
                   </thead>
                   <tr>
@@ -280,7 +280,7 @@ export const CreateOrder = () => {
                         <td>R${products.price}</td>
                         <td>
                           <button onClick={() => handleDeleteProducts(products)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" className="delete-products">
                               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                               <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                             </svg>
@@ -293,7 +293,7 @@ export const CreateOrder = () => {
                       <th></th>
                       <th></th>
                       <th>
-                        <button className="btn" onClick={() => handleSum()}>SOMAR</button>
+                        <button className="add-btn" onClick={() => handleSum()}>SOMAR</button>
                       </th>
                     </tr>
                     <tr>
@@ -305,7 +305,7 @@ export const CreateOrder = () => {
                     <tr>
                       <th>
                         <button
-                          className="btn"
+                          className="delete-btn"
                           type="button"
                           value="Excluir pedido"
                           onClick={() => {
@@ -314,10 +314,10 @@ export const CreateOrder = () => {
                             setProductsPrice([0])
                             
                           }}>
-                          excluir comanda</button>
+                          Excluir Comanda</button>
                       </th>
                       <th>
-                        <button className="btn" onClick={handleSendKitchen}>Enviar para cozinha</button>
+                        <button className="ready-btn" onClick={handleSendKitchen}>Enviar Para Cozinha</button>
                       </th>
                     </tr>
                   </>
@@ -325,7 +325,6 @@ export const CreateOrder = () => {
                 </tbody>
               </table>
             </>)}
-    
     </div>
     </>
 

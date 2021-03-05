@@ -47,7 +47,7 @@ export const Login = () => {
         <div className="Login">
             <header>
                 <img src={logoburger} className="logoburger" alt="logoburger" />
-                <h1>Acesse sua conta</h1>
+                <h1 className="h1-login">Acesse sua conta</h1>
             </header>
             <form>
                 <input type="text" name="email" placeholder="E-mail" id="input-login" value={email} onChange={(event) => setEmail(event.target.value)} />
