@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { FaPlus } from 'react-icons/fa'
 import './menu-items.css'
 import { getImage } from '../../../services/services'
 
