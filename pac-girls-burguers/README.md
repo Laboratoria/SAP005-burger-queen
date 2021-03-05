@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="justify"> PAC BURGUER</h1>
 
-In the project directory, you can run:
+> Status do Projeto: Em desenvolvimento :warning:
 
-### `npm start`
+<p align="justify"> Esse é um projeto de Frontend Web feito no curso de Desenvolvimento Front End da Laboratória. 
+Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma interface em que se possa realizar pedidos utilizando um tablet, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente.
+O objetivo principal é aprender a construir uma interface web usando React. Esse framework front-end ataca o seguinte problema: como manter a interface e estado sincronizados. Portanto, esta experiência espera familiarizá-la com o conceito de estado da tela, e como cada mudança no estado vai refletir na interface (por exemplo, toda vez que adicionamos um produto para um pedido, a interface deve atualizar a lista de pedidos e o total).
+Foi utilizando uma API própria da Laboratória.
+ </p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ <h2 align="justify"> Definição do produto</h2>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+O [_Product Owner_](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou
+este _backlog_ que é o resultado do seu trabalho com o cliente até hoje.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### [**História de usuário 1**] Usuário deve ter seu perfil (login/senha) para acessar o sistema.
 
-### `npm run build`
+Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### [**História de usuário 2**] Garçom/Garçonete deve poder anotar o seu pedido
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada
+produto e poder enviar o pedido para a cozinha para ser preparado.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### [**História de usuário 3**] Chefe de cozinha deve ver os pedidos
 
-### `npm run eject`
+Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### [**História de usuário 4**] Garçom/Garçonete deve ver os pedidos prontos para servir
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## O que funciona
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Login
+- Cadastro
+- Usuário é redirecionado para a tela respectiva ao seu role
+- Página para usuário do salão
+- Adicionar produtos na comanda
+- Enviador pedido para cozinha
+- Excluir itens da comanda
+- Filtrar categorias de produtos
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## O que não funciona
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ¯\\\_(ツ)\_/¯
 
-### Code Splitting
+- Tela para usuário da cozinha
+- Usuário do salão ver pedidos que estão prontos
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Link
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- email: ka@ka.com
+- senha: 123456
+-
 
-### Making a Progressive Web App
+## Imagens
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<h3 align="justify"> Tecnologia Usada no projeto</h3>
 
-### Deployment
+- React
+- Material-Ui
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<h3 align="justify"> Equipe De Desenvolvedoras</h3>
 
-### `npm run build` fails to minify
+#### Kaueny Alves
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Carina Oliveira

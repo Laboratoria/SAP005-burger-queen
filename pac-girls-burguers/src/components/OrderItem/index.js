@@ -10,7 +10,7 @@ import {
   Table,
   Status,
   Waiter,
-  ButtonToDo,
+  //ButtonToDo,
 } from "./styled";
 export default ({ client_name, status, user_id, table, Products, onClick }) => {
   return (
@@ -29,7 +29,7 @@ export default ({ client_name, status, user_id, table, Products, onClick }) => {
                 <ProductQuantity>Qtd: {" " + product.qtd}</ProductQuantity>
               </ProductItem>
             ))}
-          <ButtonToDo onClick={onClick}>Preparar</ButtonToDo>
+          {/* <ButtonToDo onClick={onClick}>Preparar</ButtonToDo> */}
         </ProductType>
       </ProductInfoArea>
     </Container>

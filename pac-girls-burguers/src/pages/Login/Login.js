@@ -16,19 +16,27 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  async function handleButton(e) {
+  async function handleLogin(e) {
     e.preventDefault();
 
     try {
-      const data = await api.login(email, password);
-      localStorage.setItem("token", data.token);
-      if (data.role === "cozinha") {
-        history.push("/kitchen");
-      } else if (data.role === "salao") {
-        history.push("/saloon");
+      const body = {
+        email,
+        password,
+      };
+      if (email === "" || password === "") {
+        alert("preencha com um email e uma senha");
+      } else {
+        const data = await api.login(body);
+        localStorage.setItem("token", data.token);
+        if (data.role === "cozinha") {
+          history.push("/kitchen");
+        } else if (data.role === "salao") {
+          history.push("/saloon");
+        }
+        localStorage.setItem("user", JSON.stringify(data));
+        console.log(data);
       }
-      localStorage.setItem("user", JSON.stringify(data));
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -52,10 +60,10 @@ const Login = () => {
       />
       <br />
       <p>
-        Ainda não tem conta: <Link to="/register">registre-se</Link>
+        Ainda não tem conta: <Link to="/register">Registre-se aqui</Link>
       </p>
       <br />
-      <Button type="submit" onClick={handleButton}>
+      <Button type="submit" onClick={handleLogin}>
         Entrar
       </Button>
     </Container>

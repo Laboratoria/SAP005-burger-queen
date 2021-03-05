@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import api from "../../api";
 import { Container, Titulo, ProductArea, ProductList } from "./styled";
 import Header from "../../components/Header";
 import OrderItem from "../../components/OrderItem";
 export default () => {
-  const history = useHistory();
 
   const [order, setOrder] = useState([]);
 
@@ -26,7 +24,7 @@ export default () => {
       <ProductArea>
         <ProductList>
           <Titulo> PENDENTES</Titulo>
-          {order &&
+          {order.length > 0 &&
             order.map((item, index) => (
               <OrderItem
                 client_name={item.client_name}

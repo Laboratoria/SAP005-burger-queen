@@ -3,3 +3,9 @@ body {
   font-family: 'Segoe UI', Helvetica, Arial;
   overflow-y: hidden;
 }
+
+a{
+  text-decoration: none;
+  color: #424242;
+  
+}

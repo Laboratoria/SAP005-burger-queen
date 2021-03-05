@@ -1,10 +1,11 @@
 import React from "react";
-import { Container, Logo } from "./styled";
+import { Container, Logo, Title } from "./styled";
 
 export default ({ children }) => {
   return (
     <Container>
-      <Logo src="/assets/logopac.png" />
+      <Logo src="/assets/logo-pac.png" />
+      <Title>PAC BURGUER</Title>
       {children}
     </Container>
   );

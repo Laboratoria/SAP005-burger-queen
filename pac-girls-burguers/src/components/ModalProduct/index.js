@@ -21,7 +21,6 @@ import {
 export default ({ data, setStatus }) => {
   const dispatch = useDispatch();
 
-  const [order, setOrder] = useState([]);
   const [qt, setQt] = useState(1);
 
   useEffect(() => {
@@ -48,15 +47,10 @@ export default ({ data, setStatus }) => {
       payload: { data, qt },
     });
     setStatus(false);
-    setOrder([...order, data]);
-    addOrderKitchen();
-  };
-
-  const addOrderKitchen = () => {
-    dispatch({
-      type: "ADD_ORDER",
-      payload: { data },
-    });
+    // dispatch({
+    //   type: "ADD_ORDER",
+    //   payload: { data },
+    // });
   };
 
   return (
@@ -77,7 +71,10 @@ export default ({ data, setStatus }) => {
               <ProductQtText>{qt}</ProductQtText>
               <ProductQtImage onClick={handlePlusQt} src="/assets/plus.png" />
             </ProductQuantity>
-            <ProductPrice>R${(data.price * qt).toFixed(2)}</ProductPrice>
+            <ProductPrice>{Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(data.price * qt)}</ProductPrice>
           </ProductsQuantityArea>
         </ProductsInfoArea>
       </ProductsArea>
@@ -96,10 +93,3 @@ export default ({ data, setStatus }) => {
     </Container>
   );
 };
-
-// const handleAddKitchen=()=>{
-//   dispatch({
-//     type: "ADD_PRODUCTS",
-//     payload: { data, qt },
-//   });
-// }

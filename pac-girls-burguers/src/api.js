@@ -1,77 +1,67 @@
+import axios from "axios";
+
 let baseUrl = "https://lab-api-bq.herokuapp.com";
 
 export default {
-  register: async (email, password, role, name) => {
-    const res = await fetch(baseUrl + "/users", {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `email=${email}&password=${password}&role=${role}&restaurant=PacBurguer&name=${name}`,
-    });
-    const data = await res.json();
-
-    console.log(data);
-    return data;
+  register: async (body) => {
+    try {
+      const response = await axios.post(`${baseUrl}/users`, body);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   },
 
-  login: async (email, password) => {
-    const res = await fetch(baseUrl + "/auth", {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `email=${email}&password=${password}`,
-    });
-    const data = res.json();
-    console.log(data);
-    return data;
-  }, 
+  login: async (body) => {
+    try {
+      const response = await axios.post(`${baseUrl}/auth`, body);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return error.response;
+    }
+  },
 
   getProducts: async () => {
     const token = localStorage.getItem("token");
-
-    const res = await fetch(baseUrl + "/products", {
-      method: "GET",
+    const axiosConfig = {
       headers: {
         Authorization: token,
       },
-    });
-    const data = await res.json();
-    return data;
+    };
+    const response = await axios.get(`${baseUrl}/products`, axiosConfig);
+    return response.data;
   },
 
-  postOrders: async (menu) => {
-    const token = localStorage.getItem("token");
-
-    const res = await fetch(baseUrl + "/orders", {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-      body: menu,
-    });
-    const data = await res.json();
-    console.log(data);
-    return data;
+  postOrders: async (body) => {
+    try {
+      const token = localStorage.getItem("token");
+      const axiosConfig = {
+        headers: {
+          Authorization: token,
+        },
+      };
+      const response = await axios.post(`${baseUrl}/orders`, body, axiosConfig);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   },
 
   getOrders: async () => {
-    const token = localStorage.getItem("token");
-    const res = await fetch(baseUrl + "/orders", {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    });
-    const data = await res.json();
-    console.log(data);
-    return data;
+    try {
+      const token = localStorage.getItem("token");
+      const axiosConfig = {
+        headers: {
+          Authorization: token,
+        },
+      };
+      const response = await axios.get(`${baseUrl}/orders`, axiosConfig);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   },
 };

@@ -58,5 +58,5 @@ export const Select = styled.select`
 export const Option = styled.option`
   font-size: 16px;
   font-weight: bold;
-  color: #073c07;
 `;
+
