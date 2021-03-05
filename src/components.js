@@ -196,3 +196,29 @@ export function NavBar() {
     </AppBar>
   )
 }
+
+export function NavBarKitchen() {
+
+  const classes = useStyles();
+
+  const localStorageClear = () => {
+    localStorage.clear()
+  }
+
+  return (
+    <AppBar position='static' elevation={0} className={classes.appBar}>
+    <Toolbar className={classes.toolbar}>
+        <img className={classes.logoComponent} src={logo} alt='logo'/>
+        <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
+        Ratatouille
+        </Typography>
+        <Button variant='outlined' className={classes.link} onClick="window.location.reload()">
+          <Link to='/Kitchen'>Atualizar</Link>
+        </Button>
+        <Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
+          <Link to='/' >Sair</Link>
+        </Button>
+      </Toolbar>
+    </AppBar>
+  )
+}
