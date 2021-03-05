@@ -118,6 +118,7 @@ Após, criamos o protótipo de alta-fidelidade com o [Figma](https://www.figma.c
 
 Foram entrevistados hipotéticos usuários, que utilizaram a versão do protótipo de alta-fidelidade para testar o fluxo de tarefas. Também houve testes de usuários conforme o desenvolvimento do projeto, o que acarretou em alguma mudanças, como não ter o uso de imagens no menu, a localização de alguns botões, assim como algumas alterações no fluxo de uso.
 
+---
 ## 4. Desenvolvimento
 
 Como solicitado, a aplicação foi desenvolvida em [React](https://reactjs.org/) como um [Single Page Application (SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica), utilizando a API fornecida.
@@ -141,7 +142,7 @@ Você pode acessar com os logins:
 
 Ou criar o seu próprio login.
 
-
+---
 ## 5. Desenvolvedoras
 
 Desenvolvido por [Alessandra](https://github.com/ale-alve) e [Julia](https://github.com/JuliaTerin).
