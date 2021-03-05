@@ -22,7 +22,6 @@ height="300">
 
 Foi proposto pela [Laboratória](https://github.com/Laboratoria), um projeto por demanda onde o cliente é uma hamburgueria, ele necessita facilitar o fluxo dos pedidos enviados para a cozinha. Foi estabelecido o uso de [React](https://reactjs.org/) para o desenvolvimento da interface web [Single Page Application (SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica), que deve usar requisições da API fornecida e ser especificamente responsivo para tablets. 
 
-
 ### Sobre 
 
 A LaBurguer é a hamburgueria no qual foi desenvolvido uma aplicação, para facilitar que os pedidos sejam executados e entregues, de maneira organizada e prática.
@@ -95,7 +94,6 @@ A partir do detalhamento das histórias de usuário e documentação do projeto,
 
 ![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6025fa7e132aaa2263e06234/1273x1473/8baaadb4c8dced88a900782e1677b935/Fluxograma.png) 
 
-
 ### Prototipagem
 
 Começamos desenvolvendo um protótipo de baixa fidelidade, onde surgiram as primeiras ideias sobre o design do projeto.
@@ -114,7 +112,6 @@ Após, criamos protótipos de alta-fidelidade, para tablet, com o [Figma](https:
 ![Imagem!](https://trello-attachments.s3.amazonaws.com/6022b7c6b912fe7ad26965a8/598x417/f30cdb8a70ccb3dd9ecdbda78dc38788/t3.png)
 ![Imagem!](https://trello-attachments.s3.amazonaws.com/6022b7c6b912fe7ad26965a8/594x414/547b5273180624cc8a4d8b989d51701f/t4.png)
 
-
 ### Testes com Usuários
 
 Alguns usuários utilizaram a versão do protótipo de alta-fidelidade para testar o fluxo de tarefas, e também hdurante o desenvolvimento do projeto, o que acarretou em algumas mudanças, como não ter o uso de imagens no menu, a localização de alguns botões, assim como algumas alterações no fluxo de uso.
@@ -129,7 +126,6 @@ Durante o processo, mudanças foram adotadas para melhor desempenho da aplicaç�
 Utilizamos CSS puro, com responsividade para tablet.
 
 <!-- ![Imagem!](gif) -->
-
 
 ## Conheça nossa aplicação [aqui!](https://sap-005-burger-queen-git-feature-adicionais-ale-alves.vercel.app/)
 Você pode criar, ou acessar com os logins:
