@@ -7,6 +7,7 @@ import Register from "./pages/Register/Register";
 import Hall from "./pages/Hall/Hall.js";
 import Kitchen from "./pages/Kitchen/Kitchen.js"
 import OrderReady from "./pages/OrderReady/OrderReady";
+import OrderFinished from "./pages/OrdersFinished/OrdersFinished";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path ="/Hall" component={Hall} exact/>
       <Route path ="/Kitchen" component={Kitchen} exact/>
       <Route path ="/OrderReady" component={OrderReady} exact/>
+      <Route path ="/OrderFinished" component={OrderFinished} exact/>
 
     </Switch>
   </BrowserRouter>,

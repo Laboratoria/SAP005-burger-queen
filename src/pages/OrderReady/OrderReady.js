@@ -16,7 +16,7 @@ const OrderReady = () => {
       .then((response) => response.json())
       .then((json) => {
         const order = json.filter((item) => item.status === "Pedido Pronto");
-        console.log(json)
+        console.log(json);
         setOrder(order);
       });
   }, [token]);
@@ -25,7 +25,7 @@ const OrderReady = () => {
     getOrders();
   }, [getOrders]);
 
-  const readyOrders = (productId) => {
+  const finishedOrders = (productId) => {
     fetch(`https://lab-api-bq.herokuapp.com/orders/${productId}`, {
       method: "PUT",
       headers: {
@@ -53,14 +53,25 @@ const OrderReady = () => {
             return (
               <div className="card-orders" key={index}>
                 <span className="header-card">
-                  <div><strong>Mesa:</strong> {product.table} | <strong>Pedido:</strong> {product.id}</div>
+                  <div>
+                    <strong>Mesa:</strong> {product.table} |{" "}
+                    <strong>Pedido:</strong> {product.id}
+                  </div>
                 </span>
                 <span>
                   <div className="infos">
-                    <p><strong>Atendente:</strong> {product.user_id}</p>
-                    <p><strong>Cliente:</strong> {product.client_name}</p>
-                    <p><strong>Status:</strong> {product.status}</p>
-                    <p><strong>Data/Hora:</strong> {product.createdAt}</p>
+                    <p>
+                      <strong>Atendente:</strong> {product.user_id}
+                    </p>
+                    <p>
+                      <strong>Cliente:</strong> {product.client_name}
+                    </p>
+                    <p>
+                      <strong>Status:</strong> {product.status}
+                    </p>
+                    <p>
+                      <strong>Data/Hora:</strong> {product.createdAt}
+                    </p>
                   </div>
                   <p>
                     {product.Products.map(function (item) {
@@ -70,7 +81,6 @@ const OrderReady = () => {
                           <p>Item: {item.name} </p>
                           <p>Sabor: {item.flavor}</p>
                           <p>Complemento: {item.complement}</p>
-
                         </div>
                       );
                     })}
@@ -78,8 +88,9 @@ const OrderReady = () => {
                       className="btn-reader-order"
                       type="submit"
                       onClick={() => {
-                        readyOrders(product.id);
-                      }}>
+                        finishedOrders(product.id);
+                      }}
+                    >
                       Pedido entregue
                     </button>
                   </p>
