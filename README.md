@@ -87,18 +87,22 @@ Desenvolvemos o wireframe para ser amigável ao usuário e de fácil compreensã
 
 📄 WireFrame
 
-![img Login](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c549047c64b3dc376bd85/924caf01ca6ae73cf0a467f8cacdaacb/login-portrait.png)
+![img Login](https://trello-attachments.s3.amazonaws.com/601c549047c64b3dc376bd85/1010x1220/fd38ad852f11f0394bc6f0e897560bc2/login-portrait.png)
+
+![img Cadastro](https://trello-attachments.s3.amazonaws.com/601c549047c64b3dc376bd85/1010x1220/057cc2ee716d360008cf1fae84264d5c/cadastro-portrait.png)
+
+![img menu](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c549047c64b3dc376bd85/d2bd51f0d76fe59bd49b1ace5e6cdfe9/pedido-menu-landscape.png)
+
+![img menuitens](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c549047c64b3dc376bd85/e130addd8d3da6627060d2a5a14bf493/pedido-menu-opcoes-landscape.png)
+
+![img pedidos](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c549047c64b3dc376bd85/41c42ca1c9fb2696d9bcd838a485fcd2/pedido-status-landscape.png)
+
+![img cozinha](https://trello-attachments.s3.amazonaws.com/601c423608a1107589520244/601c549047c64b3dc376bd85/29301c58aff7b5b983d62cf156adc6d1/pedido-status-cozinha-landscape.png)
 
 ✔️ Interface Final Tablet
 
 ![img Tablet](src\assets\imgs\ubTabletLogin.jpg)
 
-📌Fluxo do usuário
-Determinamos trajetos claros para cada perfil de usuário, desde o login, cadastro e descriminação de salão ou cozinha.
-
-🔲 Fluxograma da aplicação
-
-![Fluxograma](https://trello-attachments.s3.amazonaws.com/601c543fb62fd88ab1f9eb85/851x641/e4e11491c0af1103c38844de16590234/burguer-queen-login-signup.png)
 
 📌Harmonização Visual
 Queríamos manter a estética minimalista e com cores agradáveis ao olhar. Mantemos o padrão entre o logo e a aplicação utilizando a paleta disposta abaixo.
