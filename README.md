@@ -1,6 +1,6 @@
 # Bem vinda(o) ao Chef's Burger!!!
 
-![alt text](src/images/logo.png)
+![alt text](src/images/logo4.gif)
 
 # Acesse aqui
 <b> *Acesse o Chef´s [Aqui](https://sap-005-burger-queen-luanagss.vercel.app/)
