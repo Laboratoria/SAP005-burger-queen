@@ -13,7 +13,7 @@
 - [8. Checklist](#8-checklist)
 
 ---
-![imagem](imagens/logo.png)
+![imagem](logo.png)
 
 ## 1. Preâmbulo
 
