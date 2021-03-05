@@ -1,24 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import TextField from   '@material-ui/core/TextField';
-import {makeStyles} from '@material-ui/core/styles'
-//import '../components/Hall.css'
+import '../components/Hall.css'
 
-const useStyles = makeStyles((theme)=>({
-  root:{
-      background: 'linear-gradient(45deg,#333, #999)',
-      border: 0,
-      borderRadius: 5,
-  },
-  card:{
-    width: 140,
-    textAlign: 'center',
-    margin: 10,
-  }
-}));
 
 function Hall() {
   const history = useHistory()
@@ -43,7 +26,6 @@ function Hall() {
   const [pedidos, setPedidos] = useState ([]);
   const [menuAllDay, setMenuAllDay] = useState ([]);
   const [cafe, setCafe] = useState ([]);
-  const styles = useStyles();
   
   
   useEffect(() => { let myHeaders = new Headers();
@@ -124,57 +106,48 @@ function add (produto) {
   }
   return (
     <div className="Hall">
-      <div>
       <div className="HallHeader">
-        <Button variant="contained" color="secondary" className="btnSalaoRota" onClick={ ()=> setMenu (cafe) }>Café da manhã</Button>
-        <Button variant="contained" color="secondary" className="btnSalaoRota" onClick={ ()=> setMenu (menuAllDay)}>Resto do dia </Button>
       <h1>{nome} - {role}</h1> 
       <div>
           {menu && menu.map(p => (
-          <Card className={styles.card}>
           <div className = 'menu-cafe'
           name = {p.name} id = {p.id} price = {p.price} key = {p.id}>
-            <Typography variant="body2" color="textPrimary" component="p">{p.name} {p.flavor} {p.complement}</Typography>
-            <Typography variant="body2" color="textSecondary" component="p">R${p.price},00</Typography>
-            <Button disabled = {p.qtd && p.qtd != 0} onClick = { () => add (p)}>Adicionar</Button>
+            <p>{p.name} {p.flavor} {p.complement}</p>
+            <p>R${p.price},00</p>
+            <button disabled = {p.qtd && p.qtd != 0} onClick = { () => add (p)}>Adicionar</button>
           </div>
-          </Card>
           )) 
           }
-          </div>
-          <div>
-
           
           <div className = 'pedidos'>
             {pedidos && pedidos.map((p, index) => (
-              <Card className={styles.card}>
               <div key = {p.id}>
-                <Typography variant="body2" color="textPrimary">{p.name}</Typography>
-                <Typography variant="body2" color="textSecondary" component="p">{p.price}</Typography>
-                <Typography variant="body2" color="textSecondary" component="p">{p.qtd}</Typography>
-                <Button onClick = { () => addQtd (index)}> + </Button>
-                <Button onClick = { () => removeQtd (index)}> - </Button>
+                <p>{p.name}</p>
+                <p>{p.price}</p>
+                <p>{p.qtd}</p>
+                <button onClick = { () => addQtd (index)}> + </button>
+                <button onClick = { () => removeQtd (index)}> - </button>
               </div>
-              </Card>
             ))}
           </div>
       </div>
-      <Button variant="contained" color="secondary" onClick={(e) => logout(e)} className="logout">Sair</Button>
+      <button onClick={(e) => logout(e)} className="logout">Sair</button>
       </div>
       <div className="btnSalao">        
-        <Button variant="contained" color="secondary" className="btnSalaoRota" onClick={sendOrder}>Enviar pedido </Button>
+        <button className="btnSalaoRota" onClick={ ()=> setMenu (cafe) }>Café da manhã</button>
+        <button className="btnSalaoRota" onClick={ ()=> setMenu (menuAllDay)}>Resto do dia </button>
+        <button className="btnSalaoRota" onClick={sendOrder}>Enviar pedido </button>
       </div>
       <div className="inputSalao">
         <div className="inputLabel">
-        <Typography variant="body2" color="secondary" className="cadLabel">Cliente:</Typography>
-        <TextField className={styles.root} type="text"  placeholder="Cliente"  value={nameClient} onChange={(event) => setNameClient(event.target.value)} />
+        <label className="cadLabel" htmlFor="cadInputEmail">Cliente:</label>
+        <input type="text" placeholder="Cliente" className="cadInput" value={nameClient} onChange={(event) => setNameClient(event.target.value)} />
         </div>
 
         <div className="inputLabel">
-        <Typography variant="body2" color="secondary" className="cadLabel" htmlFor="cadInputEmail">Mesa:</Typography>
-        <TextField className={styles.root} type="number" placeholder="Mesa" value={table} onChange={(event) => setTable(event.target.value)} />
+        <label className="cadLabel" htmlFor="cadInputEmail">Mesa:</label>
+        <input type="number" placeholder="Mesa" className="cadInput" value={table} onChange={(event) => setTable(event.target.value)} />
         </div>
-      </div>
       </div>
       </div>
     )
