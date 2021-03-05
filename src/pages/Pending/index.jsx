@@ -110,6 +110,10 @@ function Kitchen (){
           const createdAt = new Date(product.createdAt);//data format
           const subt = Math.abs(updateAt) - createdAt;//numero absoluto
           const minutes = Math.floor(subt / 1000 / 60);//retorna o menor número inteiro 
+          
+          console.log(updateAt)
+
+          console.log(createdAt)
 
           return(
             <div  key={index} id={product.id}>   
