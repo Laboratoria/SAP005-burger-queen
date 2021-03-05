@@ -101,7 +101,10 @@ A partir o detalhamento das histórias de usuário e documentação do projeto, 
 Começamos desenvolvendo um protótipo de baixa fidelidade, onde surgiram as primeiras ideias sobre o design do projeto.
 ![Imagem!](https://trello-attachments.s3.amazonaws.com/6021a23c18997b6d3a625ef5/1152x648/784af5ddec80c446ae82468e41e8ef75/f25a9f01-5974-483d-b687-aa4f99e02d37.jpg) 
 
-Escolhemos como ponto de inspiração, e partida, a própria [Laboratória](https://github.com/Laboratoria), gerando assim o nome do estabelecimento e paleta de cores. 
+Escolhemos como ponto de inspiração, e partida, a própria [Laboratória](https://github.com/Laboratoria), gerando assim o nome do estabelecimento e paleta de cores utilizada para o desenvolvimento do desing. 
+
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6041ac3023d40e1468f232e1/516x141/d345e57e7fc9e71b0f1ca103db8a17c9/color.png)
+
 Pesquisamos sites e aplicações de delivery de hamburguerias para entendermos qual o desing usualmente utilizado nesse nixo de mercado.
 Após, criamos o protótipo de alta fidelidade com o [Figma](https://www.figma.com/) para tablets.
 
@@ -113,7 +116,7 @@ Após, criamos o protótipo de alta fidelidade com o [Figma](https://www.figma.c
 
 ### Testes com usuários
 
-Foram entrevistados 5 usuários, que utilizaram a versão do protótipo de alta fidelidade para testar o fluxo de tarefas.
+Foram entrevistados hipotéticos usuários, que utilizaram a versão do protótipo de alta fidelidade para testar o fluxo de tarefas. Também houve testes de usuários conforme o desenvolvimento do projeto, o que acarretou em alguma mudanças, como não ter o uso de imagens no menu, a localização de alguns botões, assim como algumas alterações no fluxo de uso.
 
 ## 4. Desenvolvimento
 
