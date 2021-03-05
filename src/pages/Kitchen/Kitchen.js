@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./Kitchen.css";
-import { Link } from "react-router-dom";
-
 
 const Kitchen = () => {
   const token = localStorage.getItem("token");
@@ -27,8 +25,6 @@ const Kitchen = () => {
   }, [getOrders]);
 
   const readyOrders = (productId) => {
-    console.log(productId);
-
     fetch(`https://lab-api-bq.herokuapp.com/orders/${productId}`, {
       method: "PUT",
       headers: {
@@ -44,7 +40,6 @@ const Kitchen = () => {
       .then((json) => {
         const changeOrder = order.filter((item) => item.id !== productId);
 
-        console.log(changeOrder);
         setOrder(changeOrder);
       });
   };
@@ -64,9 +59,8 @@ const Kitchen = () => {
                     return (
                       <div key={item.id}>
                         <p><strong>Item: </strong>{item.qtd} x {item.name} </p>
-                        {/* <p>Quant: {item.qtd}</p> */}
-                        {/* <p>Sabor: {item.flavor}</p>
-                          <p>Complemento: {item.complement}</p> */}
+                        <p>Sabor: {item.flavor}</p>
+                        <p>Complemento: {item.complement}</p>
                       </div>
                     );
                   })}
@@ -86,7 +80,7 @@ const Kitchen = () => {
                     <p><strong>Status:</strong> {product.status}</p>
                     <p><strong>Data/Hora:</strong> {product.createdAt}</p>
                   </div>
-                   <button 
+                  <button 
                     className="btn-reader-order"
                     type="submit"
                     onClick={() => {
