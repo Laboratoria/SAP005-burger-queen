@@ -6,7 +6,7 @@
 
 Aplicação para a hamburgueria: "Burger Nota 1000", em que com o uso de um _tablet_ possibilita que seus funcionários do salão possa enviar os pedidos à cozinha para que sejam preparados de forma ordenada e eficiente.
 ### Link para a aplicação
-:hamburger:[Burguer Nota 1000](https://burger-nota-1000.vercel.app/)
+:hamburger: [Burguer Nota 1000](https://burger-nota-1000.vercel.app/)
 
 Tabela de conteúdos
 =================
@@ -53,15 +53,18 @@ Lógica implementada em JavaScript (ES6 +), uso do [React](https://reactjs.org/)
 ![fluxograma](https://trello-attachments.s3.amazonaws.com/6023ebbadd2840507fb61d9e/715x593/61a839874520f4a293b8ff242f1f32f3/image.png)
 
 ### Protótipos
-  Foram realizados protótipos no [Canva]() com o objetivo de realizar testes de usabilidade.
+  Foram realizados protótipos no [Canva](https://www.canva.com/) com o objetivo de realizar testes de usabilidade.
 
-- Tela de Login e Cadastro:
+- Tela de Login e Cadastro
+
 ![prototipo1-2](src/img/proto1-2.png)
 
-- Tela inicial do salão e do pedido(salão):
+- Tela inicial do salão e do pedido(salão)
+
 ![prototipo1-2](src/img/proto3-4.png)
 
 - Tela de pedidos em preparo(salão) e pedidos prontos(cozinha)
+
 ![prototipo1-2](src/img/proto5-6.png)
 
 Após os testes de usabilidade, foram feitas alterações no _layout_ e esquema de cores. Foi verificado a necessidade de deixar em algo parecido com o esquema [_Dark_ _Mode_](https://en.wikipedia.org/wiki/Light-on-dark_color_scheme) o que deixaria a aplicação menos cansativa aos olhos, ao decorrer de longos períodos de uso.

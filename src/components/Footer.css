@@ -9,6 +9,10 @@
   font-weight: bold;
 }
 
-a {
-    text-decoration: none;
+.footer-link {
+  text-decoration: none;
+}
+
+.footer-text {
+  padding-bottom: 40px;
 }
