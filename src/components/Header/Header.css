@@ -1,7 +1,7 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .header-hall {
@@ -41,12 +41,13 @@
   right: 150px;
 }
 
-.item-btn-myOrder, .item-btn-myOrder-finished {
-height: 60px;
-font-size: 30px;
-font-weight: bold;
-background: #F8CB00;
-border-radius: 50px;
+.item-btn-myOrder,
+.item-btn-myOrder-finished {
+  height: 60px;
+  font-size: 30px;
+  font-weight: bold;
+  background: #f8cb00;
+  border-radius: 50px;
 }
 
 .item-btn-myOrder {
@@ -60,18 +61,11 @@ border-radius: 50px;
   bottom: 0px;
 }
 
-.item-btn-myOrder-finished {
-  width: 310px;
-  position: absolute;
-  left: 270px;
-  bottom: 0px;
-}
 .item-icon-logout {
-    position: absolute;
-    left: 587px;
-    bottom: 3px;
-    width: 65px;
-    height: 65px;
-    margin-left: 10px;  
-
-
+  position: absolute;
+  left: 587px;
+  bottom: 3px;
+  width: 65px;
+  height: 65px;
+  margin-left: 10px;
+}

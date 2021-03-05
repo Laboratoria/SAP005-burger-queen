@@ -47,8 +47,9 @@ const Kitchen = () => {
 
   return (
     <>
-    <HeaderKitchen />
+    
     <div className="main-kitchen">
+      <HeaderKitchen />
       <div className="show-order">
         {order &&
           order.map(function (product, index) {

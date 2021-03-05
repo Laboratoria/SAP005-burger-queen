@@ -41,11 +41,11 @@
   height: 50px;
   position: absolute;
   left: 100px;
-  top: 800px;
+  top: 900px;
   border: none;
   border-radius: 20px;
   margin-right: 10px;
-  font-size: 35px;
+  font-size: 40px;
   color: #F8CB00;
   background-color: #000;
 }
@@ -65,7 +65,7 @@ option:active {
   width: 800px;
   height: 1000px;
   left: 100px;
-  top: 900px;
+  top: 1200px;
   border-radius: 10px;
   background: #fff;
   font-size: 18px;
@@ -132,8 +132,8 @@ option:active {
   width: 260px;
   height: 60px;
   position: absolute;
-  left: 350px;
-  top: 1950px;
+  left: 370px;
+  top: 2250px;
   background: #f8cb00;
   border-radius: 50px;
   text-align: center;
@@ -175,4 +175,16 @@ option:active {
   width: 40px;
   height: 40px;
   margin-left: 10px;
+}
+
+
+.button-send {
+  width: 190px;
+  height: 40px;
+  background: #f8cb00;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 1px;
+  font-weight: bold;
+  font-size: 32px;
 }

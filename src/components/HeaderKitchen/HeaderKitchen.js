@@ -15,12 +15,12 @@ function HeaderKitchen() {
 
     return (
         <header>
-            <div className="header-hall">
+            <div className="header-kitchen">
                 <p className="welcome-header">Bem vindo, {user}!!</p>
                 <div className="form-header">
                     <div className="container-icon-logout">
                         <img
-                            className="item-icon-logout"
+                            className="item-icon-kitchen-logout"
                             src={Logout}
                             alt="icon-logout"
                             onClick={handleSignOut}

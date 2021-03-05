@@ -109,7 +109,7 @@ const Menu = () => {
         <input
           className="button-send"
           type="button"
-          value="Pedir"
+          value="Adicionar"
           onClick={(e) => {
             if (selectedBurger.flavor !== null) {
               productsList.filter(produto => {
