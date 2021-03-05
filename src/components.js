@@ -92,7 +92,7 @@ export const useStyles = makeStyles((theme) => ({
     color: 'white',
     height: 68,
     width:370,
-    paddingTop: '20px',
+    paddingTop: '10px',
     marginTop:'2px',
     paddingRight:'5px',
     marginLeft:'16px',

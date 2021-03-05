@@ -99,6 +99,15 @@ function Kitchen (){
     setOpen(false);
   };
 
+function calculateTime(product) {
+  let updateAt = new Date(product.updatedAt);
+  let createdAt = new Date(product.createdAt);//data format
+  let subt = Math.abs(updateAt - createdAt);//numero absoluto
+  let minutes = Math.floor(subt / 1000 / 60);//retorna o menor número inteiro
+  console.log(minutes);
+  return minutes;
+}
+
 
   return (
     <div className='done'>
@@ -106,19 +115,10 @@ function Kitchen (){
       <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">  
 
         {list.map (function (product, index) {
-          const updateAt = new Date(product.updatedAt);
-          const createdAt = new Date(product.createdAt);//data format
-          const subt = Math.abs(updateAt) - createdAt;//numero absoluto
-          const minutes = Math.floor(subt / 1000 / 60);//retorna o menor número inteiro 
-          
-          console.log(updateAt)
-
-          console.log(createdAt)
-
           return(
             <div  key={index} id={product.id}>   
                 <button  type='button' className={classes.submitMenuItems} onClick={handleOpen} 
-                cursor='pointer'>Pedido n° {product.id} <br></br> Status:  {product.status.replace('done', 'Pronto')} </button>
+                cursor='pointer'>Pedido n° {product.id} <br></br>Tempo Produção : {calculateTime(product)} min<br></br> {product.status.replace('done', 'Pronto')} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -132,7 +132,7 @@ function Kitchen (){
                 }}> 
                 <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
                   <div className={classes.submitMenuCardsModal} status={product.status}>
-                    <span><p>Pedido n° {order.id} <br></br> Cliente:{order.client_name} <br></br>Mesa: {order.table}<br></br>Status:{product.status.replace('done', 'Pronto')} Tempo : {minutes} min</p> </span>
+                    <span><p>Pedido n° {order.id} <br></br> Cliente:{order.client_name} <br></br>Mesa: {order.table}<br></br>Status:{product.status.replace('done', 'Pronto')} </p> </span>
                     <span>{orderProduct.map (function (item, index) {
                       return(
                         <div key={index}>
@@ -153,5 +153,6 @@ function Kitchen (){
     </div>
   )
 }
+
 
 export default Kitchen;
