@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { FaPlus } from 'react-icons/fa'
 import './menu-items.css'
+import { getImage } from '../../../services/services'
 
 export default function MenuItens({
   onClick,
@@ -19,7 +19,7 @@ export default function MenuItens({
         <section value={productId} onClick={onClick} className='product-section'>
           <img
             className='product-img'
-            src={srcImg}
+            src={getImage(productId)}
             alt={altImg}
             id={productId}
             name={productName}

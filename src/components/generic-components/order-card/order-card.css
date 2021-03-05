@@ -39,9 +39,7 @@
 	color: #fcfcd0;
 	margin: 1.2rem 2rem;
 	padding: 0.5rem 1rem;
-	border: solid 2px #056137;
 	border-radius: 0.5rem;
-	background-color: #056137;
 	font-size: 1rem;
 	font-weight: 600;
 	text-align: center;
@@ -75,6 +73,25 @@
 .btn-order-info:hover {
 	background-color: #fffff0;
 	color: #004c54;
+}
+
+.container-time {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: #004c54;
+}
+.timer {
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.timer-icon {
+	font-size: 1.5rem;
+	text-align: center;
+	justify-content: center;
+	margin: 0 auto;
 }
 
 .hide {

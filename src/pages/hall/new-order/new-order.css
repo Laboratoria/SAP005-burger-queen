@@ -33,22 +33,26 @@ body {
 /* ORDER BUTTON */
 
 .container-btn-modal {
-	max-width: 40vw;
 	display: flex;
-	padding: 0 2rem;
+	width: 20rem;
+	margin: 1.5rem 0;
+	justify-content: space-evenly;
+	flex-direction: initial;
+	cursor: pointer;
 }
 
 .btn-confirm,
 .btn-cancel {
-	width: 14rem;
+	width: 8rem;
+	align-content: center;
 	font-size: 1rem;
 	font-weight: 600;
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 	border: solid 2px;
 	color: #fffff0;
+	cursor: pointer;
 	transition: 0.3s ease-in-out;
-	margin: 2rem 1rem;
 	box-shadow: 0 4px 7px 0 #c2c2c0;
 }
 
@@ -148,25 +152,25 @@ body {
 }
 
 /* MODAL */
+
 .modal {
-	width: 35rem;
-	height: 35rem;
+	width: 25rem;
+	height: 32rem;
 	background: #fffff0;
 	border: dotted 0.25rem #004c54;
 	outline: none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 2rem;
 	text-align: center;
-	margin: 4rem auto;
+	padding: 1rem;
+	margin: 6rem auto;
 }
 
 /* RADIO INPUT MODAL */
 
 .burger-type-title,
 .burger-extra-title {
-	margin-top: 0.5rem;
 	padding-top: 0.9rem;
 	font-weight: 600;
 	font-size: 1rem;

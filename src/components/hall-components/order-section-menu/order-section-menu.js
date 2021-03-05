@@ -21,6 +21,7 @@ export default function OrderSection({
             items.length > 0 && items.map((item, index) => {
               return (
                 <OrderItens
+                  key={index}
                   id={item.product_id}
                   name={item.product_name}
                   price={item.product_price}
@@ -28,13 +29,11 @@ export default function OrderSection({
                   classNameOrderItens='order-product-name'
                   classNameContainer='container-order-section'
                   classNameIconContainer='container-icon'
-                  classNameTeste='teste-div'
                   classNameIcon='icon-order'
                   classNamePrice='order-product-price'
                   plus={plus}
                   minus={minus}
                   remove={remove}
-                  key={index}
                 />
               )
             })
