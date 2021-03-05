@@ -32,7 +32,7 @@ A LaBurguer é a hamburgueria no qual foi desenvolvido uma aplicação, para fac
 
 O projeto foi realizado através da metodologia ágil, utilizando o [Trello](https://trello.com/) como ferramenta de planejamento. 
 
-![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/603ea838eccc46598e53a5a7/27558e04e5c646a526c44864a25c1219/trello.png)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/603ea838eccc46598e53a5a7/aceae2ddc0c03315db0ed47e413a1022/trello.png)
 
 ---
 
@@ -42,8 +42,7 @@ O projeto foi elaborado conforme as histórias de usuários e suas definições 
 
 ### Ideação
 
-#### -História de usuário 1: Usuário deve ter seu perfil (login/senha) para acessar o sistema.
-"Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho."
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6042a6c8603c595a9fcd7f5e/ac9f9fd6733dc2b3c90d2773da0d5e9c/historia1.jpg)
 ##### Critérios de aceitação:
 O que deve acontecer para satisfazer as necessidades do usuário?
 - Criar login e senha.
@@ -54,9 +53,7 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 - Você fez _testes_ de usabilidade e incorporou o feedback do usuário.
 - Você deu deploy de seu aplicativo.
 
-#### -História de usuário 2: Garçom/Garçonete deve poder anotar o seu pedido
-"Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada
-produto e poder enviar o pedido para a cozinha para ser preparado."
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6042a6c8603c595a9fcd7f5e/bf06a4de52cf9754f95269560fb60333/historia2.jpg)
 ##### Critérios de aceitação:
 O que deve acontecer para satisfazer as necessidades do usuário?
 - Anotar o nome e mesa.
@@ -69,9 +66,9 @@ O que deve acontecer para satisfazer as necessidades do usuário?
 O acordado abaixo deve acontecer para dizer que a história está terminada:
 - Você fez testes de usabilidade e incorporou o feedback do usuário.
 - Você deu deploy de seu aplicativo.
+- 
 
-#### -História de usuário 3: Chefe de cozinha deve ver os pedidos
-"Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente."
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6042a6c8603c595a9fcd7f5e/adb92529c7b328eb4f95a8d3d02f9d7e/historia3.jpg)
 ##### Critérios de aceitação:
 - Ver os pedidos à medida em que são feitos.
 - Marcar os pedidos que foram preparados e estão prontos para serem servidos.
@@ -79,9 +76,9 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 ##### Definição de pronto:
 - Você fez testes de usabilidade e incorporou o feedback do usuário.
 - Você deu deploy de seu aplicativo.
+- 
 
-#### -História de usuário 4: Garçom/Garçonete deve ver os pedidos prontos para servir
-"Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes."
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/6042a6c8603c595a9fcd7f5e/283cdd40e4ee8fb2006c2f89f8941532/historia4.jpg)
 ##### Critérios de aceitação:
 - Ver a lista de pedidos prontos para servir.
 - Marque os pedidos que foram entregues.
@@ -101,7 +98,7 @@ Começamos desenvolvendo um protótipo de baixa fidelidade, onde surgiram as pri
 
 A paleta de cores que utlizamos foi inspirado na [Laboratória](https://github.com/Laboratoria), assim como seu nome. 
 
-![Imagem!](https://trello-attachments.s3.amazonaws.com/6041ac3023d40e1468f232e1/516x141/d345e57e7fc9e71b0f1ca103db8a17c9/color.png)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6041ac3023d40e1468f232e1/518x191/65a70f35e0e638e2b960ad194ad8c6ba/cores.png)
 
 Pesquisamos sites e aplicações de delivery de hamburguerias, com a intenção de entender o fluxo e assim elaborar seu design.
 
