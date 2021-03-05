@@ -20,9 +20,8 @@ import {
 
 export default ({ data, setStatus }) => {
   const dispatch = useDispatch();
-  const [order, setOrder] = useState([]);
-  const [menu, setMenu] = useState([]);
 
+  const [order, setOrder] = useState([]);
   const [qt, setQt] = useState(1);
 
   useEffect(() => {
@@ -50,31 +49,16 @@ export default ({ data, setStatus }) => {
     });
     setStatus(false);
     setOrder([...order, data]);
-    const addProducts = order.map((item) => {
-      return {
-        id: item.id,
-        qtd: 1,
-      };
-    });
-    const qtdProducts = addProducts.reduce((idItem, qtdItem) => {
-      idItem[qtdItem.id] = idItem[qtdItem.id] || [];
-      idItem[qtdItem.id].push(qtdItem);
-      return idItem;
-    }, Object.create(null));
-    const list = [];
-    for (const [key, value] of Object.entries(qtdProducts)) {
-      list.push({
-        id: key,
-        qtd: value.length,
-      });
-    }
-    const client = localStorage.getItem("client");
-    const table = localStorage.getItem("table");
-
-    setMenu({ ...menu, client: client, table: table, products: list });
-
-    localStorage.setItem("menu", JSON.stringify(menu));
+    addOrderKitchen();
   };
+
+  const addOrderKitchen = () => {
+    dispatch({
+      type: "ADD_ORDER",
+      payload: { data },
+    });
+  };
+
   return (
     <Container>
       <ProductsArea>
@@ -101,8 +85,21 @@ export default ({ data, setStatus }) => {
         <Button small={true} onClick={handleCancelButton}>
           Cancelar
         </Button>
-        <Button onClick={handleAddToOrder}>Adicionar a Comanda</Button>
+        <Button
+          onClick={() => {
+            handleAddToOrder();
+          }}
+        >
+          Adicionar a Comanda
+        </Button>
       </ProductsButtons>
     </Container>
   );
 };
+
+// const handleAddKitchen=()=>{
+//   dispatch({
+//     type: "ADD_PRODUCTS",
+//     payload: { data, qt },
+//   });
+// }

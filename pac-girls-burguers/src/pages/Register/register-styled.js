@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-left: 100px;
-
 `;
-
 
 export const Input = styled.input`
   outline: none;
@@ -23,7 +19,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-   background-color: #073c07;
+  background-color: #073c07;
   color: white;
   font-size: 1rem;
   border: none;
@@ -31,7 +27,7 @@ export const Button = styled.button`
   cursor: pointer;
   box-sizing: border-box;
   padding: 0.8rem 150px;
-  `;
+`;
 
 export const Select = styled.select`
   outline: none;
@@ -49,5 +45,11 @@ export const Logo = styled.img`
 `;
 
 export const Title = styled.h1`
+  color: #073c07;
+`;
+
+export const Option = styled.option`
+  font-size: 16px;
+  font-weight: bold;
   color: #073c07;
 `;

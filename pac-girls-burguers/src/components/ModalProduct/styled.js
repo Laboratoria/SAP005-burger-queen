@@ -22,7 +22,7 @@ export const Button = styled.button`
   background-color: #073c07;
   box-shadow: 4px 5px 0px #999;
   border-radius: 10px;
-  color: #fff;
+  color: #FFFAFA;
   font-size: ${(props) => (props.small ? "13px" : "22px")};
   font-weight: bold;
   padding: ${(props) => (props.small ? "5px 10px" : "10px 20px")};
@@ -75,7 +75,7 @@ export const ProductQtImage = styled.img`
 export const ProductQtText = styled.div`
   font-size: 25px;
   font-weight: bold;
-  color: #FFF;
+  color: #FFFAFA;
  
 `;
 export const ProductPrice = styled.div`

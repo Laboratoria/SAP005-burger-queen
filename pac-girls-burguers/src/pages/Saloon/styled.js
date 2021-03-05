@@ -36,7 +36,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-  color: #fff;
+  color: #fffafa;
 `;
 
 export const ContainerInput = styled.div`
@@ -44,4 +44,19 @@ export const ContainerInput = styled.div`
 
   align-items: center;
   padding: 20px 0px;
+`;
+
+export const Select = styled.select`
+  width: 430px;
+  height: 50px;
+  font-size: 16px;
+  border: 2 px solid #000;
+  border-radius: 10px;
+  margin: 10px;
+`;
+
+export const Option = styled.option`
+  font-size: 16px;
+  font-weight: bold;
+  color: #073c07;
 `;

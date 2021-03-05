@@ -7,6 +7,7 @@ import {
   Container,
   Logo,
   Title,
+  Option
 } from "./register-styled";
 import { Link, useHistory } from "react-router-dom";
 import api from "../../api";
@@ -69,11 +70,11 @@ const Register = () => {
       />
       <br />
       <Select value={role} onChange={handleRole} required>
-        <option disabled value={""}>
+        <Option disabled value={""}>
           Selecione seu cargo
-        </option>
-        <option value={"cozinha"}>Cozinha/Chefe</option>
-        <option value={"salao"}>Salão/Garçon</option>
+        </Option>
+        <Option value={"cozinha"}>Cozinha/Chefe</Option>
+        <Option value={"salao"}>Salão/Garçon</Option>
       </Select>
       <br />
       <Input

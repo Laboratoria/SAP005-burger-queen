@@ -3,13 +3,12 @@ import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import Saloon from "./pages/Saloon";
 import Kitchen from "./pages/Kitchen";
 import ReactTooltip from "react-tooltip";
-import { Container, Menu, PageBody } from "./AppStyled";
+import { Container, Menu, PageBody, Button } from "./AppStyled";
 import MenuItem from "./components/MenuItem";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 
 import ProtectedRoute from "./components/ProtectedRouter/ProtectedRouter";
-import Order from "./components/Order";
 export default () => {
   const history = useHistory();
 
@@ -23,21 +22,13 @@ export default () => {
     <BrowserRouter>
       <Container>
         <Menu>
-          <MenuItem
-            title="Voltar"
-            icon="/assets/storeImg.png"
-            onClick={() => history.goBack()}
-          />
           <MenuItem title="Home" icon="/assets/storeImg.png" link="/" />
-          <MenuItem title="Pedidos" icon="/assets/order.png" link="/orders" />
           <MenuItem
             title="Register"
             icon="/assets/profile.png"
             link="/register"
           />
-          <button icon="" onClick={handleLogout}>
-            Sair
-          </button>
+          <Button onClick={handleLogout}>Sair</Button>
         </Menu>
         <PageBody>
           <Switch>
@@ -55,9 +46,6 @@ export default () => {
             </ProtectedRoute>
             <ProtectedRoute path="/saloon">
               <Saloon />
-            </ProtectedRoute>
-            <ProtectedRoute path="/orders">
-              <div>Tela de pedidos</div>
             </ProtectedRoute>
           </Switch>
         </PageBody>

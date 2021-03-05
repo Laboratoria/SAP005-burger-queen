@@ -11,13 +11,14 @@ export const OrderArea = styled.div`
 export const OrderHeader = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 10px;
   width: 290px;
   height: 50px;
   cursor: pointer;
 `;
 export const OrderBody = styled.div`
   display: ${(props) => (props.show ? "block" : "none")};
-  color: #fff;
+  color: #fffafa;
 `;
 
 export const OrderIcon = styled.img`
@@ -28,7 +29,7 @@ export const OrderIcon = styled.img`
 `;
 export const OrderText = styled.div`
   flex: 1;
-  color: #fff;
+  color: #fffafa;
   font-size: 17px;
 `;
 
@@ -38,8 +39,8 @@ export const ProductItem = styled.div`
   margin: 10px;
 `;
 export const ProductPhoto = styled.img`
-  width: 64px;
-  height: auto;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
 `;
 export const ProductInfoArea = styled.div`
@@ -73,7 +74,7 @@ export const ProducSend = styled.button`
   border: 0;
   outline: none;
   background-color: #073c07;
-  color: #fff;
+  color: #fffafa;
   font-size: 15px;
   font-weight: bold;
   padding: 10px 20px;
@@ -88,7 +89,6 @@ export const ProducSend = styled.button`
 
 export const TotalPrice = styled.div`
   font-size: 13px;
- display: flex;
- align-items: center;
-
+  display: flex;
+  align-items: center;
 `;

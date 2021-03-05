@@ -1,16 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Titulo } from './styled';
-
+import api from "../../api";
+import { Container, Titulo, ProductArea, ProductList } from "./styled";
+import Header from "../../components/Header";
+import OrderItem from "../../components/OrderItem";
 export default () => {
-    const history = useHistory();
-   
+  const history = useHistory();
 
-    return (
-        <Container>
-            <Titulo>Kitchen</Titulo>
+  const [order, setOrder] = useState([]);
 
-          
-        </Container>
-    );
-}
+  useEffect(() => {
+    getOrder();
+  }, []);
+
+  async function getOrder() {
+    const orders = await api.getOrders();
+    setOrder(orders);
+    console.log(orders);
+  }
+
+  return (
+    <Container>
+      <Header />
+
+      <ProductArea>
+        <ProductList>
+          <Titulo> PENDENTES</Titulo>
+          {order &&
+            order.map((item, index) => (
+              <OrderItem
+                client_name={item.client_name}
+                status={item.status}
+                user_id={item.user_id}
+                table={item.table}
+                Products={item.Products}
+                key={index}
+              />
+            ))}
+        </ProductList>
+        <ProductList>
+          <Titulo>EM PREPARO</Titulo>
+        </ProductList>
+        <ProductList>
+          <Titulo>PRONTOS</Titulo>
+        </ProductList>
+      </ProductArea>
+    </Container>
+  );
+};

@@ -1,40 +1,6 @@
 let baseUrl = "https://lab-api-bq.herokuapp.com";
 
 export default {
-  getCategories: () => {
-    const data = [
-      {
-        id: 1,
-        category: 1,
-        name: "breakfast",
-        title: "Café da manhã",
-        image: "/assets/food-and-restaurant.png",
-      },
-      {
-        id: 2,
-        category: 2,
-        name: "hamburguer",
-        title: "Lanches",
-        image: "/assets/food-and-restaurant.png",
-      },
-      {
-        id: 3,
-        category: 3,
-        name: "side",
-        title: "Acompanhamentos",
-        image: "/assets/food-and-restaurant.png",
-      },
-      {
-        id: 4,
-        category: 4,
-        name: "drinks",
-        title: "Bebidas",
-        image: "/assets/food-and-restaurant.png",
-      },
-    ];
-    return data;
-  },
-
   register: async (email, password, role, name) => {
     const res = await fetch(baseUrl + "/users", {
       method: "POST",
@@ -62,7 +28,7 @@ export default {
     const data = res.json();
     console.log(data);
     return data;
-  },
+  }, 
 
   getProducts: async () => {
     const token = localStorage.getItem("token");

@@ -19,17 +19,17 @@ import {
   ProductQtIcon,
   ProductQtText,
   ProducSend,
-  TotalPrice,
 } from "./styled";
 
-export default () => {
+export default ({ client, table }) => {
   const productsItem = useSelector((state) => state.order.products);
+  const menu = useSelector((state) => state.order.menu);
+
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    setMenu(localStorage.getItem("menu"));
+    console.log(menu);
   }, [menu]);
 
   const handleOrderClick = () => {
@@ -44,8 +44,12 @@ export default () => {
   };
 
   async function sendOrder() {
-    const sendProducts = await api.postOrders(menu);
-    console.log(sendProducts);
+    try {
+      const sendProducts = await api.postOrders(client, table, menu);
+      console.log(sendProducts);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
@@ -57,7 +61,6 @@ export default () => {
   return (
     <OrderArea>
       <OrderHeader onClick={handleOrderClick}>
-        <OrderIcon src="/assets/cart.png" />
         <OrderText>Comanda ({productsItem.length})</OrderText>
         {show && <OrderIcon src="/assets/down.png" />}
       </OrderHeader>
@@ -65,7 +68,7 @@ export default () => {
         <ProductsArea>
           {productsItem.map((item, index) => (
             <ProductItem key={index}>
-              {/* <ProductPhoto src={item.image}></ProductPhoto> */}
+              <ProductPhoto src={item.image}></ProductPhoto>
               <ProductInfoArea>
                 <ProductName>{item.name}</ProductName>
                 <ProductPrice>
@@ -88,18 +91,17 @@ export default () => {
                   src="/assets/plus.png"
                 />
               </ProductQuantityArea>
-
-              {/* <TotalPrice>Total:{} </TotalPrice> */}
             </ProductItem>
           ))}
         </ProductsArea>
+
         {productsItem.length > 0 ? (
           <ProducSend
             onClick={() => {
               sendOrder(menu);
             }}
           >
-            FINALIZAR COMPRA
+            Enviar Pedido
           </ProducSend>
         ) : (
           <></>
