@@ -23,14 +23,13 @@ import {
 
 export default ({ client, table }) => {
   const productsItem = useSelector((state) => state.order.products);
-  const menu = useSelector((state) => state.order.menu);
-
+  //const menu = useSelector((state) => state.order.menu);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
-  useEffect(() => {
-    console.log(menu);
-  }, [menu]);
+  // useEffect(() => {
+  //   console.log(menu);
+  // }, [menu]);
 
   const handleOrderClick = () => {
     setShow(!show);
@@ -43,14 +42,30 @@ export default ({ client, table }) => {
     });
   };
 
-  async function sendOrder() {
+  const sendOrder = async () => {
     try {
-      const sendProducts = await api.postOrders(client, table, menu);
-      console.log(sendProducts);
+      const body = {
+        client,
+        table,
+        products: productsItem.map((item) => ({
+          id: Number(item.id),
+          qtd: item.qtd,
+        })),
+      };
+      if (client === "" || table === "") {
+        alert("preencha o nome do cliente e a mesa");
+      } else {
+        const data = await api.postOrders(body);
+        alert("pedido enviado para cozinha");
+        window.location.href = "/saloon";
+        console.log(data);
+        return data;
+      }
     } catch (error) {
       console.log(error);
+      return error;
     }
-  }
+  };
 
   useEffect(() => {
     if (productsItem.length === 0) {
@@ -72,8 +87,15 @@ export default ({ client, table }) => {
               <ProductInfoArea>
                 <ProductName>{item.name}</ProductName>
                 <ProductPrice>
-                  R${item.price.toFixed(2)} | R$
-                  {(item.price * item.qt).toFixed(2)}
+                  {Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(item.price)}{" "}
+                  |
+                  {Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(item.price * item.qt)}
                 </ProductPrice>
               </ProductInfoArea>
               <ProductQuantityArea>
@@ -98,7 +120,7 @@ export default ({ client, table }) => {
         {productsItem.length > 0 ? (
           <ProducSend
             onClick={() => {
-              sendOrder(menu);
+              sendOrder();
             }}
           >
             Enviar Pedido

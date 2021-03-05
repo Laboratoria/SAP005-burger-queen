@@ -7,7 +7,7 @@ import {
   Container,
   Logo,
   Title,
-  Option
+  Option,
 } from "./register-styled";
 import { Link, useHistory } from "react-router-dom";
 import api from "../../api";
@@ -36,16 +36,25 @@ const Register = () => {
 
   async function handleButton(e) {
     e.preventDefault();
-    const data = await api.register(email, password, role, name);
-    if (email === "" && password === "" && role === "" && name === "") {
-      alert("Por favor, preencha todos os campos");
-    } else {
-      alert("Usuário cadastrado com sucesso");
-
-      history.push("/login");
+    try {
+      const body = {
+        email,
+        password,
+        role,
+        restaurant: "PacBurguer",
+        name,
+      };
+      if (email === "" || password === "" || role === "" || name === "") {
+        alert("Por favor, preencha todos os campos");
+      } else {
+        const data = await api.register(body);
+        alert("Usuário cadastrado com sucesso");
+        console.log(data);
+        history.push("/login");
+      }
+    } catch (error) {
+      console.log(error);
     }
-
-    console.log(data);
   }
 
   return (
@@ -81,7 +90,7 @@ const Register = () => {
         type="password"
         value={password}
         onChange={handlePassword}
-        placeholder="Digite uma Senha"
+        placeholder='Mínimo 6 caracteres'
         required
       />
       <br />

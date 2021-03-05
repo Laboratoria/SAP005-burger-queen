@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 import Saloon from "./pages/Saloon";
 import Kitchen from "./pages/Kitchen";
 import ReactTooltip from "react-tooltip";
@@ -10,7 +10,6 @@ import Register from "./pages/Register/Register";
 
 import ProtectedRoute from "./components/ProtectedRouter/ProtectedRouter";
 export default () => {
-  const history = useHistory();
 
   const handleLogout = () => {
     localStorage.removeItem("token");

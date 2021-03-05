@@ -25,7 +25,10 @@ export default ({ data, onClick }) => {
         <ProductType>
           {data.flavor} {data.complement && " com " + data.complement}
         </ProductType>
-        <ProductPrice>R${data.price.toFixed(2)}</ProductPrice>
+        <ProductPrice>{Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(data.price)}</ProductPrice>
       </ProductInfoArea>
       <ProductButtonArea>
         <ProductButton src="/assets/next.png"></ProductButton>

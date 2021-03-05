@@ -35,4 +35,4 @@ export const Button = styled.button`
   width: 50px;
   outline: none;
  `;
-//  #424242
+ 
