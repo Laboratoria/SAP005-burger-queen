@@ -10,6 +10,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
+
 
 function Kitchen (){
   const classes = useStyles();
@@ -56,6 +58,8 @@ function Kitchen (){
     })       
     
     .then((response) => console.log(response.json()))
+    .then(()=>  Kitchen()
+    )
   }
 
   const Kitchen = useCallback (() => {
@@ -70,7 +74,7 @@ function Kitchen (){
     
     .then((response) => response.json())
       .then((data) => {
-        const dados = data.filter(product => product.status === 'done')
+        const dados = data.filter(product => product.status === 'done'|| product.status === 'delivered' )
         console.log(dados)
         setList(dados)    
       });
@@ -98,6 +102,18 @@ function Kitchen (){
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleCompleted = (e) => {
+    window.confirm("O pedido foi concluido?")
+    e.preventDefault()
+
+    setOrder(order.status = 'delivered')
+
+    console.log(order) 
+
+    orderPut ()
+
+  };  
 
 function calculateTime(product) {
   let updateAt = new Date(product.updatedAt);
@@ -141,8 +157,14 @@ function calculateTime(product) {
                           <p>{item.flavor === 'null' ? '' : item.flavor}</p>
                           <p>{item.complement === 'null' ? '' : item.complement }</p> 
                         </div> 
+                        
                       )
                     })}</span>
+                    <Button variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      endIcon={<Icon>send</Icon>} onClick={handleCompleted}>Entregue
+                    </Button> 
                   </div>
                 </Fade>
               </Modal>  
