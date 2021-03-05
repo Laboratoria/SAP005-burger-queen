@@ -76,7 +76,6 @@ const Menu = () => {
       return prevListMap.map(prevElem => prevElem.id === idProduct ? {...prevElem, disabled: true } : prevElem)
     })
 
-
     const orderTemplate = {
       id: idProduct,
       name: nameProduct,
