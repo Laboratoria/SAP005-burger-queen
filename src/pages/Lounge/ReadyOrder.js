@@ -78,9 +78,7 @@ export const ReadyOrderList = (props) => {
                   <Row >
                     <Col >
                       <CardGroup>
-
                         <Card body className="text-center" key={order.id}>
-
                           <CardTitle className="table-ready" tag="h5">Mesa: {order.table}</CardTitle>
                           <CardText>
                             <table className="table" >

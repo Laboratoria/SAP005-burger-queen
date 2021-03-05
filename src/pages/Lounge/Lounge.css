@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 .container { 
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-size: 20pt;  
+}
+
+.menus-btn {
+  text-align: center;
 }
 
 .createorder-btn, .orderread-btn {
@@ -36,17 +40,29 @@
 }
 
 .add-btn, 
-.ready-btn,
-.delete-btn {
+.ready-btn {
   border: solid 2px #fff;
   border-radius: 3rem;
-  background-color: #ffdb49;
-  padding: 0.9rem 1.5rem;
-  text-transform: uppercase;    
+  background-color: #ffdb49;   
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  margin-bottom: 1em;
-  margin-left: 1em;
+  margin-left: 0.3em;
+  padding: 0.3rem 0.5rem;
+}
+
+.delete-btn {
+  color: #fff;
+  border: solid 2px #fff;
+  border-radius: 3rem;
+  background-color: red;   
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  margin-left: 0.3em;
+  padding: 0.3rem 0.5rem;
+}
+
+.delete-products {
+  color: black;
 }
 
 .menu-btn {
@@ -84,12 +100,6 @@ table {
   border:solid 2px #fff; 
 }
 
-.order {
-  border:solid 2px #fff; 
-  padding: 10px;
-  margin-bottom: 100px;
-}
-
 .menuList {
   padding: 30px;
 }
@@ -116,6 +126,7 @@ table {
 }
 
 .div-input-order {
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
