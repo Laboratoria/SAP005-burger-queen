@@ -16,7 +16,8 @@ export default function OrderCard({
   buttonNameAddStatus,
   onClickAddStatus,
   orderItems,
-  showTime
+  showTime,
+  statusColor
 }) {
   return (
     <Fragment>
@@ -25,7 +26,7 @@ export default function OrderCard({
           <h1 className='order-table-number'>Mesa: {tableNumber}</h1>
           <h2 className='order-client-name'><FaUserAlt className='icon-client' /> {clientName}</h2>
         </div>
-        <p className='status-title'>{getStatusDescription(status)}</p>
+        <p className={`${statusColor} status-title`}>{getStatusDescription(status)}</p>
         <div className='container-time'>
           <BiTimer className={showTime ? 'timer-icon' : 'hide'} /><p className={showTime ? 'timer' : 'hide'}> {
             Math.ceil((new Date(processed) - new Date(created)) / 1000 / 60)

@@ -32,6 +32,7 @@ export const StatusOrder = () => {
           <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Pendente'
+              statusColor='status-pending'
               nextStatus='Preparar'
               nextStatusApi='preparing'
               showButton={true}
@@ -48,6 +49,7 @@ export const StatusOrder = () => {
           <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Preparando'
+              statusColor='status-preparing'
               nextStatus='Pronto'
               nextStatusApi='ready'
               showButton={true}
@@ -64,6 +66,7 @@ export const StatusOrder = () => {
           <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Pronto'
+              statusColor='status-ready'
               showTime={true}
               orders={
                 orders.filter((order) => order.status === 'ready')
@@ -85,6 +88,7 @@ export const StatusOrder = () => {
             <OrderInfo
               statusTitle='Pronto'
               nextStatus='Entregar'
+              statusColor='status-ready-hall'
               showButton={true}
               nextStatusApi='delivery'
               orders={
@@ -100,6 +104,7 @@ export const StatusOrder = () => {
           <div className='status-hall'>
             <OrderInfo
               statusTitle='Entregue'
+              statusColor='status-delivery'
               orders={
                 orders.filter((order) => order.status === 'delivery')
               }

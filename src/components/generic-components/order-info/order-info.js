@@ -10,7 +10,8 @@ export default function OrderInfo({
   nextStatusApi,
   showButton,
   callback,
-  showTime
+  showTime,
+  statusColor
 }) {
   return (
     <Fragment>
@@ -24,6 +25,7 @@ export default function OrderInfo({
               tableNumber={order.table}
               clientName={order.client_name}
               status={order.status}
+              statusColor={statusColor}
               buttonNameAddStatus={nextStatus}
               showButton={showButton}
               created={order.createdAt}
