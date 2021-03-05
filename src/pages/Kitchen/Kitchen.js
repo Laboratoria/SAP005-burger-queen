@@ -1,10 +1,19 @@
 import React, { useEffect, useState, useCallback } from "react";
 import HeaderKitchen from "../../components/HeaderKitchen/HeaderKitchen";
 import "./Kitchen.css";
+import { useHistory } from "react-router-dom";
+import Logout from "../../assets/logout.png";
 
 const Kitchen = () => {
   const token = localStorage.getItem("token");
   const [order, setOrder] = useState([]);
+  const history = useHistory();
+
+  const handleSignOut = (event) => {
+    alert("Usuário deslogado");
+    localStorage.clear();
+    history.push("/");
+  };
 
   const getOrders = useCallback(() => {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -70,14 +79,7 @@ const Kitchen = () => {
                   })}
                 </p>
 
-                  {/* <div className="btn-finish-order">
-                      <Link to="/finalized-orders">
-                        <span id="button" className="btn-finish-order">
-                          Pedidos Finalizados
-                        </span>
-                      </Link>
-                    </div> */}
-                
+              
                   <div className="infos">
                     <p><strong>Atendente:</strong> {product.user_id}</p>
                     <p><strong>Cliente:</strong> {product.client_name}</p>
@@ -96,6 +98,14 @@ const Kitchen = () => {
             );
           })}
       </div>
+      <div className="container-icon-logout">
+            <img
+              className="item-icon-logout"
+              src={Logout}
+              alt="icon-logout"
+              onClick={handleSignOut}
+            />
+          </div>
     </div>
     </>
   );
