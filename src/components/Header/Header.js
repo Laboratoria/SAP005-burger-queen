@@ -17,6 +17,10 @@ function Header() {
     history.push("/OrderReady");
   };
 
+  const routerOrderFinished = () => {
+    history.push("/OrderFinished");
+  };
+
   return (
     <header>
       <div className="header-hall">
@@ -31,7 +35,19 @@ function Header() {
               }}
             >
               {" "}
-              Meus Pedidos
+              Pedidos Prontos
+            </button>
+          </div>
+          <div className="container-btn-myOrder-finished">
+            <button
+              className="item-btn-myOrder-finished"
+              type="submit"
+              onClick={() => {
+                routerOrderFinished();
+              }}
+            >
+              {" "}
+              Pedidos Finalizados
             </button>
           </div>
 
