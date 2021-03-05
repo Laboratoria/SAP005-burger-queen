@@ -61,16 +61,27 @@ Lógica implementada em JavaScript (ES6 +), uso do [React](https://reactjs.org/)
 
 - Tela inicial do salão e do pedido(salão)
 
-![prototipo1-2](src/img/proto3-4.png)
+![prototipo3-4(src/img/proto3-4.png)
 
 - Tela de pedidos em preparo(salão) e pedidos prontos(cozinha)
 
-![prototipo1-2](src/img/proto5-6.png)
+![prototipo5-6](src/img/proto5-6.png)
 
 Após os testes de usabilidade, foram feitas alterações no _layout_ e esquema de cores. Foi verificado a necessidade de deixar em algo parecido com o esquema [_Dark_ _Mode_](https://en.wikipedia.org/wiki/Light-on-dark_color_scheme) o que deixaria a aplicação menos cansativa aos olhos, ao decorrer de longos períodos de uso.
 
 ### Versão final
 
+- Tela de Login e Cadastro
+
+![tela1-2](src/img/tela1-2.png)
+
+- Tela inicial do salão e do pedido(salão)
+
+![tela3-4](src/img/tela3-4.png)
+
+- Tela de pedidos em preparo(salão) e pedidos prontos(cozinha)
+
+![tela5-6](src/img/tela5-6.png)
 
 ---
 
