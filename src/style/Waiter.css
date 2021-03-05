@@ -4,8 +4,10 @@
 	justify-content: space-between;
 }
 .App {
-	width: 101%;
-	position: fixed;
+	width: 100%;
+    position: fixed;
+    background-color: #383838;
+    height: 100%;
 }
 .header {
 	background-color: #383838;
@@ -18,7 +20,6 @@
 	width: 101vw;
 }
 .App-waiter {
-	background-color: #383838;
 	display: flex;
 	font-size: calc(10px + 2vmin);
 	color: white;
@@ -67,7 +68,7 @@
 	margin: 26px;
 	width: 45%;
 	height: 700px;
-	margin-top: 65px;
+	margin-top: 112px;
 	overflow: auto;
 }
 
@@ -126,7 +127,7 @@ h1 {
 	width: 47%;
 	height: 100%;
 	float: left;
-	margin-top: 166px;
+	margin-top: 112px;
 	margin-left: 22px;
 	text-align: center;
 	overflow: auto;
@@ -155,16 +156,17 @@ h1 {
 }
 .btnTeste {
 	border: none;
-	margin: 20px;
-	align-items: center;
-	margin-top: 23px;
-	height: 45px;
-	width: 46px;
-	background-color: #ffde59;
-	font-size: 30px;
-	border-radius: 43px;
-	outline: none;
+    margin: 20px;
+    align-items: center;
+    margin-top: 23px;
+    height: 36px;
+    width: 47px;
+    background-color: #ffde59;
+    font-size: 30px;
+    border-radius: 38px;
+    outline: none;
 }
+
 .btnMenu {
 	border: none;
 	margin: 17px;
@@ -215,14 +217,13 @@ ul {
 }
 .pedidos {
 	box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
-	border-radius: 9px;
-	padding: 10px;
-	border-radius: 9px;
-	padding: 8px;
-	margin-top: 10px;
-	margin-left: 82px;
-	width: 277px;
-	font-size: 20px;
+    border-radius: 9px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-left: 24px;
+    width: 402px;
+    font-size: 20px;
+    color: white;
 }
 
 .nameProducts {
@@ -231,7 +232,8 @@ ul {
 
 .orderProducts {
 	font-size: 20px;
-	padding: 4px;
+    padding: 4px;
+    margin-top: 10px;
 }
 
 .sabor {
@@ -241,6 +243,50 @@ ul {
 	margin-right: 40px;
 }
 
+.file {
+	background: transparent;
+	border: none;
+}
+.spanQuantidade{
+	display: flex;
+	justify-content: space-between;
+	width: 420px;
+	padding: 20px;
+	font-size: 20px;
+	color: #ffde59;
+}
+.total{
+	color: #ffde59;
+}
+.divOrder {
+	display: flex;
+	justify-content: space-around;
+}
+ .p{
+	margin-left: 56px;
+ }
+.btnLess{
+	height: 36px;
+    width: 37px;
+    border: none;
+    align-items: center;
+    background-color: #ffde59;
+    font-size: 30px;
+    border-radius: 38px;
+    outline: none;
+	margin: 15px;
+}
+
+.complement{
+	margin-top: 7px;
+	padding: 6px;
+}
+
+.Map{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 22px;
+}
 /*********************MenuHamburger*********************/
 
 #check {
