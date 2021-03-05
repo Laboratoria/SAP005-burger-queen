@@ -81,7 +81,7 @@ export const ReadyOrderList = (props) => {
 
                         <Card body className="text-center" key={order.id}>
 
-                          <CardTitle tag="h5">Mesa: {order.table}</CardTitle>
+                          <CardTitle className="table-ready" tag="h5">Mesa: {order.table}</CardTitle>
                           <CardText>
                             <table className="table" >
                               <tbody>

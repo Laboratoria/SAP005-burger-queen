@@ -75,21 +75,18 @@ h1 {
 }
 
 table {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: whitesmoke;
   padding: 30px;
   margin-bottom: 30px;
+  border:solid 2px #fff; 
 }
 
 .order {
-  border:solid 1px #000; 
-  padding:10px;
-}
-
-.comanda-h1 {
-  color: black;
+  border:solid 2px #fff; 
+  padding: 10px;
 }
 
 .menuList {
@@ -119,4 +116,8 @@ table {
 
 .div-input-order {
   margin-bottom: 20px;
+}
+
+.table-ready {
+  color: black;
 }
