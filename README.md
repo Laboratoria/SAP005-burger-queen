@@ -13,7 +13,7 @@
 - [8. Checklist](#8-checklist)
 
 ---
-![imagem](logo.png)
+![imagem](Ratatouille-logo.png)
 
 ## 1. Preâmbulo
 
