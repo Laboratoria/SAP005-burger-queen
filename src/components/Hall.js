@@ -11,6 +11,12 @@ function Hall() {
 
     history.push('/hall/cafe')
   }
+  const routerAllDay=()=>{
+    sessionStorage.setItem("nameClient", nameClient)
+    sessionStorage.setItem("table", table)
+    
+    history.push('/hall/allday')
+  }
   
   const [nameClient, setNameClient] = useState([]);
   const [table, setTable] = useState('');
@@ -96,7 +102,7 @@ function add (produto) {
       </div>
       <div className="btnSalao">        
         <button className="btnSalaoRota" onClick={routerCafe}>Café da manhã</button>
-        {/* <button className="btnSalaoRota" onClick={routerAllDay}>Resto do dia </button> */}
+        <button className="btnSalaoRota" onClick={routerAllDay}>Resto do dia </button>
       </div>
       <div className="inputSalao">
         <div className="inputLabel">
