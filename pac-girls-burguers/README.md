@@ -61,6 +61,10 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 
 ## Imagens
 
+<img width="401" alt="Captura de Tela 2021-03-03 às 20 48 53" src="https://user-images.githubusercontent.com/63555634/110172230-97061480-7ddb-11eb-882a-0a65ea07c042.png">
+
+
+<img width="398" alt="Captura de Tela 2021-03-03 às 20 49 14" src="https://user-images.githubusercontent.com/63555634/110172242-9a999b80-7ddb-11eb-9b7e-3cf95dff5a71.png">
 
 
 <h3 align="justify"> Tecnologia Usada no projeto</h3>
