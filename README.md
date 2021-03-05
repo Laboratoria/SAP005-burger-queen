@@ -7,15 +7,15 @@
 ___
 ## Índice
 
-- [Introdução](#Introdução)
-- [Histórias de Usuario](#Histórias-de-Usuários)
-- [Funcionalidades](#Funcionalidades)
-- [Planejamento e Organização](#Planejamento-e-Organização)
-- [Testes](#Testes)
-- [Instalação](#Instalação)
-- [Dependências](#Dependências)
-- [Tecnologias utilizadas](#Tecnologias-utilizadas)
-- [Desenvolvedoras](#Desenvolvedoras)
+- [Introdução](#introdução)
+- [Histórias de Usuario](#histórias-de-usuários)
+- [Funcionalidades](#funcionalidades)
+- [Planejamento e Organização](#planejamento-e-organização)
+- [Testes](#testes)
+- [Instalação](#instalação)
+- [Dependências](#dependências)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Desenvolvedoras](#desenvolvedoras)
 
 ---
 
@@ -30,7 +30,7 @@ A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/
 
 ### Histórias de Usuários
 
-As Histórias de usuário foram fornecidas por um fast food em expansão, e seguem abaixo:
+As Histórias de usuário foram fornecidas por um restaurante em expansão, e seguem abaixo:
 
 - Eu, como funcionário do restaurante, quero entrar na plataforma e ver apenas a tela que for importante para o meu trabalho.
 
