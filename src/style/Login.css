@@ -2,8 +2,10 @@
 	display: flex;
 	justify-content: center;
 	width: 30%;
+	margin-top: -161px;
 }
 .formLogin {
+	margin-top: 44px;
 	width: 39%;
 	display: flex;
 	flex-direction: column;
@@ -42,7 +44,7 @@ a,
 	margin: auto;
 	justify-content: center;
 	padding: 11px;
-	width: 80%;
+	width: 100%;
 	font-family: Arial;
 	font-weight: bold;
 	color: rgb(46, 45, 45);

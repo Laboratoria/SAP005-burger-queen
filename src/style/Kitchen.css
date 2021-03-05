@@ -17,14 +17,16 @@
 	min-height: 100vh;
 	width: 100%;
 	position: absolute;
+	overflow: auto;
 }
 
 .btnAdd {
 	border: none;
-	display: flex;
-	width: 69px;
-	margin-left: 37px;
-	background-color: #383838;
+    display: flex;
+    width: 69px;
+    border-radius: 77px;
+    margin-left: 37px;
+    background-color: rgb(41, 39, 39);
 }
 
 .Cozinha {
@@ -39,31 +41,31 @@
 .product {
 	border-radius: 9px;
 	width: 31%;
-	background-color: rgb(66, 68, 68);
+	background-color: rgb(41, 39, 39);
 	margin-top: 25px;
 	margin-left: 38px;
 	text-align: center;
 }
 
 .pedido {
-	text-align: center;
+	margin-left: 34px;
 	color: #ffde59;
 }
 
 .food {
 	display: flex;
-	text-align: center;
-	margin: auto;
-	justify-content: center;
-	padding: 7px;
-	width: 68%;
-	font-family: Arial;
-	font-weight: bold;
-	color: white;
-	font-size: 20px;
-	border-radius: 9px;
-	background-color: #ffde59;
-	margin-top: 10px;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    padding: 8px;
+    width: 68%;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 9px;
+    background-color: #ffde59;
+    margin-top: 10px;
+    margin-bottom: 12px;
 }
 .prod {
 	text-align: center;
@@ -75,14 +77,13 @@
 
 .Cl {
 	width: 47%;
-	flex-direction: column;
-	margin: 8px;
-	border: 1px solid silver;
-	border-radius: 10px;
-	margin-bottom: 1vh;
-	height: 272px;
-	filter: drop-shadow(0 0 0.45rem rgb(17, 17, 17));
-	overflow: auto;
+    flex-direction: column;
+    margin: 8px;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    height: 100%;
+	background-color: rgb(41, 39, 39);
+    box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
 }
 
 .section {
@@ -102,6 +103,21 @@
 
 .tble {
 	margin-left: 34px;
+}
+.status{
+	margin-left: 34px;
+	color: #ffde59; 
+}
+
+.date{
+	display: flex;
+    padding: 3px;
+    margin-top: 15px;
+    justify-content: center;
+    border-radius: 6px;
+    color: #f4f4f9;
+    border: none;
+    outline: none;
 }
 
 /*********************MenuHamburger*********************/

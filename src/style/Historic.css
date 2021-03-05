@@ -11,7 +11,6 @@
 	flex-direction: column;
 	font-size: calc(10px + 2vmin);
 	color: white;
-	align-items: center;
 	width: 100%;
 }
 
@@ -33,8 +32,8 @@
 	margin-left: 34px;
 }
 .logoHistoric {
-	justify-content: center;
-	width: 30%;
+	margin-left: 37%;
+	width: 25%;
 	margin-top: 35px;
 }
 .radio {
@@ -54,17 +53,17 @@
 
 .H {
 	width: 47%;
-	flex-direction: column;
+    flex-direction: column;
+    margin: 8px;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    height: 100%;
+	background-color: rgb(41, 39, 39);
+    box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
 	text-align: center;
 	margin: 8px;
 	color: white;
-	border: 1px solid silver;
-	border-radius: 10px;
-	margin-bottom: 1vh;
-	height: auto;
 	font-size: 27px;
-	background-color: rgb(41, 39, 39);
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 .btnLabel {
 	display: flex;
@@ -88,15 +87,14 @@
 
 .btnAddH {
 	border: none;
-	display: flex;
-	width: 69px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	background-color: #383838;
+    display: flex;
+    width: 69px;
+    border-radius: 77px;
+    margin-left: 37px;
+    background-color: rgb(41, 39, 39);
 }
 
 .prodH {
-	text-align: center;
 	padding: 3px;
 }
 .btnDel {
@@ -104,6 +102,7 @@
 	background-color: rgb(41, 39, 39);
 	width: 41px;
 	height: 42px;
+	margin-left: 111px;
 }
 
 .imgDel {

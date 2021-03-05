@@ -14,7 +14,6 @@ const Waiter = () => {
   const [hamburguer, setHamburguer] = useState([]);
   const [side, setSide] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  // const [products, setProducts] = useState([]);
   const [client, setClient] = useState('');
   const [table, setTable] = useState('');
   const [breakfast, setBreakfast] = useState([]);
@@ -91,7 +90,7 @@ const Waiter = () => {
         </div>
       </div>
       <header className="header">
-        <div id="logoWaiter">
+        <div>
           <img src={logo} alt="" className="logoWaiter" />
         </div>
       </header>
@@ -99,7 +98,8 @@ const Waiter = () => {
       <ol className="App-waiter">
 
           <div className="btns">
-          <button className="btnMenu" onClick={((e) => {
+            {/* <imput type="button" className="btnMenu" ></imput> */}
+          < button className="btnMenu" onClick={((e) => {
             e.preventDefault();
             setBreakfast(menu)
           })}><img src={xicara} alt="" className='imgMenu' /></button>
