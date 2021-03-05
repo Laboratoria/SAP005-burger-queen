@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "./OrderReady.css";
+import "./OrdersFinished.css";
 import { Link } from "react-router-dom";
 
 const OrdersFinished= () => {
@@ -27,7 +27,7 @@ const OrdersFinished= () => {
     }, [getOrders]);
 
     return (
-        <div className="order-ready">
+        <div className="order-finished">
             <div className="show-ready">
                 {order &&
                     order.map(function (product, index) {

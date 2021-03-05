@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import HeaderKitchen from "../../components/HeaderKitchen/HeaderKitchen";
 import "./Kitchen.css";
 
 const Kitchen = () => {
@@ -45,6 +46,8 @@ const Kitchen = () => {
   };
 
   return (
+    <>
+    <HeaderKitchen />
     <div className="main-kitchen">
       <div className="show-order">
         {order &&
@@ -93,6 +96,7 @@ const Kitchen = () => {
           })}
       </div>
     </div>
+    </>
   );
 };
 
