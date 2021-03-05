@@ -5,7 +5,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Navbar from './components/NavbarStorage/Navbar';
 import signUp  from './pages/signup';
-import Hall from './components/Hall';
+import Hall from './pages/hall';
 import Kitchen from './pages/kitchen';
 
 function App() {

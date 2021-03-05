@@ -1,16 +1,18 @@
 import React from 'react';
 import '../App.css';
-import OpeningPage from '../components/OpeningStorage/OpeningPage';
 import Footer from '../components/FooterStorage/Footer';
-import {HallTst} from '../components/HallStorage/Hall';
+//import {GridMenu} from '../components/HallStorage/Grid';
+import HallMenu from '../components/HallStorage/Hall'
+
+
 
 
 
 function Hall() {
     return (
-        <>
-            <HallTst />
-            <OpeningPage />
+        <>  
+            <HallMenu />
+            {/*<GridMenu />*/}
             <Footer />
         </>
     );
