@@ -5,8 +5,8 @@
 # Burger Nota 1000 
 
 Aplicação para a hamburgueria: "Burger Nota 1000", em que com o uso de um _tablet_ possibilita que seus funcionários do salão possa enviar os pedidos à cozinha para que sejam preparados de forma ordenada e eficiente.
-### :hamburger: Link para a aplicação
-[Burguer Nota 1000](https://burger-nota-1000.vercel.app/)
+### Link para a aplicação
+:hamburger:[Burguer Nota 1000](https://burger-nota-1000.vercel.app/)
 
 Tabela de conteúdos
 =================
