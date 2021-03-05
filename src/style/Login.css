@@ -1,14 +1,18 @@
 .logo {
 	display: flex;
 	justify-content: center;
-	width: 30%;
+	width: 55%;
+	margin-top: -120px;
+	margin-bottom: 100px;
 }
+
 .formLogin {
-	width: 39%;
+	width: 45%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
+
 .App-header {
 	background-color: #383838;
 	min-height: 100vh;
@@ -20,18 +24,14 @@
 	color: white;
 }
 
-a,
-.pRegister {
+a, .pRegister {
 	font-size: 18px;
 	margin-top: 36px;
 	color: white;
 	width: 300px;
 }
 
-#pass,
-#password,
-#email,
-#name {
+#pass, #password, #email, #name {
 	padding: 11px;
 	margin-top: 20px;
 	border-radius: 10px;
@@ -40,6 +40,7 @@ a,
 #login:hover {
 	background-color: rgb(151, 158, 158);
 }
+
 #login {
 	text-align: center;
 	margin: auto;
@@ -55,16 +56,34 @@ a,
 	margin-top: 20px;
 }
 
-/* @media (min-width: 920px) and (max-width: 1700px) {
+@media only screen and (min-width: 1024px) {
+	.logo {
+		width: 20%;
+		flex-direction: column;
+	}
 	.formLogin {
-		margin-bottom: 3%;
-		margin-top: 2%;
+		display: flex;
+		width: 30%;
+		padding: 15px;
 	}
-
-	.divRegister {
-		width: 50%;
-		height: 380px;
-		border-radius: 10px;
-		margin-top: 2%;
+	a, .pRegister {
+		font-size: 20px;
+		margin-top: 12px;
+		width: 40%;
+		text-align: center;
 	}
-} */
+	#login {
+		justify-content: center;
+		padding: 5px;
+		width: 30%;
+		font-size: 20px;
+		border-radius: 9px;
+		margin-top: 10px;
+	}
+	.App-header {
+		background-color: #383838;
+		min-height: 100vh;
+		width: 100%;
+		position: absolute;
+	}
+}

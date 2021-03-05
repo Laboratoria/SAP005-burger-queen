@@ -1,24 +1,32 @@
-.nav {
+.navK {
 	height: 64px;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .logoKitchen {
 	width: 26%;
 	margin-left: 37%;
+	margin-top: 68px;
 }
 
 .AppKitchen {
 	background-color: #383838;
 	font-size: calc(10px + 2vmin);
 	color: white;
+	min-height: 100vh;
+	width: 100%;
+	position: absolute;
+	overflow: auto;
 }
 
 .btnAdd {
 	border: none;
-	display: flex;
-	width: 69px;
-	margin-left: 37px;
-	background-color: #383838;
+    display: flex;
+    width: 69px;
+    border-radius: 77px;
+    margin-left: 37px;
+    background-color: rgb(41, 39, 39);
 }
 
 .Cozinha {
@@ -33,29 +41,34 @@
 .product {
 	border-radius: 9px;
 	width: 31%;
-	background-color: rgb(66, 68, 68);
+	background-color: rgb(41, 39, 39);
 	margin-top: 25px;
 	margin-left: 38px;
 	text-align: center;
 }
 
 .pedido {
+	margin-left: 34px;
 	color: #ffde59;
 }
 
 .food {
+	display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    padding: 8px;
+    width: 68%;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 9px;
+    background-color: #ffde59;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+.prod {
 	text-align: center;
-	margin: auto;
-	justify-content: center;
-	padding: 7px;
-	width: 68%;
-	font-family: Arial;
-	font-weight: bold;
-	color: white;
-	font-size: 20px;
-	border-radius: 9px;
-	background-color: #ffde59;
-	margin-top: 10px;
 }
 
 .food:hover {
@@ -64,14 +77,13 @@
 
 .Cl {
 	width: 47%;
-	flex-direction: column;
-	margin: 8px;
-	border: 1px solid silver;
-	border-radius: 10px;
-	margin-bottom: 1vh;
-	height: 229px;
-	text-align: center;
-	filter: drop-shadow(0 0 0.45rem rgb(17, 17, 17));
+    flex-direction: column;
+    margin: 8px;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    height: 100%;
+	background-color: rgb(41, 39, 39);
+    box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
 }
 
 .section {
@@ -86,4 +98,93 @@
 
 .nameClient {
 	margin-top: 18px;
+	margin-left: 34px;
 }
+
+.tble {
+	margin-left: 34px;
+}
+.status{
+	margin-left: 34px;
+	color: #ffde59; 
+}
+
+.date{
+	display: flex;
+    padding: 3px;
+    margin-top: 15px;
+    justify-content: center;
+    border-radius: 6px;
+    color: #f4f4f9;
+    border: none;
+    outline: none;
+}
+
+/*********************MenuHamburger*********************/
+
+#check {
+	display: none;
+}
+
+#icone {
+	cursor: pointer;
+	padding: 15px;
+	position: absolute;
+	z-index: 1;
+}
+
+.menuLateral {
+	background-color: transparent;
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	transition: all .2s linear;
+	left: -300px;
+	margin-top: 50px;
+	outline: none;
+}
+
+nav {
+	width: 100%;
+	position: absolute;
+	top: 60px;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+.link {
+	background-color: rgb(41, 39, 39);
+	font-family: Arial, Helvetica, sans-serif;
+	transition: all .2s linear;
+	color: #f4f4f9;
+	border-bottom: 1px solid rgb(63, 62, 62);
+	height: 30px;
+	padding-left: 70px;
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
+}
+
+.link:hover {
+	background-color: #ffde59;
+	color: black;
+}
+
+#check:checked ~ .menuLateral {
+	transform: translateX(300px);
+}
+
+#check:checked ~ .menuLateral nav a .link {
+	opacity: 5;
+	margin-top: 0;
+	transition-delay: .2s;
+}
+
+.btn-burguer {
+	width: 60px;
+	margin: 20px;
+}
+/*********************MenuHamburger*********************/

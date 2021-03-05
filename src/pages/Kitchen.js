@@ -1,112 +1,106 @@
 import '../style/Kitchen.css';
 import React from "react";
-import { useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import logo from '../images/logo.png';
-import add from '../images/add.png';
-import { useState } from 'react';
 import menuburguer from '../images/menuburguer.png';
+import add from '../images/add.png';
+import {useState} from 'react';
+import {ConvertDate, ConvertTime} from './service.js';
+
+
 
 function Kitchen() {
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem("token");
-  // const [status, setStatus] = useState('');
-
+  const productId = sessionStorage.getItem("product.id");
+  console.log(productId); 
 
   const history = useHistory()
   const rLogin = () => {
     history.push('/')
   }
 
-  return (
-    <div className="AppKitchen">
-      <nav className="nav">
-      <input type="checkbox" id="check"></input>
-      <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
-
-      <div class="menuLateral">
-        <nav>
-          <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
-        </nav>
-      </div>
-        {/* <button className="exit" onClick={rLogin}>
-          <img src={exit} alt="" className="exit" /></button> */}
-      </nav>
-      <header className="App-Kitchen">
-        <img src={logo} alt="" className="logoKitchen" />
-
-
-        <button className="btnAdd" onClick={(e) => {
-          e.preventDefault();
-          fetch('https://lab-api-bq.herokuapp.com/orders', {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "accept": "application/json",
-              'Authorization': `${token}`
-            }
+  const fetchData = () => {
+   fetch('https://lab-api-bq.herokuapp.com/orders', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "accept": "application/json",
+        'Authorization': `${token}`
+      }                  
           })
             .then((response) => response.json())
             .then((json) => {
               setOrders(json);
-              // setClient('');
-              // setTable('');
-              // setProducts('');
-              // setDay('');
-              // setMenu('');
             })
-        }}><img src={add} alt="" className='imgMenu' /></button>
+        }
 
+  
+   
+  return (
+    <div className="AppKitchen">
+      <div className="nav1">
+        <input type="checkbox" id="check"></input>
+        <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
+
+        <div class="menuLateral">
+          <nav>
+            <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
+          </nav>
+        </div>
+      </div>
+
+      <header className="App-Kitchen">
+        <img src= {logo} alt="" className="logoKitchen"/>
+        <button className="btnAdd" onClick={fetchData}><img src= {add} alt="" className='imgMenu' /></button>          
       </header>
-      <section className="section">
+     <section className="section">
 
-        {orders.map((order) => {
+      { orders.map((order) => {
+        return (
+          <div className="Cl" key={order.id}>
+            <p  className="date">Data: {ConvertDate(order.createdAt)} {ConvertTime(order.createdAt)}</p>
+            <p  className="tble">Mesa: {order.table}</p> 
+            <p  className="status">Status: {order.status}</p>
+            <p className="pedido">Pedido:</p>
+            <div>
+            
+              {
+                order.Products.map((product)=> {
+                  return(
+                    <div key={product.id}> 
+                    <p className="prod">{product.name}</p>
+                    </div>
+                  )
+                })
+              }
+              <button className="food" onClick={(e)=>{
+              e.preventDefault();
+              fetch(`https://lab-api-bq.herokuapp.com/orders/${order.id}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json",
+                    'Authorization': `${token}`
+                  }  
+                , body: JSON.stringify({"status": "Pronto" })              
+          
+              })
+                      .then((response) => response.json())
+                      .then((json) => {
+                        fetchData();
+                        console.log(json);
+                       })
+                  }}>Pedido Pronto</button>
 
-          return (
-            <div className="Cl" key={order.id}>
-              <p className="nameClient">Cliente: {order.client_name}</p>
-              <p>Mesa: {order.table}</p>
-              <p className="pedido">Pedido</p>
-              <div>
-
-                {/* <div className="product1">
-            <label>
-              <input
-                type="radio"
-                value="pending"
-                checked={status === "pending"}
-                onChange={() => setStatus("pending")}
-              />
-              <p>Pendente</p>
-            </label>
-            <label className="product2">
-              <input
-                type="radio"
-                value="Pronto"
-                checked={status === "pronto"}
-                onChange={() => setStatus("pronto")}
-              />
-              <p>Pronto</p>
-            </label>
-          </div> */}
-
-                {
-                  order.Products.map((product) => {
-                    return (
-                      <div key={product.id}>
-                        <p>{product.name}</p>
-                        <button className="food">Pedido Pronto</button>
-                      </div>
-                    )
-                  })
-                }
-              </div>
             </div>
-          )
-        })}
+            
+          </div>
+        )
+      })}
       </section>
     </div>
   );
 }
-
 
 export default Kitchen;

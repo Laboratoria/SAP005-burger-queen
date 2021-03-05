@@ -3,16 +3,27 @@
 	display: flex;
 	justify-content: space-between;
 }
+.App {
+	width: 100%;
+    position: fixed;
+    background-color: #383838;
+    height: 100%;
+}
 .header {
 	background-color: #383838;
 }
 
-.App-waiter {
+.All {
 	background-color: #383838;
+	position: absolute;
 	min-height: 100vh;
+	width: 101vw;
+}
+.App-waiter {
 	display: flex;
 	font-size: calc(10px + 2vmin);
 	color: white;
+	width: 100%;
 }
 
 .exit {
@@ -25,14 +36,26 @@
 }
 
 .logoWaiter {
-	justify-content: center;
-	width: 40%;
+	width: 20%;
+    margin-top: 72px;
+    margin-left: 40%;
 }
 
 .AppWaiter {
 	background-color: #383838;
 	min-height: 100vh;
 	font-size: calc(10px + 2vmin);
+}
+
+.btns {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	margin-top: 68px;
+	background-color: rgb(41, 39, 39);
+	border-radius: 9px;
+	width: 47%;
+	margin-left: 23px;
 }
 
 .order {
@@ -63,10 +86,10 @@
 	border-radius: 9px;
 	align-items: center;
 	color: #f4f4f9;
-	background-color:rgb(41, 39, 39);
+	background-color: rgb(41, 39, 39);
 	border: none;
 	outline: none;
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
 #products {
@@ -78,10 +101,10 @@
 	border-radius: 9px;
 	height: 250px;
 	outline: none;
-	color:white;
+	color: white;
 	border: none;
-	background:rgb(41, 39, 39);
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+	background: rgb(41, 39, 39);
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
 #number {
@@ -92,9 +115,9 @@
 	border-radius: 9px;
 	margin-left: 40%;
 	border: none;
-	color:white;
-	background-color:rgb(29, 27, 27);
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+	color: white;
+	background-color: rgb(29, 27, 27);
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
 h1 {
@@ -110,7 +133,7 @@ h1 {
 	width: 47%;
 	height: 100%;
 	float: left;
-	margin-top: 65px;
+	margin-top: 112px;
 	margin-left: 22px;
 	text-align: center;
 	overflow: auto;
@@ -127,7 +150,8 @@ h1 {
 	font-size: 15px;
 	border-radius: 9px;
 	background-color: #ffde59;
-	margin-top: 10%;
+	margin-top: 4%;
+	margin-bottom: 27px;
 }
 
 .imgMenu {
@@ -148,6 +172,7 @@ h1 {
 	border-radius: 43px;
 	outline: none;
 }
+
 .btnMenu {
 	border: none;
 	margin: 17px;
@@ -177,7 +202,6 @@ h1 {
 }
 
 ul {
-	margin-top: 33px;
 	font-size: 21px;
 	display: flex;
 }
@@ -188,9 +212,11 @@ ul {
 	width: 440px;
 	margin-left: 55px;
 	margin: 8px;
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+	box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
 	border-radius: 9px;
 	padding: 10px;
+	margin-top: 9px;
+	align-items: center;
 }
 
 .amount {
@@ -206,6 +232,16 @@ ul {
 .file {
 	background: transparent;
 	border: none;
+}
+.pedidos {
+	box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
+    border-radius: 9px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-left: 24px;
+    width: 402px;
+    font-size: 20px;
+    color: white;
 }
 
 .nameProducts {
@@ -246,72 +282,76 @@ ul {
 	color:#f4f4f9;
 }
 
+.Map{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 22px;
+}
 /*********************MenuHamburger*********************/
 
-#check{
-    display: none;
+#check {
+	display: none;
 }
 
-#icone{
-    cursor: pointer;
-    padding: 15px;
-    position: absolute;
-    z-index: 1;
+#icone {
+	cursor: pointer;
+	padding: 15px;
+	position: absolute;
+	z-index: 1;
 }
 
-.menuLateral{
-    background-color: transparent;
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    transition: all .2s linear;
-    left: -300px;
+.menuLateral {
+	background-color: transparent;
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	transition: all .2s linear;
+	left: -300px;
 	margin-top: 50px;
 	outline: none;
 }
 
-nav{
-    width: 100%;
-    position: absolute;
-    top: 60px;
+nav {
+	width: 100%;
+	position: absolute;
+	top: 60px;
 }
 
-nav a{
-    text-decoration: none;
+nav a {
+	text-decoration: none;
 }
 
-
-.link{
-    background-color: rgb(41, 39, 39);  
-    font-family: Arial, Helvetica, sans-serif;
-    transition: all .2s linear;
-    color: #f4f4f9;
-    border-bottom: 1px solid rgb(63, 62, 62);
+.link {
+	background-color: rgb(41, 39, 39);
+	font-family: Arial, Helvetica, sans-serif;
+	transition: all .2s linear;
+	color: #f4f4f9;
+	border-bottom: 1px solid rgb(63, 62, 62);
 	height: 30px;
 	padding-left: 70px;
 	display: flex;
 	align-items: center;
 	border-radius: 20px;
-	box-shadow: rgb(68, 64, 64) 11px 11px 57px,rgba(68, 64, 64, 0.794) -11px -11px 57px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
 }
 
-.link:hover{
-    background-color:  #ffde59;
-	color:black;
+.link:hover {
+	background-color: #ffde59;
+	color: black;
 }
 
-#check:checked ~ .menuLateral{
-    transform: translateX(300px);
+#check:checked ~ .menuLateral {
+	transform: translateX(300px);
 }
 
-#check:checked ~ .menuLateral nav a .link{
-    opacity: 5;
-    margin-top: 0;
-    transition-delay: .2s;
+#check:checked ~ .menuLateral nav a .link {
+	opacity: 5;
+	margin-top: 0;
+	transition-delay: .2s;
 }
 
-.btn-burguer{
-    width: 60px;
+.btn-burguer {
+	width: 60px;
 	margin: 20px;
 }
 /*********************MenuHamburger*********************/
