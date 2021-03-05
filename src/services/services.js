@@ -1,4 +1,14 @@
-import logo from '../assets/logo.png'
+import blackCoffee from '../assets/blackCoffee.jpg'
+import chips from '../assets/chips.jpg'
+import cocaCola from '../assets/cocaCola.jpg'
+import coffeeMilk from '../assets/coffeeMilk.jpg'
+import doubleBurger from '../assets/doubleBurger.jpg'
+import fanta from '../assets/fanta.jpg'
+import juice from '../assets/juice.jpg'
+import onionRings from '../assets/onionRings.jpg'
+import sandwich from '../assets/sandwich.jpg'
+import simpleBurger from '../assets/simpleBurger.jpg'
+import water from '../assets/water.jpg'
 
 const RESTAURANT = 'UrbanBistro'
 const API_URL = 'https://lab-api-bq.herokuapp.com'
@@ -138,8 +148,18 @@ export const getStatusDescription = (statusApi) => {
 
 export const getImage = (idProduct) => {
   const imageMap = {
-    33: logo,
-    34: 'src/img2'
+    29: blackCoffee,
+    30: coffeeMilk,
+    31: sandwich,
+    32: juice,
+    33: simpleBurger,
+    42: doubleBurger,
+    51: chips,
+    52: onionRings,
+    53: water,
+    54: water,
+    55: fanta,
+    56: cocaCola
   }
 
   return imageMap[idProduct]
