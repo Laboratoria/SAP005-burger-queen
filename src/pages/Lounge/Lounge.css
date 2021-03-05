@@ -87,6 +87,7 @@ table {
 .order {
   border:solid 2px #fff; 
   padding: 10px;
+  margin-bottom: 100px;
 }
 
 .menuList {

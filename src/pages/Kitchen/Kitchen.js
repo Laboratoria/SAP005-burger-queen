@@ -92,7 +92,7 @@ export const Kitchen = () => {
                 <CardGroup>
                   <Card body className="text-center" key={order.id}>
                     <CardText>
-                      <table className="table" >
+                      <table className="table">
                         <tbody>
                           <tr>
                             <th>Pedido nº {order.id}</th>
