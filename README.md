@@ -1,5 +1,6 @@
-![burger-nota-1000](src/img/logoburger.png)
-
+<a href="https://burger-nota-1000.vercel.app/">
+ <img src="src/img/logo.png" alt="logo"/>
+ </a>
 
 # Burger Nota 1000 
 
@@ -124,17 +125,14 @@ Após os testes de usabilidade, foram feitas alterações no _layout_ e esquema 
 
 ---
 ## :woman_technologist: Desenvolvido por
-<table>
-<tr>
-<td>
+
 <a href="https://github.com/KarinaFS">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/71661104?s=460&u=3386cc86927800e33e464422aa2f11fae50b2213&v=4" width="100px;" alt="github-karina"/>
  <br />
  <sub><b>Karina Santos</b></sub></a> <a href="https://www.linkedin.com/in/karina-ferreira-santos/" title=""></a> 
 
 [![Linkedin Badge](https://img.shields.io/badge/-Karina-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/karina-ferreira-santos/)](https://www.linkedin.com/in/karina-ferreira-santos/) 
-</td>
-<td>
+
 <a href="https://github.com/RoSapia">
  <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/C4D03AQEjQ5w8DxqTAg/profile-displayphoto-shrink_200_200/0/1614463654194?e=1620259200&v=beta&t=jcoeOWmUvjRbcqfl0IFF-kvDJOHI9lltKAdnTKTZnDs" width="100px;" alt="github-karina"/>
  <br />
@@ -142,6 +140,3 @@ Após os testes de usabilidade, foram feitas alterações no _layout_ e esquema 
  
 
 [![Linkedin Badge](https://img.shields.io/badge/-Roberta-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/roberta-vieira-sapia/)](https://www.linkedin.com/in/roberta-vieira-sapia/) 
-</td>
-</tr>
-</table>
