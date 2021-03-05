@@ -15,7 +15,7 @@ export const Routes = () => {
       <Route component={Home} exact path="/"/>
       <Route component={Login} exact path="/Login"/>
       <Route component={Register} exact path="/Register"/>
-      <PrivateRoute component={Hall} exact path="/Hall"/>
+      <Route component={Hall} exact path="/Hall"/>
       <PrivateRoute component={Kitchen} exact path="/Kitchen"/>
     </Switch>  
   </BrowserRouter>

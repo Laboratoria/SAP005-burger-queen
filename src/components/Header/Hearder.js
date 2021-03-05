@@ -71,7 +71,7 @@ export function NavBar() {
    return (
      <Toolbar className={classes.toolbar}>
         <div>
-        <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
+        <Typography align="right" variant='h6'  noWrap className={classes.toolbarTitle}>
        novo do funcionario
          </Typography>
          </div>
