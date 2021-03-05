@@ -109,7 +109,7 @@ const Menu = () => {
         <input
           className="button-send"
           type="button"
-          value="Pedir"
+          value="Adicionar"
           onClick={(e) => {
             if (selectedBurger.flavor !== null) {
               productsList.filter(produto => {
@@ -167,6 +167,7 @@ const Menu = () => {
     <>
       <div className="tables">
         <select className="select-table" name="tables" id="tables" value={table} onChange={(e) => setTable(Number(e.target.value))} >
+          <option value="">Selecione a mesa</option>
           <option value="1">Mesa 01</option>
           <option value="2">Mesa 02</option>
           <option value="3">Mesa 03</option>
@@ -300,22 +301,17 @@ const Menu = () => {
 
         <section className="container-order">
           <p className="title-order">Resumo do Pedido</p>
-          <p className="user-order">Atendente: {user}</p>
+          <p className="user-order"><strong>Atendente:</strong> {user}</p>
 
           <input className="client-order"
             type="text"
-            placeholder="Nome do Cliente"
+            placeholder="Digite o nome do Cliente"
             onChange={(event) => {
               setMakeOrder({ ...makeOrder, "client": event.target.value })
             }}
           />
           {orderSummary !== [] &&
             <>
-              <section className="title-list-order">
-                <label>Item</label>
-                <label>Valor</label>
-                <label>Quantidade</label>
-              </section>
               <ul className="list-order">
                 {orderSummary.map((item, index) => (
                   <>
@@ -376,9 +372,20 @@ const Menu = () => {
                   </>
                 ))}
               </ul>
-
-              <p className="total-order">TOTAL: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
-              <section className="send-order">
+              <input className="btn-clean-order"
+                type="button"
+                value="Limpar Pedido"
+                onClick={() => {
+                  setOrderSummary([]);
+                }}
+              />
+              <p className="total-order"><strong>TOTAL:</strong> {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sumPriceTotal(orderSummary))}</p>
+              
+            </>
+          }
+        </section>
+        
+        <section className="send-order">
                 <input className="btn-send-order"
                   type="button"
                   value="Enviar Pedido"
@@ -416,17 +423,8 @@ const Menu = () => {
                 />
 
 
-                <input className="btn-clean-order"
-                  type="button"
-                  value="Limpar Pedido"
-                  onClick={() => {
-                    setOrderSummary([]);
-                  }}
-                />
+
               </section>
-            </>
-          }
-        </section>
 
       </div>
     </>

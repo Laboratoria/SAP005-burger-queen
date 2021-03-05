@@ -1,7 +1,7 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .header-hall {
@@ -41,28 +41,13 @@
   right: 150px;
 }
 
-/* .item-nameCustomer {
-  width: 200px;
+.item-btn-myOrder,
+.item-btn-myOrder-finished {
   height: 60px;
-  position: absolute;
-  right: 170px;
-  bottom: 2px;
-  margin-right: 20px;
-  padding-left: 10px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 50px;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
-} */
-
-.item-btn-myOrder, .item-btn-myOrder-finished {
-height: 60px;
-font-size: 30px;
-font-weight: bold;
-background: #F8CB00;
-border-radius: 50px;
+  background: #f8cb00;
+  border-radius: 50px;
 }
 
 .item-btn-myOrder {
@@ -77,12 +62,10 @@ border-radius: 50px;
 }
 
 .item-icon-logout {
-    position: absolute;
-    left: 587px;
-    bottom: 3px;
-    width: 65px;
-    height: 65px;
-    margin-left: 10px;
-  
+  position: absolute;
+  left: 587px;
+  bottom: 3px;
+  width: 65px;
+  height: 65px;
+  margin-left: 10px;
 }
-

@@ -4,16 +4,6 @@
     background: #000;
 }
 
-.icon-return {
-    position: absolute;
-    left: 587px;
-    bottom: 3px;
-    width: 65px;
-    height: 65px;
-    margin-left: 10px;
-}
-
-
 .show-ready{
     display: flex;
 	flex-direction: row;
@@ -68,3 +58,13 @@
     font-size: 18px;
 }
 
+.icon-return {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    padding-top: 15px;
+}
+
+.container-icon-return {
+    background-color: #000;
+}

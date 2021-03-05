@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import HeaderKitchen from "../../components/HeaderKitchen/HeaderKitchen";
 import "./Kitchen.css";
 import { useHistory } from "react-router-dom";
 import Logout from "../../assets/logout.png";
@@ -54,7 +55,10 @@ const Kitchen = () => {
   };
 
   return (
+    <>
+    
     <div className="main-kitchen">
+      <HeaderKitchen />
       <div className="show-order">
         {order &&
           order.map(function (product, index) {
@@ -75,14 +79,7 @@ const Kitchen = () => {
                   })}
                 </p>
 
-                  {/* <div className="btn-finish-order">
-                      <Link to="/finalized-orders">
-                        <span id="button" className="btn-finish-order">
-                          Pedidos Finalizados
-                        </span>
-                      </Link>
-                    </div> */}
-                
+              
                   <div className="infos">
                     <p><strong>Atendente:</strong> {product.user_id}</p>
                     <p><strong>Cliente:</strong> {product.client_name}</p>
@@ -110,7 +107,7 @@ const Kitchen = () => {
             />
           </div>
     </div>
-    
+    </>
   );
 };
 
