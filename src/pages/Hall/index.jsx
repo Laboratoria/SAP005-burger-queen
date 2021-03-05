@@ -20,7 +20,7 @@ function Home(){
   return (
     <>
       <NavBar/>
-      <Container>
+      <Container className='container' container direction="row" justify="flex-start" alignItems="flex-start">
         <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
         <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} > Pendentes </Button >           
       </Container>   

@@ -169,8 +169,19 @@ const Menu = () => {
 
   return (
     <>
-      <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
+      <Grid id='menuList' container item xs={12} spacing={1} className='container' container direction="row" justify="flex-start" alignItems="flex-start">
         <NavBar/>   
+        <Grid>
+          <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>
+          <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
+          <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
+          {listMap.map((product) => (
+            <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
+              <button className={classes.submitMenuItems}  disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
+            </div>)
+          )}
+        </Grid>
+        <Grid id='orderList' className={classes.orderItemsTotal}>
         <form className={classes.paperTable}  noValidate autoComplete="off" >
             <Input placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
             name='nome'
@@ -188,7 +199,6 @@ const Menu = () => {
             } />
             
         </form>
-        <Grid  >
         {totalOrder.map((product, index) => (
             <div key={index} >
               <AddCircleIcon value='+' type='button' border='none' onClick={ () => {ascendQuantity (product,index)}}/>
@@ -207,16 +217,6 @@ const Menu = () => {
         </div>
         </Grid>
           
-        <div>
-          <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>
-          <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
-          <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
-          {listMap.map((product) => (
-            <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
-              <button className={classes.submitMenuItems}  disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
-            </div>)
-          )}
-        </div>
       </Grid>
       <Copyright />
     </>

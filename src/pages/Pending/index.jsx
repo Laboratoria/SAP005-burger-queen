@@ -11,6 +11,7 @@ import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import Icon from '@material-ui/core/Icon';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
 function Kitchen (){
@@ -129,7 +130,7 @@ function calculateTime(product) {
     <div className='done'>
       <NavBar/>  
       <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">  
-
+      
         {list.map (function (product, index) {
           return(
             <div  key={index} id={product.id}>   
@@ -172,6 +173,7 @@ function calculateTime(product) {
           )
         })}
       </Grid>
+      <Link to="/Hall"><ArrowBackIosIcon className={classes.arrowMenu} color="disabled" fontSize="large"/></Link>
     </div>
   )
 }
