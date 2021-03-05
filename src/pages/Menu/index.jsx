@@ -3,9 +3,14 @@ import { useHistory } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input'; 
-import {Copyright, useStyles, NavBar, NewTaskInput, ListItem} from '../../components.js';
+import {Copyright, useStyles, NavBar, NewTaskInput, ListItem, submitOrderItems} from '../../components.js';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import RemoveIcon from '@material-ui/icons/Remove';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import Button from '@material-ui/core/Button';
 
 const Menu = () => {
   const classes = useStyles();
@@ -181,24 +186,26 @@ const Menu = () => {
             onChange={(event) =>
               setOrder({ ...order, table: event.target.value })
             } />
+            
         </form>
+        <Grid  >
         {totalOrder.map((product, index) => (
-            <div key={index}>
-              <input value='+' type='button' onClick={ () => {ascendQuantity (product,index)}}/>
-              <button>{product.qtd }</button>
-              <input value='-' type='button' onClick={() => {downQuantity (product, index)}}/>
+            <div key={index} >
+              <AddCircleIcon value='+' type='button' border='none' onClick={ () => {ascendQuantity (product,index)}}/>
+              <span>{product.qtd }</span>
+              <RemoveCircleIcon  value='-' type='button' onClick={() => {downQuantity (product, index)}}/>
               <span>{product.name} </span>
               <span>{product.flavor === 'null' ? '' : product.flavor} </span>
               <span>{product.complement === 'null' ? '' : product.complement }</span>
               <span> R$ {product.price},00  </span> 
             </div>
           ))} 
-        
-        <div>
+          <div>
           <p> Total Pedido: R$ {productPrices}</p>
-          <button onClick={() => clearHall()}>Cancelar</button>
-          <button onClick={() => validadeInputs()}>Enviar para cozinha</button>
+          <Button variant="outlined" color="primary" onClick={() => clearHall()}>Cancelar</Button>
+          <Button variant="outlined" color="primary"onClick={() => validadeInputs()}>Enviar para cozinha</Button>
         </div>
+        </Grid>
           
         <div>
           <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>

@@ -69,13 +69,29 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.text.primary,
     color: '#fafafa',
   },
+  submitOrderItems: {
+    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
+    borderRadius: 5,
+    border: 0,
+    color: 'white',
+    height: 500,
+    width:370,
+    paddingTop: '20px',
+    marginTop:'20px',
+    paddingRight:'5px',
+    marginLeft:'420px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    fontSize:'15px'
+  },
   submitMenuItems: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
     borderRadius: 5,
     border: 0,
     color: 'white',
     height: 68,
-    width:390,
+    width:370,
     paddingTop: '20px',
     marginTop:'2px',
     paddingRight:'5px',
@@ -126,6 +142,7 @@ export const useStyles = makeStyles((theme) => ({
   link: {
     margin: theme.spacing(1, 1.5),
   },
+  
   rootMenu: {
     display: 'flex',
     flexWrap: 'wrap',
