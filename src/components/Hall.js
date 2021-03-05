@@ -67,11 +67,42 @@ function add (produto) {
     const copyPedidos = [...pedidos]
     copyPedidos[index].qtd++
     setPedidos(copyPedidos)
+    console.log(pedidos)
   }
   function removeQtd (index) {
     const copyPedidos = [...pedidos]
     copyPedidos[index].qtd--
     setPedidos(copyPedidos)
+  }
+  function sendOrder (){
+    // console.log(nameClient)
+    // console.log(table)
+    // console.log(pedidos)
+
+    fetch('https://lab-api-bq.herokuapp.com/orders', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "accept": "application/json",
+        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ"
+      },
+      body: JSON.stringify({
+        "client": nameClient,
+        "table": table,
+        "products":
+          pedidos.map((item) => (
+            {
+              "id": Number(item.id),
+              "qtd": Number(item.qtd)
+            }
+          ))
+
+      })
+    })
+.then((response) => response.json())
+      .then((json) => {
+        console.log(json)
+      })
   }
   return (
     <div className="Hall">
@@ -81,8 +112,8 @@ function add (produto) {
           {menu && menu.map(p => (
           <div className = 'menu-cafe'
           name = {p.name} id = {p.id} price = {p.price} key = {p.id}>
-            <p>{p.name}</p>
-            <p>{p.price}</p>
+            <p>{p.name} {p.flavor} {p.complement}</p>
+            <p>R${p.price},00</p>
             <button disabled = {p.qtd && p.qtd != 0} onClick = { () => add (p)}>Adicionar</button>
           </div>
           )) 
@@ -105,6 +136,7 @@ function add (produto) {
       <div className="btnSalao">        
         <button className="btnSalaoRota" onClick={ ()=> setMenu (cafe) }>Café da manhã</button>
         <button className="btnSalaoRota" onClick={ ()=> setMenu (menuAllDay)}>Resto do dia </button>
+        <button className="btnSalaoRota" onClick={sendOrder}>Enviar pedido </button>
       </div>
       <div className="inputSalao">
         <div className="inputLabel">
