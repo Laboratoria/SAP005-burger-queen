@@ -112,9 +112,9 @@ Queríamos manter a estética minimalista e com cores agradáveis ao olhar. Mant
 
 A partir do primeiro deploy da aplicação, conseguimos testar a usabilidade durante o processo de desenvolvimento. Com isso, identificamos que:
 
-❌Os usuários não estavam satisfeitos com a cor de fundo da aplicação, pois estava tudo opaco.
+❌ Os usuários apontaram que a paleta de cores estava escura e dificultava a utilização da aplicação.
 
-✔️Alteramos a cor de fundo para uma cor que mais contrastava com o restante da aplicação.
+✔️ Alteramos a paleta de cores e adotamos tons mais claros.
 
 
 ### Instalação
