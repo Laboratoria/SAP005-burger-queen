@@ -57,7 +57,7 @@
   font-weight: bold;
 } */
 
-.item-btn-myOrder {
+.btn-orderReady {
 width: 230px;
 height: 50px;
 position: absolute;
@@ -67,6 +67,17 @@ font-weight: bold;
 background: #F8CB00;
 border-radius: 50px;
 }
+
+.btn-orderFinished {
+  width: 230px;
+  height: 50px;
+  position: absolute;
+  left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  background: #F8CB00;
+  border-radius: 50px;
+  }
 
 .item-icon-logout {
     position: absolute;
