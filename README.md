@@ -32,7 +32,7 @@ O LaBurguer é a hamburgueria para qual foi desenvolvido a aplicação que possi
 
 O planejamento e organização do projeto foi feito com método Kanban, utilizando o [Trello](https://trello.com/). 
 
-![Imagem!](./src/img/trello.png)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6020b3a2293a2449d45c3caf/603ea838eccc46598e53a5a7/27558e04e5c646a526c44864a25c1219/trello.png)
 
 ---
 ## 3. UX
@@ -105,8 +105,10 @@ Escolhemos como ponto de inspiração, e partida, a própria [Laboratória](http
 Pesquisamos sites e aplicações de delivery de hamburguerias para entendermos qual o desing usualmente utilizado nesse nixo de mercado.
 Após, criamos o protótipo de alta fidelidade com o [Figma](https://www.figma.com/) para tablets.
 
-
-![Imagem!](figma)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6022b7c6b912fe7ad26965a8/595x410/edf16f4d55dac6664f40f23f8453a9e5/t1.png)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6022b7c6b912fe7ad26965a8/593x413/9de56bc9315da993ef5f79b5cc798b55/t2.png)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6022b7c6b912fe7ad26965a8/598x417/f30cdb8a70ccb3dd9ecdbda78dc38788/t3.png)
+![Imagem!](https://trello-attachments.s3.amazonaws.com/6022b7c6b912fe7ad26965a8/594x414/547b5273180624cc8a4d8b989d51701f/t4.png)
 
 
 ### Testes com usuários
