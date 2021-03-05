@@ -61,10 +61,17 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 
 ## Imagens
 
-<img width="401" alt="Captura de Tela 2021-03-03 às 20 48 53" src="https://user-images.githubusercontent.com/63555634/110172230-97061480-7ddb-11eb-882a-0a65ea07c042.png">
+<img width="200" alt="Captura de Tela 2021-03-05 às 17 54 34" src="https://user-images.githubusercontent.com/63555634/110172513-067c0400-7ddc-11eb-9b85-731d6e40059f.png">
 
 
-<img width="398" alt="Captura de Tela 2021-03-03 às 20 49 14" src="https://user-images.githubusercontent.com/63555634/110172242-9a999b80-7ddb-11eb-9b7e-3cf95dff5a71.png">
+<img width="200" alt="Captura de Tela 2021-03-05 às 17 54 22" src="https://user-images.githubusercontent.com/63555634/110172524-0aa82180-7ddc-11eb-8791-5960215b930f.png">
+
+
+<img width="200" alt="Captura de Tela 2021-03-05 às 17 54 59" src="https://user-images.githubusercontent.com/63555634/110172538-0f6cd580-7ddc-11eb-9263-b4f114e2172b.png">
+
+
+<img width="200" alt="Captura de Tela 2021-03-05 às 17 55 23" src="https://user-images.githubusercontent.com/63555634/110172566-1562b680-7ddc-11eb-8651-4cbd7ca8ad9b.png">
+
 
 
 <h3 align="justify"> Tecnologia Usada no projeto</h3>
