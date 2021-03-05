@@ -38,7 +38,7 @@
   justify-content: space-around;
   align-items: baseline;
   position: absolute;
-  right: 100px;
+  right: 150px;
 }
 
 /* .item-nameCustomer {
@@ -57,20 +57,28 @@
   font-weight: bold;
 } */
 
-.item-btn-myOrder {
-width: 230px;
-height: 50px;
-position: absolute;
-left: 5px;
+.item-btn-myOrder, .item-btn-myOrder-finished {
+height: 60px;
 font-size: 30px;
 font-weight: bold;
 background: #F8CB00;
 border-radius: 50px;
 }
 
+.item-btn-myOrder {
+  width: 260px;
+}
+
+.item-btn-myOrder-finished {
+  width: 310px;
+  position: absolute;
+  left: 270px;
+  bottom: 0px;
+}
 .item-icon-logout {
     position: absolute;
-    left: 260px;
+    left: 587px;
+    bottom: 3px;
     width: 65px;
     height: 65px;
     margin-left: 10px;
