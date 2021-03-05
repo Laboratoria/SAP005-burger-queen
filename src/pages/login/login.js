@@ -63,7 +63,6 @@ export const Login = () => {
                   userEmail,
                   userPassword
                 )
-                console.log(response)
 
                 localStorage.setItem('userName', response.name)
                 localStorage.setItem('userToken', response.token)

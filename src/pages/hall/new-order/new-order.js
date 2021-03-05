@@ -211,13 +211,11 @@ export const NewOrder = () => {
           <OrderSection
             cancelCallback={
               () => {
-                console.log(2)
                 history.push('/client-info')
               }
             }
             confirmCallback={
               () => {
-                console.log(3)
                 history.push('/client-info')
               }
             }

@@ -1,9 +1,13 @@
+import logo from '../assets/logo.png'
+
 const RESTAURANT = 'UrbanBistro'
 const API_URL = 'https://lab-api-bq.herokuapp.com'
 const API_USERS = `${API_URL}/users`
 const API_AUTH = `${API_URL}/auth`
 const API_PRODUCTS = `${API_URL}/products`
 const API_ORDERS = `${API_URL}/orders`
+
+
 
 export const createUser = async (
   userName,
@@ -119,4 +123,24 @@ export const updateOrder = async (
     })
   })
   return await response.json()
+}
+
+export const getStatusDescription = (statusApi) => {
+  const statusMap = {
+    'pending': 'Pendente',
+    'preparing': 'Preparando',
+    'ready': 'Pronto',
+    'delivery': 'Entregue',
+  }
+
+  return statusMap[statusApi]
+}
+
+export const getImage = (idProduct) => {
+  const imageMap = {
+    33: logo,
+    34: 'src/img2'
+  }
+
+  return imageMap[idProduct]
 }

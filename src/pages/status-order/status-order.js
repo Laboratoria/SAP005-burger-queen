@@ -64,6 +64,7 @@ export const StatusOrder = () => {
           <div className='status-kitchen'>
             <OrderInfo
               statusTitle='Pronto'
+              showTime={true}
               orders={
                 orders.filter((order) => order.status === 'ready')
               }

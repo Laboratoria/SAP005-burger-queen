@@ -9,7 +9,8 @@ export default function OrderInfo({
   nextStatus,
   nextStatusApi,
   showButton,
-  callback
+  callback,
+  showTime
 }) {
   return (
     <Fragment>
@@ -25,6 +26,9 @@ export default function OrderInfo({
               status={order.status}
               buttonNameAddStatus={nextStatus}
               showButton={showButton}
+              created={order.createdAt}
+              processed={order.processedAt}
+              showTime={showTime}
               onClickAddStatus={
                 async (event) => {
                   event.preventDefault()

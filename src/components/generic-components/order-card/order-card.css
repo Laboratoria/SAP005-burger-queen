@@ -77,6 +77,25 @@
 	color: #004c54;
 }
 
+.container-time {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: #004c54;
+}
+.timer {
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.timer-icon {
+	font-size: 1.5rem;
+	text-align: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
 .hide {
 	display: none;
 }
