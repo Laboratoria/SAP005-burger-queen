@@ -122,7 +122,7 @@ Utilizamos CSS puro, com responsividade para tablet.
 
 <!-- ![Imagem!](gif) -->
 
-## Conheça nossa aplicação [aqui!](https://sap-005-burger-queen-git-feature-adicionais-ale-alves.vercel.app/)
+## Conheça nossa aplicação [aqui!](https://burger-queen-laburger.vercel.app/)
 Você pode criar, ou acessar com os logins:
 <div align="center">
 
