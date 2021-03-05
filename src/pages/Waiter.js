@@ -152,7 +152,7 @@ const Waiter = () => {
                         </div>
                       </div>
                       <ul >R$:{menuItems.price},00</ul>
-                      <button className="btnTeste" onClick={() => clickQuantidade(menuItems)}>+</button>
+                      <button className="btnQuantidade" onClick={() => clickQuantidade(menuItems)}>+</button>
 
                     </div>
                   </div>
@@ -172,23 +172,26 @@ const Waiter = () => {
           <div className="pedidos">
             <div className='divOrder'>
               <p>Item</p>
-              <p>Qtd</p>
-              <p>Preço</p>
+              <p className="p">Preço</p>
+              <p>Quantidade</p>
+             
             </div>
             {quantidade.map(item =>
               <div>
-                <span>
+                <span className="Map">
+                  <ol className="ComplementItem">
                   <p className='orderProducts'>{item.name}</p>
                   <p className='complement'>{item.flavor}</p>
                   <p className='complement'>{item.complement}</p>
-                  <p className='complement'> {item.qtd}</p>
+                  </ol>
                   <p className='orderProducts'>R$:{item.price},00</p>
+                  <p className='complement'> {item.qtd}</p>
+                  <button className="btnQuantidade" onClick={(e) => clickLess(e, item)}>-</button>                
                 </span>
-                <button className="btnLess" onClick={(e) => clickLess(e, item)}>-</button>
               </div>
 
             )}
-            <p>total: R$:{total},00</p>
+            <p className="total">Total: R$:{total},00</p>
           </div>
 
           <button className='send' onClick={((e) => {
