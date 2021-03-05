@@ -5,8 +5,8 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-
-
+import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
+import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 //Botão Principa (LOGAR CADASTRO HOME)
 export const useStyles = makeStyles({
   StandardButton: {
@@ -58,6 +58,40 @@ export const useStyles = makeStyles({
     justifyContent: 'inherit',
   },
 
+  Checkout: {
+    color: '#black',
+    fontWeight: '700',
+    width: '280px',
+    height: '50px',
+    padding: '0 20px',
+    background: '#629c25',
+    borderRadius: '5px',
+    outline: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    textAlign: 'center',
+    transition: 'all 0.2s linear',
+    letterSpacing: '0.05em',
+    justifyContent: 'inherit',
+    
+  },
+
+  Cancel: {
+    color: '#black',
+    fontWeight: '700',
+    width: '280px',
+    height: '50px',
+    padding: '0 20px',
+    background: '#c24438',
+    borderRadius: '5px',
+    outline: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    textAlign: 'center',
+    transition: 'all 0.2s linear',
+    letterSpacing: '0.05em',
+    justifyContent: 'inherit',
+  },
 
 });
 //BOTÃO CADASTRO / LOGIN
@@ -83,6 +117,23 @@ export function StandardButtonPrincipal2 (props) {
     
   )
 }
+//BOTÃO INICIAR PEDIDO
+export function Checkout (props) {
+  const classes = useStyles();
+  return (
+   <button className={classes.Checkout} onClick={props.onClick}> {props.content} <CheckCircleOutlineOutlinedIcon style={{color: '#437766'}}/> </button>
+    
+  )
+}
+//BOTÃO CANCELAR PEDIDO
+export function Cancel (props) {
+  const classes = useStyles();
+  return (
+   <button className={classes.Cancel} onClick={props.onClick}> {props.content} <CancelOutlinedIcon style={{color: '#ec5443'}}/> </button>
+    
+  )
+}
+
 
 //BOTÃO DE SOMAR
 export const Changebravery = (props) => {

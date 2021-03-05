@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Changebravery } from '../../StandardButton/CustomButtons.js';
 import Box from '@material-ui/core/Box';
+import TableBody from "@material-ui/core/TableBody";
 
 const useStyles = makeStyles({
   Table: {
@@ -40,12 +41,12 @@ export const Dinner = (props) => {
     <Table aria-label="customized table"className={classes.Table}>
     <TableHead style={{width: '100%', backgroundColor:'red' }}>        
         
-          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> Cardápio</StyledTableCell>
+          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> Cardápio / Valor</StyledTableCell>
           <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
         
         </TableHead>
         
-        {  props.menu['hamburguer'].map((product, index) => (
+        <TableBody> {  props.menu['hamburguer'].map((product, index) => (
             <StyledTableRow key={index}>
           
                 <StyledTableCell align="left" style={{textTransform: 'uppercase' , color:'black'}}>{product.complement ? product.name + " " +product.flavor + " adicional " + product.complement : product.name + " " + product.flavor}    
@@ -57,7 +58,7 @@ export const Dinner = (props) => {
               
             </StyledTableRow>
           )) }
-
+        </TableBody>
       </Table>
     </TableContainer>
   );

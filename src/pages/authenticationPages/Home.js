@@ -62,7 +62,7 @@ return (
     <Box className={classes.conteinerTertiary}>
       <section className={classes.conteinerQuarticiario}>
         <StandardButtonPrincipal content="Login" onClick={routerLogin} />
-        <StandardButtonPrincipal content="Cadastrar" onClick={routerRegister} />
+        <StandardButtonPrincipal onCcontent="Cadastrar" lick={routerRegister} />
       </section>
     </Box>
   </Box>

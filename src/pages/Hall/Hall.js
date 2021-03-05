@@ -4,7 +4,7 @@ import { Footer } from "../../components/Footer/Footer.js";
 import { Typography, Box } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { withStyles  } from '@material-ui/core/styles';
-import { Menu } from '../../components/Menu/tab/index.js';
+import { Menu } from '../../components/Menu/MenuFinal/Menu.js';
 
 
     const  Hall = () => {
