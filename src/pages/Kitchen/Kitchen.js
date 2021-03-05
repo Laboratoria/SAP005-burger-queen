@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardTitle, CardText, CardGroup, Row, Col, Button } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
+import Footer from "../../components/Footer";
 import './Kitchen.css';
 
 export const Kitchen = () => {
@@ -77,6 +78,7 @@ export const Kitchen = () => {
   };
 
   return (
+  <>
     <div>
       <>
         <svg onClick={handleSignOut} xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" className="signout-btn-kitchen">
@@ -176,7 +178,10 @@ export const Kitchen = () => {
             </Row>
           )
         })}
+        )
       </>
     </div>
+    <Footer />
+    </>
   )
 };

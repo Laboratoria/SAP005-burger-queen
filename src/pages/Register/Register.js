@@ -25,11 +25,13 @@ export const Register = () => {
   }
 
   const [name, setName] = useState('');
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
 
   const handleName = (event) => {
+  
     setName(event.target.value);
   }
   const handleEmail = (event) => {

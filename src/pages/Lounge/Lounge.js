@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import logoburger from '../../img/logoburger.png';
+import Footer from '../../components/Footer.js';
 import './Lounge.css'
 
 
@@ -46,6 +47,10 @@ export const Lounge = () => {
         </div>
 
       </div>
+  )
+  <div className="footer-lounge">
+  <Footer />
+  </div>
     </>
   )
 
