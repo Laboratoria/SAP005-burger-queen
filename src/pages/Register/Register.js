@@ -77,7 +77,7 @@ export const Register = () => {
 
 
   return (
-    <div className="container">
+    <div className="container-register">
       <header>
         <img src={logoburger} className="logoburger" alt="logoburger" />
         <h1 className="h1-register">Crie seu cadastro</h1>

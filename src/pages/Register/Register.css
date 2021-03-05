@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-.container {
+.container-register {
   height: 100vh;
   display: flex;
 	flex-direction: column;
