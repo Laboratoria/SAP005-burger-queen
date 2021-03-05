@@ -19,13 +19,6 @@ ___
 
 ---
 
-✅ Status do Projeto
-<h4 align="center"> 
-	🎆  Urban bistro -  Concluído  🎆
-</h4>
-
----
-
 ### Introdução
 
 A partir do projeto proposto pela [Laboratória](https://github.com/Laboratoria/SAP005-burger-queen), desenvolvemos em dupla uma aplicação 100% por demanda, suprindo de forma ordenada e eficiente as histórias de usuário. Implementamos uma aplicação de gestão de um restaurante, onde a interface é sincronizada entre os pedidos do salão(realizados através de um Tablet) e a cozinha.
