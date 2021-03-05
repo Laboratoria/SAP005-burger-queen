@@ -3,11 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
-import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
-import RemoveOutlinedIcon from "@material-ui/icons/RemoveOutlined";
-
-
-
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 
 //Botão Principa (LOGAR CADASTRO HOME)
@@ -87,15 +84,13 @@ export function StandardButtonPrincipal2 (props) {
   )
 }
 
-//DESCONSIDERAR ESSE BOTÃO
-export const ToggleButtonCustom = (props) => {
+//BOTÃO DE SOMAR
+export const Changebravery = (props) => {
   const [qtdProduct, setQtdProduct] = useState(props.products[props.product.id] ? props.products[props.product.id].qtd : 0);
  
   const setQuote = (product, increment) => {
     let qtd = qtdProduct + increment;
-    if (qtd < 0) {
-      qtd = 0;
-    }
+    if (qtd < 0) {qtd = 0; }
     setQtdProduct(qtd);
     props.addProductToQuote({'product': {'id': product.id, 'qtd': qtd, 'name': product.name, 'price': product.price, 'total': qtd * product.price}});
   }
@@ -103,13 +98,15 @@ export const ToggleButtonCustom = (props) => {
   return (
     <ToggleButtonGroup>
       <ToggleButton value={"remove-icon"} onClick={() => setQuote(props.product, - 1)}>
-        <RemoveOutlinedIcon />
+        <RemoveCircleIcon style={{color: '#ec5443'}}/>
       </ToggleButton>
-      <ToggleButton value={"quantity"} disabled style={{fontSize: '1rem', color: 'black'}}>
+
+      <ToggleButton value={"quantity"} disabled style={{fontSize: '0.9rem', color: 'black'}}>
         {qtdProduct}
       </ToggleButton>
+    
       <ToggleButton value={"add-icon"} onClick={() => setQuote(props.product, + 1)}>
-        <AddOutlinedIcon />
+        <AddCircleIcon style={{color: '#629b26'}} />
       </ToggleButton>
     </ToggleButtonGroup>
   );

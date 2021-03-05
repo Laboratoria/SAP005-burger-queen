@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from "@material-ui/lab/Alert";
-import { StandardButton } from '../../components/StandardButton/buttonRegister.js';
+import { StandardButton } from '../../components/StandardButton/CustomButtons.js';
 
 export const Login = () => {
   const useStyles = makeStyles((theme) => ({

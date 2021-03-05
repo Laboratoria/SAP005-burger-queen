@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { ToggleButtonCustom } from '../../StandardButton/buttonRegister.js';
+import { Changebravery } from '../../StandardButton/CustomButtons.js';
 
 
 const useStyles = makeStyles({
@@ -49,7 +49,7 @@ export const AllDay = (props) => {
                 <TableCell>{product.complement ? product.name + " " +product.flavor + " adicional " + product.complement : product.name + " " + product.flavor}</TableCell>
                 <TableCell align="left">{product.price},00</TableCell>
                 <TableCell align="left">
-                  <ToggleButtonCustom addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
+                  <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
                 </TableCell>
               </TableRow>
 
@@ -76,7 +76,7 @@ export const AllDay = (props) => {
               <TableCell>{product.name}</TableCell>
               <TableCell align="left">{product.price},00</TableCell>
               <TableCell align="left">
-                <ToggleButtonCustom addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
+                <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
               </TableCell>
             </TableRow>
           ))
@@ -85,7 +85,7 @@ export const AllDay = (props) => {
 
         <TableHead>
           <TableRow>
-            <TableCell align="left" colSpan={5} style={{fontWeight: 'bolder', backgroundColor: '#8bc34a', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
+            <TableCell align="left" colSpan={5} style={{fontWeight: 'bolder', backgroundColor: '#6666', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
               Bebidas
             </TableCell>
           </TableRow>
@@ -102,7 +102,7 @@ export const AllDay = (props) => {
               <TableCell>{product.name}</TableCell>
               <TableCell align="left">{product.price},00</TableCell>
               <TableCell align="left">
-                <ToggleButtonCustom addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
+                <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
               </TableCell>
             </TableRow>
             ))

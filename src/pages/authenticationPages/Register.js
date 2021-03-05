@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { Box, Typography, Link } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import { makeStyles, Theme, createStyles  } from '@material-ui/core/styles';
-import { StandardButton } from '../../components/StandardButton/buttonRegister';
+import { StandardButton } from '../../components/StandardButton/CustomButtons';
 import salon from '../../components/Logos/img/clerk.png';
 import kitchen from '../../components/Logos/img/cooking.png';
 import 'react-toastify/dist/ReactToastify.css';

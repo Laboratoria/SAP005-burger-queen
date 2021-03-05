@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { ToggleButtonCustom } from '../../StandardButton/buttonRegister.js';
+import { ToggleButtonCustom } from '../../StandardButton/CustomButtons.js';
 
 
 const useStyles = makeStyles({
