@@ -7,11 +7,11 @@ import logoNav from './img/logoNav.png';
 export const useStyles = makeStyles(() => ({
   
     Logoheader:{
-      
-      display: 'flex',
-      alignItems: 'center',
       width: '100%',
+      display: 'flex',
       position: 'absolute',
+      alignItems: 'center',
+      justifyContent:'center',
       },
   
     logoComponent: {   //Okay

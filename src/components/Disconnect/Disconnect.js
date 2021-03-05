@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import { Box } from '@material-ui/core';
 
 export const Disconnect = (props) => {
   const history = useHistory();
@@ -12,9 +13,11 @@ export const Disconnect = (props) => {
     }
   }
   return (
-  <Button onClick={() => handleLogout()} >
-    {props.content}
-    <HighlightOffIcon />
-  </Button>
+    <Box align="right">
+      <Button onClick={() => handleLogout()} >
+        {props.content}
+        <HighlightOffIcon style={{color: '#ec5443'}} />
+      </Button>
+    </Box>
   )
 };

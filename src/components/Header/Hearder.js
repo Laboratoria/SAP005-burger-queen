@@ -32,6 +32,9 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
+    backgroundColor: '#ffffff',
+    backgroundSize: 'cover',
+    backgroundPosition: '50% -344px',
  },
 
   margin: {           
@@ -70,13 +73,9 @@ export function NavBar() {
  const classes = useStyles();
    return (
      <Toolbar className={classes.toolbar}>
-        <div>
-        <Typography align="right" variant='h6'  noWrap className={classes.toolbarTitle}>
-       novo do funcionario
-         </Typography>
-         </div>
+      
          <LogoNav/>
-                
+            
          <Disconnect content="Deslogar"/>
          </Toolbar>        
   )

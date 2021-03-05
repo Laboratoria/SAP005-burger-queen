@@ -4,7 +4,7 @@ import Alert from "@material-ui/lab/Alert";
 import TextField from '@material-ui/core/TextField';
 import { Box, Typography, Link } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
-import { makeStyles, Theme, createStyles  } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { StandardButton } from '../../components/StandardButton/CustomButtons';
 import salon from '../../components/Logos/img/clerk.png';
 import kitchen from '../../components/Logos/img/cooking.png';
@@ -21,16 +21,16 @@ export const Register = () => {
         margin: theme.spacing(1),
       },
 
-        },
+    },
 
-          radioLabel: {
-          fontWeight: 'bold',
-          marginInlineEnd: '15px',
-          marginInlineStart: '40px',
-          color: '#2976a0',
-          fontSize: '18px',
+    radioLabel: {
+      fontWeight: 'bold',
+      marginInlineEnd: '15px',
+      marginInlineStart: '40px',
+      color: '#2976a0',
+      fontSize: '18px',
 
-        }
+    }
 
 
   }));
@@ -60,7 +60,7 @@ export const Register = () => {
           setEmail('');
           setPassword('');
           setRole('');
-          <Alert severity="success">This is a success alert — check it out!</Alert>
+          alert('Cadastrado com Sucesso!');
           history.push('/login');
         } else if (response.status === 403) {
           setResult({ status: 403, message: 'E-mail já cadastrado, por gentileza insira outro' });
@@ -95,7 +95,7 @@ export const Register = () => {
             <input required="" name="jobPosition" className="cadInputOption" id="kitchen" type="radio" value="cozinheiro" />
             <label htmlfor="hall" className={classes.radioLabel}><img src={salon} alt="" className="icon-salon" /><br />Salão</label>
             <input required="" name="jobPosition" className="cadInputOption" id="hall" type="radio" value="garcom" />
-         
+
           </Box>
         </Box>
 

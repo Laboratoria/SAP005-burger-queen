@@ -8,7 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Changebravery } from '../../StandardButton/CustomButtons.js';
 
-
 const useStyles = makeStyles({
   Table: {
     minWidth: 700
