@@ -25,6 +25,8 @@ function Hall() {
   const [menu, setMenu] = useState([]);
   const [pedidos, setPedidos] = useState ([]);
   const [menuAllDay, setMenuAllDay] = useState ([]);
+  const [cafe, setCafe] = useState ([]);
+  
   
   useEffect(() => { let myHeaders = new Headers();
     myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ");
@@ -43,7 +45,7 @@ function Hall() {
         const cafeDaManha = result.filter(item => item.type === 'breakfast')
         const allDay = result.filter(item => item.type === 'all-day')
         console.log(cafeDaManha)
-        setMenu(cafeDaManha)
+        setCafe(cafeDaManha)
         setMenuAllDay(allDay)
       })
       .catch(error => console.log('error', error));},[])
@@ -101,8 +103,8 @@ function add (produto) {
       <button onClick={(e) => logout(e)} className="logout">Sair</button>
       </div>
       <div className="btnSalao">        
-        <button className="btnSalaoRota" onClick={routerCafe}>Café da manhã</button>
-        <button className="btnSalaoRota" onClick={routerAllDay}>Resto do dia </button>
+        <button className="btnSalaoRota" onClick={ ()=> setMenu (cafe) }>Café da manhã</button>
+        <button className="btnSalaoRota" onClick={ ()=> setMenu (menuAllDay)}>Resto do dia </button>
       </div>
       <div className="inputSalao">
         <div className="inputLabel">
