@@ -6,29 +6,6 @@
   align-items: baseline;
 }
 
-.select-Table {
-  width: 200px;;
-  height: 50px;
-  position: absolute;
-  right: 430px;
-  top: 700px;
-  border: none;
-  border-radius: 20px;
-  margin-right: 10px;
-  font-size: 40px;
-  color: #F8CB00;
-  background-color: #000;
-}
-
-.select-Table select:hover,
-select:focus,
-select:active {
-  background-color: #f8cb00;
-  transition: 0s;
-  font-size: 16px;
-  color: #000;
-}
-
 .btn-menu {
   display: flex;
   flex-direction: column;
@@ -51,42 +28,83 @@ select:active {
 
 .btn-menu-allDay {
   position: absolute;
-  top: 480px;
+  top: 580px;
 }
 
 .btn-menu-breakfast {
   position: absolute;
-  top: 360px;
+  top: 460px;
+}
+
+.select-table {
+  width: 380px;
+  height: 50px;
+  position: absolute;
+  left: 100px;
+  top: 800px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 35px;
+  color: #F8CB00;
+  background-color: #000;
+}
+
+.select-table
+option:hover,
+option:focus,
+option:active {
+  background-color: #f8cb00;
+  transition: 0s;
+  font-size: 10px;
+  color: #000;
 }
 
 .container-order {
   position: absolute;
-  width: 400px;
-  height: 370px;
-  left: 60px;
-  top: 800px;
+  width: 800px;
+  height: 1000px;
+  left: 100px;
+  top: 900px;
   border-radius: 10px;
   background: #fff;
   font-size: 18px;
+  padding: 5px;
 }
 
 .title-order {
   text-align: center;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 35px;
   padding-bottom: 10px;
+  padding-top: 15px;
 }
 
-.order-list label {
-  font-size: 25px;
+.user-order {
+  font-size: 35px;
+  padding-bottom: 7px;
 }
 
 .client-order {
-  font-size: 25px;
+  font-size: 35px;
+  border: 3px solid #F8CB00;
+  padding-bottom: 7px;
 }
 
-.qnt {
-  font-size: 25px;
+.total-order {
+  font-size: 35px;
+}
+
+.item-list-order label {
+  font-size: 32px;
+}
+
+.btn-quantity-order {
+  font-size: 35px;
+  width: 40px;
+  height: 40px;
+  background-color: #F8CB00;
+  border: 2px solid #000;
 }
 
 .button-qtd {
@@ -99,20 +117,11 @@ select:active {
   font-size: 25px;
 }
 
-.total {
-  font-size: 25px;
-  position: absolute;
-  bottom: 25px;
-  padding-left: 10px;
-}
-
-.button-clean {
-  width: 180px;
-  height: 40px;
-  position: absolute;
-  left: 260px;
-  top: 320px;
-  font-size: 21px;
+.btn-clean-order {
+  width: 210px;
+  height: 55px;
+  margin-left: 570px;
+  font-size: 26px;
   background: #000;
   color: #fff;
   border-radius: 50px;
@@ -120,17 +129,17 @@ select:active {
 }
 
 .btn-send-order {
-  width: 200px;
-  height: 46px;
+  width: 260px;
+  height: 60px;
   position: absolute;
-  left: 60px;
-  top: 250px;
+  left: 350px;
+  top: 1950px;
   background: #f8cb00;
   border-radius: 50px;
   text-align: center;
   padding-top: 1px;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 35px;
 }
 
 .main-right {
@@ -139,12 +148,6 @@ select:active {
 	top: 150px;
 	right: 100px;
 }
-
-/* .item-main-right{
-  position: absolute;
-  left: 10px;
-  top: 20px;
-} */
 
 .breakfast {
 	display: flex;
@@ -173,8 +176,3 @@ select:active {
   height: 40px;
   margin-left: 10px;
 }
-
-/* .item-product-image {
-	width: 150px;
-	height:150px;
-} */
