@@ -16,13 +16,13 @@ export default function MenuSection({
             products && products.length > 0 && products.map((product, index) => {
               return (
                 <MenuItens
+                  key={index}
                   productId={product.id}
                   srcImg={product.image}
                   altImg={product.name}
                   productName={product.name}
                   productPrice={product.price}
                   onClick={onClick}
-                  key={index}
                 />
               )
             })

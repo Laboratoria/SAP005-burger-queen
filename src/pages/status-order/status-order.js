@@ -12,7 +12,7 @@ export const StatusOrder = () => {
   const storeOrders = useCallback(async () => {
     const orders = await getAllOrders()
     setOrders(orders)
-  }, []);
+  }, [])
 
   useEffect(() => {
     storeOrders()

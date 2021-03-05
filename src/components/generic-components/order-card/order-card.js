@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { FaUserAlt } from 'react-icons/fa'
 import { BiTimer } from 'react-icons/bi'
+import { getStatusDescription } from '../../../services/services'
 import ListOrderItems from '../list-order-items/list-order-items'
 import Button from '../button/button'
 import './order-card.css'
-import { getStatusDescription } from '../../../services/services'
 
 export default function OrderCard({
   tableNumber,
@@ -27,7 +27,7 @@ export default function OrderCard({
         </div>
         <p className='status-title'>{getStatusDescription(status)}</p>
         <div className='container-time'>
-          <BiTimer className='timer-icon' /><p className={showTime ? 'timer' : 'hide'}> {
+          <BiTimer className={showTime ? 'timer-icon' : 'hide'} /><p className={showTime ? 'timer' : 'hide'}> {
             Math.ceil((new Date(processed) - new Date(created)) / 1000 / 60)
           } min</p>
         </div>
@@ -38,6 +38,8 @@ export default function OrderCard({
                 key={`order-item-${index}`}
                 itemName={item.name}
                 itemQuantity={item.qtd}
+                itemFlavor={item.flavor}
+                itemComplement={item.complement}
                 classNameBreak='hr-break'
 
               />

@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import ReactModal from 'react-modal'
 import { getProducts } from '../../../services/services'
+import ReactModal from 'react-modal'
 import Button from '../../../components/generic-components/button/button'
 import Input from '../../../components/generic-components/input/input'
 import MenuSection from '../../../components/hall-components/menu-section/menu-section'
@@ -109,8 +109,7 @@ export const NewOrder = () => {
                 inputValue='breakfast'
                 inputChecked={checkedMenu === 'breakfast'}
                 inputOnChange={
-                  (event) => {
-                    event.preventDefault()
+                  () => {
                     setCheckedMenu('breakfast')
                   }
                 }
@@ -129,8 +128,7 @@ export const NewOrder = () => {
                 inputValue='all-day'
                 inputChecked={checkedMenu === 'all-day'}
                 inputOnChange={
-                  (event) => {
-                    event.preventDefault()
+                  () => {
                     setCheckedMenu('all-day')
                   }
                 }
