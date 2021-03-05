@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
+import Footer from "../../components/Footer";
+import Header from '../../components/Header.js';
 import './Kitchen.css';
 
 export const Kitchen = () => {
@@ -67,9 +70,12 @@ export const Kitchen = () => {
   };
 
   return (
+  <>
+  <Header />
     <div>
       <>
         <h1>Pedidos Pendentes</h1>
+        
         {pendingOrders.map((order) => {
           const createdDate = new Date(order.createdAt).toLocaleString()
           return (
@@ -152,7 +158,10 @@ export const Kitchen = () => {
             </table>
           )
         })}
+        )
       </>
     </div>
+    <Footer />
+    </>
   )
 };

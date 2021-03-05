@@ -6,6 +6,7 @@ import './Header.css'
 const Header = () => {
   const route = useHistory();
 
+
   function BackBtn(event) {
     event.preventDefault();
     window.history.back()
@@ -33,7 +34,7 @@ const Header = () => {
       
       <header>
         <img src={logoburger} className="logoburger" alt="logoburger" />
-      </header>
+       </header>
 
 
 

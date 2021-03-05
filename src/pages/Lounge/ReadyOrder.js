@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
+import { Spinner } from 'reactstrap';
 import './Lounge.css'
 import { Card, Button, CardTitle, CardText, CardGroup, Row, Col } from 'reactstrap';
 
@@ -62,7 +64,7 @@ export const ReadyOrderList = (props) => {
       <h1>Pedidos Prontos</h1>
       {loading ?
         (
-          <p>Carregando...</p>
+          <Spinner color="warning" />
         ) : (
           <>
 
