@@ -53,15 +53,15 @@ Lógica implementada em JavaScript (ES6 +), uso do [React](https://reactjs.org/)
   Foram realizados protótipos no [Canva](https://www.canva.com/) com o objetivo de realizar testes de usabilidade.
 
 - Tela de Login e Cadastro
-- 
+
 ![prototipo1-2](src/img/proto1-2.png)
 
 - Tela inicial do salão e do pedido(salão)
-- 
+
 ![prototipo1-2](src/img/proto3-4.png)
 
 - Tela de pedidos em preparo(salão) e pedidos prontos(cozinha)
-- 
+
 ![prototipo1-2](src/img/proto5-6.png)
 
 Após os testes de usabilidade, foram feitas alterações no _layout_ e esquema de cores. Foi verificado a necessidade de deixar em algo parecido com o esquema [_Dark_ _Mode_](https://en.wikipedia.org/wiki/Light-on-dark_color_scheme) o que deixaria a aplicação menos cansativa aos olhos, ao decorrer de longos períodos de uso.
