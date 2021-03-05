@@ -86,15 +86,6 @@ const OrdersFinished = () => {
                         </div>
                       );
                     })}
-                    {/* <button
-                      className="btn-reader-order"
-                      type="submit"
-                      onClick={() => {
-                        finishedOrders(product.id);
-                      }}
-                    >
-                      Pedido entregue
-                    </button> */}
                   </p>
                 </span>
               </div>
