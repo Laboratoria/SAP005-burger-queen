@@ -42,8 +42,11 @@
 
 .AppHistoric {
 	background-color: #383838;
-	min-height: 100vh;
 	font-size: calc(10px + 2vmin);
+	width: 100%;
+    position: fixed;
+    background-color: #383838;
+    height: 100%;
 }
 .pedidoH {
 	padding: 8px;
@@ -54,7 +57,6 @@
 .H {
 	width: 47%;
     flex-direction: column;
-    margin: 8px;
     border-radius: 10px;
     margin-bottom: 1vh;
     height: 100%;
@@ -80,7 +82,6 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 80vw;
-	height: 100%;
 	margin: auto;
 	margin-bottom: 5vh;
 }

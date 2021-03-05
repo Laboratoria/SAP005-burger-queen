@@ -19,6 +19,7 @@ const Waiter = () => {
   const [breakfast, setBreakfast] = useState([]);
   const token = localStorage.getItem("token");
   const [quantidade, setQuantidade] = useState([]);
+  const [total, setTotal] = useState(0);
 
 
   const history = useHistory()
@@ -48,6 +49,7 @@ const Waiter = () => {
         const drinks = json.filter(item => item.sub_type === 'drinks')
         const side = json.filter(item => item.sub_type === 'side')
         setMenu(breakfast)
+        setBreakfast(breakfast)
         setHamburguer(hamburguer)
         setDrinks(drinks)
         setSide(side)
@@ -65,12 +67,29 @@ const Waiter = () => {
       item.qtd = 1;
       item.subtotal = item.price;
       setQuantidade([...quantidade, item]);
+    }
+  }
+  function clickLess(e, item) {
+    e.preventDefault();
+    const elementoLess = quantidade.find(elemento => elemento === item)
+    if (elementoLess) {
+      elementoLess.qtd -= 1
+      setQuantidade(prevLess => prevLess.map(lessPrev => lessPrev.id === elementoLess.id ? elementoLess : lessPrev))
+    } else {
 
     }
   }
+
   useEffect(() => {
     console.log(quantidade)
-
+    setTotal(() => {
+      const totalPrice = quantidade.reduce((accumulator, array) => {
+        const { qtd, price } = array;
+        accumulator = Number(qtd * price + accumulator)
+        return accumulator
+      }, 0)
+      return totalPrice;
+    })
   }, [quantidade]
   )
 
@@ -78,28 +97,24 @@ const Waiter = () => {
   return (
 
     <div className="App">
-     <div className="nav1">
-        <input type="checkbox" id="check"></input>
-        <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
 
-        <div class="menuLateral">
-          <nav>
-            <a href={Historic}><div onClick={Historic} className="link">Historico</div></a>
-            <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
-          </nav>
-        </div>
+      <input type="checkbox" id="check"></input>
+      <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
+
+      <div class="menuLateral">
+        <nav>
+          <a href={Historic}><div onClick={Historic} className="link">Historico</div></a>
+          <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
+        </nav>
       </div>
       <header className="header">
-        <div>
+        <div id="logoWaiter">
           <img src={logo} alt="" className="logoWaiter" />
         </div>
       </header>
-      <div className ="All">
       <ol className="App-waiter">
-
-          <div className="btns">
-            {/* <imput type="button" className="btnMenu" ></imput> */}
-          < button className="btnMenu" onClick={((e) => {
+        <section className='Menu'>
+          <button className="btnMenu" onClick={((e) => {
             e.preventDefault();
             setBreakfast(menu)
           })}><img src={xicara} alt="" className='imgMenu' /></button>
@@ -119,13 +134,11 @@ const Waiter = () => {
             setBreakfast(drinks)
           })}><img src={copo} alt="" className='imgMenu' /></button>
 
-          </div>
-          <section className='Menu'>
           <div className='menuItens'> {
             breakfast.map((menuItems) => {
 
               return (
-                
+
                 <div className="Produtos">
                   <div key={menuItems.id}>
                     <div className="teste">
@@ -145,12 +158,11 @@ const Waiter = () => {
                   </div>
                 </div>
               )
-                
+
             })
           } </div>
 
         </section>
-
         <form className='order'>
           <h1>Pedido</h1>
           <input type="text" id="client" placeholder="Digite o nome do cliente" value={client} onChange={(event) =>
@@ -158,18 +170,28 @@ const Waiter = () => {
           <input type="number" id="number" min='0' max='20' placeholder="Mesa" value={table} onChange={(event) =>
             setTable(event.target.value)} />
           <div className="pedidos">
-          {quantidade.map(item =>
+            <div className='divOrder'>
+              <p>Item</p>
+              <p className="p">Preço</p>
+              <p>Quantidade</p>
+             
+            </div>
+            {quantidade.map(item =>
               <div>
-                <span>
+                <span className="Map">
+                  <ol className="ComplementItem">
                   <p className='orderProducts'>{item.name}</p>
                   <p className='complement'>{item.flavor}</p>
                   <p className='complement'>{item.complement}</p>
-                  <p className='complement'> Quantidade:{item.qtd}</p>
+                  </ol>
                   <p className='orderProducts'>R$:{item.price},00</p>
+                  <p className='complement'> {item.qtd}</p>
+                  <button className="btnLess" onClick={(e) => clickLess(e, item)}>-</button>                
                 </span>
-
               </div>
+
             )}
+            <p className="total">Total: R$:{total},00</p>
           </div>
 
           <button className='send' onClick={((e) => {
@@ -183,16 +205,16 @@ const Waiter = () => {
               },
               body: JSON.stringify({
                 "client": `${client}`,
-                "table":`${table}`,
+                "table": `${table}`,
                 "products": quantidade.map((item) => (
                   {
                     "id": Number(item.id),
-                    "qtd":`${quantidade}`
+                    "qtd": `${quantidade}`
                   }
                 ))
-      
-                
-              }) 
+
+
+              })
             })
               .then((response) => response.json())
               .then((json) => {
@@ -206,8 +228,7 @@ const Waiter = () => {
 
         </form>
       </ol>
-    </div>
-    </div>
+    </div >
   )
 }
 
