@@ -1,20 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { OrderResume } from '../order-resume/index.js';
+import { OrderResume } from '../CloseOrder/index.js';
 import { Breakfast } from '../MenuBreackfast/Breackfast.js';
-import { AllDay } from '../MenuDinner/Dinner.js';
-import Button from '@material-ui/core/Button';
+import { Dinner , SideSishers, Drinks } from '../MenuDinner/Dinner.js';
+import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import { Theme } from '@material-ui/core';
-import Color from 'color';
+
+
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -100,11 +100,13 @@ export const Menu = (props) => {
   const formatApi = () => {
     let newResponse = {
       "breakfast": [],
+      
       "all-day": {
         "hamburguer": [],
         "side": [],
         "drinks": [],
       },
+     
     };
     
     products.forEach((product) => {
@@ -139,9 +141,10 @@ export const Menu = (props) => {
         >
           <LinkTab label="Café da manhã"  icon={<EmojiFoodBeverageIcon style={{ color: '#259ad9' }}/>} href="#breakfast" {...a11yProps(0)} />
           <LinkTab label="Almoço e Janta" icon={<FastfoodIcon style={{ color: '#259ad9' }}/>}  href="#all-day" {...a11yProps(1)} />
-          <LinkTab label="Pedido Resumido" icon={<AttachMoneyIcon style={{ color: '#259ad9' }}/>}  href="#order-resume" {...a11yProps(2)} />
-
+          <LinkTab label="Acompanhamentos" icon={<AttachMoneyIcon style={{ color: '#259ad9' }}/>}  href="#all-day" {...a11yProps(2)} />
+          <LinkTab label="Bebidas" icon={<LocalDrinkIcon  style={{ color: '#259ad9' }} />}  href="all-day" {...a11yProps(3)} />
           <LinkTab label="Pedido Resumido" icon={<AttachMoneyIcon  style={{ color: '#259ad9' }} />}  href="#order-resume" {...a11yProps(3)} />
+          
         </Tabs>
          
 
@@ -150,16 +153,17 @@ export const Menu = (props) => {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <AllDay menu={dataProducts['all-day']} addProductToQuote={props.addProductToQuote} products={props.products} />
+        <Dinner menu={dataProducts['all-day']} addProductToQuote={props.addProductToQuote} products={props.products} />
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-        <OrderResume addProductToQuote={props.addProductToQuote} products={props.products} client={props.client} table={props.table} total={props.total} />
+      <SideSishers menu={dataProducts['all-day']} addProductToQuote={props.addProductToQuote} products={props.products} />
       </TabPanel>
-      
-
-
       <TabPanel value={value} index={3}>
+      <Drinks menu={dataProducts['all-day']} addProductToQuote={props.addProductToQuote} products={props.products} />
+      </TabPanel>
+
+      <TabPanel value={value} index={4}>
         <OrderResume addProductToQuote={props.addProductToQuote} products={props.products} client={props.client} table={props.table} total={props.total} />
       </TabPanel>
 

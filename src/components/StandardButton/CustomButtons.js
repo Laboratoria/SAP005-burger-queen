@@ -97,15 +97,15 @@ export const Changebravery = (props) => {
 
   return (
     <ToggleButtonGroup>
-      <ToggleButton value={"remove-icon"} onClick={() => setQuote(props.product, - 1)}>
-        <RemoveCircleIcon style={{color: '#ec5443'}}/>
+      <ToggleButton style={{border: 'none' }}  value={"remove-icon"} onClick={() => setQuote(props.product, - 1)}>
+        <RemoveCircleIcon style={{ color: '#ec5443'}}/>
       </ToggleButton>
 
-      <ToggleButton value={"quantity"} disabled style={{fontSize: '0.9rem', color: 'black'}}>
+      <ToggleButton  value={"quantity"} disabled style={{border: 'none' , fontSize: '0.9rem', color: 'black'}}>
         {qtdProduct}
       </ToggleButton>
     
-      <ToggleButton value={"add-icon"} onClick={() => setQuote(props.product, + 1)}>
+      <ToggleButton style={{border: 'none' }} value={"add-icon"} onClick={() => setQuote(props.product, + 1)}>
         <AddCircleIcon style={{color: '#629b26'}} />
       </ToggleButton>
     </ToggleButtonGroup>

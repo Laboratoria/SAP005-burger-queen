@@ -8,8 +8,9 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles({
   table: {
@@ -36,8 +37,6 @@ export const OrderResume =  (props) => {
 
   console.log(formatOrder());
 
-  //const orders = JSON.parse(localStorage.getItem('order'));
-
   const handleCreateOrder = () => {
     const token = localStorage.getItem('token');
     const orders = formatOrder();
@@ -56,28 +55,20 @@ export const OrderResume =  (props) => {
         console.log(response);
       }
     })
-    .catch(() => {
-      alert('Algo deu errado. Por favor, tente novamente.');
-    })
+    
   };
   
   return (
-    <div>
+    <Box>
       <TableContainer component={Paper} style={{width: '100%', marginLeft: '0px', marginRight: '0px'}}>
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell align="left" colSpan={5} style={{fontWeight: 'bolder', backgroundColor: '#8bc34a', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
-                Pedidos
+              <TableCell align="center" colSpan={5}style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}>
+                Resumo
               </TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell>Opções</TableCell>
-              <TableCell align="left">Quantidade</TableCell>
-              <TableCell align="left">Preço Unitário</TableCell>
-              <TableCell align="left">Total do produto</TableCell>
-              <TableCell />
-            </TableRow>
+            
           </TableHead>
           <TableBody>
             {
@@ -85,19 +76,21 @@ export const OrderResume =  (props) => {
             <TableRow key={index}>
               <TableCell>{props.products[index].name}</TableCell>
               <TableCell align="left">{props.products[index].qtd}</TableCell>
-              <TableCell align="left">{props.products[index].price + ',00'}</TableCell>
-              <TableCell align="left">{props.products[index].qtd * props.products[index].price + ',00'}</TableCell>
+              <TableCell align="left">R$ {props.products[index].price + ',00'}</TableCell>
+              <TableCell align="left">R$ {props.products[index].qtd * props.products[index].price + ',00'}</TableCell>
               <TableCell align="left">
+               
                 <IconButton onClick={() => props.addProductToQuote({'product': {'id': index, 'qtd': 0 }})}>
-                  <DeleteIcon/>
+                  <CloseIcon style={{color: 'red'}}/>
                 </IconButton>
+
               </TableCell>
             </TableRow>
               ))
             }
             <TableRow>
               <TableCell colSpan={3} style={{fontWeight: 'bolder'}}>TOTAL:</TableCell>
-              <TableCell colSpan={2}>{!props.products ? {} : props.total + ',00'}</TableCell>
+              <TableCell style={{ backgroundColor: '#8bc34a'}} colSpan={2}>R$ {!props.products ? {} : props.total + ',00'}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell colSpan={2} align="right">
@@ -110,6 +103,6 @@ export const OrderResume =  (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </Box>
   )
 }

@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Changebravery } from '../../StandardButton/CustomButtons.js';
 import TableHead from '@material-ui/core/TableHead';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles({
   Table: {
@@ -37,32 +38,29 @@ export const Breakfast = (props) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <Box>
       <TableContainer component={Paper} style={{width: '100%', marginLeft: '0px', marginRight: '0px'}}>
         <Table aria-label="customized table"className={classes.Table}>
         <TableHead style={{width: '100%', backgroundColor:'red' }}>        
             <TableRow >
-              <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> Cardápio</StyledTableCell>
-              <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}} align="center">Preço</StyledTableCell>
+              <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> CARDÁPIO / VALOR </StyledTableCell>
               <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
             </TableRow>
             </TableHead>
-            <TableBody>
-            {                
-              props.menu.map((product) => (
+         
+            <TableBody> { props.menu.map((product) => (
                 <StyledTableRow key={product}>
-                  <StyledTableCell align="left" style={{textTransform: 'uppercase' , color:'black'}}>{product.name} </StyledTableCell>
-                  <StyledTableCell align="center" style={{textTransform: 'uppercase' , color:'black'}}>R$ {product.price},00</StyledTableCell>
+                  <StyledTableCell align="left" style={{textTransform: 'uppercase' , color:'black'}}>{product.name} 
+                  <Box align="left" style={{textTransform: 'uppercase' , color:'black'}}>R$ {product.price},00</Box>
+                  </StyledTableCell>
                   <StyledTableCell align="right" >
                     <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products} />
                   </StyledTableCell>
                 </StyledTableRow>
-              ))
-             
-            }
+              ))}
          </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </Box>
   )  
 }

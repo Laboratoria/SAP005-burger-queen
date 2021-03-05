@@ -1,113 +1,124 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Changebravery } from '../../StandardButton/CustomButtons.js';
-
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
-  table: {
-  
+  Table: {
+    minWidth: 700
   }
 });
 
-export const AllDay = (props) => {
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
 
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
+
+export const Dinner = (props) => {
   const classes = useStyles();
-
   return (
     <TableContainer component={Paper} style={{width: '100%', marginLeft: '0px', marginRight: '0px'}}>
-      <Table className={classes.table} aria-label="spanning table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="left" colSpan={3} style={{fontWeight: 'bolder', backgroundColor: '#8bc34a', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
-              Durante o dia
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell align="left" colSpan={3} style={{fontWeight: 'bolder', backgroundColor: '#8bc34a', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
-              Hamburgueres
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Opções</TableCell>
-            <TableCell align="left">Preço</TableCell>
-            <TableCell align="left">
-              Quantidade
-            </TableCell>
-          </TableRow>
+    <Table aria-label="customized table"className={classes.Table}>
+    <TableHead style={{width: '100%', backgroundColor:'red' }}>        
+        
+          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> Cardápio</StyledTableCell>
+          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
+        
         </TableHead>
-        {
-          props.menu['hamburguer'].map((product, index) => (
-            <TableBody key={index}>
-              <TableRow>
-                <TableCell>{product.complement ? product.name + " " +product.flavor + " adicional " + product.complement : product.name + " " + product.flavor}</TableCell>
-                <TableCell align="left">{product.price},00</TableCell>
-                <TableCell align="left">
+        
+        {  props.menu['hamburguer'].map((product, index) => (
+            <StyledTableRow key={index}>
+          
+                <StyledTableCell align="left" style={{textTransform: 'uppercase' , color:'black'}}>{product.complement ? product.name + " " +product.flavor + " adicional " + product.complement : product.name + " " + product.flavor}    
+                <Box align="left" style={{textTransform: 'uppercase' , color:'black'}}>R$ {product.price},00</Box>
+                  </StyledTableCell>
+                <StyledTableCell align="right">
                   <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
-                </TableCell>
-              </TableRow>
+                </StyledTableCell>
+              
+            </StyledTableRow>
+          )) }
 
-            </TableBody>
-          ))
-        }
+      </Table>
+    </TableContainer>
+  );
+}
 
-        <TableHead>
-          <TableRow>
-            <TableCell align="left" colSpan={5} style={{fontWeight: 'bolder', backgroundColor: '#8bc34a', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
-              Acompanhamentos
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Opções</TableCell>
-            <TableCell align="left">Preço</TableCell>
-            <TableCell align="left">Quantidade</TableCell>
-          </TableRow>
+export const SideSishers = (props) => {
+  const classes = useStyles();
+  return (
+    <TableContainer component={Paper} style={{width: '100%', marginLeft: '0px', marginRight: '0px'}}>
+    <Table aria-label="customized table"className={classes.Table}>
+    <TableHead style={{width: '100%', backgroundColor:'red' }}>        
+        
+          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> Cardápio / Valor</StyledTableCell>
+          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
+        
         </TableHead>
-        <TableBody>
-        {
-          props.menu['side'].map((product, index) => (
-            <TableRow key={index}>
-              <TableCell>{product.name}</TableCell>
-              <TableCell align="left">{product.price},00</TableCell>
-              <TableCell align="left">
-                <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
-              </TableCell>
-            </TableRow>
-          ))
-        }
-        </TableBody>
+        
+        {  props.menu['side'].map((product, index) => (
+            <StyledTableRow key={index}>
+          
+                <StyledTableCell align="left" style={{textTransform: 'uppercase' , color:'black'}}>{product.name} 
+                <Box align="left" style={{textTransform: 'uppercase' , color:'black'}}>R$ {product.price},00 </Box>
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
+                </StyledTableCell>
+              
+            </StyledTableRow>
+          )) }
 
-        <TableHead>
-          <TableRow>
-            <TableCell align="left" colSpan={5} style={{fontWeight: 'bolder', backgroundColor: '#6666', color: '#fff', fontSize:'1rem', textAlign: 'center'}}>
-              Bebidas
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Opções</TableCell>
-            <TableCell align="left">Preço</TableCell>
-            <TableCell align="left">Quantidade</TableCell>
-          </TableRow>
+      </Table>
+    </TableContainer>
+  );
+}
+
+export const Drinks = (props) => {
+  const classes = useStyles();
+  return (
+    <TableContainer component={Paper} style={{width: '100%', marginLeft: '0px', marginRight: '0px'}}>
+    <Table aria-label="customized table"className={classes.Table}>
+    <TableHead style={{width: '70%', backgroundColor:'red' }}>        
+        
+        <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> Cardápio / Valor</StyledTableCell>
+          <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
+      
         </TableHead>
-        <TableBody>
-        {
-          props.menu['drinks'].map((product, index) => (
-            <TableRow key={index}>
-              <TableCell>{product.name}</TableCell>
-              <TableCell align="left">{product.price},00</TableCell>
-              <TableCell align="left">
-                <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
-              </TableCell>
-            </TableRow>
-            ))
-          } 
-        </TableBody>
+        
+        {  props.menu['drinks'].map((product, index) => (
+            <StyledTableRow key={index}>
+          
+                <StyledTableCell align="left" style={{textTransform: 'uppercase' , color:'black'}}>{product.name}
+                <Box align="left" style={{textTransform: 'uppercase' , color:'black'}}>R$ {product.price},00</Box>
+                </StyledTableCell>
+                
+                <StyledTableCell align="right">
+                  <Changebravery addProductToQuote={props.addProductToQuote} product={product} products={props.products}/>
+                </StyledTableCell>
+              
+            </StyledTableRow>
+          )) }
+
       </Table>
     </TableContainer>
   );
