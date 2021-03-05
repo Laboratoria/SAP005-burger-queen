@@ -70,6 +70,9 @@
 	display: flex;
 	padding: 0 1.5rem;
 	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #004c54;
 }
 
 /* BUTTON */

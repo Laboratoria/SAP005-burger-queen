@@ -21,3 +21,18 @@
 .hide {
 	display: none;
 }
+
+.status-pending,
+.status-ready-hall {
+	background-color: #bc4931;
+	border: solid 2px #bc4931;
+}
+.status-preparing {
+	background-color: #d4612c;
+	border: solid 2px #d4612c;
+}
+.status-ready,
+.status-delivery {
+	background-color: #056137;
+	border: solid 2px #056137;
+}
