@@ -33,8 +33,6 @@ E assim surgiu o Chef's Burguer app, uma aplicação voltada para tablets, com u
 
 A todo momento, na tela de Históricos de Pedidos, pode ser feito o acompanhamento do status do pedido, tornando o atendimento do Chef's ainda mais eficiente, e fidelizando ainda mais os seus clientes.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
-
 ## 2. Protótipos
 
 ![alt text](src/images/1.jpg)
