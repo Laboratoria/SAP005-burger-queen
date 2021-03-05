@@ -6,12 +6,13 @@
 
 .icon-return {
     position: absolute;
-    left: 900px;
-    bottom: 650px;
+    left: 587px;
+    bottom: 3px;
     width: 65px;
     height: 65px;
     margin-left: 10px;
 }
+
 
 .show-ready{
     display: flex;

@@ -1,9 +1,18 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./Kitchen.css";
+import { useHistory } from "react-router-dom";
+import Logout from "../../assets/logout.png";
 
 const Kitchen = () => {
   const token = localStorage.getItem("token");
   const [order, setOrder] = useState([]);
+  const history = useHistory();
+
+  const handleSignOut = (event) => {
+    alert("Usuário deslogado");
+    localStorage.clear();
+    history.push("/");
+  };
 
   const getOrders = useCallback(() => {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -92,7 +101,16 @@ const Kitchen = () => {
             );
           })}
       </div>
+      <div className="container-icon-logout">
+            <img
+              className="item-icon-logout"
+              src={Logout}
+              alt="icon-logout"
+              onClick={handleSignOut}
+            />
+          </div>
     </div>
+    
   );
 };
 
