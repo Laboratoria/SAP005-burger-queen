@@ -1,101 +1,109 @@
 import '../style/Historic.css';
 import React from "react";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import logo from '../images/logo.png';
-import exit from '../images/exit.png';
 import add from '../images/add.png';
 import { useState } from 'react';
-import re from '../images/re.png';
+import menuburguer from '../images/menuburguer.png';
 
 
 function Historic() {
-    const [orders, setOrders] = useState([]);
-    const token = localStorage.getItem("token");
-    const [status, setStatus] = useState('');
-    console.log(orders);
-    
-    const history = useHistory()
-    const rLogin=()=> {
-      history.push('/')
-    }
+  const [orders, setOrders] = useState([]);
+  const token = localStorage.getItem("token");
+  const [status, setStatus] = useState('');
+  console.log(orders);
 
-    const rWaiter=()=> {
-        history.push('/Waiter')
-      }
+  const history = useHistory()
+  const rLogin = () => {
+    history.push('/')
+  }
 
-    return (
+  const rWaiter = () => {
+    history.push('/Waiter')
+  }
 
-      <div className="AppHistoric">
+  return (
 
-        <nav className="wrap-menu">
+    <div className="AppHistoric">
+      <input type="checkbox" id="check"></input>
+      <label id="icone" for="check"><img className="btn-burguer" src={menuburguer} alt="" /></label>
+
+      <div class="menuLateral">
+        <nav>
+          <a href={rWaiter}><div onClick={rWaiter} className="link">Pedido</div></a>
+          <a href={rLogin}><div onClick={rLogin} className="link">Sair</div></a>
+        </nav>
+      </div>
+
+      {/* <nav className="wrap-menu">
            
                 <button className="btnRe" onClick={rWaiter}>
                 <img src= {re} alt="" className="Re"/>
                 </button>
                 <button className="exit"   onClick={rLogin}>
                 <img src= {exit} alt="" className="exit"/></button>   
-        </nav>
+        </nav> */}
 
-        <header className="App-Historic">
-  
-          <img src= {logo} alt="" className="logoHistoric"/>
-          <p className="Cozinha">Pedidos Prontos</p>     
+      <header className="App-Historic">
 
-          <button className="btnAdd"   onClick={(e)=>{
-              e.preventDefault();
-              fetch('https://lab-api-bq.herokuapp.com/orders', {
-                method: "GET",
-                headers: {
-                  "Content-Type": "application/json",
-                  "accept": "application/json",
-                  'Authorization': `${token}`
-                }                  
-                    })
-                      .then((response) => response.json())
-                      .then((json) => {
-                        setOrders(json);
-                      })
-                  }}><img src= {add} alt="" className='imgMenu' /></button>      
-        </header>
+        <img src={logo} alt="" className="logoHistoric" />
+        <p className="Cozinha">Pedidos Prontos</p>
 
-        <section className="section">
+        <button className="btnAdd" onClick={(e) => {
+          e.preventDefault();
+          fetch('https://lab-api-bq.herokuapp.com/orders', {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "accept": "application/json",
+              'Authorization': `${token}`
+            }
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              setOrders(json);
+            })
+        }}><img src={add} alt="" className='imgMenu' /></button>
+      </header>
 
-      { orders.map((order) => {
+      <section className="section">
 
-        return (
-          <div  key={order.id}>
-            <p>Mesa: {order.table}</p>             
-            <div>
-            <label>
-              <input
-                type="radio"
-                value="pending"
-                checked={status === "pending"}
-                onChange={() => setStatus("pending")}
-              />
-              <p>Entregue</p>
-            </label>
-            
-              {
-                order.Products.map((product)=> {
-                  return(
-                    <div key={product.id}> 
-                    <p>{product.name}</p>
-                    <button className="food">Pedido Pronto</button>
-                    </div>
-                  )
-                })
-              }
+        {orders.map((order) => {
+
+          return (
+            <div key={order.id}>
+              <p>Mesa: {order.table}</p>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    value="pending"
+                    checked={status === "pending"}
+                    onChange={() => setStatus("pending")}
+                  />
+                  <p>Entregue</p>
+                </label>
+
+                {
+                  order.Products.map((product) => {
+                    return (
+                      <div key={product.id}>
+                        <p>{product.name}</p>
+                        <button className="food">Pedido Pronto</button>
+                      </div>
+                    )
+                  })
+                }
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
       </section>
-        
-      </div>
-    );
-  }
-  
+
+    </div>
+  );
+}
+
 
 
 

@@ -22,8 +22,10 @@
 
 a,
 .pRegister {
-	font-size: 17px;
+	font-size: 18px;
 	margin-top: 36px;
+	color: white;
+	width: 300px;
 }
 
 #pass,
@@ -32,6 +34,7 @@ a,
 #name {
 	padding: 11px;
 	margin-top: 20px;
+	border-radius: 10px;
 }
 
 #login:hover {
@@ -42,7 +45,7 @@ a,
 	margin: auto;
 	justify-content: center;
 	padding: 11px;
-	width: 80%;
+	width: 100%;
 	font-family: Arial;
 	font-weight: bold;
 	color: rgb(46, 45, 45);

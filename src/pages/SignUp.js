@@ -45,8 +45,8 @@ function SignUp() {
             </label>
           </div>
           <form className="form">
-            <input type="text" id="email" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
             <input type="text" id="name" placeholder="Digite seu nome" value={name} onChange={(event) => setName(event.target.value)} />
+            <input type="text" id="email" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
             <input type="password" id="password" placeholder="Crie uma senha" value={password} onChange={(event) => setPassword(event.target.value)} />
             <button id="signupBtn" onClick={((e) => {
               console.log(name, email, password, role)

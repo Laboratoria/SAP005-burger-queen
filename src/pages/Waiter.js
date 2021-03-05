@@ -14,12 +14,12 @@ const Waiter = () => {
   const [hamburguer, setHamburguer] = useState([]);
   const [side, setSide] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  // const [products, setProducts] = useState([]);
   const [client, setClient] = useState('');
   const [table, setTable] = useState('');
   const [breakfast, setBreakfast] = useState([]);
   const token = localStorage.getItem("token");
   const [quantidade, setQuantidade] = useState([]);
+  const [total, setTotal] = useState(0);
 
 
   const history = useHistory()
@@ -31,23 +31,9 @@ const Waiter = () => {
     history.push('/Historic')
   }
 
-  // const order = () => {
-  //   if (client !== '' && table !== '') {
-  //     Promise.add({
-  //       client: client,
-  //       mesa: table,
-  //       pedido: products,
-  //     });
-  //     alert(`Olá, o pedido do cliente ${client} da mesa ${table} foi finalizado com sucesso.`)
-  //     setProducts([]);
-  //     setTable('');
-  //     setClient('');
-  //   }
-  // };
-
 
   useEffect(() => {
-    fetch('https://lab-api-bq.herokuapp.com/products', {
+    fetch(`https://lab-api-bq.herokuapp.com/products`, {
       method: 'GET',
       headers: {
         "accept": "application/json",
@@ -63,6 +49,7 @@ const Waiter = () => {
         const drinks = json.filter(item => item.sub_type === 'drinks')
         const side = json.filter(item => item.sub_type === 'side')
         setMenu(breakfast)
+        setBreakfast(breakfast)
         setHamburguer(hamburguer)
         setDrinks(drinks)
         setSide(side)
@@ -72,12 +59,39 @@ const Waiter = () => {
   }, [token])
 
   function clickQuantidade(item) {
-    item.qtd = 1;
-    item.subtotal = item.price;
-    setQuantidade([...quantidade, item]);
-    console.log(item);
-    console.log(quantidade)
+    const elementoExiste = quantidade.find(elemento => elemento === item)
+    if (elementoExiste) {
+      elementoExiste.qtd += 1
+      setQuantidade(prevQuantidade => prevQuantidade.map(prevElem => prevElem.id === elementoExiste.id ? elementoExiste : prevElem))
+    } else {
+      item.qtd = 1;
+      item.subtotal = item.price;
+      setQuantidade([...quantidade, item]);
+    }
   }
+  function clickLess(e, item) {
+    e.preventDefault();
+    const elementoLess = quantidade.find(elemento => elemento === item)
+    if (elementoLess) {
+      elementoLess.qtd -= 1
+      setQuantidade(prevLess => prevLess.map(lessPrev => lessPrev.id === elementoLess.id ? elementoLess : lessPrev))
+    } else {
+
+    }
+  }
+
+  useEffect(() => {
+    console.log(quantidade)
+    setTotal(() => {
+      const totalPrice = quantidade.reduce((accumulator, array) => {
+        const { qtd, price } = array;
+        accumulator = Number(qtd * price + accumulator)
+        return accumulator
+      }, 0)
+      return totalPrice;
+    })
+  }, [quantidade]
+  )
 
 
   return (
@@ -124,7 +138,7 @@ const Waiter = () => {
             breakfast.map((menuItems) => {
 
               return (
-                
+
                 <div className="Produtos">
                   <div key={menuItems.id}>
                     <div className="teste">
@@ -144,34 +158,60 @@ const Waiter = () => {
                   </div>
                 </div>
               )
-                
+
             })
           } </div>
 
         </section>
-
         <form className='order'>
           <h1>Pedido</h1>
           <input type="text" id="client" placeholder="Digite o nome do cliente" value={client} onChange={(event) =>
             setClient(event.target.value)} />
           <input type="number" id="number" min='0' max='20' placeholder="Mesa" value={table} onChange={(event) =>
             setTable(event.target.value)} />
-          {/* <input type="text" id="products" value={quantidade} onClick={(event) =>
-            setQuantidade(event.target.value)} /> */}
-            {quantidade.map(item => 
-              item.name
+          <div className="pedidos">
+            <div className='divOrder'>
+              <p>Item</p>
+              <p>Qtd</p>
+              <p>Preço</p>
+            </div>
+            {quantidade.map(item =>
+              <div>
+                <span>
+                  <p className='orderProducts'>{item.name}</p>
+                  <p className='complement'>{item.flavor}</p>
+                  <p className='complement'>{item.complement}</p>
+                  <p className='complement'> {item.qtd}</p>
+                  <p className='orderProducts'>R$:{item.price},00</p>
+                </span>
+                <button className="btnLess" onClick={(e) => clickLess(e, item)}>-</button>
+              </div>
+
             )}
+            <p>total: R$:{total},00</p>
+          </div>
 
           <button className='send' onClick={((e) => {
             e.preventDefault();
-            fetch('https://lab-api-bq.herokuapp.com/orders', {
+            fetch(`https://lab-api-bq.herokuapp.com/orders`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
                 "accept": "application/json",
                 'Authorization': `${token}`
               },
-              body: `client=${client}&table=${table}&products=${quantidade}`
+              body: JSON.stringify({
+                "client": `${client}`,
+                "table": `${table}`,
+                "products": quantidade.map((item) => (
+                  {
+                    "id": Number(item.id),
+                    "qtd": `${quantidade}`
+                  }
+                ))
+
+
+              })
             })
               .then((response) => response.json())
               .then((json) => {
@@ -185,7 +225,7 @@ const Waiter = () => {
 
         </form>
       </ol>
-    </div>
+    </div >
   )
 }
 
