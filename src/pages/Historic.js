@@ -72,11 +72,11 @@ function Historic() {
         <header className="App-Historic">
   
           <img src= {logo} alt="" className="logoHistoric"/>
-          <p className="Cozinha">Pedidos</p>     
+          <p className="Cozinha">Histórico de Pedidos</p>     
           <section>
-          <button className="btnAddH"   onClick={(e)=>{
-            post(e)}}><img src= {add} alt="" className='imgMenu' /></button>
-        </section>
+            <button className="btnAddH"   onClick={(e)=>{
+              post(e)}}><img src= {add} alt="" className='imgMenu' /></button>
+          </section>
         </header>
         
        <section className="sectionH">
@@ -90,11 +90,13 @@ function Historic() {
                     <input
                       type="radio"
                       onChange={() => ("Entregue")}
-                    /> Entregue </label>
+                 /> Entregue </label>
+
                <button className="btnDel"   onClick={(e)=>{
                 delet(e, order.id, index)
                  }}><img src= {del} alt="" className='imgDel' /></button> 
-                </p>    
+                </p> 
+
                 <p  className="tbleH">Mesa: {order.table}</p> 
                 <p className="pedidoH">{order.status}</p>
                 <div>
