@@ -6,6 +6,10 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 import RemoveOutlinedIcon from "@material-ui/icons/RemoveOutlined";
 
+
+
+
+
 //Botão Principa (LOGAR CADASTRO HOME)
 export const useStyles = makeStyles({
   StandardButton: {
@@ -84,8 +88,7 @@ export function StandardButtonPrincipal2 (props) {
 }
 
 //DESCONSIDERAR ESSE BOTÃO
-
-export const ToggleButtonCustomf = (props) => {
+export const ToggleButtonCustom = (props) => {
   const [qtdProduct, setQtdProduct] = useState(props.products[props.product.id] ? props.products[props.product.id].qtd : 0);
  
   const setQuote = (product, increment) => {

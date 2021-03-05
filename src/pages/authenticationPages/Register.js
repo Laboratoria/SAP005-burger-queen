@@ -4,13 +4,15 @@ import Alert from "@material-ui/lab/Alert";
 import TextField from '@material-ui/core/TextField';
 import { Box, Typography, Link } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles  } from '@material-ui/core/styles';
 import { StandardButton } from '../../components/StandardButton/buttonRegister';
 import salon from '../../components/Logos/img/clerk.png';
 import kitchen from '../../components/Logos/img/cooking.png';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import '../../index.css';
+
+
 
 export const Register = () => {
   const useStyles = makeStyles((theme) => ({
@@ -21,8 +23,7 @@ export const Register = () => {
 
         },
 
-
-        radioLabel: {
+          radioLabel: {
           fontWeight: 'bold',
           marginInlineEnd: '15px',
           marginInlineStart: '40px',
@@ -59,8 +60,7 @@ export const Register = () => {
           setEmail('');
           setPassword('');
           setRole('');
-          <Alert variant="filled" severity="success">
-            CADASTRADO COM SUCESSO!</Alert>
+          <Alert severity="success">This is a success alert — check it out!</Alert>
           history.push('/login');
         } else if (response.status === 403) {
           setResult({ status: 403, message: 'E-mail já cadastrado, por gentileza insira outro' });
