@@ -53,9 +53,9 @@ export const OrderResume = (props) => {
       body: JSON.stringify(orders)
     }).then(response => {
       if (response.status === 200) {
-        //localStorage.removeItem('order');
         props.addProductToQuote({ 'cancel': true });
         console.log(response);
+        alert('Pedido Enviado para Cozinha!');
       }
     })
 

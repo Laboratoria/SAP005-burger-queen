@@ -134,7 +134,6 @@ export function Cancel (props) {
   )
 }
 
-
 //BOTÃO DE SOMAR
 export const Changebravery = (props) => {
   const [qtdProduct, setQtdProduct] = useState(props.products[props.product.id] ? props.products[props.product.id].qtd : 0);

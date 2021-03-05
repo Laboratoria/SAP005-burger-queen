@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles , withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +13,8 @@ import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
-
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from "@material-ui/core/TableRow";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -113,16 +114,34 @@ export const Menu = (props) => {
     setValue(newValue);
   };
 
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+  
+
+
   return (
     <Box className={classes.root}>
-         <Tabs variant="fullWidth" value={value} onChange={handleChange} aria-label="nav tabs">
+         
+
+         <TableHead style={{width: '100%' }}> 
+         <TableRow >
+         <Tabs style={{ backgroundColor:'#e5e5e5' , borderWidth: '1px', borderStyle: 'solid', borderRadius: '8px' , color: '#259ad9' }} variant="fullWidth" value={value} onChange={handleChange} aria-label="nav tabs">
           <LinkTab label="Café da manhã"  icon={<EmojiFoodBeverageIcon style={{ color: '#259ad9' }}/>} href="#breakfast" {...a11yProps(0)} />
           <LinkTab label="Almoço e Janta" icon={<FastfoodIcon style={{ color: '#259ad9' }}/>}  href="#all-day" {...a11yProps(1)} />
           <LinkTab label="Acompanhamentos" icon={<FastfoodOutlinedIcon style={{ color: '#259ad9' }}/>}  href="#all-day" {...a11yProps(2)} />
           <LinkTab label="Bebidas" icon={<LocalDrinkIcon  style={{ color: '#259ad9' }} />}  href="all-day" {...a11yProps(3)} />
           <LinkTab label="Pedido Resumido" icon={<MonetizationOnIcon  style={{ color: '#629c25'  }} />}  href="#order-resume" {...a11yProps(4)} />
         </Tabs>
-    
+        </TableRow>
+       </TableHead>
+
+
+
       <TabPanel style={{textTransform: 'uppercase' , color:'black'}} value={value} index={0}>
         <Breakfast menu={dataProducts['breakfast']} addProductToQuote={props.addProductToQuote} products={props.products} />
       </TabPanel>
