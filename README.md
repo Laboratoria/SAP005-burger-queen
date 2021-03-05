@@ -101,7 +101,7 @@ Desenvolvemos o wireframe para ser amigável ao usuário e de fácil compreensã
 
 ✔️ Interface Final Tablet
 
-![img Tablet](src\assets\imgs\ubTabletLogin.jpg)
+![img Tablet](https://github.com/CarolineSCosta/SAP005-burger-queen/blob/main/src/assets/imgs/ubTabletLogin.jpg)
 
 
 📌Harmonização Visual
