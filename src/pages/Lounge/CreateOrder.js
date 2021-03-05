@@ -292,7 +292,7 @@ export const CreateOrder = () => {
                       <th></th>
                       <th></th>
                       <th>
-                        <button className="btn" onClick={() => handleSum()}>SOMAR</button>
+                        <button className="add-btn" onClick={() => handleSum()}>SOMAR</button>
                       </th>
                     </tr>
                     <tr>
@@ -304,7 +304,7 @@ export const CreateOrder = () => {
                     <tr>
                       <th>
                         <button
-                          className="btn"
+                          className="delete-btn"
                           type="button"
                           value="Excluir pedido"
                           onClick={() => {
@@ -316,7 +316,7 @@ export const CreateOrder = () => {
                           excluir comanda</button>
                       </th>
                       <th>
-                        <button className="btn" onClick={handleSendKitchen}>Enviar para cozinha</button>
+                        <button className="ready-btn" onClick={handleSendKitchen}>Enviar para cozinha</button>
                       </th>
                     </tr>
                   </>

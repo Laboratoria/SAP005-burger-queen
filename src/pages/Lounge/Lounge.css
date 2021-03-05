@@ -22,6 +22,7 @@
 }
 
 .btn, #back-btn {
+  color: black;
   border: solid 2px #fff;
   border-radius: 3rem;
   background-color: #ffdb49;
@@ -30,7 +31,22 @@
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   margin-bottom: 1em;
-  margin-left: 2em;
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+.add-btn, 
+.ready-btn,
+.delete-btn {
+  border: solid 2px #fff;
+  border-radius: 3rem;
+  background-color: #ffdb49;
+  padding: 0.9rem 1.5rem;
+  text-transform: uppercase;    
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 .menu-btn {

@@ -11,3 +11,9 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.signout-btn-kitchen {
+    margin-top: 30px;
+    margin-left: 670px;
+    color: white;
+}
