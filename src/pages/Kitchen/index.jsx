@@ -20,12 +20,9 @@ function Kitchen (){
   const [list, setList] = useState([])
 
   const [open, setOpen] = React.useState(false);
+  const [itemIdOrder, setItemIdOrder] = useState();
 
-  const [itemIdOrder, setItemIdOrder] = useState()
-
-  console.log(itemIdOrder)
-
-  const orderId = () => {
+  const orderId = useCallback (() => {
     
     fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
       method: 'GET',
@@ -37,13 +34,27 @@ function Kitchen (){
     
     .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const productItem = data.Products
         setOrderProduct(productItem)
         setOrder(data)
 
       });
     
+  },[tokenLocal, itemIdOrder])
+
+  function orderPut () {
+    
+    fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+        'accept': 'application/json',
+        'Authorization': `${tokenLocal}`,
+      },
+      body: JSON.stringify(order)
+    })       
+    
+    .then((response) => console.log(response.json()))
   }
 
   const Kitchen = useCallback (() => {
@@ -58,7 +69,6 @@ function Kitchen (){
     
     .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const dados = data.filter(product => product.status === 'pending')
         setList(dados)    
       });
@@ -70,7 +80,6 @@ function Kitchen (){
   }, [Kitchen])
 
   useEffect(() => {
-    console.log(itemIdOrder)
     orderId()
     
   }, [itemIdOrder])
@@ -78,19 +87,26 @@ function Kitchen (){
   const handleOpen = (e) => {
     e.preventDefault()
     const product = e.target.parentNode;
-    console.log(product)
     const idProduct = Number(product.getAttribute('id'))
-    console.log(idProduct)
 
     setItemIdOrder(idProduct)  
-    console.log(itemIdOrder) 
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
-  
+
+  const handleConpleted = (e) => {
+    window.confirm("O pedido foi concluido?")
+    e.preventDefault()
+
+    setOrder(order.status = 'done')
+
+    console.log(order) 
+
+    orderPut ()
+  };
 
   return (
     <div className='pending'>
@@ -115,23 +131,23 @@ function Kitchen (){
                   timeout: 500,
                 }}> 
                 <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
-                  <div className={classes.submitMenuCardsModal}>
+                  <div className={classes.submitMenuCardsModal} status={product.status}>
                     <span><p>{order.id} <br></br> {order.client_name} <br></br> {order.table}<br></br>{product.status}</p> </span>
+                    <button onClick={handleConpleted}>Concluido</button> 
                     <span>{orderProduct.map (function (item, index) {
                       return(
                         <div key={index}>
                           <p>{item.name}</p>
                           <p>{item.qtd}</p>
                           <p>{item.flavor === 'null' ? '' : item.flavor}</p>
-                          <p>{item.complement === 'null' ? '' : item.complement }</p>   
+                          <p>{item.complement === 'null' ? '' : item.complement }</p>  
+                          
                         </div> 
                       )
                     })}</span>
-                   
                   </div>
                 </Fade>
-              </Modal>
-              
+              </Modal>  
             </div>          
           )
         })}
