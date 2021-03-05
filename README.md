@@ -14,7 +14,6 @@
 - [8. Checklist](#8-checklist)
 
 ---
-![imagem](Ratatouille-logo.png)
 
 ## 1. Preâmbulo
 
