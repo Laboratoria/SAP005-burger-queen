@@ -1,0 +1,182 @@
+.wrap-menu {
+	background-color: #383838;
+	display: flex;
+	justify-content: space-between;
+	margin-right: 35px;
+	margin-left: 35px;
+}
+.App-Historic {
+	background-color: #383838;
+	display: flex;
+	flex-direction: column;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	width: 100%;
+}
+
+.histo {
+	margin-top: 17px;
+	width: 106px;
+	text-align: center;
+	margin-left: 35px;
+	height: 32px;
+	border-radius: 9px;
+	font-family: Arial;
+	font-size: 20px;
+	color: white;
+	background-color: #ffde59;
+}
+
+.status {
+	color: #ffde59;
+	margin-left: 34px;
+}
+.logoHistoric {
+	margin-left: 37%;
+	width: 25%;
+	margin-top: 35px;
+}
+.radio {
+	height: 20px;
+}
+
+.AppHistoric {
+	background-color: #383838;
+	font-size: calc(10px + 2vmin);
+	width: 100%;
+    position: fixed;
+    background-color: #383838;
+    height: 100%;
+}
+.pedidoH {
+	padding: 8px;
+	text-align: center;
+	color: #ffde59;
+}
+
+.H {
+	width: 47%;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    height: 250px;
+    background-color: rgb(41, 39, 39);
+    box-shadow: rgb(68 64 64) 11px 11px 57px, rgb(68 64 64 / 79%) -11px -11px 57px;
+    text-align: center;
+    margin: 8px;
+    color: white;
+    font-size: 27px;
+    overflow: auto;
+}
+.btnLabel {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 19px;
+}
+.entregue {
+	color: #ffde59;
+}
+
+.sectionH {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 80vw;
+	margin: auto;
+	margin-bottom: 5vh;
+	overflow: auto;
+}
+
+.btnAddH {
+	border: none;
+    display: flex;
+    width: 69px;
+    border-radius: 77px;
+    margin-left: 37px;
+    background-color: rgb(41, 39, 39);
+}
+
+.prodH {
+	padding: 3px;
+}
+.btnDel {
+	border-radius: 56px;
+	background-color: rgb(41, 39, 39);
+	width: 41px;
+	height: 42px;
+	margin-left: 111px;
+}
+
+.imgDel {
+	width: 27px;
+}
+
+/*********************MenuHamburger*********************/
+
+#check {
+	display: none;
+}
+
+#icone {
+	cursor: pointer;
+	padding: 15px;
+	position: absolute;
+	z-index: 1;
+}
+
+.menuLateral {
+	background-color: transparent;
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	transition: all .2s linear;
+	left: -300px;
+	margin-top: 50px;
+	outline: none;
+}
+
+nav {
+	width: 100%;
+	position: absolute;
+	top: 60px;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+.link {
+	background-color: rgb(41, 39, 39);
+	font-family: Arial, Helvetica, sans-serif;
+	transition: all .2s linear;
+	color: #f4f4f9;
+	border-bottom: 1px solid rgb(63, 62, 62);
+	height: 30px;
+	padding-left: 70px;
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+	box-shadow: rgb(68, 64, 64) 11px 11px 57px, rgba(68, 64, 64, 0.794) -11px -11px 57px;
+}
+
+.link:hover {
+	background-color: #ffde59;
+	color: black;
+}
+
+#check:checked ~ .menuLateral {
+	transform: translateX(300px);
+}
+
+#check:checked ~ .menuLateral nav a .link {
+	opacity: 5;
+	margin-top: 0;
+	transition-delay: .2s;
+}
+
+.btn-burguer {
+	width: 60px;
+	margin: 20px;
+}
+/*********************MenuHamburger*********************/
