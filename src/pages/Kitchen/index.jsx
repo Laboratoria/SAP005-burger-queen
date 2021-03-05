@@ -10,6 +10,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
 
 function Kitchen (){
   const classes = useStyles();
@@ -21,7 +22,8 @@ function Kitchen (){
 
   const [open, setOpen] = React.useState(false);
   const [itemIdOrder, setItemIdOrder] = useState();
-
+  
+  
   const orderId = useCallback (() => {
     
     fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
@@ -70,6 +72,7 @@ function Kitchen (){
     .then((response) => response.json())
       .then((data) => {
         const dados = data.filter(product => product.status === 'pending')
+        console.log(dados)
         setList(dados)    
       });
     
@@ -97,7 +100,7 @@ function Kitchen (){
     setOpen(false);
   };
 
-  const handleConpleted = (e) => {
+  const handleCompleted = (e) => {
     window.confirm("O pedido foi concluido?")
     e.preventDefault()
 
@@ -106,7 +109,8 @@ function Kitchen (){
     console.log(order) 
 
     orderPut ()
-  };
+  };  
+
 
   return (
     <div className='pending'>
@@ -114,11 +118,21 @@ function Kitchen (){
       <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">  
 
         {list.map (function (product, index) {
+          const updateAt = new Date(product.updatedAt);
+          const createdAt = new Date(product.createdAt);//data format
+          const subt = Math.abs(updateAt) - createdAt;//numero absoluto
+          const minutes = Math.floor(subt / 1000 / 60);//retorna o menor número inteiro
+
+          var dates = new Date('2021-03-05T00:00:50.610Z')//Thu Mar 04 2021 21:00:50 GMT-0300 (Brasilia Standard Time)
+          console.log(Math.abs(dates))//1614902450610
+          var date1=Math.abs(dates)
+          console.log(dates); 
+          console.log(Math.floor(date1/1000/60))//1614902450610
+
           return(
-            <div  key={index} id={product.id}>
-              
+            <div  key={index} id={product.id}>   
                 <button  type='button' className={classes.submitMenuItems} onClick={handleOpen} 
-                cursor='pointer'>Pedido {product.id} <br></br> Status  {product.status} </button>
+                cursor='pointer'>Pedido n° {product.id} <br></br> Status:  {product.status.replace('pending', 'Pendente')} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -132,19 +146,23 @@ function Kitchen (){
                 }}> 
                 <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
                   <div className={classes.submitMenuCardsModal} status={product.status}>
-                    <span><p>{order.id} <br></br> {order.client_name} <br></br> {order.table}<br></br>{product.status}</p> </span>
-                    <button onClick={handleConpleted}>Concluido</button> 
+                    <span><p>Pedido n° {order.id} <br></br> Cliente:{order.client_name} <br></br>Mesa: {order.table}<br></br>Status:{product.status.replace('pending', 'Pendente')} Tempo do preparo: {minutes} min</p> </span>
+
                     <span>{orderProduct.map (function (item, index) {
                       return(
                         <div key={index}>
                           <p>{item.name}</p>
                           <p>{item.qtd}</p>
                           <p>{item.flavor === 'null' ? '' : item.flavor}</p>
-                          <p>{item.complement === 'null' ? '' : item.complement }</p>  
-                          
+                          <p>{item.complement === 'null' ? '' : item.complement }</p> 
                         </div> 
                       )
                     })}</span>
+                    <Button variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      endIcon={<Icon>send</Icon>} onClick={handleCompleted}>Concluir
+                    </Button> 
                   </div>
                 </Fade>
               </Modal>  
