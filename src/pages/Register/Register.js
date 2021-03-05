@@ -77,11 +77,10 @@ export const Register = () => {
 
 
   return (
-
     <div className="container">
       <header>
         <img src={logoburger} className="logoburger" alt="logoburger" />
-        <h1>Crie seu cadastro</h1>
+        <h1 className="h1-register">Crie seu cadastro</h1>
       </header>
       <form>
         <div className="Register">

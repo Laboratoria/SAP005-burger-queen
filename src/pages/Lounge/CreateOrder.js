@@ -140,10 +140,9 @@ export const CreateOrder = () => {
       <Header />
         <h1>Criar Pedido</h1>
         <div className="container">
-        <div className="row">
+        <div className="div-input-order">
           <div className="col">
             <input type="text" className="form-control" placeholder="Cliente" aria-label="Cliente" onChange={handleClient}
-
               required />
           </div>
           <div className="col">
@@ -157,7 +156,7 @@ export const CreateOrder = () => {
             <p>Carregando...</p>
           ) : (
             <>
-
+              <div>
               <button className="menu-btn" onClick={() => setMenus('breakfast')}>Café da Manhã</button>
 
               <button className="menu-btn" onClick={() => setMenus('hamburguer')}>Hambúrgueres</button>
@@ -165,7 +164,7 @@ export const CreateOrder = () => {
               <button className="menu-btn" onClick={() => setMenus('side')}>Acompanhamentos</button>
               
               <button className="menu-btn" onClick={() => setMenus('drink')}>Bebidas</button>
-
+              </div>
               {menus === 'breakfast' && (
                 <table className="menuList">
                   <tbody>
@@ -325,7 +324,6 @@ export const CreateOrder = () => {
                 </tbody>
               </table>
             </>)}
-    
     </div>
     </>
 

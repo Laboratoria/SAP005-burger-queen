@@ -27,7 +27,7 @@ export const Lounge = () => {
   return (
     <>
       <Header />
-      <h1>Menu</h1>
+      <h1>Bem-vindo(a)</h1>
       <div className="container">
 
         <div>

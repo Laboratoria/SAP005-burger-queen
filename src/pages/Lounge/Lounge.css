@@ -9,7 +9,7 @@
   font-size: 20pt;  
 }
 
-.createorder-btn, .orderread-btn, .btn, #back-btn {
+.createorder-btn, .orderread-btn {
   border: solid 2px #fff;
   border-radius: 3rem;
   background-color: #ffdb49;
@@ -17,8 +17,20 @@
   text-transform: uppercase;    
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  margin-bottom: 2em;
-  margin-left: 1em;
+  margin-bottom: 25em;
+  margin-left: 2em;
+}
+
+.btn, #back-btn {
+  border: solid 2px #fff;
+  border-radius: 3rem;
+  background-color: #ffdb49;
+  padding: 0.9rem 1.5rem;
+  text-transform: uppercase;    
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1em;
+  margin-left: 2em;
 }
 
 .menu-btn {
@@ -89,3 +101,6 @@ table {
   justify-content: space-between;
 }
 
+.div-input-order {
+  margin-bottom: 20px;
+}

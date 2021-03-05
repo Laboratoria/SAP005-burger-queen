@@ -21,7 +21,7 @@ input {
 .back-btn {
   border: solid 2px #fff;
   border-radius: 3rem;
-  background-color: silver;
+  background-color: #ffdb49;
   padding: 0.9rem 1.5rem;
   text-transform: uppercase;
   font-family: 'Nunito', sans-serif;
@@ -34,4 +34,8 @@ input {
 .form-check, label, h1 {
 	font-family: 'Nunito', sans-serif;
   color: #fff
+}
+
+.logoburger {
+  margin-top: 30px;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button, CardTitle, CardText, CardGroup, Row, Col } from 'reactstrap';
+import { Card, CardText, CardGroup, Row, Col } from 'reactstrap';
 import './Kitchen.css';
 
 export const Kitchen = () => {
@@ -70,7 +70,7 @@ export const Kitchen = () => {
   return (
     <div>
       <>
-        <h1>Pedidos Pendentes</h1>
+        <h1 className="h1-kitchen">Pedidos Pendentes</h1>
         {pendingOrders.map((order) => {
           const createdDate = new Date(order.createdAt).toLocaleString()
           return (
@@ -121,7 +121,7 @@ export const Kitchen = () => {
           )
         })}
 
-        <h1>Pedidos em Preparo</h1>
+        <h1 className="h1-kitchen">Pedidos em Preparo</h1>
         {preparingOrders.map((order) => {
           const createdDateString = new Date(order.createdAt).toLocaleString()
           const updatedDate = new Date(order.updatedAt).toLocaleString()
