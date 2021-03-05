@@ -27,6 +27,7 @@ const OrdersFinished = () => {
     getOrders();
   }, [getOrders]);
 
+
   const finishedOrders = (productId) => {
     fetch(`https://lab-api-bq.herokuapp.com/orders/${productId}`, {
       method: "PUT",
