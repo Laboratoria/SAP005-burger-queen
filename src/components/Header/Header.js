@@ -6,7 +6,7 @@ import Logout from "../../assets/logout.png";
 function Header() {
   const user = localStorage.getItem("name");
   const history = useHistory();
- 
+
   const handleSignOut = (event) => {
     alert("Usuário deslogado");
     localStorage.clear();
