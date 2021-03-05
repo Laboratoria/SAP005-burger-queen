@@ -24,7 +24,6 @@ function Register() {
   const [show, setShow] = useState(false);
   const [role, setRole] = useState("");
 
-  
   const Registre = (e) => {
     let valRegister = false;
     let nameOk = false;
@@ -44,102 +43,101 @@ function Register() {
     if (valRegister === true) {
       e.preventDefault();
     }
-      fetch("https://lab-api-bq.herokuapp.com/users/", {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `email=${email}&password=${password}&role=${role}&restaurant=LaBurger&name=${name}`,
-      })
+    fetch("https://lab-api-bq.herokuapp.com/users/", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${email}&password=${password}&role=${role}&restaurant=LaBurger&name=${name}`,
+    })
       .then((response) => {
         return response.json()
-        })
-        .then((json) => {
-          console.log(json);
-          if (json.id !== null) {
-            routerLogin();
-          }
-          setName("");
-          setEmail("");
-          setPassword("");
-          setRole("");
-        });
-    }
-  
-    const handleClick = (e) => {
-      e.preventDefault();
-      setShow(!show);
-    };
+      })
+      .then((json) => {
+        if (json.id !== null) {
+          routerLogin();
+        }
+        setName("");
+        setEmail("");
+        setPassword("");
+        setRole("");
+      });
+  }
 
-    return (
-      <>
-        <div className="register-page">
-          <Logo />
-          <div className="right">
-            <h1>Cadastre-se</h1>
+  const handleClick = (e) => {
+    e.preventDefault();
+    setShow(!show);
+  };
 
-            <div className="register-name">
-              <MdPerson />
-              <input
-                type="name"
-                placeholder="Nome"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+  return (
+    <>
+      <div className="register-page">
+        <Logo />
+        <div className="right">
+          <h1>Cadastre-se</h1>
 
-            <div className="register-email">
-              <MdEmail />
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+          <div className="register-name">
+            <MdPerson />
+            <input
+              type="name"
+              placeholder="Nome"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
 
-            <div className="register-password">
-              <MdLock />
-              <input
-                type={show ? "text" : "password"}
-                placeholder="Senha"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <div className="eye">
-                {show ? (
-                  <MdVisibility size={25} onClick={handleClick} />
-                ) : (
-                  <MdVisibilityOff size={25} onClick={handleClick} />
-                )}
-              </div>
-            </div>
-            
-            <div className="register-function">
-              <select className="select"
-                value={role}
-                onChange={(event) => setRole(event.target.value)}
-              >
-                <option>Setor:</option>
-                <option value="Cozinha">Cozinha</option>
-                <option value="Salão">Salão</option>
-              </select>
-            </div>
+          <div className="register-email">
+            <MdEmail />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-            <div className="register-btn">
-              <button type="submit" onClick={(e)=>Registre(e)}>
-                Registrar
-              </button>
+          <div className="register-password">
+            <MdLock />
+            <input
+              type={show ? "text" : "password"}
+              placeholder="Senha"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="eye">
+              {show ? (
+                <MdVisibility size={25} onClick={handleClick} />
+              ) : (
+                <MdVisibilityOff size={25} onClick={handleClick} />
+              )}
             </div>
           </div>
+
+          <div className="register-function">
+            <select className="select"
+              value={role}
+              onChange={(event) => setRole(event.target.value)}
+            >
+              <option>Setor:</option>
+              <option value="Cozinha">Cozinha</option>
+              <option value="Salão">Salão</option>
+            </select>
+          </div>
+
+          <div className="register-btn">
+            <button type="submit" onClick={(e) => Registre(e)}>
+              Registrar
+              </button>
+          </div>
         </div>
-        <Footer />
-      </>
-    );
-  };
+      </div>
+      <Footer />
+    </>
+  );
+};
 
 export default Register
