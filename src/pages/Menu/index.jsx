@@ -169,8 +169,9 @@ const Menu = () => {
 
   return (
     <>
-      <Grid id='menuList' container item xs={12} spacing={1} className='container' container direction="row" justify="flex-start" alignItems="flex-start">
+      
         <NavBar/>   
+        <Grid  id='menuListOrder'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
         <Grid>
           <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>
           <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
@@ -183,16 +184,14 @@ const Menu = () => {
         </Grid>
         <Grid id='orderList' className={classes.orderItemsTotal}>
         <form className={classes.paperTable}  noValidate autoComplete="off" >
-            <Input placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
+            <Input className = {classes.inputTableName} placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
             name='nome'
-            className='input'
             required
             onChange={(event) =>
               setOrder({ ...order, client: event.target.value })
             }/>
-            <Input placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
+            <Input className = {classes.inputTableName}  placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
             name='mesa'
-            className='input'
             required
             onChange={(event) =>
               setOrder({ ...order, table: event.target.value })

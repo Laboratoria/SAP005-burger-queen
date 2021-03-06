@@ -56,7 +56,9 @@ export const useStyles = makeStyles((theme) => ({
     width: '40vw',
     margin: theme.spacing(3, 2, 2),
     backgroundColor: theme.palette.text.primary,
-    color: '#C9CDCB'
+    color: '#C9CDCB',
+    position:'absolut'
+    
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -183,7 +185,9 @@ export function Copyright() {
   return (
     <Box mt={5} className='copyRight'>
       <Typography variant='body2'  align='center'>
-        {'Copyright © Your Website'}
+        {'Copyright © Your Website '}
+        <br></br>
+        {'Aplicação desenvolvida por Caroline Shimada e Juliana Silveira'}
       </Typography> 
     </Box>
   );

@@ -158,6 +158,7 @@ function Kitchen (){
           )
         })}
       </Grid>
+      <Copyright />
     </div>
   )
 }

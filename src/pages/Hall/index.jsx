@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 import { Button, Container } from '@material-ui/core';
-import {useStyles, NavBar} from '../../components.js';
+import {useStyles, NavBar, Copyright} from '../../components.js';
 import '../../style.css';
 
 function Home(){
@@ -24,6 +24,7 @@ function Home(){
         <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
         <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} > Pendentes </Button >           
       </Container>   
+      <Copyright />
     </>
   );
 }

@@ -174,7 +174,9 @@ function calculateTime(product) {
         })}
       </Grid>
       <Link to="/Hall"><ArrowBackIosIcon className={classes.arrowMenu} color="disabled" fontSize="large"/></Link>
+      <Copyright />
     </div>
+    
   )
 }
 
