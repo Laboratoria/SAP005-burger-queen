@@ -114,17 +114,7 @@ export const Menu = (props) => {
     setValue(newValue);
   };
 
-  const StyledTableRow = withStyles((theme) => ({
-    root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  }))(TableRow);
-  
-
-
-  return (
+   return (
     <Box className={classes.root}>
          
 

@@ -37,13 +37,24 @@ export const Home = () => {
       justifyContent: 'center !important', 
       alignItems: 'center !important',
       width: '45vw !important', 
+      
 
   },
     conteinerQuarticiario: {
-      display: 'flex',
-      flexDirection: 'column',
+      display: 'flex !important',
+      flexDirection: 'column !important',
+     
   },
-
+  conteinerQuinary: {
+    webkitBoxAlign:  'center !important',
+    webkitBoxDirection: 'normal !important',
+    webkitBoxOrient: 'vertical !important',
+    display: 'flex !important',
+    flexDirection: 'column !important',
+    alignItems: 'center !important',
+   
+},
+  
   }));
 const classes = useStyles();
 const history = useHistory();
@@ -61,8 +72,10 @@ return (
     </Box>
     <Box className={classes.conteinerTertiary}>
       <section className={classes.conteinerQuarticiario}>
+        <form className={classes.conteinerQuinary}> 
         <StandardButtonPrincipal content="Login" onClick={routerLogin} />
         <StandardButtonPrincipal content="Cadastrar" onClick={routerRegister} />
+        </form>
       </section>
     </Box>
   </Box>
