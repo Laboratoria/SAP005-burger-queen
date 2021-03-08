@@ -43,8 +43,8 @@ export const Breakfast = (props) => {
         <Table aria-label="customized table"className={classes.Table}>
         <TableHead style={{width: '100%', backgroundColor:'red' }}>        
             <TableRow >
-              <StyledTableCell style={{backgroundColor:'rgb(229,168,129)', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> CARDÁPIO / VALOR </StyledTableCell>
-              <StyledTableCell style={{backgroundColor:'rgb(229,168,129)',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
+              <StyledTableCell style={{backgroundColor:'#e5e5e5', textTransform: 'uppercase' ,color: '#cf5e18', fontWeight: '800'}}align="left"> CARDÁPIO / VALOR </StyledTableCell>
+              <StyledTableCell style={{backgroundColor:'#e5e5e5',textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800'}} align="right" content="Cadastrar">Quantidade Unitária</StyledTableCell>
             </TableRow>
             </TableHead>
          

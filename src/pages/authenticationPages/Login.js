@@ -53,9 +53,11 @@ export const Login = () => {
         console.log(json);
         const token = json.token
         const id = json.id
+        const name = json.name
+        const nameUser = localStorage.setItem("name", name)
         const tokenUser = localStorage.setItem("token", token)
         const idUser = localStorage.setItem("id", id)
-  
+          
         if(tokenUser!== null && idUser!== null && json.role === "garcom") {
           routerHall();
         }else if(tokenUser!== null && idUser!== null && json.role === "cozinheiro") {

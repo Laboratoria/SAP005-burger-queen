@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -11,9 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { Box } from '@material-ui/core';
 import { Checkout, Cancel } from "../../StandardButton/CustomButtons.js";
-
-
-
 
 const useStyles = makeStyles({
   table: {
@@ -78,17 +75,14 @@ export const OrderResume = (props) => {
     },
   }))(TableRow);
 
-
   return (
     <Box>
       <TableContainer component={Paper} style={{ width: '100%', marginLeft: '0px', marginRight: '0px' }}>
         <Table className={classes.table}>
           <TableHead>
-
-            <TableCell align="center" colSpan={5} style={{ backgroundColor: 'rgb(229,168,129)', textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800' }}>
+           <TableCell align="center" colSpan={5} style={{ backgroundColor: '#e5e5e5', textTransform: 'uppercase', color: '#cf5e18', fontWeight: '800' }}>
               Resumo
               </TableCell>
-
           </TableHead>
           <TableBody>
             {!props.products ? {} : Object.keys(props.products).map((index) => (
@@ -103,8 +97,7 @@ export const OrderResume = (props) => {
                   </IconButton>
                 </StyledTableCell>
               </StyledTableRow>
-            ))
-            }
+            )) }
             <TableRow>
               <TableCell colSpan={3} style={{ backgroundColor: '#8bc34a', fontWeight: 'bolder' }}>TOTAL A PAGAR:</TableCell>
               <TableCell align="right" style={{ backgroundColor: '#8bc34a', fontWeight: 700 }} colSpan={2}>R$ {!props.products ? {} : props.total + ',00'}</TableCell>

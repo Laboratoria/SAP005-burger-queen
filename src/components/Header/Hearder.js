@@ -2,7 +2,12 @@ import React from 'react';
 import { Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { LogoNav } from '../Logos/Logos.js';
-import { SubToolbar } from '../SubToolbarIcons/SubToolbarIcons';
+import { useHistory } from 'react-router-dom';
+import { FiLogOut } from "react-icons/fi";
+import { AiFillHome } from "react-icons/ai";
+import Tab from '@material-ui/core/Tab';
+import { AiFillSnippets } from "react-icons/ai";
+import Tabs from '@material-ui/core/Tabs';
 import Box from '@material-ui/core/Box';
 
 export const useStyles = makeStyles((theme) => ({
@@ -16,7 +21,8 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginTop: '30px',
     marginBottom: '20px',
-    width: '100%'
+    width: '100%',
+    justifyContent: 'center',
 
   },
   HallConteiner: {
@@ -56,8 +62,8 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     borderRadius: '0 0 8px 8px',
     alignItems: 'center',
-
-
+    width: '55%'
+    
   },
 
 }));
@@ -80,15 +86,42 @@ export function NavBar() {
   )
 }
 
-export function NavBar2() {
+//Menu Sub
+export function SubToolbar (props) {
   const classes = useStyles();
+  const history = useHistory();
+  const routerHall = () => {
+    history.push('/Hall')  }
+  const routerKitchen = () => {
+    history.push('/Kitchen')
+  }
+
+  const handleLogout = () => {
+    if (localStorage.getItem('token')) {
+      localStorage.clear();
+      return history.push('/')
+    }
+  }
   return (
-    <Box className={classes.toolbar2}>
-      <SubToolbar />
+    <Box centered className={classes.toolbar2}>
+    <Tabs  centered style={{ color: '#cf5e18' , width: '100%'}} >
+      <LinkTab onClick={() => routerHall()} label="Home" icon={<h4><AiFillHome style={{ color: '#cf5e18' }} /></h4>} href="Hall" />
+      <LinkTab onClick={() => routerKitchen()} label="Pedidos" icon={<h4><AiFillSnippets style={{ color: '#cf5e18' }} /></h4>} href="Kitchen" />
+      <LinkTab onClick={() => handleLogout()} label="Sair" icon={<h4><FiLogOut style={{ color: '#cf5e18',}} /></h4>} />
+    </Tabs>
     </Box>
   )
+};
+
+
+function LinkTab(props) {
+  return (
+
+    <Tab centered style={{opacity: '100%',  minWidth: '150px'}} component="a" onClick={(event) => {
+      event.preventDefault();
+    }}
+      {...props} />
+  );
 }
-
-
 
 
