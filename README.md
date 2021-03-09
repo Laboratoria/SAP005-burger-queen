@@ -36,8 +36,8 @@ Protótipo inicial desenvolvido antes do teste de usabilidade com usuários.
 
 * Protótipo 2
 Protótipo incorporando o feedback dos usuários,. 
-![imagem](Prototipo2.1.png)
-![imagem](Prototipo2-png)
+![imagem](Prototipo2.png)
+![imagem](Prototipo2-1.png)
 
 
 ## 3. Planejamento.
