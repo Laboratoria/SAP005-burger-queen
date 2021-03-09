@@ -23,3 +23,9 @@ body{
     color: black;
 }
 
+#orderList{
+    margin-top: 114px;
+    margin-left: -400px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -44,7 +44,7 @@ export const useStyles = makeStyles((theme) => ({
   submitMenuType: {
     fontSize: '1rem',
     height: '10vh',
-    width: '20vw',
+    width: '28vw',
     margin: theme.spacing(4, 2, 2),
     backgroundColor: theme.palette.warning.dark,
     color: '#fafafa'
@@ -85,13 +85,26 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     fontSize:'15px'
   },
+  orderItemsTotal: {
+    background: 'black',
+    borderRadius: 5,
+    position:'absolut',
+    border: 0,
+    color: 'white',
+    height: 500,
+    width:364,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    display: 'Fix',
+    justifyContent: 'flex-end',
+    fontSize:'15px'
+  },
   submitMenuItems: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
     borderRadius: 5,
     border: 0,
     color: 'white',
     height: 68,
-    width:370,
+    width:320,
     paddingTop: '10px',
     marginTop:'2px',
     paddingRight:'5px',
@@ -132,9 +145,11 @@ export const useStyles = makeStyles((theme) => ({
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.info.light,
+    borderRadius:10,
   },
   toolbar: {
     flexWrap: 'wrap',
+
   },
   toolbarTitle: {
     flexGrow: 1,
@@ -185,7 +200,7 @@ export function NavBar() {
   return (
     <AppBar position='static' elevation={0} className={classes.appBar}>
     <Toolbar className={classes.toolbar}>
-        <img className={classes.logoComponent} src={logo} alt='logo'/>
+        <img className={classes.logoComponent} src={logo} alt='logo' />
         <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
         Ratatouille
         </Typography>
