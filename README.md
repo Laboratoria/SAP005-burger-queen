@@ -72,7 +72,7 @@ produto e poder enviar o pedido para a cozinha para ser preparado.
 - [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
 - [ ] Enviar para a cozinha (isso deve salvar o pedido).
 
-![](historia 2.gif)
+![Alt Text](historia 2.gif)
 
 * [História de usuário 3] Chefe de cozinha deve ver os pedidos
 
