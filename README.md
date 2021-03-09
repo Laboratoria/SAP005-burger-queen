@@ -29,15 +29,15 @@ O tema da hamburgueria foi inspirado no filme rataoille, que é um filme sobre u
 * Protótipo 1 
 Protótipo inicial desenvolvido antes do teste de usabilidade com usuários.
 
-![imagem](Slide1.jpg)
-![imagem](Slide2.jpg)
-![imagem](Slide3.jpg)
-![imagem](Slide4.jpg)
+![imagem](Slide1.JPG)
+![imagem](Slide2.JPG)
+![imagem](Slide3.JPG)
+![imagem](Slide4.JPG)
 
 * Protótipo 2
 Protótipo incorporando o feedback dos usuários,. 
 ![imagem](Prototipo2.1.png)
-![imagem](Prototipo2.png)
+![imagem](Prototipo2-png)
 
 
 ## 3. Planejamento.
@@ -56,7 +56,7 @@ Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a te
 - [ ] Poder realizar login com e-mail e senha.
 - [ ] Redirecionar para a tela correta.
 
-![](historia 1.gif)
+![](historia-1.gif)
 
 * [História de usuário 2] Garçom/Garçonete deve poder anotar o seu pedido
 
