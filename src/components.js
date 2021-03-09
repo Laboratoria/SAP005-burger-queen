@@ -12,6 +12,11 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  gridOrder:{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -90,15 +95,14 @@ export const useStyles = makeStyles((theme) => ({
   orderItemsTotal: {
     background: 'black',
     borderRadius: 5,
-    position:'absolut',
     border: 0,
     color: 'white',
-    height: 500,
-    width:364,
+    width:'40%',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'Fix',
     justifyContent: 'flex-end',
-    fontSize:'15px'
+    marginTop:'-1350px',
+    paddingLeft:'auto'
   },
   submitMenuItems: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
@@ -106,7 +110,7 @@ export const useStyles = makeStyles((theme) => ({
     border: 0,
     color: 'white',
     height: 68,
-    width:320,
+    width:'45%',
     paddingTop: '10px',
     marginTop:'2px',
     paddingRight:'5px',
