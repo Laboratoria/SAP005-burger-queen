@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Button, Container, TextField, InputLabel,FormControl, Select, Typography } from '@material-ui/core';
-import {Copyright, Logo, useStyles} from '../../components.js';
+import { Button, Container, TextField, InputLabel,FormControl, Select, Typography, Snackbar, Grid } from '@material-ui/core';
+import { Logo, useStyles, Alert} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import Copyright from '../../services/Copyright';
 
 function Registry() {
   const classes = useStyles();
@@ -12,26 +13,38 @@ function Registry() {
   const [passwordRegistry, inPassword] = useState('');
   const [passwordConfirm, inConfirm] = useState('');
   const [sectorRegistry, inSector] = useState('');
+
+  const [openAlert, setOpenAlert] = useState(false);
+  const [messageError, setMessageError] = useState('');
+
   const urlCreate = `email=${emailRegistry}&password=${passwordRegistry}&role=${sectorRegistry}&restaurant=RatatouilleBurger`;
 
+  const handleClose = (reason) => {
+		if (reason === 'clickaway') {
+		  return;
+		}
+		setOpenAlert(false);
+	};
+
   const routerHall = () => {
-    history.push('/Hall')
-  }
+    history.push('/Hall');
+  };
 
   const routerKitchen = () => {
-    history.push('/Kitchen')
-  }
+    history.push('/Kitchen');
+  };
   
-  function validadePassword(){
+  function validadePassword() {
     const password1 = passwordRegistry;
     const password2 = passwordConfirm;
     if (password1 === password2)
       handleRegistry();
     else {
       const errorPassword = 'As senha não são iguais. \nTente novamente!'
-      alert(errorPassword)
+      setMessageError(errorPassword);
+      setOpenAlert(true);
     }   
-  }
+  };
 
   const handleRegistry = () => {
     
@@ -39,14 +52,12 @@ function Registry() {
       method: 'POST',
       headers: {
         'accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: urlCreate
+      body: urlCreate,
     })
       .then((response) => response.json())
       .then((json) => {
-        
-        console.log(json)
         localStorage.setItem('token',json.token)
 
         if(json.role === 'garcom'){
@@ -56,42 +67,50 @@ function Registry() {
           routerKitchen();
         }
         else{
-        const errorMessage =  json.message
-        alert(errorMessage)
+        const error =  json.message
+        setMessageError(error);
+        setOpenAlert(true);
         }
-      })
-  }
+      });
+  };
   
   return (
-    <Container className='container'>
-      <div className={classes.paper}>
-        <Link to='/'><ArrowBackIosIcon className={classes.arrow} color='disabled' fontSize='large'/> </Link>
-        <Logo/>
-        <form className={classes.form}>
-        <Typography  component='h1' variant='h5'> Cadastre-se </Typography>
-          <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'
-          autoComplete='username' value={emailRegistry} onChange={(event) => inEmail(event.target.value)}/>
+    <Grid>
+      <Container className='container'>
+        <div className={classes.paper}>
+          <div className={classes.form}>
+            <Link to='/'><ArrowBackIosIcon className={classes.arrow} color='disabled' fontSize='large'/> </Link>
+            <Logo/>
+            <Typography  component='h1' variant='h5'> Cadastre-se </Typography>
+            <form>
+              <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'
+              autoComplete='username' value={emailRegistry} onChange={(event) => inEmail(event.target.value)}/>
 
-          <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password'
-          autoComplete='current-password' value={passwordRegistry} onChange={(event) => inPassword(event.target.value)}/>
+              <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password'
+              autoComplete='current-password' value={passwordRegistry} onChange={(event) => inPassword(event.target.value)}/>
 
-          <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Confirme a senha' type="password" id='password'
-          autoComplete='current-password' value={passwordConfirm} onChange={event => inConfirm(event.target.value)}/>
+              <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Confirme a senha' type="password" id='password'
+              autoComplete='current-password' value={passwordConfirm} onChange={event => inConfirm(event.target.value)}/>
 
-          <FormControl variant='outlined' className={classes.formControl}>
-            <InputLabel >Cargo</InputLabel>
-            <Select native value={sectorRegistry} onChange={(event) => inSector(event.target.value)} label='Cargo'>
-              <option aria-label='None' value='' />
-              <option value='cozinha'>Cozinha</option>
-              <option value='garcom'>Garçom</option>
-            </Select>
-          </FormControl>
-          <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => { event.preventDefault();
-          validadePassword();}}>Criar</Button>
-        </form>
-      </div>
-      <Copyright/>
-    </Container>
+              <FormControl variant='outlined' className={classes.formControl}>
+                <InputLabel >Cargo</InputLabel>
+                <Select native value={sectorRegistry} onChange={(event) => inSector(event.target.value)} label='Cargo'>
+                  <option aria-label='None' value='' />
+                  <option value='cozinha'>Cozinha</option>
+                  <option value='garcom'>Garçom</option>
+                </Select>
+              </FormControl>
+              <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => { event.preventDefault();
+              validadePassword();}}>Criar</Button>
+            </form>
+          </div>
+          <Copyright/>
+          <Snackbar anchorOrigin={ {vertical: 'top', horizontal: 'center' }} open={openAlert} autoHideDuration={4000} onClose={handleClose}>
+            <Alert className = {classes.inputAlert} onClose={handleClose} severity="error"> {messageError} </Alert>
+          </Snackbar>
+        </div> 
+      </Container>
+    </Grid>
   );
-}
+};
 export default Registry;

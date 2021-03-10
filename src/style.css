@@ -9,10 +9,8 @@ body{
     box-shadow: 0 0 8px #ffffff;
     border-radius: 20px;
     max-width: 900px;
-    min-height: 700px;
     color: black;
     height: auto;
-    
 }
 
 #headPending{
@@ -43,4 +41,3 @@ body{
     height: auto;
     
 }
-
