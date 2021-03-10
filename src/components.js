@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
+import MuiAlert from '@material-ui/lab/Alert'
 
 
 
@@ -64,6 +65,13 @@ export const useStyles = makeStyles((theme) => ({
     color: '#C9CDCB',
     position:'absolut'
     
+  },
+  inputAlert: {
+    fontSize: '1rem',
+    backgroundColor: theme.palette.error.dark,
+    color: '#C9CDCB',
+
+    position:'absolut'
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -177,6 +185,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   
 }));
+
+export function Alert(props) {
+  return <MuiAlert elevation={6} variant='filed' {...props} />
+}
 
 export function Logo() {
   const classes = useStyles();

@@ -1,44 +1,49 @@
-import React, { useState } from 'react'
-import { Link, useHistory} from 'react-router-dom';
-import {Copyright, Logo, useStyles} from '../../components.js';
-import { Button, Container, TextField, Grid, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Logo, useStyles, Alert } from '../../components.js';
+import { Button, Container, TextField, Grid, Typography, Snackbar } from '@material-ui/core';
+import Copyright from '../../services/Copyright';
 import '../../style.css';
 
-
-function Login(){
-
+function Login() {
   const classes = useStyles();
+  const history = useHistory();
 
   const [emailLogin, setEmail] = useState('');
   const [passwordLogin, setPassword] = useState('');
-  const urlLogin = `email=${emailLogin}&password=${passwordLogin}`
- 
-  const history = useHistory();
+  const urlLogin = `email=${emailLogin}&password=${passwordLogin}`;
 
+  const [openAlert, setOpenAlert] = useState(false);
+  const [messageError, setMessageError] = useState('');
+
+  const handleClose = (reason) => {
+		if (reason === 'clickaway') {
+		  return;
+		}
+		setOpenAlert(false);
+	};
+ 
   const routerHall = () => {
-    history.push('/Hall')
-  }
+    history.push('/Hall');
+  };
 
   const routerKitchen = () => {
-    history.push('/Kitchen')
-  }
+    history.push('/Kitchen');
+  };
 
   const handleLogin = () => {
     fetch('https://lab-api-bq.herokuapp.com/auth', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: urlLogin
-
+      body: urlLogin,
     })
       .then((response) => response.json())
       .then((json) => {
-
-        console.log(json)
-        localStorage.setItem('token',json.token)
-        
+        localStorage.setItem('token',json.token);
+      
         if(json.role === 'garcom'){
           routerHall();
         }
@@ -46,32 +51,35 @@ function Login(){
           routerKitchen();
         }
         else {
-          const errorMessage = json.message
-          alert (errorMessage)
+          const error = json.message;
+          setMessageError(error);
+          setOpenAlert(true);
         }
-      })
-  }
+      });
+  };
 
   return (
-    <Container className='container'>
-      <div className={classes.paper}>
-        <Logo/>
-        <form className={classes.form}>
+    <Grid>
+      <Container className='container'>
+        <div className={classes.paper}>
+          <Logo/>
           <Typography  component='h1' variant='h5'> Ratatouille Burguer </Typography>
+          <form className={classes.form}>
+            <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'  autoComplete='username' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
 
-          <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'  autoComplete='username' value={emailLogin} onChange={event => setEmail(event.target.value)}/>
+            <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password' autoComplete='current-password' value={passwordLogin} 
+            onChange={event => setPassword(event.target.value)}/>
 
-          <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password' autoComplete='current-password' value={passwordLogin} 
-          onChange={event => setPassword(event.target.value)}/>
-
-          <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => {event.preventDefault(); handleLogin();}}>Entrar</Button>
-        </form>
-        <Grid item>
+            <Button type='submit' fullWidth variant='contained' className={classes.submit} onClick={(event) => {event.preventDefault(); handleLogin();}}>Entrar</Button>
+          </form>
           <Link to='/Registry' > {'Novo usuário? Registre-se'} </Link>
-        </Grid>
-      </div>
-      <Copyright/>
-    </Container>
+        </div>
+        <Copyright/>
+        <Snackbar anchorOrigin={ {vertical: 'top', horizontal: 'center' }} open={openAlert} autoHideDuration={4000} onClose={handleClose}>
+          <Alert className = {classes.inputAlert}  onClose={handleClose} severity='error'> {messageError} </Alert>
+        </Snackbar>
+      </Container>
+    </Grid> 
   );
-}  
+};  
 export default Login;
