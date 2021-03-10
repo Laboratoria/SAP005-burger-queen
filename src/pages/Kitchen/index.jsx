@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Grid from '@material-ui/core/Grid';
-import {useStyles, NavBarKitchen} from '../../components.js';
+import {Copyright, useStyles, NavBarKitchen} from '../../components.js';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import Copyright from '../../services/Copyright';
 
 function Kitchen (){
   const classes = useStyles();
@@ -109,12 +108,12 @@ function Kitchen (){
     <div className='pending'>
       <NavBarKitchen/>  
 
-      <Grid id='menuList'className='containerKitchen' >  
+      <Grid id='menuList'className='containerKitchen' justify="flex-start" alignItems="flex-start">  
         {list.map (function (product, index) {
           return(
             <div  key={index} id={product.id}>   
                 <button  type='button' className={classes.submitKitchen} onClick={handleOpen} 
-                cursor='pointer'>Pedido n°{product.id} <br></br> Status:  {product.status.replace('pending', 'Pendente')} </button>
+                cursor='pointer'>Pedido n° {product.id} <br></br> Status:  {product.status.replace('pending', 'Pendente')} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -126,13 +125,16 @@ function Kitchen (){
                 BackdropProps={{
                   timeout: 500,
                 }}> 
-                <Fade in={open}  style={{overflowX : 'auto',fontSize: '20px'}} >
+                <Fade in={open}  style={{overflowX : 'auto',fontSize: '14px'}} >
                   <div className={classes.submitMenuCardsModal} status={product.status}>
                     <span><p>Pedido n° {order.id} <br></br> Cliente:{order.client_name} <br></br>Mesa: {order.table}<br></br>Status:{product.status.replace('pending', 'Pendente')} </p> </span>
                     <span>{orderProduct.map (function (item, index) {
                       return(
                         <div key={index}>
-                          <p>{item.qtd} {item.name} {item.flavor === 'null' ? '' : item.flavor} {item.complement === 'null' ? '' : item.complement }</p>
+                          <p>{item.name}</p>
+                          <p>{item.qtd}</p>
+                          <p>{item.flavor === 'null' ? '' : item.flavor}</p>
+                          <p>{item.complement === 'null' ? '' : item.complement }</p> 
                         </div> 
                       )
                     })}</span>
@@ -148,7 +150,7 @@ function Kitchen (){
           )
         })}
       </Grid>
-      <p className='colorW'><Copyright/></p>
+      <Copyright />
     </div>
   )
 }
