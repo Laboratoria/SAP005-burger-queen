@@ -158,6 +158,15 @@ option:active {
 	list-style-type: none;
   
 }
+/* refatorando */
+.input-complements label{
+  padding-right: 50px;
+}
+
+.title-coffee {
+  color: #fff;
+}
+/* refatorando */
 
 .list-menu-breakfast, .list-menu-allDay {
 	background-color: #fff;
