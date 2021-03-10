@@ -1,15 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input'; 
-import {Copyright, useStyles, NavBarKitchen, NewTaskInput, ListItem} from '../../components.js';
-import { Link } from 'react-router-dom';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import {Copyright, useStyles, NavBarKitchen} from '../../components.js';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import Icon from '@material-ui/core/Icon';
 
 function Kitchen (){
@@ -116,11 +111,11 @@ function Kitchen (){
     <div className='pending'>
       <NavBarKitchen/>  
 
-      <Grid id='menuList'className='container' container direction="row" justify="flex-start" alignItems="flex-start">  
+      <Grid id='menuList'className='containerKitchen' container direction="row" justify="flex-start" alignItems="flex-start">  
         {list.map (function (product, index) {
           return(
             <div  key={index} id={product.id}>   
-                <button  type='button' className={classes.submitMenuItems} onClick={handleOpen} 
+                <button  type='button' className={classes.submitKitchen} onClick={handleOpen} 
                 cursor='pointer'>Pedido n° {product.id} <br></br> Status:  {product.status.replace('pending', 'Pendente')} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"

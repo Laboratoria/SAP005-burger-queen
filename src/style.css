@@ -8,9 +8,23 @@ body{
     width: 100%;
     box-shadow: 0 0 8px #ffffff;
     border-radius: 20px;
-    max-width: 900px;
     color: black;
     height: auto;
+    min-width: 10px;
+    padding-top: 20px;
+    padding-bottom: 600px;
+}
+.containerKitchen {
+  margin-top: 2vh;
+  background-color: #64b5f6;
+  width: 100%;
+  box-shadow: 0 0 8px #ffffff;
+  border-radius: 20px;
+  color: black;
+  height: auto;
+  min-height: 800px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 .colorW{
     color:  #64b5f6;
@@ -18,7 +32,11 @@ body{
 #headPending{
     width:100%;
     margin-left: 0px;
-}
+
+
+.copyRight{
+    color: white;
+
 
 /* #menuListOrder{
     
