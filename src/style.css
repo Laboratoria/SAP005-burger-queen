@@ -27,24 +27,17 @@ body{
   padding-top: 10px;
 }
 .colorW{
-    color:  #64b5f6;
+  color:  #64b5f6;
 }
 #headPending{
     width:100%;
     margin-left: 0px;
+}
 
-
-.copyRight{
-    color: white;
-
-
-/* #menuListOrder{
-    
-} */
 #orderList{
-    height: auto;
+  height: auto;
   margin-left: auto;
-  margin-right: 100px;
+  
 
 }
 .containerMenu {

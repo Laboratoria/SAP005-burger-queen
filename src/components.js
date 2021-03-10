@@ -66,6 +66,18 @@ export const useStyles = makeStyles((theme) => ({
     position:'absolut'
     
   },
+  inputObservation: {
+    fontSize: '1rem',
+    height: '5vh',
+    width: '32vw',
+    margin: theme.spacing(3, 2, 2),
+    backgroundColor: theme.palette.text.primary,
+    color: '#C9CDCB',
+    position:'absolut',
+    marginLeft:'1px',
+    maxWidth:'31vh'
+    
+  },
   inputAlert: {
     fontSize: '1rem',
     backgroundColor: theme.palette.error.dark,
@@ -119,7 +131,7 @@ export const useStyles = makeStyles((theme) => ({
     border: 0,
     color: 'white',
     height: 68,
-    width:'95%',
+    width:'45%',
     paddingTop: '10px',
     marginTop:'2px',
     paddingRight:'5px',
@@ -127,6 +139,24 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'flex',
     justifyContent: 'center',
+  },
+  submitMenuItemsPending: {
+    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
+    borderRadius: 5,
+    border: 0,
+    color: 'white',
+    height: '75%',
+    width:'75%',
+    paddingTop: '10px',
+    marginTop:'10px',
+    paddingRight:'5px',
+    paddingLeft:'5px',
+    paddingBottom:'10px',
+    marginLeft:'16px',
+    marginRight:'16px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    display: 'flex',
+    justifyContent: 'space-betspace-evelin'
   },
   submitKitchen: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
