@@ -9,12 +9,12 @@ body{
     box-shadow: 0 0 8px #ffffff;
     border-radius: 20px;
     max-width: 900px;
+    min-height: 700px;
     color: black;
+    height: auto;
+    
 }
-.containerMenu {
-    background-color: #64b5f6;
-    color: black;
-}
+
 #headPending{
     width:100%;
     margin-left: 0px;
@@ -23,9 +23,24 @@ body{
     color: black;
 }
 
+/* #menuListOrder{
+    
+} */
 #orderList{
-    margin-top: 179px;
-    margin-left: -400px;
-    padding-left: 10px;
-    padding-right: 10px;
+    height: auto;
+  margin-left: auto;
+  margin-right: 100px;
+
 }
+.containerMenu {
+    margin-top: 2vh;
+    background-color: #64b5f6;
+    width: 100%;
+    box-shadow: 0 0 8px #ffffff;
+    border-radius: 20px;
+    min-height: 1500px;
+    color: black;
+    height: auto;
+    
+}
+

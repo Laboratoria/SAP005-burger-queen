@@ -3,14 +3,14 @@ import { useHistory } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input'; 
-import {Copyright, useStyles, NavBar, NewTaskInput, ListItem, submitOrderItems} from '../../components.js';
-import { Link } from 'react-router-dom';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
+import {Copyright, useStyles, NavBar} from '../../components.js';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import TableFooter from '@material-ui/core/TableFooter';
 
 const Menu = () => {
   const classes = useStyles();
@@ -171,34 +171,35 @@ const Menu = () => {
     <>
       
         <NavBar/>   
-        <Grid  id='menuListOrder'className='container' container direction="row" justify="flex-start" alignItems="flex-start">
-        <Grid>
-          <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>
-          <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
-          <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
-          {listMap.map((product) => (
-            <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
-              <button className={classes.submitMenuItems}  disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
-            </div>)
-          )}
-        </Grid>
-        <Grid id='orderList' className={classes.orderItemsTotal}>
-        <form className={classes.paperTable}  noValidate autoComplete="off" >
-            <Input className = {classes.inputTableName} placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
-            name='nome'
-            required
-            onChange={(event) =>
-              setOrder({ ...order, client: event.target.value })
-            }/>
-            <Input className = {classes.inputTableName}  placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
-            name='mesa'
-            required
-            onChange={(event) =>
-              setOrder({ ...order, table: event.target.value })
-            } />
-            
-        </form>
-        {totalOrder.map((product, index) => (
+        <Grid id='menuListOrder'className='containerMenu' justify="flex-start" alignItems="flex-start">
+          <Grid >
+            <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>
+            <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
+            <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
+            {listMap.map((product) => (
+              <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
+                <button className={classes.submitMenuItems}  disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
+              </div>)
+            )}
+          </Grid>          
+      </Grid>
+      <Grid>
+      <Grid id='orderList'  className={classes.orderItemsTotal}>
+          <form className={classes.paperTable}  noValidate autoComplete="off" >
+              <Input className = {classes.inputTableName} placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
+              name='nome'
+              required
+              onChange={(event) =>
+                setOrder({ ...order, client: event.target.value })
+              }/>
+              <Input className = {classes.inputTableName}  placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
+              name='mesa'
+              required
+              onChange={(event) =>
+                setOrder({ ...order, table: event.target.value })
+              } />
+          </form>
+          {totalOrder.map((product, index) => (
             <div key={index} >
               <AddCircleIcon value='+' type='button' border='none' onClick={ () => {ascendQuantity (product,index)}}/>
               <span>{product.qtd }</span>
@@ -215,9 +216,7 @@ const Menu = () => {
           <Button variant="outlined" color="primary"onClick={() => validadeInputs()}>Enviar para cozinha</Button>
         </div>
         </Grid>
-          
       </Grid>
-      <Copyright />
     </>
   )
 };
