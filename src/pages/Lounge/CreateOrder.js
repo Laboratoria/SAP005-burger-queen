@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
+import swal from 'sweetalert';
 import { Spinner } from 'reactstrap';
 import './Lounge.css'
 
@@ -28,6 +29,16 @@ export const CreateOrder = () => {
   const handleTable = (event) => {
     setOrder({ ...order, table: event.target.value });
   };
+
+  const toKitchenAlert = () => {
+    swal({
+      title: 'Bom trabalho!',
+      text: 'Pedido enviado para a cozinha.',
+      icon: 'success',
+      button: 'OK',
+      timer: '2000',
+    });
+  }
 
   useEffect(() => {
     const myHeaders = new Headers();
@@ -132,6 +143,7 @@ export const CreateOrder = () => {
         setTotalPrice([]);
         setProductsPrice([]);
         setExcludedProduct([]);
+        toKitchenAlert();
         
       }
       )
@@ -314,7 +326,7 @@ export const CreateOrder = () => {
                           onClick={() => {
                             setTotalPrice([0]);
                             setOrderSummary([0]);
-                            setProductsPrice([0])
+                            setProductsPrice([0]);
                             
                           }}>
                           Excluir Comanda</button>

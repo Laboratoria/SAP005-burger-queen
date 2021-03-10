@@ -2,15 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header.js';
 import Footer from '../../components/Footer.js';
+import swal from 'sweetalert';
+import { Card, Button, CardTitle, CardText, CardGroup, Row, Col } from 'reactstrap';
 import { Spinner } from 'reactstrap';
 import './Lounge.css'
-import { Card, Button, CardTitle, CardText, CardGroup, Row, Col } from 'reactstrap';
+
 
 export const ReadyOrderList = (props) => {
   const token = localStorage.getItem('token')
   const [readyOrders, setReadyOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const toDeliveredAlert = () => {
+    swal({
+      title: 'Bom trabalho!',
+      text: 'Pedido entregue',
+      icon: 'success',
+      button: 'OK',
+      timer: '2000',
+    });
+  }
 
   const updatedReadyOrderList = () => {
     const myHeaders = new Headers();
@@ -53,6 +64,7 @@ export const ReadyOrderList = (props) => {
       .then(response => response.json())
       .then(() => {
         updatedReadyOrderList();
+        toDeliveredAlert();
       }
       )
       .catch(error => alert('error', error));
