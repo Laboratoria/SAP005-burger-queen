@@ -3,14 +3,11 @@ import { useHistory } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input'; 
-import {Copyright, useStyles, NavBar} from '../../components.js';
+import {useStyles, NavBar} from '../../components.js';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import TableFooter from '@material-ui/core/TableFooter';
+
 
 const Menu = () => {
   const classes = useStyles();
@@ -178,7 +175,7 @@ const Menu = () => {
             <button onClick={listDrinks} className={classes.submitMenuType} >Bebidas</button>
             {listMap.map((product) => (
               <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
-                <button className={classes.submitMenuItems}  disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
+                <button className={classes.submitMenuItems} disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
               </div>)
             )}
           </Grid>          
