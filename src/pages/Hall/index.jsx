@@ -20,9 +20,11 @@ function Home() {
   return (
     <Grid>
       <NavBar/>
-      <Container className='container' container direction='row' justify='flex-start' alignItems='flex-start'>
-        <Button type='submit' fullWidth variant='contained' className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
-        <Button type='submit' fullWidth variant='contained' className={classes.submitHall} onClick={routerPendentes} > Pen&shy;dentes </Button >           
+      <Container className='configContainer'>
+        <div className={classes.paperTable}>
+          <Button type='submit' fullWidth variant='contained' className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
+          <Button type='submit' fullWidth variant='contained' className={classes.submitHall} onClick={routerPendentes} > Pen&shy;dentes </Button >
+        </div>           
       </Container>   
       <p className='colorW'><Copyright/></p>
     </Grid>

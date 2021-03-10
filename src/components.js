@@ -43,7 +43,8 @@ export const useStyles = makeStyles((theme) => ({
     width: '40vw',
     margin: theme.spacing(4, 2, 2),
     backgroundColor: theme.palette.warning.dark,
-    color: '#fafafa'
+    color: '#fafafa',
+    
   },
   submitMenuType: {
     fontSize: '1rem',
