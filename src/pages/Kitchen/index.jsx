@@ -51,7 +51,7 @@ function Kitchen (){
       body: JSON.stringify(order)
     })       
     
-    .then((response) => console.log(response.json()))
+    .then((response) => response.json())
   }
 
   const Kitchen = useCallback (() => {
@@ -67,7 +67,7 @@ function Kitchen (){
     .then((response) => response.json())
       .then((data) => {
         const dados = data.filter(product => product.status === 'pending')
-        console.log(dados)
+
         setList(dados)    
       });
     
@@ -100,9 +100,6 @@ function Kitchen (){
     e.preventDefault()
 
     setOrder(order.status = 'done')
-
-    console.log(order) 
-
     orderPut ()
   };  
 
@@ -111,7 +108,7 @@ function Kitchen (){
     <div className='pending'>
       <NavBarKitchen/>  
 
-      <Grid id='menuList'className='containerKitchen' container direction="row" justify="flex-start" alignItems="flex-start">  
+      <Grid id='menuList'className='containerKitchen' justify="flex-start" alignItems="flex-start">  
         {list.map (function (product, index) {
           return(
             <div  key={index} id={product.id}>   

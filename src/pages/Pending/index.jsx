@@ -58,7 +58,7 @@ function Kitchen (){
       body: JSON.stringify(order)
     })       
     
-    .then((response) => console.log(response.json()))
+    .then((response) => response.json())
     .then(()=>  Kitchen()
     )
   }
@@ -76,7 +76,6 @@ function Kitchen (){
     .then((response) => response.json())
       .then((data) => {
         const dados = data.filter(product => product.status === 'done'|| product.status === 'delivered' )
-        console.log(dados)
         setList(dados)    
       });
     
@@ -110,8 +109,6 @@ function Kitchen (){
 
     setOrder(order.status = 'delivered')
 
-    console.log(order) 
-
     orderPut ()
 
   };  
@@ -121,7 +118,6 @@ function calculateTime(product) {
   let createdAt = new Date(product.createdAt);//data format
   let subt = Math.abs(updateAt - createdAt);//numero absoluto
   let minutes = Math.floor(subt / 1000 / 60);//retorna o menor número inteiro
-  console.log(minutes);
   return minutes;
 }
 
@@ -134,7 +130,7 @@ function calculateTime(product) {
         {list.map (function (product, index) {
           return(
             <div  key={index} id={product.id}>   
-                <button  type='button' className={classes.submitMenuItems} onClick={handleOpen} 
+                <button  type='button' className={classes.submitMenuItemsPending} onClick={handleOpen} 
                 cursor='pointer'>Pedido n° {product.id} <br></br>Tempo Produção : {calculateTime(product)} min<br></br> {product.status.replace('done', 'Pronto')} </button>
                 <Modal
                 aria-labelledby="transition-modal-title"

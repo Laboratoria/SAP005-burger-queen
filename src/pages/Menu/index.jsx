@@ -14,7 +14,6 @@ const Menu = () => {
   const history = useHistory();
 
   const tokenLocal = localStorage.getItem('token');
-  
   const [list, setList] = useState([]);
   const [listMap, setListMap] = useState([]); 
 
@@ -33,7 +32,6 @@ const Menu = () => {
     .then(response => response.json())
     .then(data => {
       const dados = data.map(elem =>  ({...elem, disabled: false}));
-      console.log(dados);
       setList(dados) 
     })
   }, [tokenLocal])
@@ -58,17 +56,14 @@ const Menu = () => {
   const [totalOrder, setTotalOrder] = useState([]);
 
   useEffect(()=>{
-    console.log(totalOrder)
   },[totalOrder])
 
   const HandleOrder = (e) => {
     e.preventDefault()
 
     const product = e.target.parentNode;
-    console.log(product)
 
     const idProduct = Number(product.getAttribute('id'))
-    console.log(idProduct)
     const nameProduct = product.getAttribute('name')
     const priceProduct = product.getAttribute('price')
     const flavorProduct = product.getAttribute('flavor')
@@ -104,7 +99,6 @@ const Menu = () => {
       setListMap(prevListMap => {
         return prevListMap.map(prevElem => prevElem.id === product.id ? {...prevElem, disabled: false } : prevElem)
       })
-      console.log(totalOrder.splice(index, 1));
       setTotalOrder([...totalOrder]);
       calculatorOrder()
     }else if (product.name === totalOrder[index].name) {
@@ -123,14 +117,11 @@ const Menu = () => {
     const newArray = totalOrder
     newArray.push(product)
     setTotalOrder(newArray)
-    console.log(totalOrder)
   }
 
   function validadeInputs(){
     const table = (order.table);
     const client = (order.client);
-    console.log(table)
-    console.log(client)
     if ( client === undefined || table === undefined )
     alert('Preencha os campos corretamente')
     else {
@@ -168,7 +159,7 @@ const Menu = () => {
     <>
       
         <NavBar/>   
-        <Grid id='menuListOrder'className='containerMenu' justify="flex-start" alignItems="flex-start">
+        <Grid id='menuListOrder'className='containerMenu' >
           <Grid >
             <button onClick={listBreakFast} className={classes.submitMenuType}>Café da manhã</button>
             <button onClick={listHamburguer} className={classes.submitMenuType}>Hamburguers</button>
