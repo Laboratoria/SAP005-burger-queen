@@ -26,14 +26,17 @@ body{
   padding-left: 10px;
   padding-top: 10px;
 }
-
+.colorW{
+    color:  #64b5f6;
+}
 #headPending{
     width:100%;
     margin-left: 0px;
-}
+
+
 .copyRight{
     color: white;
-}
+
 
 /* #menuListOrder{
     

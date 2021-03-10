@@ -1,31 +1,31 @@
-import React from 'react'
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button, Container } from '@material-ui/core';
-import {useStyles, NavBar, Copyright} from '../../components.js';
+import { Button, Container, Grid } from '@material-ui/core';
+import { useStyles, NavBar } from '../../components.js';
 import '../../style.css';
+import Copyright from '../../services/Copyright';
 
-function Home(){
-
+function Home() {
   const classes = useStyles();
   const history = useHistory();
 
   const routerPendentes = () => {
-    history.push('/Pendentes')
-  }
+    history.push('/Pendentes');
+  };
 
   const routerMenu = () => {
-    history.push('/Menu')
-  }
+    history.push('/Menu');
+  };
 
   return (
-    <>
+    <Grid>
       <NavBar/>
-      <Container className='container' container direction="row" justify="flex-start" alignItems="flex-start">
-        <Button type="submit" fullWidth variant="contained" className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
-        <Button type="submit" fullWidth variant="contained" className={classes.submitHall} onClick={routerPendentes} > Pendentes </Button >           
+      <Container className='container' container direction='row' justify='flex-start' alignItems='flex-start'>
+        <Button type='submit' fullWidth variant='contained' className={classes.submitHall}  onClick={routerMenu}> + Novo Pedido </Button>
+        <Button type='submit' fullWidth variant='contained' className={classes.submitHall} onClick={routerPendentes} > Pen&shy;dentes </Button >           
       </Container>   
-      <Copyright />
-    </>
+      <p className='colorW'><Copyright/></p>
+    </Grid>
   );
-}
+};
 export default Home;
