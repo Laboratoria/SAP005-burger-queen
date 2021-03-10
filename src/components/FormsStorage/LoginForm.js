@@ -9,7 +9,12 @@ import  {yupResolver}  from '@hookform/resolvers/yup';
 import  schema from '../ValidationStorage/ValidationLogin';
 import {useForm} from 'react-hook-form';
 import Logo from '../LogoStorage/Logo';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import KitchenIcon from '@material-ui/icons/Kitchen';
+import RestaurantIcon from '@material-ui/icons/Restaurant';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from  '@material-ui/core/FormLabel'
+import Checkbox from '@material-ui/core/Checkbox';
 //import {Button} from './Button';
 
 
@@ -80,16 +85,29 @@ export const LoginForm=()=> {
                         label='Senha'
                         helperText={errors.password?.message}
                     />
-                    <select 
-                    onChange={(event) => setRole(event.target.value)}
-                    value={role}
-                    name='role' 
-                    ref={register}
-                    >
-                    <option value=''>Cargo</option>
-                    <option value='kitchen'>Cozinha</option>
-                    <option value='hall'>Salão</option>
-                </select>
+                <FormLabel 
+                component="legend"
+                onChange={(event) => setRole(event.target.value)}
+                value={role}
+                name='role' 
+                ref={register}
+                >
+                    Local
+                </FormLabel>
+                <FormControlLabel
+                    control={<Checkbox icon={<KitchenIcon/>} 
+                    checkedIcon={<KitchenIcon />} name="checkedH" />}
+                    label="Cozinha"
+                    value='kitchen'
+                    color='secondary'
+                />
+                <FormControlLabel
+                    control={<Checkbox icon={<RestaurantIcon/>} 
+                    checkedIcon={<RestaurantIcon />} name="checkedH" />}
+                    label="Salão"
+                    value='hall'
+                    color='secondary'
+                />
                 <FormsButton onClick={()=>{data()}}>Logar</FormsButton>
             </Forms>
         </FormsContainer>

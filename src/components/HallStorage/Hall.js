@@ -1,183 +1,246 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import TextField from   '@material-ui/core/TextField';
+import {Grid, Button, AppBar, Toolbar, CardHeader, CardMedia, CardContent} from '@material-ui/core';
+import {Card, CardActions} from '@material-ui/core';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import {Typography, TextField, IconButton} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
-//import '../components/Hall.css'
+import { findByLabelText } from '@testing-library/dom';
+
 
 const useStyles = makeStyles((theme)=>({
-  root:{
-      background: 'linear-gradient(45deg,#333, #999)',
-      border: 0,
-      borderRadius: 5,
-  },
-  card:{
-    width: 140,
-    textAlign: 'center',
-    margin: 10,
-  }
+    root:{
+        background: 'linear-gradient(45deg,#333, #999)',
+        border: 0,
+        borderRadius: 5,
+    },
+    toolbar:{
+        justifyContent: 'space-between',
+        background: '#242424b2',
+    },
+    card:{
+        width: 345,
+        textAlign: 'center',
+        margin: 10,
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+    },
 }));
 
 function Hall() {
-  const history = useHistory()
-  const routerCafe=()=>{
-    sessionStorage.setItem("nameCliente", nameClient)
-    sessionStorage.setItem("table", table)
+    const history = useHistory()
+    const routerCafe=()=>{
+        sessionStorage.setItem("nameCliente", nameClient)
+        sessionStorage.setItem("table", table)
 
-    history.push('/hall/cafe')
-  }
-  const routerAllDay=()=>{
-    sessionStorage.setItem("nameClient", nameClient)
-    sessionStorage.setItem("table", table)
+        history.push('/hall/cafe')
+    }
+
+    const routerAllDay=()=>{
+        sessionStorage.setItem("nameClient", nameClient)
+        sessionStorage.setItem("table", table)
     
-    history.push('/hall/allday')
-  }
-  
-  const [nameClient, setNameClient] = useState([]);
-  const [table, setTable] = useState('');
-  const [nome, setNome] = useState('');
-  const [role, setRole] = useState('');
-  const [menu, setMenu] = useState([]);
-  const [pedidos, setPedidos] = useState ([]);
-  const [menuAllDay, setMenuAllDay] = useState ([]);
-  const [cafe, setCafe] = useState ([]);
-  const styles = useStyles();
-  
-  
-  useEffect(() => { let myHeaders = new Headers();
-    myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ");
+        history.push('/hall/allday')
+    }
+
+    const [nameClient, setNameClient] = useState([]);
+    const [table, setTable] = useState('');
+    const [nome, setNome] = useState('');
+    const [role, setRole] = useState('');
+    const [menu, setMenu] = useState([]);
+    const [pedidos, setPedidos] = useState ([]);
+    const [menuAllDay, setMenuAllDay] = useState ([]);
+    const [cafe, setCafe] = useState ([]);
+    const styles = useStyles();
+
+
+    useEffect(() => { let myHeaders = new Headers();
+        myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ");
     
-    let raw = "";
+        let raw = "";
     
-    let requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
+        let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
     };
 
     fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
-      .then(response => response.json())
-      .then(result => {
-        const cafeDaManha = result.filter(item => item.type === 'breakfast')
-        const allDay = result.filter(item => item.type === 'all-day')
-        console.log(cafeDaManha)
-        setCafe(cafeDaManha)
-        setMenuAllDay(allDay)
-      })
-      .catch(error => console.log('error', error));},[])
+        .then(response => response.json())
+        .then(result => {
+            const cafeDaManha = result.filter(item => item.type === 'breakfast')
+            const allDay = result.filter(item => item.type === 'all-day')
+            console.log(cafeDaManha)
+            setCafe(cafeDaManha)
+            setMenuAllDay(allDay)
+        })
+        .catch(error => console.log('error', error));},[])
 
-  const logout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("token");
-    localStorage.removeItem("id");
-    history.push('/');
-  }
-function add (produto) {
-    produto.qtd = 1
-    console.log(produto)
-    setPedidos(prevPedidos => {
-     return [... prevPedidos, produto]
-})
-  }
-  function addQtd (index) {
-    const copyPedidos = [...pedidos]
-    copyPedidos[index].qtd++
-    setPedidos(copyPedidos)
-    console.log(pedidos)
-  }
-  function removeQtd (index) {
-    const copyPedidos = [...pedidos]
-    copyPedidos[index].qtd--
-    setPedidos(copyPedidos)
-  }
-  function sendOrder (){
-    // console.log(nameClient)
-    // console.log(table)
-    // console.log(pedidos)
+    const logout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem("token");
+        localStorage.removeItem("id");
+        history.push('/');
+    }
 
-    fetch('https://lab-api-bq.herokuapp.com/orders', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "accept": "application/json",
-        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ"
-      },
-      body: JSON.stringify({
-        "client": nameClient,
-        "table": table,
-        "products":
-          pedidos.map((item) => (
-            {
-              "id": Number(item.id),
-              "qtd": Number(item.qtd)
-            }
-          ))
+    function add (produto) {
+        produto.qtd = 1
+        console.log(produto)
+        setPedidos(prevPedidos => {
+        return [... prevPedidos, produto]
+        })
+    }
 
-      })
-    })
-.then((response) => response.json())
-      .then((json) => {
+    function addQtd (index) {
+        const copyPedidos = [...pedidos]
+        copyPedidos[index].qtd++
+        setPedidos(copyPedidos)
+        console.log(pedidos)
+    }
+
+    function removeQtd (index) {
+        const copyPedidos = [...pedidos]
+        copyPedidos[index].qtd--
+        setPedidos(copyPedidos)
+    }
+
+    function sendOrder (){
+        fetch('https://lab-api-bq.herokuapp.com/orders', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "accept": "application/json",
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ"
+            },
+            body: JSON.stringify({
+                "client": nameClient,
+                "table": table,
+                "products":
+                pedidos.map((item) => (
+                {
+                    "id": Number(item.id),
+                    "qtd": Number(item.qtd)
+                }
+                ))
+            })
+        })
+        .then((response) => response.json())
+        .then((json) => {
         console.log(json)
-      })
-  }
-  return (
-    <div className="Hall">
-      <div>
-      <div className="HallHeader">
-        <Button variant="contained" color="secondary" className="btnSalaoRota" onClick={ ()=> setMenu (cafe) }>Café da manhã</Button>
-        <Button variant="contained" color="secondary" className="btnSalaoRota" onClick={ ()=> setMenu (menuAllDay)}>Resto do dia </Button>
-      <h1>{nome} - {role}</h1> 
-      <div>
-          {menu && menu.map(p => (
-          <Card className={styles.card}>
-          <div className = 'menu-cafe'
-          name = {p.name} id = {p.id} price = {p.price} key = {p.id}>
-            <Typography variant="body2" color="textPrimary" component="p">{p.name} {p.flavor} {p.complement}</Typography>
-            <Typography variant="body2" color="textSecondary" component="p">R${p.price},00</Typography>
-            <Button disabled = {p.qtd && p.qtd != 0} onClick = { () => add (p)}>Adicionar</Button>
-          </div>
-          </Card>
-          )) 
-          }
-          </div>
-          <div>
+        })
+    }
 
-          
-          <div className = 'pedidos'>
-            {pedidos && pedidos.map((p, index) => (
-              <Card className={styles.card}>
-              <div key = {p.id}>
-                <Typography variant="body2" color="textPrimary">{p.name}</Typography>
-                <Typography variant="body2" color="textSecondary" component="p">{p.price}</Typography>
-                <Typography variant="body2" color="textSecondary" component="p">{p.qtd}</Typography>
-                <Button onClick = { () => addQtd (index)}> + </Button>
-                <Button onClick = { () => removeQtd (index)}> - </Button>
-              </div>
-              </Card>
-            ))}
-          </div>
-      </div>
-      <Button variant="contained" color="secondary" onClick={(e) => logout(e)} className="logout">Sair</Button>
-      </div>
-      <div className="btnSalao">        
-        <Button variant="contained" color="secondary" className="btnSalaoRota" onClick={sendOrder}>Enviar pedido </Button>
-      </div>
-      <div className="inputSalao">
-        <div className="inputLabel">
-        <Typography variant="body2" color="secondary" className="cadLabel">Cliente:</Typography>
-        <TextField className={styles.root} type="text"  placeholder="Cliente"  value={nameClient} onChange={(event) => setNameClient(event.target.value)} />
-        </div>
-
-        <div className="inputLabel">
-        <Typography variant="body2" color="secondary" className="cadLabel" htmlFor="cadInputEmail">Mesa:</Typography>
-        <TextField className={styles.root} type="number" placeholder="Mesa" value={table} onChange={(event) => setTable(event.target.value)} />
-        </div>
-      </div>
-      </div>
-      </div>
+    return (
+        <Grid container direction='column'>
+            <Grid item>
+                <AppBar position='static'>
+                    <Toolbar className={styles.toolbar}>
+                        <Button onClick={ ()=> setMenu (cafe) } >
+                            Café da manhã 
+                        </Button>
+                        <Button onClick={ ()=> setMenu (menuAllDay) }>
+                            Resto do dia 
+                        </Button>
+                        <Button 
+                            variant="contained" 
+                            color="secondary" 
+                            onClick={(e) => logout(e)} 
+                            className="logout"
+                        >
+                            Sair
+                        </Button>
+                    </Toolbar>
+                </AppBar>
+            </Grid>
+        <Grid item xs={false} sm={2} />
+        <Grid item xs={12} sm={9}>
+        <Grid container direction='row' justify='center'>
+        {menu && menu.map(product => (
+            <Card className={styles.card}>
+                <CardHeader 
+                    action={
+                    <IconButton aria-label="Add">
+                        {product.qtd}
+                        <ShoppingCartIcon />
+                    </IconButton>
+                    }
+                    title={product.name}
+                />
+                <CardMedia className={styles.media}
+                    image='https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif'
+                />
+                <CardContent>
+                    <Typography 
+                        variant="body2"
+                        color="textPrimary" 
+                        component="p"
+                    >
+                    {/*{product.flavor}*/}
+                    {/*{product.complement}*/}
+                    </Typography>
+                    <Typography
+                        variant="body2" 
+                        color="textSecondary" 
+                        component="p"
+                    >
+                    R${product.price},00
+                    </Typography>
+                </CardContent>
+                {pedidos && pedidos.map((product, index) => (
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add product"
+                        value={product.id} 
+                        onClick = { () => addQtd (index)}
+                    >
+                        {product.name}
+                        <AddCircleOutlineIcon />
+                    </IconButton>
+                    <IconButton aria-label="remove product" 
+                        onClick = { () => removeQtd (index)}
+                    >
+                        <RemoveCircleOutlineIcon />
+                    </IconButton>
+                </CardActions>
+                ))}
+                <Button 
+                    disabled = {product.qtd && product.qtd != 0}
+                        onClick = { () => add (product)}
+                    >
+                        Adicionar
+                </Button>
+                <Button 
+                    size='small'
+                    color='secondary'
+                    onClick={sendOrder}
+                >
+                    Enviar pedido 
+                </Button>
+            </Card>
+        ))}
+        </Grid>
+        <TextField 
+            className={styles.root} 
+            type="text"  
+            label="Cliente: "  
+            value={nameClient} 
+            onChange={(event) => setNameClient(event.target.value)} 
+        />
+        <div />
+        <TextField 
+            className={styles.root} 
+            type="number" 
+            label="Mesa: " 
+            value={table} 
+            onChange={(event) => setTable(event.target.value)}
+        />
+        </Grid>
+        <Grid item xs={false} sm={2} />
+    </Grid>
     )
 }
 
-  export default Hall;
+export default Hall;

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import '../App.css';
+//import '../App.css';
 
-function Kitchen() {
+function KitchenContent() {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/orders', {
@@ -35,4 +35,4 @@ function Kitchen() {
     );
 }
 
-export default Kitchen;
+export default KitchenContent;
