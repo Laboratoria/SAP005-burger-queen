@@ -110,7 +110,8 @@ export const useStyles = makeStyles((theme) => ({
     display: 'Fix',
     justifyContent: 'flex-end',
     marginTop:'-1350px',
-    paddingLeft:'auto'
+    paddingLeft:'10px',
+    paddingBottom: '18px'
   },
   submitMenuItems: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
@@ -118,7 +119,22 @@ export const useStyles = makeStyles((theme) => ({
     border: 0,
     color: 'white',
     height: 68,
-    width:'45%',
+    width:'95%',
+    paddingTop: '10px',
+    marginTop:'2px',
+    paddingRight:'5px',
+    marginLeft:'16px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  submitKitchen: {
+    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
+    borderRadius: 5,
+    border: 0,
+    color: 'white',
+    height: 68,
+    width:'30vh',
     paddingTop: '10px',
     marginTop:'2px',
     paddingRight:'5px',
@@ -160,10 +176,10 @@ export const useStyles = makeStyles((theme) => ({
     borderBottom: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.info.light,
     borderRadius:10,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)'
   },
   toolbar: {
     flexWrap: 'wrap',
-
   },
   toolbarTitle: {
     flexGrow: 1,
