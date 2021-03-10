@@ -7,7 +7,7 @@ import Registry from './pages/Registry/index';
 import Kitchen from './pages/Kitchen/index';
 import Menu from './pages/Menu/index';
 import Pending from './pages/Pending/index';
-import PrivateRoute from './privateRoute.js'
+import PrivateRoute from './privateRoute.js';
 
 function Routes() {
 

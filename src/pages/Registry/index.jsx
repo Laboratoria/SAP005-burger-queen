@@ -76,7 +76,7 @@ function Registry() {
   
   return (
     <Grid>
-      <Container className='container'>
+      <Container className='container configContainer'>
         <div className={classes.paper}>
           <div className={classes.form}>
             <Link to='/'><ArrowBackIosIcon className={classes.arrow} color='disabled' fontSize='large'/> </Link>

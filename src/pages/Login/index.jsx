@@ -60,7 +60,7 @@ function Login() {
 
   return (
     <Grid>
-      <Container className='container'>
+      <Container className='container configContainer'>
         <div className={classes.paper}>
           <Logo/>
           <Typography  component='h1' variant='h5'> Ratatouille Burguer </Typography>

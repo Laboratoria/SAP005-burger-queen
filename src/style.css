@@ -2,17 +2,20 @@ body{
     background-color: #1b1916;
     height: auto;
 }
+.configContainer {
+  margin-top: 2vh;
+  max-width: 900px;
+  height: auto;
+  width: 100%;
+}
 .container {
-    margin-top: 2vh;
-    background-color: #64b5f6;
-    width: 100%;
-    box-shadow: 0 0 8px #ffffff;
-    border-radius: 20px;
-    color: black;
-    height: auto;
-    min-width: 10px;
-    padding-top: 20px;
-    padding-bottom: 600px;
+  box-shadow: 0 0 8px #ffffff;
+  background-color: #64b5f6;
+  border-radius: 20px;
+  color: black;
+}
+.displayBox{
+  display: flex
 }
 .containerKitchen {
   margin-top: 2vh;
