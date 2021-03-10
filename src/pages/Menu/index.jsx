@@ -56,14 +56,18 @@ const Menu = () => {
   const [totalOrder, setTotalOrder] = useState([]);
 
   useEffect(()=>{
+    console.log(totalOrder)
   },[totalOrder])
 
   const HandleOrder = (e) => {
     e.preventDefault()
+    
 
     const product = e.target.parentNode;
+    console.log(product)
 
     const idProduct = Number(product.getAttribute('id'))
+    console.log(idProduct)
     const nameProduct = product.getAttribute('name')
     const priceProduct = product.getAttribute('price')
     const flavorProduct = product.getAttribute('flavor')
@@ -99,6 +103,7 @@ const Menu = () => {
       setListMap(prevListMap => {
         return prevListMap.map(prevElem => prevElem.id === product.id ? {...prevElem, disabled: false } : prevElem)
       })
+      totalOrder.splice(index, 1);
       setTotalOrder([...totalOrder]);
       calculatorOrder()
     }else if (product.name === totalOrder[index].name) {

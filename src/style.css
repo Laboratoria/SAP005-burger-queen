@@ -14,13 +14,20 @@ body{
     padding-top: 20px;
     padding-bottom: 600px;
 }
-.containerKitchen {
+.containerPadding {
   margin-top: 2vh;
-  background-color: #64b5f6;
   width: 100%;
-  box-shadow: 0 0 8px #ffffff;
   border-radius: 20px;
   color: black;
+  height: auto;
+  min-width: 10px;
+  padding-top: 20px;
+  padding-bottom: 600px;
+}
+.containerKitchen {
+  margin-top: 2vh;
+  width: 100%;
+  border-radius: 20px;
   height: auto;
   min-height: 800px;
   padding-left: 10px;
