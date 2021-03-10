@@ -9,10 +9,10 @@ function Registry() {
   const classes = useStyles();
   const history = useHistory();
 
-  const [emailRegistry, inEmail] = useState('');
-  const [passwordRegistry, inPassword] = useState('');
-  const [passwordConfirm, inConfirm] = useState('');
-  const [sectorRegistry, inSector] = useState('');
+  const [emailRegistry, setEmail] = useState('');
+  const [passwordRegistry, setPassword] = useState('');
+  const [passwordConfirm, setConfirm] = useState('');
+  const [sectorRegistry, setSector] = useState('');
 
   const [openAlert, setOpenAlert] = useState(false);
   const [messageError, setMessageError] = useState('');
@@ -84,17 +84,17 @@ function Registry() {
             <Typography  component='h1' variant='h5'> Cadastre-se </Typography>
             <form>
               <TextField variant='outlined' margin='normal' required fullWidth label='Email' name='email'
-              autoComplete='username' value={emailRegistry} onChange={(event) => inEmail(event.target.value)}/>
+              autoComplete='username' value={emailRegistry} onChange={(event) => setEmail(event.target.value)}/>
 
               <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Senha' type='password' id='password'
-              autoComplete='current-password' value={passwordRegistry} onChange={(event) => inPassword(event.target.value)}/>
+              autoComplete='current-password' value={passwordRegistry} onChange={(event) => setPassword(event.target.value)}/>
 
               <TextField variant='outlined' margin='normal' required fullWidth name='password' label='Confirme a senha' type="password" id='password'
-              autoComplete='current-password' value={passwordConfirm} onChange={event => inConfirm(event.target.value)}/>
+              autoComplete='current-password' value={passwordConfirm} onChange={event => setConfirm(event.target.value)}/>
 
               <FormControl variant='outlined' className={classes.formControl}>
                 <InputLabel >Cargo</InputLabel>
-                <Select native value={sectorRegistry} onChange={(event) => inSector(event.target.value)} label='Cargo'>
+                <Select native value={sectorRegistry} onChange={(event) => setSector(event.target.value)} label='Cargo'>
                   <option aria-label='None' value='' />
                   <option value='cozinha'>Cozinha</option>
                   <option value='garcom'>Garçom</option>
