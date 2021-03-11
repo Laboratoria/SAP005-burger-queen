@@ -195,21 +195,7 @@ export const useStyles = makeStyles((theme) => ({
     marginRight:'16px',
     justifyContent: 'space-betspace-evelin'
   },
-  submitKitchen: {
-    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 5,
-    border: 0,
-    color: 'white',
-    height: 68,
-    width:'30vh',
-    paddingTop: '10px',
-    marginTop:'2px',
-    paddingRight:'5px',
-    marginLeft:'16px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    display: 'flex',
-    justifyContent: 'center',
-  },
+    
   submitMenuCardsModal: {
     background: '#3e7088',
     borderRadius: 10,
@@ -309,28 +295,3 @@ export function NavBar() {
   )
 }
 
-export function NavBarKitchen() {
-
-  const classes = useStyles();
-
-  const localStorageClear = () => {
-    localStorage.clear()
-  }
-
-  return (
-    <AppBar position='static' elevation={0} className={classes.appBar}>
-    <Toolbar className={classes.toolbar}>
-        <img className={classes.logoComponent} src={logo} alt='logo'/>
-        <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
-        Ratatouille
-        </Typography>
-        <Button variant='outlined' className={classes.link} onClick="window.location.reload()">
-          <Link to='/Kitchen'>Atualizar</Link>
-        </Button>
-        <Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
-          <Link to='/' >Sair</Link>
-        </Button>
-      </Toolbar>
-    </AppBar>
-  )
-}

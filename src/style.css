@@ -34,12 +34,3 @@ body{
   height: auto;
   margin-left: auto;
 }
-.containerMenu {
-  margin-top: 2vh;
-  background-color: #64b5f6;
-  width: 100%;
-  border-radius: 20px;
-  min-height: 1500px;
-  color: black;
-  height: auto; 
-}
