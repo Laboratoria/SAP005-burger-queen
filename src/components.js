@@ -6,6 +6,41 @@ import logo from '../src/images/logo.png';
 import MuiAlert from '@material-ui/lab/Alert'
 
 export const useStyles = makeStyles((theme) => ({
+  buttonCancel: {
+    margin: '10px',
+    backgroundColor: '#d32f2f',
+    color: 'white',
+  }, 
+  buttonOk: {
+    color: 'white',
+    backgroundColor: '#29772b',
+  },
+  displayMenu: {
+    display: 'flex',
+    flexFlow: 'wrap',
+  }, 
+  displayOrder: {
+    maxHeight : '80vh',
+    marginTop: '2vh',
+    width: '40vw',
+    backgroundColor : '#64b5f6',
+    borderRadius: '10px', 
+    minWidth: '250px'
+  },
+
+  displayMenuButton: {
+    marginTop: '1vh',
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: '50vw',
+  },
+  displayItensButton: {
+    
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: '50vw'
+  
+  },
   modal: {
     display: 'flex',
     alignItems: 'center',
@@ -47,16 +82,13 @@ export const useStyles = makeStyles((theme) => ({
     
   },
   submitMenuType: {
-    fontSize: '1rem',
     height: '10vh',
-    width: '28vw',
-    margin: theme.spacing(4, 2, 2),
-    marginRight: '-1vh',
+    width: '14.5vw',
+    minWidth: '100px',
+    borderRadius: '10px',
+    margin: theme.spacing(1, 1, 1),
     backgroundColor: theme.palette.warning.dark,
-    color: '#fafafa',
-    '@media(minWidth: 777px)' : {
-      width: '24vw'
-    }
+    color: '#fafafa'
   },
   
   inputTableName: {
@@ -110,7 +142,6 @@ export const useStyles = makeStyles((theme) => ({
     marginTop:'20px',
     paddingRight:'5px',
     marginLeft:'420px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'flex',
     justifyContent: 'flex-end',
     fontSize:'15px'
@@ -121,7 +152,6 @@ export const useStyles = makeStyles((theme) => ({
     border: 0,
     color: 'white',
     width:'40%',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'Fix',
     justifyContent: 'flex-end',
     marginTop:'-1350px',
@@ -129,28 +159,27 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: '18px'
   },
   submitMenuItems: {
-    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 5,
-    border: 0,
+    minWidth: '90px',
+    minHeight: '100px',
+    background: '#3e7088',
+    borderRadius: 8,
     color: 'white',
-    height: 68,
-    width:'45%',
+    height: '9vh',
+    width:'14.5vw',
     paddingTop: '10px',
-    marginTop:'2px',
+    marginTop:'1vh',
     paddingRight:'5px',
-    marginLeft:'16px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    marginLeft:'1vw',
     display: 'flex',
     justifyContent: 'center',
   },
-
   submitMenuItemsPending: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
     borderRadius: 5,
     border: 0,
     color: 'white',
     height: '75%',
-    width:'20vh',
+    width:'75%',
     paddingTop: '10px',
     marginTop:'10px',
     paddingRight:'5px',
@@ -160,29 +189,26 @@ export const useStyles = makeStyles((theme) => ({
     marginRight:'16px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'flex',
-    justifyContent: 'space-betspace-evelin',
-    fontFamily:'Monospace',
-    fontSize:'15px'
+    justifyContent: 'space-betspace-evelin'
   },
   submitKitchen: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: '19px',
+    borderRadius: 5,
     border: 0,
     color: 'white',
-    height: '77px',
-    width:'38vh',
-    paddingTop: '17px',
-    marginTop:'20px',
+    height: 68,
+    width:'30vh',
+    paddingTop: '10px',
+    marginTop:'2px',
     paddingRight:'5px',
     marginLeft:'16px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'flex',
     justifyContent: 'center',
-    fontFamily:'Monospace',
   },
   submitMenuCardsModal: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: '41px',
+    borderRadius: 3,
     border: 0,
     color: 'white',
     height: '',
@@ -194,8 +220,6 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     justifyContent: 'center',
     textAlign: 'center',
-    paddingBottom: '15px',
-    fontFamily:'Monospace',
   },
   logo: {
     maxWidth: 200,
@@ -215,7 +239,6 @@ export const useStyles = makeStyles((theme) => ({
     borderBottom: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.info.light,
     borderRadius:10,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)'
   },
   toolbar: {
     flexWrap: 'wrap',
@@ -248,10 +271,21 @@ export function Alert(props) {
 export function Logo() {
   const classes = useStyles();
   return (
-    <img type='button'className={classes.logo} src={logo} alt='logo'/>
+    <img className={classes.logo} src={logo} alt='logo'/>
   )
 }
 
+export function Copyright() {
+  return (
+    <Box mt={5} className='copyRight'>
+      <Typography variant='body2'  align='center' >
+        {'Copyright © Your Website '}
+        <br></br>
+        {'Aplicação desenvolvida por Caroline Shimada e Juliana Silveira'}
+      </Typography> 
+    </Box>
+  );
+}
 
 export function NavBar() {
 
