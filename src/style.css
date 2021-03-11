@@ -14,9 +14,6 @@ body{
   border-radius: 20px;
   color: black;
 }
-.displayBox{
-  display: flex
-}
 .containerPadding {
   margin-top: 2vh;
   width: 100%;
@@ -40,24 +37,20 @@ body{
   color:  #64b5f6;
 }
 #headPending{
-    width:100%;
-    margin-left: 0px;
+  width:100%;
+  margin-left: 0px;
 }
 
 #orderList{
   height: auto;
   margin-left: auto;
-  
-
 }
 .containerMenu {
-    margin-top: 2vh;
-    background-color: #64b5f6;
-    width: 100%;
-    box-shadow: 0 0 8px #ffffff;
-    border-radius: 20px;
-    min-height: 1500px;
-    color: black;
-    height: auto;
-    
+  margin-top: 2vh;
+  background-color: #64b5f6;
+  width: 100%;
+  border-radius: 20px;
+  min-height: 1500px;
+  color: black;
+  height: auto; 
 }
