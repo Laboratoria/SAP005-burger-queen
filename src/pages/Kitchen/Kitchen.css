@@ -5,6 +5,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+@media screen and (min-width:
+1024px) {
+#main-kitchen { min-width: 1000px; }
+}
+
 .show-order {
     display: flex;
 	flex-direction: row;
