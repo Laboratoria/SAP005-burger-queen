@@ -46,7 +46,7 @@ O planejamento foi feito pelo método kanban por sprints, finalizando uma histó
 
 ## 4. Desenvolvimento das histórias de usuário
 
-* [História de usuário 1] Usuário deve ter seu perfil (login/senha) para acessar o sistema.
+** [História de usuário 1]** Usuário deve ter seu perfil (login/senha) para acessar o sistema.
 
 Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
 
