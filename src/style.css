@@ -9,20 +9,9 @@ body{
   width: 100%;
 }
 .container {
-  box-shadow: 0 0 8px #ffffff;
   background-color: #64b5f6;
   border-radius: 20px;
   color: black;
-}
-.containerPadding {
-  margin-top: 2vh;
-  width: 100%;
-  border-radius: 20px;
-  color: black;
-  height: auto;
-  min-width: 10px;
-  padding-top: 20px;
-  padding-bottom: 600px;
 }
 .containerKitchen {
   margin-top: 2vh;

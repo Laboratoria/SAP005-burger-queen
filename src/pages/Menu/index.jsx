@@ -169,20 +169,20 @@ const Menu = () => {
     <Grid>
       <NavBar/> 
       <Container className={classes.displayMenu}>
-      <div className={classes.displayOrder} >
-        <form  className={classes.paperTable} noValidate autoComplete="off" >
-              <Input className = {classes.inputTableName} placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
+        <div className={classes.displayOrder} >
+          <form  className={classes.paperTable} noValidate autoComplete="off" >
+            <Input className = {classes.inputTableName} placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
               name='nome'
               required
               onChange={(event) =>
                 setOrder({ ...order, client: event.target.value })
-              }/>
-              <Input className = {classes.inputTableName}  placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
+            }/>
+            <Input className = {classes.inputTableName}  placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
               name='mesa'
               required
               onChange={(event) =>
                 setOrder({ ...order, table: event.target.value })
-              } />
+            }/>
           </form>
           {totalOrder.map((product, index) => (
             <div key={index} >
@@ -208,15 +208,13 @@ const Menu = () => {
             <div className={classes.displayItensButton}>
             {listMap.map((product) => (
               <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
-                <Button className={classes.submitMenuItems} disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </Button>
+                <button className={classes.submitMenuItems} disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
               </div>)
             )}
             </div>
         </div>
-      
-        
       </Container>
-       <p className='colorW'><Copyright/></p>
+      <p className='colorW'><Copyright/></p>
       <Snackbar anchorOrigin={ {vertical: 'top', horizontal: 'center' }} open={openAlert} autoHideDuration={4000} onClose={handleClose}>
         <Alert className = {classes.inputAlert}  onClose={handleClose} severity='error'> {messageError} </Alert>
       </Snackbar>

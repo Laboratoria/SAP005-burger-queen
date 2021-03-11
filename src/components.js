@@ -6,6 +6,15 @@ import logo from '../src/images/logo.png';
 import MuiAlert from '@material-ui/lab/Alert'
 
 export const useStyles = makeStyles((theme) => ({
+  displayPanding: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  displayHPanding: {
+    backgroundColor: '#64b5f6',
+    padding: '10px',
+    borderRadius: '10px',
+  },
   buttonCancel: {
     margin: '10px',
     backgroundColor: '#d32f2f',
@@ -174,21 +183,16 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   submitMenuItemsPending: {
-    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 5,
+    background: '#f57c00',
+    borderRadius: 10,
     border: 0,
     color: 'white',
-    height: '75%',
-    width:'75%',
+    width:'25vw',
     paddingTop: '10px',
     marginTop:'10px',
-    paddingRight:'5px',
-    paddingLeft:'5px',
     paddingBottom:'10px',
     marginLeft:'16px',
     marginRight:'16px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    display: 'flex',
     justifyContent: 'space-betspace-evelin'
   },
   submitKitchen: {
