@@ -22,7 +22,7 @@ function Login() {
 		}
 		setOpenAlert(false);
 	};
- 
+
   const routerHall = () => {
     history.push('/Hall');
   };
