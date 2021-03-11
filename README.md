@@ -56,7 +56,6 @@ Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a te
 - [ ] Poder realizar login com e-mail e senha.
 - [ ] Redirecionar para a tela correta.
 
-![paginaweb](historia 1.gif) 
 
 * [História de usuário 2] Garçom/Garçonete deve poder anotar o seu pedido
 
@@ -72,7 +71,7 @@ produto e poder enviar o pedido para a cozinha para ser preparado.
 - [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
 - [ ] Enviar para a cozinha (isso deve salvar o pedido).
 
-![Alt Text](historia 2.gif)
+![Alt Text](garcomhall.gif)
 
 * [História de usuário 3] Chefe de cozinha deve ver os pedidos
 
@@ -84,7 +83,6 @@ Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marca
 - [ ] Marcar pedido como pronto para entrega.
 - [ ] Ver histórico dos pedidos.
 
-![](historia 3.gif)
 
 * [História de usuário 4] Garçom/Garçonete deve ver os pedidos prontos para servir
 
@@ -95,7 +93,7 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 - [ ] Visualizar pedidos pendentes para entrega.
 - [ ] Marcar pedido como entregue ao cliente.
 
-![](historia 4.gif)
+![Alt Text](kitchen.gif)
 
 ## 5. Tecnologias utilizadas
 
