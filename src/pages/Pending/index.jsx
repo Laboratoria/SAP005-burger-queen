@@ -15,6 +15,7 @@ function Kitchen (){
   const [list, setList] = useState([]);
 
   const [open, setOpen] = React.useState(false);
+  const [openConfirm, setOpenConfirm] = React.useState(false);
   const [itemIdOrder, setItemIdOrder] = useState();
 
   const routerHall = () => {
@@ -64,6 +65,8 @@ function Kitchen (){
     .then((data) => {
       const dados = data.filter(product => product.status === 'done'|| product.status === 'Entregue' );
       setList(dados);  
+      handleClose();
+      handleCloseConfirm();
     });
   }, [tokenLocal]);
 
@@ -92,22 +95,32 @@ function Kitchen (){
     setOpen(true);
   };
 
+  const handleOpenConfirm = (e) => {
+    setOpenConfirm(true);
+  };
+
   const handleClose = () => {
     setOpen(false);
   };
 
+  const handleCloseConfirm = () => {
+    setOpenConfirm(false);
+  };
+
   const handleCompleted = (e) => {
-    window.confirm("O pedido foi concluido?");
     e.preventDefault();
     setOrder(order.status = 'Entregue');
     orderPut ();
   };  
 
+  
+
   return (
     <Grid>
       <NavBar/>
       <Container>
-        <h1 className={classes.displayHPanding}> <ArrowBackIosIcon fontSize="large" onClick={routerHall} /> Ordens</h1>
+        <h1 className={classes.displayHPanding}> <ArrowBackIosIcon fontSize="large" onClick={routerHall} /> Ordens 
+         <Button variant='outlined' className={classes.link} onClick={Kitchen}>Atualizar</Button></h1>
         <div id='menuList'className={classes.displayPanding} container direction="row" justify="flex-start" alignItems="flex-start">  
           {list.map (function (product, index) {
             return(
@@ -138,8 +151,35 @@ function Kitchen (){
                     })}</span>
                     <Button variant="contained"
                       color="primary"
-                      className={classes.button}
-                      endIcon={<Icon>send</Icon>} onClick={handleCompleted}>Entregue
+                      className={classes.buttonOk}
+                      endIcon={<Icon>send</Icon>} onClick={handleOpenConfirm}>Entregue
+                    </Button> 
+                  </div>
+                </Fade>
+              </Modal>
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={openConfirm}
+                onClose={handleCloseConfirm}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}> 
+                <Fade in={openConfirm}  style={{overflowX : 'auto',fontSize: '14px'}} >
+                  <div className={classes.submitMenuCardsModal} style={{overflowX : 'auto',fontSize: '20px'}}  status={product.status}>
+                   <p>Deseja enviar o pedido?</p>
+                    <Button variant="contained"
+                      color="primary"
+                      className={classes.buttonOk}
+                      endIcon={<Icon>send</Icon>} onClick={handleCompleted}>Sim
+                    </Button> 
+                    <Button variant="contained"
+                      color="primary"
+                      className={classes.buttonCancel}
+                      endIcon={<Icon>send</Icon>} onClick={handleCloseConfirm}>Não
                     </Button> 
                   </div>
                 </Fade>
