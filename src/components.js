@@ -88,7 +88,8 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     margin: theme.spacing(1, 1, 1),
     backgroundColor: theme.palette.warning.dark,
-    color: '#fafafa'
+    color: '#fafafa',
+    marginLeft:'15px'
   },
   
   inputTableName: {
@@ -101,23 +102,11 @@ export const useStyles = makeStyles((theme) => ({
     position:'absolut'
     
   },
-  inputObservation: {
-    fontSize: '1rem',
-    height: '5vh',
-    width: '32vw',
-    margin: theme.spacing(3, 2, 2),
-    backgroundColor: theme.palette.text.primary,
-    color: '#C9CDCB',
-    position:'absolut',
-    marginLeft:'1px',
-    maxWidth:'31vh'
-    
-  },
+
   inputAlert: {
     fontSize: '1rem',
     backgroundColor: theme.palette.error.dark,
     color: '#C9CDCB',
-
     position:'absolut'
   },
   submit: {
@@ -181,7 +170,7 @@ export const useStyles = makeStyles((theme) => ({
     height: '75%',
     width:'75%',
     paddingTop: '10px',
-    marginTop:'10px',
+    marginTop:'20px',
     paddingRight:'5px',
     paddingLeft:'5px',
     paddingBottom:'10px',
@@ -189,11 +178,12 @@ export const useStyles = makeStyles((theme) => ({
     marginRight:'16px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     display: 'flex',
+    fontFamily:"Monospace",
     justifyContent: 'space-betspace-evelin'
   },
   submitKitchen: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 5,
+    borderRadius: 7,
     border: 0,
     color: 'white',
     height: 68,
@@ -208,18 +198,20 @@ export const useStyles = makeStyles((theme) => ({
   },
   submitMenuCardsModal: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 3,
+    borderRadius: '15px',
     border: 0,
     color: 'white',
     height: '',
     width:390,
     paddingTop: '20px',
+    paddingBottom:'10px',
     marginTop:'2px',
     paddingRight:'5px',
     marginLeft:'16px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     justifyContent: 'center',
     textAlign: 'center',
+    fontFamily:"Monospace",
   },
   logo: {
     maxWidth: 200,

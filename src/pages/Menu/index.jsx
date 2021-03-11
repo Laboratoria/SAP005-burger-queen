@@ -168,7 +168,7 @@ const Menu = () => {
   return (
     <Grid>
       <NavBar/> 
-      <Container className={classes.displayMenu}>
+      <Grid className={classes.displayMenu}>
       <div className={classes.displayOrder} >
         <form  className={classes.paperTable} noValidate autoComplete="off" >
               <Input className = {classes.inputTableName} placeholder="Nome" fullWidth inputProps={{ 'aria-label': 'description' }} type='text'
@@ -208,15 +208,15 @@ const Menu = () => {
             <div className={classes.displayItensButton}>
             {listMap.map((product) => (
               <div key={product.id} id={product.id} name={product.name} flavor={product.flavor} complement={product.complement} price={product.price}>
-                <Button className={classes.submitMenuItems} disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </Button>
+                <button className={classes.submitMenuItems} disabled={product.disabled} onClick ={HandleOrder}>{product.name} {product.flavor} {product.complement}<br></br>R$ {product.price},00  </button>
               </div>)
             )}
             </div>
         </div>
       
         
-      </Container>
-       <p className='colorW'><Copyright/></p>
+      </Grid>
+      <p className='colorW'><Copyright/></p>
       <Snackbar anchorOrigin={ {vertical: 'top', horizontal: 'center' }} open={openAlert} autoHideDuration={4000} onClose={handleClose}>
         <Alert className = {classes.inputAlert}  onClose={handleClose} severity='error'> {messageError} </Alert>
       </Snackbar>
