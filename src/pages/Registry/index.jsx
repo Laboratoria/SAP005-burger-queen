@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button, Container, TextField, InputLabel,FormControl, Select, Typography, Snackbar, Grid } from '@material-ui/core';
-import { Logo, useStyles, Alert} from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Copyright from '../../services/Copyright';
+import { useStyles, Logo } from '../../style.js';
+import Copyright from '../../components/Copyright';
+import { Alert }  from '../../components/Alert';
+import NavBar from '../../components/NavBar';
 
 function Registry() {
   const classes = useStyles();

@@ -1,13 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Grid';
-import {useStyles, NavBar} from '../../components.js';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import Copyright from '../../services/Copyright';
+import { Grid, Container, Modal, Backdrop, Fade, Button, Icon} from '@material-ui/core';
+import { useStyles } from '../../style.js';
+import Copyright from '../../components/Copyright';
+import NavBar from '../../components/NavBar';
 
 function Kitchen () {
   const classes = useStyles();

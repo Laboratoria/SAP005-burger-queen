@@ -1,9 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Container, Grid } from '@material-ui/core';
-import { useStyles, NavBar } from '../../components.js';
 import '../../style.css';
-import Copyright from '../../services/Copyright';
+import { useStyles } from '../../style.js';
+import Copyright from '../../components/Copyright';
+import NavBar from '../../components/NavBar';
 
 function Home() {
   const classes = useStyles();

@@ -10,7 +10,6 @@ import Pending from './pages/Pending/index';
 import PrivateRoute from './privateRoute.js';
 
 function Routes() {
-
     return(
         <BrowserRouter>
             <Switch>
@@ -22,7 +21,7 @@ function Routes() {
                 <PrivateRoute path='/Pendentes' component={Pending}/>
             </Switch>
         </BrowserRouter>
-    )  
+    ); 
 };
 
 export default Routes;

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Logo, useStyles, Alert } from '../../components.js';
 import { Button, Container, TextField, Grid, Typography, Snackbar } from '@material-ui/core';
-import Copyright from '../../services/Copyright';
+import { useStyles, Logo } from '../../style.js';
+import Copyright from '../../components/Copyright';
+import NavBar from '../../components/NavBar';
+import { Alert }  from '../../components/Alert';
 import '../../style.css';
 
 function Login() {

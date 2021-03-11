@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Grid, Button, Modal, Fade, Icon, Backdrop, Container } from '@material-ui/core';
-import { useStyles, NavBar } from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Copyright from '../../services/Copyright';
+import { useStyles } from '../../style.js';
+import Copyright from '../../components/Copyright';
+import Alert from '../../components/Alert';
+import NavBar from '../../components/NavBar';
 
 function Pending (){
   const classes = useStyles();

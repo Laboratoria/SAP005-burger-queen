@@ -3,8 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { Input, Grid, Container, Button, Snackbar } from '@material-ui/core'; 
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import {useStyles, NavBar, Alert } from '../../components.js';
-import Copyright from '../../services/Copyright';
+import { useStyles } from '../../style.js';
+import Copyright from '../../components/Copyright';
+import { Alert, Logo }  from '../../components/Alert';
+import NavBar from '../../components/NavBar';
 
 const Menu = () => {
   const classes = useStyles();
@@ -177,7 +179,7 @@ const Menu = () => {
               onChange={(event) =>
                 setOrder({ ...order, client: event.target.value })
             }/>
-            <Input className = {classes.inputTableName}  placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
+            <Input className = {classes.inputTableName} placeholder="Mesa" inputProps={{ 'aria-label': 'description' }} type='text'
               name='mesa'
               required
               onChange={(event) =>

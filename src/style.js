@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar,Box, Typography, Toolbar, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../src/images/logo.png';
-import MuiAlert from '@material-ui/lab/Alert'
 
 export const useStyles = makeStyles((theme) => ({
   displayPanding: {
@@ -36,7 +33,6 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '10px', 
     minWidth: '250px'
   },
-
   displayMenuButton: {
     marginTop: '1vh',
     display: 'flex',
@@ -44,28 +40,14 @@ export const useStyles = makeStyles((theme) => ({
     width: '50vw',
   },
   displayItensButton: {
-    
     display: 'flex',
     flexWrap: 'wrap',
     width: '50vw'
-  
   },
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  gridOrder:{
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  margin: {
-    margin: theme.spacing(1),
   },
   paper: {
     display: 'flex',
@@ -100,18 +82,15 @@ export const useStyles = makeStyles((theme) => ({
     color: '#fafafa',
     marginLeft:'15px'
   },
-  
   inputTableName: {
     fontSize: '1rem',
     height: '5vh',
     width: '40vw',
     margin: theme.spacing(3, 2, 2),
     backgroundColor: theme.palette.text.primary,
-    color: '#C9CDCB',
+    color: 'white',
     position:'absolut'
-    
   },
-
   inputAlert: {
     fontSize: '1rem',
     backgroundColor: theme.palette.error.dark,
@@ -144,18 +123,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     fontSize:'15px'
   },
-  orderItemsTotal: {
-    background: 'black',
-    borderRadius: 5,
-    border: 0,
-    color: 'white',
-    width:'40%',
-    display: 'Fix',
-    justifyContent: 'flex-end',
-    marginTop:'-1350px',
-    paddingLeft:'10px',
-    paddingBottom: '18px'
-  },
   submitMenuItems: {
     minWidth: '90px',
     minHeight: '100px',
@@ -184,7 +151,6 @@ export const useStyles = makeStyles((theme) => ({
     marginRight:'16px',
     justifyContent: 'space-betspace-evelin'
   },
-
   submitMenuCardsModal: {
     background: '#3e7088',
     borderRadius: 10,
@@ -199,89 +165,11 @@ export const useStyles = makeStyles((theme) => ({
   logo: {
     maxWidth: 200,
   },
-  logoComponent: {
-    maxWidth: 50,
-  },
-  arrow:{
-    marginTop: 25,
-    paddingRight:'80vw',
-    color: theme.palette.text.primary,
-  },
-  totalProducts: {
-    paddingRight:'100px',
-  },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    backgroundColor: theme.palette.info.light,
-    borderRadius:10,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
-  },
-  
-  rootMenu: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-  },
-  
 }));
-
-export function Alert(props) {
-  return <MuiAlert elevation={6} variant='filed' {...props} />
-}
 
 export function Logo() {
   const classes = useStyles();
   return (
     <img className={classes.logo} src={logo} alt='logo'/>
   )
-}
-
-export function Copyright() {
-  return (
-    <Box mt={5} className='copyRight'>
-      <Typography variant='body2'  align='center' >
-        {'Copyright © Your Website '}
-        <br></br>
-        {'Aplicação desenvolvida por Caroline Shimada e Juliana Silveira'}
-      </Typography> 
-    </Box>
-  );
-}
-
-export function NavBar() {
-
-  const classes = useStyles();
-
-  const localStorageClear = () => {
-    localStorage.clear()
-  }
-
-  return (
-    <AppBar position='static' elevation={0} className={classes.appBar}>
-    <Toolbar className={classes.toolbar}>
-        <img className={classes.logoComponent} src={logo} alt='logo' />
-        <Typography variant='h6'  noWrap className={classes.toolbarTitle}>
-        Ratatouille
-        </Typography>
-        <Button variant='outlined' className={classes.link} onClick={(event) => {event.preventDefault();localStorageClear();}}>
-          <Link to='/' >Sair</Link>
-        </Button>
-      </Toolbar>
-    </AppBar>
-  )
-}
-
+};
