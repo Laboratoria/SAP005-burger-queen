@@ -1,30 +1,28 @@
 import React, { useEffect, useState, useCallback } from 'react';
-
-import Grid from '@material-ui/core/Grid';
-import {useStyles, NavBar} from '../../components.js';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { Grid, Button, Modal, Fade, Icon, Backdrop, Container } from '@material-ui/core';
+import { useStyles, NavBar } from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import Copyright from '../../services/Copyright';
 
-function Kitchen (){
+function Pending (){
   const classes = useStyles();
+  const history = useHistory();
   const tokenLocal = localStorage.getItem('token');
 
-  const [order, setOrder] = useState([])
-  const [orderProduct, setOrderProduct] = useState([])
-  const [list, setList] = useState([])
+  const [order, setOrder] = useState([]);
+  const [orderProduct, setOrderProduct] = useState([]);
+  const [list, setList] = useState([]);
 
   const [open, setOpen] = React.useState(false);
+  const [openConfirm, setOpenConfirm] = React.useState(false);
   const [itemIdOrder, setItemIdOrder] = useState();
-  
+
+  const routerHall = () => {
+    history.push('/Hall');
+  };
   
   const orderId = useCallback (() => {
-    
     fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
       method: 'GET',
       headers: {
@@ -32,36 +30,30 @@ function Kitchen (){
         'Authorization': `${tokenLocal}`,
       },
     })       
-    
     .then((response) => response.json())
       .then((data) => {
-        const productItem = data.Products
-        setOrderProduct(productItem)
-        setOrder(data)
-
+        const productItem = data.Products;
+        setOrderProduct(productItem);
+        setOrder(data);
       });
-    
-  },[tokenLocal, itemIdOrder])
+  },[tokenLocal, itemIdOrder]);
 
   function orderPut () {
-    
     fetch(`https://lab-api-bq.herokuapp.com/orders/${itemIdOrder}`, {
       method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         'accept': 'application/json',
         'Authorization': `${tokenLocal}`,
       },
-      body: JSON.stringify(order)
+      body: JSON.stringify(order),
     })       
-    
     .then((response) => response.json())
     .then(()=>  Kitchen()
-    )
-  }
+    );
+  };
 
   const Kitchen = useCallback (() => {
-    
     fetch('https://lab-api-bq.herokuapp.com/orders', {
       method: 'GET',
       headers: {
@@ -69,63 +61,67 @@ function Kitchen (){
         'Authorization': `${tokenLocal}`,
       },
     })       
-    
     .then((response) => response.json())
-      .then((data) => {
-        const dados = data.filter(product => product.status === 'done'|| product.status === 'Entregue' )
-        setList(dados)    
-      });
-    
-  }, [tokenLocal])
+    .then((data) => {
+      const dados = data.filter(product => product.status === 'done'|| product.status === 'Entregue' );
+      setList(dados);  
+      handleClose();
+      handleCloseConfirm();
+    });
+  }, [tokenLocal]);
 
   useEffect(() => {
-    Kitchen()
-  }, [Kitchen])
+    Kitchen();
+  }, [Kitchen]);
 
   useEffect(() => {
-    orderId()
-    
-  }, [itemIdOrder])
+    orderId();
+  }, [itemIdOrder]);
+
+  function calculateTime(product) {
+    let updateAt = new Date(product.updatedAt);
+    let createdAt = new Date(product.createdAt);
+    let subt = Math.abs(updateAt - createdAt);
+    let minutes = Math.floor(subt / 1000 / 60);
+    return minutes;
+  };
 
   const handleOpen = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const product = e.target.parentNode;
-    const idProduct = Number(product.getAttribute('id'))
+    const idProduct = Number(product.getAttribute('id'));
 
-    setItemIdOrder(idProduct)  
+    setItemIdOrder(idProduct);
     setOpen(true);
+  };
+
+  const handleOpenConfirm = (e) => {
+    setOpenConfirm(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
 
+  const handleCloseConfirm = () => {
+    setOpenConfirm(false);
+  };
+
   const handleCompleted = (e) => {
-    window.confirm("O pedido foi concluido?")
-    e.preventDefault()
-
-    setOrder(order.status = 'Entregue')
-
-    orderPut ()
-
+    e.preventDefault();
+    setOrder(order.status = 'Entregue');
+    orderPut ();
   };  
 
-function calculateTime(product) {
-  let updateAt = new Date(product.updatedAt);
-  let createdAt = new Date(product.createdAt);
-  let subt = Math.abs(updateAt - createdAt);
-  let minutes = Math.floor(subt / 1000 / 60);
-  return minutes;
-}
-
-
   return (
-    <div className='done'>
-      <NavBar/>  
-      <Grid id='menuList'className='containerPadding' container direction="row" justify="flex-start" alignItems="flex-start">  
-      
-        {list.map (function (product, index) {
-          return(
+    <Grid>
+      <NavBar/>
+      <Container>
+        <h1 className={classes.displayHPanding}> <ArrowBackIosIcon fontSize="large" onClick={routerHall} /> Ordens 
+         <Button variant='outlined' className={classes.link} onClick={Kitchen}>Atualizar</Button></h1>
+        <div id='menuList'className={classes.displayPanding} container direction="row" justify="flex-start" alignItems="flex-start">  
+          {list.map (function (product, index) {
+            return(
             <div  key={index} id={product.id}>   
                 <button  type='button' className={classes.submitMenuItemsPending} onClick={handleOpen} 
                 cursor='pointer'>Pedido n° {product.id} <br></br>Tempo Produção : {calculateTime(product)} min<br></br> {product.status.replace('done', 'Pronto')} </button>
@@ -153,22 +149,45 @@ function calculateTime(product) {
                     })}</span>
                     <Button variant="contained"
                       color="primary"
-                      className={classes.button}
-                      endIcon={<Icon>send</Icon>} onClick={handleCompleted}>Entregue
+                      className={classes.buttonOk}
+                      endIcon={<Icon>send</Icon>} onClick={handleOpenConfirm}>Entregue
+                    </Button> 
+                  </div>
+                </Fade>
+              </Modal>
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={openConfirm}
+                onClose={handleCloseConfirm}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}> 
+                <Fade in={openConfirm}  style={{overflowX : 'auto',fontSize: '14px'}} >
+                  <div className={classes.submitMenuCardsModal} style={{overflowX : 'auto',fontSize: '20px'}}  status={product.status}>
+                   <p>Deseja enviar o pedido?</p>
+                    <Button variant="contained"
+                      color="primary"
+                      className={classes.buttonOk}
+                      endIcon={<Icon>send</Icon>} onClick={handleCompleted}>Sim
+                    </Button> 
+                    <Button variant="contained"
+                      color="primary"
+                      className={classes.buttonCancel}
+                      endIcon={<Icon>send</Icon>} onClick={handleCloseConfirm}>Não
                     </Button> 
                   </div>
                 </Fade>
               </Modal>  
             </div>          
-          )
-        })}
-      </Grid>
-      <Link to="/Hall"><ArrowBackIosIcon className={classes.arrowMenu} fontSize="large"/></Link>
-      <Copyright />
-    </div>
-    
+          )})}
+        </div>
+        <p className='colorW'><Copyright/></p>
+      </Container>
+    </Grid>
   )
-}
-
-
-export default Kitchen;
+};
+export default Pending;

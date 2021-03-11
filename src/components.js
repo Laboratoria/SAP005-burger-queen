@@ -6,6 +6,15 @@ import logo from '../src/images/logo.png';
 import MuiAlert from '@material-ui/lab/Alert'
 
 export const useStyles = makeStyles((theme) => ({
+  displayPanding: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  displayHPanding: {
+    backgroundColor: '#64b5f6',
+    padding: '10px',
+    borderRadius: '10px',
+  },
   buttonCancel: {
     margin: '10px',
     backgroundColor: '#d32f2f',
@@ -163,24 +172,19 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   submitMenuItemsPending: {
-    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: 5,
+    background: '#f57c00',
+    borderRadius: 10,
     border: 0,
     color: 'white',
-    height: '75%',
-    width:'75%',
+    width:'25vw',
     paddingTop: '10px',
-    marginTop:'20px',
-    paddingRight:'5px',
-    paddingLeft:'5px',
+    marginTop:'10px',
     paddingBottom:'10px',
     marginLeft:'16px',
     marginRight:'16px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    display: 'flex',
-    fontFamily:"Monospace",
     justifyContent: 'space-betspace-evelin'
   },
+  
   submitKitchen: {
     background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
     borderRadius: 7,
@@ -197,19 +201,13 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   submitMenuCardsModal: {
-    background: 'linear-gradient(45deg, #78909c 30%, #455a64 90%)',
-    borderRadius: '15px',
+    background: '#3e7088',
+    borderRadius: 10,
     border: 0,
     color: 'white',
     height: '',
     width:390,
-    paddingTop: '20px',
-    paddingBottom:'10px',
-    marginTop:'2px',
-    paddingRight:'5px',
-    marginLeft:'16px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    justifyContent: 'center',
+    padding: '20px',
     textAlign: 'center',
     fontFamily:"Monospace",
   },
