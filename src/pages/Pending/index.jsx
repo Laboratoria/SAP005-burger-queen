@@ -5,7 +5,7 @@ import { useStyles, NavBar } from '../../components.js';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Copyright from '../../services/Copyright';
 
-function Kitchen (){
+function Pending (){
   const classes = useStyles();
   const history = useHistory();
   const tokenLocal = localStorage.getItem('token');
@@ -113,8 +113,6 @@ function Kitchen (){
     orderPut ();
   };  
 
-  
-
   return (
     <Grid>
       <NavBar/>
@@ -185,14 +183,11 @@ function Kitchen (){
                 </Fade>
               </Modal>  
             </div>          
-          )
-        })}
+          )})}
         </div>
-        
         <p className='colorW'><Copyright/></p>
-       
       </Container>
     </Grid>
   )
 };
-export default Kitchen;
+export default Pending;
