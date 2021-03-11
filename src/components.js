@@ -97,7 +97,8 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     margin: theme.spacing(1, 1, 1),
     backgroundColor: theme.palette.warning.dark,
-    color: '#fafafa'
+    color: '#fafafa',
+    marginLeft:'15px'
   },
   
   inputTableName: {
@@ -110,23 +111,11 @@ export const useStyles = makeStyles((theme) => ({
     position:'absolut'
     
   },
-  inputObservation: {
-    fontSize: '1rem',
-    height: '5vh',
-    width: '32vw',
-    margin: theme.spacing(3, 2, 2),
-    backgroundColor: theme.palette.text.primary,
-    color: '#C9CDCB',
-    position:'absolut',
-    marginLeft:'1px',
-    maxWidth:'31vh'
-    
-  },
+
   inputAlert: {
     fontSize: '1rem',
     backgroundColor: theme.palette.error.dark,
     color: '#C9CDCB',
-
     position:'absolut'
   },
   submit: {
@@ -195,7 +184,7 @@ export const useStyles = makeStyles((theme) => ({
     marginRight:'16px',
     justifyContent: 'space-betspace-evelin'
   },
-    
+
   submitMenuCardsModal: {
     background: '#3e7088',
     borderRadius: 10,
@@ -205,6 +194,7 @@ export const useStyles = makeStyles((theme) => ({
     width:390,
     padding: '20px',
     textAlign: 'center',
+    fontFamily:"Monospace",
   },
   logo: {
     maxWidth: 200,
