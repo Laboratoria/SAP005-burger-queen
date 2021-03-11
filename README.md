@@ -1,6 +1,8 @@
 # Ratatouille Burger
 ![imagem](Ratatouille-logo.png)
 
+Acesse a aplicação - [aqui](https://sap-005-burger-queen-amber.vercel.app/)
+
 ## Índice
 
 - [1. Resumo do projeto](#1-resumo-do-projeto)
