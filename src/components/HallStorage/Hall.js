@@ -55,30 +55,59 @@ function Hall() {
     const [pedidos, setPedidos] = useState ([]);
     const [menuAllDay, setMenuAllDay] = useState ([]);
     const [cafe, setCafe] = useState ([]);
+    const [data, setData] = useState([]);
     const styles = useStyles();
+    console.log(cafe)
+    console.log(menuAllDay)
 
-
-    useEffect(() => { let myHeaders = new Headers();
-        myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ");
+    const changePicture = {
+        'https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG':'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens/public/images/Cafe_Americano.jpeg?raw=true',
+        'https://upload.wikimedia.org/wikipedia/commons/4/41/Coffee_with_milk_%28563800%29.jpg':'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens/public/images/Cafe_com_leite.jpeg?raw=true',
+        "https://pressfrom.info/upload/images/real/2019/02/08/misto-quente-perfeito-dicas-para-arrasar-no-lanche__78021_.jpg?content=1":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens/public/images/Misto_Quente.jpeg?raw=true',
+        "https://media.gazetadopovo.com.br/viver-bem/2019/06/suco-fruta-acucar-risco-morte-768x512-f107f9a0.jpg":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens/public/images/Suco.jpeg?raw=true',
+        "https://www.perdigao.com.br/assets/_images/4850f411315852efc87363480bd7a63fb96da849.png":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/burger.jpeg?raw=true',
+        "https://www.perdigao.com.br/assets/_images/4850f411315852efc87363480bd7a63fb96da849.png":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/Burger_duplo.jpeg?raw=true',
+        "https://s2.glbimg.com/6TYFXwek9ZpNXFeOzas09KizMKk=/0x0:1280x853/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/T/K/Hh8h2GR96v392DAkAqyA/912c9713-321e-4dfd-bca9-888c05c5ce50.jpeg":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/Batata_Frita.jpeg?raw=true',
+        "https://www.delonghi.com/Global/recipes/multifry/103.jpg":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/aneis_de_cebola.jpg?raw=true',
+        "https://i2.wp.com/maprint.com.br/wp-content/uploads/2017/08/garrafa-de-agua-mineral-500ml.png?fit=400%2C400&ssl=1":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/Agua.jpeg?raw=true',
+        "https://i2.wp.com/maprint.com.br/wp-content/uploads/2017/08/garrafa-de-agua-mineral-500ml.png?fit=400%2C400&ssl=1":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/Agua_500.jpeg?raw=true',
+        "https://www.abcdacomunicacao.com.br/wp-content/uploads/refri.png":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/refrigerante.jpg?raw=true',
+        "https://www.abcdacomunicacao.com.br/wp-content/uploads/refri.png":'https://github.com/carinarocha/SAP005-burger-queen/blob/funcionalidade/imagens-restantes/public/images/Refrigerante_700.jpeg?raw=true',
+    }
     
-        let raw = "";
-    
-        let requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
+    useEffect(()=>{
+        if (!data) return
 
-    fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
-        .then(response => response.json())
-        .then(result => {
-            const cafeDaManha = result.filter(item => item.type === 'breakfast')
-            const allDay = result.filter(item => item.type === 'all-day')
-            console.log(cafeDaManha)
-            setCafe(cafeDaManha)
-            setMenuAllDay(allDay)
+        const products = [...data]
+        const productsImageUpdate = products.map((item) => {
+            return ({
+                ...item, image: changePicture[item.image]
+            })
         })
-        .catch(error => console.log('error', error));},[])
+        const cafeDaManha = productsImageUpdate.filter(item => item.type === 'breakfast')
+        const allDay = productsImageUpdate.filter(item => item.type === 'all-day')
+        setCafe(cafeDaManha)
+        setMenuAllDay(allDay)
+        console.log(data)
+    },[data])
+
+    React.useEffect(() => {
+        let requestOptions = {
+            method: 'GET',
+            headers: {
+                accept: "application/json",
+                "Content-Type": "application/x-www-form-urlencoded",
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcm9sQGFqdWRhLmNvbSIsImlkIjo4NTEsImlhdCI6MTYxNDExOTg1MiwiZXhwIjoxNjQ1Njc3NDUyfQ.yO3dmWDkQKzVgh4AqqsraSB0QfSCLTah2XO9oGA-JGQ',
+            },
+            redirect: 'follow'
+            }
+        async function getData() {
+            const response = await fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
+            const dataDB = await response.json()
+            setData(dataDB)
+        }
+        getData()
+    }, [])
 
     const logout = (e) => {
         e.preventDefault();
@@ -171,7 +200,7 @@ function Hall() {
                     title={product.name}
                 />
                 <CardMedia className={styles.media}
-                    image='https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif'
+                    image={product.image}
                 />
                 <CardContent>
                     <Typography 
