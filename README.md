@@ -1,5 +1,5 @@
 # Ratatouille Burger
-![imagem](Ratatouille-logo.png)
+![imagem](/imageReadme/Ratatouille-logo.png)
 
 Acesse a aplicação - [aqui](https://sap-005-burger-queen-amber.vercel.app/)
 
@@ -31,20 +31,20 @@ O tema da hamburgueria foi inspirado no filme rataoille, que é um filme sobre u
 * Protótipo 1 
 Protótipo inicial desenvolvido antes do teste de usabilidade com usuários.
 
-![imagem](Slide1.JPG)
-![imagem](Slide2.JPG)
-![imagem](Slide3.JPG)
-![imagem](Slide4.JPG)
+![imagem](/imageReadme/Slide1.JPG)
+![imagem](/imageReadme/Slide2.JPG)
+![imagem](/imageReadme/Slide3.JPG)
+![imagem](/imageReadme/Slide4.JPG)
 
 * Protótipo 2
 Protótipo incorporando o feedback dos usuários,. 
-![imagem](Prototipo2.png)
-![imagem](Prototipo2-1.png)
+![imagem](/imageReadme/Prototipo2.png)
+![imagem](/imageReadme/Prototipo2-1.png)
 
 
 ## 3. Planejamento.
 O planejamento foi feito pelo método kanban por sprints, finalizando uma história por sprint. Utilizamos o trello como ferramenta.
-![imagem](trello.png)
+![imagem](/imageReadme/trello.png)
 
 ## 4. Desenvolvimento das histórias de usuário
 
